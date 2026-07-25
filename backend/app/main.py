@@ -103,6 +103,15 @@ def preview_project(project_id: str):
     return HTMLResponse(content=html_content)
 
 
+@app.get("/projects/{project_id}/editor", response_class=HTMLResponse)
+def editor_project(project_id: str):
+    workbook = _require_workbook(project_id)
+    from .editor import render_editor_html
+
+    html_content = render_editor_html(workbook, image_base_url=f"/projects/{project_id}/crops")
+    return HTMLResponse(content=html_content)
+
+
 @app.get("/projects/{project_id}/export.pdf")
 def export_project(project_id: str):
     _require_workbook(project_id)

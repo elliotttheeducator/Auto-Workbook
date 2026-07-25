@@ -114,6 +114,31 @@ def test_preview_renders_html(client, synthetic_pdf):
     assert f"/projects/{project_id}/crops/q1a.png" in r.text
 
 
+def test_editor_renders_interactive_controls(client, synthetic_pdf):
+    project_id, _ = _create_and_detect(client, synthetic_pdf)
+    r = client.get(f"/projects/{project_id}/editor")
+    assert r.status_code == 200
+    assert "Export PDF" in r.text
+    assert "setLayout" in r.text
+    assert "setSize" in r.text
+    assert f'href="export.pdf"' in r.text
+
+
+def test_editor_layout_toggle_round_trip(client, synthetic_pdf):
+    project_id, _ = _create_and_detect(client, synthetic_pdf)
+    # q1a/q1b share group "q1" (both <digit><letter> siblings of "q1").
+    r = client.post(
+        f"/projects/{project_id}/edit",
+        json={"op": "set_group_layout", "group_id": "q1", "mode": "combined"},
+    )
+    assert r.status_code == 200
+    assert r.json()["groupLayout"]["q1"] == "combined"
+
+    editor_page = client.get(f"/projects/{project_id}/editor")
+    assert "checked" in editor_page.text  # the Combined radio should now render pre-selected
+    assert "setGroupSize" in editor_page.text  # combined mode shows the shared size picker
+
+
 def test_export_pdf(client, synthetic_pdf):
     project_id, _ = _create_and_detect(client, synthetic_pdf)
     r = client.get(f"/projects/{project_id}/export.pdf")

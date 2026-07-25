@@ -71,6 +71,12 @@ class Workbook(BaseModel):
     title: str
     source_pdf: str = Field(alias="sourcePdf")
     pages: list[Page]
+    # group_id -> "split" | "combined". Absent means "split" (today's default:
+    # each sub-part keeps its own working space). A rendering choice only -
+    # never mutates blocks/crops, so it's free to toggle either direction.
+    group_layout: dict[str, Literal["split", "combined"]] = Field(
+        default_factory=dict, alias="groupLayout"
+    )
 
     model_config = {"populate_by_name": True}
 

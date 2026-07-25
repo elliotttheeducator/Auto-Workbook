@@ -10,6 +10,7 @@ from typing import Literal, Union
 from pydantic import BaseModel, Field, RootModel
 
 from . import pdf_tools
+from .grouping import group_id_for
 from .models import QuestionBlock, Workbook
 
 # ids here become filenames on disk (via pdf_tools.slice_pdf) - constrain at
@@ -50,7 +51,19 @@ class MergeQuestions(BaseModel):
     new_id: str = Field(pattern=_SAFE_ID)
 
 
-Patch = Union[ResizeWorkingSpace, ReorderPages, MoveBlock, SplitQuestion, MergeQuestions]
+class SetGroupLayout(BaseModel):
+    """Toggle a question group's rendering between one-working-space-per-part
+    and one-shared-working-space-for-the-group. Pure rendering metadata - no
+    block or crop is touched, so it's freely reversible either direction."""
+
+    op: Literal["set_group_layout"] = "set_group_layout"
+    group_id: str
+    mode: Literal["split", "combined"]
+
+
+Patch = Union[
+    ResizeWorkingSpace, ReorderPages, MoveBlock, SplitQuestion, MergeQuestions, SetGroupLayout
+]
 
 
 class PatchEnvelope(RootModel[Patch]):
@@ -72,6 +85,8 @@ def apply_patch(workbook: Workbook, patch: Patch, pdf_path: str, crops_dir: str)
         return _split_question(workbook, patch, pdf_path, crops_dir)
     if isinstance(patch, MergeQuestions):
         return _merge_questions(workbook, patch, pdf_path, crops_dir)
+    if isinstance(patch, SetGroupLayout):
+        return _set_group_layout(workbook, patch)
     raise EditError(f"unknown patch op: {patch}")
 
 
@@ -94,6 +109,14 @@ def _reorder_pages(workbook: Workbook, patch: ReorderPages) -> Workbook:
     if set(patch.page_order) != set(by_id):
         raise EditError("page_order must be a permutation of every existing page id")
     workbook.pages = [by_id[pid] for pid in patch.page_order]
+    return workbook
+
+
+def _set_group_layout(workbook: Workbook, patch: SetGroupLayout) -> Workbook:
+    known_group_ids = {group_id_for(qid) for qid in workbook.all_question_ids()}
+    if patch.group_id not in known_group_ids:
+        raise EditError(f"no question group {patch.group_id!r}")
+    workbook.group_layout[patch.group_id] = patch.mode
     return workbook
 
 

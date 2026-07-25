@@ -7,6 +7,7 @@ from app.edits import (
     PatchEnvelope,
     ReorderPages,
     ResizeWorkingSpace,
+    SetGroupLayout,
     SplitQuestion,
     apply_patch,
 )
@@ -129,6 +130,19 @@ def test_split_and_merge_question(synthetic_pdf, tmp_path):
     ids = [b.id for b in workbook.pages[0].blocks]
     assert ids == ["merged"]
     assert (crops_dir / "merged.png").exists()
+
+
+def test_set_group_layout_toggles_and_is_reversible(workbook):
+    workbook = apply_patch(workbook, SetGroupLayout(group_id="ex1", mode="combined"), "", "")
+    assert workbook.group_layout["ex1"] == "combined"
+
+    workbook = apply_patch(workbook, SetGroupLayout(group_id="ex1", mode="split"), "", "")
+    assert workbook.group_layout["ex1"] == "split"
+
+
+def test_set_group_layout_rejects_unknown_group(workbook):
+    with pytest.raises(EditError):
+        apply_patch(workbook, SetGroupLayout(group_id="nope", mode="combined"), "", "")
 
 
 def test_patch_envelope_dispatches_by_op():

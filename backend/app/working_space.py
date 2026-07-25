@@ -17,6 +17,21 @@ TIER_HEIGHT_PT = {
 }
 DEFAULT_HEIGHT_PT = 80.0
 
+# The editor's Small/Medium/Large picker - a coarser, teacher-facing version
+# of the same idea as TIER_HEIGHT_PT above.
+SIZE_PRESETS_PT = {
+    "small": 50.0,
+    "medium": 90.0,
+    "large": 150.0,
+}
+
 
 def estimate_by_tier(tier: str) -> float:
     return TIER_HEIGHT_PT.get(tier, DEFAULT_HEIGHT_PT)
+
+
+def nearest_size_preset(height_pt: float) -> str:
+    """Which S/M/L bucket a height is closest to - used to give the picker
+    a sensible default selection for AI-estimated heights that don't
+    exactly match a preset."""
+    return min(SIZE_PRESETS_PT, key=lambda size: abs(SIZE_PRESETS_PT[size] - height_pt))
