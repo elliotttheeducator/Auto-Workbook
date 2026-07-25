@@ -32,6 +32,19 @@ def _require_workbook(project_id: str) -> Workbook:
     return storage.load_workbook(project_id)
 
 
+@app.get("/", response_class=HTMLResponse)
+def home():
+    from .home import render_home_html
+
+    projects = []
+    for project_id in storage.list_projects():
+        title = None
+        if os.path.exists(storage.workbook_path(project_id)):
+            title = storage.load_workbook(project_id).title
+        projects.append((project_id, title))
+    return HTMLResponse(content=render_home_html(projects))
+
+
 @app.post("/projects")
 async def create_project(file: UploadFile):
     if file.content_type != "application/pdf":
@@ -49,6 +62,28 @@ def detect_project(project_id: str, title: str = "Untitled chapter"):
         title=title,
         source_pdf=storage.source_pdf_path(project_id),
         render_dir=storage.crops_dir(project_id),
+        crops_dir=storage.crops_dir(project_id),
+    )
+    storage.save_workbook(project_id, workbook)
+    return workbook.model_dump(by_alias=True)
+
+
+@app.post("/projects/{project_id}/detect-proposals")
+def detect_project_from_proposals(project_id: str, body: dict):
+    """Same result as /detect, but skips the live Claude API call - accepts
+    already-produced per-page block proposals (the same shape the model's
+    propose_regions tool would have returned) and crops/assembles the
+    workbook from them directly. Lets detection be done by hand (e.g. by
+    Claude reading the PDF in a chat session) against a deployed instance
+    that has no ANTHROPIC_API_KEY configured."""
+    _require_project(project_id)
+    title = body.get("title", "Untitled chapter")
+    pages_proposals = body["pagesProposals"]
+    workbook = detection.build_workbook_from_proposals(
+        project_id=project_id,
+        title=title,
+        source_pdf=storage.source_pdf_path(project_id),
+        pages_proposals=pages_proposals,
         crops_dir=storage.crops_dir(project_id),
     )
     storage.save_workbook(project_id, workbook)

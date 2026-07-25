@@ -1,0 +1,7 @@
+backend/.venv
+backend/storage/projects/*
+!backend/storage/projects/.gitkeep
+backend/tests
+**/__pycache__
+**/*.pyc
+.git

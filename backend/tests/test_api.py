@@ -35,6 +35,35 @@ def _create_and_detect(client, synthetic_pdf):
     return project_id, r.json()
 
 
+def test_home_page_lists_projects(client, synthetic_pdf):
+    r = client.get("/")
+    assert r.status_code == 200
+    assert "No projects yet" in r.text
+
+    project_id, _ = _create_and_detect(client, synthetic_pdf)
+    r = client.get("/")
+    assert project_id in r.text
+    assert f'/projects/{project_id}/editor' in r.text
+
+
+def test_detect_via_proposals_skips_live_api(client, synthetic_pdf):
+    with open(synthetic_pdf, "rb") as f:
+        r = client.post("/projects", files={"file": ("synthetic.pdf", f, "application/pdf")})
+    project_id = r.json()["project_id"]
+
+    r = client.post(
+        f"/projects/{project_id}/detect-proposals",
+        json={"title": "Manual Chapter", "pagesProposals": _canned_proposals()},
+    )
+    assert r.status_code == 200
+    body = r.json()
+    assert body["title"] == "Manual Chapter"
+    assert [b["id"] for b in body["pages"][0]["blocks"] if b["type"] == "question"] == ["q1a", "q1b"]
+
+    r = client.get(f"/projects/{project_id}")
+    assert r.status_code == 200
+
+
 def test_upload_rejects_non_pdf(client):
     r = client.post("/projects", files={"file": ("x.txt", b"hello", "text/plain")})
     assert r.status_code == 400
