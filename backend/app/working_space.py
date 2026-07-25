@@ -8,6 +8,8 @@ AI detector's per-question estimate in detection.py.
 """
 from __future__ import annotations
 
+from .styles import GRID_SPACING_PT
+
 TIER_HEIGHT_PT = {
     "warmup": 50.0,
     "fluency": 70.0,
@@ -17,12 +19,12 @@ TIER_HEIGHT_PT = {
 }
 DEFAULT_HEIGHT_PT = 80.0
 
-# The editor's Small/Medium/Large picker - a coarser, teacher-facing version
-# of the same idea as TIER_HEIGHT_PT above.
+# The editor's Small/Medium/Large picker - 20mm/40mm/60mm (4/8/12 grid rows),
+# exact multiples of the 5mm grid so a box never ends on a partial cell.
 SIZE_PRESETS_PT = {
-    "small": 50.0,
-    "medium": 90.0,
-    "large": 150.0,
+    "small": 4 * GRID_SPACING_PT,
+    "medium": 8 * GRID_SPACING_PT,
+    "large": 12 * GRID_SPACING_PT,
 }
 
 

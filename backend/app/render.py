@@ -10,36 +10,40 @@ import html
 
 from .grouping import group_id_for, iter_render_units
 from .models import HeadingBlock, ImageBlock, QuestionBlock, Workbook
-from .styles import WORKING_SPACE_CSS
+from .styles import A4_HEIGHT_PT, A4_WIDTH_PT, PAGE_MARGIN_PT, WORKING_SPACE_CSS, working_space_html
 
-PAGE_CSS = """
-@page { size: A4; margin: 36pt; }
-body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; }
-.page {
+PAGE_CSS = (
+    f"""
+@page {{ size: A4; margin: {PAGE_MARGIN_PT}pt; }}
+body {{ font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; }}
+.page {{
   page-break-after: always;
   padding: 8pt 0;
-}
-.page:last-child { page-break-after: auto; }
-.heading { font-size: 16pt; font-weight: 600; margin: 12pt 0 6pt; }
-.block { margin-bottom: 10pt; }
-.block img, .block-crop img { max-width: 100%; display: block; }
-.question { margin-bottom: 14pt; }
-.question-group { margin-bottom: 14pt; }
-.question-group .block-crop { margin-bottom: 6pt; }
-""" + WORKING_SPACE_CSS + """
-@media screen {
-  body { background: #e5e5e5; }
-  .page {
+}}
+.page:last-child {{ page-break-after: auto; }}
+.heading {{ font-size: 16pt; font-weight: 600; margin: 12pt 0 6pt; }}
+.block {{ margin-bottom: 10pt; }}
+.block img, .block-crop img {{ max-width: 100%; display: block; }}
+.question {{ margin-bottom: 14pt; }}
+.question-group {{ margin-bottom: 14pt; }}
+.question-group .block-crop {{ margin-bottom: 6pt; }}
+"""
+    + WORKING_SPACE_CSS
+    + f"""
+@media screen {{
+  body {{ background: #e5e5e5; }}
+  .page {{
     background: white;
-    width: 595pt;
-    min-height: 841pt;
+    width: {A4_WIDTH_PT}pt;
+    min-height: {A4_HEIGHT_PT}pt;
     margin: 16pt auto;
     box-shadow: 0 1pt 4pt rgba(0,0,0,0.3);
-    padding: 36pt;
+    padding: {PAGE_MARGIN_PT}pt;
     box-sizing: border-box;
-  }
-}
+  }}
+}}
 """
+)
 
 
 def _image_src(image_base_url: str, crop_filename: str) -> str:
@@ -55,22 +59,19 @@ def _question_crop_html(image_base_url: str, block: QuestionBlock) -> str:
     return f'<div class="block-crop" id="{html.escape(block.id)}">{context_html}<img src="{html.escape(src)}"></div>'
 
 
-def _working_space_html(height_pt: float) -> str:
-    return f'<div class="working-space" style="height: {height_pt}pt;"></div>'
-
-
 def _render_question_group(
     image_base_url: str, blocks: list[QuestionBlock], layout: str
 ) -> str:
     crops_html = "".join(_question_crop_html(image_base_url, b) for b in blocks)
     if layout == "combined" and len(blocks) > 1:
         shared_height = max(b.working_space.height_pt for b in blocks)
-        return f'<div class="block question-group">{crops_html}{_working_space_html(shared_height)}</div>'
+        box_html, _ = working_space_html(shared_height, blocks[0].working_space.style)
+        return f'<div class="block question-group">{crops_html}{box_html}</div>'
     # split (default): each sub-part keeps its own working space
-    parts = [
-        f'<div class="block question">{_question_crop_html(image_base_url, b)}{_working_space_html(b.working_space.height_pt)}</div>'
-        for b in blocks
-    ]
+    parts = []
+    for b in blocks:
+        box_html, _ = working_space_html(b.working_space.height_pt, b.working_space.style)
+        parts.append(f'<div class="block question">{_question_crop_html(image_base_url, b)}{box_html}</div>')
     return "".join(parts)
 
 

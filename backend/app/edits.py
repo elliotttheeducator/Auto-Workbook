@@ -61,8 +61,20 @@ class SetGroupLayout(BaseModel):
     mode: Literal["split", "combined"]
 
 
+class SetWorkingSpaceStyle(BaseModel):
+    op: Literal["set_working_space_style"] = "set_working_space_style"
+    question_id: str
+    style: Literal["grid", "lines"]
+
+
 Patch = Union[
-    ResizeWorkingSpace, ReorderPages, MoveBlock, SplitQuestion, MergeQuestions, SetGroupLayout
+    ResizeWorkingSpace,
+    ReorderPages,
+    MoveBlock,
+    SplitQuestion,
+    MergeQuestions,
+    SetGroupLayout,
+    SetWorkingSpaceStyle,
 ]
 
 
@@ -87,6 +99,8 @@ def apply_patch(workbook: Workbook, patch: Patch, pdf_path: str, crops_dir: str)
         return _merge_questions(workbook, patch, pdf_path, crops_dir)
     if isinstance(patch, SetGroupLayout):
         return _set_group_layout(workbook, patch)
+    if isinstance(patch, SetWorkingSpaceStyle):
+        return _set_working_space_style(workbook, patch)
     raise EditError(f"unknown patch op: {patch}")
 
 
@@ -101,6 +115,17 @@ def _resize_working_space(workbook: Workbook, patch: ResizeWorkingSpace) -> Work
         raise EditError("height_pt must be positive")
     block.working_space.height_pt = patch.height_pt
     block.working_space.estimated_by = "manual"
+    return workbook
+
+
+def _set_working_space_style(workbook: Workbook, patch: SetWorkingSpaceStyle) -> Workbook:
+    found = workbook.find_block(patch.question_id)
+    if found is None:
+        raise EditError(f"no question with id {patch.question_id!r}")
+    _, _, block = found
+    if not isinstance(block, QuestionBlock):
+        raise EditError(f"block {patch.question_id!r} is not a question")
+    block.working_space.style = patch.style
     return workbook
 
 

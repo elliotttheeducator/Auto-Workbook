@@ -10,10 +10,11 @@ import html
 
 from .grouping import group_id_for, iter_render_units
 from .models import HeadingBlock, ImageBlock, QuestionBlock, Workbook
-from .styles import WORKING_SPACE_CSS
+from .styles import A4_WIDTH_PT, PAGE_MARGIN_PT, WORKING_SPACE_CSS, working_space_html
 from .working_space import SIZE_PRESETS_PT, nearest_size_preset
 
-EDITOR_CSS = """
+EDITOR_CSS = (
+    """
 body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; background: #e5e5e5; }
 .topbar {
   position: sticky; top: 0; z-index: 10;
@@ -29,11 +30,15 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   display: flex; gap: 10pt; justify-content: center;
   margin: 16pt auto; width: max-content; max-width: 100%;
 }
-.page {
-  background: white; width: 595pt; min-height: 200pt;
+"""
+    + f"""
+.page {{
+  background: white; width: {A4_WIDTH_PT}pt; min-height: 200pt;
   flex: 0 0 auto; box-shadow: 0 1pt 4pt rgba(0,0,0,0.3);
-  padding: 36pt; box-sizing: border-box;
-}
+  padding: {PAGE_MARGIN_PT}pt; box-sizing: border-box;
+}}
+"""
+    + """
 .heading { font-size: 16pt; font-weight: 600; margin: 12pt 0 6pt; }
 .block { margin-bottom: 10pt; }
 .block img, .block-crop img { max-width: 100%; display: block; }
@@ -43,14 +48,17 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;
   font-size: 10pt; color: #555;
 }
-""" + WORKING_SPACE_CSS + """
-.size-picker { display: flex; gap: 4pt; margin-top: 4pt; }
-.size-picker button {
+"""
+    + WORKING_SPACE_CSS
+    + """
+.size-picker, .style-picker { display: flex; gap: 4pt; margin-top: 4pt; }
+.size-picker button, .style-picker button {
   border: 1px solid #999; background: white; border-radius: 3pt;
   padding: 2pt 8pt; font-size: 9pt; cursor: pointer;
 }
-.size-picker button.active { background: #2a7; color: white; border-color: #2a7; }
+.size-picker button.active, .style-picker button.active { background: #2a7; color: white; border-color: #2a7; }
 """
+)
 
 EDITOR_JS = """
 const PROJECT_ID = window.location.pathname.split('/')[2];
@@ -77,6 +85,10 @@ function setSize(questionId, size) {
   callEdit({op: 'resize_working_space', question_id: questionId, height_pt: SIZE_PT[size]});
 }
 
+function setStyle(questionId, style) {
+  callEdit({op: 'set_working_space_style', question_id: questionId, style: style});
+}
+
 async function setGroupSize(idsCsv, size) {
   const ids = idsCsv.split(',');
   for (const id of ids) {
@@ -84,6 +96,18 @@ async function setGroupSize(idsCsv, size) {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({op: 'resize_working_space', question_id: id, height_pt: SIZE_PT[size]}),
+    });
+  }
+  location.reload();
+}
+
+async function setGroupStyle(idsCsv, style) {
+  const ids = idsCsv.split(',');
+  for (const id of ids) {
+    await fetch(`/projects/${PROJECT_ID}/edit`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({op: 'set_working_space_style', question_id: id, style: style}),
     });
   }
   location.reload();
@@ -117,6 +141,15 @@ def _size_picker_html(active_height_pt: float, onclick_template: str) -> str:
     return f'<div class="size-picker">{"".join(buttons)}</div>'
 
 
+def _style_picker_html(active_style: str, onclick_template: str) -> str:
+    buttons = []
+    for style, label in (("grid", "Grid"), ("lines", "Written response")):
+        active = "active" if active_style == style else ""
+        onclick = html.escape(onclick_template.format(style=style), quote=True)
+        buttons.append(f'<button class="{active}" onclick="{onclick}">{label}</button>')
+    return f'<div class="style-picker">{"".join(buttons)}</div>'
+
+
 def _render_group(gid: str, blocks: list[QuestionBlock], layout: str, image_base_url: str) -> str:
     crops_html = "".join(_crop_html(image_base_url, b) for b in blocks)
     controls = ""
@@ -135,16 +168,21 @@ def _render_group(gid: str, blocks: list[QuestionBlock], layout: str, image_base
 
     if layout == "combined" and len(blocks) > 1:
         shared_height = max(b.working_space.height_pt for b in blocks)
+        shared_style = blocks[0].working_space.style
         ids_csv = ",".join(b.id for b in blocks)
-        picker = _size_picker_html(shared_height, "setGroupSize('" + ids_csv + "','{size}')")
-        working_space = f'<div class="working-space" style="height: {shared_height}pt;"></div>'
-        return f'<div class="group">{controls}{crops_html}{working_space}{picker}</div>'
+        working_space, _ = working_space_html(shared_height, shared_style)
+        pickers = _size_picker_html(
+            shared_height, "setGroupSize('" + ids_csv + "','{size}')"
+        ) + _style_picker_html(shared_style, "setGroupStyle('" + ids_csv + "','{style}')")
+        return f'<div class="group">{controls}{crops_html}{working_space}{pickers}</div>'
 
     parts = []
     for b in blocks:
-        working_space = f'<div class="working-space" style="height: {b.working_space.height_pt}pt;"></div>'
-        picker = _size_picker_html(b.working_space.height_pt, f"setSize('{b.id}','{{size}}')")
-        parts.append(f'<div class="block question">{_crop_html(image_base_url, b)}{working_space}{picker}</div>')
+        working_space, _ = working_space_html(b.working_space.height_pt, b.working_space.style)
+        pickers = _size_picker_html(b.working_space.height_pt, f"setSize('{b.id}','{{size}}')") + _style_picker_html(
+            b.working_space.style, f"setStyle('{b.id}','{{style}}')"
+        )
+        parts.append(f'<div class="block question">{_crop_html(image_base_url, b)}{working_space}{pickers}</div>')
     return f'<div class="group">{controls}{"".join(parts)}</div>'
 
 

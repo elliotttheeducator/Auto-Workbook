@@ -27,11 +27,29 @@ def test_odd_pages_leave_a_trailing_single_page_spread():
     assert out.count('class="page"') == 3
 
 
-def test_grid_css_present_for_working_space():
-    from app.styles import GRID_SPACING_PT
+def test_grid_lines_rendered_for_a_grid_working_space():
+    from app.models import QuestionBlock, WorkingSpace
 
-    out = render_editor_html(_workbook(1), image_base_url="/x")
-    assert f"{GRID_SPACING_PT}pt {GRID_SPACING_PT}pt" in out
+    wb = Workbook(
+        id="wb1",
+        title="T",
+        source_pdf="x.pdf",
+        pages=[
+            Page(
+                id="p1",
+                blocks=[
+                    QuestionBlock(
+                        id="ex1a",
+                        crop="ex1a.png",
+                        working_space=WorkingSpace(height_pt=60, estimated_by="heuristic", style="grid"),
+                    )
+                ],
+            )
+        ],
+    )
+    out = render_editor_html(wb, image_base_url="/x")
+    assert "grid-line-v" in out
+    assert "grid-line-h" in out
 
 
 def _workbook_with_question(height_pt: float = 50.0) -> Workbook:
@@ -60,6 +78,8 @@ def test_editor_actually_renders_a_working_space_box():
     # Regression: the grid CSS rule existing is not enough - an element
     # with class="working-space" must actually be in the markup, or the
     # rule never applies to anything.
+    from app.styles import GRID_SPACING_PT, snap_down
+
     out = render_editor_html(_workbook_with_question(height_pt=73.0), image_base_url="/x")
     assert 'class="working-space"' in out
-    assert "height: 73.0pt" in out
+    assert f"height: {snap_down(73.0, GRID_SPACING_PT):.3f}pt" in out

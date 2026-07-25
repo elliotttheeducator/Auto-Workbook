@@ -25,6 +25,9 @@ class SourceRect(BaseModel):
 class WorkingSpace(BaseModel):
     height_pt: float = Field(alias="heightPt")
     estimated_by: Literal["heuristic", "ai", "manual"] = Field(alias="estimatedBy")
+    # "grid" for maths/diagram work, "lines" (ruled paper) for written
+    # responses. Defaults to "grid" so existing projects load unchanged.
+    style: Literal["grid", "lines"] = "grid"
 
     model_config = {"populate_by_name": True}
 

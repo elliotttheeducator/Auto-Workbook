@@ -8,6 +8,7 @@ from app.edits import (
     ReorderPages,
     ResizeWorkingSpace,
     SetGroupLayout,
+    SetWorkingSpaceStyle,
     SplitQuestion,
     apply_patch,
 )
@@ -143,6 +144,19 @@ def test_set_group_layout_toggles_and_is_reversible(workbook):
 def test_set_group_layout_rejects_unknown_group(workbook):
     with pytest.raises(EditError):
         apply_patch(workbook, SetGroupLayout(group_id="nope", mode="combined"), "", "")
+
+
+def test_set_working_space_style_toggles(workbook):
+    workbook = apply_patch(workbook, SetWorkingSpaceStyle(question_id="ex1a", style="lines"), "", "")
+    assert workbook.find_block("ex1a")[2].working_space.style == "lines"
+
+    workbook = apply_patch(workbook, SetWorkingSpaceStyle(question_id="ex1a", style="grid"), "", "")
+    assert workbook.find_block("ex1a")[2].working_space.style == "grid"
+
+
+def test_set_working_space_style_rejects_unknown_question(workbook):
+    with pytest.raises(EditError):
+        apply_patch(workbook, SetWorkingSpaceStyle(question_id="nope", style="lines"), "", "")
 
 
 def test_patch_envelope_dispatches_by_op():
