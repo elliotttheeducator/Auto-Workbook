@@ -10,6 +10,7 @@ import html
 
 from .grouping import group_id_for, iter_render_units
 from .models import HeadingBlock, ImageBlock, QuestionBlock, Workbook
+from .styles import WORKING_SPACE_CSS
 from .working_space import SIZE_PRESETS_PT, nearest_size_preset
 
 EDITOR_CSS = """
@@ -24,9 +25,13 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   background: #2a7; color: white; text-decoration: none;
   padding: 6pt 14pt; border-radius: 4pt; font-weight: 600;
 }
+.spread {
+  display: flex; gap: 10pt; justify-content: center;
+  margin: 16pt auto; width: max-content; max-width: 100%;
+}
 .page {
   background: white; width: 595pt; min-height: 200pt;
-  margin: 16pt auto; box-shadow: 0 1pt 4pt rgba(0,0,0,0.3);
+  flex: 0 0 auto; box-shadow: 0 1pt 4pt rgba(0,0,0,0.3);
   padding: 36pt; box-sizing: border-box;
 }
 .heading { font-size: 16pt; font-weight: 600; margin: 12pt 0 6pt; }
@@ -38,7 +43,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   display: flex; align-items: center; gap: 10pt; margin-bottom: 6pt;
   font-size: 10pt; color: #555;
 }
-.working-space { border: 1px dashed #bbb; border-radius: 4pt; margin-top: 4pt; }
+""" + WORKING_SPACE_CSS + """
 .size-picker { display: flex; gap: 4pt; margin-top: 4pt; }
 .size-picker button {
   border: 1px solid #999; background: white; border-radius: 3pt;
@@ -132,12 +137,14 @@ def _render_group(gid: str, blocks: list[QuestionBlock], layout: str, image_base
         shared_height = max(b.working_space.height_pt for b in blocks)
         ids_csv = ",".join(b.id for b in blocks)
         picker = _size_picker_html(shared_height, "setGroupSize('" + ids_csv + "','{size}')")
-        return f'<div class="group">{controls}{crops_html}{picker}</div>'
+        working_space = f'<div class="working-space" style="height: {shared_height}pt;"></div>'
+        return f'<div class="group">{controls}{crops_html}{working_space}{picker}</div>'
 
     parts = []
     for b in blocks:
+        working_space = f'<div class="working-space" style="height: {b.working_space.height_pt}pt;"></div>'
         picker = _size_picker_html(b.working_space.height_pt, f"setSize('{b.id}','{{size}}')")
-        parts.append(f'<div class="block question">{_crop_html(image_base_url, b)}{picker}</div>')
+        parts.append(f'<div class="block question">{_crop_html(image_base_url, b)}{working_space}{picker}</div>')
     return f'<div class="group">{controls}{"".join(parts)}</div>'
 
 
@@ -159,6 +166,14 @@ def render_editor_html(workbook: Workbook, image_base_url: str) -> str:
                 blocks_html.append(_render_group(gid, unit_blocks, layout, image_base_url))
         pages_html.append(f'<div class="page">{"".join(blocks_html)}</div>')
 
+    # Booklet-style browsing: pairs of pages side by side, like an open
+    # book. Purely a display convenience - page order stays sequential and
+    # export.py's print output is untouched (one A4 sheet per page, in
+    # order), so this has no effect on the actual exported PDF's layout.
+    spreads_html = []
+    for i in range(0, len(pages_html), 2):
+        spreads_html.append(f'<div class="spread">{"".join(pages_html[i : i + 2])}</div>')
+
     return (
         "<!doctype html><html><head><meta charset='utf-8'>"
         f"<title>Editing: {html.escape(workbook.title)}</title>"
@@ -168,7 +183,7 @@ def render_editor_html(workbook: Workbook, image_base_url: str) -> str:
         f"<h1>{html.escape(workbook.title)}</h1>"
         '<a class="export" href="export.pdf">Export PDF</a>'
         "</div>"
-        f"{''.join(pages_html)}"
+        f"{''.join(spreads_html)}"
         f"<script>{EDITOR_JS}</script>"
         "</body></html>"
     )

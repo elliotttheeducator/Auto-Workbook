@@ -122,6 +122,9 @@ def test_editor_renders_interactive_controls(client, synthetic_pdf):
     assert "setLayout" in r.text
     assert "setSize" in r.text
     assert f'href="export.pdf"' in r.text
+    # single-page project -> one spread containing just that page
+    assert r.text.count('class="spread"') == 1
+    assert r.text.count('class="page"') == 1
 
 
 def test_editor_layout_toggle_round_trip(client, synthetic_pdf):

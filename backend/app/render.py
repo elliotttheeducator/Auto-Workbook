@@ -10,6 +10,7 @@ import html
 
 from .grouping import group_id_for, iter_render_units
 from .models import HeadingBlock, ImageBlock, QuestionBlock, Workbook
+from .styles import WORKING_SPACE_CSS
 
 PAGE_CSS = """
 @page { size: A4; margin: 36pt; }
@@ -25,11 +26,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; }
 .question { margin-bottom: 14pt; }
 .question-group { margin-bottom: 14pt; }
 .question-group .block-crop { margin-bottom: 6pt; }
-.working-space {
-  border: 1px dashed #bbb;
-  border-radius: 4pt;
-  margin-top: 4pt;
-}
+""" + WORKING_SPACE_CSS + """
 @media screen {
   body { background: #e5e5e5; }
   .page {
