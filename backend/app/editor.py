@@ -10,7 +10,7 @@ import html
 
 from .grouping import group_id_for, iter_render_units
 from .models import HeadingBlock, ImageBlock, QuestionBlock, Workbook
-from .styles import A4_WIDTH_PT, PAGE_MARGIN_PT, WORKING_SPACE_CSS, working_space_html
+from .styles import A4_WIDTH_PT, PAGE_MARGIN_PT, RULE_SPACING_PT, WORKING_SPACE_CSS, working_space_html
 from .working_space import SIZE_PRESETS_PT, nearest_size_preset
 
 EDITOR_CSS = (
@@ -51,18 +51,20 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 """
     + WORKING_SPACE_CSS
     + """
-.size-picker, .style-picker { display: flex; gap: 4pt; margin-top: 4pt; }
-.size-picker button, .style-picker button {
+.size-picker, .style-picker, .lines-picker { display: flex; align-items: center; gap: 4pt; margin-top: 4pt; }
+.size-picker button, .style-picker button, .lines-picker button {
   border: 1px solid #999; background: white; border-radius: 3pt;
   padding: 2pt 8pt; font-size: 9pt; cursor: pointer;
 }
 .size-picker button.active, .style-picker button.active { background: #2a7; color: white; border-color: #2a7; }
+.lines-picker span { font-size: 9pt; color: #555; min-width: 46pt; text-align: center; }
 """
 )
 
 EDITOR_JS = """
 const PROJECT_ID = window.location.pathname.split('/')[2];
 const SIZE_PT = {small: %(small)s, medium: %(medium)s, large: %(large)s};
+const RULE_SPACING_PT = %(rule_spacing)s;
 
 async function callEdit(patch) {
   const res = await fetch(`/projects/${PROJECT_ID}/edit`, {
@@ -89,6 +91,22 @@ function setStyle(questionId, style) {
   callEdit({op: 'set_working_space_style', question_id: questionId, style: style});
 }
 
+function setLines(questionId, lines) {
+  callEdit({op: 'resize_working_space', question_id: questionId, height_pt: lines * RULE_SPACING_PT});
+}
+
+async function setGroupLines(idsCsv, lines) {
+  const ids = idsCsv.split(',');
+  for (const id of ids) {
+    await fetch(`/projects/${PROJECT_ID}/edit`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({op: 'resize_working_space', question_id: id, height_pt: lines * RULE_SPACING_PT}),
+    });
+  }
+  location.reload();
+}
+
 async function setGroupSize(idsCsv, size) {
   const ids = idsCsv.split(',');
   for (const id of ids) {
@@ -112,7 +130,7 @@ async function setGroupStyle(idsCsv, style) {
   }
   location.reload();
 }
-""" % {k: v for k, v in SIZE_PRESETS_PT.items()}
+""" % {**SIZE_PRESETS_PT, "rule_spacing": RULE_SPACING_PT}
 
 
 def _image_src(image_base_url: str, crop_filename: str) -> str:
@@ -150,6 +168,26 @@ def _style_picker_html(active_style: str, onclick_template: str) -> str:
     return f'<div class="style-picker">{"".join(buttons)}</div>'
 
 
+def _lines_picker_html(active_height_pt: float, onclick_template: str) -> str:
+    current_lines = max(1, round(active_height_pt / RULE_SPACING_PT))
+    dec_onclick = html.escape(onclick_template.format(lines=max(1, current_lines - 1)), quote=True)
+    inc_onclick = html.escape(onclick_template.format(lines=current_lines + 1), quote=True)
+    label = f"{current_lines} line" + ("s" if current_lines != 1 else "")
+    return (
+        '<div class="lines-picker">'
+        f'<button onclick="{dec_onclick}">−</button>'
+        f"<span>{label}</span>"
+        f'<button onclick="{inc_onclick}">+</button>'
+        "</div>"
+    )
+
+
+def _size_control_html(height_pt: float, style: str, size_target: str, lines_target: str) -> str:
+    if style == "lines":
+        return _lines_picker_html(height_pt, lines_target)
+    return _size_picker_html(height_pt, size_target)
+
+
 def _render_group(gid: str, blocks: list[QuestionBlock], layout: str, image_base_url: str) -> str:
     crops_html = "".join(_crop_html(image_base_url, b) for b in blocks)
     controls = ""
@@ -171,18 +209,25 @@ def _render_group(gid: str, blocks: list[QuestionBlock], layout: str, image_base
         shared_style = blocks[0].working_space.style
         ids_csv = ",".join(b.id for b in blocks)
         working_space, _ = working_space_html(shared_height, shared_style)
-        pickers = _size_picker_html(
-            shared_height, "setGroupSize('" + ids_csv + "','{size}')"
-        ) + _style_picker_html(shared_style, "setGroupStyle('" + ids_csv + "','{style}')")
-        return f'<div class="group">{controls}{crops_html}{working_space}{pickers}</div>'
+        size_control = _size_control_html(
+            shared_height,
+            shared_style,
+            "setGroupSize('" + ids_csv + "','{size}')",
+            "setGroupLines('" + ids_csv + "',{lines})",
+        )
+        style_control = _style_picker_html(shared_style, "setGroupStyle('" + ids_csv + "','{style}')")
+        return f'<div class="group">{controls}{crops_html}{working_space}{size_control}{style_control}</div>'
 
     parts = []
     for b in blocks:
         working_space, _ = working_space_html(b.working_space.height_pt, b.working_space.style)
-        pickers = _size_picker_html(b.working_space.height_pt, f"setSize('{b.id}','{{size}}')") + _style_picker_html(
-            b.working_space.style, f"setStyle('{b.id}','{{style}}')"
+        size_control = _size_control_html(
+            b.working_space.height_pt, b.working_space.style, f"setSize('{b.id}','{{size}}')", f"setLines('{b.id}',{{lines}})"
         )
-        parts.append(f'<div class="block question">{_crop_html(image_base_url, b)}{working_space}{pickers}</div>')
+        style_control = _style_picker_html(b.working_space.style, f"setStyle('{b.id}','{{style}}')")
+        parts.append(
+            f'<div class="block question">{_crop_html(image_base_url, b)}{working_space}{size_control}{style_control}</div>'
+        )
     return f'<div class="group">{controls}{"".join(parts)}</div>'
 
 
