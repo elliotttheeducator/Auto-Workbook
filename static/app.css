@@ -1,0 +1,114 @@
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --page-margin: 12mm;
+}
+
+body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; background: #e5e5e5; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: #222; color: white; padding: 10px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar h1 { font-size: 14px; margin: 0; font-weight: 600; }
+.topbar a, .topbar button {
+  background: #2a7; color: white; text-decoration: none; border: none;
+  padding: 6px 14px; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 12px;
+}
+.topbar .secondary { background: #555; margin-right: 8px; }
+
+@media screen {
+  main { padding-bottom: 40px; }
+}
+
+/* ---- home view ---- */
+.home-main { max-width: 640px; margin: 24px auto; padding: 0 16px; }
+.upload-box, .project-list {
+  background: white; border-radius: 6px; padding: 16px; margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.upload-box label { display: block; font-size: 12px; color: #555; margin: 8px 0 2px; }
+.upload-box input[type=text] { width: 100%; box-sizing: border-box; padding: 6px; font-size: 13px; }
+.upload-box button { margin-top: 12px; }
+.hint { color: #888; font-size: 11px; margin-top: 4px; }
+.project-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0; border-bottom: 1px solid #eee;
+}
+.project-row:last-child { border-bottom: none; }
+.project-row .status { color: #888; font-size: 10px; }
+.project-row .actions { display: flex; gap: 6px; }
+.project-row .actions a, .project-row .actions button {
+  background: #2a7; color: white; text-decoration: none; border: none;
+  padding: 6px 12px; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 11px;
+}
+.project-row .actions button.danger { background: #c33; }
+
+/* ---- editor view (screen) ---- */
+.spread {
+  display: flex; gap: 10px; justify-content: center;
+  margin: 16px auto; width: max-content; max-width: 100%;
+}
+.page {
+  background: white; width: var(--page-width); min-height: var(--page-height);
+  flex: 0 0 auto; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  padding: var(--page-margin); box-sizing: border-box;
+}
+.heading { font-size: 16px; font-weight: 600; margin: 12px 0 6px; }
+.block { margin-bottom: 10px; }
+.block-crop img { max-width: 100%; display: block; }
+.group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
+.group .block-crop { margin-bottom: 6px; }
+.group-controls {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+  font-size: 10px; color: #555;
+}
+
+.working-space {
+  position: relative; overflow: hidden; border: 0.3mm solid #999;
+  width: 185mm; max-width: 100%; box-sizing: border-box;
+}
+.grid-line-v, .grid-line-h, .rule-line { position: absolute; background: #ccc; }
+.grid-line-v { top: 0; bottom: 0; width: 0.2mm; }
+.grid-line-h { left: 0; right: 0; height: 0.2mm; }
+.rule-line { left: 0; right: 0; height: 0.2mm; background: #bbb; }
+
+.style-picker, .size-picker, .lines-picker {
+  display: flex; align-items: center; gap: 4px; margin-top: 4px;
+}
+.style-picker button, .size-picker button, .lines-picker button {
+  border: 1px solid #999; background: white; border-radius: 3px;
+  padding: 2px 8px; font-size: 9px; cursor: pointer;
+}
+.style-picker button.active, .size-picker button.active { background: #2a7; color: white; border-color: #2a7; }
+.lines-picker span { font-size: 9px; color: #555; min-width: 46px; text-align: center; }
+
+/* ---- print export ----
+   No separate print layout: this hides the chrome (topbar, pickers,
+   layout radios, home view) on the exact same DOM the editor renders, so
+   the booklet view you're looking at is what prints. */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: white; }
+  .topbar, .home-main,
+  .group-controls, .style-picker, .size-picker, .lines-picker { display: none !important; }
+  .spread { display: block; margin: 0; width: auto; max-width: none; }
+  .page {
+    /* No height constraint at all here - the @page rule already fixes the
+       physical sheet size; giving the div its own min-height:297mm sized
+       it right at the edge of one sheet, and any sub-pixel rounding over
+       that pushed a near-empty page 2. Content shorter than a full sheet
+       should just occupy the top of it; content taller than one sheet
+       should spill onto a continuation, which break-inside:avoid below
+       still keeps clean. */
+    width: var(--page-width);
+    box-shadow: none; margin: 0; break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+  .group { border: none; padding: 0; }
+  /* Never slice a working-space box (or the group/question around it)
+     across a page boundary - if it doesn't fit in what's left of the
+     current sheet, push the whole thing to the next one instead. */
+  .working-space, .group, .block.question { break-inside: avoid; }
+}
