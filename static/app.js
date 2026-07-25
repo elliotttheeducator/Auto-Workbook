@@ -6,7 +6,7 @@ const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
 
 let currentWorkbook = null;
-let currentBlobUrls = null;
+let currentProjectId = null;
 
 function findBlock(id) {
   for (const page of currentWorkbook.pages) {
@@ -38,43 +38,22 @@ function stepBlockHeight(id, spacing, delta) {
 
 async function persistAndRerenderEditor() {
   await db.saveProject(currentWorkbook);
-  appEl.innerHTML = renderEditor(currentWorkbook, currentBlobUrls);
-}
-
-async function onImportBundle() {
-  const bundleFile = document.getElementById("bundle-file").files[0];
-  if (!bundleFile) {
-    alert("Choose a project bundle file.");
-    return;
-  }
-
-  const button = document.getElementById("import-bundle");
-  button.disabled = true;
-  button.textContent = "Importing...";
-  try {
-    const bundle = JSON.parse(await bundleFile.text());
-    const { crops, ...workbook } = bundle;
-    for (const [blockId, dataUri] of Object.entries(crops || {})) {
-      const blob = await (await fetch(dataUri)).blob();
-      await db.saveBlob(workbook.id, blockId, blob);
-    }
-    await db.saveProject(workbook);
-    location.hash = `#/editor/${workbook.id}`;
-  } catch (err) {
-    console.error(err);
-    alert("Couldn't import bundle: " + err.message);
-  } finally {
-    button.disabled = false;
-    button.textContent = "Import project";
-  }
+  appEl.innerHTML = renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
 }
 
 async function renderHomeView() {
   currentWorkbook = null;
-  currentBlobUrls = null;
+  currentProjectId = null;
   topbarActions.innerHTML = "";
 
-  const projects = await db.listProjects();
+  let projects = [];
+  try {
+    const res = await fetch("data/index.json");
+    if (res.ok) projects = await res.json();
+  } catch (err) {
+    console.error(err);
+  }
+
   const rows = projects.length
     ? projects
         .map(
@@ -83,51 +62,38 @@ async function renderHomeView() {
           <div><strong>${escapeHtml(p.title)}</strong><br><span class="status">${p.id}</span></div>
           <div class="actions">
             <a href="#/editor/${p.id}">Open editor</a>
-            <button data-action="delete-project" data-id="${p.id}" class="danger">Delete</button>
+            <button data-action="delete-project" data-id="${p.id}" class="danger">Reset edits</button>
           </div>
         </div>`
         )
         .join("")
-    : "<div>No projects yet - import a project bundle below to start one.</div>";
+    : "<div>No projects yet - send Claude a chapter PDF in chat and it'll add one here.</div>";
 
-  appEl.innerHTML = `
-    <div class="home-main">
-      <div class="upload-box">
-        <h3>New project</h3>
-        <label>Project bundle</label>
-        <input type="file" id="bundle-file" accept="application/json">
-        <div class="hint">Send Claude your chapter PDF in chat - it reads it, crops every question, and
-        hands you back one bundle file. Upload that here and you'll go straight to the editor.</div>
-        <button id="import-bundle">Import project</button>
-      </div>
-      <div class="project-list">${rows}</div>
-    </div>`;
-
-  document.getElementById("import-bundle").onclick = onImportBundle;
+  appEl.innerHTML = `<div class="home-main"><div class="project-list">${rows}</div></div>`;
 }
 
 async function renderEditorView(id) {
-  const workbook = await db.loadProject(id);
+  let workbook = await db.loadProject(id);
   if (!workbook) {
-    location.hash = "#/";
-    return;
-  }
-  currentWorkbook = workbook;
-  currentBlobUrls = new Map();
-  for (const page of workbook.pages) {
-    for (const b of page.blocks) {
-      if (b.type === "heading") continue;
-      const blob = await db.loadBlob(id, b.id);
-      if (blob) currentBlobUrls.set(b.id, URL.createObjectURL(blob));
+    try {
+      const res = await fetch(`data/${id}/workbook.json`);
+      if (!res.ok) throw new Error(`no such project: ${id}`);
+      workbook = await res.json();
+    } catch (err) {
+      console.error(err);
+      location.hash = "#/";
+      return;
     }
   }
+  currentWorkbook = workbook;
+  currentProjectId = id;
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
 
-  appEl.innerHTML = renderEditor(workbook, currentBlobUrls);
+  appEl.innerHTML = renderEditor(workbook, `data/${id}/crops`);
 }
 
 async function route() {
@@ -146,7 +112,7 @@ appEl.addEventListener("click", (e) => {
   const action = el.dataset.action;
 
   if (action === "delete-project") {
-    if (confirm("Delete this project? This can't be undone.")) {
+    if (confirm("Reset your edits for this project back to Claude's original detection?")) {
       db.deleteProject(el.dataset.id).then(renderHomeView);
     }
     return;

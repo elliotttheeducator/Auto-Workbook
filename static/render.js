@@ -12,11 +12,11 @@ import {
   snapDown,
 } from "./model.js";
 
-function cropHtml(blobUrls, block) {
-  const src = blobUrls.get(block.id) || "";
+function cropHtml(cropsBaseUrl, block) {
+  const src = `${cropsBaseUrl}/${block.id}.png`;
   let contextHtml = "";
-  if (block.contextImage && blobUrls.has(block.contextImage)) {
-    contextHtml = `<img src="${escapeHtml(blobUrls.get(block.contextImage))}">`;
+  if (block.contextImage) {
+    contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(block.contextImage)}.png">`;
   }
   return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(src)}"></div>`;
 }
@@ -87,7 +87,7 @@ function renderQuestionControls(target, ws) {
   return `${sizeControlHtml(target, ws)}${stylePickerHtml(target, ws.style)}`;
 }
 
-function renderGroup(gid, blocks, layout, blobUrls) {
+function renderGroup(gid, blocks, layout, cropsBaseUrl) {
   const idsCsv = blocks.map((b) => b.id).join(",");
   let controls = "";
   if (blocks.length > 1) {
@@ -98,7 +98,7 @@ function renderGroup(gid, blocks, layout, blobUrls) {
       `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined</label>` +
       "</div>";
   }
-  const cropsHtml = blocks.map((b) => cropHtml(blobUrls, b)).join("");
+  const cropsHtml = blocks.map((b) => cropHtml(cropsBaseUrl, b)).join("");
 
   if (layout === "combined" && blocks.length > 1) {
     const sharedWs = {
@@ -110,24 +110,24 @@ function renderGroup(gid, blocks, layout, blobUrls) {
 
   const parts = blocks
     .map((b) => {
-      return `<div class="block question">${cropHtml(blobUrls, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
+      return `<div class="block question">${cropHtml(cropsBaseUrl, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
     })
     .join("");
   return `<div class="group">${controls}${parts}</div>`;
 }
 
-export function renderEditor(workbook, blobUrls) {
+export function renderEditor(workbook, cropsBaseUrl) {
   const pagesHtml = workbook.pages.map((page) => {
     const blocksHtml = iterRenderUnits(page.blocks)
       .map((unit) => {
         if (unit.kind === "single") {
           const b = unit.blocks[0];
           if (b.type === "heading") return `<div class="heading">${escapeHtml(b.text)}</div>`;
-          if (b.type === "image") return `<div class="block">${cropHtml(blobUrls, b)}</div>`;
-          return `<div class="block question">${cropHtml(blobUrls, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
+          if (b.type === "image") return `<div class="block">${cropHtml(cropsBaseUrl, b)}</div>`;
+          return `<div class="block question">${cropHtml(cropsBaseUrl, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
         }
         const layout = workbook.groupLayout[unit.gid] || "split";
-        return renderGroup(unit.gid, unit.blocks, layout, blobUrls);
+        return renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl);
       })
       .join("");
     return `<div class="page">${blocksHtml}</div>`;
