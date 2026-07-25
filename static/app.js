@@ -1,6 +1,5 @@
 import * as db from "./db.js";
-import { escapeHtml, newProjectId, RULE_MM, SIZE_PRESETS_MM } from "./model.js";
-import { buildProjectFromPdf } from "./pdf-import.js";
+import { escapeHtml, RULE_MM, SIZE_PRESETS_MM } from "./model.js";
 import { renderEditor } from "./render.js";
 
 const appEl = document.getElementById("app");
@@ -42,33 +41,31 @@ async function persistAndRerenderEditor() {
   appEl.innerHTML = renderEditor(currentWorkbook, currentBlobUrls);
 }
 
-async function onCreateProject() {
-  const title = document.getElementById("new-title").value.trim() || "Untitled chapter";
-  const pdfFile = document.getElementById("new-pdf").files[0];
-  const jsonFile = document.getElementById("new-json").files[0];
-  if (!pdfFile || !jsonFile) {
-    alert("Choose both a chapter PDF and a detection JSON file.");
+async function onImportBundle() {
+  const bundleFile = document.getElementById("bundle-file").files[0];
+  if (!bundleFile) {
+    alert("Choose a project bundle file.");
     return;
   }
 
-  const button = document.getElementById("create-project");
+  const button = document.getElementById("import-bundle");
   button.disabled = true;
-  button.textContent = "Building...";
+  button.textContent = "Importing...";
   try {
-    const proposals = JSON.parse(await jsonFile.text());
-    const id = newProjectId();
-    const { workbook, blobsToSave } = await buildProjectFromPdf({ id, title, pdfFile, proposals });
-    for (const { blockId, blob } of blobsToSave) {
-      await db.saveBlob(id, blockId, blob);
+    const bundle = JSON.parse(await bundleFile.text());
+    const { crops, ...workbook } = bundle;
+    for (const [blockId, dataUri] of Object.entries(crops || {})) {
+      const blob = await (await fetch(dataUri)).blob();
+      await db.saveBlob(workbook.id, blockId, blob);
     }
     await db.saveProject(workbook);
-    location.hash = `#/editor/${id}`;
+    location.hash = `#/editor/${workbook.id}`;
   } catch (err) {
     console.error(err);
-    alert("Couldn't build project: " + err.message);
+    alert("Couldn't import bundle: " + err.message);
   } finally {
     button.disabled = false;
-    button.textContent = "Create project";
+    button.textContent = "Import project";
   }
 }
 
@@ -91,26 +88,22 @@ async function renderHomeView() {
         </div>`
         )
         .join("")
-    : "<div>No projects yet - upload a chapter PDF and its detection JSON below to start one.</div>";
+    : "<div>No projects yet - import a project bundle below to start one.</div>";
 
   appEl.innerHTML = `
     <div class="home-main">
       <div class="upload-box">
         <h3>New project</h3>
-        <label>Chapter title</label>
-        <input type="text" id="new-title" placeholder="Y9 Chapter 7 - Angles and triangles">
-        <label>Chapter PDF</label>
-        <input type="file" id="new-pdf" accept="application/pdf">
-        <label>Detection JSON</label>
-        <input type="file" id="new-json" accept="application/json">
-        <div class="hint">Ask Claude to read your chapter PDF and produce this detection JSON - it does the
-        same "which regions are which question" reasoning a live API call would, at no per-page API cost.</div>
-        <button id="create-project">Create project</button>
+        <label>Project bundle</label>
+        <input type="file" id="bundle-file" accept="application/json">
+        <div class="hint">Send Claude your chapter PDF in chat - it reads it, crops every question, and
+        hands you back one bundle file. Upload that here and you'll go straight to the editor.</div>
+        <button id="import-bundle">Import project</button>
       </div>
       <div class="project-list">${rows}</div>
     </div>`;
 
-  document.getElementById("create-project").onclick = onCreateProject;
+  document.getElementById("import-bundle").onclick = onImportBundle;
 }
 
 async function renderEditorView(id) {

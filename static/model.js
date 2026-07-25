@@ -12,8 +12,6 @@ export const BOX_WIDTH_MM = Math.floor(CONTENT_WIDTH_MM / GRID_MM) * GRID_MM;
 
 export const SIZE_PRESETS_MM = { small: 20, medium: 40, large: 60 };
 
-export const PT_TO_MM = 25.4 / 72;
-
 export function snapDown(valueMm, spacingMm) {
   const steps = Math.max(1, Math.floor(valueMm / spacingMm));
   return steps * spacingMm;
@@ -60,18 +58,6 @@ export function iterRenderUnits(blocks) {
     i = j;
   }
   return units;
-}
-
-export function defaultWorkingSpace(proposal) {
-  if (typeof proposal.workingSpaceHeightPt === "number") {
-    const mm = proposal.workingSpaceHeightPt * PT_TO_MM;
-    return { style: "grid", heightMm: snapDown(mm, GRID_MM) };
-  }
-  return { style: "grid", heightMm: SIZE_PRESETS_MM.medium };
-}
-
-export function newProjectId() {
-  return crypto.randomUUID().replace(/-/g, "").slice(0, 12);
 }
 
 export function escapeHtml(s) {
