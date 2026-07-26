@@ -36,6 +36,12 @@ function stepBlockHeight(id, spacing, delta) {
   b.workingSpace.heightMm = Math.max(spacing, b.workingSpace.heightMm + delta);
 }
 
+function setBlockColumns(id, columns) {
+  const b = findBlock(id);
+  if (!b || b.type !== "question") return;
+  b.workingSpace.columns = columns;
+}
+
 async function persistAndRerenderEditor() {
   await db.saveProject(currentWorkbook);
   appEl.innerHTML = renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
@@ -129,6 +135,9 @@ appEl.addEventListener("click", (e) => {
     const spacing = Number(el.dataset.spacing);
     const delta = Number(el.dataset.delta) * spacing;
     for (const id of el.dataset.target.split(",")) stepBlockHeight(id, spacing, delta);
+  } else if (action === "set-columns") {
+    const columns = Number(el.dataset.columns);
+    for (const id of el.dataset.target.split(",")) setBlockColumns(id, columns);
   } else {
     return;
   }

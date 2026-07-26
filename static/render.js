@@ -21,6 +21,15 @@ function cropHtml(cropsBaseUrl, block) {
   return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(src)}"></div>`;
 }
 
+function ruleLinesHtml(height, spacing, leftMm, widthMm) {
+  let inner = "";
+  const pos = widthMm != null ? ` left:${leftMm}mm;width:${widthMm}mm;right:auto;` : "";
+  for (let y = spacing; y < height; y += spacing) {
+    inner += `<div class="rule-line" style="top:${y}mm;${pos}"></div>`;
+  }
+  return inner;
+}
+
 function workingSpaceHtml(ws) {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
@@ -33,10 +42,14 @@ function workingSpaceHtml(ws) {
     for (let y = spacing; y < height; y += spacing) {
       inner += `<div class="grid-line-h" style="top:${y}mm"></div>`;
     }
+  } else if (ws.columns === 2) {
+    const gap = 4;
+    const colWidth = (BOX_WIDTH_MM - gap) / 2;
+    inner += ruleLinesHtml(height, spacing, 0, colWidth);
+    inner += ruleLinesHtml(height, spacing, colWidth + gap, colWidth);
+    inner += `<div class="col-divider" style="left:${colWidth + gap / 2}mm"></div>`;
   } else {
-    for (let y = spacing; y < height; y += spacing) {
-      inner += `<div class="rule-line" style="top:${y}mm"></div>`;
-    }
+    inner += ruleLinesHtml(height, spacing);
   }
   return `<div class="working-space" style="height:${height}mm">${inner}</div>`;
 }
@@ -56,6 +69,17 @@ function stylePickerHtml(target, activeStyle) {
   return `<div class="style-picker">${buttons}</div>`;
 }
 
+function columnsPickerHtml(target, columns) {
+  const opts = [[1, "1 col"], [2, "2 col"]];
+  const buttons = opts
+    .map(
+      ([value, label]) =>
+        `<button class="${columns === value ? "active" : ""}" data-action="set-columns" data-target="${target}" data-columns="${value}">${label}</button>`
+    )
+    .join("");
+  return `<div class="columns-picker">${buttons}</div>`;
+}
+
 function sizeControlHtml(target, ws) {
   if (ws.style === "none") return "";
   if (ws.style === "lines") {
@@ -65,7 +89,8 @@ function sizeControlHtml(target, ws) {
       `<button data-action="step-height" data-target="${target}" data-spacing="${RULE_MM}" data-delta="-1">−</button>` +
       `<span>${rows} line${rows !== 1 ? "s" : ""}</span>` +
       `<button data-action="step-height" data-target="${target}" data-spacing="${RULE_MM}" data-delta="1">+</button>` +
-      "</div>"
+      "</div>" +
+      columnsPickerHtml(target, ws.columns === 2 ? 2 : 1)
     );
   }
   const presetButtons = Object.entries(SIZE_PRESETS_MM)

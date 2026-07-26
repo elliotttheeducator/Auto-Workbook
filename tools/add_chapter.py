@@ -21,11 +21,15 @@ than needing an empty placeholder. Each block dict:
     {"type": "image", "id": "diagram1", "rect": [x0, y0, x1, y1]}
     {"type": "question", "id": "ex1a", "rect": [x0, y0, x1, y1],
      "contextImageId": "diagram1",
-     "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
+     "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40,
+     "workingSpaceColumns": 2}
 rect is in PDF points with a top-left origin (fitz's native convention).
 workingSpaceStyle is "grid" (default), "lines" (ruled, for written/proof
 answers), or "none". workingSpaceHeightMm defaults to 40 (medium) if
 omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
+workingSpaceColumns (lines style only) is 1 (default) or 2, splitting the
+ruled area into two side-by-side columns - good for a multi-part question
+where each part only needs a short answer, not a full-width line.
 """
 from __future__ import annotations
 
@@ -51,7 +55,10 @@ def working_space_for(proposal: dict) -> dict:
     style = proposal.get("workingSpaceStyle", "grid")
     height_mm = proposal.get("workingSpaceHeightMm", SIZE_MEDIUM_MM)
     spacing = RULE_MM if style == "lines" else GRID_MM
-    return {"style": style, "heightMm": snap_down(height_mm, spacing)}
+    ws = {"style": style, "heightMm": snap_down(height_mm, spacing)}
+    if style == "lines" and proposal.get("workingSpaceColumns") == 2:
+        ws["columns"] = 2
+    return ws
 
 
 def build_project(pdf_path: str, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:

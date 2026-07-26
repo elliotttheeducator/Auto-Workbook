@@ -64,20 +64,27 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .working-space {
   position: relative; overflow: hidden; border: 0.3mm solid #999;
   width: 185mm; max-width: 100%; box-sizing: border-box;
+  /* Browsers skip background colours when printing unless told
+     otherwise - without this, every grid/rule line (a solid-fill div,
+     not a border) silently vanishes from the exported PDF regardless of
+     what's checked in the print dialog. */
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
 }
-.grid-line-v, .grid-line-h, .rule-line { position: absolute; background: #ccc; }
+.grid-line-v, .grid-line-h, .rule-line, .col-divider { position: absolute; background: #ccc; }
 .grid-line-v { top: 0; bottom: 0; width: 0.2mm; }
 .grid-line-h { left: 0; right: 0; height: 0.2mm; }
 .rule-line { left: 0; right: 0; height: 0.2mm; background: #bbb; }
+.col-divider { top: 0; bottom: 0; width: 0.2mm; }
 
-.style-picker, .size-picker, .lines-picker {
+.style-picker, .size-picker, .lines-picker, .columns-picker {
   display: flex; align-items: center; gap: 4px; margin-top: 4px;
 }
-.style-picker button, .size-picker button, .lines-picker button {
+.style-picker button, .size-picker button, .lines-picker button, .columns-picker button {
   border: 1px solid #999; background: white; border-radius: 3px;
   padding: 2px 8px; font-size: 9px; cursor: pointer;
 }
-.style-picker button.active, .size-picker button.active { background: #2a7; color: white; border-color: #2a7; }
+.style-picker button.active, .size-picker button.active, .columns-picker button.active { background: #2a7; color: white; border-color: #2a7; }
 .lines-picker span { font-size: 9px; color: #555; min-width: 46px; text-align: center; }
 
 /* ---- print export ----
@@ -88,7 +95,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   @page { size: A4; margin: 0; }
   body { background: white; }
   .topbar, .home-main,
-  .group-controls, .style-picker, .size-picker, .lines-picker { display: none !important; }
+  .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
     /* No height constraint at all here - the @page rule already fixes the

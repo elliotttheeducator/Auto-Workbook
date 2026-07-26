@@ -1,12 +1,25 @@
 [
   {
+    "page": 2,
+    "blocks": [
+      {"type": "image", "id": "keyideas1", "rect": [55, 555, 530, 700]}
+    ]
+  },
+  {
+    "page": 3,
+    "blocks": [
+      {"type": "image", "id": "keyideas2", "rect": [55, 40, 530, 700]}
+    ]
+  },
+  {
     "page": 4,
     "blocks": [
       {"type": "heading", "id": "h_bu", "text": "Building Understanding"},
-      {"type": "question", "id": "bu1", "rect": [55, 85, 530, 172], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
-      {"type": "question", "id": "bu2", "rect": [55, 174, 530, 249], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
-      {"type": "question", "id": "bu3", "rect": [55, 250, 530, 435], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
+      {"type": "question", "id": "bu1", "rect": [55, 85, 530, 172], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "bu2", "rect": [55, 174, 530, 249], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "bu3", "rect": [55, 250, 530, 435], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
       {"type": "question", "id": "bu4", "rect": [55, 439, 530, 503], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "image", "id": "example1", "rect": [55, 505, 530, 640]},
       {"type": "heading", "id": "h_nyt1", "text": "Now you try (Example 1)"},
       {"type": "question", "id": "nyt1", "rect": [55, 660, 530, 698], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20}
     ]
@@ -14,6 +27,7 @@
   {
     "page": 5,
     "blocks": [
+      {"type": "image", "id": "example2", "rect": [55, 58, 530, 410]},
       {"type": "heading", "id": "h_nyt2", "text": "Now you try (Example 2)"},
       {"type": "question", "id": "nyt2", "rect": [55, 433, 530, 565], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
     ]
@@ -21,6 +35,7 @@
   {
     "page": 6,
     "blocks": [
+      {"type": "image", "id": "example3", "rect": [55, 58, 530, 504]},
       {"type": "heading", "id": "h_nyt3", "text": "Now you try (Example 3)"},
       {"type": "question", "id": "nyt3", "rect": [55, 527, 530, 658], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
     ]

@@ -1,8 +1,26 @@
 {
-  "id": "270a17db1623",
+  "id": "a5612ceace7f",
   "title": "Y9 Chapter 7A - Angles and triangles",
   "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
   "pages": [
+    {
+      "id": "page2",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "keyideas1"
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "keyideas2"
+        }
+      ]
+    },
     {
       "id": "page4",
       "blocks": [
@@ -17,7 +35,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 60
+            "heightMm": 40
           }
         },
         {
@@ -26,7 +44,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 20
           }
         },
         {
@@ -35,7 +53,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 60
+            "heightMm": 40
           }
         },
         {
@@ -46,6 +64,10 @@
             "style": "grid",
             "heightMm": 20
           }
+        },
+        {
+          "type": "image",
+          "id": "example1"
         },
         {
           "type": "heading",
@@ -67,6 +89,10 @@
       "id": "page5",
       "blocks": [
         {
+          "type": "image",
+          "id": "example2"
+        },
+        {
           "type": "heading",
           "id": "h_nyt2",
           "text": "Now you try (Example 2)"
@@ -85,6 +111,10 @@
     {
       "id": "page6",
       "blocks": [
+        {
+          "type": "image",
+          "id": "example3"
+        },
         {
           "type": "heading",
           "id": "h_nyt3",
