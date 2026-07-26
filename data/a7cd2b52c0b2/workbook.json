@@ -1,5 +1,5 @@
 {
-  "id": "dbc3a09687e4",
+  "id": "a7cd2b52c0b2",
   "title": "Y9 Chapter 7A - Angles and triangles",
   "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
   "pages": [
@@ -171,11 +171,56 @@
         },
         {
           "type": "question",
-          "id": "ex2",
+          "id": "ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
           }
         }
       ]
@@ -199,11 +244,56 @@
       "blocks": [
         {
           "type": "question",
-          "id": "ex4",
+          "id": "ex4a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
           }
         },
         {
@@ -229,11 +319,20 @@
       "blocks": [
         {
           "type": "question",
-          "id": "ex6",
+          "id": "ex6a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
           }
         },
         {
@@ -312,15 +411,91 @@
         },
         {
           "type": "question",
-          "id": "ex12",
+          "id": "ex12a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 60
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
           }
         }
       ]
     }
   ],
-  "groupLayout": {}
+  "groupLayout": {
+    "ex2": "combined",
+    "ex4": "combined",
+    "ex6": "combined",
+    "ex12": "combined"
+  },
+  "combinedBlocks": {
+    "ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "ex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    }
+  }
 }

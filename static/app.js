@@ -42,6 +42,39 @@ function setBlockColumns(id, columns) {
   b.workingSpace.columns = columns;
 }
 
+// The combined ("whole question") view of a group isn't a real block in
+// the page flow - it's a separate crop (named after the group id) with
+// its own working space, stored here rather than derived from the split
+// parts, so it keeps its own size/style across toggling back and forth.
+function ensureCombinedBlock(gid) {
+  if (!currentWorkbook.combinedBlocks) currentWorkbook.combinedBlocks = {};
+  if (!currentWorkbook.combinedBlocks[gid]) {
+    currentWorkbook.combinedBlocks[gid] = { workingSpace: { style: "grid", heightMm: SIZE_PRESETS_MM.large } };
+  }
+  return currentWorkbook.combinedBlocks[gid];
+}
+
+function setGroupStyle(gid, style) {
+  const ws = ensureCombinedBlock(gid).workingSpace;
+  ws.style = style;
+  if (style !== "none" && !ws.heightMm) {
+    ws.heightMm = style === "lines" ? RULE_MM * 5 : SIZE_PRESETS_MM.large;
+  }
+}
+
+function setGroupHeight(gid, heightMm) {
+  ensureCombinedBlock(gid).workingSpace.heightMm = heightMm;
+}
+
+function stepGroupHeight(gid, spacing, delta) {
+  const ws = ensureCombinedBlock(gid).workingSpace;
+  ws.heightMm = Math.max(spacing, ws.heightMm + delta);
+}
+
+function setGroupColumns(gid, columns) {
+  ensureCombinedBlock(gid).workingSpace.columns = columns;
+}
+
 async function persistAndRerenderEditor() {
   await db.saveProject(currentWorkbook);
   appEl.innerHTML = renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
@@ -127,17 +160,24 @@ appEl.addEventListener("click", (e) => {
   if (!currentWorkbook) return;
   if (action === "set-layout") {
     currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
-  } else if (action === "set-style") {
-    for (const id of el.dataset.target.split(",")) setBlockStyle(id, el.dataset.style);
+    persistAndRerenderEditor();
+    return;
+  }
+
+  const isGroup = el.dataset.kind === "group";
+  const target = el.dataset.target;
+  if (action === "set-style") {
+    isGroup ? setGroupStyle(target, el.dataset.style) : setBlockStyle(target, el.dataset.style);
   } else if (action === "set-size") {
-    for (const id of el.dataset.target.split(",")) setBlockHeight(id, SIZE_PRESETS_MM[el.dataset.size]);
+    const mm = SIZE_PRESETS_MM[el.dataset.size];
+    isGroup ? setGroupHeight(target, mm) : setBlockHeight(target, mm);
   } else if (action === "step-height") {
     const spacing = Number(el.dataset.spacing);
     const delta = Number(el.dataset.delta) * spacing;
-    for (const id of el.dataset.target.split(",")) stepBlockHeight(id, spacing, delta);
+    isGroup ? stepGroupHeight(target, spacing, delta) : stepBlockHeight(target, spacing, delta);
   } else if (action === "set-columns") {
     const columns = Number(el.dataset.columns);
-    for (const id of el.dataset.target.split(",")) setBlockColumns(id, columns);
+    isGroup ? setGroupColumns(target, columns) : setBlockColumns(target, columns);
   } else {
     return;
   }

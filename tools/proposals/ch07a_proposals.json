@@ -46,7 +46,15 @@
     "blocks": [
       {"type": "heading", "id": "h_fluency", "text": "Fluency", "style": "tier", "tier": "fluency"},
       {"type": "question", "id": "ex1", "page": 7, "rect": [50, 110, 484, 172], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
-      {"type": "question", "id": "ex2", "page": 7, "rect": [50, 175, 484, 382], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
+      {"type": "question", "id": "ex2a", "page": 7, "rect": [53, 203, 213, 272], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex2b", "page": 7, "rect": [213, 203, 356, 272], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex2c", "page": 7, "rect": [356, 203, 484, 272], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex2d", "page": 7, "rect": [53, 292, 213, 362], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex2e", "page": 7, "rect": [213, 292, 356, 362], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex2f", "page": 7, "rect": [356, 292, 484, 362], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20}
+    ],
+    "combinedGroups": [
+      {"groupId": "ex2", "page": 7, "rect": [50, 175, 484, 382], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
     ]
   },
   {
@@ -56,15 +64,27 @@
   },
   {
     "blocks": [
-      {"type": "question", "id": "ex4", "page": 8, "rect": [50, 50, 484, 342], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "ex4a", "page": 8, "rect": [55, 66, 286, 165], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex4b", "page": 8, "rect": [286, 66, 484, 165], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex4c", "page": 8, "rect": [55, 165, 286, 253], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex4d", "page": 8, "rect": [286, 165, 484, 253], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex4e", "page": 8, "rect": [55, 253, 286, 333], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex4f", "page": 8, "rect": [286, 253, 484, 333], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
       {"type": "heading", "id": "h_probsolv", "text": "Problem-solving", "style": "tier", "tier": "problemsolving"},
       {"type": "question", "id": "ex5", "page": 8, "rect": [50, 362, 484, 418], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
+    ],
+    "combinedGroups": [
+      {"groupId": "ex4", "page": 8, "rect": [50, 50, 484, 342], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
     ]
   },
   {
     "blocks": [
-      {"type": "question", "id": "ex6", "page": 8, "rect": [50, 420, 484, 520], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "ex6a", "page": 8, "rect": [53, 434, 270, 500], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex6b", "page": 8, "rect": [270, 434, 484, 522], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
       {"type": "question", "id": "ex7", "page": 8, "rect": [50, 545, 484, 700], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 70}
+    ],
+    "combinedGroups": [
+      {"groupId": "ex6", "page": 8, "rect": [50, 420, 484, 520], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
     ]
   },
   {
@@ -83,7 +103,15 @@
   {
     "blocks": [
       {"type": "heading", "id": "h_enrichment", "text": "Enrichment: Algebra in geometry", "style": "tier", "tier": "enrichment"},
-      {"type": "question", "id": "ex12", "page": 9, "rect": [50, 461, 484, 690], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
+      {"type": "question", "id": "ex12a", "page": 9, "rect": [53, 477, 213, 562], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex12b", "page": 9, "rect": [213, 477, 358, 562], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex12c", "page": 9, "rect": [358, 477, 484, 562], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex12d", "page": 9, "rect": [53, 582, 213, 668], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex12e", "page": 9, "rect": [213, 582, 358, 668], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "question", "id": "ex12f", "page": 9, "rect": [358, 582, 484, 668], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20}
+    ],
+    "combinedGroups": [
+      {"groupId": "ex12", "page": 9, "rect": [50, 461, 484, 690], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
     ]
   }
 ]

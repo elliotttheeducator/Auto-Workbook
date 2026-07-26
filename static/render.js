@@ -12,13 +12,12 @@ import {
   snapDown,
 } from "./model.js";
 
-function cropHtml(cropsBaseUrl, block) {
-  const src = `${cropsBaseUrl}/${block.id}.png`;
+function cropHtml(cropsBaseUrl, crop, contextImage) {
   let contextHtml = "";
-  if (block.contextImage) {
-    contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(block.contextImage)}.png">`;
+  if (contextImage) {
+    contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png">`;
   }
-  return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(src)}"></div>`;
+  return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
 }
 
 function ruleLinesHtml(height, spacing) {
@@ -52,7 +51,7 @@ function workingSpaceHtml(ws) {
   return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
 }
 
-function stylePickerHtml(target, activeStyle) {
+function stylePickerHtml(target, kind, activeStyle) {
   const opts = [
     ["none", "None"],
     ["grid", "Grid"],
@@ -61,53 +60,53 @@ function stylePickerHtml(target, activeStyle) {
   const buttons = opts
     .map(
       ([value, label]) =>
-        `<button class="${activeStyle === value ? "active" : ""}" data-action="set-style" data-target="${target}" data-style="${value}">${label}</button>`
+        `<button class="${activeStyle === value ? "active" : ""}" data-action="set-style" data-target="${target}" data-kind="${kind}" data-style="${value}">${label}</button>`
     )
     .join("");
   return `<div class="style-picker">${buttons}</div>`;
 }
 
-function columnsPickerHtml(target, columns) {
+function columnsPickerHtml(target, kind, columns) {
   const opts = [[1, "1 col"], [2, "2 col"]];
   const buttons = opts
     .map(
       ([value, label]) =>
-        `<button class="${columns === value ? "active" : ""}" data-action="set-columns" data-target="${target}" data-columns="${value}">${label}</button>`
+        `<button class="${columns === value ? "active" : ""}" data-action="set-columns" data-target="${target}" data-kind="${kind}" data-columns="${value}">${label}</button>`
     )
     .join("");
   return `<div class="columns-picker">${buttons}</div>`;
 }
 
-function sizeControlHtml(target, ws) {
+function sizeControlHtml(target, kind, ws) {
   if (ws.style === "none") return "";
   if (ws.style === "lines") {
     const rows = Math.max(1, Math.round(ws.heightMm / RULE_MM));
     return (
       '<div class="lines-picker">' +
-      `<button data-action="step-height" data-target="${target}" data-spacing="${RULE_MM}" data-delta="-1">−</button>` +
+      `<button data-action="step-height" data-target="${target}" data-kind="${kind}" data-spacing="${RULE_MM}" data-delta="-1">−</button>` +
       `<span>${rows} line${rows !== 1 ? "s" : ""}</span>` +
-      `<button data-action="step-height" data-target="${target}" data-spacing="${RULE_MM}" data-delta="1">+</button>` +
+      `<button data-action="step-height" data-target="${target}" data-kind="${kind}" data-spacing="${RULE_MM}" data-delta="1">+</button>` +
       "</div>" +
-      columnsPickerHtml(target, ws.columns === 2 ? 2 : 1)
+      columnsPickerHtml(target, kind, ws.columns === 2 ? 2 : 1)
     );
   }
   const presetButtons = Object.entries(SIZE_PRESETS_MM)
     .map(([name, mm]) => {
       const active = ws.heightMm === mm ? "active" : "";
-      return `<button class="${active}" data-action="set-size" data-target="${target}" data-size="${name}">${name[0].toUpperCase()}</button>`;
+      return `<button class="${active}" data-action="set-size" data-target="${target}" data-kind="${kind}" data-size="${name}">${name[0].toUpperCase()}</button>`;
     })
     .join("");
   return (
     `<div class="size-picker">${presetButtons}` +
-    `<button data-action="step-height" data-target="${target}" data-spacing="${GRID_MM}" data-delta="-1">−</button>` +
+    `<button data-action="step-height" data-target="${target}" data-kind="${kind}" data-spacing="${GRID_MM}" data-delta="-1">−</button>` +
     `<span>${ws.heightMm}mm</span>` +
-    `<button data-action="step-height" data-target="${target}" data-spacing="${GRID_MM}" data-delta="1">+</button>` +
+    `<button data-action="step-height" data-target="${target}" data-kind="${kind}" data-spacing="${GRID_MM}" data-delta="1">+</button>` +
     "</div>"
   );
 }
 
-function renderQuestionControls(target, ws) {
-  return `${sizeControlHtml(target, ws)}${stylePickerHtml(target, ws.style)}`;
+function renderQuestionControls(target, kind, ws) {
+  return `${sizeControlHtml(target, kind, ws)}${stylePickerHtml(target, kind, ws.style)}`;
 }
 
 function headingHtml(b) {
@@ -117,50 +116,49 @@ function headingHtml(b) {
   return `<div class="heading">${text}</div>`;
 }
 
-function renderGroup(gid, blocks, layout, cropsBaseUrl) {
-  const idsCsv = blocks.map((b) => b.id).join(",");
-  let controls = "";
-  if (blocks.length > 1) {
-    const safeGid = escapeHtml(gid);
-    controls =
-      `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
-      `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split</label>` +
-      `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined</label>` +
-      "</div>";
-  }
-  const cropsHtml = blocks.map((b) => cropHtml(cropsBaseUrl, b)).join("");
+const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 
-  if (layout === "combined" && blocks.length > 1) {
-    // Combined means "one shared area instead of N small ones" - it should
-    // read as visibly roomier than any single part, not just as big as the
-    // largest part, so default it to the sum of what the split parts had.
-    const sharedWs = {
-      style: blocks[0].workingSpace.style,
-      heightMm: blocks.reduce((sum, b) => sum + b.workingSpace.heightMm, 0),
-    };
-    return `<div class="group">${controls}${cropsHtml}${workingSpaceHtml(sharedWs)}${renderQuestionControls(idsCsv, sharedWs)}</div>`;
+function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
+  const safeGid = escapeHtml(gid);
+  const controls =
+    `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
+    `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split (small, per part)</label>` +
+    `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined (large, whole question)</label>` +
+    "</div>";
+
+  if (layout === "combined") {
+    // The combined view is a real crop of the whole question exactly as
+    // printed (all parts together), not a stack of the individual part
+    // crops - that's what keeps it looking like a clean single block
+    // instead of an awkward recomposition.
+    const ws = (combinedBlocks[gid] && combinedBlocks[gid].workingSpace) || DEFAULT_COMBINED_WS;
+    const crop = cropHtml(cropsBaseUrl, gid);
+    return `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
   }
 
   const parts = blocks
     .map((b) => {
-      return `<div class="block question">${cropHtml(cropsBaseUrl, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
+      const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
+      return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
     })
     .join("");
   return `<div class="group">${controls}${parts}</div>`;
 }
 
 export function renderEditor(workbook, cropsBaseUrl) {
+  const combinedBlocks = workbook.combinedBlocks || {};
   const pagesHtml = workbook.pages.map((page) => {
     const blocksHtml = iterRenderUnits(page.blocks)
       .map((unit) => {
         if (unit.kind === "single") {
           const b = unit.blocks[0];
           if (b.type === "heading") return headingHtml(b);
-          if (b.type === "image") return `<div class="block">${cropHtml(cropsBaseUrl, b)}</div>`;
-          return `<div class="block question">${cropHtml(cropsBaseUrl, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
+          if (b.type === "image") return `<div class="block">${crop}</div>`;
+          return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
         }
         const layout = workbook.groupLayout[unit.gid] || "split";
-        return renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl);
+        return renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks);
       })
       .join("");
     return `<div class="page">${blocksHtml}</div>`;

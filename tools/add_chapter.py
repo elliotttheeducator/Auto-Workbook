@@ -40,6 +40,19 @@ where each part only needs a short answer, not a full-width line.
 Heading "style" is "title" (large, for the exercise/section title),
 "tier" (a coloured bar - pass "tier" as one of fluency/problemsolving/
 reasoning/enrichment for its colour), or omitted for a plain sub-heading.
+
+A page entry can also have "combinedGroups": [...] for multi-part
+questions (ids like "ex2a", "ex2b", ...) - each entry crops the WHOLE
+question (all parts together, exactly as printed) as a second, separate
+crop, shown when that group's layout is toggled to "combined" in the
+editor instead of the individual per-part crops:
+    {"groupId": "ex2", "page": 7, "rect": [x0, y0, x1, y1],
+     "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
+groupId must equal the shared prefix of its members' ids (ex2a/ex2b's
+group id is "ex2"). Give the split parts ("ex2a" etc, as normal question
+blocks) a small workingSpaceHeightMm and the combinedGroups entry a
+large one - split is meant to default small (one box per part), combined
+large (one shared box for the whole question).
 """
 from __future__ import annotations
 
@@ -76,6 +89,7 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
     os.makedirs(crops_dir, exist_ok=True)
 
     pages = []
+    combined_blocks = {}
     with fitz.open(pdf_path) as doc:
         for i, entry in enumerate(pages_proposals):
             blocks = []
@@ -104,12 +118,23 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
                     })
             pages.append({"id": f"page{i}", "blocks": blocks})
 
+            for cg in entry.get("combinedGroups", []):
+                src_page = doc[cg["page"]]
+                pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*cg["rect"]))
+                pix.save(os.path.join(crops_dir, f"{cg['groupId']}.png"))
+                combined_blocks[cg["groupId"]] = {"workingSpace": working_space_for(cg)}
+
+    # A combinedGroups entry only exists because it's meant to be shown -
+    # default those groups to "combined" rather than making every new
+    # chapter start with the small split view for questions that were
+    # deliberately given a nice whole-question crop.
     workbook = {
         "id": project_id,
         "title": title,
         "sourcePdfName": pdf_path.split("/")[-1],
         "pages": pages,
-        "groupLayout": {},
+        "groupLayout": {gid: "combined" for gid in combined_blocks},
+        "combinedBlocks": combined_blocks,
     }
     with open(os.path.join(project_dir, "workbook.json"), "w") as f:
         json.dump(workbook, f, indent=2)
