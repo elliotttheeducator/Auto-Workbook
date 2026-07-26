@@ -1,11 +1,17 @@
 {
-  "id": "a5612ceace7f",
+  "id": "08a885d6b556",
   "title": "Y9 Chapter 7A - Angles and triangles",
   "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
   "pages": [
     {
       "id": "page2",
       "blocks": [
+        {
+          "type": "heading",
+          "id": "h_title",
+          "text": "7A Angles and triangles",
+          "style": "title"
+        },
         {
           "type": "image",
           "id": "keyideas1"
@@ -136,13 +142,10 @@
       "blocks": [
         {
           "type": "heading",
-          "id": "h_ex7a",
-          "text": "Exercise 7A"
-        },
-        {
-          "type": "heading",
           "id": "h_fluency",
-          "text": "Fluency"
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
         },
         {
           "type": "question",
@@ -188,7 +191,9 @@
         {
           "type": "heading",
           "id": "h_probsolv",
-          "text": "Problem-solving"
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
         },
         {
           "type": "question",
@@ -225,7 +230,9 @@
         {
           "type": "heading",
           "id": "h_reasoning",
-          "text": "Reasoning"
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
         },
         {
           "type": "question",
@@ -266,7 +273,9 @@
         {
           "type": "heading",
           "id": "h_enrichment",
-          "text": "Enrichment: Algebra in geometry"
+          "text": "Enrichment: Algebra in geometry",
+          "style": "tier",
+          "tier": "enrichment"
         },
         {
           "type": "question",

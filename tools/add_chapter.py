@@ -18,6 +18,8 @@ an entry, in whatever order they should appear (normally source order),
 so intro/lesson-starter/worked-example pages can just be omitted rather
 than needing an empty placeholder. Each block dict:
     {"type": "heading", "id": "h1", "text": "Exercise 1"}
+    {"type": "heading", "id": "h2", "text": "7A Angles and triangles", "style": "title"}
+    {"type": "heading", "id": "h3", "text": "Fluency", "style": "tier", "tier": "fluency"}
     {"type": "image", "id": "diagram1", "rect": [x0, y0, x1, y1]}
     {"type": "question", "id": "ex1a", "rect": [x0, y0, x1, y1],
      "contextImageId": "diagram1",
@@ -30,6 +32,9 @@ omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
 workingSpaceColumns (lines style only) is 1 (default) or 2, splitting the
 ruled area into two side-by-side columns - good for a multi-part question
 where each part only needs a short answer, not a full-width line.
+Heading "style" is "title" (large, for the exercise/section title),
+"tier" (a coloured bar - pass "tier" as one of fluency/problemsolving/
+reasoning/enrichment for its colour), or omitted for a plain sub-heading.
 """
 from __future__ import annotations
 
@@ -73,7 +78,12 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
             blocks = []
             for p in entry["blocks"]:
                 if p["type"] == "heading":
-                    blocks.append({"type": "heading", "id": p["id"], "text": p.get("text", "")})
+                    heading = {"type": "heading", "id": p["id"], "text": p.get("text", "")}
+                    if p.get("style"):
+                        heading["style"] = p["style"]
+                    if p.get("tier"):
+                        heading["tier"] = p["tier"]
+                    blocks.append(heading)
                     continue
 
                 pix = page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))

@@ -51,7 +51,21 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   flex: 0 0 auto; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
   padding: var(--page-margin); box-sizing: border-box;
 }
-.heading { font-size: 16px; font-weight: 600; margin: 12px 0 6px; }
+.heading { font-size: 16px; font-weight: 600; margin: 12px 0 6px; color: #222; }
+.heading-title {
+  font-size: 22px; font-weight: 800; margin: 22px 0 12px; padding-bottom: 6px;
+  border-bottom: 3px solid #2a7; color: #111;
+}
+.heading-tier {
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: white; padding: 5px 14px; border-radius: 3px; margin: 18px 0 8px; display: inline-block;
+  print-color-adjust: exact; -webkit-print-color-adjust: exact;
+}
+.tier-fluency { background: #2f5fa8; }
+.tier-problemsolving { background: #1c8c8c; }
+.tier-reasoning { background: #7b4fa0; }
+.tier-enrichment { background: #b5406a; }
+.tier-default { background: #555; }
 .block { margin-bottom: 10px; }
 .block-crop img { max-width: 100%; display: block; }
 .group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
@@ -71,11 +85,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
-.grid-line-v, .grid-line-h, .rule-line, .col-divider { position: absolute; background: #ccc; }
-.grid-line-v { top: 0; bottom: 0; width: 0.2mm; }
-.grid-line-h { left: 0; right: 0; height: 0.2mm; }
-.rule-line { left: 0; right: 0; height: 0.2mm; background: #bbb; }
-.col-divider { top: 0; bottom: 0; width: 0.2mm; }
+/* Two-column written response: two independently bordered boxes side by
+   side rather than one box with a center divider - a thin divider line
+   was too easy to lose (see .grid-line-v etc below), a real border never is. */
+.working-space-row { display: flex; gap: 4mm; width: 185mm; max-width: 100%; }
+.working-space-row .working-space { width: auto; flex: 1 1 0; min-width: 0; }
+.grid-line-v, .grid-line-h, .rule-line { position: absolute; background: #ccc; }
+/* 0.5mm, not a hairline - anything much thinner falls between print
+   pixels at typical print resolution and rasterizes as a broken/patchy
+   line instead of a clean solid one. */
+.grid-line-v { top: 0; bottom: 0; width: 0.5mm; }
+.grid-line-h { left: 0; right: 0; height: 0.5mm; }
+.rule-line { left: 0; right: 0; height: 0.5mm; background: #bbb; }
 
 .style-picker, .size-picker, .lines-picker, .columns-picker {
   display: flex; align-items: center; gap: 4px; margin-top: 4px;
@@ -113,5 +134,5 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   /* Never slice a working-space box (or the group/question around it)
      across a page boundary - if it doesn't fit in what's left of the
      current sheet, push the whole thing to the next one instead. */
-  .working-space, .group, .block.question { break-inside: avoid; }
+  .working-space, .working-space-row, .group, .block.question { break-inside: avoid; }
 }

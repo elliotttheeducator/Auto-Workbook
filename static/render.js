@@ -21,37 +21,35 @@ function cropHtml(cropsBaseUrl, block) {
   return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(src)}"></div>`;
 }
 
-function ruleLinesHtml(height, spacing, leftMm, widthMm) {
+function ruleLinesHtml(height, spacing) {
   let inner = "";
-  const pos = widthMm != null ? ` left:${leftMm}mm;width:${widthMm}mm;right:auto;` : "";
   for (let y = spacing; y < height; y += spacing) {
-    inner += `<div class="rule-line" style="top:${y}mm;${pos}"></div>`;
+    inner += `<div class="rule-line" style="top:${y}mm"></div>`;
   }
   return inner;
+}
+
+function gridBoxHtml(height, spacing) {
+  let inner = "";
+  for (let x = spacing; x < BOX_WIDTH_MM; x += spacing) {
+    inner += `<div class="grid-line-v" style="left:${x}mm"></div>`;
+  }
+  for (let y = spacing; y < height; y += spacing) {
+    inner += `<div class="grid-line-h" style="top:${y}mm"></div>`;
+  }
+  return `<div class="working-space" style="height:${height}mm">${inner}</div>`;
 }
 
 function workingSpaceHtml(ws) {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
   const height = snapDown(ws.heightMm, spacing);
-  let inner = "";
-  if (ws.style === "grid") {
-    for (let x = spacing; x < BOX_WIDTH_MM; x += spacing) {
-      inner += `<div class="grid-line-v" style="left:${x}mm"></div>`;
-    }
-    for (let y = spacing; y < height; y += spacing) {
-      inner += `<div class="grid-line-h" style="top:${y}mm"></div>`;
-    }
-  } else if (ws.columns === 2) {
-    const gap = 4;
-    const colWidth = (BOX_WIDTH_MM - gap) / 2;
-    inner += ruleLinesHtml(height, spacing, 0, colWidth);
-    inner += ruleLinesHtml(height, spacing, colWidth + gap, colWidth);
-    inner += `<div class="col-divider" style="left:${colWidth + gap / 2}mm"></div>`;
-  } else {
-    inner += ruleLinesHtml(height, spacing);
+  if (ws.style === "grid") return gridBoxHtml(height, spacing);
+  if (ws.columns === 2) {
+    const col = `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
+    return `<div class="working-space-row">${col}${col}</div>`;
   }
-  return `<div class="working-space" style="height:${height}mm">${inner}</div>`;
+  return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
 }
 
 function stylePickerHtml(target, activeStyle) {
@@ -112,6 +110,13 @@ function renderQuestionControls(target, ws) {
   return `${sizeControlHtml(target, ws)}${stylePickerHtml(target, ws.style)}`;
 }
 
+function headingHtml(b) {
+  const text = escapeHtml(b.text);
+  if (b.style === "title") return `<div class="heading heading-title">${text}</div>`;
+  if (b.style === "tier") return `<div class="heading heading-tier tier-${b.tier || "default"}">${text}</div>`;
+  return `<div class="heading">${text}</div>`;
+}
+
 function renderGroup(gid, blocks, layout, cropsBaseUrl) {
   const idsCsv = blocks.map((b) => b.id).join(",");
   let controls = "";
@@ -147,7 +152,7 @@ export function renderEditor(workbook, cropsBaseUrl) {
       .map((unit) => {
         if (unit.kind === "single") {
           const b = unit.blocks[0];
-          if (b.type === "heading") return `<div class="heading">${escapeHtml(b.text)}</div>`;
+          if (b.type === "heading") return headingHtml(b);
           if (b.type === "image") return `<div class="block">${cropHtml(cropsBaseUrl, b)}</div>`;
           return `<div class="block question">${cropHtml(cropsBaseUrl, b)}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, b.workingSpace)}</div>`;
         }
