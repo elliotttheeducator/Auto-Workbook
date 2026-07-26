@@ -131,9 +131,12 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl) {
   const cropsHtml = blocks.map((b) => cropHtml(cropsBaseUrl, b)).join("");
 
   if (layout === "combined" && blocks.length > 1) {
+    // Combined means "one shared area instead of N small ones" - it should
+    // read as visibly roomier than any single part, not just as big as the
+    // largest part, so default it to the sum of what the split parts had.
     const sharedWs = {
       style: blocks[0].workingSpace.style,
-      heightMm: Math.max(...blocks.map((b) => b.workingSpace.heightMm)),
+      heightMm: blocks.reduce((sum, b) => sum + b.workingSpace.heightMm, 0),
     };
     return `<div class="group">${controls}${cropsHtml}${workingSpaceHtml(sharedWs)}${renderQuestionControls(idsCsv, sharedWs)}</div>`;
   }

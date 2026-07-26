@@ -12,20 +12,25 @@ Usage:
     python add_chapter.py --pdf chapter.pdf --proposals proposals.json \
         --title "Y9 Chapter 7 - Angles and triangles" --data-dir ../data
 
-proposals.json shape: a list of {"page": <0-indexed source PDF page>,
-"blocks": [...]} entries - only pages with actual workbook content need
-an entry, in whatever order they should appear (normally source order),
-so intro/lesson-starter/worked-example pages can just be omitted rather
-than needing an empty placeholder. Each block dict:
+proposals.json shape: a list of {"blocks": [...]} entries, each one a
+workbook page (a printed sheet) - NOT tied to source PDF page numbers.
+Pack whatever content should share one physical sheet into one entry;
+a source page with little content (e.g. a short Key Ideas box) should
+usually share a workbook page with the next bit of content rather than
+sitting alone with the rest of the sheet blank. Each block dict:
     {"type": "heading", "id": "h1", "text": "Exercise 1"}
     {"type": "heading", "id": "h2", "text": "7A Angles and triangles", "style": "title"}
     {"type": "heading", "id": "h3", "text": "Fluency", "style": "tier", "tier": "fluency"}
-    {"type": "image", "id": "diagram1", "rect": [x0, y0, x1, y1]}
-    {"type": "question", "id": "ex1a", "rect": [x0, y0, x1, y1],
+    {"type": "image", "id": "diagram1", "page": 2, "rect": [x0, y0, x1, y1]}
+    {"type": "question", "id": "ex1a", "page": 2, "rect": [x0, y0, x1, y1],
      "contextImageId": "diagram1",
      "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40,
      "workingSpaceColumns": 2}
-rect is in PDF points with a top-left origin (fitz's native convention).
+"page" (question/image blocks only) is the 0-indexed source PDF page to
+crop "rect" out of - each block picks its own source page, so a single
+workbook page can freely combine crops pulled from several different
+source pages. rect is in PDF points with a top-left origin (fitz's
+native convention).
 workingSpaceStyle is "grid" (default), "lines" (ruled, for written/proof
 answers), or "none". workingSpaceHeightMm defaults to 40 (medium) if
 omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
@@ -72,9 +77,7 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
 
     pages = []
     with fitz.open(pdf_path) as doc:
-        for entry in pages_proposals:
-            page_no = entry["page"]
-            page = doc[page_no]
+        for i, entry in enumerate(pages_proposals):
             blocks = []
             for p in entry["blocks"]:
                 if p["type"] == "heading":
@@ -86,7 +89,8 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
                     blocks.append(heading)
                     continue
 
-                pix = page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
+                src_page = doc[p["page"]]
+                pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
                 pix.save(os.path.join(crops_dir, f"{p['id']}.png"))
 
                 if p["type"] == "image":
@@ -98,7 +102,7 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
                         "contextImage": p.get("contextImageId"),
                         "workingSpace": working_space_for(p),
                     })
-            pages.append({"id": f"page{page_no}", "blocks": blocks})
+            pages.append({"id": f"page{i}", "blocks": blocks})
 
     workbook = {
         "id": project_id,

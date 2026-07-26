@@ -1,10 +1,10 @@
 {
-  "id": "08a885d6b556",
+  "id": "dbc3a09687e4",
   "title": "Y9 Chapter 7A - Angles and triangles",
   "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
   "pages": [
     {
-      "id": "page2",
+      "id": "page0",
       "blocks": [
         {
           "type": "heading",
@@ -14,22 +14,25 @@
         },
         {
           "type": "image",
-          "id": "keyideas1"
+          "id": "keyideas_intro"
+        },
+        {
+          "type": "image",
+          "id": "keyideas_point"
         }
       ]
     },
     {
-      "id": "page3",
+      "id": "page1",
       "blocks": [
         {
           "type": "image",
-          "id": "keyideas2"
-        }
-      ]
-    },
-    {
-      "id": "page4",
-      "blocks": [
+          "id": "keyideas_triangles"
+        },
+        {
+          "type": "image",
+          "id": "keyideas_exterior"
+        },
         {
           "type": "heading",
           "id": "h_bu",
@@ -43,7 +46,12 @@
             "style": "grid",
             "heightMm": 40
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page2",
+      "blocks": [
         {
           "type": "question",
           "id": "bu2",
@@ -70,7 +78,12 @@
             "style": "grid",
             "heightMm": 20
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
         {
           "type": "image",
           "id": "example1"
@@ -92,7 +105,7 @@
       ]
     },
     {
-      "id": "page5",
+      "id": "page4",
       "blocks": [
         {
           "type": "image",
@@ -115,7 +128,7 @@
       ]
     },
     {
-      "id": "page6",
+      "id": "page5",
       "blocks": [
         {
           "type": "image",
@@ -138,7 +151,7 @@
       ]
     },
     {
-      "id": "page7",
+      "id": "page6",
       "blocks": [
         {
           "type": "heading",
@@ -164,7 +177,12 @@
             "style": "grid",
             "heightMm": 40
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page7",
+      "blocks": [
         {
           "type": "question",
           "id": "ex3",
@@ -203,7 +221,12 @@
             "style": "grid",
             "heightMm": 40
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page9",
+      "blocks": [
         {
           "type": "question",
           "id": "ex6",
@@ -225,7 +248,7 @@
       ]
     },
     {
-      "id": "page9",
+      "id": "page10",
       "blocks": [
         {
           "type": "heading",
@@ -251,7 +274,12 @@
             "style": "lines",
             "heightMm": 50
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page11",
+      "blocks": [
         {
           "type": "question",
           "id": "ex10",
@@ -269,7 +297,12 @@
             "style": "lines",
             "heightMm": 70
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "page12",
+      "blocks": [
         {
           "type": "heading",
           "id": "h_enrichment",
