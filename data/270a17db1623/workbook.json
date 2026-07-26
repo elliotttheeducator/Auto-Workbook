@@ -1,0 +1,254 @@
+{
+  "id": "270a17db1623",
+  "title": "Y9 Chapter 7A - Angles and triangles",
+  "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
+  "pages": [
+    {
+      "id": "page4",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "bu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "heading",
+          "id": "h_nyt1",
+          "text": "Now you try (Example 1)"
+        },
+        {
+          "type": "question",
+          "id": "nyt1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page5",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_nyt2",
+          "text": "Now you try (Example 2)"
+        },
+        {
+          "type": "question",
+          "id": "nyt2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page6",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_nyt3",
+          "text": "Now you try (Example 3)"
+        },
+        {
+          "type": "question",
+          "id": "nyt3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page7",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_ex7a",
+          "text": "Exercise 7A"
+        },
+        {
+          "type": "heading",
+          "id": "h_fluency",
+          "text": "Fluency"
+        },
+        {
+          "type": "question",
+          "id": "ex1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "page8",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "ex4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "heading",
+          "id": "h_probsolv",
+          "text": "Problem-solving"
+        },
+        {
+          "type": "question",
+          "id": "ex5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "page9",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_reasoning",
+          "text": "Reasoning"
+        },
+        {
+          "type": "question",
+          "id": "ex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 50
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 50
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 60
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 70
+          }
+        },
+        {
+          "type": "heading",
+          "id": "h_enrichment",
+          "text": "Enrichment: Algebra in geometry"
+        },
+        {
+          "type": "question",
+          "id": "ex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        }
+      ]
+    }
+  ],
+  "groupLayout": {}
+}

@@ -1,0 +1,60 @@
+[
+  {
+    "page": 4,
+    "blocks": [
+      {"type": "heading", "id": "h_bu", "text": "Building Understanding"},
+      {"type": "question", "id": "bu1", "rect": [55, 85, 530, 172], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
+      {"type": "question", "id": "bu2", "rect": [55, 174, 530, 249], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "bu3", "rect": [55, 250, 530, 435], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
+      {"type": "question", "id": "bu4", "rect": [55, 439, 530, 503], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20},
+      {"type": "heading", "id": "h_nyt1", "text": "Now you try (Example 1)"},
+      {"type": "question", "id": "nyt1", "rect": [55, 660, 530, 698], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 20}
+    ]
+  },
+  {
+    "page": 5,
+    "blocks": [
+      {"type": "heading", "id": "h_nyt2", "text": "Now you try (Example 2)"},
+      {"type": "question", "id": "nyt2", "rect": [55, 433, 530, 565], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
+    ]
+  },
+  {
+    "page": 6,
+    "blocks": [
+      {"type": "heading", "id": "h_nyt3", "text": "Now you try (Example 3)"},
+      {"type": "question", "id": "nyt3", "rect": [55, 527, 530, 658], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
+    ]
+  },
+  {
+    "page": 7,
+    "blocks": [
+      {"type": "heading", "id": "h_ex7a", "text": "Exercise 7A"},
+      {"type": "heading", "id": "h_fluency", "text": "Fluency"},
+      {"type": "question", "id": "ex1", "rect": [50, 110, 530, 172], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60},
+      {"type": "question", "id": "ex2", "rect": [50, 175, 530, 382], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "ex3", "rect": [50, 384, 530, 700], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 70}
+    ]
+  },
+  {
+    "page": 8,
+    "blocks": [
+      {"type": "question", "id": "ex4", "rect": [50, 50, 530, 342], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "heading", "id": "h_probsolv", "text": "Problem-solving"},
+      {"type": "question", "id": "ex5", "rect": [50, 362, 530, 418], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "ex6", "rect": [50, 420, 530, 520], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40},
+      {"type": "question", "id": "ex7", "rect": [50, 545, 530, 700], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 70}
+    ]
+  },
+  {
+    "page": 9,
+    "blocks": [
+      {"type": "heading", "id": "h_reasoning", "text": "Reasoning"},
+      {"type": "question", "id": "ex8", "rect": [50, 76, 530, 215], "workingSpaceStyle": "lines", "workingSpaceHeightMm": 50},
+      {"type": "question", "id": "ex9", "rect": [50, 214, 530, 315], "workingSpaceStyle": "lines", "workingSpaceHeightMm": 50},
+      {"type": "question", "id": "ex10", "rect": [50, 313, 530, 406], "workingSpaceStyle": "lines", "workingSpaceHeightMm": 60},
+      {"type": "question", "id": "ex11", "rect": [50, 404, 530, 438], "workingSpaceStyle": "lines", "workingSpaceHeightMm": 70},
+      {"type": "heading", "id": "h_enrichment", "text": "Enrichment: Algebra in geometry"},
+      {"type": "question", "id": "ex12", "rect": [50, 461, 530, 690], "workingSpaceStyle": "grid", "workingSpaceHeightMm": 60}
+    ]
+  }
+]

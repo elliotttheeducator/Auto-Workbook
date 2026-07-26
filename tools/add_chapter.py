@@ -12,13 +12,20 @@ Usage:
     python add_chapter.py --pdf chapter.pdf --proposals proposals.json \
         --title "Y9 Chapter 7 - Angles and triangles" --data-dir ../data
 
-proposals.json shape: a list with one entry per PDF page, each entry a
-list of block dicts:
+proposals.json shape: a list of {"page": <0-indexed source PDF page>,
+"blocks": [...]} entries - only pages with actual workbook content need
+an entry, in whatever order they should appear (normally source order),
+so intro/lesson-starter/worked-example pages can just be omitted rather
+than needing an empty placeholder. Each block dict:
     {"type": "heading", "id": "h1", "text": "Exercise 1"}
     {"type": "image", "id": "diagram1", "rect": [x0, y0, x1, y1]}
     {"type": "question", "id": "ex1a", "rect": [x0, y0, x1, y1],
-     "contextImageId": "diagram1", "workingSpaceHeightPt": 60}
+     "contextImageId": "diagram1",
+     "workingSpaceStyle": "grid", "workingSpaceHeightMm": 40}
 rect is in PDF points with a top-left origin (fitz's native convention).
+workingSpaceStyle is "grid" (default), "lines" (ruled, for written/proof
+answers), or "none". workingSpaceHeightMm defaults to 40 (medium) if
+omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
 """
 from __future__ import annotations
 
@@ -31,8 +38,8 @@ import fitz  # PyMuPDF
 
 CROP_ZOOM = 3  # ~216 DPI, matches print quality
 GRID_MM = 5
+RULE_MM = 10
 SIZE_MEDIUM_MM = 40
-PT_TO_MM = 25.4 / 72
 
 
 def snap_down(value_mm: float, spacing_mm: float) -> float:
@@ -41,22 +48,23 @@ def snap_down(value_mm: float, spacing_mm: float) -> float:
 
 
 def working_space_for(proposal: dict) -> dict:
-    height_pt = proposal.get("workingSpaceHeightPt")
-    if height_pt is not None:
-        return {"style": "grid", "heightMm": snap_down(height_pt * PT_TO_MM, GRID_MM)}
-    return {"style": "grid", "heightMm": SIZE_MEDIUM_MM}
+    style = proposal.get("workingSpaceStyle", "grid")
+    height_mm = proposal.get("workingSpaceHeightMm", SIZE_MEDIUM_MM)
+    spacing = RULE_MM if style == "lines" else GRID_MM
+    return {"style": style, "heightMm": snap_down(height_mm, spacing)}
 
 
-def build_project(pdf_path: str, title: str, pages_proposals: list[list[dict]], project_dir: str, project_id: str) -> dict:
+def build_project(pdf_path: str, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:
     crops_dir = os.path.join(project_dir, "crops")
     os.makedirs(crops_dir, exist_ok=True)
 
     pages = []
     with fitz.open(pdf_path) as doc:
-        for page_no, proposals in enumerate(pages_proposals):
+        for entry in pages_proposals:
+            page_no = entry["page"]
             page = doc[page_no]
             blocks = []
-            for p in proposals:
+            for p in entry["blocks"]:
                 if p["type"] == "heading":
                     blocks.append({"type": "heading", "id": p["id"], "text": p.get("text", "")})
                     continue
