@@ -17,6 +17,7 @@ import {
   PAGE_MARGIN_MM,
   RULE_MM,
   SIZE_PRESETS_MM,
+  canShrink,
   escapeHtml,
   iterRenderUnits,
   snapDown,
@@ -30,6 +31,12 @@ const CSS_PX_PER_MM = 96 / 25.4;
 // a second sheet anyway.
 const PAGE_SAFETY_MARGIN_MM = 3;
 const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM - PAGE_SAFETY_MARGIN_MM) * CSS_PX_PER_MM;
+// Below this, a sheet's trailing blank space is just normal slack from
+// bin-packing (the next unit genuinely didn't fit) - not worth surfacing
+// as an actionable prompt. At or above it, there's room for a real
+// "shrink to fit more in" suggestion to make sense of.
+const MIN_SQUEEZE_MM = SIZE_PRESETS_MM.small;
+const MIN_SQUEEZE_PX = MIN_SQUEEZE_MM * CSS_PX_PER_MM;
 
 let measurerEl = null;
 function getMeasurer() {
@@ -80,11 +87,12 @@ function bundleEnd(units, i) {
 // sheets as fit them, in order, never splitting a unit (question/group/
 // image/heading) across two sheets - the same atomicity break-inside:
 // avoid already gives these in print, just decided up front instead.
-// Returns an array of sheets, each an array of the unit objects on it
-// (almost always a single sheet; more only if content overflows one).
+// Returns { sheets, leftoverPx }: sheets is an array of sheets, each an
+// array of the unit objects on it (almost always a single sheet; more
+// only if content overflows one); leftoverPx[i] is how much usable
+// height sheet i finished with unused, for the "squeeze in" prompt to
+// judge whether a sheet has room worth offering to reclaim.
 async function paginateUnits(units) {
-  if (units.length <= 1) return [units];
-
   const measurer = getMeasurer();
   measurer.innerHTML = units.map((u) => u.html).join("");
   await waitForImages(measurer);
@@ -94,6 +102,7 @@ async function paginateUnits(units) {
   const heights = bottoms.map((bottom, i) => (i === 0 ? bottom : bottom - bottoms[i - 1]));
 
   const sheets = [[]];
+  const sheetHeights = [];
   let sheetHeight = 0;
   for (let i = 0; i < units.length; i++) {
     let requiredHeight = heights[i];
@@ -102,12 +111,16 @@ async function paginateUnits(units) {
     }
     if (sheets[sheets.length - 1].length > 0 && sheetHeight + requiredHeight > USABLE_HEIGHT_PX) {
       sheets.push([]);
+      sheetHeights.push(sheetHeight);
       sheetHeight = 0;
     }
     sheets[sheets.length - 1].push(units[i]);
     sheetHeight += heights[i];
   }
-  return sheets;
+  sheetHeights.push(sheetHeight);
+
+  const leftoverPx = sheetHeights.map((used) => USABLE_HEIGHT_PX - used);
+  return { sheets, leftoverPx };
 }
 
 function cropHtml(cropsBaseUrl, crop, contextImage, widthMm) {
@@ -242,7 +255,8 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     const ws = (combinedBlocks[gid] && combinedBlocks[gid].workingSpace) || DEFAULT_COMBINED_WS;
     const crop = cropHtml(cropsBaseUrl, gid);
     const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
-    return [{ html, heading: false, groupId: gid, groupFirstRow: true }];
+    const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(ws) }];
+    return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets }];
   }
 
   // Split parts render two to a row (see .split-row) - most part crops
@@ -266,9 +280,29 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     const rowHtml = `<div class="split-row">${row.join("")}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
-    units.push({ html, heading: false, groupId: gid, groupFirstRow: isFirstRow });
+    const wsTargets = [blocks[i], blocks[i + 1]]
+      .filter(Boolean)
+      .map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b.workingSpace) }));
+    units.push({ html, heading: false, groupId: gid, groupFirstRow: isFirstRow, wsTargets });
   }
   return units;
+}
+
+// A sheet that finished with a meaningful gap, and a following sheet
+// (for the same logical page) still to come, is worth flagging - offer
+// to shrink every working space already on this sheet plus the very
+// next unit queued after it, which is often enough to pull that unit up
+// onto the space that's currently going to waste.
+function squeezeInHtml(sheetUnits, nextUnit) {
+  const targets = [];
+  for (const u of sheetUnits) if (u.wsTargets) targets.push(...u.wsTargets);
+  if (nextUnit && nextUnit.wsTargets) targets.push(...nextUnit.wsTargets);
+  // Nothing to offer if every candidate is already at its floor (e.g.
+  // "None" style, or already the smallest preset) - the button would
+  // just sit there doing nothing when clicked.
+  if (!targets.some((t) => t.canShrink)) return "";
+  const idsAttr = targets.map((t) => `${t.kind}:${escapeHtml(t.id)}`).join(",");
+  return `<button class="squeeze-in" data-action="squeeze-in" data-ids="${idsAttr}">There's room here - shrink to squeeze in the next question ↓</button>`;
 }
 
 export async function renderEditor(workbook, cropsBaseUrl) {
@@ -298,7 +332,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         } else {
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
-          units.push({ html, heading: false });
+          units.push({
+            html,
+            heading: false,
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b.workingSpace) }],
+          });
         }
         return;
       }
@@ -327,8 +365,9 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
     }
 
-    const sheets = await paginateUnits(units);
-    for (const sheet of sheets) {
+    const { sheets, leftoverPx } = await paginateUnits(units);
+    for (let i = 0; i < sheets.length; i++) {
+      const sheet = sheets[i];
       // A later row of a split question can still end up starting a
       // fresh sheet if the whole question doesn't fit one page - without
       // some marker, that sheet would open on bare parts with no visible
@@ -341,7 +380,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       if (first && first.groupId && !first.groupFirstRow) {
         continued = groupStems[first.groupId] || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
       }
-      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}</div>`);
+      // Only a sheet with more of this same logical page still queued
+      // behind it can usefully squeeze anything in - the last sheet has
+      // nothing left to pull forward.
+      const squeeze =
+        i < sheets.length - 1 && leftoverPx[i] >= MIN_SQUEEZE_PX ? squeezeInHtml(sheet, sheets[i + 1][0]) : "";
+      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
     }
   }
 

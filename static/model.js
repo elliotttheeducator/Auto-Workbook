@@ -17,6 +17,31 @@ export function snapDown(valueMm, spacingMm) {
   return steps * spacingMm;
 }
 
+// Shared between render.js (deciding whether a "squeeze in" prompt would
+// actually do anything before offering it) and app.js (acting on a click)
+// - a single source of truth for "is there room to shrink this further,"
+// so the two can never disagree about it.
+export function canShrink(ws) {
+  if (!ws || ws.style === "none") return false;
+  const floor = ws.style === "lines" ? RULE_MM * 2 : SIZE_PRESETS_MM.small;
+  return ws.heightMm > floor;
+}
+
+// One step down from wherever a working space's height currently sits -
+// the next-smaller S/M/L preset for grid, or one ruled line for lines.
+// Returns false (no-op) when canShrink() would already say there's
+// nothing left to shrink.
+export function shrinkOneStep(ws) {
+  if (!canShrink(ws)) return false;
+  if (ws.style === "lines") {
+    ws.heightMm = Math.max(RULE_MM * 2, ws.heightMm - RULE_MM);
+    return true;
+  }
+  const smallerPresets = Object.values(SIZE_PRESETS_MM).filter((mm) => mm < ws.heightMm);
+  ws.heightMm = smallerPresets.length ? Math.max(...smallerPresets) : SIZE_PRESETS_MM.small;
+  return true;
+}
+
 // Question ids follow "<prefix><digits><letter>" (e.g. ex1a, ex1b) - the
 // same convention the sibling tutoring project uses. The group id is
 // never stored, always derived from the id.

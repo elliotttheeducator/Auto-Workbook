@@ -1,5 +1,5 @@
 import * as db from "./db.js";
-import { applyOverrides, escapeHtml, extractOverrides, RULE_MM, SIZE_PRESETS_MM } from "./model.js";
+import { applyOverrides, escapeHtml, extractOverrides, RULE_MM, shrinkOneStep, SIZE_PRESETS_MM } from "./model.js";
 import { renderEditor } from "./render.js";
 
 const appEl = document.getElementById("app");
@@ -73,6 +73,12 @@ function stepGroupHeight(gid, spacing, delta) {
 
 function setGroupColumns(gid, columns) {
   ensureCombinedBlock(gid).workingSpace.columns = columns;
+}
+
+function workingSpaceFor(kind, id) {
+  if (kind === "group") return ensureCombinedBlock(id).workingSpace;
+  const b = findBlock(id);
+  return b && b.type === "question" ? b.workingSpace : null;
 }
 
 async function persistAndRerenderEditor() {
@@ -164,6 +170,22 @@ appEl.addEventListener("click", (e) => {
   if (action === "set-layout") {
     currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
     persistAndRerenderEditor();
+    return;
+  }
+
+  if (action === "squeeze-in") {
+    const targets = (el.dataset.ids || "")
+      .split(",")
+      .filter(Boolean)
+      .map((spec) => {
+        const sep = spec.indexOf(":");
+        return { kind: spec.slice(0, sep), id: spec.slice(sep + 1) };
+      });
+    let changed = false;
+    for (const { kind, id } of targets) {
+      if (shrinkOneStep(workingSpaceFor(kind, id))) changed = true;
+    }
+    if (changed) persistAndRerenderEditor();
     return;
   }
 
