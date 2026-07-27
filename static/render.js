@@ -63,14 +63,16 @@ function waitForImages(container) {
   );
 }
 
-// A heading is never worth printing alone at the bottom of a sheet with
-// its own content pushed to the next one - find how far a "glued
-// bundle" starting at a heading extends: through any run of consecutive
-// headings (an exercise title followed by a tier heading, say), plus
-// one more unit beyond them, so the bundle always ends on real content.
+// A heading - or a question's shared stem/context image sitting right
+// before its first split part - is never worth printing alone at the
+// bottom of a sheet with its own content pushed to the next one: find
+// how far a "glued bundle" starting at such a unit extends, through any
+// run of consecutive headings (an exercise title followed by a tier
+// heading, say) plus one more unit beyond them, so the bundle always
+// ends on real content.
 function bundleEnd(units, i) {
   let j = i;
-  while (j < units.length - 1 && units[j].heading) j++;
+  while (j < units.length - 1 && units[j].glueForward) j++;
   return j;
 }
 
@@ -78,10 +80,10 @@ function bundleEnd(units, i) {
 // sheets as fit them, in order, never splitting a unit (question/group/
 // image/heading) across two sheets - the same atomicity break-inside:
 // avoid already gives these in print, just decided up front instead.
-// Returns an array of sheets, each an array of the unit html strings on
-// it (almost always a single sheet; more only if content overflows one).
+// Returns an array of sheets, each an array of the unit objects on it
+// (almost always a single sheet; more only if content overflows one).
 async function paginateUnits(units) {
-  if (units.length <= 1) return [units.map((u) => u.html)];
+  if (units.length <= 1) return [units];
 
   const measurer = getMeasurer();
   measurer.innerHTML = units.map((u) => u.html).join("");
@@ -95,14 +97,14 @@ async function paginateUnits(units) {
   let sheetHeight = 0;
   for (let i = 0; i < units.length; i++) {
     let requiredHeight = heights[i];
-    if (units[i].heading) {
+    if (units[i].glueForward) {
       for (let k = i + 1; k <= bundleEnd(units, i); k++) requiredHeight += heights[k];
     }
     if (sheets[sheets.length - 1].length > 0 && sheetHeight + requiredHeight > USABLE_HEIGHT_PX) {
       sheets.push([]);
       sheetHeight = 0;
     }
-    sheets[sheets.length - 1].push(units[i].html);
+    sheets[sheets.length - 1].push(units[i]);
     sheetHeight += heights[i];
   }
   return sheets;
@@ -240,7 +242,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     const ws = (combinedBlocks[gid] && combinedBlocks[gid].workingSpace) || DEFAULT_COMBINED_WS;
     const crop = cropHtml(cropsBaseUrl, gid);
     const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
-    return [{ html, heading: false }];
+    return [{ html, heading: false, groupId: gid, groupFirstRow: true }];
   }
 
   // Split parts render two to a row (see .split-row) - most part crops
@@ -249,7 +251,9 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   // its own pagination unit (never split part-from-partner), so a long
   // split question still breaks cleanly between rows across sheets; the
   // layout picker travels with the first row so it's never separated
-  // from it.
+  // from it. groupId/groupFirstRow let renderEditor glue a preceding
+  // stem to this group's first row, and label any later row that ends
+  // up starting a fresh sheet with which question it continues.
   const partHtml = (b) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
     return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
@@ -260,8 +264,9 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     const row = [partHtml(blocks[i])];
     if (blocks[i + 1]) row.push(partHtml(blocks[i + 1]));
     const rowHtml = `<div class="split-row">${row.join("")}</div>`;
-    const html = `<div class="group">${i === 0 ? controls : ""}${rowHtml}</div>`;
-    units.push({ html, heading: false });
+    const isFirstRow = i === 0;
+    const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
+    units.push({ html, heading: false, groupId: gid, groupFirstRow: isFirstRow });
   }
   return units;
 }
@@ -297,9 +302,27 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       continue;
     }
 
+    // A heading, or a question's shared stem/context image sitting right
+    // before its own first split part, is never worth stranding alone at
+    // the bottom of a sheet - see bundleEnd() in paginateUnits().
+    for (let i = 0; i < units.length; i++) {
+      const next = units[i + 1];
+      units[i].glueForward = units[i].heading || (!units[i].groupId && !!next && next.groupFirstRow);
+    }
+
     const sheets = await paginateUnits(units);
     for (const sheet of sheets) {
-      physicalPagesHtml.push(`<div class="page">${sheet.join("")}</div>`);
+      // A later row of a split question can still end up starting a
+      // fresh sheet if the whole question doesn't fit one page - without
+      // some marker, that sheet would open on bare parts with no visible
+      // indication of which question they belong to ("the question
+      // disappears"). Label it with the question's id when that happens.
+      const first = sheet[0];
+      const continued =
+        first && first.groupId && !first.groupFirstRow
+          ? `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`
+          : "";
+      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}</div>`);
     }
   }
 
