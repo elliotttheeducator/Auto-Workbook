@@ -1,5 +1,5 @@
 import * as db from "./db.js";
-import { escapeHtml, RULE_MM, SIZE_PRESETS_MM } from "./model.js";
+import { applyOverrides, escapeHtml, extractOverrides, RULE_MM, SIZE_PRESETS_MM } from "./model.js";
 import { renderEditor } from "./render.js";
 
 const appEl = document.getElementById("app");
@@ -76,7 +76,7 @@ function setGroupColumns(gid, columns) {
 }
 
 async function persistAndRerenderEditor() {
-  await db.saveProject(currentWorkbook);
+  await db.saveOverrides(currentProjectId, extractOverrides(currentWorkbook));
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
 }
 
@@ -112,18 +112,21 @@ async function renderHomeView() {
 }
 
 async function renderEditorView(id) {
-  let workbook = await db.loadProject(id);
-  if (!workbook) {
-    try {
-      const res = await fetch(`data/${id}/workbook.json`);
-      if (!res.ok) throw new Error(`no such project: ${id}`);
-      workbook = await res.json();
-    } catch (err) {
-      console.error(err);
-      location.hash = "#/";
-      return;
-    }
+  // Content (pages/blocks/crops) always comes fresh from the repo, never
+  // from a previous save - only the user's own layout/size choices are
+  // layered on top, so a content or crop fix pushed to data/<id> shows up
+  // immediately even in a browser that already edited this project.
+  let workbook;
+  try {
+    const res = await fetch(`data/${id}/workbook.json`);
+    if (!res.ok) throw new Error(`no such project: ${id}`);
+    workbook = await res.json();
+  } catch (err) {
+    console.error(err);
+    location.hash = "#/";
+    return;
   }
+  applyOverrides(workbook, await db.loadOverrides(id));
   currentWorkbook = workbook;
   currentProjectId = id;
 
@@ -152,7 +155,7 @@ appEl.addEventListener("click", (e) => {
 
   if (action === "delete-project") {
     if (confirm("Reset your edits for this project back to Claude's original detection?")) {
-      db.deleteProject(el.dataset.id).then(renderHomeView);
+      db.deleteOverrides(el.dataset.id).then(renderHomeView);
     }
     return;
   }

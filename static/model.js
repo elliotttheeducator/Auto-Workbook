@@ -60,6 +60,58 @@ export function iterRenderUnits(blocks) {
   return units;
 }
 
+// Everything a user can change through the editor's own controls (split
+// vs combined, working-space style/size/columns) - the only state that
+// needs to survive a reload. Deliberately never the page/block content
+// itself (crops, ids, text): that always comes fresh from workbook.json,
+// so a content or crop fix pushed to the repo is visible immediately,
+// even to a browser that already saved edits for this project.
+export function extractOverrides(workbook) {
+  const blockWorkingSpace = {};
+  for (const page of workbook.pages) {
+    for (const b of page.blocks) {
+      if (b.type === "question") blockWorkingSpace[b.id] = b.workingSpace;
+    }
+  }
+  return {
+    groupLayout: { ...(workbook.groupLayout || {}) },
+    combinedBlocks: { ...(workbook.combinedBlocks || {}) },
+    blockWorkingSpace,
+  };
+}
+
+// Layers previously-saved overrides onto a freshly-fetched workbook, in
+// place - skipping any group/block id the fresh content no longer has,
+// so a removed or renamed block can never leave a dangling override
+// pointing at nothing.
+export function applyOverrides(workbook, overrides) {
+  if (!overrides) return workbook;
+  if (overrides.groupLayout) {
+    for (const gid of Object.keys(overrides.groupLayout)) {
+      if (workbook.groupLayout && gid in workbook.groupLayout) {
+        workbook.groupLayout[gid] = overrides.groupLayout[gid];
+      }
+    }
+  }
+  if (overrides.combinedBlocks) {
+    for (const gid of Object.keys(overrides.combinedBlocks)) {
+      if (workbook.combinedBlocks && gid in workbook.combinedBlocks) {
+        workbook.combinedBlocks[gid] = overrides.combinedBlocks[gid];
+      }
+    }
+  }
+  if (overrides.blockWorkingSpace) {
+    for (const page of workbook.pages) {
+      for (const b of page.blocks) {
+        if (b.type === "question" && overrides.blockWorkingSpace[b.id]) {
+          b.workingSpace = overrides.blockWorkingSpace[b.id];
+        }
+      }
+    }
+  }
+  return workbook;
+}
+
 export function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
