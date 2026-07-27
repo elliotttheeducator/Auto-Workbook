@@ -23,7 +23,13 @@ import {
 } from "./model.js";
 
 const CSS_PX_PER_MM = 96 / 25.4;
-const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM) * CSS_PX_PER_MM;
+// A few mm of slack against sub-pixel measurement/rounding differences
+// between this on-screen measurement and the browser's own print layout
+// pass - packing right up to the exact edge risks a unit that measured
+// as "just fits" rendering a hair taller at print time and spilling onto
+// a second sheet anyway.
+const PAGE_SAFETY_MARGIN_MM = 3;
+const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM - PAGE_SAFETY_MARGIN_MM) * CSS_PX_PER_MM;
 
 let measurerEl = null;
 function getMeasurer() {
@@ -237,16 +243,27 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     return [{ html, heading: false }];
   }
 
-  // Each part keeps its own .group wrapper (its border/padding are
-  // print-only cosmetic - print strips both, so this doesn't change the
-  // exported PDF at all); the layout picker travels with the first part
-  // so it's never separated from it.
-  return blocks.map((b, i) => {
+  // Split parts render two to a row (see .split-row) - most part crops
+  // are far narrower than a full page, so one-per-row wasted most of the
+  // sheet on blank margin either side of a small diagram. Each row is
+  // its own pagination unit (never split part-from-partner), so a long
+  // split question still breaks cleanly between rows across sheets; the
+  // layout picker travels with the first row so it's never separated
+  // from it.
+  const partHtml = (b) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
-    const part = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
-    const html = `<div class="group">${i === 0 ? controls : ""}${part}</div>`;
-    return { html, heading: false };
-  });
+    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+  };
+
+  const units = [];
+  for (let i = 0; i < blocks.length; i += 2) {
+    const row = [partHtml(blocks[i])];
+    if (blocks[i + 1]) row.push(partHtml(blocks[i + 1]));
+    const rowHtml = `<div class="split-row">${row.join("")}</div>`;
+    const html = `<div class="group">${i === 0 ? controls : ""}${rowHtml}</div>`;
+    units.push({ html, heading: false });
+  }
+  return units;
 }
 
 export async function renderEditor(workbook, cropsBaseUrl) {

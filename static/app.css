@@ -84,6 +84,21 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .block-crop img { max-width: 100%; display: block; }
 .group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
 .group .block-crop { margin-bottom: 6px; }
+/* Split parts render two to a row instead of one full page width each -
+   most part crops are far narrower than a whole page, so a single
+   full-width part wastes most of the sheet on blank margin either side
+   of a small diagram. inline-block, not flex or float: Chromium's print
+   pagination doesn't reliably fragment flex containers (a row could get
+   sliced in half across a page break) and can drop floated content
+   entirely near a page break - both are real, reproduced bugs here.
+   Plain inline-level boxes take part in ordinary text-flow fragmentation,
+   which print has handled correctly forever. font-size:0/1rem is the
+   standard trick to remove the whitespace gap the HTML source's own line
+   breaks would otherwise put between adjacent inline-block elements. */
+.split-row { font-size: 0; }
+.split-row .block.question { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
+.split-row .block.question:only-child { width: 100%; }
+.split-row .block.question:last-child:not(:only-child) { margin-left: 8mm; }
 .group-controls {
   display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
   font-size: 10px; color: #555;
