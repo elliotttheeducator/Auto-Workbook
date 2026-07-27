@@ -2,15 +2,105 @@
 // there is no separate print layout; @media print in app.css just hides
 // the controls (topbar, pickers, layout radios) on this same markup, so
 // what you see in the booklet view is what prints.
+//
+// That parity depends on every ".page" div already being exactly one
+// physical sheet's worth of content before it ever reaches the browser's
+// print engine - print can only break a page where a ".page" div ends,
+// so pagination (deciding which units land on which sheet) has to happen
+// here in JS, once, rather than being left to CSS to figure out
+// differently on screen vs. in print. See paginateUnits() below.
 import {
   BOX_WIDTH_MM,
+  CONTENT_WIDTH_MM,
   GRID_MM,
+  PAGE_HEIGHT_MM,
+  PAGE_MARGIN_MM,
   RULE_MM,
   SIZE_PRESETS_MM,
   escapeHtml,
   iterRenderUnits,
   snapDown,
 } from "./model.js";
+
+const CSS_PX_PER_MM = 96 / 25.4;
+const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM) * CSS_PX_PER_MM;
+
+let measurerEl = null;
+function getMeasurer() {
+  if (!measurerEl) {
+    measurerEl = document.createElement("div");
+    // position:absolute both moves this off-screen and gives it its own
+    // block formatting context, so a first/last child's margin renders
+    // fully inside the measured box instead of collapsing out through it.
+    measurerEl.style.position = "absolute";
+    measurerEl.style.visibility = "hidden";
+    measurerEl.style.pointerEvents = "none";
+    measurerEl.style.left = "-99999px";
+    measurerEl.style.top = "0";
+    measurerEl.style.width = `${CONTENT_WIDTH_MM}mm`;
+    document.body.appendChild(measurerEl);
+  }
+  return measurerEl;
+}
+
+function waitForImages(container) {
+  const imgs = Array.from(container.querySelectorAll("img"));
+  return Promise.all(
+    imgs.map((img) =>
+      img.complete
+        ? Promise.resolve()
+        : new Promise((resolve) => {
+            img.addEventListener("load", resolve, { once: true });
+            img.addEventListener("error", resolve, { once: true });
+          })
+    )
+  );
+}
+
+// A heading is never worth printing alone at the bottom of a sheet with
+// its own content pushed to the next one - find how far a "glued
+// bundle" starting at a heading extends: through any run of consecutive
+// headings (an exercise title followed by a tier heading, say), plus
+// one more unit beyond them, so the bundle always ends on real content.
+function bundleEnd(units, i) {
+  let j = i;
+  while (j < units.length - 1 && units[j].heading) j++;
+  return j;
+}
+
+// Packs a logical workbook page's render units into as few physical
+// sheets as fit them, in order, never splitting a unit (question/group/
+// image/heading) across two sheets - the same atomicity break-inside:
+// avoid already gives these in print, just decided up front instead.
+// Returns an array of sheets, each an array of the unit html strings on
+// it (almost always a single sheet; more only if content overflows one).
+async function paginateUnits(units) {
+  if (units.length <= 1) return [units.map((u) => u.html)];
+
+  const measurer = getMeasurer();
+  measurer.innerHTML = units.map((u) => u.html).join("");
+  await waitForImages(measurer);
+  const containerTop = measurer.getBoundingClientRect().top;
+  const bottoms = Array.from(measurer.children).map((el) => el.getBoundingClientRect().bottom - containerTop);
+  measurer.innerHTML = "";
+  const heights = bottoms.map((bottom, i) => (i === 0 ? bottom : bottom - bottoms[i - 1]));
+
+  const sheets = [[]];
+  let sheetHeight = 0;
+  for (let i = 0; i < units.length; i++) {
+    let requiredHeight = heights[i];
+    if (units[i].heading) {
+      for (let k = i + 1; k <= bundleEnd(units, i); k++) requiredHeight += heights[k];
+    }
+    if (sheets[sheets.length - 1].length > 0 && sheetHeight + requiredHeight > USABLE_HEIGHT_PX) {
+      sheets.push([]);
+      sheetHeight = 0;
+    }
+    sheets[sheets.length - 1].push(units[i].html);
+    sheetHeight += heights[i];
+  }
+  return sheets;
+}
 
 function cropHtml(cropsBaseUrl, crop, contextImage, widthMm) {
   let contextHtml = "";
@@ -146,29 +236,39 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   return `<div class="group">${controls}${parts}</div>`;
 }
 
-export function renderEditor(workbook, cropsBaseUrl) {
+export async function renderEditor(workbook, cropsBaseUrl) {
   const combinedBlocks = workbook.combinedBlocks || {};
-  const pagesHtml = workbook.pages.map((page) => {
-    const blocksHtml = iterRenderUnits(page.blocks)
-      .map((unit) => {
-        if (unit.kind === "single") {
-          const b = unit.blocks[0];
-          if (b.type === "heading") return headingHtml(b);
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
-          if (b.type === "image") return `<div class="block">${crop}</div>`;
-          return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
-        }
-        const layout = workbook.groupLayout[unit.gid] || "split";
-        return renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks);
-      })
-      .join("");
-    const pageClass = page.cover ? "page page-cover" : "page";
-    return `<div class="${pageClass}">${blocksHtml}</div>`;
-  });
+  const physicalPagesHtml = [];
+
+  for (const page of workbook.pages) {
+    const units = iterRenderUnits(page.blocks).map((unit) => {
+      if (unit.kind === "single") {
+        const b = unit.blocks[0];
+        if (b.type === "heading") return { html: headingHtml(b), heading: true };
+        const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
+        if (b.type === "image") return { html: `<div class="block">${crop}</div>`, heading: false };
+        const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+        return { html, heading: false };
+      }
+      const layout = workbook.groupLayout[unit.gid] || "split";
+      return { html: renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks), heading: false };
+    });
+
+    if (page.cover) {
+      // A cover is always exactly one full-bleed image - never paginate it.
+      physicalPagesHtml.push(`<div class="page page-cover">${units.map((u) => u.html).join("")}</div>`);
+      continue;
+    }
+
+    const sheets = await paginateUnits(units);
+    for (const sheet of sheets) {
+      physicalPagesHtml.push(`<div class="page">${sheet.join("")}</div>`);
+    }
+  }
 
   const spreads = [];
-  for (let i = 0; i < pagesHtml.length; i += 2) {
-    spreads.push(`<div class="spread">${pagesHtml.slice(i, i + 2).join("")}</div>`);
+  for (let i = 0; i < physicalPagesHtml.length; i += 2) {
+    spreads.push(`<div class="spread">${physicalPagesHtml.slice(i, i + 2).join("")}</div>`);
   }
   return spreads.join("");
 }

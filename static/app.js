@@ -77,7 +77,7 @@ function setGroupColumns(gid, columns) {
 
 async function persistAndRerenderEditor() {
   await db.saveProject(currentWorkbook);
-  appEl.innerHTML = renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
+  appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
 }
 
 async function renderHomeView() {
@@ -132,7 +132,7 @@ async function renderEditorView(id) {
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
 
-  appEl.innerHTML = renderEditor(workbook, `data/${id}/crops`);
+  appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
 }
 
 async function route() {
