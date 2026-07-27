@@ -209,6 +209,15 @@ function headingHtml(b) {
 
 const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 
+// Returns one or more {html, heading} pagination units for a multi-part
+// question group - never just one joined HTML string, because that
+// would make the whole group one atomic block that pagination can only
+// ever keep together or overflow, and a long split group very easily
+// doesn't fit on one sheet (each part carries its own crop + working
+// space + controls). The combined ("whole question") view really is a
+// single crop image and stays atomic; split parts are independent and
+// need to be free to land on different sheets, same as any other
+// question would.
 function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   const safeGid = escapeHtml(gid);
   const controls =
@@ -224,16 +233,20 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     // instead of an awkward recomposition.
     const ws = (combinedBlocks[gid] && combinedBlocks[gid].workingSpace) || DEFAULT_COMBINED_WS;
     const crop = cropHtml(cropsBaseUrl, gid);
-    return `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
+    const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
+    return [{ html, heading: false }];
   }
 
-  const parts = blocks
-    .map((b) => {
-      const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
-      return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
-    })
-    .join("");
-  return `<div class="group">${controls}${parts}</div>`;
+  // Each part keeps its own .group wrapper (its border/padding are
+  // print-only cosmetic - print strips both, so this doesn't change the
+  // exported PDF at all); the layout picker travels with the first part
+  // so it's never separated from it.
+  return blocks.map((b, i) => {
+    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
+    const part = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+    const html = `<div class="group">${i === 0 ? controls : ""}${part}</div>`;
+    return { html, heading: false };
+  });
 }
 
 export async function renderEditor(workbook, cropsBaseUrl) {
@@ -241,18 +254,25 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const physicalPagesHtml = [];
 
   for (const page of workbook.pages) {
-    const units = iterRenderUnits(page.blocks).map((unit) => {
+    const units = [];
+    for (const unit of iterRenderUnits(page.blocks)) {
       if (unit.kind === "single") {
         const b = unit.blocks[0];
-        if (b.type === "heading") return { html: headingHtml(b), heading: true };
-        const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
-        if (b.type === "image") return { html: `<div class="block">${crop}</div>`, heading: false };
-        const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
-        return { html, heading: false };
+        if (b.type === "heading") {
+          units.push({ html: headingHtml(b), heading: true });
+        } else if (b.type === "image") {
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
+          units.push({ html: `<div class="block">${crop}</div>`, heading: false });
+        } else {
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
+          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+          units.push({ html, heading: false });
+        }
+        continue;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";
-      return { html: renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks), heading: false };
-    });
+      units.push(...renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks));
+    }
 
     if (page.cover) {
       // A cover is always exactly one full-bleed image - never paginate it.
