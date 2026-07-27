@@ -888,7 +888,7 @@
           "id": "ex10a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -897,7 +897,7 @@
           "id": "ex10b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1772,7 +1772,7 @@
           "id": "fbu1",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         },
@@ -1781,7 +1781,7 @@
           "id": "fbu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         }
@@ -1795,7 +1795,7 @@
           "id": "fbu3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         },
@@ -1804,7 +1804,7 @@
           "id": "fbu4",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         }
@@ -2016,7 +2016,7 @@
           "id": "fq5",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         }
@@ -2030,7 +2030,7 @@
           "id": "fq6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         }
@@ -2056,7 +2056,7 @@
           "id": "fq7a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2065,7 +2065,7 @@
           "id": "fq7b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2074,7 +2074,7 @@
           "id": "fq7c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2088,7 +2088,7 @@
           "id": "fq8a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2097,7 +2097,7 @@
           "id": "fq8b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2106,7 +2106,7 @@
           "id": "fq8c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2115,7 +2115,7 @@
           "id": "fq8d",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -2129,7 +2129,7 @@
           "id": "fq9",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2138,7 +2138,7 @@
           "id": "fq10",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -2233,7 +2233,7 @@
           "id": "gbu1",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         },
@@ -2242,7 +2242,7 @@
           "id": "gbu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -2256,7 +2256,7 @@
           "id": "gbu3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -2505,7 +2505,7 @@
           "id": "gq3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -2514,7 +2514,7 @@
           "id": "gq4",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -2556,7 +2556,7 @@
           "id": "gq6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -2757,7 +2757,7 @@
           "id": "gq14",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 40
           }
         }
@@ -2817,7 +2817,7 @@
           "id": "hbu1",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         },
@@ -2826,7 +2826,7 @@
           "id": "hbu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -2840,7 +2840,7 @@
           "id": "hbu3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -3020,7 +3020,7 @@
           "id": "hq3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -3029,7 +3029,7 @@
           "id": "hq4",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -3043,7 +3043,7 @@
           "id": "hq5",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -3052,7 +3052,7 @@
           "id": "hq6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -3066,7 +3066,7 @@
           "id": "hq7",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -3080,7 +3080,7 @@
           "id": "hq8",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -3336,13 +3336,13 @@
     },
     "fq7": {
       "workingSpace": {
-        "style": "lines",
+        "style": "grid",
         "heightMm": 40
       }
     },
     "fq8": {
       "workingSpace": {
-        "style": "lines",
+        "style": "grid",
         "heightMm": 60
       }
     },

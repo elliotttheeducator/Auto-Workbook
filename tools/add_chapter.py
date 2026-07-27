@@ -36,9 +36,17 @@ native convention). "source" (optional, default "chapter") picks which
 PDF "page" refers to - "chapter" (--pdf) or "answers" (--answers-pdf) -
 so answer pages can be interleaved into the same workbook alongside the
 chapter content they answer.
-workingSpaceStyle is "grid" (default), "lines" (ruled, for written/proof
-answers), or "none". workingSpaceHeightMm defaults to 40 (medium) if
-omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
+workingSpaceStyle is "grid" (default), "lines" (ruled), or "none". Default
+to grid even for reasoning-tier questions - it's fine for short verbal
+answers too, not just numbers. Only reach for "lines" when the question
+explicitly asks the student to write out a full explanation, proof, or
+multi-step justification from scratch ("explain why...", "prove that...",
+"complete a proof"): a "find x" (numeric), a naming/labelling question, a
+"measure and compare" question, or a "give a reason (SSS/SAS/AAA/RHS)"
+one-word-plus-a-number question all belong on grid, even when they sit
+right next to a lines-worthy proof in the same exercise.
+workingSpaceHeightMm defaults to 40 (medium) if omitted; for "lines" it's
+snapped to the nearest 10mm (one ruled line).
 workingSpaceColumns (lines style only) is 1 (default) or 2, splitting the
 ruled area into two side-by-side columns - good for a multi-part question
 where each part only needs a short answer, not a full-width line.
