@@ -1,0 +1,3315 @@
+{
+  "id": "307a5ccde935",
+  "title": "Year 9 Chapter 7: Geometry",
+  "sourcePdfName": "bee0b7c5-EMAC9_4ed_Ch07.pdf",
+  "pages": [
+    {
+      "id": "page0",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "cover"
+        }
+      ],
+      "cover": true
+    },
+    {
+      "id": "page1",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_title",
+          "text": "7A Angles and triangles",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "keyideas_intro"
+        },
+        {
+          "type": "image",
+          "id": "keyideas_point"
+        }
+      ]
+    },
+    {
+      "id": "page2",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "keyideas_triangles"
+        },
+        {
+          "type": "image",
+          "id": "keyideas_exterior"
+        },
+        {
+          "type": "heading",
+          "id": "h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "bu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu1j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page4",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bu4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bu4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "image",
+          "id": "example1"
+        },
+        {
+          "type": "heading",
+          "id": "h_nyt1",
+          "text": "Now you try (Example 1)"
+        },
+        {
+          "type": "question",
+          "id": "nyt1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "nyt1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page5",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "example2"
+        },
+        {
+          "type": "heading",
+          "id": "h_nyt2",
+          "text": "Now you try (Example 2)"
+        },
+        {
+          "type": "question",
+          "id": "nyt2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "nyt2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "nyt2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page6",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "example3"
+        },
+        {
+          "type": "heading",
+          "id": "h_nyt3",
+          "text": "Now you try (Example 3)"
+        },
+        {
+          "type": "question",
+          "id": "nyt3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "nyt3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page7",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "ex1_stem"
+        },
+        {
+          "type": "question",
+          "id": "ex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page8",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex3i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page9",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "heading",
+          "id": "h_probsolv",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "ex5_stem"
+        },
+        {
+          "type": "question",
+          "id": "ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex5h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page10",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "ex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "page11",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "ex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 50
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 50
+          }
+        }
+      ]
+    },
+    {
+      "id": "page12",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ex10_stem"
+        },
+        {
+          "type": "image",
+          "id": "ex10_diagram"
+        },
+        {
+          "type": "question",
+          "id": "ex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "page13",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_enrichment",
+          "text": "Enrichment: Algebra in geometry",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "ex12a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "ex12f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page14",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "ans_7a_h",
+          "text": "7A Answers",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "ans7a_1",
+          "widthMm": 75.1
+        }
+      ]
+    },
+    {
+      "id": "page15",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7a_2",
+          "widthMm": 75.5
+        }
+      ]
+    },
+    {
+      "id": "page16",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "b_title",
+          "text": "7B Parallel lines",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "b_ki1"
+        },
+        {
+          "type": "image",
+          "id": "b_ki2"
+        },
+        {
+          "type": "heading",
+          "id": "b_h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "bbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page17",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bbu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bbu2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "image",
+          "id": "b_ex4"
+        },
+        {
+          "type": "question",
+          "id": "bnyt4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bnyt4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bnyt4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page18",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "b_ex5"
+        },
+        {
+          "type": "question",
+          "id": "bnyt5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bnyt5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "image",
+          "id": "b_ex6"
+        },
+        {
+          "type": "question",
+          "id": "bnyt6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page19",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "b_h_ex",
+          "text": "Exercise 7B"
+        },
+        {
+          "type": "heading",
+          "id": "b_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "question",
+          "id": "bq1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page20",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bq2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "heading",
+          "id": "b_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "bq3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page21",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bq4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page22",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "b_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "bq6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq6e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq6f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page23",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "bq8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "image",
+          "id": "bq8_diagram"
+        },
+        {
+          "type": "heading",
+          "id": "b_h_enrichment",
+          "text": "Enrichment: Proof in geometry",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "b_q9demo"
+        },
+        {
+          "type": "question",
+          "id": "bq9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "bq9d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page24",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "ans_7b_h",
+          "text": "7B Answers",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "ans7b_1",
+          "widthMm": 75.5
+        }
+      ]
+    },
+    {
+      "id": "page25",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7b_2",
+          "widthMm": 75.1
+        }
+      ]
+    },
+    {
+      "id": "page26",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7b_3",
+          "widthMm": 86.1
+        }
+      ]
+    },
+    {
+      "id": "page27",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_title",
+          "text": "7F Enlargement and similar figures",
+          "style": "title"
+        }
+      ]
+    },
+    {
+      "id": "page28",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "f_ki1"
+        }
+      ]
+    },
+    {
+      "id": "page29",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "f_ki2"
+        }
+      ]
+    },
+    {
+      "id": "page30",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "fbu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "fbu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page31",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fbu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "fbu4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page32",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "f_ex13"
+        }
+      ]
+    },
+    {
+      "id": "page33",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fnyt13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "page34",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "f_ex14"
+        }
+      ]
+    },
+    {
+      "id": "page35",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fnyt14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page36",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_h_ex",
+          "text": "Exercise 7F"
+        },
+        {
+          "type": "heading",
+          "id": "f_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "question",
+          "id": "fq1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 70
+          }
+        }
+      ]
+    },
+    {
+      "id": "page37",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fq3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "page38",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "fq4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page39",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fq5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page40",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fq6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page41",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "fq7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page42",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "fq9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "fq10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page43",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "f_h_enrichment",
+          "text": "Enrichment: The Sierpinski triangle",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "fq11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "page44",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "ans_7f_h",
+          "text": "7F Answers",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "ans7f_1",
+          "widthMm": 75.1
+        }
+      ]
+    },
+    {
+      "id": "page45",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7f_2",
+          "widthMm": 75.5
+        }
+      ]
+    },
+    {
+      "id": "page46",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_title",
+          "text": "7G Similar triangles",
+          "style": "title"
+        }
+      ]
+    },
+    {
+      "id": "page47",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "g_ki1"
+        }
+      ]
+    },
+    {
+      "id": "page48",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "g_ki2"
+        }
+      ]
+    },
+    {
+      "id": "page49",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "gbu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "gbu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page50",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gbu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page51",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "g_ex15"
+        }
+      ]
+    },
+    {
+      "id": "page52",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gnyt15a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gnyt15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gnyt15c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gnyt15d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page53",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "g_ex16"
+        }
+      ]
+    },
+    {
+      "id": "page54",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gnyt16",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page55",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_h_ex",
+          "text": "Exercise 7G"
+        },
+        {
+          "type": "heading",
+          "id": "g_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "question",
+          "id": "gq1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq1h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page56",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "gq2_stem"
+        },
+        {
+          "type": "question",
+          "id": "gq2_a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq2_b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq2_c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq2_d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq2_e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq2_f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page57",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page58",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page59",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page60",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "gq7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page61",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page62",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq9d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page63",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "gq10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page64",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "gq11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "gq13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page65",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "g_h_enrichment",
+          "text": "Enrichment: Area and volume ratio",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "gq14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page66",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "ans_7g_h",
+          "text": "7G Answers",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "ans7g_1",
+          "widthMm": 75.1
+        }
+      ]
+    },
+    {
+      "id": "page67",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7g_2",
+          "widthMm": 86.1
+        }
+      ]
+    },
+    {
+      "id": "page68",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_title",
+          "text": "7H Proving and applying similar triangles",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "h_ki"
+        }
+      ]
+    },
+    {
+      "id": "page69",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "hbu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "hbu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page70",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hbu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page71",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "h_ex17a"
+        }
+      ]
+    },
+    {
+      "id": "page72",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "h_ex17b"
+        },
+        {
+          "type": "question",
+          "id": "hnyt17a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "hnyt17b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page73",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "h_ex18"
+        }
+      ]
+    },
+    {
+      "id": "page74",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hnyt18",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "page75",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_h_ex",
+          "text": "Exercise 7H"
+        },
+        {
+          "type": "heading",
+          "id": "h_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "question",
+          "id": "hq1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page76",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hq2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page77",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "hq3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page78",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hq5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page79",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hq7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page80",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hq8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page81",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "hq9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page82",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "hq10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "page83",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "h_h_enrichment",
+          "text": "Enrichment: Extended proofs",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "hq11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "hq11d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "page84",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "ans_7h_h",
+          "text": "7H Answers",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "ans7h_1",
+          "widthMm": 86.1
+        }
+      ]
+    },
+    {
+      "id": "page85",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7h_2",
+          "widthMm": 75.1
+        }
+      ]
+    },
+    {
+      "id": "page86",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "ans7h_3",
+          "widthMm": 75.5
+        }
+      ]
+    }
+  ],
+  "groupLayout": {
+    "bbu1": "combined",
+    "bbu2": "combined",
+    "bnyt4": "combined",
+    "bnyt5": "combined",
+    "bq1": "combined",
+    "bq2": "combined",
+    "bq3": "combined",
+    "bq4": "combined",
+    "bq5": "combined",
+    "bq6": "combined",
+    "bq8": "combined",
+    "bq9": "combined",
+    "fq3": "combined",
+    "fq4": "combined",
+    "fq7": "combined",
+    "fq8": "combined",
+    "gnyt15": "combined",
+    "gq1": "combined",
+    "gq5": "combined",
+    "gq7": "combined",
+    "gq8": "combined",
+    "gq9": "combined",
+    "hnyt17": "combined",
+    "hq1": "combined",
+    "hq2": "combined",
+    "hq11": "combined",
+    "bu1": "combined",
+    "bu2": "combined",
+    "bu3": "combined",
+    "bu4": "combined",
+    "nyt1": "combined",
+    "nyt2": "combined",
+    "nyt3": "combined",
+    "ex1": "combined",
+    "ex2": "combined",
+    "ex3": "combined",
+    "ex4": "combined",
+    "ex5": "combined",
+    "ex6": "combined",
+    "ex10": "combined",
+    "ex12": "combined"
+  },
+  "combinedBlocks": {
+    "bbu1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "bbu2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bnyt4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "bnyt5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "bq1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bq2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bq3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bq4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bq5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "bq6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bq8": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 60
+      }
+    },
+    "bq9": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 70
+      }
+    },
+    "fq3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 70
+      }
+    },
+    "fq4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "fq7": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 40
+      }
+    },
+    "fq8": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 60
+      }
+    },
+    "gnyt15": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "gq1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "gq5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "gq7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "gq8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "gq9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 70
+      }
+    },
+    "hnyt17": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "hq1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "hq2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "hq11": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 60
+      }
+    },
+    "bu1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bu2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "bu3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "bu4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "nyt1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "nyt2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "nyt3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 70
+      }
+    },
+    "ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    },
+    "ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "ex10": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 60
+      }
+    },
+    "ex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 60
+      }
+    }
+  }
+}

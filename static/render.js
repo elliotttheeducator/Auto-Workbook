@@ -12,12 +12,13 @@ import {
   snapDown,
 } from "./model.js";
 
-function cropHtml(cropsBaseUrl, crop, contextImage) {
+function cropHtml(cropsBaseUrl, crop, contextImage, widthMm) {
   let contextHtml = "";
   if (contextImage) {
     contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png">`;
   }
-  return `<div class="block-crop">${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
+  const style = widthMm ? ` style="width:${widthMm}mm"` : "";
+  return `<div class="block-crop"${style}>${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
 }
 
 function ruleLinesHtml(height, spacing) {
@@ -153,7 +154,7 @@ export function renderEditor(workbook, cropsBaseUrl) {
         if (unit.kind === "single") {
           const b = unit.blocks[0];
           if (b.type === "heading") return headingHtml(b);
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
           if (b.type === "image") return `<div class="block">${crop}</div>`;
           return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
         }
@@ -161,7 +162,8 @@ export function renderEditor(workbook, cropsBaseUrl) {
         return renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks);
       })
       .join("");
-    return `<div class="page">${blocksHtml}</div>`;
+    const pageClass = page.cover ? "page page-cover" : "page";
+    return `<div class="${pageClass}">${blocksHtml}</div>`;
   });
 
   const spreads = [];

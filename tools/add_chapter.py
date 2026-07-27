@@ -1,7 +1,8 @@
-"""Adds a chapter to the Worksheet Builder site's data/ folder, from a
-chapter PDF and a list of per-page block proposals (the same "which
-regions are which question" reasoning a live detection API call would
-produce, done by hand instead).
+"""Adds a chapter to the Worksheet Builder site's data/ folder, from one
+or two source PDFs (a chapter PDF and, optionally, an answers PDF) and a
+list of per-page block proposals (the same "which regions are which
+question" reasoning a live detection API call would produce, done by
+hand instead).
 
 Writes data/<id>/workbook.json and data/<id>/crops/<blockId>.png, and
 appends the new project to data/index.json - real files, committed and
@@ -9,7 +10,8 @@ pushed straight into the repo, so the static site just reads them. No
 upload step: the site never has to receive data at runtime.
 
 Usage:
-    python add_chapter.py --pdf chapter.pdf --proposals proposals.json \
+    python add_chapter.py --pdf chapter.pdf --answers-pdf answers.pdf \
+        --proposals proposals.json \
         --title "Y9 Chapter 7 - Angles and triangles" --data-dir ../data
 
 proposals.json shape: a list of {"blocks": [...]} entries, each one a
@@ -30,7 +32,10 @@ sitting alone with the rest of the sheet blank. Each block dict:
 crop "rect" out of - each block picks its own source page, so a single
 workbook page can freely combine crops pulled from several different
 source pages. rect is in PDF points with a top-left origin (fitz's
-native convention).
+native convention). "source" (optional, default "chapter") picks which
+PDF "page" refers to - "chapter" (--pdf) or "answers" (--answers-pdf) -
+so answer pages can be interleaved into the same workbook alongside the
+chapter content they answer.
 workingSpaceStyle is "grid" (default), "lines" (ruled, for written/proof
 answers), or "none". workingSpaceHeightMm defaults to 40 (medium) if
 omitted; for "lines" it's snapped to the nearest 10mm (one ruled line).
@@ -53,6 +58,12 @@ group id is "ex2"). Give the split parts ("ex2a" etc, as normal question
 blocks) a small workingSpaceHeightMm and the combinedGroups entry a
 large one - split is meant to default small (one box per part), combined
 large (one shared box for the whole question).
+
+A page entry can also be marked `"cover": true` - its (single) image
+block is rendered edge-to-edge with no page margin or heading, for a
+workbook cover/title page:
+    {"cover": true, "blocks": [{"type": "image", "id": "cover", "page": 0,
+     "rect": [0, 0, 595, 842]}]}
 """
 from __future__ import annotations
 
@@ -84,45 +95,52 @@ def working_space_for(proposal: dict) -> dict:
     return ws
 
 
-def build_project(pdf_path: str, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:
+def build_project(docs: dict, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:
     crops_dir = os.path.join(project_dir, "crops")
     os.makedirs(crops_dir, exist_ok=True)
 
+    def crop(p: dict, crop_id: str) -> None:
+        src_doc = docs[p.get("source", "chapter")]
+        src_page = src_doc[p["page"]]
+        pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
+        pix.save(os.path.join(crops_dir, f"{crop_id}.png"))
+
     pages = []
     combined_blocks = {}
-    with fitz.open(pdf_path) as doc:
-        for i, entry in enumerate(pages_proposals):
-            blocks = []
-            for p in entry["blocks"]:
-                if p["type"] == "heading":
-                    heading = {"type": "heading", "id": p["id"], "text": p.get("text", "")}
-                    if p.get("style"):
-                        heading["style"] = p["style"]
-                    if p.get("tier"):
-                        heading["tier"] = p["tier"]
-                    blocks.append(heading)
-                    continue
+    for i, entry in enumerate(pages_proposals):
+        blocks = []
+        for p in entry["blocks"]:
+            if p["type"] == "heading":
+                heading = {"type": "heading", "id": p["id"], "text": p.get("text", "")}
+                if p.get("style"):
+                    heading["style"] = p["style"]
+                if p.get("tier"):
+                    heading["tier"] = p["tier"]
+                blocks.append(heading)
+                continue
 
-                src_page = doc[p["page"]]
-                pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
-                pix.save(os.path.join(crops_dir, f"{p['id']}.png"))
+            crop(p, p["id"])
+            if p["type"] == "image":
+                image_block = {"type": "image", "id": p["id"]}
+                if p.get("source") == "answers":
+                    rect = p["rect"]
+                    image_block["widthMm"] = round((rect[2] - rect[0]) / 72 * 25.4, 1)
+                blocks.append(image_block)
+            else:
+                blocks.append({
+                    "type": "question",
+                    "id": p["id"],
+                    "contextImage": p.get("contextImageId"),
+                    "workingSpace": working_space_for(p),
+                })
+        page = {"id": f"page{i}", "blocks": blocks}
+        if entry.get("cover"):
+            page["cover"] = True
+        pages.append(page)
 
-                if p["type"] == "image":
-                    blocks.append({"type": "image", "id": p["id"]})
-                else:
-                    blocks.append({
-                        "type": "question",
-                        "id": p["id"],
-                        "contextImage": p.get("contextImageId"),
-                        "workingSpace": working_space_for(p),
-                    })
-            pages.append({"id": f"page{i}", "blocks": blocks})
-
-            for cg in entry.get("combinedGroups", []):
-                src_page = doc[cg["page"]]
-                pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*cg["rect"]))
-                pix.save(os.path.join(crops_dir, f"{cg['groupId']}.png"))
-                combined_blocks[cg["groupId"]] = {"workingSpace": working_space_for(cg)}
+        for cg in entry.get("combinedGroups", []):
+            crop(cg, cg["groupId"])
+            combined_blocks[cg["groupId"]] = {"workingSpace": working_space_for(cg)}
 
     # A combinedGroups entry only exists because it's meant to be shown -
     # default those groups to "combined" rather than making every new
@@ -131,7 +149,7 @@ def build_project(pdf_path: str, title: str, pages_proposals: list[dict], projec
     workbook = {
         "id": project_id,
         "title": title,
-        "sourcePdfName": pdf_path.split("/")[-1],
+        "sourcePdfName": os.path.basename(docs["chapter"].name),
         "pages": pages,
         "groupLayout": {gid: "combined" for gid in combined_blocks},
         "combinedBlocks": combined_blocks,
@@ -156,6 +174,7 @@ def update_index(data_dir: str, project_id: str, title: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--pdf", required=True, help="path to the chapter PDF")
+    parser.add_argument("--answers-pdf", help="path to an answers PDF, for blocks with \"source\": \"answers\"")
     parser.add_argument("--proposals", required=True, help="path to the proposals JSON")
     parser.add_argument("--title", required=True, help="chapter title shown in the editor")
     parser.add_argument("--data-dir", default="data", help="repo-relative data/ directory to write into")
@@ -168,7 +187,14 @@ def main() -> None:
     project_id = uuid.uuid4().hex[:12]
     project_dir = os.path.join(args.data_dir, project_id)
 
-    workbook = build_project(args.pdf, args.title, pages_proposals, project_dir, project_id)
+    with fitz.open(args.pdf) as chapter_doc:
+        docs = {"chapter": chapter_doc}
+        if args.answers_pdf:
+            with fitz.open(args.answers_pdf) as answers_doc:
+                docs["answers"] = answers_doc
+                workbook = build_project(docs, args.title, pages_proposals, project_dir, project_id)
+        else:
+            workbook = build_project(docs, args.title, pages_proposals, project_dir, project_id)
     update_index(args.data_dir, workbook["id"], args.title)
 
     num_crops = len([f for f in os.listdir(os.path.join(project_dir, "crops"))])

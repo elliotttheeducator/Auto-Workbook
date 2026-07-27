@@ -51,6 +51,8 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   flex: 0 0 auto; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
   padding: var(--page-margin); box-sizing: border-box;
 }
+.page-cover { padding: 0; overflow: hidden; height: var(--page-height); }
+.page-cover .block, .page-cover .block-crop, .page-cover img { margin: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .heading { font-size: 16px; font-weight: 600; margin: 12px 0 6px; color: #222; }
 .heading-title {
   font-size: 22px; font-weight: 800; margin: 22px 0 12px; padding-bottom: 6px;
@@ -126,10 +128,15 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
        should just occupy the top of it; content taller than one sheet
        should spill onto a continuation, which break-inside:avoid below
        still keeps clean. */
-    width: var(--page-width);
+    width: var(--page-width); min-height: 0;
     box-shadow: none; margin: 0; break-after: page;
   }
   .page:last-child { break-after: auto; }
+  /* The cover is always exactly one full sheet (a single image, never
+     taller than a page), so it's safe - and necessary for object-fit:
+     cover to have a height to resolve against - to fix its height here,
+     unlike normal content pages above. */
+  .page-cover { height: var(--page-height); }
   .group { border: none; padding: 0; }
   /* Never slice a working-space box (or the group/question around it)
      across a page boundary - if it doesn't fit in what's left of the
