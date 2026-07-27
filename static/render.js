@@ -304,10 +304,17 @@ export async function renderEditor(workbook, cropsBaseUrl) {
 
     // A heading, or a question's shared stem/context image sitting right
     // before its own first split part, is never worth stranding alone at
-    // the bottom of a sheet - see bundleEnd() in paginateUnits().
+    // the bottom of a sheet - see bundleEnd() in paginateUnits(). Stash
+    // the stem itself per group too: if the question runs past one
+    // sheet, every later sheet repeats the real stem rather than a bare
+    // "continued" note, the same way a real worksheet would reprint the
+    // question text above parts that spilled onto the next page.
+    const groupStems = {};
     for (let i = 0; i < units.length; i++) {
       const next = units[i + 1];
-      units[i].glueForward = units[i].heading || (!units[i].groupId && !!next && next.groupFirstRow);
+      const precedesGroupStart = !units[i].groupId && !!next && next.groupFirstRow;
+      units[i].glueForward = units[i].heading || precedesGroupStart;
+      if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
     }
 
     const sheets = await paginateUnits(units);
@@ -316,12 +323,14 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       // fresh sheet if the whole question doesn't fit one page - without
       // some marker, that sheet would open on bare parts with no visible
       // indication of which question they belong to ("the question
-      // disappears"). Label it with the question's id when that happens.
+      // disappears"). Repeat its stem if it has one; a bare id label is
+      // the fallback for the (rare, best avoided going forward) group
+      // that was never given a separate stem crop to begin with.
       const first = sheet[0];
-      const continued =
-        first && first.groupId && !first.groupFirstRow
-          ? `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`
-          : "";
+      let continued = "";
+      if (first && first.groupId && !first.groupFirstRow) {
+        continued = groupStems[first.groupId] || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
+      }
       physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}</div>`);
     }
   }
