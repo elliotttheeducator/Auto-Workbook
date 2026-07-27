@@ -43,11 +43,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 
 /* ---- editor view (screen) ---- */
 .spread {
-  display: flex; gap: 10px; justify-content: center;
+  /* align-items:flex-start (not the flex default of stretch) so a short
+     page never gets stretched to match its taller neighbor - each page
+     sizes to only its own content on screen, same as it will in print. */
+  display: flex; align-items: flex-start; gap: 10px; justify-content: center;
   margin: 16px auto; width: max-content; max-width: 100%;
 }
 .page {
-  background: white; width: var(--page-width); min-height: var(--page-height);
+  /* No min-height here on purpose - a page sizes to its actual content,
+     on screen exactly as it will in print (see the print .page rule
+     below for why forcing a fixed page height is actively harmful, not
+     just unnecessary). */
+  background: white; width: var(--page-width);
   flex: 0 0 auto; box-shadow: 0 1px 4px rgba(0,0,0,0.3);
   padding: var(--page-margin); box-sizing: border-box;
 }
@@ -121,14 +128,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
-    /* No height constraint at all here - the @page rule already fixes the
-       physical sheet size; giving the div its own min-height:297mm sized
-       it right at the edge of one sheet, and any sub-pixel rounding over
-       that pushed a near-empty page 2. Content shorter than a full sheet
-       should just occupy the top of it; content taller than one sheet
-       should spill onto a continuation, which break-inside:avoid below
+    /* No height constraint here either (see the base .page rule) - the
+       @page rule already fixes the physical sheet size, so content
+       shorter than a full sheet just occupies the top of it, and content
+       taller spills onto a continuation, which break-inside:avoid below
        still keeps clean. */
-    width: var(--page-width); min-height: 0;
+    width: var(--page-width);
     box-shadow: none; margin: 0; break-after: page;
   }
   .page:last-child { break-after: auto; }
