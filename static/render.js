@@ -276,10 +276,20 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const physicalPagesHtml = [];
 
   for (const page of workbook.pages) {
+    const renderUnits = iterRenderUnits(page.blocks);
     const units = [];
-    for (const unit of iterRenderUnits(page.blocks)) {
+    renderUnits.forEach((unit, unitIndex) => {
       if (unit.kind === "single") {
         const b = unit.blocks[0];
+        // A stem image cropped from the same source region as a group's
+        // "combined" (whole-question) crop is already baked into that
+        // crop - only show it separately when the group is split into
+        // parts, or it'd print twice back to back in combined view.
+        if (b.combinedIncludesStem) {
+          const next = renderUnits[unitIndex + 1];
+          const nextLayout = next && next.kind === "group" ? workbook.groupLayout[next.gid] || "split" : null;
+          if (nextLayout === "combined") return;
+        }
         if (b.type === "heading") {
           units.push({ html: headingHtml(b), heading: true });
         } else if (b.type === "image") {
@@ -290,11 +300,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
           units.push({ html, heading: false });
         }
-        continue;
+        return;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";
       units.push(...renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks));
-    }
+    });
 
     if (page.cover) {
       // A cover is always exactly one full-bleed image - never paginate it.

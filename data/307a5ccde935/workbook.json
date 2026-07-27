@@ -49,6 +49,11 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "bu1_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bu1a",
           "contextImage": null,
@@ -144,6 +149,11 @@
       "id": "page3",
       "blocks": [
         {
+          "type": "image",
+          "id": "bu2_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bu2a",
           "contextImage": null,
@@ -207,6 +217,11 @@
           }
         },
         {
+          "type": "image",
+          "id": "bu3_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bu3a",
           "contextImage": null,
@@ -266,6 +281,11 @@
       "id": "page4",
       "blocks": [
         {
+          "type": "image",
+          "id": "bu4_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bu4a",
           "contextImage": null,
@@ -311,6 +331,11 @@
           "text": "Now you try (Example 1)"
         },
         {
+          "type": "image",
+          "id": "nyt1_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "nyt1a",
           "contextImage": null,
@@ -341,6 +366,11 @@
           "type": "heading",
           "id": "h_nyt2",
           "text": "Now you try (Example 2)"
+        },
+        {
+          "type": "image",
+          "id": "nyt2_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -382,6 +412,11 @@
           "type": "heading",
           "id": "h_nyt3",
           "text": "Now you try (Example 3)"
+        },
+        {
+          "type": "image",
+          "id": "nyt3_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -472,6 +507,11 @@
           }
         },
         {
+          "type": "image",
+          "id": "ex2_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "ex2a",
           "contextImage": null,
@@ -530,6 +570,11 @@
     {
       "id": "page8",
       "blocks": [
+        {
+          "type": "image",
+          "id": "ex3_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "ex3a",
@@ -616,6 +661,11 @@
     {
       "id": "page9",
       "blocks": [
+        {
+          "type": "image",
+          "id": "ex4_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "ex4a",
@@ -759,6 +809,11 @@
       "id": "page10",
       "blocks": [
         {
+          "type": "image",
+          "id": "ex6_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "ex6a",
           "contextImage": null,
@@ -877,6 +932,11 @@
           "tier": "enrichment"
         },
         {
+          "type": "image",
+          "id": "ex12_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "ex12a",
           "contextImage": null,
@@ -981,6 +1041,11 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "bbu1_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bbu1a",
           "contextImage": null,
@@ -1012,6 +1077,11 @@
     {
       "id": "page17",
       "blocks": [
+        {
+          "type": "image",
+          "id": "bbu2_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "bbu2a",
@@ -1071,6 +1141,11 @@
           "id": "b_ex4"
         },
         {
+          "type": "image",
+          "id": "bnyt4_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bnyt4a",
           "contextImage": null,
@@ -1105,6 +1180,11 @@
         {
           "type": "image",
           "id": "b_ex5"
+        },
+        {
+          "type": "image",
+          "id": "bnyt5_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -1153,6 +1233,11 @@
           "text": "Fluency",
           "style": "tier",
           "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "bq1_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -1213,6 +1298,11 @@
     {
       "id": "page20",
       "blocks": [
+        {
+          "type": "image",
+          "id": "bq2_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "bq2a",
@@ -1275,6 +1365,11 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "bq3_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bq3a",
           "contextImage": null,
@@ -1334,6 +1429,11 @@
       "id": "page21",
       "blocks": [
         {
+          "type": "image",
+          "id": "bq4_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bq4a",
           "contextImage": null,
@@ -1388,6 +1488,11 @@
           }
         },
         {
+          "type": "image",
+          "id": "bq5_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bq5a",
           "contextImage": null,
@@ -1425,6 +1530,11 @@
           "text": "Reasoning",
           "style": "tier",
           "tier": "reasoning"
+        },
+        {
+          "type": "image",
+          "id": "bq6_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -1495,6 +1605,11 @@
       "id": "page23",
       "blocks": [
         {
+          "type": "image",
+          "id": "bq8_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "bq8a",
           "contextImage": null,
@@ -1535,6 +1650,11 @@
         {
           "type": "image",
           "id": "b_q9demo"
+        },
+        {
+          "type": "image",
+          "id": "bq9_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -1775,6 +1895,11 @@
       "id": "page37",
       "blocks": [
         {
+          "type": "image",
+          "id": "fq3_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "fq3a",
           "contextImage": null,
@@ -1839,6 +1964,11 @@
           "text": "Problem-solving",
           "style": "tier",
           "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "fq4_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -1917,6 +2047,11 @@
           "tier": "reasoning"
         },
         {
+          "type": "image",
+          "id": "fq7_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "fq7a",
           "contextImage": null,
@@ -1942,6 +2077,11 @@
             "style": "lines",
             "heightMm": 20
           }
+        },
+        {
+          "type": "image",
+          "id": "fq8_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -2135,6 +2275,11 @@
       "id": "page52",
       "blocks": [
         {
+          "type": "image",
+          "id": "gnyt15_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "gnyt15a",
           "contextImage": null,
@@ -2209,6 +2354,11 @@
           "text": "Fluency",
           "style": "tier",
           "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "gq1_stem",
+          "combinedIncludesStem": true
         },
         {
           "type": "question",
@@ -2374,6 +2524,11 @@
       "id": "page58",
       "blocks": [
         {
+          "type": "image",
+          "id": "gq5_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "gq5a",
           "contextImage": null,
@@ -2418,6 +2573,11 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "gq7_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "gq7a",
           "contextImage": null,
@@ -2450,6 +2610,11 @@
       "id": "page61",
       "blocks": [
         {
+          "type": "image",
+          "id": "gq8_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "gq8a",
           "contextImage": null,
@@ -2481,6 +2646,11 @@
     {
       "id": "page62",
       "blocks": [
+        {
+          "type": "image",
+          "id": "gq9_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "gq9a",
@@ -2693,6 +2863,11 @@
           "id": "h_ex17b"
         },
         {
+          "type": "image",
+          "id": "hnyt17_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "hnyt17a",
           "contextImage": null,
@@ -2751,6 +2926,11 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "hq1_stem",
+          "combinedIncludesStem": true
+        },
+        {
           "type": "question",
           "id": "hq1a",
           "contextImage": null,
@@ -2791,6 +2971,11 @@
     {
       "id": "page76",
       "blocks": [
+        {
+          "type": "image",
+          "id": "hq2_stem",
+          "combinedIncludesStem": true
+        },
         {
           "type": "question",
           "id": "hq2a",
