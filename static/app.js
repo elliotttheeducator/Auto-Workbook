@@ -182,11 +182,57 @@ async function renderEditorView(id) {
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
+    '<button id="autofit-btn" title="Repeatedly applies every \'squeeze in\' suggestion across the whole document, so you don\'t have to click through each one by hand.">Auto-fit</button> ' +
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
+  document.getElementById("autofit-btn").onclick = autoFitDocument;
 
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   layoutHangingControls();
+}
+
+// Runs the exact same shrink the "squeeze in" prompt's own click handler
+// does, just automatically and repeatedly across the whole document
+// instead of one manual click per page - a chapter can easily have 60+
+// of these prompts, and clicking through each individually isn't a
+// reasonable way to "maximise space use" in practice. Always goes after
+// the first squeeze-in button still in the document: once it stops
+// helping (nothing left it can shrink further, or the gap it was
+// offering to fill is gone), that button disappears on its own and this
+// naturally moves on to whichever one is now first.
+async function autoFitDocument() {
+  const btn = document.getElementById("autofit-btn");
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  let rounds = 0;
+  const MAX_ROUNDS = 2000;
+  try {
+    while (rounds < MAX_ROUNDS) {
+      const squeeze = appEl.querySelector(".squeeze-in");
+      if (!squeeze) break;
+      const targets = (squeeze.dataset.ids || "")
+        .split(",")
+        .filter(Boolean)
+        .map((spec) => {
+          const sep = spec.indexOf(":");
+          return { kind: spec.slice(0, sep), id: spec.slice(sep + 1) };
+        });
+      let changed = false;
+      for (const { kind, id } of targets) {
+        if (shrinkOneStep(entryFor(kind, id))) changed = true;
+      }
+      // Every target already at its floor would mean squeezeInHtml()
+      // should never have offered this button in the first place - stop
+      // rather than spin forever on a no-op if that ever happens.
+      if (!changed) break;
+      rounds++;
+      btn.textContent = `Auto-fitting… (${rounds})`;
+      await persistAndRerenderEditor();
+    }
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
 }
 
 async function route() {
