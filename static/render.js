@@ -428,26 +428,33 @@ export async function renderEditor(workbook, cropsBaseUrl) {
     const units = pending;
     pending = [];
 
-    // A heading, or any unit that's purely context with no working space
-    // of its own (a plain image, or a stem sitting right before its
-    // group's first split part), is never worth stranding alone at the
-    // bottom of a sheet, away from the real content it belongs with -
-    // see bundleEnd() in paginateUnits(). That chain can be more than
-    // one unit deep (a tier heading, then a diagram, then the stem text
-    // that finally leads into a group all glue together) - checking
-    // "has no working space of its own" rather than just "directly
-    // precedes a group" is what makes the whole chain glue, not just its
-    // last link. Stash the stem itself per group too: if the question
-    // runs past one sheet, every later sheet repeats the real stem
-    // rather than a bare "continued" note, the same way a real worksheet
-    // would reprint the question text above parts that spilled onto the
-    // next page.
+    // A heading is never worth stranding alone at the bottom of a sheet -
+    // it always glues to whatever comes right after it (one hop: just
+    // the very next unit, whatever that is - not a chain, so a heading
+    // followed by a large worked example doesn't drag along everything
+    // after that example too). A plain context-only unit (an image with
+    // no working space) only glues forward when it's *specifically* the
+    // stem for the group it immediately precedes - matched by the
+    // "{groupId}_stem" naming convention add_chapter.py uses for these,
+    // not just "any image directly before any group": a worked example's
+    // own diagram sitting right before an unrelated exercise's group is
+    // still just an image with no working space, but it isn't that
+    // group's stem, and gluing it in anyway produced bundles several
+    // unrelated blocks deep and taller than a page (see bundleEnd() in
+    // paginateUnits() for how an atomic bundle that doesn't fit still
+    // gets kept together rather than split, which is exactly why an
+    // unbounded chain here is dangerous).
     const groupStems = {};
     for (let i = 0; i < units.length; i++) {
-      const next = units[i + 1];
-      const precedesGroupStart = !units[i].groupId && !!next && next.groupFirstRow;
-      units[i].glueForward = units[i].heading || units[i].contextOnly;
-      if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
+      if (!units[i].groupId || !units[i].groupFirstRow) continue;
+      const prev = units[i - 1];
+      if (prev && prev.contextOnly && prev.id === `${units[i].groupId}_stem`) {
+        prev.glueForward = true;
+        groupStems[units[i].groupId] = prev.html;
+      }
+    }
+    for (let i = 0; i < units.length; i++) {
+      units[i].glueForward = units[i].glueForward || units[i].heading;
     }
 
     const { sheets, leftoverPx } = await paginateUnits(units);
@@ -503,7 +510,15 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           if (nextLayout === "combined") return;
         }
         if (b.type === "heading") {
-          units.push({ html: headingHtml(b), heading: true });
+          // Wrapped in one container, not two sibling top-level elements
+          // (the heading div plus a bare button) - paginateUnits()
+          // measures by reading one getBoundingClientRect() per DOM
+          // child and assumes that lines up 1:1 with the units array;
+          // two top-level children per unit desyncs every measurement
+          // after the first heading in a run, corrupting every height
+          // downstream of it.
+          const html = `<div class="heading-unit">${headingHtml(b)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          units.push({ html, heading: true, breakBefore: !!b.breakBefore });
         } else if (b.type === "image") {
           // No working space on a plain image, but it can still be the
           // tallest thing on a page (a full Key Ideas diagram, say) - it
@@ -516,6 +531,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             html,
             heading: false,
             contextOnly: true,
+            id: b.id,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
             breakBefore: !!b.breakBefore,
           });

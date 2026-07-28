@@ -135,9 +135,16 @@ export function extractOverrides(workbook) {
   const blockOverrides = {};
   for (const page of workbook.pages) {
     for (const b of page.blocks) {
-      if (b.type === "question") {
-        blockOverrides[b.id] = { workingSpace: b.workingSpace, imageScale: b.imageScale, breakBefore: b.breakBefore };
-      }
+      // Every block type can carry a manual page break; images (and
+      // questions) can also carry a diagram scale; only questions have
+      // a working space. Capturing per type here, rather than only for
+      // "question", is what lets a heading's or plain image's own
+      // overrides survive a reload too.
+      const o = {};
+      if (b.type === "question") o.workingSpace = b.workingSpace;
+      if (b.type === "question" || b.type === "image") o.imageScale = b.imageScale;
+      o.breakBefore = b.breakBefore;
+      blockOverrides[b.id] = o;
     }
   }
   return {
@@ -173,13 +180,12 @@ export function applyOverrides(workbook, overrides) {
   const legacyBlockWorkingSpace = overrides.blockWorkingSpace || {};
   for (const page of workbook.pages) {
     for (const b of page.blocks) {
-      if (b.type !== "question") continue;
       const o = blockOverrides[b.id];
       if (o) {
-        if (o.workingSpace) b.workingSpace = o.workingSpace;
+        if (o.workingSpace && b.type === "question") b.workingSpace = o.workingSpace;
         if (o.imageScale !== undefined) b.imageScale = o.imageScale;
         if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
-      } else if (legacyBlockWorkingSpace[b.id]) {
+      } else if (b.type === "question" && legacyBlockWorkingSpace[b.id]) {
         b.workingSpace = legacyBlockWorkingSpace[b.id];
       }
     }
