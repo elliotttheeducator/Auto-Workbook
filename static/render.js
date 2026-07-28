@@ -381,15 +381,25 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   // from it. groupId/groupFirstRow let renderEditor glue a preceding
   // stem to this group's first row, and label any later row that ends
   // up starting a fresh sheet with which question it continues.
-  const partHtml = (b) => {
+  // The "only one part left" / "second part in the row" width and gap
+  // rules used to lean on :only-child/:last-child - which never actually
+  // matched, since every row's hanging controls panel (see below) is
+  // always one more sibling after the part(s), so neither part is ever
+  // truly "last" or "only" in plain DOM terms. Passed in explicitly here
+  // instead (as a class, not a structural selector), so the gap between
+  // two parts, and the full-width single-part row, are never at the
+  // mercy of whatever else happens to share the row.
+  const partHtml = (b, isSecond, isOnly) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale);
-    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
+    const cls = isOnly ? "block question split-only" : isSecond ? "block question split-second" : "block question";
+    return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
 
   const units = [];
   for (let i = 0; i < blocks.length; i += 2) {
     const rowBlocks = [blocks[i], blocks[i + 1]].filter(Boolean);
-    const partsHtml = rowBlocks.map(partHtml).join("");
+    const isOnly = rowBlocks.length === 1;
+    const partsHtml = rowBlocks.map((b, idx) => partHtml(b, idx === 1, isOnly)).join("");
     // A row's two parts are locked to one shared size/style/scale - a
     // matched pair never has a real reason to size differently, and one
     // shared panel (instead of a part's own panel either side plus a

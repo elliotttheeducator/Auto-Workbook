@@ -104,8 +104,17 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    breaks would otherwise put between adjacent inline-block elements. */
 .split-row { font-size: 0; position: relative; }
 .split-row .block.question { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
-.split-row .block.question:only-child { width: 100%; }
-.split-row .block.question:last-child:not(:only-child) { margin-left: 8mm; }
+/* Explicit classes, not :only-child/:last-child - a row's hanging
+   controls panel (see .controls-hang below) is always one more sibling
+   after the part(s), so neither part is ever truly "last" or "only" in
+   plain DOM terms; those structural selectors never actually matched. */
+/* .block.question repeated here, not just .split-only/.split-second on
+   their own - matching all of the base rule's classes plus the extra
+   one keeps this at higher specificity than .split-row .block.question
+   above, which would otherwise win the width tie by class-count alone
+   regardless of source order. */
+.split-row .block.question.split-only { width: 100%; }
+.split-row .block.question.split-second { margin-left: 8mm; }
 /* A row's two diagrams are cropped straight from the source PDF, so they
    rarely share a height - left uncorrected, whichever part's diagram is
    shorter had its working-space grid start noticeably higher than its
