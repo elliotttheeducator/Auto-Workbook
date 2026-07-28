@@ -97,9 +97,37 @@ function toggleBreakBefore(kind, id) {
   if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
+// Every block/group's hanging panel (see .controls-hang in app.css) is
+// positioned against its own block, top:0 - fine on its own, but a
+// panel taller than the block it belongs to (there's often more to
+// show in the controls than there is content next to them) spills into
+// whatever's below it in the same margin column, and two panels that
+// both land there overlap into an unreadable jumble. CSS alone can't
+// fix this - it doesn't know one block's panel height when laying out
+// the next - so this runs after every render, walks each page's panels
+// in document order, and nudges any panel down (via transform, so it
+// never touches the actual page layout or pagination) just far enough
+// to clear whatever landed directly above it in that same column.
+function layoutHangingControls() {
+  for (const page of appEl.querySelectorAll(".page")) {
+    let cursorBottom = null;
+    for (const panel of page.querySelectorAll(".controls-hang")) {
+      panel.style.transform = "";
+      const rect = panel.getBoundingClientRect();
+      let nudge = 0;
+      if (cursorBottom !== null && rect.top < cursorBottom) {
+        nudge = cursorBottom - rect.top;
+        panel.style.transform = `translateY(${nudge}px)`;
+      }
+      cursorBottom = rect.top + nudge + rect.height + 4;
+    }
+  }
+}
+
 async function persistAndRerenderEditor() {
   await db.saveOverrides(currentProjectId, extractOverrides(currentWorkbook));
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
+  layoutHangingControls();
 }
 
 async function renderHomeView() {
@@ -158,6 +186,7 @@ async function renderEditorView(id) {
   document.getElementById("export-btn").onclick = () => window.print();
 
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
+  layoutHangingControls();
 }
 
 async function route() {
