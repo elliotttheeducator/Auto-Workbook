@@ -17,22 +17,14 @@ export function snapDown(valueMm, spacingMm) {
   return steps * spacingMm;
 }
 
-// Shared between render.js (deciding whether a "squeeze in" prompt would
-// actually do anything before offering it) and app.js (acting on a click)
-// - a single source of truth for "is there room to shrink this further,"
-// so the two can never disagree about it.
-export function canShrink(ws) {
+function canShrinkWorkingSpace(ws) {
   if (!ws || ws.style === "none") return false;
   const floor = ws.style === "lines" ? RULE_MM * 2 : SIZE_PRESETS_MM.small;
   return ws.heightMm > floor;
 }
 
-// One step down from wherever a working space's height currently sits -
-// the next-smaller S/M/L preset for grid, or one ruled line for lines.
-// Returns false (no-op) when canShrink() would already say there's
-// nothing left to shrink.
-export function shrinkOneStep(ws) {
-  if (!canShrink(ws)) return false;
+function shrinkWorkingSpaceOneStep(ws) {
+  if (!canShrinkWorkingSpace(ws)) return false;
   if (ws.style === "lines") {
     ws.heightMm = Math.max(RULE_MM * 2, ws.heightMm - RULE_MM);
     return true;
@@ -40,6 +32,53 @@ export function shrinkOneStep(ws) {
   const smallerPresets = Object.values(SIZE_PRESETS_MM).filter((mm) => mm < ws.heightMm);
   ws.heightMm = smallerPresets.length ? Math.max(...smallerPresets) : SIZE_PRESETS_MM.small;
   return true;
+}
+
+// A diagram/crop renders at this percentage of its container's width
+// (100 = full, i.e. unset/default). Diagrams, not working space, are
+// usually the bigger lever for fitting more onto a page - a whole-page-
+// wide diagram scaled to 70% frees up real room, where trimming a grid
+// box from Large to Medium barely moves the needle.
+export const IMAGE_SCALE_MAX = 100;
+export const IMAGE_SCALE_MIN = 40;
+export const IMAGE_SCALE_STEP = 15;
+
+function canShrinkImage(entry) {
+  return (entry.imageScale ?? IMAGE_SCALE_MAX) > IMAGE_SCALE_MIN;
+}
+
+export function shrinkImageOneStep(entry) {
+  if (!canShrinkImage(entry)) return false;
+  entry.imageScale = Math.max(IMAGE_SCALE_MIN, (entry.imageScale ?? IMAGE_SCALE_MAX) - IMAGE_SCALE_STEP);
+  return true;
+}
+
+export function growImageOneStep(entry) {
+  const current = entry.imageScale ?? IMAGE_SCALE_MAX;
+  if (current >= IMAGE_SCALE_MAX) return false;
+  entry.imageScale = Math.min(IMAGE_SCALE_MAX, current + IMAGE_SCALE_STEP);
+  return true;
+}
+
+// Shared between render.js (deciding whether a "squeeze in" prompt would
+// actually do anything before offering it) and app.js (acting on a
+// click) - a single source of truth for "is there room to shrink this
+// entry further," so the two can never disagree about it. `entry` is
+// whatever owns a working space and a diagram - a question block, or a
+// group's combinedBlocks entry.
+export function canShrink(entry) {
+  return !!entry && (canShrinkImage(entry) || canShrinkWorkingSpace(entry.workingSpace));
+}
+
+// Diagram first, then working space - shrinking the diagram is usually
+// the more useful step (see IMAGE_SCALE_MAX above), so a single generic
+// "shrink" action (the squeeze-in prompt) reaches for it before falling
+// back to trimming the answer box. Returns false (no-op) when
+// canShrink() would already say there's nothing left to shrink.
+export function shrinkOneStep(entry) {
+  if (!entry) return false;
+  if (shrinkImageOneStep(entry)) return true;
+  return shrinkWorkingSpaceOneStep(entry.workingSpace);
 }
 
 // Question ids follow "<prefix><digits><letter>" (e.g. ex1a, ex1b) - the
@@ -86,29 +125,34 @@ export function iterRenderUnits(blocks) {
 }
 
 // Everything a user can change through the editor's own controls (split
-// vs combined, working-space style/size/columns) - the only state that
-// needs to survive a reload. Deliberately never the page/block content
-// itself (crops, ids, text): that always comes fresh from workbook.json,
-// so a content or crop fix pushed to the repo is visible immediately,
-// even to a browser that already saved edits for this project.
+// vs combined, working-space style/size/columns, diagram scale, manual
+// page breaks) - the only state that needs to survive a reload.
+// Deliberately never the page/block content itself (crops, ids, text):
+// that always comes fresh from workbook.json, so a content or crop fix
+// pushed to the repo is visible immediately, even to a browser that
+// already saved edits for this project.
 export function extractOverrides(workbook) {
-  const blockWorkingSpace = {};
+  const blockOverrides = {};
   for (const page of workbook.pages) {
     for (const b of page.blocks) {
-      if (b.type === "question") blockWorkingSpace[b.id] = b.workingSpace;
+      if (b.type === "question") {
+        blockOverrides[b.id] = { workingSpace: b.workingSpace, imageScale: b.imageScale, breakBefore: b.breakBefore };
+      }
     }
   }
   return {
     groupLayout: { ...(workbook.groupLayout || {}) },
     combinedBlocks: { ...(workbook.combinedBlocks || {}) },
-    blockWorkingSpace,
+    blockOverrides,
   };
 }
 
 // Layers previously-saved overrides onto a freshly-fetched workbook, in
 // place - skipping any group/block id the fresh content no longer has,
 // so a removed or renamed block can never leave a dangling override
-// pointing at nothing.
+// pointing at nothing. Also reads the pre-imageScale/breakBefore
+// "blockWorkingSpace" shape some already-saved overrides may still be
+// in, so upgrading doesn't reset anyone's saved sizes back to default.
 export function applyOverrides(workbook, overrides) {
   if (!overrides) return workbook;
   if (overrides.groupLayout) {
@@ -125,12 +169,18 @@ export function applyOverrides(workbook, overrides) {
       }
     }
   }
-  if (overrides.blockWorkingSpace) {
-    for (const page of workbook.pages) {
-      for (const b of page.blocks) {
-        if (b.type === "question" && overrides.blockWorkingSpace[b.id]) {
-          b.workingSpace = overrides.blockWorkingSpace[b.id];
-        }
+  const blockOverrides = overrides.blockOverrides || {};
+  const legacyBlockWorkingSpace = overrides.blockWorkingSpace || {};
+  for (const page of workbook.pages) {
+    for (const b of page.blocks) {
+      if (b.type !== "question") continue;
+      const o = blockOverrides[b.id];
+      if (o) {
+        if (o.workingSpace) b.workingSpace = o.workingSpace;
+        if (o.imageScale !== undefined) b.imageScale = o.imageScale;
+        if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
+      } else if (legacyBlockWorkingSpace[b.id]) {
+        b.workingSpace = legacyBlockWorkingSpace[b.id];
       }
     }
   }

@@ -13,6 +13,8 @@ import {
   BOX_WIDTH_MM,
   CONTENT_WIDTH_MM,
   GRID_MM,
+  IMAGE_SCALE_MAX,
+  IMAGE_SCALE_MIN,
   PAGE_HEIGHT_MM,
   PAGE_MARGIN_MM,
   RULE_MM,
@@ -76,10 +78,15 @@ function waitForImages(container) {
 // how far a "glued bundle" starting at such a unit extends, through any
 // run of consecutive headings (an exercise title followed by a tier
 // heading, say) plus one more unit beyond them, so the bundle always
-// ends on real content.
+// ends on real content. Also stops one unit early whenever the *next*
+// unit has a manual "start on a new page" override - that's a
+// deliberate, explicit split point, so it has to be able to cut through
+// an otherwise-glued chain (a heading gluing forward into what it
+// introduces, say) rather than being swallowed into a bundle that never
+// lets pagination even consider breaking there.
 function bundleEnd(units, i) {
   let j = i;
-  while (j < units.length - 1 && units[j].glueForward) j++;
+  while (j < units.length - 1 && units[j].glueForward && !units[j + 1].breakBefore) j++;
   return j;
 }
 
@@ -104,18 +111,44 @@ async function paginateUnits(units) {
   const sheets = [[]];
   const sheetHeights = [];
   let sheetHeight = 0;
-  for (let i = 0; i < units.length; i++) {
-    let requiredHeight = heights[i];
-    if (units[i].glueForward) {
-      for (let k = i + 1; k <= bundleEnd(units, i); k++) requiredHeight += heights[k];
-    }
-    if (sheets[sheets.length - 1].length > 0 && sheetHeight + requiredHeight > USABLE_HEIGHT_PX) {
+  // Walk whole bundles at a time, not unit by unit - a glued bundle (see
+  // bundleEnd) is meant to be atomic, but checking fit again at every
+  // unit *inside* an already-placed bundle re-litigates a decision
+  // that's already been made: once the bundle's anchor unit has decided
+  // it fits (or doesn't, and started a fresh sheet), every later member
+  // of that same bundle would independently see "sheet already has
+  // content" and re-run its own fit check against just the bundle's
+  // remaining tail - which, for a bundle taller than one page, can fail
+  // even though the bundle-as-a-whole decision was already correct,
+  // splitting the bundle across sheets after all.
+  let i = 0;
+  while (i < units.length) {
+    const bundleLast = units[i].glueForward ? bundleEnd(units, i) : i;
+    let bundleHeight = 0;
+    for (let k = i; k <= bundleLast; k++) bundleHeight += heights[k];
+
+    const sheetHasContent = sheets[sheets.length - 1].length > 0;
+    // A manual "start on a new page" override always wins, even over a
+    // heading directly above it that would otherwise glue forward to it
+    // - it's a deliberate, explicit choice for the one case automatic
+    // pagination got wrong, not something worth second-guessing. Checked
+    // across the whole bundle: the toggle usually lives on the real
+    // question at the bundle's tail (its stem is what's glued in front
+    // of it), not the anchor unit fit is being decided from.
+    let forcedBreak = false;
+    for (let k = i; k <= bundleLast && !forcedBreak; k++) forcedBreak = !!units[k].breakBefore;
+    forcedBreak = sheetHasContent && forcedBreak;
+
+    if (sheetHasContent && (forcedBreak || sheetHeight + bundleHeight > USABLE_HEIGHT_PX)) {
       sheets.push([]);
       sheetHeights.push(sheetHeight);
       sheetHeight = 0;
     }
-    sheets[sheets.length - 1].push(units[i]);
-    sheetHeight += heights[i];
+    for (let k = i; k <= bundleLast; k++) {
+      sheets[sheets.length - 1].push(units[k]);
+      sheetHeight += heights[k];
+    }
+    i = bundleLast + 1;
   }
   sheetHeights.push(sheetHeight);
 
@@ -123,12 +156,19 @@ async function paginateUnits(units) {
   return { sheets, leftoverPx };
 }
 
-function cropHtml(cropsBaseUrl, crop, contextImage, widthMm) {
+// widthMm is a fixed size set at content-authoring time (add_chapter.py -
+// used for a handful of explicitly-sized answer images); imageScale is
+// the user's own runtime "shrink the diagram" choice, a percentage of
+// the container. widthMm wins when both are present - it's deliberate
+// and rare enough that a runtime scale on top of it would be surprising.
+function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale) {
   let contextHtml = "";
   if (contextImage) {
     contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png">`;
   }
-  const style = widthMm ? ` style="width:${widthMm}mm"` : "";
+  let style = "";
+  if (widthMm) style = ` style="width:${widthMm}mm"`;
+  else if (imageScale && imageScale !== IMAGE_SCALE_MAX) style = ` style="width:${imageScale}%"`;
   return `<div class="block-crop"${style}>${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
 }
 
@@ -217,8 +257,40 @@ function sizeControlHtml(target, kind, ws) {
   );
 }
 
-function renderQuestionControls(target, kind, ws) {
-  return `${sizeControlHtml(target, kind, ws)}${stylePickerHtml(target, kind, ws.style)}`;
+// A diagram is usually the bigger lever for fitting more onto a page
+// than the working-space box is (see IMAGE_SCALE_MAX in model.js), so
+// this is offered as its own direct control, not just something the
+// "squeeze in" prompt reaches for automatically.
+function imageScaleControlHtml(target, kind, imageScale) {
+  const pct = imageScale || IMAGE_SCALE_MAX;
+  return (
+    '<div class="image-scale-picker">' +
+    "<span>Diagram:</span>" +
+    `<button data-action="step-image-scale" data-target="${target}" data-kind="${kind}" data-delta="-1" ${pct <= IMAGE_SCALE_MIN ? "disabled" : ""}>−</button>` +
+    `<span>${pct}%</span>` +
+    `<button data-action="step-image-scale" data-target="${target}" data-kind="${kind}" data-delta="1" ${pct >= IMAGE_SCALE_MAX ? "disabled" : ""}>+</button>` +
+    "</div>"
+  );
+}
+
+// Manual escape hatch for the rare case automatic pagination gets a
+// call wrong - pins this question/group to always start a fresh sheet,
+// regardless of how much room is left on the one before it.
+function breakBeforeControlHtml(target, kind, breakBefore) {
+  return (
+    `<button class="break-before-toggle ${breakBefore ? "active" : ""}" ` +
+    `data-action="toggle-break-before" data-target="${target}" data-kind="${kind}">` +
+    `${breakBefore ? "✓ Starts on a new page" : "Start on a new page"}</button>`
+  );
+}
+
+function renderQuestionControls(target, kind, ws, imageScale, breakBefore) {
+  return (
+    sizeControlHtml(target, kind, ws) +
+    stylePickerHtml(target, kind, ws.style) +
+    imageScaleControlHtml(target, kind, imageScale) +
+    breakBeforeControlHtml(target, kind, breakBefore)
+  );
 }
 
 function headingHtml(b) {
@@ -252,11 +324,17 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     // printed (all parts together), not a stack of the individual part
     // crops - that's what keeps it looking like a clean single block
     // instead of an awkward recomposition.
-    const ws = (combinedBlocks[gid] && combinedBlocks[gid].workingSpace) || DEFAULT_COMBINED_WS;
-    const crop = cropHtml(cropsBaseUrl, gid);
-    const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws)}</div>`;
-    const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(ws) }];
-    return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets }];
+    const saved = combinedBlocks[gid];
+    const ws = (saved && saved.workingSpace) || DEFAULT_COMBINED_WS;
+    // A read-only stand-in for canShrink()/the controls below - the
+    // group might never have been customized yet, so there's no real
+    // combinedBlocks[gid] to point at; app.js's ensureCombinedBlock()
+    // creates the real one on first edit, this is just for display.
+    const entry = { workingSpace: ws, imageScale: saved && saved.imageScale, breakBefore: saved && saved.breakBefore };
+    const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, entry.imageScale);
+    const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws, entry.imageScale, entry.breakBefore)}</div>`;
+    const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry) }];
+    return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
   }
 
   // Split parts render two to a row (see .split-row) - most part crops
@@ -269,21 +347,23 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   // stem to this group's first row, and label any later row that ends
   // up starting a fresh sheet with which question it continues.
   const partHtml = (b) => {
-    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage);
-    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale);
+    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
   };
 
   const units = [];
   for (let i = 0; i < blocks.length; i += 2) {
-    const row = [partHtml(blocks[i])];
-    if (blocks[i + 1]) row.push(partHtml(blocks[i + 1]));
-    const rowHtml = `<div class="split-row">${row.join("")}</div>`;
+    const rowBlocks = [blocks[i], blocks[i + 1]].filter(Boolean);
+    const rowHtml = `<div class="split-row">${rowBlocks.map(partHtml).join("")}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
-    const wsTargets = [blocks[i], blocks[i + 1]]
-      .filter(Boolean)
-      .map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b.workingSpace) }));
-    units.push({ html, heading: false, groupId: gid, groupFirstRow: isFirstRow, wsTargets });
+    const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b) }));
+    // A break-before toggled on either part in a row breaks before the
+    // whole row - the two parts are always paginated as one atomic unit,
+    // so "break before this part" can only ever mean "break before its
+    // row."
+    const breakBefore = rowBlocks.some((b) => b.breakBefore);
+    units.push({ html, heading: false, groupId: gid, groupFirstRow: isFirstRow, wsTargets, breakBefore });
   }
   return units;
 }
@@ -348,18 +428,25 @@ export async function renderEditor(workbook, cropsBaseUrl) {
     const units = pending;
     pending = [];
 
-    // A heading, or a question's shared stem/context image sitting right
-    // before its own first split part, is never worth stranding alone at
-    // the bottom of a sheet - see bundleEnd() in paginateUnits(). Stash
-    // the stem itself per group too: if the question runs past one
-    // sheet, every later sheet repeats the real stem rather than a bare
-    // "continued" note, the same way a real worksheet would reprint the
-    // question text above parts that spilled onto the next page.
+    // A heading, or any unit that's purely context with no working space
+    // of its own (a plain image, or a stem sitting right before its
+    // group's first split part), is never worth stranding alone at the
+    // bottom of a sheet, away from the real content it belongs with -
+    // see bundleEnd() in paginateUnits(). That chain can be more than
+    // one unit deep (a tier heading, then a diagram, then the stem text
+    // that finally leads into a group all glue together) - checking
+    // "has no working space of its own" rather than just "directly
+    // precedes a group" is what makes the whole chain glue, not just its
+    // last link. Stash the stem itself per group too: if the question
+    // runs past one sheet, every later sheet repeats the real stem
+    // rather than a bare "continued" note, the same way a real worksheet
+    // would reprint the question text above parts that spilled onto the
+    // next page.
     const groupStems = {};
     for (let i = 0; i < units.length; i++) {
       const next = units[i + 1];
       const precedesGroupStart = !units[i].groupId && !!next && next.groupFirstRow;
-      units[i].glueForward = units[i].heading || precedesGroupStart;
+      units[i].glueForward = units[i].heading || units[i].contextOnly;
       if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
     }
 
@@ -388,6 +475,19 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   }
 
   for (const page of workbook.pages) {
+    if (page.cover) {
+      // A cover is always exactly one full-bleed image, and always its
+      // own sheet - flush whatever was flowing before it, render it
+      // directly (no controls: none of squeeze-in/diagram-scale/manual
+      // break make sense on a page that's deliberately outside normal
+      // pagination), then carry on with a clean slate after.
+      await flushPending();
+      const b = page.blocks[0];
+      const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
+      physicalPagesHtml.push(`<div class="page page-cover">${crop}</div>`);
+      continue;
+    }
+
     const renderUnits = iterRenderUnits(page.blocks);
     const units = [];
     renderUnits.forEach((unit, unitIndex) => {
@@ -405,15 +505,28 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         if (b.type === "heading") {
           units.push({ html: headingHtml(b), heading: true });
         } else if (b.type === "image") {
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
-          units.push({ html: `<div class="block">${crop}</div>`, heading: false });
-        } else {
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
-          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace)}</div>`;
+          // No working space on a plain image, but it can still be the
+          // tallest thing on a page (a full Key Ideas diagram, say) - it
+          // still gets a diagram-scale control and can still be a
+          // "squeeze in" target, just not the size/style pickers that
+          // only make sense for an actual answerable question.
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
+          const html = `<div class="block">${crop}${imageScaleControlHtml(b.id, "block", b.imageScale)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
           units.push({
             html,
             heading: false,
-            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b.workingSpace) }],
+            contextOnly: true,
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
+            breakBefore: !!b.breakBefore,
+          });
+        } else {
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
+          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
+          units.push({
+            html,
+            heading: false,
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
+            breakBefore: !!b.breakBefore,
           });
         }
         return;
@@ -421,15 +534,6 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       const layout = workbook.groupLayout[unit.gid] || "split";
       units.push(...renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks));
     });
-
-    if (page.cover) {
-      // A cover is always exactly one full-bleed image, and always its
-      // own sheet - flush whatever was flowing before it, emit the cover
-      // untouched by pagination, then carry on with a clean slate after.
-      await flushPending();
-      physicalPagesHtml.push(`<div class="page page-cover">${units.map((u) => u.html).join("")}</div>`);
-      continue;
-    }
 
     if (isSectionStart(page)) await flushPending();
     pending.push(...units);

@@ -1,5 +1,14 @@
 import * as db from "./db.js";
-import { applyOverrides, escapeHtml, extractOverrides, RULE_MM, shrinkOneStep, SIZE_PRESETS_MM } from "./model.js";
+import {
+  applyOverrides,
+  escapeHtml,
+  extractOverrides,
+  growImageOneStep,
+  RULE_MM,
+  shrinkImageOneStep,
+  shrinkOneStep,
+  SIZE_PRESETS_MM,
+} from "./model.js";
 import { renderEditor } from "./render.js";
 
 const appEl = document.getElementById("app");
@@ -75,10 +84,17 @@ function setGroupColumns(gid, columns) {
   ensureCombinedBlock(gid).workingSpace.columns = columns;
 }
 
-function workingSpaceFor(kind, id) {
-  if (kind === "group") return ensureCombinedBlock(id).workingSpace;
-  const b = findBlock(id);
-  return b && b.type === "question" ? b.workingSpace : null;
+// The whole block/group entry (not just its working space) - shrinking
+// or growing a diagram, or toggling a manual page break, applies to any
+// block (image or question), not only ones with an answer area.
+function entryFor(kind, id) {
+  if (kind === "group") return ensureCombinedBlock(id);
+  return findBlock(id);
+}
+
+function toggleBreakBefore(kind, id) {
+  const entry = entryFor(kind, id);
+  if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
 async function persistAndRerenderEditor() {
@@ -183,7 +199,7 @@ appEl.addEventListener("click", (e) => {
       });
     let changed = false;
     for (const { kind, id } of targets) {
-      if (shrinkOneStep(workingSpaceFor(kind, id))) changed = true;
+      if (shrinkOneStep(entryFor(kind, id))) changed = true;
     }
     if (changed) persistAndRerenderEditor();
     return;
@@ -203,6 +219,15 @@ appEl.addEventListener("click", (e) => {
   } else if (action === "set-columns") {
     const columns = Number(el.dataset.columns);
     isGroup ? setGroupColumns(target, columns) : setBlockColumns(target, columns);
+  } else if (action === "step-image-scale") {
+    // Diagram-only, deliberately not the combined shrinkOneStep() -
+    // this is a dedicated control, so "-" should never silently fall
+    // through to trimming the working space instead.
+    const entry = entryFor(el.dataset.kind, target);
+    const delta = Number(el.dataset.delta);
+    if (!entry || !(delta > 0 ? growImageOneStep(entry) : shrinkImageOneStep(entry))) return;
+  } else if (action === "toggle-break-before") {
+    toggleBreakBefore(el.dataset.kind, target);
   } else {
     return;
   }
