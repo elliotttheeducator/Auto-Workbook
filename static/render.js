@@ -58,7 +58,7 @@ function getMeasurer() {
   return measurerEl;
 }
 
-function waitForImages(container) {
+export function waitForImages(container) {
   const imgs = Array.from(container.querySelectorAll("img"));
   return Promise.all(
     imgs.map((img) =>
@@ -70,6 +70,34 @@ function waitForImages(container) {
           })
     )
   );
+}
+
+// A split row's two diagrams are cropped straight from the source PDF at
+// whatever size their printed question happened to need - they rarely
+// share a height, so left alone, whichever part's diagram is shorter has
+// its working-space grid start noticeably higher than its partner's,
+// reading as a mismatched pair rather than one aligned row (see
+// .split-row .block.question .block-crop in app.css for the flex
+// centering this relies on). Called on the same offscreen measurer
+// paginateUnits() already loads real images into (see below), before it
+// reads any heights - not just a cosmetic patch applied to the visible
+// DOM after the fact, which would silently invalidate the sheet-fit
+// decision paginateUnits already made from the unstretched heights. The
+// visible DOM gets the identical treatment too (see app.js), but only
+// because it renders the exact same markup/images/CSS and so always
+// computes the exact same numbers - never as the source of truth for
+// what fits on a sheet.
+export function alignSplitRows(container) {
+  for (const row of container.querySelectorAll(".split-row")) {
+    const crops = Array.from(row.children)
+      .filter((el) => el.classList.contains("question"))
+      .map((el) => el.querySelector(".block-crop"))
+      .filter(Boolean);
+    if (crops.length < 2) continue;
+    for (const c of crops) c.style.minHeight = "";
+    const maxHeight = Math.max(...crops.map((c) => c.getBoundingClientRect().height));
+    for (const c of crops) c.style.minHeight = `${maxHeight}px`;
+  }
 }
 
 // A heading - or a question's shared stem/context image sitting right
@@ -103,6 +131,7 @@ async function paginateUnits(units) {
   const measurer = getMeasurer();
   measurer.innerHTML = units.map((u) => u.html).join("");
   await waitForImages(measurer);
+  alignSplitRows(measurer);
   const containerTop = measurer.getBoundingClientRect().top;
   const bottoms = Array.from(measurer.children).map((el) => el.getBoundingClientRect().bottom - containerTop);
   measurer.innerHTML = "";

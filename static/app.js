@@ -9,7 +9,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { renderEditor } from "./render.js";
+import { alignSplitRows, renderEditor, waitForImages } from "./render.js";
 
 const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
@@ -150,6 +150,8 @@ async function persistAndRerenderEditor() {
   );
   await db.saveOverrides(currentProjectId, overrides);
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
+  await waitForImages(appEl);
+  alignSplitRows(appEl);
   layoutHangingControls();
 }
 
@@ -212,6 +214,8 @@ async function renderEditorView(id) {
   document.getElementById("autofit-btn").onclick = autoFitDocument;
 
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
+  await waitForImages(appEl);
+  alignSplitRows(appEl);
   layoutHangingControls();
 }
 

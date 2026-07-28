@@ -106,6 +106,16 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .split-row .block.question { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
 .split-row .block.question:only-child { width: 100%; }
 .split-row .block.question:last-child:not(:only-child) { margin-left: 8mm; }
+/* A row's two diagrams are cropped straight from the source PDF, so they
+   rarely share a height - left uncorrected, whichever part's diagram is
+   shorter had its working-space grid start noticeably higher than its
+   partner's, reading as a mismatched pair instead of one aligned row.
+   alignSplitRows() in app.js measures both crops after the page's images
+   load and sets this min-height to match the taller one; flex here just
+   centers the shorter image within that added height (column, not row,
+   so a part that still carries its own context image above the main
+   crop keeps that stacked instead of side by side). */
+.split-row .block.question .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .group-controls {
   display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
   font-size: 10px; color: #555;
