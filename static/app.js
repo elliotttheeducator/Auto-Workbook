@@ -16,6 +16,17 @@ const topbarActions = document.getElementById("topbar-actions");
 
 let currentWorkbook = null;
 let currentProjectId = null;
+// Group ids whose layout (split/combined) the user has explicitly picked
+// *this session* - see persistAndRerenderEditor for why saving only these
+// (not every group's current value) matters: workbook.json's own
+// groupLayout carries a real default for every group already (see
+// plan_group_defaults in add_chapter.py), and that default can improve
+// over time as chapters get rebuilt with better rules. Reset per project
+// load, never seeded from a previously-saved override - there's no way
+// to tell, from a blanket-saved override blob, which of its entries were
+// a deliberate choice versus just whatever the default happened to be
+// the first time anything in the project was edited.
+let touchedGroupLayoutIds = new Set();
 
 function findBlock(id) {
   for (const page of currentWorkbook.pages) {
@@ -124,8 +135,20 @@ function layoutHangingControls() {
   }
 }
 
+// extractOverrides() mirrors every group's *current* layout value,
+// touched or not - saving that whole-object snapshot verbatim would
+// freeze every group's layout forever at whatever it happened to be the
+// first time the user edited anything in the project, silently masking
+// any later improvement to the server-side default (see
+// touchedGroupLayoutIds above) for every group the user never actually
+// chose a layout for. Keep only the ones actually picked through the
+// split/combined radios before saving.
 async function persistAndRerenderEditor() {
-  await db.saveOverrides(currentProjectId, extractOverrides(currentWorkbook));
+  const overrides = extractOverrides(currentWorkbook);
+  overrides.groupLayout = Object.fromEntries(
+    Object.entries(overrides.groupLayout).filter(([gid]) => touchedGroupLayoutIds.has(gid))
+  );
+  await db.saveOverrides(currentProjectId, overrides);
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   layoutHangingControls();
 }
@@ -179,6 +202,7 @@ async function renderEditorView(id) {
   applyOverrides(workbook, await db.loadOverrides(id));
   currentWorkbook = workbook;
   currentProjectId = id;
+  touchedGroupLayoutIds = new Set();
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
@@ -259,6 +283,7 @@ appEl.addEventListener("click", (e) => {
 
   if (!currentWorkbook) return;
   if (action === "set-layout") {
+    touchedGroupLayoutIds.add(el.dataset.group);
     currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
     persistAndRerenderEditor();
     return;
@@ -282,10 +307,12 @@ appEl.addEventListener("click", (e) => {
 
   const isGroup = el.dataset.kind === "group";
   // A control's data-target is usually one id, but a split row's shared
-  // "Both" panel (see bothControlsHtml in render.js) puts two ids there
-  // separated by a comma to apply the same change to both parts at
-  // once - every action below just loops over however many it got, so
-  // the single-id case (the common one) is just a one-element loop.
+  // panel (see renderGroup's split branch in render.js) puts both parts'
+  // ids there separated by a comma - a matched pair is always locked to
+  // one shared size, so a single change is meant to apply to both parts
+  // at once. Every action below just loops over however many ids it
+  // got, so the single-id case (the common one) is just a one-element
+  // loop.
   const targets = (el.dataset.target || "").split(",").filter(Boolean);
   if (action === "set-style") {
     for (const t of targets) isGroup ? setGroupStyle(t, el.dataset.style) : setBlockStyle(t, el.dataset.style);

@@ -356,37 +356,25 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale);
     return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
-  // Both parts' own controls hang in the same margin strip (see
-  // .split-row position:relative in app.css) - the left part's stay
-  // pinned to the top of the row, the right part's to the bottom, so
-  // the two panels never land on top of each other even though both
-  // parts sit at the same height on the page. A third, shared "Both"
-  // panel between them applies one change to both parts at once - handy
-  // since a matched pair of parts usually wants matching sizing.
-  const bothControlsHtml = (a, b) => {
-    const targets = `${a.id},${b.id}`;
-    return (
-      '<div class="hang-both">' +
-      '<div class="hang-both-label">Both</div>' +
-      sizeControlHtml(targets, "block", a.workingSpace) +
-      stylePickerHtml(targets, "block", a.workingSpace.style) +
-      imageScaleControlHtml(targets, "block", a.imageScale) +
-      "</div>"
-    );
-  };
 
   const units = [];
   for (let i = 0; i < blocks.length; i += 2) {
     const rowBlocks = [blocks[i], blocks[i + 1]].filter(Boolean);
     const partsHtml = rowBlocks.map(partHtml).join("");
-    const hangingControls =
-      rowBlocks.length === 2
-        ? `<div class="controls-hang split-controls">` +
-          `<div class="hang-part">${renderQuestionControls(rowBlocks[0].id, "block", rowBlocks[0].workingSpace, rowBlocks[0].imageScale, rowBlocks[0].breakBefore)}</div>` +
-          bothControlsHtml(rowBlocks[0], rowBlocks[1]) +
-          `<div class="hang-part">${renderQuestionControls(rowBlocks[1].id, "block", rowBlocks[1].workingSpace, rowBlocks[1].imageScale, rowBlocks[1].breakBefore)}</div>` +
-          `</div>`
-        : `<div class="controls-hang">${renderQuestionControls(rowBlocks[0].id, "block", rowBlocks[0].workingSpace, rowBlocks[0].imageScale, rowBlocks[0].breakBefore)}</div>`;
+    // A row's two parts are locked to one shared size/style/scale - a
+    // matched pair never has a real reason to size differently, and one
+    // shared panel (instead of a part's own panel either side plus a
+    // third "Both" panel squeezed between them) is what actually fixes
+    // the hanging-controls overlap: layoutHangingControls() only has to
+    // stack whole rows top-to-bottom then, not referee three panels
+    // fighting over the same vertical space at the same row height. The
+    // panel's data-target carries both ids comma-joined, so every action
+    // in app.js's click handler already applies to both parts at once
+    // (see the targets.split(",") loop there) - no separate "apply to
+    // both" affordance needed.
+    const anchor = rowBlocks[0];
+    const targets = rowBlocks.map((b) => b.id).join(",");
+    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale, anchor.breakBefore)}</div>`;
     const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
