@@ -66,6 +66,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 }
 .page-cover { padding: 0; overflow: hidden; height: var(--page-height); }
 .page-cover .block, .page-cover .block-crop, .page-cover img { margin: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.heading-unit { position: relative; }
 .heading { font-size: 16px; font-weight: 600; margin: 12px 0 6px; color: #222; }
 /* Marks a sheet that opens mid-way through a split question (its earlier
    rows landed on the previous sheet) - small and muted, just enough
@@ -86,9 +87,9 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .tier-reasoning { background: #7b4fa0; }
 .tier-enrichment { background: #b5406a; }
 .tier-default { background: #555; }
-.block { margin-bottom: 10px; }
+.block { margin-bottom: 10px; position: relative; }
 .block-crop img { max-width: 100%; display: block; }
-.group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; }
+.group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; position: relative; }
 .group .block-crop { margin-bottom: 6px; }
 /* Split parts render two to a row instead of one full page width each -
    most part crops are far narrower than a whole page, so a single
@@ -109,6 +110,48 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
   font-size: 10px; color: #555;
 }
+/* Inside .controls-hang (a narrow hanging column, not a full-width row
+   above the crop), the split/combined choice stacks like everything
+   else rather than trying to lay two long labels out side by side. */
+.controls-hang .group-controls { flex-direction: column; align-items: flex-start; gap: 2px; }
+
+/* A block/group's own size/style/diagram/break-before controls, hung
+   off the *outside* margin of the page rather than stacked inline below
+   the crop - this is pure editor chrome (already hidden in print, see
+   the print rule below), so keeping it in normal document flow only
+   ever cost real page space for no reason: every button row here used
+   to count toward that block's measured height in paginateUnits(),
+   pushing more physical sheets than the printed content actually needs.
+   Taken out of flow entirely, it can't do that any more. Only used for
+   blocks that plausibly reach the page's own edge (a plain question/
+   image block, or a "combined" group's crop) - a split-row part is half
+   width and sits mid-page, so its own controls stay inline instead;
+   hanging them would mean reaching clean across the page. */
+.controls-hang {
+  position: absolute; top: 0; width: 92px; z-index: 1;
+  display: flex; flex-direction: column; gap: 3px;
+  font-size: 9px;
+  /* A short block's own controls can be taller than the block itself
+     (there's just more to show than there is content to show it next
+     to) and spill down past its bottom edge - a background here keeps
+     that spill reading as a floating label over whatever's behind it,
+     rather than visually merging into it. Only matters on screen: this
+     whole panel is print:none, so it can never bleed into the export. */
+  background: rgba(255,255,255,0.94);
+  border-radius: 4px;
+  padding: 2px;
+}
+.page-left .controls-hang { right: 100%; margin-right: 8px; align-items: flex-end; text-align: right; }
+.page-right .controls-hang { left: 100%; margin-left: 8px; align-items: flex-start; text-align: left; }
+/* The picker rows themselves were designed as wide horizontal strips -
+   inside a 92px column they need to wrap onto as many lines as they
+   need instead of overflowing it. */
+.controls-hang .style-picker, .controls-hang .size-picker,
+.controls-hang .lines-picker, .controls-hang .columns-picker,
+.controls-hang .image-scale-picker { flex-wrap: wrap; justify-content: flex-end; }
+.page-right .controls-hang .style-picker, .page-right .controls-hang .size-picker,
+.page-right .controls-hang .lines-picker, .page-right .controls-hang .columns-picker,
+.page-right .controls-hang .image-scale-picker { justify-content: flex-start; }
 
 /* Positioned absolutely against .page (not laid out in normal flow) so
    it can never push a page taller than one physical sheet - it only
@@ -173,7 +216,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   body { background: white; }
   .topbar, .home-main,
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker,
-  .image-scale-picker, .break-before-toggle,
+  .image-scale-picker, .break-before-toggle, .controls-hang,
   .squeeze-in { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {

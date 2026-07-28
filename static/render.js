@@ -332,7 +332,13 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     // creates the real one on first edit, this is just for display.
     const entry = { workingSpace: ws, imageScale: saved && saved.imageScale, breakBefore: saved && saved.breakBefore };
     const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, entry.imageScale);
-    const html = `<div class="group">${controls}${crop}${workingSpaceHtml(ws)}${renderQuestionControls(gid, "group", ws, entry.imageScale, entry.breakBefore)}</div>`;
+    // A combined crop spans close to the page's own width, so its
+    // controls hang off the outer margin (see .controls-hang) instead
+    // of stacking inline below it - unlike a split row's parts, which
+    // stay inline (see partHtml below): those are only half-width and
+    // sit mid-page, with no clean page edge to hang off of.
+    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, entry.imageScale, entry.breakBefore)}</div>`;
+    const html = `<div class="group">${crop}${workingSpaceHtml(ws)}${hangingControls}</div>`;
     const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry) }];
     return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
   }
@@ -477,7 +483,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       // to pull forward.
       const squeeze =
         i < sheets.length - 1 && leftoverPx[i] >= MIN_SQUEEZE_PX ? squeezeInHtml(sheet, sheets[i + 1]) : "";
-      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
+      // Which side of a two-up spread this sheet lands on - lets a
+      // block's hanging controls (see .controls-hang in app.css) flip to
+      // whichever outer margin is actually free, entirely in CSS.
+      const side = physicalPagesHtml.length % 2 === 0 ? "page-left" : "page-right";
+      physicalPagesHtml.push(`<div class="page ${side}">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
     }
   }
 
@@ -517,16 +527,19 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // two top-level children per unit desyncs every measurement
           // after the first heading in a run, corrupting every height
           // downstream of it.
-          const html = `<div class="heading-unit">${headingHtml(b)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          const html = `<div class="heading-unit">${headingHtml(b)}<div class="controls-hang">${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div></div>`;
           units.push({ html, heading: true, breakBefore: !!b.breakBefore });
         } else if (b.type === "image") {
           // No working space on a plain image, but it can still be the
           // tallest thing on a page (a full Key Ideas diagram, say) - it
           // still gets a diagram-scale control and can still be a
           // "squeeze in" target, just not the size/style pickers that
-          // only make sense for an actual answerable question.
+          // only make sense for an actual answerable question. Hung off
+          // the page like a combined group's controls (see there) - a
+          // plain image block is always full width.
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
-          const html = `<div class="block">${crop}${imageScaleControlHtml(b.id, "block", b.imageScale)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", b.imageScale)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          const html = `<div class="block">${crop}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
@@ -537,7 +550,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           });
         } else {
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
-          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
+          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
+          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
