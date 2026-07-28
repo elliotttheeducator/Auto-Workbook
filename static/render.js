@@ -293,10 +293,23 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
 // to shrink every working space already on this sheet plus the very
 // next unit queued after it, which is often enough to pull that unit up
 // onto the space that's currently going to waste.
-function squeezeInHtml(sheetUnits, nextUnit) {
+function squeezeInHtml(sheetUnits, nextSheetUnits) {
+  // If the very next thing queued up is a heading, it's always
+  // glueForward - pagination bundles it with whatever comes right after
+  // it precisely so it never sits stranded on its own (see bundleEnd).
+  // A heading itself has nothing shrinkable, so looking at just
+  // nextSheetUnits[0] would frequently offer nothing even when the real
+  // question right behind that heading has plenty of room to give -
+  // walk the same glued bundle bundleEnd() would, to find it.
+  const nextBundle = [];
+  for (const u of nextSheetUnits) {
+    nextBundle.push(u);
+    if (!u.glueForward) break;
+  }
+
   const targets = [];
   for (const u of sheetUnits) if (u.wsTargets) targets.push(...u.wsTargets);
-  if (nextUnit && nextUnit.wsTargets) targets.push(...nextUnit.wsTargets);
+  for (const u of nextBundle) if (u.wsTargets) targets.push(...u.wsTargets);
   // Nothing to offer if every candidate is already at its floor (e.g.
   // "None" style, or already the smallest preset) - the button would
   // just sit there doing nothing when clicked.
@@ -305,9 +318,74 @@ function squeezeInHtml(sheetUnits, nextUnit) {
   return `<button class="squeeze-in" data-action="squeeze-in" data-ids="${idsAttr}">There's room here - shrink to squeeze in the next question ↓</button>`;
 }
 
+// True for a page whose content is the start of a new named section (an
+// exercise, or an "X Answers" divider) - add_chapter.py calls this style
+// "title", reserved for exactly that. Every other logical workbook page
+// is just how the source content happened to be chunked, not a break
+// anyone actually wants - flowing those together, instead of pinning
+// each to its own sheet, is what lets a title/Key Ideas/Building
+// Understanding page that's mostly blank on its own share a sheet with
+// its neighbours instead of wasting the rest of the page.
+function isSectionStart(page) {
+  const first = page.blocks[0];
+  return !!first && first.type === "heading" && first.style === "title";
+}
+
 export async function renderEditor(workbook, cropsBaseUrl) {
   const combinedBlocks = workbook.combinedBlocks || {};
   const physicalPagesHtml = [];
+  let pending = [];
+
+  // Packs and emits whatever's been queued up since the last hard break
+  // (a cover, or a section start) as physical sheets - see paginateUnits
+  // for why this has to happen across every logical page in the pending
+  // run at once, not one logical page at a time: only that lets a stem
+  // that landed at the end of one source page glue to its group's first
+  // row on the next, and lets a short page's leftover room actually get
+  // filled by whatever now-following content fits in it.
+  async function flushPending() {
+    if (pending.length === 0) return;
+    const units = pending;
+    pending = [];
+
+    // A heading, or a question's shared stem/context image sitting right
+    // before its own first split part, is never worth stranding alone at
+    // the bottom of a sheet - see bundleEnd() in paginateUnits(). Stash
+    // the stem itself per group too: if the question runs past one
+    // sheet, every later sheet repeats the real stem rather than a bare
+    // "continued" note, the same way a real worksheet would reprint the
+    // question text above parts that spilled onto the next page.
+    const groupStems = {};
+    for (let i = 0; i < units.length; i++) {
+      const next = units[i + 1];
+      const precedesGroupStart = !units[i].groupId && !!next && next.groupFirstRow;
+      units[i].glueForward = units[i].heading || precedesGroupStart;
+      if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
+    }
+
+    const { sheets, leftoverPx } = await paginateUnits(units);
+    for (let i = 0; i < sheets.length; i++) {
+      const sheet = sheets[i];
+      // A later row of a split question can still end up starting a
+      // fresh sheet if the whole question doesn't fit one page - without
+      // some marker, that sheet would open on bare parts with no visible
+      // indication of which question they belong to ("the question
+      // disappears"). Repeat its stem if it has one; a bare id label is
+      // the fallback for the (rare, best avoided going forward) group
+      // that was never given a separate stem crop to begin with.
+      const first = sheet[0];
+      let continued = "";
+      if (first && first.groupId && !first.groupFirstRow) {
+        continued = groupStems[first.groupId] || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
+      }
+      // Only a sheet with more content still queued behind it can
+      // usefully squeeze anything in - the last sheet has nothing left
+      // to pull forward.
+      const squeeze =
+        i < sheets.length - 1 && leftoverPx[i] >= MIN_SQUEEZE_PX ? squeezeInHtml(sheet, sheets[i + 1]) : "";
+      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
+    }
+  }
 
   for (const page of workbook.pages) {
     const renderUnits = iterRenderUnits(page.blocks);
@@ -345,49 +423,18 @@ export async function renderEditor(workbook, cropsBaseUrl) {
     });
 
     if (page.cover) {
-      // A cover is always exactly one full-bleed image - never paginate it.
+      // A cover is always exactly one full-bleed image, and always its
+      // own sheet - flush whatever was flowing before it, emit the cover
+      // untouched by pagination, then carry on with a clean slate after.
+      await flushPending();
       physicalPagesHtml.push(`<div class="page page-cover">${units.map((u) => u.html).join("")}</div>`);
       continue;
     }
 
-    // A heading, or a question's shared stem/context image sitting right
-    // before its own first split part, is never worth stranding alone at
-    // the bottom of a sheet - see bundleEnd() in paginateUnits(). Stash
-    // the stem itself per group too: if the question runs past one
-    // sheet, every later sheet repeats the real stem rather than a bare
-    // "continued" note, the same way a real worksheet would reprint the
-    // question text above parts that spilled onto the next page.
-    const groupStems = {};
-    for (let i = 0; i < units.length; i++) {
-      const next = units[i + 1];
-      const precedesGroupStart = !units[i].groupId && !!next && next.groupFirstRow;
-      units[i].glueForward = units[i].heading || precedesGroupStart;
-      if (precedesGroupStart) groupStems[next.groupId] = units[i].html;
-    }
-
-    const { sheets, leftoverPx } = await paginateUnits(units);
-    for (let i = 0; i < sheets.length; i++) {
-      const sheet = sheets[i];
-      // A later row of a split question can still end up starting a
-      // fresh sheet if the whole question doesn't fit one page - without
-      // some marker, that sheet would open on bare parts with no visible
-      // indication of which question they belong to ("the question
-      // disappears"). Repeat its stem if it has one; a bare id label is
-      // the fallback for the (rare, best avoided going forward) group
-      // that was never given a separate stem crop to begin with.
-      const first = sheet[0];
-      let continued = "";
-      if (first && first.groupId && !first.groupFirstRow) {
-        continued = groupStems[first.groupId] || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
-      }
-      // Only a sheet with more of this same logical page still queued
-      // behind it can usefully squeeze anything in - the last sheet has
-      // nothing left to pull forward.
-      const squeeze =
-        i < sheets.length - 1 && leftoverPx[i] >= MIN_SQUEEZE_PX ? squeezeInHtml(sheet, sheets[i + 1][0]) : "";
-      physicalPagesHtml.push(`<div class="page">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
-    }
+    if (isSectionStart(page)) await flushPending();
+    pending.push(...units);
   }
+  await flushPending();
 
   const spreads = [];
   for (let i = 0; i < physicalPagesHtml.length; i += 2) {
