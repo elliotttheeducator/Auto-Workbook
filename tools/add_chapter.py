@@ -67,6 +67,15 @@ blocks) a small workingSpaceHeightMm and the combinedGroups entry a
 large one - split is meant to default small (one box per part), combined
 large (one shared box for the whole question).
 
+Which layout a group actually *starts* on is computed automatically
+(plan_group_defaults), not something to set by hand: past the last
+warmup section (Building Understanding, worked examples, "Now you try"
+- i.e. once a "tier" heading has appeared), a group with more than 3
+parts defaults to split (splitting is what actually helps once there
+are that many; 2-3 parts read fine as one combined crop), and every
+split part's diagram starts at 70% scale rather than full width (still
+freely adjustable either way from the editor's own controls).
+
 A page entry can also be marked `"cover": true` - its (single) image
 block is rendered edge-to-edge with no page margin or heading, for a
 workbook cover/title page:
@@ -78,6 +87,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import uuid
 
 import fitz  # PyMuPDF
@@ -103,9 +113,64 @@ def working_space_for(proposal: dict) -> dict:
     return ws
 
 
+def group_id_for(block_id: str) -> str | None:
+    m = re.match(r"^(.+?)(\d+)([a-zA-Z])$", block_id)
+    return m.group(1) + m.group(2) if m else None
+
+
+DEFAULT_SPLIT_IMAGE_SCALE = 70
+
+
+def plan_group_defaults(pages_proposals: list[dict]) -> tuple[dict[str, str], set[str]]:
+    """Works out, before any cropping starts, which groups should default
+    to "split" and which question ids should get a smaller starting
+    diagram scale - both need the *whole* document's structure (every
+    part of a group, and which heading section it falls under), not just
+    whatever's on the one page a block happens to sit on.
+
+    A group defaults to split only once it's past the last "warmup"
+    section (Building Understanding, worked examples, "Now you try") -
+    a "tier" heading (Fluency/Problem-solving/Reasoning/Enrichment)
+    marks that a chapter has moved into its real exercise - and only
+    once it has more than 3 parts: 2-3 parts read fine as one combined
+    crop, but splitting is what actually helps once there's 4+.
+    """
+    combined_gids: set[str] = set()
+    for entry in pages_proposals:
+        for cg in entry.get("combinedGroups", []):
+            combined_gids.add(cg["groupId"])
+
+    part_count: dict[str, int] = {}
+    in_tier_section = False
+    tier_section_gids: set[str] = set()
+    for entry in pages_proposals:
+        for p in entry["blocks"]:
+            if p["type"] == "heading":
+                if p.get("style") == "tier":
+                    in_tier_section = True
+                elif p.get("style") == "title":
+                    in_tier_section = False
+                continue
+            if p["type"] != "question":
+                continue
+            gid = group_id_for(p["id"])
+            if not gid:
+                continue
+            part_count[gid] = part_count.get(gid, 0) + 1
+            if in_tier_section:
+                tier_section_gids.add(gid)
+
+    group_layout = {
+        gid: ("split" if gid in tier_section_gids and part_count.get(gid, 0) > 3 else "combined")
+        for gid in combined_gids
+    }
+    return group_layout, combined_gids
+
+
 def build_project(docs: dict, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:
     crops_dir = os.path.join(project_dir, "crops")
     os.makedirs(crops_dir, exist_ok=True)
+    group_layout, combined_gids = plan_group_defaults(pages_proposals)
 
     def crop(p: dict, crop_id: str) -> None:
         src_doc = docs[p.get("source", "chapter")]
@@ -135,12 +200,20 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                     image_block["widthMm"] = round((rect[2] - rect[0]) / 72 * 25.4, 1)
                 blocks.append(image_block)
             else:
-                blocks.append({
+                question_block = {
                     "type": "question",
                     "id": p["id"],
                     "contextImage": p.get("contextImageId"),
                     "workingSpace": working_space_for(p),
-                })
+                }
+                # A split part's diagram starts a bit smaller than full
+                # width by default - most part crops have far more blank
+                # margin than diagram at 100%, and this is purely a
+                # starting point the S/M/L-style +/- control can still
+                # adjust freely either way.
+                if group_id_for(p["id"]) in combined_gids:
+                    question_block["imageScale"] = DEFAULT_SPLIT_IMAGE_SCALE
+                blocks.append(question_block)
         page = {"id": f"page{i}", "blocks": blocks}
         if entry.get("cover"):
             page["cover"] = True
@@ -150,16 +223,12 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
             crop(cg, cg["groupId"])
             combined_blocks[cg["groupId"]] = {"workingSpace": working_space_for(cg)}
 
-    # A combinedGroups entry only exists because it's meant to be shown -
-    # default those groups to "combined" rather than making every new
-    # chapter start with the small split view for questions that were
-    # deliberately given a nice whole-question crop.
     workbook = {
         "id": project_id,
         "title": title,
         "sourcePdfName": os.path.basename(docs["chapter"].name),
         "pages": pages,
-        "groupLayout": {gid: "combined" for gid in combined_blocks},
+        "groupLayout": group_layout,
         "combinedBlocks": combined_blocks,
     }
     with open(os.path.join(project_dir, "workbook.json"), "w") as f:
