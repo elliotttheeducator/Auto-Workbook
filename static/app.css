@@ -102,7 +102,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    which print has handled correctly forever. font-size:0/1rem is the
    standard trick to remove the whitespace gap the HTML source's own line
    breaks would otherwise put between adjacent inline-block elements. */
-.split-row { font-size: 0; }
+.split-row { font-size: 0; position: relative; }
 .split-row .block.question { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
 .split-row .block.question:only-child { width: 100%; }
 .split-row .block.question:last-child:not(:only-child) { margin-left: 8mm; }
@@ -122,11 +122,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    ever cost real page space for no reason: every button row here used
    to count toward that block's measured height in paginateUnits(),
    pushing more physical sheets than the printed content actually needs.
-   Taken out of flow entirely, it can't do that any more. Only used for
-   blocks that plausibly reach the page's own edge (a plain question/
-   image block, or a "combined" group's crop) - a split-row part is half
-   width and sits mid-page, so its own controls stay inline instead;
-   hanging them would mean reaching clean across the page. */
+   Taken out of flow entirely, it can't do that any more. A split-row's
+   two parts share one hanging column off their row (see .split-controls
+   below) rather than each reaching for the page edge individually,
+   since they're only half-width and sit side by side, not one above
+   the other. */
 .controls-hang {
   position: absolute; top: 0; width: 92px; z-index: 1;
   display: flex; flex-direction: column; gap: 3px;
@@ -152,6 +152,21 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .page-right .controls-hang .style-picker, .page-right .controls-hang .size-picker,
 .page-right .controls-hang .lines-picker, .page-right .controls-hang .columns-picker,
 .page-right .controls-hang .image-scale-picker { justify-content: flex-start; }
+
+/* A split row's two parts sit side by side at the same height, so their
+   controls can't hang "next to" each part the way a full-width block's
+   do - both share this one column instead (anchored the full height of
+   the row via top:0/bottom:0, needing .split-row's position:relative
+   above to have a height to stretch to), pinned to opposite ends so
+   they never overlap: the left part's controls float to the top, the
+   right part's to the bottom, with the shared "apply to both" panel
+   in between. */
+.split-controls { bottom: 0; justify-content: space-between; }
+.hang-both {
+  border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;
+  padding: 3px 0; display: flex; flex-direction: column; gap: 3px;
+}
+.hang-both-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: #888; }
 
 /* Positioned absolutely against .page (not laid out in normal flow) so
    it can never push a page taller than one physical sheet - it only

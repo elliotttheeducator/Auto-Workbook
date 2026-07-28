@@ -354,13 +354,40 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
   // up starting a fresh sheet with which question it continues.
   const partHtml = (b) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale);
-    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
+    return `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
+  };
+  // Both parts' own controls hang in the same margin strip (see
+  // .split-row position:relative in app.css) - the left part's stay
+  // pinned to the top of the row, the right part's to the bottom, so
+  // the two panels never land on top of each other even though both
+  // parts sit at the same height on the page. A third, shared "Both"
+  // panel between them applies one change to both parts at once - handy
+  // since a matched pair of parts usually wants matching sizing.
+  const bothControlsHtml = (a, b) => {
+    const targets = `${a.id},${b.id}`;
+    return (
+      '<div class="hang-both">' +
+      '<div class="hang-both-label">Both</div>' +
+      sizeControlHtml(targets, "block", a.workingSpace) +
+      stylePickerHtml(targets, "block", a.workingSpace.style) +
+      imageScaleControlHtml(targets, "block", a.imageScale) +
+      "</div>"
+    );
   };
 
   const units = [];
   for (let i = 0; i < blocks.length; i += 2) {
     const rowBlocks = [blocks[i], blocks[i + 1]].filter(Boolean);
-    const rowHtml = `<div class="split-row">${rowBlocks.map(partHtml).join("")}</div>`;
+    const partsHtml = rowBlocks.map(partHtml).join("");
+    const hangingControls =
+      rowBlocks.length === 2
+        ? `<div class="controls-hang split-controls">` +
+          `<div class="hang-part">${renderQuestionControls(rowBlocks[0].id, "block", rowBlocks[0].workingSpace, rowBlocks[0].imageScale, rowBlocks[0].breakBefore)}</div>` +
+          bothControlsHtml(rowBlocks[0], rowBlocks[1]) +
+          `<div class="hang-part">${renderQuestionControls(rowBlocks[1].id, "block", rowBlocks[1].workingSpace, rowBlocks[1].imageScale, rowBlocks[1].breakBefore)}</div>` +
+          `</div>`
+        : `<div class="controls-hang">${renderQuestionControls(rowBlocks[0].id, "block", rowBlocks[0].workingSpace, rowBlocks[0].imageScale, rowBlocks[0].breakBefore)}</div>`;
+    const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
     const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b) }));

@@ -206,28 +206,37 @@ appEl.addEventListener("click", (e) => {
   }
 
   const isGroup = el.dataset.kind === "group";
-  const target = el.dataset.target;
+  // A control's data-target is usually one id, but a split row's shared
+  // "Both" panel (see bothControlsHtml in render.js) puts two ids there
+  // separated by a comma to apply the same change to both parts at
+  // once - every action below just loops over however many it got, so
+  // the single-id case (the common one) is just a one-element loop.
+  const targets = (el.dataset.target || "").split(",").filter(Boolean);
   if (action === "set-style") {
-    isGroup ? setGroupStyle(target, el.dataset.style) : setBlockStyle(target, el.dataset.style);
+    for (const t of targets) isGroup ? setGroupStyle(t, el.dataset.style) : setBlockStyle(t, el.dataset.style);
   } else if (action === "set-size") {
     const mm = SIZE_PRESETS_MM[el.dataset.size];
-    isGroup ? setGroupHeight(target, mm) : setBlockHeight(target, mm);
+    for (const t of targets) isGroup ? setGroupHeight(t, mm) : setBlockHeight(t, mm);
   } else if (action === "step-height") {
     const spacing = Number(el.dataset.spacing);
     const delta = Number(el.dataset.delta) * spacing;
-    isGroup ? stepGroupHeight(target, spacing, delta) : stepBlockHeight(target, spacing, delta);
+    for (const t of targets) isGroup ? stepGroupHeight(t, spacing, delta) : stepBlockHeight(t, spacing, delta);
   } else if (action === "set-columns") {
     const columns = Number(el.dataset.columns);
-    isGroup ? setGroupColumns(target, columns) : setBlockColumns(target, columns);
+    for (const t of targets) isGroup ? setGroupColumns(t, columns) : setBlockColumns(t, columns);
   } else if (action === "step-image-scale") {
     // Diagram-only, deliberately not the combined shrinkOneStep() -
     // this is a dedicated control, so "-" should never silently fall
     // through to trimming the working space instead.
-    const entry = entryFor(el.dataset.kind, target);
     const delta = Number(el.dataset.delta);
-    if (!entry || !(delta > 0 ? growImageOneStep(entry) : shrinkImageOneStep(entry))) return;
+    let changed = false;
+    for (const t of targets) {
+      const entry = entryFor(el.dataset.kind, t);
+      if (entry && (delta > 0 ? growImageOneStep(entry) : shrinkImageOneStep(entry))) changed = true;
+    }
+    if (!changed) return;
   } else if (action === "toggle-break-before") {
-    toggleBreakBefore(el.dataset.kind, target);
+    for (const t of targets) toggleBreakBefore(el.dataset.kind, t);
   } else {
     return;
   }
