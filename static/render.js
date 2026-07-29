@@ -179,6 +179,19 @@ function deleteButtonHtml(id, kind, label) {
   );
 }
 
+// Opens the manual-crop tool (see crop.js) on whatever's currently
+// showing for this one image - a safety valve for the rare automated
+// crop that ran too generous, or caught something it shouldn't have.
+// Always a single, specific id - never a comma-joined shared target
+// like the size/style controls - a crop is inherently a one-image-at-a-
+// time operation.
+function cropButtonHtml(id, kind) {
+  return (
+    `<button class="crop-btn" data-action="open-crop" data-target="${escapeHtml(id)}" data-kind="${kind}" ` +
+    `title="Manually re-crop this image - in case the automatic crop is too big or caught something it shouldn't have">✂ Crop</button>`
+  );
+}
+
 function restoreListHtml(hiddenMembers, gid) {
   if (!hiddenMembers.length) return "";
   const buttons = hiddenMembers
@@ -212,7 +225,10 @@ function buildAnswerRowUnit(a, b) {
   const partsHtml = b
     ? `<div class="block">${a.crop}</div><div class="block answer-second">${b.crop}</div>`
     : `<div class="block answer-only">${a.crop}</div>`;
-  const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(targets, "block", a.pct)}${breakBeforeControlHtml(targets, "block", a.breakBefore)}</div>`;
+  // Crop, unlike the scale/break-before controls above, is always
+  // per-image - each half of the row is its own distinct crop.
+  const cropButtons = cropButtonHtml(a.id, "block") + (b ? cropButtonHtml(b.id, "block") : "");
+  const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(targets, "block", a.pct)}${breakBeforeControlHtml(targets, "block", a.breakBefore)}${cropButtons}</div>`;
   const html = `<div class="answer-row">${partsHtml}${hangingControls}</div>`;
   // a.pct/b.pct are already each image's fully-resolved current scale
   // (own override, if any, else the "answers" default bucket) - passing
@@ -426,7 +442,7 @@ async function paginateUnits(units) {
 // the user's own runtime "shrink the diagram" choice, a percentage of
 // the container. widthMm wins when both are present - it's deliberate
 // and rare enough that a runtime scale on top of it would be surprising.
-function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale) {
+function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale, manualCropSrc) {
   let contextHtml = "";
   if (contextImage) {
     contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png">`;
@@ -434,7 +450,12 @@ function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale) {
   let style = "";
   if (widthMm) style = ` style="width:${widthMm}mm"`;
   else if (imageScale && imageScale !== 100) style = ` style="width:${imageScale}%"`;
-  return `<div class="block-crop"${style}>${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
+  // A manually re-cropped PNG (see crop.js) - a data: URL standing in
+  // for the original file. Everything downstream (pagination
+  // measurement, the diagram-scale control, print export) just sees
+  // another <img src>, no special-casing needed anywhere else.
+  const src = manualCropSrc ? escapeHtml(manualCropSrc) : `${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png`;
+  return `<div class="block-crop"${style}>${contextHtml}<img src="${src}"></div>`;
 }
 
 function ruleLinesHtml(height, spacing) {
@@ -600,15 +621,20 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // group might never have been customized yet, so there's no real
     // combinedBlocks[gid] to point at; app.js's ensureCombinedBlock()
     // creates the real one on first edit, this is just for display.
-    const entry = { workingSpace: ws, imageScale: saved && saved.imageScale, breakBefore: saved && saved.breakBefore };
+    const entry = {
+      workingSpace: ws,
+      imageScale: saved && saved.imageScale,
+      breakBefore: saved && saved.breakBefore,
+      manualCropSrc: saved && saved.manualCropSrc,
+    };
     const pct = entry.imageScale ?? defaultScales.combined;
-    const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, pct);
+    const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, pct, entry.manualCropSrc);
     // A combined crop spans close to the page's own width, so its
     // controls hang off the outer margin (see .controls-hang) instead
     // of stacking inline below it - unlike a split row's parts, which
     // stay inline (see partHtml below): those are only half-width and
     // sit mid-page, with no clean page edge to hang off of.
-    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, pct, entry.breakBefore)}</div>`;
+    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, pct, entry.breakBefore)}${cropButtonHtml(gid, "group")}</div>`;
     const html = `<div class="group">${crop}${workingSpaceHtml(ws)}${hangingControls}</div>`;
     const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry, defaultScales.combined) }];
     return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
@@ -632,7 +658,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   // two parts, and the full-width single-part row, are never at the
   // mercy of whatever else happens to share the row.
   const partHtml = (b, isSecond, isOnly) => {
-    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? defaultScales.split);
+    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? defaultScales.split, b.manualCropSrc);
     const cls = isOnly ? "block question split-only" : isSecond ? "block question split-second" : "block question";
     return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
@@ -662,7 +688,11 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     const partDeleteButtons = rowBlocks
       .map((b) => deleteButtonHtml(b.id, "block", `Delete ${partLabel(b.id, gid)}`))
       .join("");
-    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore)}${partDeleteButtons}</div>`;
+    // Crop, like delete, is always per-part - each part is its own
+    // distinct image, so a shared comma-target button would only ever
+    // be able to crop one of the two anyway.
+    const partCropButtons = rowBlocks.map((b) => cropButtonHtml(b.id, "block")).join("");
+    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore)}${partDeleteButtons}${partCropButtons}</div>`;
     const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
@@ -866,8 +896,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           const pct =
             b.imageScale ??
             (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
-          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
+          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}${cropButtonHtml(b.id, "block")}</div>`;
           // glueForward is already exactly "this is a worked example's
           // own diagram" in this dataset (see the docstring in
           // add_chapter.py) - reused here as Auto-fit's other
@@ -909,8 +939,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           }
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
           const pct = b.imageScale ?? defaultScales.combined;
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
-          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}</div>`;
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
+          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}${cropButtonHtml(b.id, "block")}</div>`;
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,

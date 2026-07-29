@@ -15,6 +15,7 @@ import {
   SIZE_PRESETS_MM,
 } from "./model.js";
 import { alignSplitRows, defaultScaleBarHtml, filterBarHtml, renderEditor, waitForImages } from "./render.js";
+import { openCropModal } from "./crop.js";
 
 const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
@@ -112,6 +113,26 @@ function entryFor(kind, id) {
 function toggleBreakBefore(kind, id) {
   const entry = entryFor(kind, id);
   if (entry) entry.breakBefore = !entry.breakBefore;
+}
+
+// Opens the manual-crop tool (see crop.js) on whatever's currently
+// showing for this one block/group - its own already-applied manual
+// crop if it has one, or the original file otherwise. Both a plain
+// block and a combined group's crop are always named "<id>.png" in the
+// project's crops folder, so the original source can be computed
+// directly rather than having to hunt the live DOM for the right <img>.
+async function handleOpenCrop(kind, id) {
+  const entry = entryFor(kind, id);
+  if (!entry) return;
+  const originalSrc = `data/${currentProjectId}/crops/${id}.png`;
+  const result = await openCropModal(entry.manualCropSrc || originalSrc);
+  if (result === null) return;
+  if (result === "RESET") {
+    delete entry.manualCropSrc;
+  } else {
+    entry.manualCropSrc = result;
+  }
+  await persistAndRerenderEditor();
 }
 
 // A block/group id a user explicitly dropped (see the delete buttons on
@@ -500,6 +521,12 @@ function handleControlClick(e) {
     // one restore placeholder carries every hidden id there, comma-joined.
     restoreIds(el.dataset.target.split(",").filter(Boolean));
     persistAndRerenderEditor();
+    return;
+  }
+  if (action === "open-crop") {
+    // Async, and manages its own re-render - nothing left to do in this
+    // (synchronous) handler once it's kicked off.
+    handleOpenCrop(el.dataset.kind, el.dataset.target);
     return;
   }
 
