@@ -599,6 +599,15 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             heading: false,
             contextOnly: true,
             id: b.id,
+            // Author-set at build time (add_chapter.py), not a runtime
+            // editor toggle - separate from the automatic "{groupId}_stem"
+            // detection below, for content where there's no group to
+            // detect: a worked example's diagram has nothing to do
+            // stranded without the "Now you try" that explains it, same
+            // as a heading never wants to be stranded from what it
+            // introduces, but no naming convention ties the two ids
+            // together the way a stem's does.
+            glueForward: !!b.glueForward,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
             breakBefore: !!b.breakBefore,
           });

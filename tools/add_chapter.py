@@ -81,21 +81,69 @@ block is rendered edge-to-edge with no page margin or heading, for a
 workbook cover/title page:
     {"cover": true, "blocks": [{"type": "image", "id": "cover", "page": 0,
      "rect": [0, 0, 595, 842]}]}
+
+Every crop (except a cover) gets its blank margin auto-trimmed off after
+cropping (trim_whitespace) - a "rect" only has to roughly bound its
+content, not hug it exactly. Don't hand-tune rects tighter to compensate;
+let the trim handle it.
+
+A "Key Ideas" summary image and a worked example's own diagram are both
+just "image" blocks - nothing structural distinguishes them from any
+other image - but two optional fields matter for them specifically:
+  - imageScale (image blocks too, not just questions): a Key Ideas image
+    usually wants "imageScale": 70 so the whole thing reads as one
+    compact page rather than running long and spilling onto a second
+    sheet.
+  - glueForward: true on a worked example's own diagram - without it,
+    nothing stops the example's diagram landing on one sheet and the
+    "Now you try" that explains it landing on the next. Same idea as a
+    heading always gluing to what it introduces, just spelled out
+    explicitly here since there's no id convention (the way a group's
+    "{groupId}_stem" naming is) tying an example to its own "now you
+    try".
 """
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import os
 import re
 import uuid
 
 import fitz  # PyMuPDF
+from PIL import Image
 
 CROP_ZOOM = 3  # ~216 DPI, matches print quality
 GRID_MM = 5
 RULE_MM = 10
 SIZE_MEDIUM_MM = 40
+# A pixel darker than this (out of 255) counts as real content, not
+# background - used to trim blank margin off a hand-picked crop rect (see
+# trim_whitespace). Threshold, not exact-white difference: a scanned or
+# rendered page is rarely pure #fff right at an edge.
+CROP_TRIM_THRESHOLD = 245
+CROP_TRIM_PAD_PX = 10
+
+
+def trim_whitespace(img: Image.Image) -> Image.Image:
+    """Crops away blank margin left over from a hand-picked "rect" that
+    ran a bit generous - a proposal's rect only has to roughly bound the
+    content, not hug it exactly, but the slack is worst right where it's
+    most visible: a question's own diagram sitting well clear of its
+    working-space grid below it in the rendered page, reading as a gap
+    between the two rather than one glued unit.
+    """
+    mask = img.convert("L").point(lambda p: 255 if p < CROP_TRIM_THRESHOLD else 0)
+    bbox = mask.getbbox()
+    if bbox is None:
+        return img
+    left, top, right, bottom = bbox
+    left = max(0, left - CROP_TRIM_PAD_PX)
+    top = max(0, top - CROP_TRIM_PAD_PX)
+    right = min(img.width, right + CROP_TRIM_PAD_PX)
+    bottom = min(img.height, bottom + CROP_TRIM_PAD_PX)
+    return img.crop((left, top, right, bottom))
 
 
 def snap_down(value_mm: float, spacing_mm: float) -> float:
@@ -172,11 +220,14 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
     os.makedirs(crops_dir, exist_ok=True)
     group_layout, combined_gids = plan_group_defaults(pages_proposals)
 
-    def crop(p: dict, crop_id: str) -> None:
+    def crop(p: dict, crop_id: str, trim: bool = True) -> None:
         src_doc = docs[p.get("source", "chapter")]
         src_page = src_doc[p["page"]]
         pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
-        pix.save(os.path.join(crops_dir, f"{crop_id}.png"))
+        img = Image.open(io.BytesIO(pix.tobytes("png")))
+        if trim:
+            img = trim_whitespace(img)
+        img.save(os.path.join(crops_dir, f"{crop_id}.png"))
 
     pages = []
     combined_blocks = {}
@@ -192,12 +243,23 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 blocks.append(heading)
                 continue
 
-            crop(p, p["id"])
+            # A cover image is deliberately full-bleed (edge to edge, no
+            # margin) - trimming would eat into that framing rather than
+            # just removing dead space, so it's the one crop left alone.
+            crop(p, p["id"], trim=not entry.get("cover"))
             if p["type"] == "image":
                 image_block = {"type": "image", "id": p["id"]}
                 if p.get("source") == "answers":
                     rect = p["rect"]
                     image_block["widthMm"] = round((rect[2] - rect[0]) / 72 * 25.4, 1)
+                if p.get("imageScale"):
+                    image_block["imageScale"] = p["imageScale"]
+                # Author-set, not a runtime editor toggle - see
+                # glueForward in render.js's per-page block loop. Use for
+                # a worked example's diagram, so it can never end up
+                # stranded from the "Now you try" that explains it.
+                if p.get("glueForward"):
+                    image_block["glueForward"] = True
                 blocks.append(image_block)
             else:
                 question_block = {
