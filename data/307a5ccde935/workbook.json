@@ -18,7 +18,7 @@
       "blocks": [
         {
           "type": "heading",
-          "id": "h_title",
+          "id": "a_title",
           "text": "7A Angles and triangles",
           "style": "title"
         },

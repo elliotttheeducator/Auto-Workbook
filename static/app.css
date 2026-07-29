@@ -18,6 +18,68 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 }
 .topbar .secondary { background: #555; margin-right: 8px; }
 
+/* Workbook-wide tier filter bar (see filterBarHtml in render.js) - sits
+   just under the topbar, outside #app entirely so a re-render of the
+   paginated document (persistAndRerenderEditor) never wipes it out; a
+   chapter's own copy of the same picker (below) lives inside #app
+   instead, since it has to travel with its chapter through pagination. */
+.filter-bar {
+  background: #333; color: white; padding: 8px 16px;
+  display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 11px;
+}
+.tier-filter-group { display: flex; align-items: center; gap: 4px; }
+.tier-filter-label { text-transform: capitalize; color: #ccc; margin-right: 2px; }
+.tier-filter-group button {
+  background: #555; color: white; border: none; border-radius: 3px;
+  padding: 3px 8px; font-size: 10px; cursor: pointer; text-transform: capitalize;
+}
+.tier-filter-group button.active { background: #2a7; }
+/* A chapter that's just following the workbook-wide choice (no override
+   of its own) dims its active button a touch, so it visually reads as
+   "inherited" rather than "explicitly chosen here". */
+.tier-filter-group.inherited button.active { background: #6a8; opacity: 0.85; }
+
+/* A chapter's own filter row - same tier/mode picker as the workbook-wide
+   bar above, but scoped to just this chapter's questions and able to
+   override the global choice. Deliberately wider than the 92px
+   .controls-hang column it sits in (see the heading-unit markup in
+   render.js) - a title heading is the one spot that can afford to, since
+   there's rarely anything else sharing that margin nearby to collide
+   with. */
+.chapter-filter-bar {
+  width: 220px; background: rgba(255,255,255,0.96); border: 1px solid #ddd; border-radius: 4px;
+  padding: 5px; margin-top: 4px; display: flex; flex-direction: column; gap: 3px; font-size: 9px;
+}
+.chapter-filter-bar .tier-filter-group { flex-wrap: wrap; }
+.chapter-filter-bar .tier-filter-label { color: #777; }
+.chapter-filter-bar button { font-size: 9px; padding: 2px 5px; }
+.chapter-filter-bar .secondary { background: #999; margin-top: 2px; align-self: flex-start; }
+
+.delete-btn {
+  background: #c33; color: white; border: none; border-radius: 3px;
+  padding: 3px 6px; font-size: 9px; cursor: pointer; margin-top: 2px;
+}
+.restore-list { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
+.restore-list button {
+  background: #2a7; color: white; border: none; border-radius: 3px;
+  padding: 2px 5px; font-size: 9px; cursor: pointer;
+}
+/* Stands in, in the normal document flow, for a question a user
+   explicitly deleted - small on purpose (it's meant to barely register
+   next to real content) but still a real in-flow element so it's found
+   right where the question used to be, not hidden away somewhere else
+   on the page. Print-hidden like every other control (see @media print
+   below), so it never costs real printed space either way. */
+.deleted-placeholder {
+  font-size: 10px; color: #a55; background: #fbeaea; border: 1px dashed #e88;
+  border-radius: 4px; padding: 4px 8px; margin: 4px 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.deleted-placeholder button {
+  background: #2a7; color: white; border: none; border-radius: 3px;
+  padding: 2px 8px; font-size: 10px; cursor: pointer;
+}
+
 @media screen {
   main { padding-bottom: 40px; }
 }
@@ -241,10 +303,10 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 @media print {
   @page { size: A4; margin: 0; }
   body { background: white; }
-  .topbar, .home-main,
+  .topbar, .home-main, #filter-bar-mount,
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker,
   .image-scale-picker, .break-before-toggle, .controls-hang,
-  .squeeze-in { display: none !important; }
+  .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
     /* min-height carries over from the base rule - it's already exactly

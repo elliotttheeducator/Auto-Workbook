@@ -151,6 +151,11 @@ export function extractOverrides(workbook) {
     groupLayout: { ...(workbook.groupLayout || {}) },
     combinedBlocks: { ...(workbook.combinedBlocks || {}) },
     blockOverrides,
+    // Both 100% user-authored (no shipped server-side default either
+    // could ever mask), so unlike groupLayout there's nothing to lose by
+    // saving the whole thing every time.
+    tierFilters: workbook.tierFilters || { global: {}, chapters: {} },
+    deletedIds: [...(workbook.deletedIds || [])],
   };
 }
 
@@ -176,6 +181,9 @@ export function applyOverrides(workbook, overrides) {
       }
     }
   }
+  if (overrides.tierFilters) workbook.tierFilters = overrides.tierFilters;
+  if (overrides.deletedIds) workbook.deletedIds = overrides.deletedIds;
+
   const blockOverrides = overrides.blockOverrides || {};
   const legacyBlockWorkingSpace = overrides.blockWorkingSpace || {};
   for (const page of workbook.pages) {
@@ -191,6 +199,35 @@ export function applyOverrides(workbook, overrides) {
     }
   }
   return workbook;
+}
+
+// The four tier headings a question can sit under - the only sections
+// the odds/evens paper-saving filters apply to (a warmup section like
+// Building Understanding has no tier, and is never filtered).
+export const TIERS = ["fluency", "problemsolving", "reasoning", "enrichment"];
+export const FILTER_MODES = ["all", "odds", "evens"];
+
+// A chapter's own filter choice wins over the workbook-wide one when
+// it's been explicitly set; otherwise the chapter just follows whatever
+// the top-of-workbook button says. workbook.tierFilters is entirely
+// user-authored (there's no shipped default to layer onto, unlike
+// groupLayout) - always safe to persist and restore in full, so unlike
+// touchedGroupLayoutIds there's no "only save what was touched" concern
+// here.
+export function effectiveTierFilter(workbook, chapterId, tier) {
+  const chapterMode = workbook.tierFilters?.chapters?.[chapterId]?.[tier];
+  if (chapterMode) return chapterMode;
+  return workbook.tierFilters?.global?.[tier] || "all";
+}
+
+// 1-based position, within whatever set it's being counted among (every
+// sibling question in a (chapter, tier) pair for a whole question, or
+// every sibling part within one group for Fluency's sub-part filter) -
+// "odds" keeps position 1, 3, 5..., "evens" keeps 2, 4, 6....
+export function passesTierFilter(mode, position) {
+  if (mode === "odds") return position % 2 === 1;
+  if (mode === "evens") return position % 2 === 0;
+  return true;
 }
 
 export function escapeHtml(s) {

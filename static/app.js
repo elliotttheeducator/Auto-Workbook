@@ -9,10 +9,11 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, filterBarHtml, renderEditor, waitForImages } from "./render.js";
 
 const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
+const filterBarMount = document.getElementById("filter-bar-mount");
 
 let currentWorkbook = null;
 let currentProjectId = null;
@@ -108,6 +109,36 @@ function toggleBreakBefore(kind, id) {
   if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
+// A block/group id a user explicitly dropped (see the delete buttons on
+// every question's controls) - independent of, and always wins over,
+// the automatic tier odds/evens filter: deleting something the filter
+// would already have hidden is a no-op today but stays deleted if the
+// filter later changes to show it again.
+function deleteId(id) {
+  if (!currentWorkbook.deletedIds) currentWorkbook.deletedIds = [];
+  if (!currentWorkbook.deletedIds.includes(id)) currentWorkbook.deletedIds.push(id);
+}
+
+function restoreIds(ids) {
+  if (!currentWorkbook.deletedIds) return;
+  const drop = new Set(ids);
+  currentWorkbook.deletedIds = currentWorkbook.deletedIds.filter((id) => !drop.has(id));
+}
+
+function setTierFilter(tier, mode, chapterId) {
+  if (!currentWorkbook.tierFilters) currentWorkbook.tierFilters = { global: {}, chapters: {} };
+  if (chapterId) {
+    if (!currentWorkbook.tierFilters.chapters[chapterId]) currentWorkbook.tierFilters.chapters[chapterId] = {};
+    currentWorkbook.tierFilters.chapters[chapterId][tier] = mode;
+  } else {
+    currentWorkbook.tierFilters.global[tier] = mode;
+  }
+}
+
+function resetChapterFilter(chapterId) {
+  if (currentWorkbook.tierFilters?.chapters) delete currentWorkbook.tierFilters.chapters[chapterId];
+}
+
 // Every block/group's hanging panel (see .controls-hang in app.css) is
 // positioned against its own block, top:0 - fine on its own, but a
 // panel taller than the block it belongs to (there's often more to
@@ -149,6 +180,7 @@ async function persistAndRerenderEditor() {
     Object.entries(overrides.groupLayout).filter(([gid]) => touchedGroupLayoutIds.has(gid))
   );
   await db.saveOverrides(currentProjectId, overrides);
+  filterBarMount.innerHTML = filterBarHtml(currentWorkbook, null);
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
@@ -159,6 +191,7 @@ async function renderHomeView() {
   currentWorkbook = null;
   currentProjectId = null;
   topbarActions.innerHTML = "";
+  filterBarMount.innerHTML = "";
 
   let projects = [];
   try {
@@ -201,6 +234,12 @@ async function renderEditorView(id) {
     location.hash = "#/";
     return;
   }
+  // Both entirely user-authored - workbook.json never ships either, so
+  // there's no server-side default to layer them onto (see extractOverrides
+  // in model.js). applyOverrides only replaces them when a save actually
+  // set one, so this default has to be seeded first.
+  workbook.tierFilters = workbook.tierFilters || { global: {}, chapters: {} };
+  workbook.deletedIds = workbook.deletedIds || [];
   applyOverrides(workbook, await db.loadOverrides(id));
   currentWorkbook = workbook;
   currentProjectId = id;
@@ -213,6 +252,7 @@ async function renderEditorView(id) {
   document.getElementById("export-btn").onclick = () => window.print();
   document.getElementById("autofit-btn").onclick = autoFitDocument;
 
+  filterBarMount.innerHTML = filterBarHtml(workbook, null);
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
@@ -273,7 +313,12 @@ async function route() {
   }
 }
 
-appEl.addEventListener("click", (e) => {
+// Shared by both appEl (the paginated document - most controls, plus
+// each chapter's own filter row, live here) and filterBarMount (the
+// workbook-wide filter bar - deliberately outside appEl, so it's never
+// wiped out along with the rest of the document on every re-render, see
+// persistAndRerenderEditor).
+function handleControlClick(e) {
   const el = e.target.closest("[data-action]");
   if (!el) return;
   const action = el.dataset.action;
@@ -289,6 +334,30 @@ appEl.addEventListener("click", (e) => {
   if (action === "set-layout") {
     touchedGroupLayoutIds.add(el.dataset.group);
     currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
+    persistAndRerenderEditor();
+    return;
+  }
+
+  if (action === "set-tier-filter") {
+    setTierFilter(el.dataset.tier, el.dataset.mode, el.dataset.chapter || null);
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "reset-chapter-filter") {
+    resetChapterFilter(el.dataset.chapter);
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "delete") {
+    deleteId(el.dataset.target);
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "restore") {
+    // A group with every one of its parts individually deleted (see
+    // groupVisibility in render.js) needs all of them back at once - its
+    // one restore placeholder carries every hidden id there, comma-joined.
+    restoreIds(el.dataset.target.split(",").filter(Boolean));
     persistAndRerenderEditor();
     return;
   }
@@ -347,7 +416,10 @@ appEl.addEventListener("click", (e) => {
     return;
   }
   persistAndRerenderEditor();
-});
+}
+
+appEl.addEventListener("click", handleControlClick);
+filterBarMount.addEventListener("click", handleControlClick);
 
 window.addEventListener("hashchange", route);
 route();

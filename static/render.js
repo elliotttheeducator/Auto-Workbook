@@ -12,6 +12,7 @@
 import {
   BOX_WIDTH_MM,
   CONTENT_WIDTH_MM,
+  FILTER_MODES,
   GRID_MM,
   IMAGE_SCALE_MAX,
   IMAGE_SCALE_MIN,
@@ -19,9 +20,13 @@ import {
   PAGE_MARGIN_MM,
   RULE_MM,
   SIZE_PRESETS_MM,
+  TIERS,
   canShrink,
+  effectiveTierFilter,
   escapeHtml,
+  groupIdFor,
   iterRenderUnits,
+  passesTierFilter,
   snapDown,
 } from "./model.js";
 
@@ -70,6 +75,159 @@ export function waitForImages(container) {
           })
     )
   );
+}
+
+// Where every question/group sits for the tier odds/evens filters (see
+// the filter bar in renderEditor): which chapter and tier heading it
+// falls under, and its 1-based position among sibling questions in that
+// (chapter, tier) pair. A Fluency group also gets a position *within its
+// own group* for each member (a=1, b=2, c=3...) - Fluency's filter
+// thins out parts, not whole questions, so that's the number that
+// matters there (see the "sub-parts" vs "questions" distinction in the
+// filter bar's own label). Has to be a separate up-front pass, not
+// something read off a block as it's encountered: a block's position
+// can only be known by having already walked everything before it.
+function buildFilterContext(workbook) {
+  const chapters = [];
+  let chapterId = null;
+  let tier = null;
+  const tierCounts = {};
+  const context = {};
+  const partPosition = {};
+
+  for (const page of workbook.pages) {
+    for (const b of page.blocks) {
+      if (b.type === "heading") {
+        if (b.style === "title") {
+          chapterId = b.id;
+          tier = null;
+          if (!/answers$/i.test(b.text || "")) chapters.push({ id: b.id, text: b.text });
+        } else if (b.style === "tier" && TIERS.includes(b.tier)) {
+          tier = b.tier;
+        }
+        continue;
+      }
+      if (b.type !== "question") continue;
+      const gid = groupIdFor(b.id);
+      if (gid) {
+        if (!context[gid]) {
+          const key = `${chapterId}|${tier}`;
+          tierCounts[key] = (tierCounts[key] || 0) + 1;
+          context[gid] = { chapterId, tier, index: tierCounts[key], partCount: 0 };
+        }
+        context[gid].partCount += 1;
+        partPosition[b.id] = context[gid].partCount;
+      } else {
+        const key = `${chapterId}|${tier}`;
+        tierCounts[key] = (tierCounts[key] || 0) + 1;
+        context[b.id] = { chapterId, tier, index: tierCounts[key] };
+      }
+    }
+  }
+  return { chapters, context, partPosition };
+}
+
+// A group/single question's own whole-question filter (every tier
+// except Fluency, whose filter instead thins out parts - see
+// buildFilterContext/passesTierFilter in model.js).
+function passesWholeQuestionFilter(workbook, ctx) {
+  if (!ctx || !ctx.tier || ctx.tier === "fluency") return true;
+  const mode = effectiveTierFilter(workbook, ctx.chapterId, ctx.tier);
+  return passesTierFilter(mode, ctx.index);
+}
+
+// Which members of a group are actually visible, once both the
+// automatic tier filter and any explicit per-part/whole-group deletes
+// are accounted for. Needed in two places - deciding what to actually
+// pass into renderGroup, and (looking one unit ahead) deciding whether
+// a stem introducing this group has anything left to introduce - so
+// it's centralised here rather than duplicated at each call site.
+function groupVisibility(workbook, gid, blocks, filterCtx, deletedIds) {
+  const ctx = filterCtx.context[gid] || {};
+  // Fluency's filter thins out parts, not whole questions (see the
+  // "sub-parts" label in the filter bar) - every other tier is the
+  // reverse: a member is never individually auto-hidden, only the group
+  // as a whole can be.
+  const fluencyMode = ctx.tier === "fluency" ? effectiveTierFilter(workbook, ctx.chapterId, "fluency") : null;
+  const memberStatus = blocks.map((mb) => {
+    const explicit = deletedIds.has(mb.id);
+    const auto = fluencyMode ? !passesTierFilter(fluencyMode, filterCtx.partPosition[mb.id]) : false;
+    return { block: mb, explicit, hidden: explicit || auto };
+  });
+  const visibleMembers = memberStatus.filter((m) => !m.hidden).map((m) => m.block);
+  const explicitlyHiddenMembers = memberStatus.filter((m) => m.explicit).map((m) => m.block);
+  const wholeGroupExplicitDelete = deletedIds.has(gid);
+  const wholeGroupAutoHidden = !fluencyMode && !passesWholeQuestionFilter(workbook, ctx);
+  return {
+    visibleMembers,
+    explicitlyHiddenMembers,
+    wholeGroupExplicitDelete,
+    wholeGroupAutoHidden,
+    fullyHidden: wholeGroupExplicitDelete || wholeGroupAutoHidden || visibleMembers.length === 0,
+  };
+}
+
+function partLabel(id, gid) {
+  return escapeHtml(id.slice(gid.length));
+}
+
+function deleteButtonHtml(id, kind, label) {
+  return (
+    `<button class="delete-btn" data-action="delete" data-target="${escapeHtml(id)}" data-kind="${kind}" ` +
+    `title="Delete ${escapeHtml(label)}">✕ ${escapeHtml(label)}</button>`
+  );
+}
+
+function restoreListHtml(hiddenMembers, gid) {
+  if (!hiddenMembers.length) return "";
+  const buttons = hiddenMembers
+    .map((b) => `<button data-action="restore" data-target="${escapeHtml(b.id)}">+ ${partLabel(b.id, gid)}</button>`)
+    .join("");
+  return `<div class="restore-list">${buttons}</div>`;
+}
+
+// Stands in for a question/group a user explicitly deleted (see the
+// delete buttons above) - deliberately not rendered for one the
+// automatic tier filter hid instead: that's meant to disappear cleanly
+// (switching the filter back to "all" brings it back), where an
+// explicit delete needs its own visible, specific way back.
+function deletedPlaceholderHtml(id, label) {
+  return (
+    `<div class="deleted-placeholder">${escapeHtml(label)} - deleted ` +
+    `<button data-action="restore" data-target="${escapeHtml(id)}">+ Restore</button></div>`
+  );
+}
+
+// One tier's All/Odds/Evens picker - shared between the workbook-wide
+// bar and each chapter's own row, which only differ in what they read
+// (global vs a chapter's override) and which id set-tier-filter's click
+// handler should write to (data-chapter, omitted for the global bar).
+// activeMode is always the *effective* choice (a chapter with no
+// override of its own just shows whatever the workbook-wide bar has
+// picked) - isOverride only changes the "inherited" styling, not which
+// button lights up.
+function tierFilterGroupHtml(tier, activeMode, chapterId, isOverride) {
+  const label = tier === "fluency" ? `${tier} (sub-parts)` : tier;
+  const chapterAttr = chapterId ? ` data-chapter="${escapeHtml(chapterId)}"` : "";
+  const buttons = FILTER_MODES.map(
+    (mode) =>
+      `<button class="${activeMode === mode ? "active" : ""}" data-action="set-tier-filter" ` +
+      `data-tier="${tier}"${chapterAttr} data-mode="${mode}">${mode}</button>`
+  ).join("");
+  const inheritedNote = chapterId && !isOverride ? ' title="Inherited from the workbook-wide filter"' : "";
+  return `<div class="tier-filter-group${chapterId && !isOverride ? " inherited" : ""}"${inheritedNote}><span class="tier-filter-label">${escapeHtml(label)}</span>${buttons}</div>`;
+}
+
+export function filterBarHtml(workbook, chapterId) {
+  const groups = TIERS.map((tier) => {
+    const isOverride = !!chapterId && !!workbook.tierFilters?.chapters?.[chapterId]?.[tier];
+    const mode = effectiveTierFilter(workbook, chapterId, tier);
+    return tierFilterGroupHtml(tier, mode, chapterId, isOverride);
+  }).join("");
+  const resetBtn = chapterId
+    ? `<button class="secondary" data-action="reset-chapter-filter" data-chapter="${escapeHtml(chapterId)}">Use workbook-wide</button>`
+    : "";
+  return `<div class="${chapterId ? "chapter-filter-bar" : "filter-bar"}">${groups}${resetBtn}</div>`;
 }
 
 // A split row's two diagrams are cropped straight from the source PDF at
@@ -340,13 +498,15 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // single crop image and stays atomic; split parts are independent and
 // need to be free to land on different sheets, same as any other
 // question would.
-function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
+function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = []) {
   const safeGid = escapeHtml(gid);
   const controls =
     `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split (small, per part)</label>` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined (large, whole question)</label>` +
-    "</div>";
+    "</div>" +
+    deleteButtonHtml(gid, "group", "Delete question") +
+    restoreListHtml(restorableHiddenMembers, gid);
 
   if (layout === "combined") {
     // The combined view is a real crop of the whole question exactly as
@@ -413,7 +573,14 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks) {
     // both" affordance needed.
     const anchor = rowBlocks[0];
     const targets = rowBlocks.map((b) => b.id).join(",");
-    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale, anchor.breakBefore)}</div>`;
+    // One delete button per part, not a shared comma-target one like
+    // the rest of this panel - unlike size/style/scale, a matched pair
+    // can each independently be dropped without the other, and a single
+    // shared delete would take out both parts on one click.
+    const partDeleteButtons = rowBlocks
+      .map((b) => deleteButtonHtml(b.id, "block", `Delete ${partLabel(b.id, gid)}`))
+      .join("");
+    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale, anchor.breakBefore)}${partDeleteButtons}</div>`;
     const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
@@ -473,6 +640,8 @@ function isSectionStart(page) {
 
 export async function renderEditor(workbook, cropsBaseUrl) {
   const combinedBlocks = workbook.combinedBlocks || {};
+  const deletedIds = new Set(workbook.deletedIds || []);
+  const filterCtx = buildFilterContext(workbook);
   const physicalPagesHtml = [];
   let pending = [];
 
@@ -567,11 +736,18 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // A stem image cropped from the same source region as a group's
         // "combined" (whole-question) crop is already baked into that
         // crop - only show it separately when the group is split into
-        // parts, or it'd print twice back to back in combined view.
-        if (b.combinedIncludesStem) {
-          const next = renderUnits[unitIndex + 1];
-          const nextLayout = next && next.kind === "group" ? workbook.groupLayout[next.gid] || "split" : null;
-          if (nextLayout === "combined") return;
+        // parts, or it'd print twice back to back in combined view. And
+        // whether baked-in or not, a stem introducing a group that's
+        // entirely hidden (deleted, or filtered out - see
+        // groupVisibility) has nothing left to introduce.
+        const next = renderUnits[unitIndex + 1];
+        if (next && next.kind === "group") {
+          const nextLayout = workbook.groupLayout[next.gid] || "split";
+          const nextVisibility = groupVisibility(workbook, next.gid, next.blocks, filterCtx, deletedIds);
+          if (b.combinedIncludesStem && nextLayout === "combined") return;
+          if (nextVisibility.fullyHidden && (b.combinedIncludesStem || (b.type === "image" && b.id === `${next.gid}_stem`))) {
+            return;
+          }
         }
         if (b.type === "heading") {
           // Wrapped in one container, not two sibling top-level elements
@@ -580,8 +756,13 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // child and assumes that lines up 1:1 with the units array;
           // two top-level children per unit desyncs every measurement
           // after the first heading in a run, corrupting every height
-          // downstream of it.
-          const html = `<div class="heading-unit">${headingHtml(b)}<div class="controls-hang">${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div></div>`;
+          // downstream of it. A real chapter title also carries its own
+          // tier-filter row (see filterBarHtml) - kept inside this same
+          // out-of-flow panel, same reasoning as breakBeforeControlHtml
+          // just above it: it's editor chrome, never worth costing real
+          // page space or nudging where a page break falls.
+          const isChapterTitle = b.style === "title" && !/answers$/i.test(b.text || "");
+          const html = `<div class="heading-unit">${headingHtml(b)}<div class="controls-hang">${breakBeforeControlHtml(b.id, "block", b.breakBefore)}${isChapterTitle ? filterBarHtml(workbook, b.id) : ""}</div></div>`;
           units.push({ html, heading: true, breakBefore: !!b.breakBefore });
         } else if (b.type === "image") {
           // No working space on a plain image, but it can still be the
@@ -605,15 +786,24 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             // detect: a worked example's diagram has nothing to do
             // stranded without the "Now you try" that explains it, same
             // as a heading never wants to be stranded from what it
-            // introduces, but no naming convention ties the two ids
+            // introduces, but no naming convention ties the id conventions
             // together the way a stem's does.
             glueForward: !!b.glueForward,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
             breakBefore: !!b.breakBefore,
           });
         } else {
+          // A standalone question (no letter suffix, never grouped) is
+          // never subject to Fluency's sub-part filter - there's only
+          // ever the one "part" - only the whole-question one, same as
+          // Problem-solving/Reasoning/Enrichment.
+          if (deletedIds.has(b.id)) {
+            units.push({ html: deletedPlaceholderHtml(b.id, b.id), heading: false, breakBefore: false });
+            return;
+          }
+          if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
-          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}</div>`;
+          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}</div>`;
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
@@ -625,7 +815,26 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";
-      units.push(...renderGroup(unit.gid, unit.blocks, layout, cropsBaseUrl, combinedBlocks));
+      const visibility = groupVisibility(workbook, unit.gid, unit.blocks, filterCtx, deletedIds);
+      if (visibility.wholeGroupExplicitDelete) {
+        units.push({ html: deletedPlaceholderHtml(unit.gid, unit.gid), heading: false, breakBefore: false });
+        return;
+      }
+      if (visibility.wholeGroupAutoHidden) return;
+      if (visibility.visibleMembers.length === 0) {
+        // Every part is individually deleted - the fluency auto filter
+        // alone can never zero every part out (odds/evens always keeps
+        // at least one of any two consecutive positions), so this only
+        // happens from deleting parts one by one. Restore needs to bring
+        // all of them back together, not just the group id (which was
+        // never itself deleted in this case).
+        const ids = visibility.explicitlyHiddenMembers.map((m) => m.id).join(",");
+        units.push({ html: deletedPlaceholderHtml(ids, unit.gid), heading: false, breakBefore: false });
+        return;
+      }
+      units.push(
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers)
+      );
     });
 
     if (isSectionStart(page)) await flushPending();
