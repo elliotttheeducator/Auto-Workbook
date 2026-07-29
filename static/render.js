@@ -392,6 +392,15 @@ async function paginateUnits(units) {
   const sheets = [[]];
   const sheetHeights = [];
   let sheetHeight = 0;
+  // A bundle glued together (see bundleEnd) is never split across
+  // sheets, even when it's taller than one page - that's deliberate
+  // (see the comment below), but it also means nothing here stops a
+  // bundle from growing past USABLE_HEIGHT_PX and printing across a
+  // page break that was never meant to exist. Flagged here, where the
+  // real per-unit heights already live, purely for app.js to greatly
+  // out that bundle's own "+" controls afterwards - unlike everything
+  // below, this never changes which sheet anything lands on.
+  const oversizedBundle = new Array(units.length).fill(false);
   // Walk whole bundles at a time, not unit by unit - a glued bundle (see
   // bundleEnd) is meant to be atomic, but checking fit again at every
   // unit *inside* an already-placed bundle re-litigates a decision
@@ -407,6 +416,9 @@ async function paginateUnits(units) {
     const bundleLast = units[i].glueForward ? bundleEnd(units, i) : i;
     let bundleHeight = 0;
     for (let k = i; k <= bundleLast; k++) bundleHeight += heights[k];
+    if (bundleHeight > USABLE_HEIGHT_PX) {
+      for (let k = i; k <= bundleLast; k++) oversizedBundle[k] = true;
+    }
 
     const sheetHasContent = sheets[sheets.length - 1].length > 0;
     // A manual "start on a new page" override always wins, even over a
@@ -434,7 +446,19 @@ async function paginateUnits(units) {
   sheetHeights.push(sheetHeight);
 
   const leftoverPx = sheetHeights.map((used) => USABLE_HEIGHT_PX - used);
-  return { sheets, leftoverPx };
+  return { sheets, leftoverPx, oversizedBundle };
+}
+
+// Injects a class onto a unit's own top-level element (every unit's html
+// starts with exactly this, see the various renderGroup/renderEditor
+// branches above) rather than wrapping it in an extra div - a wrapper
+// would leave "growth-locked" on a new element one level above whatever
+// compactionBundles()/alignSplitRows() (app.js) actually match against
+// (.heading-unit, .split-row, [data-glue-example], ...), breaking every
+// selector that assumes a unit's own element is still the direct child
+// of .page.
+function markGrowthLocked(html) {
+  return html.replace('<div class="', '<div class="growth-locked ');
 }
 
 // widthMm is a fixed size set at content-authoring time (add_chapter.py -
@@ -793,14 +817,21 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       const prev = units[i - 1];
       if (prev && prev.contextOnly && prev.id === `${units[i].groupId}_stem`) {
         prev.glueForward = true;
-        groupStems[units[i].groupId] = prev.html;
+        // The unit object, not a snapshot of its .html - growth-locked
+        // marking (below) mutates that string in place after this point,
+        // and a "(continued)" repeat should reflect the same disabled
+        // controls as the original, not a stale unmarked copy.
+        groupStems[units[i].groupId] = prev;
       }
     }
     for (let i = 0; i < units.length; i++) {
       units[i].glueForward = units[i].glueForward || units[i].heading;
     }
 
-    const { sheets, leftoverPx } = await paginateUnits(units);
+    const { sheets, leftoverPx, oversizedBundle } = await paginateUnits(units);
+    for (let i = 0; i < units.length; i++) {
+      if (oversizedBundle[i]) units[i].html = markGrowthLocked(units[i].html);
+    }
     for (let i = 0; i < sheets.length; i++) {
       const sheet = sheets[i];
       // A later row of a split question can still end up starting a
@@ -813,7 +844,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       const first = sheet[0];
       let continued = "";
       if (first && first.groupId && !first.groupFirstRow) {
-        continued = groupStems[first.groupId] || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
+        const stemUnit = groupStems[first.groupId];
+        continued = (stemUnit && stemUnit.html) || `<div class="heading group-continued">${escapeHtml(first.groupId)} (continued)</div>`;
       }
       // Only a sheet with more content still queued behind it can
       // usefully squeeze anything in - the last sheet has nothing left

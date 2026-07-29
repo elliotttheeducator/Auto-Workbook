@@ -373,6 +373,17 @@ function bundleSpansMultiplePages(bundle) {
   return pages.size > 1;
 }
 
+// A glued bundle (see bundleEnd() in render.js) that's too tall for one
+// page doesn't always get split across two .page divs the way
+// bundleSpansMultiplePages() checks for - a bundle held together on a
+// single sheet just makes that one sheet taller than physical A4 instead
+// (see growth-locked in app.css, which render.js marks on exactly this
+// case). Auto-fit needs to catch that too, not just the multi-sheet
+// case, or it'll walk straight past a bundle that's already overflowing.
+function bundleOversizedOnOnePage(bundle) {
+  return bundle.els.some((el) => el.classList.contains("growth-locked"));
+}
+
 function shrinkableTargetsInBundle(bundle) {
   const targets = [];
   for (const el of bundle.els) {
@@ -398,7 +409,7 @@ async function compactSections(btn) {
     const MAX_ROUNDS_PER_BUNDLE = 30;
     while (rounds < MAX_ROUNDS_PER_BUNDLE) {
       const bundle = compactionBundles()[idx];
-      if (!bundle || !bundleSpansMultiplePages(bundle)) break;
+      if (!bundle || !(bundleSpansMultiplePages(bundle) || bundleOversizedOnOnePage(bundle))) break;
       let changed = false;
       for (const { kind, id } of shrinkableTargetsInBundle(bundle)) {
         if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;

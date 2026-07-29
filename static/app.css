@@ -309,6 +309,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .page-right .controls-hang .lines-picker, .page-right .controls-hang .columns-picker,
 .page-right .controls-hang .image-scale-picker { justify-content: flex-start; }
 
+/* growth-locked marks a unit whose glued bundle (see bundleEnd() in
+   render.js) is already taller than one physical sheet - since a glued
+   bundle can never split across sheets, growing it further would just
+   stretch that sheet past A4 with no way to reflow out of it. Only the
+   grow ("+") side is blocked; shrinking back down (which only ever helps)
+   stays live. pointer-events: none is enough on its own to stop the
+   click from ever reaching handleControlClick - no separate JS guard
+   needed. */
+.growth-locked [data-action="step-image-scale"][data-delta="1"],
+.growth-locked [data-action="step-height"][data-delta="1"] {
+  opacity: 0.35; cursor: not-allowed; pointer-events: none;
+}
 /* Positioned absolutely against .page (not laid out in normal flow) so
    it can never push a page taller than one physical sheet - it only
    ever appears over genuine trailing blank space (see MIN_SQUEEZE_PX in
