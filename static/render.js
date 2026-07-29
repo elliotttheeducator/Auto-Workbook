@@ -252,6 +252,7 @@ export function defaultScaleBarHtml(workbook) {
     `<div class="filter-bar default-scale-bar">` +
     stepper("split", "Default split scale", scales.split) +
     stepper("section", "Default section scale", scales.section) +
+    stepper("answers", "Default answer scale", scales.answers) +
     stepper("combined", "Default combined scale", scales.combined) +
     `</div>`
   );
@@ -794,7 +795,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // just above it: it's editor chrome, never worth costing real
           // page space or nudging where a page break falls.
           const isChapterTitle = b.style === "title" && !/answers$/i.test(b.text || "");
-          const html = `<div class="heading-unit">${headingHtml(b)}<div class="controls-hang">${breakBeforeControlHtml(b.id, "block", b.breakBefore)}${isChapterTitle ? filterBarHtml(workbook, b.id) : ""}</div></div>`;
+          // Marks the one heading Auto-fit's section-compaction pass (see
+          // app.js) looks for by exact text - a stable, consistent string
+          // across every chapter's proposals, not worth a dedicated field
+          // just for this.
+          const isBuildingUnderstanding = (b.text || "").trim() === "Building Understanding";
+          const html = `<div class="heading-unit"${isBuildingUnderstanding ? ' data-bu-heading="true"' : ""}>${headingHtml(b)}<div class="controls-hang">${breakBeforeControlHtml(b.id, "block", b.breakBefore)}${isChapterTitle ? filterBarHtml(workbook, b.id) : ""}</div></div>`;
           units.push({ html, heading: true, breakBefore: !!b.breakBefore });
         } else if (b.type === "image") {
           // No working space on a plain image, but it can still be the
@@ -807,10 +813,17 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // or worked-example diagram (see "section" in add_chapter.py)
           // is informational, not a question - its own default-scale
           // bucket, separate from an actual question's combined crop.
-          const pct = b.imageScale ?? (b.section ? defaultScales.section : defaultScales.combined);
+          const pct =
+            b.imageScale ??
+            (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
           const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
-          const html = `<div class="block">${crop}${hangingControls}</div>`;
+          // glueForward is already exactly "this is a worked example's
+          // own diagram" in this dataset (see the docstring in
+          // add_chapter.py) - reused here as Auto-fit's other
+          // section-compaction marker, rather than a second flag meaning
+          // the same thing.
+          const html = `<div class="block"${b.glueForward ? ' data-glue-example="true"' : ""}>${crop}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,

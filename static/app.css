@@ -17,6 +17,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   padding: 6px 14px; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 12px;
 }
 .topbar .secondary { background: #555; margin-right: 8px; }
+.topbar button:disabled { opacity: 0.4; cursor: default; }
 
 /* Workbook-wide tier filter bar (see filterBarHtml in render.js) - sits
    just under the topbar, outside #app entirely so a re-render of the

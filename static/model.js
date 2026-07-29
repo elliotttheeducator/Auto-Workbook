@@ -43,10 +43,12 @@ function shrinkWorkingSpaceOneStep(ws) {
 // DEFAULT_COMBINED_SCALE below for that).
 export const IMAGE_SCALE_MAX = 200;
 export const IMAGE_SCALE_MIN = 10;
-export const IMAGE_SCALE_STEP = 15;
+// 5% - fine enough to nudge a diagram without the jumps themselves
+// being the reason it doesn't quite fit.
+export const IMAGE_SCALE_STEP = 5;
 
 // What a diagram renders at before anyone has touched its own +/-
-// control - three buckets, tunable workbook-wide from the top of the
+// control - four buckets, tunable workbook-wide from the top of the
 // editor (see the default-scale controls in app.js) rather than fixed
 // forever the moment a chapter's built:
 //   - split: one part of a multi-part question in "split" layout.
@@ -54,11 +56,26 @@ export const IMAGE_SCALE_STEP = 15;
 //     "section" flag below) - informational content, not a question a
 //     student answers, so it wants its own starting point separate from
 //     an actual question's combined/standalone crop.
+//   - answers: an answer-key page image (see the "answers" flag below) -
+//     these used to render at a fixed real-world mm width (matching the
+//     source PDF exactly) with no way to shrink them at all; now just
+//     another adjustable bucket, so a chapter's answer pages can
+//     actually be packed onto fewer sheets.
 //   - combined: everything else - a combined group's whole-question
 //     crop, a standalone single question, or a plain diagram-only image
-//     with no "section" flag.
+//     with none of the above flags.
 export const DEFAULT_SPLIT_SCALE = 70;
 export const DEFAULT_SECTION_SCALE = 70;
+// Deliberately more aggressive than the other three, and below the
+// automatic-shrink readability floor (see READABILITY_FLOOR_SCALE below)
+// on purpose - an answer-key page is reference material a teacher skims,
+// not something a student has to read closely off the printed sheet, so
+// it can afford to run denser than the rest of the workbook. Verified
+// against this project's actual answer pages: 30% gets most "X Answers"
+// sections onto one physical sheet (only the two chapters with three
+// separate answer images still need two); 45% (the old fixed-mm size)
+// needed two-to-three sheets everywhere.
+export const DEFAULT_ANSWERS_SCALE = 30;
 export const DEFAULT_COMBINED_SCALE = 100;
 
 function findBlockById(workbook, id) {
@@ -68,7 +85,7 @@ function findBlockById(workbook, id) {
   return null;
 }
 
-// Which of the three workbook-wide defaults above applies to a given
+// Which of the four workbook-wide defaults above applies to a given
 // block/group. Needed by app.js at click time (a step-image-scale or
 // squeeze-in action only has a bare (kind, id) to work from, not the
 // render-time context that already knows which bucket applies) -
@@ -82,30 +99,41 @@ export function defaultScaleFor(workbook, kind, id) {
   if (isSplitPart) return defaults.split ?? DEFAULT_SPLIT_SCALE;
   const block = findBlockById(workbook, id);
   if (block?.section) return defaults.section ?? DEFAULT_SECTION_SCALE;
+  if (block?.answers) return defaults.answers ?? DEFAULT_ANSWERS_SCALE;
   return defaults.combined ?? DEFAULT_COMBINED_SCALE;
 }
 
-// All three workbook-wide defaults resolved together, with fallbacks
+// All four workbook-wide defaults resolved together, with fallbacks
 // applied once - render.js computes this a single time per render
 // rather than re-deriving it per block, since (unlike defaultScaleFor)
-// it already knows structurally which of the three applies at each call
+// it already knows structurally which of the four applies at each call
 // site.
 export function resolvedDefaultScales(workbook) {
   const defaults = workbook.defaultScales || {};
   return {
     split: defaults.split ?? DEFAULT_SPLIT_SCALE,
     section: defaults.section ?? DEFAULT_SECTION_SCALE,
+    answers: defaults.answers ?? DEFAULT_ANSWERS_SCALE,
     combined: defaults.combined ?? DEFAULT_COMBINED_SCALE,
   };
 }
 
-function canShrinkImage(entry, defaultScale) {
-  return (entry.imageScale ?? defaultScale) > IMAGE_SCALE_MIN;
+// Any *automatic* shrink (squeeze-in, Auto-fit, section compaction) stops
+// here by default, well short of IMAGE_SCALE_MIN - a diagram the system
+// shrinks on its own without being asked about each one specifically
+// shouldn't end up too small to read just because it technically still
+// could shrink further. A manual +/- click is a deliberate, one-at-a-time
+// choice and stays exempt (see app.js's step-image-scale handler, the one
+// call site that passes IMAGE_SCALE_MIN through explicitly instead).
+export const READABILITY_FLOOR_SCALE = 55;
+
+function canShrinkImage(entry, defaultScale, floor = READABILITY_FLOOR_SCALE) {
+  return (entry.imageScale ?? defaultScale) > floor;
 }
 
-export function shrinkImageOneStep(entry, defaultScale) {
-  if (!canShrinkImage(entry, defaultScale)) return false;
-  entry.imageScale = Math.max(IMAGE_SCALE_MIN, (entry.imageScale ?? defaultScale) - IMAGE_SCALE_STEP);
+export function shrinkImageOneStep(entry, defaultScale, floor = READABILITY_FLOOR_SCALE) {
+  if (!canShrinkImage(entry, defaultScale, floor)) return false;
+  entry.imageScale = Math.max(floor, (entry.imageScale ?? defaultScale) - IMAGE_SCALE_STEP);
   return true;
 }
 
@@ -121,12 +149,12 @@ export function growImageOneStep(entry, defaultScale) {
 // click) - a single source of truth for "is there room to shrink this
 // entry further," so the two can never disagree about it. `entry` is
 // whatever owns a working space and a diagram - a question block, or a
-// group's combinedBlocks entry. `defaultScale` is whichever of the two
+// group's combinedBlocks entry. `defaultScale` is whichever of the four
 // workbook-wide defaults applies to this entry (see defaultScaleFor/
 // resolvedDefaultScales above) - always required now that "unset" no
 // longer means a single fixed constant.
-export function canShrink(entry, defaultScale) {
-  return !!entry && (canShrinkImage(entry, defaultScale) || canShrinkWorkingSpace(entry.workingSpace));
+export function canShrink(entry, defaultScale, floor = READABILITY_FLOOR_SCALE) {
+  return !!entry && (canShrinkImage(entry, defaultScale, floor) || canShrinkWorkingSpace(entry.workingSpace));
 }
 
 // Diagram first, then working space - shrinking the diagram is usually
@@ -134,9 +162,9 @@ export function canShrink(entry, defaultScale) {
 // squeeze-in prompt) reaches for it before falling back to trimming the
 // answer box. Returns false (no-op) when canShrink() would already say
 // there's nothing left to shrink.
-export function shrinkOneStep(entry, defaultScale) {
+export function shrinkOneStep(entry, defaultScale, floor = READABILITY_FLOOR_SCALE) {
   if (!entry) return false;
-  if (shrinkImageOneStep(entry, defaultScale)) return true;
+  if (shrinkImageOneStep(entry, defaultScale, floor)) return true;
   return shrinkWorkingSpaceOneStep(entry.workingSpace);
 }
 
@@ -206,17 +234,24 @@ export function extractOverrides(workbook) {
       blockOverrides[b.id] = o;
     }
   }
-  return {
-    groupLayout: { ...(workbook.groupLayout || {}) },
-    combinedBlocks: { ...(workbook.combinedBlocks || {}) },
+  // structuredClone, not a shallow {...spread} - a workingSpace object
+  // (nested inside blockOverrides/combinedBlocks) would otherwise still
+  // be the *same* object the live workbook keeps mutating in place (see
+  // shrinkWorkingSpaceOneStep), so anything holding onto this result
+  // past the current tick - Auto-fit's own pre-run snapshot for its Undo
+  // button, notably - would silently see its "before" picture keep
+  // changing along with the live document instead of staying frozen.
+  return structuredClone({
+    groupLayout: workbook.groupLayout || {},
+    combinedBlocks: workbook.combinedBlocks || {},
     blockOverrides,
     // Both 100% user-authored (no shipped server-side default either
     // could ever mask), so unlike groupLayout there's nothing to lose by
     // saving the whole thing every time.
     tierFilters: workbook.tierFilters || { global: {}, chapters: {} },
-    deletedIds: [...(workbook.deletedIds || [])],
-    defaultScales: { ...(workbook.defaultScales || {}) },
-  };
+    deletedIds: workbook.deletedIds || [],
+    defaultScales: workbook.defaultScales || {},
+  });
 }
 
 // Layers previously-saved overrides onto a freshly-fetched workbook, in

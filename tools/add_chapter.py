@@ -107,6 +107,13 @@ other image - but two optional fields matter for them specifically:
     explicitly here since there's no id convention (the way a group's
     "{groupId}_stem" naming is) tying an example to its own "now you
     try".
+
+An answer-key page image (any "source": "answers" image block) is set
+to "answers": true automatically - its own default-scale bucket too, so
+a chapter's answer pages can be shrunk to actually fit fewer sheets
+instead of being pinned to a fixed real-world mm width matching the
+source PDF (the old behavior, which meant they could never be adjusted
+at all).
 """
 from __future__ import annotations
 
@@ -250,9 +257,13 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
             crop(p, p["id"], trim=not entry.get("cover"))
             if p["type"] == "image":
                 image_block = {"type": "image", "id": p["id"]}
+                # An answer-key page image - its own default-scale bucket
+                # (see "answers" in the module docstring above), not a
+                # fixed real-world mm width matching the source PDF: that
+                # used to mean an answer image could never be shrunk at
+                # all, however tall it turned out to be.
                 if p.get("source") == "answers":
-                    rect = p["rect"]
-                    image_block["widthMm"] = round((rect[2] - rect[0]) / 72 * 25.4, 1)
+                    image_block["answers"] = True
                 if p.get("imageScale"):
                     image_block["imageScale"] = p["imageScale"]
                 # Author-set, not a runtime editor toggle - see

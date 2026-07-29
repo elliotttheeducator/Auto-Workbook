@@ -268,10 +268,13 @@ async function renderEditorView(id) {
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
-    '<button id="autofit-btn" title="Repeatedly applies every \'squeeze in\' suggestion across the whole document, so you don\'t have to click through each one by hand.">Auto-fit</button> ' +
+    '<button id="autofit-btn" title="Tries to get Building Understanding and each worked example onto one page, then fills in any other page with real leftover room - never shrinks a diagram below a readable size on its own.">Auto-fit</button> ' +
+    '<button id="undo-autofit-btn" class="secondary" disabled title="Reverts everything Auto-fit just changed.">Undo auto-fit</button> ' +
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
   document.getElementById("autofit-btn").onclick = autoFitDocument;
+  document.getElementById("undo-autofit-btn").onclick = undoAutoFit;
+  preAutoFitSnapshot = null;
 
   renderTopBars();
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
@@ -280,22 +283,134 @@ async function renderEditorView(id) {
   layoutHangingControls();
 }
 
-// Runs the exact same shrink the "squeeze in" prompt's own click handler
-// does, just automatically and repeatedly across the whole document
-// instead of one manual click per page - a chapter can easily have 60+
-// of these prompts, and clicking through each individually isn't a
-// reasonable way to "maximise space use" in practice. Always goes after
-// the first squeeze-in button still in the document: once it stops
-// helping (nothing left it can shrink further, or the gap it was
-// offering to fill is gone), that button disappears on its own and this
-// naturally moves on to whichever one is now first.
+// A single-level safety net for Auto-fit specifically (not a general undo
+// stack) - it changes a lot of diagrams across the whole document in one
+// go, on its own judgement, so there needs to be one obvious way back to
+// exactly how things were right before it ran.
+let preAutoFitSnapshot = null;
+
+function updateUndoButton() {
+  const btn = document.getElementById("undo-autofit-btn");
+  if (btn) btn.disabled = !preAutoFitSnapshot;
+}
+
+async function undoAutoFit() {
+  if (!preAutoFitSnapshot || !currentProjectId) return;
+  const res = await fetch(`data/${currentProjectId}/workbook.json`);
+  const fresh = await res.json();
+  fresh.tierFilters = fresh.tierFilters || { global: {}, chapters: {} };
+  fresh.deletedIds = fresh.deletedIds || [];
+  fresh.defaultScales = fresh.defaultScales || {};
+  applyOverrides(fresh, preAutoFitSnapshot);
+  currentWorkbook = fresh;
+  await db.saveOverrides(currentProjectId, preAutoFitSnapshot);
+  preAutoFitSnapshot = null;
+  renderTopBars();
+  appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
+  await waitForImages(appEl);
+  alignSplitRows(appEl);
+  layoutHangingControls();
+  updateUndoButton();
+}
+
+// The two things Auto-fit tries to actively compact onto one physical
+// sheet, not just opportunistically react to leftover gaps (see the
+// squeeze-in pass below) - a Building Understanding section (marked
+// data-bu-heading, see render.js) and each worked example's own bundle
+// (marked data-glue-example, the same flag that already keeps an example
+// glued to its "Now you try" during pagination). Read straight off the
+// rendered DOM in document order (".page > *" is exactly the sequence of
+// top-level pagination units - see renderEditor in render.js) rather than
+// recomputed from the source data, since "does this actually span more
+// than one physical sheet" can only be answered from what's already
+// on the page.
+function compactionBundles() {
+  const units = Array.from(appEl.querySelectorAll(".page > *"));
+  const bundles = [];
+  for (let i = 0; i < units.length; i++) {
+    const el = units[i];
+    const isBuHeading = el.matches(".heading-unit[data-bu-heading]");
+    const isExample = el.matches("[data-glue-example]");
+    if (!isBuHeading && !isExample) continue;
+    const els = [el];
+    for (let j = i + 1; j < units.length; j++) {
+      const next = units[j];
+      // Any heading ends a Building Understanding section outright; an
+      // example's own bundle also ends at the next example (its "Now you
+      // try" never runs longer than that).
+      if (next.matches(".heading-unit")) break;
+      if (isExample && next.matches("[data-glue-example]")) break;
+      els.push(next);
+    }
+    bundles.push({ label: isBuHeading ? "Building Understanding" : "Example", els });
+  }
+  return bundles;
+}
+
+function bundleSpansMultiplePages(bundle) {
+  const pages = new Set(bundle.els.map((el) => el.closest(".page")));
+  return pages.size > 1;
+}
+
+function shrinkableTargetsInBundle(bundle) {
+  const targets = [];
+  for (const el of bundle.els) {
+    for (const btn of el.querySelectorAll('[data-action="step-image-scale"][data-delta="-1"]')) {
+      for (const t of (btn.dataset.target || "").split(",").filter(Boolean)) {
+        targets.push({ kind: btn.dataset.kind, id: t });
+      }
+    }
+  }
+  return targets;
+}
+
+// Bundle elements are stale (detached) the instant persistAndRerenderEditor
+// replaces #app's contents, so each bundle has to be re-found by its
+// position after every shrink - never held onto across a render. Index
+// position is stable across re-renders (shrinking never adds, removes, or
+// reorders a Building Understanding section or an example), so re-running
+// compactionBundles() and indexing into it is enough.
+async function compactSections(btn) {
+  const bundleCount = compactionBundles().length;
+  for (let idx = 0; idx < bundleCount; idx++) {
+    let rounds = 0;
+    const MAX_ROUNDS_PER_BUNDLE = 30;
+    while (rounds < MAX_ROUNDS_PER_BUNDLE) {
+      const bundle = compactionBundles()[idx];
+      if (!bundle || !bundleSpansMultiplePages(bundle)) break;
+      let changed = false;
+      for (const { kind, id } of shrinkableTargetsInBundle(bundle)) {
+        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
+      }
+      // Every diagram in this bundle already at the readability floor -
+      // it just doesn't fit one page without going further than Auto-fit
+      // is willing to push on its own; leave it and move on.
+      if (!changed) break;
+      rounds++;
+      btn.textContent = `Auto-fitting… (${bundle.label})`;
+      await persistAndRerenderEditor();
+    }
+  }
+}
+
+// First tries to actively compact Building Understanding and each
+// example onto one page each (compactSections), then falls back to the
+// same opportunistic gap-filling squeeze-in pass as before for whatever
+// leftover room remains elsewhere - one button, two passes. Both respect
+// the automatic-shrink readability floor (see READABILITY_FLOOR_SCALE in
+// model.js) throughout; neither pushes a diagram down to the same
+// bare-minimum size a manual +/- click still can.
 async function autoFitDocument() {
   const btn = document.getElementById("autofit-btn");
   const originalLabel = btn.textContent;
   btn.disabled = true;
+  preAutoFitSnapshot = extractOverrides(currentWorkbook);
+  updateUndoButton();
   let rounds = 0;
   const MAX_ROUNDS = 2000;
   try {
+    await compactSections(btn);
+
     while (rounds < MAX_ROUNDS) {
       const squeeze = appEl.querySelector(".squeeze-in");
       if (!squeeze) break;
@@ -434,7 +549,11 @@ function handleControlClick(e) {
     for (const t of targets) {
       const entry = entryFor(el.dataset.kind, t);
       const defaultScale = defaultScaleFor(currentWorkbook, el.dataset.kind, t);
-      if (entry && (delta > 0 ? growImageOneStep(entry, defaultScale) : shrinkImageOneStep(entry, defaultScale))) changed = true;
+      // The one place that gets the full IMAGE_SCALE_MIN range instead of
+      // the automatic-shrink readability floor (see READABILITY_FLOOR_SCALE
+      // in model.js) - a direct +/- click is a deliberate, single-diagram
+      // choice, not the system shrinking something on its own.
+      if (entry && (delta > 0 ? growImageOneStep(entry, defaultScale) : shrinkImageOneStep(entry, defaultScale, IMAGE_SCALE_MIN))) changed = true;
     }
     if (!changed) return;
   } else if (action === "toggle-break-before") {
