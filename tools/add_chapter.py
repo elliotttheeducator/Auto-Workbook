@@ -91,13 +91,15 @@ let the trim handle it.
 A "Key Ideas" summary image and a worked example's own diagram are both
 just "image" blocks - nothing structural distinguishes them from any
 other image - but two optional fields matter for them specifically:
-  - imageScale (image blocks too, not just questions): explicit per-block
-    only, never a baked-in default here - a Key Ideas image usually still
-    wants "imageScale": 70 set by hand so the whole thing reads as one
-    compact page rather than spilling onto a second sheet, since the
-    workbook-wide "default combined scale" control it would otherwise
-    fall back to (see model.js) defaults to 100 and is shared with every
-    other combined/standalone crop, not just Key Ideas.
+  - section: true - marks it as informational content (a Key Ideas box,
+    a worked example) rather than an actual question, so it starts at
+    the workbook-wide "default section scale" instead of "default
+    combined scale" (see resolvedDefaultScales in model.js) - both
+    adjustable live from the editor, but kept as separate controls since
+    a Key Ideas page and an actual question crop usually want different
+    starting densities. Set this on every Key Ideas and example image;
+    don't also hand-set imageScale unless this specific one genuinely
+    needs to differ from its siblings.
   - glueForward: true on a worked example's own diagram - without it,
     nothing stops the example's diagram landing on one sheet and the
     "Now you try" that explains it landing on the next. Same idea as a
@@ -259,6 +261,12 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # stranded from the "Now you try" that explains it.
                 if p.get("glueForward"):
                     image_block["glueForward"] = True
+                # A Key Ideas summary or worked-example diagram - see
+                # "section" in the module docstring above. Puts it in its
+                # own default-scale bucket (separate from an actual
+                # question's combined/standalone crop) at render time.
+                if p.get("section"):
+                    image_block["section"] = True
                 blocks.append(image_block)
             else:
                 question_block = {

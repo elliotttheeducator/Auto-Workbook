@@ -251,6 +251,7 @@ export function defaultScaleBarHtml(workbook) {
   return (
     `<div class="filter-bar default-scale-bar">` +
     stepper("split", "Default split scale", scales.split) +
+    stepper("section", "Default section scale", scales.section) +
     stepper("combined", "Default combined scale", scales.combined) +
     `</div>`
   );
@@ -802,8 +803,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // "squeeze in" target, just not the size/style pickers that
           // only make sense for an actual answerable question. Hung off
           // the page like a combined group's controls (see there) - a
-          // plain image block is always full width.
-          const pct = b.imageScale ?? defaultScales.combined;
+          // plain image block is always full width. A Key Ideas summary
+          // or worked-example diagram (see "section" in add_chapter.py)
+          // is informational, not a question - its own default-scale
+          // bucket, separate from an actual question's combined crop.
+          const pct = b.imageScale ?? (b.section ? defaultScales.section : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
           const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
           const html = `<div class="block">${crop}${hangingControls}</div>`;
@@ -821,7 +825,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             // introduces, but no naming convention ties the id conventions
             // together the way a stem's does.
             glueForward: !!b.glueForward,
-            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, pct) }],
             breakBefore: !!b.breakBefore,
           });
         } else {

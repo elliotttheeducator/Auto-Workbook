@@ -46,40 +46,55 @@ export const IMAGE_SCALE_MIN = 10;
 export const IMAGE_SCALE_STEP = 15;
 
 // What a diagram renders at before anyone has touched its own +/-
-// control - split parts start smaller than combined/standalone crops by
-// default (see add_chapter.py), but both are just starting points now,
-// tunable workbook-wide from the top of the editor (see the
-// default-scale controls in app.js) rather than fixed forever the
-// moment a chapter's built.
+// control - three buckets, tunable workbook-wide from the top of the
+// editor (see the default-scale controls in app.js) rather than fixed
+// forever the moment a chapter's built:
+//   - split: one part of a multi-part question in "split" layout.
+//   - section: a Key Ideas summary or worked-example diagram (see the
+//     "section" flag below) - informational content, not a question a
+//     student answers, so it wants its own starting point separate from
+//     an actual question's combined/standalone crop.
+//   - combined: everything else - a combined group's whole-question
+//     crop, a standalone single question, or a plain diagram-only image
+//     with no "section" flag.
 export const DEFAULT_SPLIT_SCALE = 70;
+export const DEFAULT_SECTION_SCALE = 70;
 export const DEFAULT_COMBINED_SCALE = 100;
 
-// Which of the two workbook-wide defaults above applies to a given
-// block/group - a split *part* (a member of a multi-part group whose
-// layout is currently "split") uses the split default; a combined
-// group, a standalone single question, or a plain image all use the
-// combined one. Needed by app.js at click time (a step-image-scale or
+function findBlockById(workbook, id) {
+  for (const page of workbook.pages) {
+    for (const b of page.blocks) if (b.id === id) return b;
+  }
+  return null;
+}
+
+// Which of the three workbook-wide defaults above applies to a given
+// block/group. Needed by app.js at click time (a step-image-scale or
 // squeeze-in action only has a bare (kind, id) to work from, not the
-// render-time context that already knows which bucket applies) - render.js
-// itself never needs this, since it already knows which branch it's in
-// when it builds each block/group's controls.
+// render-time context that already knows which bucket applies) -
+// render.js itself never needs this, since it already knows structurally
+// which bucket applies at each call site.
 export function defaultScaleFor(workbook, kind, id) {
   const defaults = workbook.defaultScales || {};
   if (kind === "group") return defaults.combined ?? DEFAULT_COMBINED_SCALE;
   const gid = groupIdFor(id);
   const isSplitPart = !!gid && (workbook.groupLayout?.[gid] || "split") !== "combined";
   if (isSplitPart) return defaults.split ?? DEFAULT_SPLIT_SCALE;
+  const block = findBlockById(workbook, id);
+  if (block?.section) return defaults.section ?? DEFAULT_SECTION_SCALE;
   return defaults.combined ?? DEFAULT_COMBINED_SCALE;
 }
 
-// Both workbook-wide defaults resolved together, with fallbacks applied
-// once - render.js computes this a single time per render rather than
-// re-deriving it per block, since (unlike defaultScaleFor) it already
-// knows structurally which of the two applies at each call site.
+// All three workbook-wide defaults resolved together, with fallbacks
+// applied once - render.js computes this a single time per render
+// rather than re-deriving it per block, since (unlike defaultScaleFor)
+// it already knows structurally which of the three applies at each call
+// site.
 export function resolvedDefaultScales(workbook) {
   const defaults = workbook.defaultScales || {};
   return {
     split: defaults.split ?? DEFAULT_SPLIT_SCALE,
+    section: defaults.section ?? DEFAULT_SECTION_SCALE,
     combined: defaults.combined ?? DEFAULT_COMBINED_SCALE,
   };
 }
