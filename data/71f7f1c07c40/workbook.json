@@ -1,0 +1,344 @@
+{
+  "id": "71f7f1c07c40",
+  "title": "Year 7 Chapter 9: Equations",
+  "sourcePdfName": "f879dea9-EMAC7_4ed_Ch09.pdf",
+  "pages": [
+    {
+      "id": "page0",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "cover"
+        }
+      ],
+      "cover": true
+    },
+    {
+      "id": "page1",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "a9_title",
+          "text": "9A Introduction to equations",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "a9_intro"
+        },
+        {
+          "type": "image",
+          "id": "a9_keyideas1",
+          "section": true
+        }
+      ]
+    },
+    {
+      "id": "page2",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "a9_keyideas2",
+          "section": true
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_bu",
+          "text": "Building Understanding"
+        },
+        {
+          "type": "question",
+          "id": "a9bu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "image",
+          "id": "example1",
+          "glueForward": true,
+          "section": true
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_nyt1",
+          "text": "Now you try (Example 1)"
+        },
+        {
+          "type": "question",
+          "id": "nyt1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "example2",
+          "glueForward": true,
+          "section": true
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_nyt2",
+          "text": "Now you try (Example 2)"
+        },
+        {
+          "type": "question",
+          "id": "nyt2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "image",
+          "id": "example3a",
+          "glueForward": true,
+          "section": true
+        }
+      ]
+    },
+    {
+      "id": "page4",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "example3b",
+          "glueForward": true,
+          "section": true
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_nyt3",
+          "text": "Now you try (Example 3)"
+        },
+        {
+          "type": "question",
+          "id": "nyt3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 35
+          }
+        }
+      ]
+    },
+    {
+      "id": "page5",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "a9_h_ex",
+          "text": "Exercise 9A"
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "question",
+          "id": "a9ex1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 35
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 45
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "page6",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "a9ex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "a9ex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 35
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          }
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "a9ex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "heading",
+          "id": "a9_h_enrichment",
+          "text": "Enrichment: Equation permutations",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "a9ex15",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex16",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 40
+          }
+        }
+      ]
+    }
+  ],
+  "groupLayout": {},
+  "combinedBlocks": {}
+}
