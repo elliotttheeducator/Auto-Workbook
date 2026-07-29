@@ -35,26 +35,67 @@ function shrinkWorkingSpaceOneStep(ws) {
 }
 
 // A diagram/crop renders at this percentage of its container's width
-// (100 = full, i.e. unset/default). Diagrams, not working space, are
-// usually the bigger lever for fitting more onto a page - a whole-page-
-// wide diagram scaled to 70% frees up real room, where trimming a grid
-// box from Large to Medium barely moves the needle.
-export const IMAGE_SCALE_MAX = 100;
-export const IMAGE_SCALE_MIN = 40;
+// (100 = full). The +/- control's own floor/ceiling - deliberately wide
+// (a shrunk-down diagram symbol can want to go well under half size; an
+// oversized one is a real, if riskier, way to make a single sparse
+// question read as less empty) - this is just how far a step can push a
+// diagram, not what it starts at unset (see DEFAULT_SPLIT_SCALE/
+// DEFAULT_COMBINED_SCALE below for that).
+export const IMAGE_SCALE_MAX = 200;
+export const IMAGE_SCALE_MIN = 10;
 export const IMAGE_SCALE_STEP = 15;
 
-function canShrinkImage(entry) {
-  return (entry.imageScale ?? IMAGE_SCALE_MAX) > IMAGE_SCALE_MIN;
+// What a diagram renders at before anyone has touched its own +/-
+// control - split parts start smaller than combined/standalone crops by
+// default (see add_chapter.py), but both are just starting points now,
+// tunable workbook-wide from the top of the editor (see the
+// default-scale controls in app.js) rather than fixed forever the
+// moment a chapter's built.
+export const DEFAULT_SPLIT_SCALE = 70;
+export const DEFAULT_COMBINED_SCALE = 100;
+
+// Which of the two workbook-wide defaults above applies to a given
+// block/group - a split *part* (a member of a multi-part group whose
+// layout is currently "split") uses the split default; a combined
+// group, a standalone single question, or a plain image all use the
+// combined one. Needed by app.js at click time (a step-image-scale or
+// squeeze-in action only has a bare (kind, id) to work from, not the
+// render-time context that already knows which bucket applies) - render.js
+// itself never needs this, since it already knows which branch it's in
+// when it builds each block/group's controls.
+export function defaultScaleFor(workbook, kind, id) {
+  const defaults = workbook.defaultScales || {};
+  if (kind === "group") return defaults.combined ?? DEFAULT_COMBINED_SCALE;
+  const gid = groupIdFor(id);
+  const isSplitPart = !!gid && (workbook.groupLayout?.[gid] || "split") !== "combined";
+  if (isSplitPart) return defaults.split ?? DEFAULT_SPLIT_SCALE;
+  return defaults.combined ?? DEFAULT_COMBINED_SCALE;
 }
 
-export function shrinkImageOneStep(entry) {
-  if (!canShrinkImage(entry)) return false;
-  entry.imageScale = Math.max(IMAGE_SCALE_MIN, (entry.imageScale ?? IMAGE_SCALE_MAX) - IMAGE_SCALE_STEP);
+// Both workbook-wide defaults resolved together, with fallbacks applied
+// once - render.js computes this a single time per render rather than
+// re-deriving it per block, since (unlike defaultScaleFor) it already
+// knows structurally which of the two applies at each call site.
+export function resolvedDefaultScales(workbook) {
+  const defaults = workbook.defaultScales || {};
+  return {
+    split: defaults.split ?? DEFAULT_SPLIT_SCALE,
+    combined: defaults.combined ?? DEFAULT_COMBINED_SCALE,
+  };
+}
+
+function canShrinkImage(entry, defaultScale) {
+  return (entry.imageScale ?? defaultScale) > IMAGE_SCALE_MIN;
+}
+
+export function shrinkImageOneStep(entry, defaultScale) {
+  if (!canShrinkImage(entry, defaultScale)) return false;
+  entry.imageScale = Math.max(IMAGE_SCALE_MIN, (entry.imageScale ?? defaultScale) - IMAGE_SCALE_STEP);
   return true;
 }
 
-export function growImageOneStep(entry) {
-  const current = entry.imageScale ?? IMAGE_SCALE_MAX;
+export function growImageOneStep(entry, defaultScale) {
+  const current = entry.imageScale ?? defaultScale;
   if (current >= IMAGE_SCALE_MAX) return false;
   entry.imageScale = Math.min(IMAGE_SCALE_MAX, current + IMAGE_SCALE_STEP);
   return true;
@@ -65,19 +106,22 @@ export function growImageOneStep(entry) {
 // click) - a single source of truth for "is there room to shrink this
 // entry further," so the two can never disagree about it. `entry` is
 // whatever owns a working space and a diagram - a question block, or a
-// group's combinedBlocks entry.
-export function canShrink(entry) {
-  return !!entry && (canShrinkImage(entry) || canShrinkWorkingSpace(entry.workingSpace));
+// group's combinedBlocks entry. `defaultScale` is whichever of the two
+// workbook-wide defaults applies to this entry (see defaultScaleFor/
+// resolvedDefaultScales above) - always required now that "unset" no
+// longer means a single fixed constant.
+export function canShrink(entry, defaultScale) {
+  return !!entry && (canShrinkImage(entry, defaultScale) || canShrinkWorkingSpace(entry.workingSpace));
 }
 
 // Diagram first, then working space - shrinking the diagram is usually
-// the more useful step (see IMAGE_SCALE_MAX above), so a single generic
-// "shrink" action (the squeeze-in prompt) reaches for it before falling
-// back to trimming the answer box. Returns false (no-op) when
-// canShrink() would already say there's nothing left to shrink.
-export function shrinkOneStep(entry) {
+// the more useful step, so a single generic "shrink" action (the
+// squeeze-in prompt) reaches for it before falling back to trimming the
+// answer box. Returns false (no-op) when canShrink() would already say
+// there's nothing left to shrink.
+export function shrinkOneStep(entry, defaultScale) {
   if (!entry) return false;
-  if (shrinkImageOneStep(entry)) return true;
+  if (shrinkImageOneStep(entry, defaultScale)) return true;
   return shrinkWorkingSpaceOneStep(entry.workingSpace);
 }
 
@@ -156,6 +200,7 @@ export function extractOverrides(workbook) {
     // saving the whole thing every time.
     tierFilters: workbook.tierFilters || { global: {}, chapters: {} },
     deletedIds: [...(workbook.deletedIds || [])],
+    defaultScales: { ...(workbook.defaultScales || {}) },
   };
 }
 
@@ -183,6 +228,7 @@ export function applyOverrides(workbook, overrides) {
   }
   if (overrides.tierFilters) workbook.tierFilters = overrides.tierFilters;
   if (overrides.deletedIds) workbook.deletedIds = overrides.deletedIds;
+  if (overrides.defaultScales) workbook.defaultScales = overrides.defaultScales;
 
   const blockOverrides = overrides.blockOverrides || {};
   const legacyBlockWorkingSpace = overrides.blockWorkingSpace || {};

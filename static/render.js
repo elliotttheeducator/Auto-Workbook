@@ -27,6 +27,7 @@ import {
   groupIdFor,
   iterRenderUnits,
   passesTierFilter,
+  resolvedDefaultScales,
   snapDown,
 } from "./model.js";
 
@@ -230,6 +231,31 @@ export function filterBarHtml(workbook, chapterId) {
   return `<div class="${chapterId ? "chapter-filter-bar" : "filter-bar"}">${groups}${resetBtn}</div>`;
 }
 
+// Two "starting point" scales, workbook-wide - a split part and a
+// combined/standalone crop each start at a different % of their
+// container by default (see DEFAULT_SPLIT_SCALE/DEFAULT_COMBINED_SCALE
+// in model.js), and this is where that starting point itself gets
+// tuned, rather than clicking every individual diagram's own +/-
+// control by hand. A block's own +/- control still always wins once
+// it's actually been touched (see renderQuestionControls et al) - this
+// only ever moves a diagram nobody has customized yet.
+export function defaultScaleBarHtml(workbook) {
+  const scales = resolvedDefaultScales(workbook);
+  const stepper = (mode, label, pct) =>
+    `<div class="tier-filter-group">` +
+    `<span class="tier-filter-label">${escapeHtml(label)}</span>` +
+    `<button data-action="step-default-scale" data-mode="${mode}" data-delta="-1" ${pct <= IMAGE_SCALE_MIN ? "disabled" : ""}>−</button>` +
+    `<span>${pct}%</span>` +
+    `<button data-action="step-default-scale" data-mode="${mode}" data-delta="1" ${pct >= IMAGE_SCALE_MAX ? "disabled" : ""}>+</button>` +
+    `</div>`;
+  return (
+    `<div class="filter-bar default-scale-bar">` +
+    stepper("split", "Default split scale", scales.split) +
+    stepper("combined", "Default combined scale", scales.combined) +
+    `</div>`
+  );
+}
+
 // A split row's two diagrams are cropped straight from the source PDF at
 // whatever size their printed question happened to need - they rarely
 // share a height, so left alone, whichever part's diagram is shorter has
@@ -355,7 +381,7 @@ function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale) {
   }
   let style = "";
   if (widthMm) style = ` style="width:${widthMm}mm"`;
-  else if (imageScale && imageScale !== IMAGE_SCALE_MAX) style = ` style="width:${imageScale}%"`;
+  else if (imageScale && imageScale !== 100) style = ` style="width:${imageScale}%"`;
   return `<div class="block-crop"${style}>${contextHtml}<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png"></div>`;
 }
 
@@ -448,8 +474,7 @@ function sizeControlHtml(target, kind, ws) {
 // than the working-space box is (see IMAGE_SCALE_MAX in model.js), so
 // this is offered as its own direct control, not just something the
 // "squeeze in" prompt reaches for automatically.
-function imageScaleControlHtml(target, kind, imageScale) {
-  const pct = imageScale || IMAGE_SCALE_MAX;
+function imageScaleControlHtml(target, kind, pct) {
   return (
     '<div class="image-scale-picker">' +
     "<span>Diagram:</span>" +
@@ -471,11 +496,15 @@ function breakBeforeControlHtml(target, kind, breakBefore) {
   );
 }
 
-function renderQuestionControls(target, kind, ws, imageScale, breakBefore) {
+// pct is always the already-resolved value (a block's own imageScale if
+// it has one, else whichever workbook-wide default applies - see
+// resolvedDefaultScales in model.js) - never "unset", now that unset no
+// longer means a single fixed constant.
+function renderQuestionControls(target, kind, ws, pct, breakBefore) {
   return (
     sizeControlHtml(target, kind, ws) +
     stylePickerHtml(target, kind, ws.style) +
-    imageScaleControlHtml(target, kind, imageScale) +
+    imageScaleControlHtml(target, kind, pct) +
     breakBeforeControlHtml(target, kind, breakBefore)
   );
 }
@@ -498,7 +527,7 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // single crop image and stays atomic; split parts are independent and
 // need to be free to land on different sheets, same as any other
 // question would.
-function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = []) {
+function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales) {
   const safeGid = escapeHtml(gid);
   const controls =
     `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
@@ -520,15 +549,16 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // combinedBlocks[gid] to point at; app.js's ensureCombinedBlock()
     // creates the real one on first edit, this is just for display.
     const entry = { workingSpace: ws, imageScale: saved && saved.imageScale, breakBefore: saved && saved.breakBefore };
-    const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, entry.imageScale);
+    const pct = entry.imageScale ?? defaultScales.combined;
+    const crop = cropHtml(cropsBaseUrl, gid, undefined, undefined, pct);
     // A combined crop spans close to the page's own width, so its
     // controls hang off the outer margin (see .controls-hang) instead
     // of stacking inline below it - unlike a split row's parts, which
     // stay inline (see partHtml below): those are only half-width and
     // sit mid-page, with no clean page edge to hang off of.
-    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, entry.imageScale, entry.breakBefore)}</div>`;
+    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, pct, entry.breakBefore)}</div>`;
     const html = `<div class="group">${crop}${workingSpaceHtml(ws)}${hangingControls}</div>`;
-    const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry) }];
+    const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry, defaultScales.combined) }];
     return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
   }
 
@@ -550,7 +580,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   // two parts, and the full-width single-part row, are never at the
   // mercy of whatever else happens to share the row.
   const partHtml = (b, isSecond, isOnly) => {
-    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale);
+    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? defaultScales.split);
     const cls = isOnly ? "block question split-only" : isSecond ? "block question split-second" : "block question";
     return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
@@ -580,11 +610,11 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     const partDeleteButtons = rowBlocks
       .map((b) => deleteButtonHtml(b.id, "block", `Delete ${partLabel(b.id, gid)}`))
       .join("");
-    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale, anchor.breakBefore)}${partDeleteButtons}</div>`;
+    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore)}${partDeleteButtons}</div>`;
     const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
-    const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b) }));
+    const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.split) }));
     // A break-before toggled on either part in a row breaks before the
     // whole row - the two parts are always paginated as one atomic unit,
     // so "break before this part" can only ever mean "break before its
@@ -642,6 +672,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const combinedBlocks = workbook.combinedBlocks || {};
   const deletedIds = new Set(workbook.deletedIds || []);
   const filterCtx = buildFilterContext(workbook);
+  const defaultScales = resolvedDefaultScales(workbook);
   const physicalPagesHtml = [];
   let pending = [];
 
@@ -772,8 +803,9 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // only make sense for an actual answerable question. Hung off
           // the page like a combined group's controls (see there) - a
           // plain image block is always full width.
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
-          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", b.imageScale)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
+          const pct = b.imageScale ?? defaultScales.combined;
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
+          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}</div>`;
           const html = `<div class="block">${crop}${hangingControls}</div>`;
           units.push({
             html,
@@ -789,7 +821,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             // introduces, but no naming convention ties the id conventions
             // together the way a stem's does.
             glueForward: !!b.glueForward,
-            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
             breakBefore: !!b.breakBefore,
           });
         } else {
@@ -802,13 +834,14 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             return;
           }
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, b.imageScale);
-          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, b.imageScale, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}</div>`;
+          const pct = b.imageScale ?? defaultScales.combined;
+          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct);
+          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}</div>`;
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
-            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b) }],
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
             breakBefore: !!b.breakBefore,
           });
         }
@@ -833,7 +866,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       units.push(
-        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers)
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales)
       );
     });
 

@@ -72,9 +72,10 @@ Which layout a group actually *starts* on is computed automatically
 warmup section (Building Understanding, worked examples, "Now you try"
 - i.e. once a "tier" heading has appeared), a group with more than 3
 parts defaults to split (splitting is what actually helps once there
-are that many; 2-3 parts read fine as one combined crop), and every
-split part's diagram starts at 70% scale rather than full width (still
-freely adjustable either way from the editor's own controls).
+are that many; 2-3 parts read fine as one combined crop). A split
+part's own starting diagram scale is never baked in here either - it
+comes from the workbook-wide "default split scale" control in the
+editor itself (tunable live, not fixed the moment a chapter's built).
 
 A page entry can also be marked `"cover": true` - its (single) image
 block is rendered edge-to-edge with no page margin or heading, for a
@@ -90,10 +91,13 @@ let the trim handle it.
 A "Key Ideas" summary image and a worked example's own diagram are both
 just "image" blocks - nothing structural distinguishes them from any
 other image - but two optional fields matter for them specifically:
-  - imageScale (image blocks too, not just questions): a Key Ideas image
-    usually wants "imageScale": 70 so the whole thing reads as one
-    compact page rather than running long and spilling onto a second
-    sheet.
+  - imageScale (image blocks too, not just questions): explicit per-block
+    only, never a baked-in default here - a Key Ideas image usually still
+    wants "imageScale": 70 set by hand so the whole thing reads as one
+    compact page rather than spilling onto a second sheet, since the
+    workbook-wide "default combined scale" control it would otherwise
+    fall back to (see model.js) defaults to 100 and is shared with every
+    other combined/standalone crop, not just Key Ideas.
   - glueForward: true on a worked example's own diagram - without it,
     nothing stops the example's diagram landing on one sheet and the
     "Now you try" that explains it landing on the next. Same idea as a
@@ -166,15 +170,11 @@ def group_id_for(block_id: str) -> str | None:
     return m.group(1) + m.group(2) if m else None
 
 
-DEFAULT_SPLIT_IMAGE_SCALE = 70
-
-
-def plan_group_defaults(pages_proposals: list[dict]) -> tuple[dict[str, str], set[str]]:
+def plan_group_defaults(pages_proposals: list[dict]) -> dict[str, str]:
     """Works out, before any cropping starts, which groups should default
-    to "split" and which question ids should get a smaller starting
-    diagram scale - both need the *whole* document's structure (every
-    part of a group, and which heading section it falls under), not just
-    whatever's on the one page a block happens to sit on.
+    to "split" - needs the *whole* document's structure (every part of a
+    group, and which heading section it falls under), not just whatever's
+    on the one page a block happens to sit on.
 
     A group defaults to split only once it's past the last "warmup"
     section (Building Understanding, worked examples, "Now you try") -
@@ -208,17 +208,16 @@ def plan_group_defaults(pages_proposals: list[dict]) -> tuple[dict[str, str], se
             if in_tier_section:
                 tier_section_gids.add(gid)
 
-    group_layout = {
+    return {
         gid: ("split" if gid in tier_section_gids and part_count.get(gid, 0) > 3 else "combined")
         for gid in combined_gids
     }
-    return group_layout, combined_gids
 
 
 def build_project(docs: dict, title: str, pages_proposals: list[dict], project_dir: str, project_id: str) -> dict:
     crops_dir = os.path.join(project_dir, "crops")
     os.makedirs(crops_dir, exist_ok=True)
-    group_layout, combined_gids = plan_group_defaults(pages_proposals)
+    group_layout = plan_group_defaults(pages_proposals)
 
     def crop(p: dict, crop_id: str, trim: bool = True) -> None:
         src_doc = docs[p.get("source", "chapter")]
@@ -268,13 +267,16 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                     "contextImage": p.get("contextImageId"),
                     "workingSpace": working_space_for(p),
                 }
-                # A split part's diagram starts a bit smaller than full
-                # width by default - most part crops have far more blank
-                # margin than diagram at 100%, and this is purely a
-                # starting point the S/M/L-style +/- control can still
-                # adjust freely either way.
-                if group_id_for(p["id"]) in combined_gids:
-                    question_block["imageScale"] = DEFAULT_SPLIT_IMAGE_SCALE
+                # No baked-in imageScale here (unlike an image block's
+                # optional per-block override above) - a split part's
+                # starting scale now comes from the workbook-wide
+                # "default split scale" control (see DEFAULT_SPLIT_SCALE
+                # in model.js), tunable from the editor itself instead of
+                # fixed the moment a chapter's built. Baking a number in
+                # here would just permanently shadow that control for
+                # every part in every future chapter.
+                if p.get("imageScale"):
+                    question_block["imageScale"] = p["imageScale"]
                 blocks.append(question_block)
         page = {"id": f"page{i}", "blocks": blocks}
         if entry.get("cover"):

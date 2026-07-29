@@ -60,8 +60,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -70,8 +69,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -80,8 +78,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -90,8 +87,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -100,8 +96,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -110,8 +105,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -120,8 +114,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -130,8 +123,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -140,8 +132,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -150,8 +141,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -170,8 +160,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -180,8 +169,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -190,8 +178,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -200,8 +187,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -210,8 +196,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -220,8 +205,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -230,8 +214,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -245,8 +228,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -255,8 +237,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -265,8 +246,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -275,8 +255,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -285,8 +264,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -295,8 +273,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -315,8 +292,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -325,8 +301,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -335,8 +310,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -345,8 +319,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -370,8 +343,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -380,8 +352,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -410,8 +381,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -420,8 +390,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -430,8 +399,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -460,8 +428,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -470,8 +437,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -496,8 +462,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -506,8 +471,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -516,8 +480,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -526,8 +489,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -536,8 +498,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -546,8 +507,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -561,8 +521,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -571,8 +530,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -581,8 +539,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -591,8 +548,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -601,8 +557,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -611,8 +566,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -631,8 +585,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -641,8 +594,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -651,8 +603,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -661,8 +612,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -671,8 +621,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -681,8 +630,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -691,8 +639,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -701,8 +648,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -711,8 +657,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -731,8 +676,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -741,8 +685,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -751,8 +694,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -761,8 +703,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -771,8 +712,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -781,8 +721,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "heading",
@@ -802,8 +741,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -812,8 +750,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -822,8 +759,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -832,8 +768,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -842,8 +777,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -852,8 +786,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -862,8 +795,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -872,8 +804,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -892,8 +823,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -902,8 +832,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -964,8 +893,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -974,8 +902,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -984,8 +911,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 30
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1020,8 +946,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1030,8 +955,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1040,8 +964,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1050,8 +973,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1060,8 +982,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1070,8 +991,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1137,8 +1057,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1147,8 +1066,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1157,8 +1075,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1177,8 +1094,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1187,8 +1103,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1197,8 +1112,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1207,8 +1121,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1217,8 +1130,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1227,8 +1139,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -1247,8 +1158,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1257,8 +1167,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1267,8 +1176,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1292,8 +1200,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1302,8 +1209,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -1348,8 +1254,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1358,8 +1263,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1368,8 +1272,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1378,8 +1281,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1388,8 +1290,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1398,8 +1299,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1418,8 +1318,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1428,8 +1327,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1438,8 +1336,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1448,8 +1345,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1458,8 +1354,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1468,8 +1363,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "heading",
@@ -1490,8 +1384,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1500,8 +1393,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1510,8 +1402,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1520,8 +1411,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1530,8 +1420,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1540,8 +1429,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1560,8 +1448,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1570,8 +1457,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1580,8 +1466,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1590,8 +1475,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1600,8 +1484,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1610,8 +1493,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -1625,8 +1507,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1635,8 +1516,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1645,8 +1525,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -1672,8 +1551,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1682,8 +1560,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1692,8 +1569,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1702,8 +1578,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1712,8 +1587,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1722,8 +1596,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1751,8 +1624,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1761,8 +1633,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1771,8 +1642,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -1801,8 +1671,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 30
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1811,8 +1680,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 30
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1821,8 +1689,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 30
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -1831,8 +1698,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 30
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2052,8 +1918,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2062,8 +1927,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2072,8 +1936,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2082,8 +1945,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2092,8 +1954,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2102,8 +1963,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 25
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2129,8 +1989,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2139,8 +1998,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2149,8 +2007,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2159,8 +2016,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2214,8 +2070,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2224,8 +2079,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2234,8 +2088,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "image",
@@ -2249,8 +2102,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2259,8 +2111,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2269,8 +2120,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2279,8 +2129,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2452,8 +2301,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2462,8 +2310,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2472,8 +2319,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2482,8 +2328,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2538,8 +2383,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2548,8 +2392,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2558,8 +2401,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2568,8 +2410,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2578,8 +2419,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2588,8 +2428,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2598,8 +2437,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2608,8 +2446,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2714,8 +2551,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2724,8 +2560,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2765,8 +2600,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2775,8 +2609,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2785,8 +2618,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2805,8 +2637,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2815,8 +2646,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2825,8 +2655,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -2845,8 +2674,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2855,8 +2683,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2865,8 +2692,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -2875,8 +2701,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -3068,8 +2893,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 40
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3078,8 +2902,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 40
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -3134,8 +2957,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3144,8 +2966,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3154,8 +2975,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3164,8 +2984,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -3184,8 +3003,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3194,8 +3012,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3204,8 +3021,7 @@
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },
@@ -3342,8 +3158,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3352,8 +3167,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3362,8 +3176,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         },
         {
           "type": "question",
@@ -3372,8 +3185,7 @@
           "workingSpace": {
             "style": "lines",
             "heightMm": 20
-          },
-          "imageScale": 70
+          }
         }
       ]
     },

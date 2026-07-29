@@ -1,15 +1,20 @@
 import * as db from "./db.js";
 import {
   applyOverrides,
+  defaultScaleFor,
   escapeHtml,
   extractOverrides,
   growImageOneStep,
+  IMAGE_SCALE_MAX,
+  IMAGE_SCALE_MIN,
+  IMAGE_SCALE_STEP,
+  resolvedDefaultScales,
   RULE_MM,
   shrinkImageOneStep,
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, filterBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, defaultScaleBarHtml, filterBarHtml, renderEditor, waitForImages } from "./render.js";
 
 const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
@@ -139,6 +144,21 @@ function resetChapterFilter(chapterId) {
   if (currentWorkbook.tierFilters?.chapters) delete currentWorkbook.tierFilters.chapters[chapterId];
 }
 
+function stepDefaultScale(mode, delta) {
+  if (!currentWorkbook.defaultScales) currentWorkbook.defaultScales = {};
+  const current = resolvedDefaultScales(currentWorkbook)[mode];
+  const next = Math.max(IMAGE_SCALE_MIN, Math.min(IMAGE_SCALE_MAX, current + delta * IMAGE_SCALE_STEP));
+  currentWorkbook.defaultScales[mode] = next;
+}
+
+// The two bars living outside #app (see filterBarMount) - always
+// rendered together, always from current workbook state, so every call
+// site that touches either one just calls this instead of reassembling
+// the same two pieces by hand.
+function renderTopBars() {
+  filterBarMount.innerHTML = filterBarHtml(currentWorkbook, null) + defaultScaleBarHtml(currentWorkbook);
+}
+
 // Every block/group's hanging panel (see .controls-hang in app.css) is
 // positioned against its own block, top:0 - fine on its own, but a
 // panel taller than the block it belongs to (there's often more to
@@ -180,7 +200,7 @@ async function persistAndRerenderEditor() {
     Object.entries(overrides.groupLayout).filter(([gid]) => touchedGroupLayoutIds.has(gid))
   );
   await db.saveOverrides(currentProjectId, overrides);
-  filterBarMount.innerHTML = filterBarHtml(currentWorkbook, null);
+  renderTopBars();
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
@@ -240,6 +260,7 @@ async function renderEditorView(id) {
   // set one, so this default has to be seeded first.
   workbook.tierFilters = workbook.tierFilters || { global: {}, chapters: {} };
   workbook.deletedIds = workbook.deletedIds || [];
+  workbook.defaultScales = workbook.defaultScales || {};
   applyOverrides(workbook, await db.loadOverrides(id));
   currentWorkbook = workbook;
   currentProjectId = id;
@@ -252,7 +273,7 @@ async function renderEditorView(id) {
   document.getElementById("export-btn").onclick = () => window.print();
   document.getElementById("autofit-btn").onclick = autoFitDocument;
 
-  filterBarMount.innerHTML = filterBarHtml(workbook, null);
+  renderTopBars();
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
@@ -287,7 +308,7 @@ async function autoFitDocument() {
         });
       let changed = false;
       for (const { kind, id } of targets) {
-        if (shrinkOneStep(entryFor(kind, id))) changed = true;
+        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
       }
       // Every target already at its floor would mean squeezeInHtml()
       // should never have offered this button in the first place - stop
@@ -348,6 +369,11 @@ function handleControlClick(e) {
     persistAndRerenderEditor();
     return;
   }
+  if (action === "step-default-scale") {
+    stepDefaultScale(el.dataset.mode, Number(el.dataset.delta));
+    persistAndRerenderEditor();
+    return;
+  }
   if (action === "delete") {
     deleteId(el.dataset.target);
     persistAndRerenderEditor();
@@ -372,7 +398,7 @@ function handleControlClick(e) {
       });
     let changed = false;
     for (const { kind, id } of targets) {
-      if (shrinkOneStep(entryFor(kind, id))) changed = true;
+      if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
     }
     if (changed) persistAndRerenderEditor();
     return;
@@ -407,7 +433,8 @@ function handleControlClick(e) {
     let changed = false;
     for (const t of targets) {
       const entry = entryFor(el.dataset.kind, t);
-      if (entry && (delta > 0 ? growImageOneStep(entry) : shrinkImageOneStep(entry))) changed = true;
+      const defaultScale = defaultScaleFor(currentWorkbook, el.dataset.kind, t);
+      if (entry && (delta > 0 ? growImageOneStep(entry, defaultScale) : shrinkImageOneStep(entry, defaultScale))) changed = true;
     }
     if (!changed) return;
   } else if (action === "toggle-break-before") {
