@@ -757,6 +757,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const defaultScales = resolvedDefaultScales(workbook);
   const physicalPagesHtml = [];
   let pending = [];
+  let pageNumber = 0;
 
   // Packs and emits whatever's been queued up since the last hard break
   // (a cover, or a section start) as physical sheets - see paginateUnits
@@ -823,7 +824,9 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       // block's hanging controls (see .controls-hang in app.css) flip to
       // whichever outer margin is actually free, entirely in CSS.
       const side = physicalPagesHtml.length % 2 === 0 ? "page-left" : "page-right";
-      physicalPagesHtml.push(`<div class="page ${side}">${continued}${sheet.map((u) => u.html).join("")}${squeeze}</div>`);
+      pageNumber++;
+      const pageNumberHtml = `<div class="page-number">${pageNumber}</div>`;
+      physicalPagesHtml.push(`<div class="page ${side}">${continued}${sheet.map((u) => u.html).join("")}${squeeze}${pageNumberHtml}</div>`);
     }
   }
 
