@@ -199,6 +199,55 @@ function deletedPlaceholderHtml(id, label) {
   );
 }
 
+// Two answer-key page images sharing one row instead of one per row -
+// most answer crops are much narrower than a full page (the source PDF
+// usually printed them in columns), so a single image per row wasted
+// most of the sheet on blank margin either side of it, the same problem
+// an unpaired split question part used to have (see renderGroup). Locked
+// to one shared size/style control too, same reasoning as a split row's
+// matched pair: there's no real reason two crops from the same answer
+// key would ever want different sizes.
+function buildAnswerRowUnit(a, b) {
+  const targets = b ? `${a.id},${b.id}` : a.id;
+  const partsHtml = b
+    ? `<div class="block">${a.crop}</div><div class="block answer-second">${b.crop}</div>`
+    : `<div class="block answer-only">${a.crop}</div>`;
+  const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(targets, "block", a.pct)}${breakBeforeControlHtml(targets, "block", a.breakBefore)}</div>`;
+  const html = `<div class="answer-row">${partsHtml}${hangingControls}</div>`;
+  // a.pct/b.pct are already each image's fully-resolved current scale
+  // (own override, if any, else the "answers" default bucket) - passing
+  // it straight through as canShrink's fallback default correctly
+  // reflects the real current value either way.
+  const wsTargets = [{ kind: "block", id: a.id, canShrink: canShrink({}, a.pct) }];
+  if (b) wsTargets.push({ kind: "block", id: b.id, canShrink: canShrink({}, b.pct) });
+  return { html, heading: false, wsTargets, breakBefore: a.breakBefore || (b ? b.breakBefore : false) };
+}
+
+// Only two answer images that end up genuinely adjacent - once every
+// logical page in this flush run has already been flattened into one
+// list - actually get paired; a heading, a squeeze-in prompt, or any
+// other content landing between them (none currently do, but nothing
+// here assumes otherwise) naturally leaves both as their own full-width
+// row instead of forcing an unrelated pairing.
+function pairAnswerImageUnits(units) {
+  const merged = [];
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i];
+    if (!u.answersImage) {
+      merged.push(u);
+      continue;
+    }
+    const next = units[i + 1];
+    if (next && next.answersImage) {
+      merged.push(buildAnswerRowUnit(u.answersImage, next.answersImage));
+      i++;
+    } else {
+      merged.push(buildAnswerRowUnit(u.answersImage, null));
+    }
+  }
+  return merged;
+}
+
 // One tier's All/Odds/Evens picker - shared between the workbook-wide
 // bar and each chapter's own row, which only differ in what they read
 // (global vs a chapter's override) and which id set-tier-filter's click
@@ -258,13 +307,14 @@ export function defaultScaleBarHtml(workbook) {
   );
 }
 
-// A split row's two diagrams are cropped straight from the source PDF at
-// whatever size their printed question happened to need - they rarely
+// A split row's two diagrams (or an answer row's two answer-key crops -
+// see buildAnswerRowUnit) are cropped straight from the source PDF at
+// whatever size their printed content happened to need - they rarely
 // share a height, so left alone, whichever part's diagram is shorter has
-// its working-space grid start noticeably higher than its partner's,
-// reading as a mismatched pair rather than one aligned row (see
-// .split-row .block.question .block-crop in app.css for the flex
-// centering this relies on). Called on the same offscreen measurer
+// its working-space grid (or, for an answer row, just its partner) start
+// noticeably higher, reading as a mismatched pair rather than one
+// aligned row (see .split-row/.answer-row .block-crop in app.css for the
+// flex centering this relies on). Called on the same offscreen measurer
 // paginateUnits() already loads real images into (see below), before it
 // reads any heights - not just a cosmetic patch applied to the visible
 // DOM after the fact, which would silently invalidate the sheet-fit
@@ -274,9 +324,9 @@ export function defaultScaleBarHtml(workbook) {
 // computes the exact same numbers - never as the source of truth for
 // what fits on a sheet.
 export function alignSplitRows(container) {
-  for (const row of container.querySelectorAll(".split-row")) {
+  for (const row of container.querySelectorAll(".split-row, .answer-row")) {
     const crops = Array.from(row.children)
-      .filter((el) => el.classList.contains("question"))
+      .filter((el) => el.classList.contains("block"))
       .map((el) => el.querySelector(".block-crop"))
       .filter(Boolean);
     if (crops.length < 2) continue;
@@ -687,7 +737,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   // filled by whatever now-following content fits in it.
   async function flushPending() {
     if (pending.length === 0) return;
-    const units = pending;
+    const units = pairAnswerImageUnits(pending);
     pending = [];
 
     // A heading is never worth stranding alone at the bottom of a sheet -
@@ -840,6 +890,13 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             glueForward: !!b.glueForward,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, pct) }],
             breakBefore: !!b.breakBefore,
+            // Raw pieces for pairAnswerImageUnits() to rebuild a 2-up row
+            // from, if this turns out to sit right next to another answer
+            // page image once the whole flush run is assembled - answer
+            // pages are usually much narrower than a full page, and one
+            // per row wastes most of the sheet the same way an unpaired
+            // split question part used to (see renderGroup).
+            answersImage: b.answers ? { id: b.id, crop, pct, breakBefore: !!b.breakBefore } : null,
           });
         } else {
           // A standalone question (no letter suffix, never grouped) is

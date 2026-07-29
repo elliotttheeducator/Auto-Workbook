@@ -66,16 +66,16 @@ export const IMAGE_SCALE_STEP = 5;
 //     with none of the above flags.
 export const DEFAULT_SPLIT_SCALE = 70;
 export const DEFAULT_SECTION_SCALE = 70;
-// Deliberately more aggressive than the other three, and below the
-// automatic-shrink readability floor (see READABILITY_FLOOR_SCALE below)
-// on purpose - an answer-key page is reference material a teacher skims,
-// not something a student has to read closely off the printed sheet, so
-// it can afford to run denser than the rest of the workbook. Verified
-// against this project's actual answer pages: 30% gets most "X Answers"
-// sections onto one physical sheet (only the two chapters with three
-// separate answer images still need two); 45% (the old fixed-mm size)
-// needed two-to-three sheets everywhere.
-export const DEFAULT_ANSWERS_SCALE = 30;
+// Percentage of an *answer row's own column* now (see buildAnswerRowUnit
+// in render.js - two answer-key images share one row, each in a ~half-
+// width column, the same two-up layout a split question's parts already
+// use), not of the full page width the way it was before that changed.
+// Verified against this project's actual answer pages, in that two-up
+// layout: 55% keeps every "X Answers" section on one physical sheet
+// while still reading as a reasonably-sized crop, not a postage stamp;
+// 65%+ starts pushing the two busiest chapters (three separate answer
+// images each) back onto two sheets.
+export const DEFAULT_ANSWERS_SCALE = 55;
 export const DEFAULT_COMBINED_SCALE = 100;
 
 function findBlockById(workbook, id) {

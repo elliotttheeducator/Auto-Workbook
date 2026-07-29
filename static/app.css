@@ -198,6 +198,20 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    so a part that still carries its own context image above the main
    crop keeps that stacked instead of side by side). */
 .split-row .block.question .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* Two answer-key page images sharing one row (see buildAnswerRowUnit in
+   render.js) - identical mechanics to .split-row above (same reasoning:
+   inline-block, not flex/float, for print pagination; explicit
+   .answer-only/.answer-second classes, not :only-child/:last-child, for
+   the same "the hanging controls panel is always one more sibling"
+   reason), just a separate class since these aren't questions and carry
+   no working space. */
+.answer-row { font-size: 0; position: relative; }
+.answer-row .block { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
+.answer-row .block.answer-only { width: 100%; }
+.answer-row .block.answer-second { margin-left: 8mm; }
+.answer-row .block .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
 .group-controls {
   display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
   font-size: 10px; color: #555;
@@ -330,5 +344,5 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   /* Never slice a working-space box (or the group/question around it)
      across a page boundary - if it doesn't fit in what's left of the
      current sheet, push the whole thing to the next one instead. */
-  .working-space, .working-space-row, .group, .block.question { break-inside: avoid; }
+  .working-space, .working-space-row, .group, .block.question, .answer-row { break-inside: avoid; }
 }
