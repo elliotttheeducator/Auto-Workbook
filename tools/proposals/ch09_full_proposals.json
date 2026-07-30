@@ -69,39 +69,94 @@
       },
       {
         "type": "question",
-        "id": "a9bu1",
+        "id": "a9bu1a",
         "page": 3,
         "rect": [
-          60.5,
-          194.2,
-          286.3,
-          267.4
+          86.5,
+          214.2,
+          147.7,
+          234.4
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a9bu1b",
+        "page": 3,
+        "rect": [
+          86.5,
+          228.2,
+          147.7,
+          248.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a9bu1c",
+        "page": 3,
+        "rect": [
+          86.5,
+          242.2,
+          147.7,
+          262.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
         "id": "a9bu2",
         "page": 3,
         "rect": [
-          60.5,
-          257.2,
-          241.9,
-          288.4
+          62.5,
+          259.2,
+          239.9,
+          286.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "a9bu3",
+        "id": "a9bu3a",
         "page": 3,
         "rect": [
-          60.5,
-          278.2,
-          336.9,
-          351.4
+          86.5,
+          298.2,
+          312.2,
+          318.4
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a9bu3b",
+        "page": 3,
+        "rect": [
+          86.5,
+          312.2,
+          318.3,
+          332.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a9bu3c",
+        "page": 3,
+        "rect": [
+          86.5,
+          326.2,
+          334.9,
+          346.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -132,6 +187,34 @@
           681.0
         ],
         "workingSpaceHeightMm": 25
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a9bu1",
+        "page": 3,
+        "rect": [
+          62.5,
+          196.2,
+          284.3,
+          265.4
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "a9bu3",
+        "page": 3,
+        "rect": [
+          62.5,
+          280.2,
+          334.9,
+          349.4
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
       }
     ]
   },
@@ -232,75 +315,597 @@
       },
       {
         "type": "question",
-        "id": "a9ex1",
+        "id": "a9ex1a",
         "page": 5,
         "rect": [
-          13.3,
-          347.4,
-          461.8,
-          391.6
+          69.6,
+          366.5,
+          130.8,
+          386.6
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex2",
+        "id": "a9ex1b",
         "page": 5,
         "rect": [
-          13.3,
-          382.4,
-          418.8,
-          454.8
+          156.2,
+          366.5,
+          217.4,
+          386.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex3",
+        "id": "a9ex1c",
         "page": 5,
         "rect": [
-          4.199999999999999,
-          445.6,
-          471.1,
-          532.1
+          242.8,
+          366.5,
+          287.1,
+          386.6
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex4",
+        "id": "a9ex1d",
         "page": 5,
         "rect": [
-          9.7,
-          522.0,
-          445.1,
-          567.1
+          329.4,
+          366.5,
+          390.0,
+          386.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex5",
+        "id": "a9ex1e",
         "page": 5,
         "rect": [
-          9.899999999999999,
-          557.0,
-          411.0,
-          616.2
+          416.0,
+          366.5,
+          459.8,
+          386.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex6",
+        "id": "a9ex2a",
         "page": 5,
         "rect": [
-          10.899999999999999,
-          606.1,
-          449.5,
-          665.3
+          69.6,
+          401.5,
+          130.2,
+          421.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2b",
+        "page": 5,
+        "rect": [
+          213.9,
+          401.5,
+          258.3,
+          421.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2c",
+        "page": 5,
+        "rect": [
+          358.2,
+          401.5,
+          416.8,
+          421.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2d",
+        "page": 5,
+        "rect": [
+          69.6,
+          415.6,
+          135.2,
+          435.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2e",
+        "page": 5,
+        "rect": [
+          213.9,
+          415.6,
+          258.3,
+          435.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2f",
+        "page": 5,
+        "rect": [
+          358.2,
+          415.6,
+          402.1,
+          435.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2g",
+        "page": 5,
+        "rect": [
+          69.6,
+          429.7,
+          139.6,
+          449.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2h",
+        "page": 5,
+        "rect": [
+          213.9,
+          429.7,
+          274.6,
+          449.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex2i",
+        "page": 5,
+        "rect": [
+          358.2,
+          429.7,
+          402.0,
+          449.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3a",
+        "page": 5,
+        "rect": [
+          69.6,
+          464.7,
+          140.3,
+          484.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3b",
+        "page": 5,
+        "rect": [
+          213.9,
+          464.7,
+          294.7,
+          484.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3c",
+        "page": 5,
+        "rect": [
+          358.2,
+          464.7,
+          435.8,
+          484.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3d",
+        "page": 5,
+        "rect": [
+          69.6,
+          478.8,
+          162.2,
+          498.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3e",
+        "page": 5,
+        "rect": [
+          213.9,
+          478.8,
+          284.7,
+          498.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3f",
+        "page": 5,
+        "rect": [
+          358.2,
+          478.8,
+          424.4,
+          498.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3g",
+        "page": 5,
+        "rect": [
+          69.6,
+          492.9,
+          142.4,
+          513.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3h",
+        "page": 5,
+        "rect": [
+          213.9,
+          492.9,
+          315.5,
+          513.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3i",
+        "page": 5,
+        "rect": [
+          358.2,
+          492.9,
+          402.6,
+          513.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3j",
+        "page": 5,
+        "rect": [
+          69.6,
+          507.0,
+          157.6,
+          527.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3k",
+        "page": 5,
+        "rect": [
+          213.9,
+          507.0,
+          302.0,
+          527.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex3l",
+        "page": 5,
+        "rect": [
+          358.2,
+          507.0,
+          469.1,
+          527.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex4a",
+        "page": 5,
+        "rect": [
+          69.6,
+          542.0,
+          130.2,
+          562.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex4b",
+        "page": 5,
+        "rect": [
+          177.8,
+          542.0,
+          238.5,
+          562.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex4c",
+        "page": 5,
+        "rect": [
+          286.1,
+          542.0,
+          373.0,
+          562.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex4d",
+        "page": 5,
+        "rect": [
+          394.3,
+          542.0,
+          443.1,
+          562.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex5a",
+        "page": 5,
+        "rect": [
+          69.6,
+          577.0,
+          140.8,
+          597.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex5b",
+        "page": 5,
+        "rect": [
+          286.1,
+          577.0,
+          409.0,
+          597.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex5c",
+        "page": 5,
+        "rect": [
+          69.6,
+          591.1,
+          157.6,
+          611.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex5d",
+        "page": 5,
+        "rect": [
+          286.1,
+          591.1,
+          375.3,
+          611.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6a",
+        "page": 5,
+        "rect": [
+          69.6,
+          626.1,
+          135.8,
+          646.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6b",
+        "page": 5,
+        "rect": [
+          213.9,
+          626.1,
+          274.7,
+          646.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6c",
+        "page": 5,
+        "rect": [
+          358.2,
+          626.1,
+          447.5,
+          646.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6d",
+        "page": 5,
+        "rect": [
+          69.6,
+          640.2,
+          152.2,
+          660.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6e",
+        "page": 5,
+        "rect": [
+          213.9,
+          640.2,
+          285.1,
+          660.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex6f",
+        "page": 5,
+        "rect": [
+          358.2,
+          640.2,
+          447.5,
+          660.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a9ex1",
+        "page": 5,
+        "rect": [
+          15.3,
+          349.4,
+          459.8,
+          389.6
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex2",
+        "page": 5,
+        "rect": [
+          15.3,
+          384.4,
+          416.8,
+          452.8
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex3",
+        "page": 5,
+        "rect": [
+          6.199999999999999,
+          447.6,
+          469.1,
+          530.1
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex4",
+        "page": 5,
+        "rect": [
+          11.7,
+          524.0,
+          443.1,
+          565.1
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex5",
+        "page": 5,
+        "rect": [
+          11.899999999999999,
+          559.0,
+          409.0,
+          614.2
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex6",
+        "page": 5,
+        "rect": [
+          12.899999999999999,
+          608.1,
+          447.5,
+          663.3
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -308,15 +913,107 @@
     "blocks": [
       {
         "type": "question",
-        "id": "a9ex7",
+        "id": "a9ex7a",
         "page": 6,
         "rect": [
-          10.2,
-          45.7,
-          493.2,
-          143.8
+          70.0,
+          65.7,
+          225.5,
+          82.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7b",
+        "page": 6,
+        "rect": [
+          286.5,
+          65.7,
+          486.2,
+          82.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7c",
+        "page": 6,
+        "rect": [
+          70.0,
+          79.8,
+          191.7,
+          96.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7d",
+        "page": 6,
+        "rect": [
+          286.5,
+          79.8,
+          447.9,
+          96.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7e",
+        "page": 6,
+        "rect": [
+          70.0,
+          93.9,
+          205.0,
+          110.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7f",
+        "page": 6,
+        "rect": [
+          286.5,
+          93.9,
+          441.8,
+          110.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7g",
+        "page": 6,
+        "rect": [
+          70.0,
+          108.0,
+          178.6,
+          124.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex7h",
+        "page": 6,
+        "rect": [
+          286.5,
+          108.0,
+          491.2,
+          138.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -327,51 +1024,107 @@
       },
       {
         "type": "question",
-        "id": "a9ex8",
+        "id": "a9ex8a",
         "page": 6,
         "rect": [
-          4.300000000000001,
-          159.3,
-          453.0,
-          265.6
+          70.0,
+          178.4,
+          303.1,
+          198.5
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex8b",
+        "page": 6,
+        "rect": [
+          70.0,
+          191.6,
+          451.0,
+          217.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex8c",
+        "page": 6,
+        "rect": [
+          70.0,
+          214.8,
+          433.8,
+          234.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex8d",
+        "page": 6,
+        "rect": [
+          70.0,
+          229.7,
+          313.0,
+          246.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex8e",
+        "page": 6,
+        "rect": [
+          70.0,
+          243.7,
+          444.5,
+          260.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "a9ex9",
         "page": 6,
         "rect": [
-          48.0,
-          256.8,
-          342.3,
-          287.9
+          50.0,
+          258.8,
+          340.3,
+          285.9
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "a9ex10",
         "page": 6,
         "rect": [
-          48.0,
-          277.8,
-          481.7,
-          320.6
+          50.0,
+          279.8,
+          479.7,
+          318.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "a9ex11",
         "page": 6,
         "rect": [
-          48.0,
-          311.8,
-          475.2,
-          354.6
+          50.0,
+          313.8,
+          473.2,
+          352.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -385,10 +1138,10 @@
         "id": "a9ex12",
         "page": 6,
         "rect": [
-          48.0,
-          370.9,
-          411.4,
-          402.0
+          50.0,
+          372.9,
+          409.4,
+          400.0
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
@@ -398,25 +1151,169 @@
         "id": "a9ex13",
         "page": 6,
         "rect": [
-          48.0,
-          390.9,
-          393.8,
-          422.0
+          50.0,
+          392.9,
+          391.8,
+          420.0
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "a9ex14",
+        "id": "a9ex14a",
         "page": 6,
         "rect": [
-          48.0,
-          411.8,
-          484.4,
-          540.2
+          70.0,
+          486.9,
+          135.6,
+          507.0
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14b",
+        "page": 6,
+        "rect": [
+          178.2,
+          486.9,
+          243.3,
+          507.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14c",
+        "page": 6,
+        "rect": [
+          286.5,
+          486.9,
+          330.9,
+          507.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14d",
+        "page": 6,
+        "rect": [
+          394.8,
+          486.9,
+          472.8,
+          507.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14e",
+        "page": 6,
+        "rect": [
+          70.0,
+          501.0,
+          131.2,
+          521.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14f",
+        "page": 6,
+        "rect": [
+          178.2,
+          501.0,
+          256.3,
+          521.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14g",
+        "page": 6,
+        "rect": [
+          286.5,
+          501.0,
+          347.2,
+          521.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14h",
+        "page": 6,
+        "rect": [
+          394.8,
+          501.0,
+          465.5,
+          521.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14i",
+        "page": 6,
+        "rect": [
+          70.0,
+          515.1,
+          139.5,
+          535.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14j",
+        "page": 6,
+        "rect": [
+          178.2,
+          515.1,
+          247.8,
+          535.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14k",
+        "page": 6,
+        "rect": [
+          286.5,
+          515.1,
+          372.9,
+          535.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex14l",
+        "page": 6,
+        "rect": [
+          394.8,
+          515.1,
+          482.4,
+          535.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -427,25 +1324,166 @@
       },
       {
         "type": "question",
-        "id": "a9ex15",
+        "id": "a9ex15a",
         "page": 6,
         "rect": [
-          48.0,
-          553.3,
-          384.1,
-          611.6
+          70.0,
+          572.4,
+          141.2,
+          592.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "a9ex16",
+        "id": "a9ex15b",
         "page": 6,
         "rect": [
-          48.0,
-          600.5,
-          481.0,
-          699.2
+          286.5,
+          572.4,
+          358.5,
+          592.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex15c",
+        "page": 6,
+        "rect": [
+          70.0,
+          586.5,
+          165.6,
+          606.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex15d",
+        "page": 6,
+        "rect": [
+          286.5,
+          586.5,
+          382.1,
+          606.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a9ex16a",
+        "page": 6,
+        "rect": [
+          70.1,
+          606.5,
+          410.5,
+          626.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a9ex16b",
+        "page": 6,
+        "rect": [
+          70.0,
+          621.4,
+          288.8,
+          638.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a9ex16c",
+        "page": 6,
+        "rect": [
+          70.0,
+          635.4,
+          447.2,
+          666.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a9ex16d",
+        "page": 6,
+        "rect": [
+          70.0,
+          662.5,
+          479.0,
+          694.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a9ex7",
+        "page": 6,
+        "rect": [
+          12.2,
+          47.7,
+          491.2,
+          141.8
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex8",
+        "page": 6,
+        "rect": [
+          6.300000000000001,
+          161.3,
+          451.0,
+          263.6
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex14",
+        "page": 6,
+        "rect": [
+          50.0,
+          413.8,
+          482.4,
+          538.2
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex15",
+        "page": 6,
+        "rect": [
+          50.0,
+          555.3,
+          382.1,
+          609.6
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "a9ex16",
+        "page": 6,
+        "rect": [
+          50.0,
+          602.5,
+          479.0,
+          697.2
         ],
         "workingSpaceHeightMm": 40,
         "workingSpaceStyle": "lines"
@@ -494,39 +1532,159 @@
       },
       {
         "type": "question",
-        "id": "b9bu1",
+        "id": "b9bu1a",
         "page": 8,
         "rect": [
-          60.5,
-          77.4,
-          426.6,
-          144.8
+          86.5,
+          97.4,
+          157.3,
+          117.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "b9bu2",
+        "id": "b9bu1b",
         "page": 8,
         "rect": [
-          60.5,
-          142.8,
-          322.6,
-          260.5
+          291.0,
+          97.4,
+          388.2,
+          117.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "b9bu3",
+        "id": "b9bu1c",
         "page": 8,
         "rect": [
-          60.5,
-          260.7,
-          477.3,
-          319.9
+          86.5,
+          119.7,
+          161.9,
+          139.8
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu1d",
+        "page": 8,
+        "rect": [
+          291.0,
+          119.7,
+          382.8,
+          139.8
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu2a",
+        "page": 8,
+        "rect": [
+          86.5,
+          171.0,
+          320.6,
+          191.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu2b",
+        "page": 8,
+        "rect": [
+          86.5,
+          193.2,
+          261.7,
+          213.3
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu2c",
+        "page": 8,
+        "rect": [
+          86.5,
+          215.3,
+          256.7,
+          235.5
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu2d",
+        "page": 8,
+        "rect": [
+          86.5,
+          237.5,
+          318.5,
+          255.5
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu3a",
+        "page": 8,
+        "rect": [
+          86.5,
+          294.7,
+          152.1,
+          314.9
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu3b",
+        "page": 8,
+        "rect": [
+          188.7,
+          294.7,
+          254.4,
+          314.9
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu3c",
+        "page": 8,
+        "rect": [
+          291.0,
+          294.7,
+          362.2,
+          314.9
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b9bu3d",
+        "page": 8,
+        "rect": [
+          393.2,
+          294.7,
+          464.4,
+          314.9
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -557,6 +1715,47 @@
           569.1
         ],
         "workingSpaceHeightMm": 25
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b9bu1",
+        "page": 8,
+        "rect": [
+          62.5,
+          79.4,
+          424.6,
+          142.8
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "b9bu2",
+        "page": 8,
+        "rect": [
+          62.5,
+          144.8,
+          320.6,
+          258.5
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "b9bu3",
+        "page": 8,
+        "rect": [
+          62.5,
+          262.7,
+          475.3,
+          317.9
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
       }
     ]
   },
@@ -610,63 +1809,549 @@
       },
       {
         "type": "question",
-        "id": "b9ex1",
+        "id": "b9ex1a",
         "page": 10,
         "rect": [
-          12.899999999999999,
-          106.4,
-          472.1,
-          150.6
+          70.0,
+          125.5,
+          144.9,
+          145.6
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex2",
+        "id": "b9ex1b",
         "page": 10,
         "rect": [
-          12.899999999999999,
-          146.5,
-          477.5,
-          213.0
+          178.3,
+          125.5,
+          252.4,
+          145.6
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex3",
+        "id": "b9ex1c",
         "page": 10,
         "rect": [
-          6.0,
-          209.0,
-          458.0,
-          281.4
+          286.5,
+          125.5,
+          361.9,
+          145.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex4",
+        "id": "b9ex1d",
         "page": 10,
         "rect": [
-          10.3,
-          272.2,
-          469.0,
-          344.6
+          394.8,
+          125.5,
+          470.1,
+          145.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex5",
+        "id": "b9ex2a",
         "page": 10,
         "rect": [
-          10.3,
-          335.4,
-          470.3,
-          393.7
+          70.0,
+          165.6,
+          140.4,
+          185.7
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2b",
+        "page": 10,
+        "rect": [
+          178.3,
+          165.6,
+          253.2,
+          185.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2c",
+        "page": 10,
+        "rect": [
+          286.5,
+          165.6,
+          362.3,
+          185.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2d",
+        "page": 10,
+        "rect": [
+          394.8,
+          165.6,
+          453.5,
+          185.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2e",
+        "page": 10,
+        "rect": [
+          70.0,
+          187.9,
+          144.9,
+          208.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2f",
+        "page": 10,
+        "rect": [
+          178.3,
+          187.9,
+          263.6,
+          208.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2g",
+        "page": 10,
+        "rect": [
+          286.5,
+          187.9,
+          361.4,
+          208.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex2h",
+        "page": 10,
+        "rect": [
+          394.8,
+          187.9,
+          475.5,
+          208.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3a",
+        "page": 10,
+        "rect": [
+          70.0,
+          228.1,
+          135.2,
+          248.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3b",
+        "page": 10,
+        "rect": [
+          178.3,
+          228.1,
+          236.0,
+          248.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3c",
+        "page": 10,
+        "rect": [
+          286.5,
+          228.1,
+          350.0,
+          248.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3d",
+        "page": 10,
+        "rect": [
+          394.8,
+          228.1,
+          456.0,
+          248.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3e",
+        "page": 10,
+        "rect": [
+          70.0,
+          242.2,
+          134.0,
+          262.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3f",
+        "page": 10,
+        "rect": [
+          178.2,
+          242.2,
+          239.4,
+          262.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3g",
+        "page": 10,
+        "rect": [
+          286.5,
+          242.2,
+          351.6,
+          262.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3h",
+        "page": 10,
+        "rect": [
+          394.7,
+          242.2,
+          454.2,
+          262.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3i",
+        "page": 10,
+        "rect": [
+          70.0,
+          256.3,
+          135.6,
+          276.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3j",
+        "page": 10,
+        "rect": [
+          178.2,
+          256.3,
+          242.1,
+          276.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3k",
+        "page": 10,
+        "rect": [
+          286.5,
+          256.3,
+          351.6,
+          276.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex3l",
+        "page": 10,
+        "rect": [
+          394.7,
+          256.3,
+          454.8,
+          276.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4a",
+        "page": 10,
+        "rect": [
+          70.0,
+          291.3,
+          136.2,
+          311.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4b",
+        "page": 10,
+        "rect": [
+          178.2,
+          291.3,
+          249.4,
+          311.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4c",
+        "page": 10,
+        "rect": [
+          286.5,
+          291.3,
+          352.7,
+          311.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4d",
+        "page": 10,
+        "rect": [
+          394.7,
+          291.3,
+          465.4,
+          311.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4e",
+        "page": 10,
+        "rect": [
+          70.0,
+          305.4,
+          136.2,
+          325.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4f",
+        "page": 10,
+        "rect": [
+          178.2,
+          305.4,
+          249.4,
+          325.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4g",
+        "page": 10,
+        "rect": [
+          286.5,
+          305.4,
+          357.7,
+          325.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4h",
+        "page": 10,
+        "rect": [
+          394.7,
+          305.4,
+          467.0,
+          325.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4i",
+        "page": 10,
+        "rect": [
+          70.0,
+          319.5,
+          147.9,
+          339.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4j",
+        "page": 10,
+        "rect": [
+          178.2,
+          319.5,
+          249.4,
+          339.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4k",
+        "page": 10,
+        "rect": [
+          286.5,
+          319.5,
+          354.9,
+          339.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex4l",
+        "page": 10,
+        "rect": [
+          394.7,
+          319.5,
+          460.9,
+          339.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5a",
+        "page": 10,
+        "rect": [
+          70.0,
+          354.5,
+          175.5,
+          374.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5b",
+        "page": 10,
+        "rect": [
+          214.3,
+          354.5,
+          290.8,
+          374.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5c",
+        "page": 10,
+        "rect": [
+          358.7,
+          354.5,
+          446.6,
+          374.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5d",
+        "page": 10,
+        "rect": [
+          70.0,
+          368.6,
+          151.9,
+          388.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5e",
+        "page": 10,
+        "rect": [
+          214.3,
+          368.6,
+          319.9,
+          388.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex5f",
+        "page": 10,
+        "rect": [
+          358.7,
+          368.6,
+          428.7,
+          388.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -677,27 +2362,193 @@
       },
       {
         "type": "question",
-        "id": "b9ex6",
+        "id": "b9ex6a",
         "page": 10,
         "rect": [
-          48.0,
-          411.8,
-          301.2,
-          509.6
+          70.0,
+          431.8,
+          254.7,
+          448.6
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex7",
+        "id": "b9ex6b",
         "page": 10,
         "rect": [
-          48.0,
-          516.8,
-          476.4,
-          614.6
+          70.0,
+          445.8,
+          191.4,
+          462.6
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex6c",
+        "page": 10,
+        "rect": [
+          70.0,
+          459.8,
+          177.8,
+          476.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex6d",
+        "page": 10,
+        "rect": [
+          70.0,
+          473.8,
+          201.9,
+          490.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex6e",
+        "page": 10,
+        "rect": [
+          70.0,
+          487.8,
+          279.5,
+          504.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex7a",
+        "page": 10,
+        "rect": [
+          70.0,
+          536.8,
+          474.4,
+          584.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex7b",
+        "page": 10,
+        "rect": [
+          70.0,
+          578.8,
+          307.6,
+          595.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex7c",
+        "page": 10,
+        "rect": [
+          70.0,
+          592.8,
+          170.6,
+          609.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b9ex1",
+        "page": 10,
+        "rect": [
+          14.899999999999999,
+          108.4,
+          470.1,
+          148.6
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex2",
+        "page": 10,
+        "rect": [
+          14.899999999999999,
+          148.5,
+          475.5,
+          211.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex3",
+        "page": 10,
+        "rect": [
+          8.0,
+          211.0,
+          456.0,
+          279.4
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex4",
+        "page": 10,
+        "rect": [
+          12.3,
+          274.2,
+          467.0,
+          342.6
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex5",
+        "page": 10,
+        "rect": [
+          12.3,
+          337.4,
+          468.3,
+          391.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex6",
+        "page": 10,
+        "rect": [
+          50.0,
+          413.8,
+          299.2,
+          507.6
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex7",
+        "page": 10,
+        "rect": [
+          50.0,
+          518.8,
+          474.4,
+          612.6
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -705,51 +2556,107 @@
     "blocks": [
       {
         "type": "question",
-        "id": "b9ex8",
+        "id": "b9ex8a",
         "page": 11,
         "rect": [
-          47.6,
-          44.8,
-          340.0,
-          115.5
+          69.6,
+          79.7,
+          310.9,
+          96.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex9",
+        "id": "b9ex8b",
         "page": 11,
         "rect": [
-          47.6,
-          108.7,
-          315.2,
-          178.5
+          69.6,
+          93.7,
+          307.2,
+          110.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex10",
+        "id": "b9ex9a",
         "page": 11,
         "rect": [
-          47.6,
-          170.8,
-          259.8,
-          255.5
+          69.6,
+          142.7,
+          313.2,
+          159.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex11",
+        "id": "b9ex9b",
         "page": 11,
         "rect": [
-          47.6,
-          248.7,
-          259.8,
-          332.5
+          69.6,
+          156.7,
+          309.5,
+          173.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex10a",
+        "page": 11,
+        "rect": [
+          69.6,
+          205.7,
+          257.0,
+          236.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex10b",
+        "page": 11,
+        "rect": [
+          69.6,
+          233.7,
+          257.8,
+          250.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex11a",
+        "page": 11,
+        "rect": [
+          69.6,
+          282.7,
+          257.0,
+          313.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex11b",
+        "page": 11,
+        "rect": [
+          69.6,
+          310.7,
+          257.8,
+          327.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -760,27 +2667,54 @@
       },
       {
         "type": "question",
-        "id": "b9ex12",
+        "id": "b9ex12a",
         "page": 11,
         "rect": [
-          47.2,
-          359.2,
-          433.6,
-          418.3
+          69.3,
+          365.2,
+          290.6,
+          385.3
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "b9ex13",
+        "id": "b9ex12b",
         "page": 11,
         "rect": [
-          47.2,
-          409.1,
-          458.1,
-          478.9
+          69.2,
+          379.2,
+          431.6,
+          413.3
         ],
-        "workingSpaceHeightMm": 35,
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex13a",
+        "page": 11,
+        "rect": [
+          69.2,
+          428.2,
+          432.9,
+          448.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b9ex13b",
+        "page": 11,
+        "rect": [
+          69.2,
+          442.2,
+          456.1,
+          473.9
+        ],
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
@@ -792,15 +2726,167 @@
       },
       {
         "type": "question",
-        "id": "b9ex14",
+        "id": "b9ex14a",
         "page": 11,
         "rect": [
-          47.2,
-          494.4,
-          491.2,
-          566.7
+          69.2,
+          527.5,
+          129.2,
+          547.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex14b",
+        "page": 11,
+        "rect": [
+          213.5,
+          527.5,
+          273.6,
+          547.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex14c",
+        "page": 11,
+        "rect": [
+          357.8,
+          527.5,
+          422.9,
+          547.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex14d",
+        "page": 11,
+        "rect": [
+          69.2,
+          541.6,
+          128.8,
+          561.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex14e",
+        "page": 11,
+        "rect": [
+          213.5,
+          541.6,
+          295.4,
+          561.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b9ex14f",
+        "page": 11,
+        "rect": [
+          357.8,
+          541.6,
+          433.2,
+          561.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b9ex8",
+        "page": 11,
+        "rect": [
+          49.6,
+          46.8,
+          338.0,
+          113.5
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex9",
+        "page": 11,
+        "rect": [
+          49.6,
+          110.7,
+          313.2,
+          176.5
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex10",
+        "page": 11,
+        "rect": [
+          49.6,
+          172.8,
+          257.8,
+          253.5
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex11",
+        "page": 11,
+        "rect": [
+          49.6,
+          250.7,
+          257.8,
+          330.5
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex12",
+        "page": 11,
+        "rect": [
+          49.2,
+          361.2,
+          431.6,
+          416.3
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "b9ex13",
+        "page": 11,
+        "rect": [
+          49.2,
+          411.1,
+          456.1,
+          476.9
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "b9ex14",
+        "page": 11,
+        "rect": [
+          49.2,
+          496.4,
+          489.2,
+          564.7
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -846,27 +2932,120 @@
       },
       {
         "type": "question",
-        "id": "c9bu1",
+        "id": "c9bu1a",
         "page": 13,
         "rect": [
-          60.099999999999994,
-          411.2,
-          443.6,
-          456.4
+          86.1,
+          431.2,
+          162.3,
+          451.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "c9bu2",
+        "id": "c9bu1b",
         "page": 13,
         "rect": [
-          60.099999999999994,
-          446.2,
-          473.3,
-          566.3
+          188.3,
+          431.2,
+          242.1,
+          451.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu1c",
+        "page": 13,
+        "rect": [
+          290.6,
+          431.2,
+          344.9,
+          451.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu1d",
+        "page": 13,
+        "rect": [
+          392.8,
+          431.2,
+          441.6,
+          451.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu2a",
+        "page": 13,
+        "rect": [
+          86.1,
+          482.0,
+          361.9,
+          500.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu2b",
+        "page": 13,
+        "rect": [
+          86.1,
+          497.1,
+          372.1,
+          515.7
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu2c",
+        "page": 13,
+        "rect": [
+          86.1,
+          512.3,
+          352.9,
+          530.8
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu2d",
+        "page": 13,
+        "rect": [
+          86.1,
+          527.5,
+          348.4,
+          546.1
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "c9bu2e",
+        "page": 13,
+        "rect": [
+          86.1,
+          542.7,
+          348.4,
+          561.3
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -880,6 +3059,34 @@
         ],
         "section": true,
         "glueForward": true
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c9bu1",
+        "page": 13,
+        "rect": [
+          62.099999999999994,
+          413.2,
+          441.6,
+          454.4
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "c9bu2",
+        "page": 13,
+        "rect": [
+          62.099999999999994,
+          448.2,
+          471.3,
+          564.3
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
       }
     ]
   },
@@ -980,51 +3187,341 @@
       },
       {
         "type": "question",
-        "id": "c9ex1",
+        "id": "c9ex1a",
         "page": 15,
         "rect": [
-          12.5,
-          203.8,
-          464.1,
-          276.0
+          69.6,
+          222.9,
+          155.4,
+          243.0
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "c9ex2",
+        "id": "c9ex1b",
         "page": 15,
         "rect": [
-          12.5,
-          280.8,
-          456.7,
-          353.2
+          69.6,
+          236.9,
+          142.7,
+          257.0
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "c9ex3",
+        "id": "c9ex1c",
         "page": 15,
         "rect": [
-          12.7,
-          344.0,
-          392.7,
-          486.2
+          69.6,
+          250.9,
+          147.6,
+          271.0
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "c9ex4",
+        "id": "c9ex2a",
         "page": 15,
         "rect": [
-          47.6,
-          477.0,
-          482.8,
-          549.3
+          69.7,
+          299.9,
+          160.6,
+          320.0
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2b",
+        "page": 15,
+        "rect": [
+          214.1,
+          299.9,
+          287.2,
+          320.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2c",
+        "page": 15,
+        "rect": [
+          358.4,
+          299.9,
+          436.4,
+          320.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2d",
+        "page": 15,
+        "rect": [
+          69.6,
+          314.0,
+          161.0,
+          334.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2e",
+        "page": 15,
+        "rect": [
+          214.0,
+          314.0,
+          305.4,
+          334.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2f",
+        "page": 15,
+        "rect": [
+          358.3,
+          314.0,
+          449.7,
+          334.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2g",
+        "page": 15,
+        "rect": [
+          69.6,
+          328.1,
+          156.0,
+          348.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2h",
+        "page": 15,
+        "rect": [
+          214.0,
+          328.1,
+          309.8,
+          348.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex2i",
+        "page": 15,
+        "rect": [
+          358.3,
+          328.1,
+          454.7,
+          348.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3a",
+        "page": 15,
+        "rect": [
+          69.7,
+          363.1,
+          186.0,
+          383.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3b",
+        "page": 15,
+        "rect": [
+          69.6,
+          377.1,
+          208.9,
+          397.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3c",
+        "page": 15,
+        "rect": [
+          69.6,
+          391.1,
+          175.2,
+          411.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3d",
+        "page": 15,
+        "rect": [
+          69.6,
+          405.1,
+          209.5,
+          425.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3e",
+        "page": 15,
+        "rect": [
+          69.6,
+          419.1,
+          164.1,
+          439.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3f",
+        "page": 15,
+        "rect": [
+          69.6,
+          433.1,
+          197.8,
+          453.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3g",
+        "page": 15,
+        "rect": [
+          69.6,
+          447.1,
+          220.6,
+          467.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex3h",
+        "page": 15,
+        "rect": [
+          69.6,
+          461.1,
+          191.0,
+          481.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4a",
+        "page": 15,
+        "rect": [
+          69.6,
+          510.1,
+          113.4,
+          530.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4b",
+        "page": 15,
+        "rect": [
+          213.9,
+          510.1,
+          275.1,
+          530.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4c",
+        "page": 15,
+        "rect": [
+          358.2,
+          510.1,
+          419.4,
+          530.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4d",
+        "page": 15,
+        "rect": [
+          69.6,
+          524.2,
+          130.8,
+          544.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4e",
+        "page": 15,
+        "rect": [
+          213.9,
+          524.2,
+          279.6,
+          544.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex4f",
+        "page": 15,
+        "rect": [
+          358.2,
+          524.2,
+          407.0,
+          544.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1035,15 +3532,130 @@
       },
       {
         "type": "question",
-        "id": "c9ex5",
+        "id": "c9ex5a",
         "page": 15,
         "rect": [
-          47.6,
-          541.5,
-          490.6,
-          680.9
+          69.6,
+          597.2,
+          343.5,
+          615.7
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex5b",
+        "page": 15,
+        "rect": [
+          69.6,
+          612.3,
+          337.3,
+          630.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex5c",
+        "page": 15,
+        "rect": [
+          69.6,
+          627.2,
+          337.3,
+          645.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex5d",
+        "page": 15,
+        "rect": [
+          69.6,
+          642.1,
+          337.3,
+          660.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex5e",
+        "page": 15,
+        "rect": [
+          69.6,
+          657.3,
+          352.5,
+          675.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c9ex1",
+        "page": 15,
+        "rect": [
+          14.5,
+          205.8,
+          462.1,
+          274.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex2",
+        "page": 15,
+        "rect": [
+          14.5,
+          282.8,
+          454.7,
+          351.2
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex3",
+        "page": 15,
+        "rect": [
+          14.7,
+          346.0,
+          390.7,
+          484.2
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex4",
+        "page": 15,
+        "rect": [
+          49.6,
+          479.0,
+          480.8,
+          547.3
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex5",
+        "page": 15,
+        "rect": [
+          49.6,
+          543.5,
+          488.6,
+          678.9
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1051,27 +3663,107 @@
     "blocks": [
       {
         "type": "question",
-        "id": "c9ex6",
+        "id": "c9ex6a",
         "page": 16,
         "rect": [
-          48.0,
-          45.7,
-          489.6,
-          118.0
+          70.0,
+          78.8,
+          181.4,
+          98.9
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "c9ex7",
+        "id": "c9ex6b",
         "page": 16,
         "rect": [
-          48.0,
-          108.8,
-          476.8,
-          167.0
+          286.5,
+          78.8,
+          408.4,
+          98.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex6c",
+        "page": 16,
+        "rect": [
+          70.0,
+          92.9,
+          188.0,
+          113.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex6d",
+        "page": 16,
+        "rect": [
+          286.5,
+          92.9,
+          402.9,
+          113.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex7a",
+        "page": 16,
+        "rect": [
+          70.0,
+          141.9,
+          136.2,
+          162.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex7b",
+        "page": 16,
+        "rect": [
+          178.2,
+          141.9,
+          253.9,
+          162.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex7c",
+        "page": 16,
+        "rect": [
+          286.5,
+          141.9,
+          363.8,
+          162.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex7d",
+        "page": 16,
+        "rect": [
+          394.7,
+          141.9,
+          459.2,
+          162.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1085,37 +3777,52 @@
         "id": "c9ex8",
         "page": 16,
         "rect": [
-          48.0,
-          180.1,
-          483.5,
-          367.4
+          50.0,
+          182.1,
+          481.5,
+          365.4
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "c9ex9",
         "page": 16,
         "rect": [
-          48.0,
-          397.1,
-          472.2,
-          469.3
+          50.0,
+          399.1,
+          470.2,
+          467.3
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "c9ex10",
+        "id": "c9ex10a",
         "page": 16,
         "rect": [
-          48.0,
-          474.1,
-          491.0,
-          532.3
+          70.0,
+          507.2,
+          164.9,
+          527.3
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "c9ex10b",
+        "page": 16,
+        "rect": [
+          286.5,
+          507.2,
+          381.4,
+          527.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1126,13 +3833,102 @@
       },
       {
         "type": "question",
-        "id": "c9ex11",
+        "id": "c9ex11a",
         "page": 16,
         "rect": [
-          48.0,
-          524.5,
-          482.0,
-          657.3
+          70.0,
+          565.4,
+          238.8,
+          582.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c9ex11b",
+        "page": 16,
+        "rect": [
+          70.0,
+          579.4,
+          449.8,
+          596.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c9ex11c",
+        "page": 16,
+        "rect": [
+          70.0,
+          593.4,
+          469.2,
+          624.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c9ex11d",
+        "page": 16,
+        "rect": [
+          70.0,
+          621.4,
+          480.0,
+          652.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c9ex6",
+        "page": 16,
+        "rect": [
+          50.0,
+          47.7,
+          487.6,
+          116.0
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex7",
+        "page": 16,
+        "rect": [
+          50.0,
+          110.8,
+          474.8,
+          165.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex10",
+        "page": 16,
+        "rect": [
+          50.0,
+          476.1,
+          489.0,
+          530.3
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "c9ex11",
+        "page": 16,
+        "rect": [
+          50.0,
+          526.5,
+          480.0,
+          655.3
         ],
         "workingSpaceHeightMm": 40,
         "workingSpaceStyle": "lines"
@@ -1184,52 +3980,91 @@
         "id": "d9bu1",
         "page": 18,
         "rect": [
-          60.5,
-          456.1,
-          341.9,
-          557.3
+          62.5,
+          458.1,
+          339.9,
+          555.3
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
         "id": "d9bu2",
         "page": 18,
         "rect": [
-          40,
-          546,
-          500,
-          623
+          62.5,
+          546.8,
+          462.7,
+          632.3
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "none"
       },
       {
         "type": "question",
         "id": "d9bu3",
         "page": 18,
         "rect": [
-          60.5,
-          624.1,
-          320.9,
-          669.8
+          62.5,
+          626.1,
+          318.9,
+          667.8
         ],
-        "workingSpaceHeightMm": 15
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       }
-    ]
+    ],
+    "combinedGroups": []
   },
   {
     "blocks": [
       {
         "type": "question",
-        "id": "d9bu4",
+        "id": "d9bu4a",
         "page": 19,
         "rect": [
-          40,
-          52,
-          500,
-          200
+          85.6,
+          91.5,
+          168.6,
+          140.3
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "d9bu4b",
+        "page": 19,
+        "rect": [
+          290.1,
+          91.5,
+          365.9,
+          140.3
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "d9bu4c",
+        "page": 19,
+        "rect": [
+          85.6,
+          145.8,
+          151.7,
+          195.8
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "d9bu4d",
+        "page": 19,
+        "rect": [
+          290.1,
+          145.8,
+          371.4,
+          194.7
+        ],
+        "workingSpaceStyle": "none"
       },
       {
         "type": "image",
@@ -1260,6 +4095,20 @@
           628.6
         ],
         "workingSpaceHeightMm": 30
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "d9bu4",
+        "page": 19,
+        "rect": [
+          61.599999999999994,
+          52.5,
+          477.1,
+          198.8
+        ],
+        "workingSpaceStyle": "none",
+        "forceSplit": true
       }
     ]
   },
@@ -1313,75 +4162,480 @@
       },
       {
         "type": "question",
-        "id": "d9ex1",
+        "id": "d9ex1a",
         "page": 21,
         "rect": [
-          9.7,
-          104.7,
-          372.7,
-          193.0
+          69.6,
+          123.8,
+          353.9,
+          143.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex2",
+        "id": "d9ex1b",
         "page": 21,
         "rect": [
-          12.5,
-          183.1,
-          462.0,
-          255.5
+          69.6,
+          143.8,
+          370.7,
+          163.9
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex3",
+        "id": "d9ex1c",
         "page": 21,
         "rect": [
-          40,
-          276,
-          500,
-          456
+          69.6,
+          159.9,
+          346.0,
+          188.0
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex4",
+        "id": "d9ex2a",
         "page": 21,
         "rect": [
-          47.6,
-          452.5,
-          450.2,
-          510.8
+          69.6,
+          202.2,
+          126.2,
+          222.3
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex5",
+        "id": "d9ex2b",
         "page": 21,
         "rect": [
-          12.5,
-          501.6,
-          482.9,
-          597.2
+          177.8,
+          202.2,
+          239.0,
+          222.3
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex6",
+        "id": "d9ex2c",
         "page": 21,
         "rect": [
-          47.6,
-          616.2,
-          456.2,
-          674.5
+          286.1,
+          202.2,
+          350.7,
+          222.3
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2d",
+        "page": 21,
+        "rect": [
+          394.3,
+          202.2,
+          453.3,
+          222.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2e",
+        "page": 21,
+        "rect": [
+          69.6,
+          216.3,
+          128.6,
+          236.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2f",
+        "page": 21,
+        "rect": [
+          177.8,
+          216.3,
+          244.0,
+          236.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2g",
+        "page": 21,
+        "rect": [
+          286.1,
+          216.3,
+          339.9,
+          236.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2h",
+        "page": 21,
+        "rect": [
+          394.3,
+          216.3,
+          459.4,
+          236.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2i",
+        "page": 21,
+        "rect": [
+          69.6,
+          230.4,
+          133.1,
+          250.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2j",
+        "page": 21,
+        "rect": [
+          177.8,
+          230.4,
+          241.8,
+          250.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2k",
+        "page": 21,
+        "rect": [
+          286.1,
+          230.4,
+          345.5,
+          250.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex2l",
+        "page": 21,
+        "rect": [
+          394.3,
+          230.4,
+          460.0,
+          250.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex3a",
+        "page": 21,
+        "rect": [
+          69.6,
+          294.5,
+          155.1,
+          370.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex3b",
+        "page": 21,
+        "rect": [
+          286.1,
+          294.5,
+          409.6,
+          370.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex3c",
+        "page": 21,
+        "rect": [
+          69.6,
+          369.9,
+          187.4,
+          445.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex3d",
+        "page": 21,
+        "rect": [
+          286.1,
+          369.9,
+          391.9,
+          452.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex4a",
+        "page": 21,
+        "rect": [
+          69.6,
+          471.6,
+          135.2,
+          491.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex4b",
+        "page": 21,
+        "rect": [
+          286.1,
+          471.6,
+          356.7,
+          491.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex4c",
+        "page": 21,
+        "rect": [
+          69.6,
+          485.7,
+          147.4,
+          505.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex4d",
+        "page": 21,
+        "rect": [
+          286.1,
+          485.7,
+          368.9,
+          505.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex5a",
+        "page": 21,
+        "rect": [
+          69.6,
+          534.7,
+          140.2,
+          592.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex5b",
+        "page": 21,
+        "rect": [
+          177.8,
+          533.3,
+          467.2,
+          592.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6a",
+        "page": 21,
+        "rect": [
+          69.6,
+          635.3,
+          135.2,
+          655.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6b",
+        "page": 21,
+        "rect": [
+          213.9,
+          635.3,
+          284.6,
+          655.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6c",
+        "page": 21,
+        "rect": [
+          358.2,
+          635.3,
+          454.2,
+          655.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6d",
+        "page": 21,
+        "rect": [
+          69.6,
+          649.4,
+          158.3,
+          669.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6e",
+        "page": 21,
+        "rect": [
+          213.9,
+          649.4,
+          301.9,
+          669.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex6f",
+        "page": 21,
+        "rect": [
+          358.2,
+          649.4,
+          430.5,
+          669.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "d9ex1",
+        "page": 21,
+        "rect": [
+          11.7,
+          106.7,
+          370.7,
+          191.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex2",
+        "page": 21,
+        "rect": [
+          14.5,
+          185.1,
+          460.0,
+          253.5
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex3",
+        "page": 21,
+        "rect": [
+          49.6,
+          276.5,
+          409.6,
+          455.2
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex4",
+        "page": 21,
+        "rect": [
+          49.6,
+          454.5,
+          448.2,
+          508.8
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex5",
+        "page": 21,
+        "rect": [
+          14.5,
+          503.6,
+          480.9,
+          595.2
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex6",
+        "page": 21,
+        "rect": [
+          49.6,
+          618.2,
+          454.2,
+          672.5
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1389,15 +4643,55 @@
     "blocks": [
       {
         "type": "question",
-        "id": "d9ex7",
+        "id": "d9ex7a",
         "page": 22,
         "rect": [
-          48.0,
-          45.7,
-          468.9,
-          138.8
+          70.0,
+          78.8,
+          140.1,
+          98.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex7b",
+        "page": 22,
+        "rect": [
+          214.3,
+          78.8,
+          285.0,
+          98.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex7c",
+        "page": 22,
+        "rect": [
+          358.7,
+          76.1,
+          425.8,
+          102.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex7d",
+        "page": 22,
+        "rect": [
+          70.0,
+          92.0,
+          429.3,
+          133.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1408,63 +4702,273 @@
       },
       {
         "type": "question",
-        "id": "d9ex8",
+        "id": "d9ex8a",
         "page": 22,
         "rect": [
-          48.0,
-          151.9,
-          358.1,
-          263.7
+          70.0,
+          171.9,
+          191.1,
+          188.7
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex9",
+        "id": "d9ex8b",
         "page": 22,
         "rect": [
-          48.0,
-          256.0,
-          459.7,
-          312.7
+          70.0,
+          185.9,
+          205.0,
+          202.7
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex10",
+        "id": "d9ex8c",
         "page": 22,
         "rect": [
-          48.0,
-          305.0,
-          427.0,
-          392.1
+          70.0,
+          199.9,
+          311.1,
+          216.7
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex8d",
+        "page": 22,
+        "rect": [
+          70.0,
+          213.9,
+          307.1,
+          230.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex8e",
+        "page": 22,
+        "rect": [
+          70.0,
+          227.9,
+          290.6,
+          244.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex8f",
+        "page": 22,
+        "rect": [
+          70.0,
+          241.9,
+          293.3,
+          258.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex9a",
+        "page": 22,
+        "rect": [
+          70.0,
+          276.9,
+          391.1,
+          293.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex9b",
+        "page": 22,
+        "rect": [
+          70.0,
+          290.9,
+          374.3,
+          307.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex10a",
+        "page": 22,
+        "rect": [
+          70.0,
+          325.0,
+          321.7,
+          345.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex10b",
+        "page": 22,
+        "rect": [
+          70.0,
+          339.0,
+          334.3,
+          359.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex10c",
+        "page": 22,
+        "rect": [
+          70.0,
+          353.9,
+          353.3,
+          370.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex10d",
+        "page": 22,
+        "rect": [
+          70.0,
+          367.0,
+          349.7,
+          387.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "d9ex11",
         "page": 22,
         "rect": [
-          40,
-          384,
-          500,
-          537
+          50.0,
+          384.9,
+          463.4,
+          535.7
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "d9ex12",
+        "id": "d9ex12a",
         "page": 22,
         "rect": [
-          48.0,
-          565.4,
-          464.8,
-          609.6
+          70.0,
+          584.5,
+          179.1,
+          604.6
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex12b",
+        "page": 22,
+        "rect": [
+          214.3,
+          584.5,
+          327.3,
+          604.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex12c",
+        "page": 22,
+        "rect": [
+          358.7,
+          584.5,
+          462.8,
+          604.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "d9ex7",
+        "page": 22,
+        "rect": [
+          50.0,
+          47.7,
+          466.9,
+          136.8
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex8",
+        "page": 22,
+        "rect": [
+          50.0,
+          153.9,
+          356.1,
+          261.7
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex9",
+        "page": 22,
+        "rect": [
+          50.0,
+          258.0,
+          457.7,
+          310.7
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex10",
+        "page": 22,
+        "rect": [
+          50.0,
+          307.0,
+          425.0,
+          390.1
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "d9ex12",
+        "page": 22,
+        "rect": [
+          50.0,
+          567.4,
+          462.8,
+          607.6
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1482,38 +4986,90 @@
         "id": "d9ex13",
         "page": 23,
         "rect": [
-          47.6,
-          69.8,
-          310.8,
-          100.9
+          49.6,
+          71.8,
+          308.8,
+          98.9
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "d9ex14",
+        "id": "d9ex14a",
         "page": 23,
         "rect": [
-          40,
-          91,
-          500,
-          216
+          69.7,
+          95.2,
+          488.6,
+          128.5
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "d9ex15",
+        "id": "d9ex14b",
         "page": 23,
         "rect": [
-          40,
-          212,
-          500,
-          310
+          69.6,
+          122.9,
+          458.1,
+          144.9
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "d9ex14c",
+        "page": 23,
+        "rect": [
+          69.6,
+          139.7,
+          452.9,
+          184.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "d9ex14d",
+        "page": 23,
+        "rect": [
+          69.6,
+          178.2,
+          457.8,
+          212.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "d9ex15a",
+        "page": 23,
+        "rect": [
+          69.6,
+          230.7,
+          183.6,
+          306.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "d9ex15b",
+        "page": 23,
+        "rect": [
+          286.1,
+          230.7,
+          412.9,
+          306.5
+        ],
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
@@ -1525,15 +5081,145 @@
       },
       {
         "type": "question",
-        "id": "d9ex16",
+        "id": "d9ex16a",
         "page": 23,
         "rect": [
-          40,
-          385,
-          500,
-          660
+          69.6,
+          591.8,
+          161.5,
+          611.9
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16b",
+        "page": 23,
+        "rect": [
+          286.1,
+          591.8,
+          373.0,
+          611.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16c",
+        "page": 23,
+        "rect": [
+          69.6,
+          605.9,
+          163.2,
+          626.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16d",
+        "page": 23,
+        "rect": [
+          286.1,
+          605.9,
+          369.7,
+          626.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16e",
+        "page": 23,
+        "rect": [
+          69.6,
+          620.0,
+          165.4,
+          640.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16f",
+        "page": 23,
+        "rect": [
+          286.1,
+          620.0,
+          379.1,
+          640.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16g",
+        "page": 23,
+        "rect": [
+          69.6,
+          634.1,
+          158.2,
+          654.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "d9ex16h",
+        "page": 23,
+        "rect": [
+          286.1,
+          634.1,
+          374.1,
+          654.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "d9ex14",
+        "page": 23,
+        "rect": [
+          49.6,
+          91.2,
+          488.6,
+          215.5
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "d9ex15",
+        "page": 23,
+        "rect": [
+          49.6,
+          212.7,
+          451.6,
+          309.5
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "d9ex16",
+        "page": 23,
+        "rect": [
+          49.6,
+          385.6,
+          486.6,
+          657.2
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1550,108 +5236,462 @@
         "id": "quiz1",
         "page": 24,
         "rect": [
-          50.3,
-          45.7,
-          395.1,
-          89.9
+          52.3,
+          47.7,
+          393.1,
+          87.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz2",
+        "id": "quiz2a",
         "page": 24,
         "rect": [
-          40,
-          84,
-          500,
-          191
+          98.0,
+          141.8,
+          163.6,
+          161.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz3",
+        "id": "quiz2b",
         "page": 24,
         "rect": [
-          50.8,
-          199.7,
-          488.3,
-          285.9
+          98.0,
+          155.8,
+          168.6,
+          175.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz4",
+        "id": "quiz2c",
         "page": 24,
         "rect": [
-          50.8,
-          276.7,
-          283.9,
-          362.9
+          98.0,
+          169.8,
+          174.9,
+          189.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz5",
+        "id": "quiz3a",
         "page": 24,
         "rect": [
-          50.3,
-          353.7,
-          490.1,
-          425.9
+          98.0,
+          219.7,
+          256.3,
+          236.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz6",
+        "id": "quiz3b",
         "page": 24,
         "rect": [
-          50.3,
-          416.7,
-          485.1,
-          473.6
+          98.0,
+          233.7,
+          259.4,
+          250.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz7",
+        "id": "quiz3c",
         "page": 24,
         "rect": [
-          50.2,
-          468.9,
-          313.0,
-          555.1
+          98.0,
+          247.7,
+          233.0,
+          264.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz8",
+        "id": "quiz3d",
         "page": 24,
         "rect": [
-          50.2,
-          545.9,
-          411.9,
-          632.1
+          98.0,
+          260.8,
+          483.2,
+          280.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "quiz9",
+        "id": "quiz4a",
         "page": 24,
         "rect": [
-          50.7,
-          622.9,
-          386.1,
-          692.7
+          98.0,
+          295.8,
+          159.2,
+          315.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz4b",
+        "page": 24,
+        "rect": [
+          98.0,
+          309.8,
+          163.2,
+          329.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz4c",
+        "page": 24,
+        "rect": [
+          98.0,
+          323.8,
+          160.2,
+          343.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz4d",
+        "page": 24,
+        "rect": [
+          98.0,
+          337.8,
+          164.2,
+          357.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz5a",
+        "page": 24,
+        "rect": [
+          98.0,
+          386.8,
+          207.3,
+          406.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz5b",
+        "page": 24,
+        "rect": [
+          98.0,
+          400.8,
+          215.0,
+          420.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz6a",
+        "page": 24,
+        "rect": [
+          98.0,
+          436.7,
+          181.8,
+          468.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz6b",
+        "page": 24,
+        "rect": [
+          233.0,
+          436.7,
+          301.5,
+          468.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz6c",
+        "page": 24,
+        "rect": [
+          368.0,
+          436.7,
+          438.5,
+          468.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz7a",
+        "page": 24,
+        "rect": [
+          98.0,
+          488.0,
+          164.2,
+          508.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz7b",
+        "page": 24,
+        "rect": [
+          98.0,
+          502.0,
+          165.9,
+          522.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz7c",
+        "page": 24,
+        "rect": [
+          98.0,
+          516.0,
+          157.4,
+          536.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz7d",
+        "page": 24,
+        "rect": [
+          98.0,
+          530.0,
+          154.6,
+          550.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz8a",
+        "page": 24,
+        "rect": [
+          98.0,
+          565.0,
+          161.8,
+          585.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz8b",
+        "page": 24,
+        "rect": [
+          98.0,
+          579.0,
+          169.2,
+          599.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz8c",
+        "page": 24,
+        "rect": [
+          98.0,
+          593.0,
+          171.4,
+          613.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz8d",
+        "page": 24,
+        "rect": [
+          98.0,
+          607.0,
+          185.3,
+          627.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz9a",
+        "page": 24,
+        "rect": [
+          98.0,
+          642.9,
+          321.6,
+          659.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz9b",
+        "page": 24,
+        "rect": [
+          98.0,
+          656.9,
+          330.3,
+          673.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "quiz9c",
+        "page": 24,
+        "rect": [
+          98.0,
+          670.9,
+          274.4,
+          687.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "quiz2",
+        "page": 24,
+        "rect": [
+          52.3,
+          74.8,
+          379.8,
+          192.9
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz3",
+        "page": 24,
+        "rect": [
+          52.8,
+          201.7,
+          486.3,
+          283.9
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz4",
+        "page": 24,
+        "rect": [
+          52.8,
+          278.7,
+          281.9,
+          360.9
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz5",
+        "page": 24,
+        "rect": [
+          52.3,
+          355.7,
+          488.1,
+          423.9
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz6",
+        "page": 24,
+        "rect": [
+          52.3,
+          418.7,
+          483.1,
+          471.6
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz7",
+        "page": 24,
+        "rect": [
+          52.2,
+          470.9,
+          311.0,
+          553.1
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz8",
+        "page": 24,
+        "rect": [
+          52.2,
+          547.9,
+          409.9,
+          630.1
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "quiz9",
+        "page": 24,
+        "rect": [
+          52.7,
+          624.9,
+          384.1,
+          690.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1697,51 +5737,181 @@
       },
       {
         "type": "question",
-        "id": "e9bu1",
+        "id": "e9bu1a",
         "page": 26,
         "rect": [
-          59.0,
-          76.9,
-          413.4,
-          178.8
+          86.5,
+          96.7,
+          166.8,
+          122.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "e9bu2",
+        "id": "e9bu1b",
         "page": 26,
         "rect": [
-          60.5,
-          166.6,
-          458.8,
-          253.4
+          290.4,
+          94.7,
+          380.0,
+          122.8
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "e9bu3",
+        "id": "e9bu1c",
         "page": 26,
         "rect": [
-          40,
-          244,
-          500,
-          372
+          86.2,
+          119.5,
+          411.4,
+          173.8
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "e9bu4",
+        "id": "e9bu2a",
         "page": 26,
         "rect": [
-          60.5,
-          367.9,
-          451.5,
-          494.2
+          86.5,
+          172.6,
+          242.6,
+          200.7
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu2b",
+        "page": 26,
+        "rect": [
+          86.5,
+          197.1,
+          242.6,
+          223.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu2c",
+        "page": 26,
+        "rect": [
+          86.5,
+          220.3,
+          456.8,
+          248.4
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu3a",
+        "page": 26,
+        "rect": [
+          86.5,
+          262.4,
+          182.5,
+          317.7
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "e9bu3b",
+        "page": 26,
+        "rect": [
+          290.5,
+          262.4,
+          389.9,
+          311.7
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "e9bu3c",
+        "page": 26,
+        "rect": [
+          86.5,
+          313.2,
+          159.0,
+          368.5
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "e9bu3d",
+        "page": 26,
+        "rect": [
+          290.5,
+          313.2,
+          362.9,
+          368.5
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "e9bu4a",
+        "page": 26,
+        "rect": [
+          86.5,
+          402.1,
+          300.3,
+          428.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu4b",
+        "page": 26,
+        "rect": [
+          86.5,
+          420.7,
+          300.3,
+          446.8
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu4c",
+        "page": 26,
+        "rect": [
+          86.5,
+          442.8,
+          308.1,
+          470.7
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "e9bu4d",
+        "page": 26,
+        "rect": [
+          86.5,
+          463.1,
+          280.3,
+          489.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -1755,6 +5925,59 @@
         ],
         "section": true,
         "glueForward": true
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "e9bu1",
+        "page": 26,
+        "rect": [
+          61.0,
+          78.9,
+          411.4,
+          176.8
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "e9bu2",
+        "page": 26,
+        "rect": [
+          62.5,
+          168.6,
+          456.8,
+          251.4
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "e9bu3",
+        "page": 26,
+        "rect": [
+          62.5,
+          244.4,
+          389.9,
+          371.5
+        ],
+        "workingSpaceStyle": "none",
+        "forceSplit": true
+      },
+      {
+        "groupId": "e9bu4",
+        "page": 26,
+        "rect": [
+          62.5,
+          369.9,
+          449.5,
+          492.2
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
       }
     ]
   },
@@ -1804,27 +6027,146 @@
       },
       {
         "type": "question",
-        "id": "e9ex1",
+        "id": "e9ex1a",
         "page": 27,
         "rect": [
-          7.800000000000001,
-          524.3,
-          451.7,
-          572.0
+          69.6,
+          540.7,
+          115.5,
+          566.8
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "e9ex2",
+        "id": "e9ex1b",
         "page": 27,
         "rect": [
-          3.5999999999999996,
-          561.8,
-          447.3,
-          659.9
+          177.8,
+          540.7,
+          228.1,
+          566.8
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex1c",
+        "page": 27,
+        "rect": [
+          286.1,
+          540.7,
+          449.7,
+          567.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2a",
+        "page": 27,
+        "rect": [
+          69.6,
+          578.3,
+          117.8,
+          604.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2b",
+        "page": 27,
+        "rect": [
+          177.8,
+          578.3,
+          223.2,
+          604.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2c",
+        "page": 27,
+        "rect": [
+          286.1,
+          578.3,
+          331.3,
+          604.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2d",
+        "page": 27,
+        "rect": [
+          394.3,
+          578.4,
+          439.6,
+          604.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2e",
+        "page": 27,
+        "rect": [
+          69.6,
+          601.4,
+          125.5,
+          653.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex2f",
+        "page": 27,
+        "rect": [
+          177.8,
+          601.4,
+          445.3,
+          654.9
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "e9ex1",
+        "page": 27,
+        "rect": [
+          9.8,
+          526.3,
+          449.7,
+          570.0
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "e9ex2",
+        "page": 27,
+        "rect": [
+          5.6,
+          563.8,
+          445.3,
+          657.9
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1832,27 +6174,42 @@
     "blocks": [
       {
         "type": "question",
-        "id": "e9ex3",
+        "id": "e9ex3a",
         "page": 28,
         "rect": [
-          4.300000000000001,
-          45.7,
-          473.4,
-          197.6
+          70.0,
+          66.8,
+          147.9,
+          190.7
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex3b",
+        "page": 28,
+        "rect": [
+          177.9,
+          65.5,
+          471.4,
+          192.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "e9ex4",
         "page": 28,
         "rect": [
-          10.899999999999999,
-          188.2,
-          471.8,
-          281.4
+          12.899999999999999,
+          190.2,
+          469.8,
+          279.4
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1863,39 +6220,209 @@
       },
       {
         "type": "question",
-        "id": "e9ex5",
+        "id": "e9ex5a",
         "page": 28,
         "rect": [
-          48.0,
-          293.8,
-          398.4,
-          405.7
+          70.0,
+          313.8,
+          244.0,
+          330.7
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "e9ex6",
+        "id": "e9ex5b",
         "page": 28,
         "rect": [
-          48.0,
-          397.9,
-          463.6,
-          468.7
+          70.0,
+          327.8,
+          171.4,
+          344.7
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "e9ex7",
+        "id": "e9ex5c",
         "page": 28,
         "rect": [
-          40,
-          462,
-          500,
-          615
+          70.0,
+          341.8,
+          338.3,
+          358.7
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex5d",
+        "page": 28,
+        "rect": [
+          70.0,
+          355.8,
+          332.1,
+          372.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex5e",
+        "page": 28,
+        "rect": [
+          70.0,
+          369.8,
+          348.4,
+          386.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex5f",
+        "page": 28,
+        "rect": [
+          70.0,
+          383.8,
+          365.7,
+          400.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex6a",
+        "page": 28,
+        "rect": [
+          70.0,
+          418.8,
+          461.6,
+          435.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex6b",
+        "page": 28,
+        "rect": [
+          70.0,
+          432.8,
+          222.5,
+          449.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex6c",
+        "page": 28,
+        "rect": [
+          70.0,
+          446.8,
+          220.3,
+          463.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex7a",
+        "page": 28,
+        "rect": [
+          70.0,
+          509.8,
+          294.0,
+          540.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex7b",
+        "page": 28,
+        "rect": [
+          70.0,
+          536.9,
+          293.7,
+          582.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex7c",
+        "page": 28,
+        "rect": [
+          70.0,
+          579.8,
+          291.6,
+          610.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "e9ex3",
+        "page": 28,
+        "rect": [
+          6.300000000000001,
+          47.7,
+          471.4,
+          195.6
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "e9ex5",
+        "page": 28,
+        "rect": [
+          50.0,
+          295.8,
+          396.4,
+          403.7
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "e9ex6",
+        "page": 28,
+        "rect": [
+          50.0,
+          399.9,
+          461.6,
+          466.7
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "e9ex7",
+        "page": 28,
+        "rect": [
+          50.0,
+          462.9,
+          302.3,
+          613.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -1910,41 +6437,120 @@
       },
       {
         "type": "question",
-        "id": "e9ex8",
+        "id": "e9ex8a",
         "page": 29,
         "rect": [
-          47.6,
-          73.5,
-          407.7,
-          176.7
+          69.7,
+          79.5,
+          363.4,
+          107.8
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "e9ex9",
+        "id": "e9ex8b",
         "page": 29,
         "rect": [
-          47.6,
-          167.5,
-          462.3,
-          267.0
+          69.6,
+          100.9,
+          401.6,
+          129.2
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "e9ex10",
+        "id": "e9ex8c",
         "page": 29,
         "rect": [
-          47.6,
-          257.6,
-          487.0,
-          381.5
+          69.6,
+          123.9,
+          401.6,
+          150.3
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "e9ex8d",
+        "page": 29,
+        "rect": [
+          69.6,
+          143.5,
+          405.7,
+          171.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "e9ex9a",
+        "page": 29,
+        "rect": [
+          69.6,
+          194.2,
+          296.8,
+          220.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "e9ex9b",
+        "page": 29,
+        "rect": [
+          69.6,
+          215.1,
+          267.5,
+          241.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "e9ex9c",
+        "page": 29,
+        "rect": [
+          69.6,
+          235.9,
+          353.3,
+          262.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "e9ex10a",
+        "page": 29,
+        "rect": [
+          69.6,
+          306.5,
+          361.9,
+          344.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "e9ex10b",
+        "page": 29,
+        "rect": [
+          69.6,
+          337.4,
+          485.0,
+          376.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -1958,24 +6564,64 @@
         "id": "e9ex11",
         "page": 29,
         "rect": [
-          47.6,
-          414.0,
-          368.3,
-          489.6
+          49.6,
+          416.0,
+          366.3,
+          487.6
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "e9ex12",
         "page": 29,
         "rect": [
-          47.6,
-          461.7,
-          457.3,
-          525.0
+          49.6,
+          463.7,
+          455.3,
+          523.0
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "e9ex8",
+        "page": 29,
+        "rect": [
+          49.6,
+          75.5,
+          405.7,
+          174.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "e9ex9",
+        "page": 29,
+        "rect": [
+          49.6,
+          169.5,
+          460.3,
+          265.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "e9ex10",
+        "page": 29,
+        "rect": [
+          49.6,
+          259.6,
+          485.0,
+          379.5
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2020,40 +6666,108 @@
         "id": "f9bu1",
         "page": 30,
         "rect": [
-          60.5,
-          581.0,
-          429.7,
-          626.1
+          62.5,
+          583.0,
+          427.7,
+          624.1
         ],
-        "workingSpaceHeightMm": 15
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
         "id": "f9bu2",
         "page": 30,
         "rect": [
-          40,
-          616,
-          500,
-          682
+          62.5,
+          618.0,
+          403.8,
+          681.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "none"
       }
-    ]
+    ],
+    "combinedGroups": []
   },
   {
     "blocks": [
       {
         "type": "question",
-        "id": "f9bu3",
+        "id": "f9bu3a",
         "page": 31,
         "rect": [
-          59.599999999999994,
-          51.8,
-          473.7,
-          139.2
+          85.6,
+          71.8,
+          231.9,
+          92.0
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "f9bu3b",
+        "page": 31,
+        "rect": [
+          290.1,
+          71.8,
+          443.0,
+          92.0
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "f9bu3c",
+        "page": 31,
+        "rect": [
+          85.6,
+          85.9,
+          233.5,
+          106.1
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "f9bu3d",
+        "page": 31,
+        "rect": [
+          290.1,
+          85.9,
+          471.7,
+          106.1
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "f9bu3e",
+        "page": 31,
+        "rect": [
+          85.6,
+          100.0,
+          228.5,
+          120.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "f9bu3f",
+        "page": 31,
+        "rect": [
+          290.1,
+          100.0,
+          458.2,
+          134.2
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -2115,6 +6829,21 @@
         ],
         "workingSpaceHeightMm": 25
       }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "f9bu3",
+        "page": 31,
+        "rect": [
+          61.599999999999994,
+          53.8,
+          471.7,
+          137.2
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      }
     ]
   },
   {
@@ -2163,15 +6892,56 @@
       },
       {
         "type": "question",
-        "id": "f9ex1",
+        "id": "f9ex1a",
         "page": 32,
         "rect": [
-          8.100000000000001,
-          607.5,
-          362.7,
-          685.7
+          69.1,
+          626.6,
+          355.1,
+          646.7
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex1b",
+        "page": 32,
+        "rect": [
+          69.1,
+          643.6,
+          360.7,
+          663.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex1c",
+        "page": 32,
+        "rect": [
+          69.1,
+          660.6,
+          360.7,
+          680.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "f9ex1",
+        "page": 32,
+        "rect": [
+          10.100000000000001,
+          609.5,
+          360.7,
+          683.7
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2179,75 +6949,562 @@
     "blocks": [
       {
         "type": "question",
-        "id": "f9ex2",
+        "id": "f9ex2a",
         "page": 33,
         "rect": [
-          11.399999999999999,
-          45.7,
-          349.1,
-          132.2
+          69.6,
+          64.8,
+          125.0,
+          84.9
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "f9ex3",
+        "id": "f9ex2b",
         "page": 33,
         "rect": [
-          10.5,
-          123.0,
-          364.3,
-          209.5
+          286.1,
+          64.8,
+          347.1,
+          84.9
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2c",
+        "page": 33,
+        "rect": [
+          69.6,
+          78.9,
+          130.6,
+          99.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2d",
+        "page": 33,
+        "rect": [
+          286.1,
+          78.9,
+          347.1,
+          99.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2e",
+        "page": 33,
+        "rect": [
+          69.6,
+          93.0,
+          130.0,
+          113.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2f",
+        "page": 33,
+        "rect": [
+          286.1,
+          93.0,
+          346.5,
+          113.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2g",
+        "page": 33,
+        "rect": [
+          69.6,
+          107.1,
+          135.6,
+          127.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex2h",
+        "page": 33,
+        "rect": [
+          286.1,
+          107.1,
+          342.1,
+          127.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3a",
+        "page": 33,
+        "rect": [
+          69.6,
+          142.1,
+          135.8,
+          162.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3b",
+        "page": 33,
+        "rect": [
+          286.1,
+          142.1,
+          351.2,
+          162.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3c",
+        "page": 33,
+        "rect": [
+          69.6,
+          156.2,
+          135.8,
+          176.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3d",
+        "page": 33,
+        "rect": [
+          286.1,
+          156.2,
+          362.3,
+          176.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3e",
+        "page": 33,
+        "rect": [
+          69.6,
+          170.3,
+          134.7,
+          190.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3f",
+        "page": 33,
+        "rect": [
+          286.1,
+          170.3,
+          356.2,
+          190.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3g",
+        "page": 33,
+        "rect": [
+          69.6,
+          184.4,
+          135.8,
+          204.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex3h",
+        "page": 33,
+        "rect": [
+          286.1,
+          184.4,
+          351.2,
+          204.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "f9ex4",
         "page": 33,
         "rect": [
-          7.800000000000001,
-          200.3,
-          476.1,
-          327.5
+          9.8,
+          202.3,
+          474.1,
+          325.5
         ],
-        "workingSpaceHeightMm": 40
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "f9ex5",
+        "id": "f9ex5a",
         "page": 33,
         "rect": [
-          7.699999999999999,
-          319.8,
-          374.8,
-          406.3
+          69.6,
+          338.9,
+          152.4,
+          359.0
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "f9ex6",
+        "id": "f9ex5b",
         "page": 33,
         "rect": [
-          7.9,
-          397.1,
-          485.6,
-          483.5
+          286.1,
+          338.9,
+          368.4,
+          359.0
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "f9ex7",
+        "id": "f9ex5c",
         "page": 33,
         "rect": [
-          7.9,
-          474.3,
-          460.7,
-          560.7
+          69.6,
+          353.0,
+          151.9,
+          373.1
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex5d",
+        "page": 33,
+        "rect": [
+          286.1,
+          353.0,
+          368.4,
+          373.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex5e",
+        "page": 33,
+        "rect": [
+          69.6,
+          367.1,
+          152.4,
+          387.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex5f",
+        "page": 33,
+        "rect": [
+          286.1,
+          367.1,
+          372.8,
+          387.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex5g",
+        "page": 33,
+        "rect": [
+          69.6,
+          381.2,
+          152.4,
+          401.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex5h",
+        "page": 33,
+        "rect": [
+          286.1,
+          381.2,
+          368.9,
+          401.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6a",
+        "page": 33,
+        "rect": [
+          69.6,
+          430.2,
+          172.1,
+          450.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6b",
+        "page": 33,
+        "rect": [
+          213.9,
+          430.2,
+          314.2,
+          450.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6c",
+        "page": 33,
+        "rect": [
+          358.2,
+          430.2,
+          456.8,
+          450.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6d",
+        "page": 33,
+        "rect": [
+          69.6,
+          444.3,
+          173.2,
+          464.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6e",
+        "page": 33,
+        "rect": [
+          213.9,
+          444.3,
+          312.5,
+          464.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6f",
+        "page": 33,
+        "rect": [
+          358.2,
+          444.3,
+          463.0,
+          464.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6g",
+        "page": 33,
+        "rect": [
+          69.6,
+          458.4,
+          173.2,
+          478.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6h",
+        "page": 33,
+        "rect": [
+          213.9,
+          458.4,
+          314.2,
+          478.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex6i",
+        "page": 33,
+        "rect": [
+          358.2,
+          458.4,
+          458.5,
+          478.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7a",
+        "page": 33,
+        "rect": [
+          69.6,
+          507.4,
+          142.4,
+          527.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7b",
+        "page": 33,
+        "rect": [
+          213.9,
+          507.4,
+          286.2,
+          527.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7c",
+        "page": 33,
+        "rect": [
+          358.2,
+          507.4,
+          443.4,
+          527.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7d",
+        "page": 33,
+        "rect": [
+          69.6,
+          521.5,
+          147.4,
+          541.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7e",
+        "page": 33,
+        "rect": [
+          213.9,
+          521.5,
+          291.8,
+          541.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7f",
+        "page": 33,
+        "rect": [
+          358.2,
+          521.5,
+          447.4,
+          541.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7g",
+        "page": 33,
+        "rect": [
+          69.6,
+          535.6,
+          171.6,
+          555.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7h",
+        "page": 33,
+        "rect": [
+          213.9,
+          535.6,
+          328.3,
+          555.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex7i",
+        "page": 33,
+        "rect": [
+          358.2,
+          535.6,
+          456.8,
+          555.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2258,15 +7515,129 @@
       },
       {
         "type": "question",
-        "id": "f9ex8",
+        "id": "f9ex8a",
         "page": 33,
         "rect": [
-          47.6,
-          552.9,
-          486.0,
-          685.6
+          69.6,
+          621.8,
+          332.7,
+          638.6
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex8b",
+        "page": 33,
+        "rect": [
+          69.6,
+          635.8,
+          379.0,
+          652.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex8c",
+        "page": 33,
+        "rect": [
+          69.6,
+          649.8,
+          471.1,
+          666.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex8d",
+        "page": 33,
+        "rect": [
+          69.6,
+          663.8,
+          484.0,
+          680.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "f9ex2",
+        "page": 33,
+        "rect": [
+          13.399999999999999,
+          47.7,
+          347.1,
+          130.2
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex3",
+        "page": 33,
+        "rect": [
+          12.5,
+          125.0,
+          362.3,
+          207.5
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex5",
+        "page": 33,
+        "rect": [
+          9.7,
+          321.8,
+          372.8,
+          404.3
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex6",
+        "page": 33,
+        "rect": [
+          9.9,
+          399.1,
+          483.6,
+          481.5
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex7",
+        "page": 33,
+        "rect": [
+          9.9,
+          476.3,
+          458.7,
+          558.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex8",
+        "page": 33,
+        "rect": [
+          49.6,
+          554.9,
+          484.0,
+          683.6
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2274,15 +7645,42 @@
     "blocks": [
       {
         "type": "question",
-        "id": "f9ex9",
+        "id": "f9ex9a",
         "page": 34,
         "rect": [
-          48.0,
-          45.7,
-          471.8,
-          109.9
+          70.0,
+          64.8,
+          149.6,
+          104.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex9b",
+        "page": 34,
+        "rect": [
+          214.3,
+          64.8,
+          311.2,
+          103.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex9c",
+        "page": 34,
+        "rect": [
+          358.7,
+          64.8,
+          469.8,
+          104.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2293,28 +7691,93 @@
       },
       {
         "type": "question",
-        "id": "f9ex10",
+        "id": "f9ex10a",
         "page": 34,
         "rect": [
-          48.0,
-          103.0,
-          480.1,
-          175.2
+          70.0,
+          122.1,
+          163.6,
+          142.2
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "f9ex11",
+        "id": "f9ex10b",
         "page": 34,
         "rect": [
-          48.0,
-          165.1,
-          493.5,
-          263.8
+          70.0,
+          136.1,
+          192.1,
+          156.2
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "f9ex10c",
+        "page": 34,
+        "rect": [
+          70.0,
+          150.1,
+          223.4,
+          170.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "f9ex11a",
+        "page": 34,
+        "rect": [
+          70.0,
+          185.1,
+          246.0,
+          205.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "f9ex11b",
+        "page": 34,
+        "rect": [
+          70.0,
+          199.1,
+          246.0,
+          219.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "f9ex11c",
+        "page": 34,
+        "rect": [
+          70.0,
+          214.0,
+          254.5,
+          230.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "f9ex11d",
+        "page": 34,
+        "rect": [
+          70.0,
+          228.0,
+          491.5,
+          258.8
+        ],
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
@@ -2322,10 +7785,10 @@
         "id": "f9ex12",
         "page": 34,
         "rect": [
-          48.0,
-          256.1,
-          479.2,
-          312.8
+          50.0,
+          258.1,
+          477.2,
+          310.8
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
@@ -2339,15 +7802,183 @@
       },
       {
         "type": "question",
-        "id": "f9ex13",
+        "id": "f9ex13a",
         "page": 34,
         "rect": [
-          48.0,
-          328.3,
-          364.5,
-          498.5
+          70.0,
+          347.4,
+          198.8,
+          367.5
         ],
-        "workingSpaceHeightMm": 45
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13b",
+        "page": 34,
+        "rect": [
+          70.0,
+          361.4,
+          203.2,
+          381.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13c",
+        "page": 34,
+        "rect": [
+          70.0,
+          375.4,
+          203.2,
+          395.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13d",
+        "page": 34,
+        "rect": [
+          70.0,
+          389.4,
+          208.2,
+          409.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13e",
+        "page": 34,
+        "rect": [
+          70.0,
+          403.4,
+          202.1,
+          423.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13f",
+        "page": 34,
+        "rect": [
+          70.0,
+          417.4,
+          208.2,
+          437.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13g",
+        "page": 34,
+        "rect": [
+          70.0,
+          431.4,
+          192.1,
+          451.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13h",
+        "page": 34,
+        "rect": [
+          70.0,
+          445.4,
+          192.1,
+          465.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13i",
+        "page": 34,
+        "rect": [
+          70.0,
+          459.4,
+          261.9,
+          479.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "f9ex13j",
+        "page": 34,
+        "rect": [
+          70.0,
+          473.4,
+          236.9,
+          493.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "f9ex9",
+        "page": 34,
+        "rect": [
+          50.0,
+          47.7,
+          469.8,
+          107.9
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "f9ex10",
+        "page": 34,
+        "rect": [
+          50.0,
+          105.0,
+          478.1,
+          173.2
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "f9ex11",
+        "page": 34,
+        "rect": [
+          50.0,
+          167.1,
+          491.5,
+          261.8
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "f9ex13",
+        "page": 34,
+        "rect": [
+          50.0,
+          330.3,
+          362.5,
+          496.5
+        ],
+        "workingSpaceHeightMm": 45,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2393,27 +8024,133 @@
       },
       {
         "type": "question",
-        "id": "g9bu1",
+        "id": "g9bu1a",
         "page": 38,
         "rect": [
-          60.5,
-          77.4,
-          438.1,
-          136.6
+          86.5,
+          97.4,
+          157.1,
+          117.5
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "g9bu2",
+        "id": "g9bu1b",
         "page": 38,
         "rect": [
-          60.5,
-          126.5,
-          450.1,
-          198.0
+          222.8,
+          97.4,
+          287.9,
+          117.5
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu1c",
+        "page": 38,
+        "rect": [
+          359.2,
+          97.4,
+          411.8,
+          117.5
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu1d",
+        "page": 38,
+        "rect": [
+          86.5,
+          111.5,
+          147.7,
+          131.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu1e",
+        "page": 38,
+        "rect": [
+          222.8,
+          111.5,
+          290.1,
+          131.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu1f",
+        "page": 38,
+        "rect": [
+          359.2,
+          111.5,
+          436.1,
+          131.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu2a",
+        "page": 38,
+        "rect": [
+          86.5,
+          146.5,
+          220.1,
+          166.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu2b",
+        "page": 38,
+        "rect": [
+          291.0,
+          146.5,
+          448.1,
+          166.6
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu2c",
+        "page": 38,
+        "rect": [
+          86.5,
+          166.6,
+          242.0,
+          186.7
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "g9bu2d",
+        "page": 38,
+        "rect": [
+          291.0,
+          163.4,
+          443.1,
+          193.0
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -2457,6 +8194,34 @@
         ],
         "section": true,
         "glueForward": true
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "g9bu1",
+        "page": 38,
+        "rect": [
+          62.5,
+          79.4,
+          436.1,
+          134.6
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "g9bu2",
+        "page": 38,
+        "rect": [
+          62.5,
+          128.5,
+          448.1,
+          196.0
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
       }
     ]
   },
@@ -2506,63 +8271,198 @@
       },
       {
         "type": "question",
-        "id": "g9ex1",
+        "id": "g9ex1a",
         "page": 39,
         "rect": [
-          3.5999999999999996,
-          312.3,
-          367.0,
-          374.4
+          69.6,
+          332.3,
+          360.0,
+          352.4
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex2",
+        "id": "g9ex1b",
         "page": 39,
         "rect": [
-          10.5,
-          364.3,
-          320.4,
-          451.4
+          69.6,
+          349.3,
+          365.0,
+          369.4
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex3",
+        "id": "g9ex2a",
         "page": 39,
         "rect": [
-          10.5,
-          441.3,
-          424.6,
-          486.4
+          69.6,
+          384.3,
+          132.3,
+          404.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex4",
+        "id": "g9ex2b",
         "page": 39,
         "rect": [
-          10.5,
-          476.3,
-          460.9,
-          521.4
+          69.6,
+          398.3,
+          132.3,
+          418.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex5",
+        "id": "g9ex2c",
         "page": 39,
         "rect": [
-          10.5,
-          511.29999999999995,
-          468.1,
-          556.4
+          69.6,
+          412.3,
+          316.5,
+          432.4
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex2d",
+        "page": 39,
+        "rect": [
+          69.6,
+          426.3,
+          318.4,
+          446.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex3a",
+        "page": 39,
+        "rect": [
+          69.6,
+          461.3,
+          128.9,
+          481.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex3b",
+        "page": 39,
+        "rect": [
+          213.9,
+          461.3,
+          278.3,
+          481.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex3c",
+        "page": 39,
+        "rect": [
+          358.2,
+          461.3,
+          422.6,
+          481.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex4a",
+        "page": 39,
+        "rect": [
+          69.6,
+          496.3,
+          170.2,
+          516.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex4b",
+        "page": 39,
+        "rect": [
+          213.9,
+          496.3,
+          314.5,
+          516.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex4c",
+        "page": 39,
+        "rect": [
+          358.2,
+          496.3,
+          458.9,
+          516.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex5a",
+        "page": 39,
+        "rect": [
+          69.6,
+          531.3,
+          172.4,
+          551.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex5b",
+        "page": 39,
+        "rect": [
+          213.9,
+          531.3,
+          321.7,
+          551.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex5c",
+        "page": 39,
+        "rect": [
+          358.2,
+          531.3,
+          466.1,
+          551.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2573,15 +8473,103 @@
       },
       {
         "type": "question",
-        "id": "g9ex6",
+        "id": "g9ex6a",
         "page": 39,
         "rect": [
-          40,
-          570,
-          500,
-          693
+          69.6,
+          644.6,
+          421.7,
+          664.7
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex6b",
+        "page": 39,
+        "rect": [
+          69.6,
+          658.6,
+          442.0,
+          690.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "g9ex1",
+        "page": 39,
+        "rect": [
+          5.6,
+          314.3,
+          365.0,
+          372.4
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex2",
+        "page": 39,
+        "rect": [
+          12.5,
+          366.3,
+          318.4,
+          449.4
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex3",
+        "page": 39,
+        "rect": [
+          12.5,
+          443.3,
+          422.6,
+          484.4
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex4",
+        "page": 39,
+        "rect": [
+          12.5,
+          478.3,
+          458.9,
+          519.4
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex5",
+        "page": 39,
+        "rect": [
+          12.5,
+          513.3,
+          466.1,
+          554.4
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex6",
+        "page": 39,
+        "rect": [
+          49.6,
+          570.6,
+          487.7,
+          693.3
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2589,39 +8577,133 @@
     "blocks": [
       {
         "type": "question",
-        "id": "g9ex7",
+        "id": "g9ex7a",
         "page": 40,
         "rect": [
-          48.0,
-          44.8,
-          334.9,
-          115.5
+          70.0,
+          64.8,
+          220.1,
+          84.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex8",
+        "id": "g9ex7b",
         "page": 40,
         "rect": [
-          48.0,
-          106.1,
-          486.5,
-          198.3
+          70.0,
+          78.8,
+          227.6,
+          98.9
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "g9ex9",
+        "id": "g9ex7c",
         "page": 40,
         "rect": [
-          48.0,
-          203.1,
-          264.9,
-          363.1
+          70.0,
+          93.7,
+          310.5,
+          110.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex8a",
+        "page": 40,
+        "rect": [
+          70.0,
+          129.1,
+          248.7,
+          149.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex8b",
+        "page": 40,
+        "rect": [
+          70.0,
+          143.0,
+          474.2,
+          178.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex8c",
+        "page": 40,
+        "rect": [
+          70.0,
+          173.1,
+          484.5,
+          193.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex9a",
+        "page": 40,
+        "rect": [
+          70.0,
+          242.4,
+          159.1,
+          262.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex9b",
+        "page": 40,
+        "rect": [
+          70.0,
+          256.4,
+          208.5,
+          276.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex9c",
+        "page": 40,
+        "rect": [
+          70.0,
+          271.3,
+          246.4,
+          304.5
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex9d",
+        "page": 40,
+        "rect": [
+          70.0,
+          299.3,
+          262.9,
+          358.1
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2632,27 +8714,169 @@
       },
       {
         "type": "question",
-        "id": "g9ex10",
+        "id": "g9ex10a",
         "page": 40,
         "rect": [
-          48.0,
-          369.7,
-          489.6,
-          530.4
+          70.0,
+          451.7,
+          473.6,
+          471.8
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "g9ex11",
+        "id": "g9ex10b",
         "page": 40,
         "rect": [
-          40,
-          540,
-          500,
-          664
+          70.0,
+          466.6,
+          385.1,
+          483.4
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex10c",
+        "page": 40,
+        "rect": [
+          70.0,
+          480.6,
+          458.2,
+          497.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex10d",
+        "page": 40,
+        "rect": [
+          70.0,
+          494.6,
+          396.6,
+          511.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex10e",
+        "page": 40,
+        "rect": [
+          70.0,
+          508.6,
+          484.1,
+          525.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex11a",
+        "page": 40,
+        "rect": [
+          70.0,
+          598.7,
+          440.9,
+          626.3
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex11b",
+        "page": 40,
+        "rect": [
+          70.0,
+          610.8,
+          459.6,
+          643.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex11c",
+        "page": 40,
+        "rect": [
+          70.0,
+          640.9,
+          334.6,
+          661.0
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "g9ex7",
+        "page": 40,
+        "rect": [
+          50.0,
+          46.8,
+          332.9,
+          113.5
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex8",
+        "page": 40,
+        "rect": [
+          50.0,
+          108.1,
+          484.5,
+          196.3
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex9",
+        "page": 40,
+        "rect": [
+          50.0,
+          205.1,
+          262.9,
+          361.1
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex10",
+        "page": 40,
+        "rect": [
+          50.0,
+          371.7,
+          487.6,
+          528.4
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "g9ex11",
+        "page": 40,
+        "rect": [
+          50.0,
+          539.3,
+          489.0,
+          664.0
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2660,15 +8884,42 @@
     "blocks": [
       {
         "type": "question",
-        "id": "g9ex12",
+        "id": "g9ex12a",
         "page": 41,
         "rect": [
-          40,
-          46,
-          500,
-          238
+          69.6,
+          146.7,
+          259.4,
+          178.4
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex12b",
+        "page": 41,
+        "rect": [
+          69.6,
+          174.7,
+          265.1,
+          206.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "g9ex12c",
+        "page": 41,
+        "rect": [
+          69.6,
+          202.7,
+          229.1,
+          234.4
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2679,15 +8930,81 @@
       },
       {
         "type": "question",
-        "id": "g9ex13",
+        "id": "g9ex13a",
         "page": 41,
         "rect": [
-          47.6,
-          317.1,
-          491.9,
-          508.2
+          69.6,
+          371.1,
+          489.9,
+          402.8
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex13b",
+        "page": 41,
+        "rect": [
+          69.6,
+          399.1,
+          476.4,
+          430.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex13c",
+        "page": 41,
+        "rect": [
+          69.6,
+          428.0,
+          467.0,
+          458.8
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "g9ex13d",
+        "page": 41,
+        "rect": [
+          69.6,
+          456.0,
+          483.5,
+          503.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "g9ex12",
+        "page": 41,
+        "rect": [
+          49.6,
+          47.7,
+          477.2,
+          237.4
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "g9ex13",
+        "page": 41,
+        "rect": [
+          49.6,
+          319.1,
+          489.9,
+          506.2
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
       }
     ]
   },
@@ -2733,15 +9050,42 @@
       },
       {
         "type": "question",
-        "id": "h9bu1",
+        "id": "h9bu1a",
         "page": 43,
         "rect": [
-          60.5,
-          77.4,
-          480.6,
-          332.9
+          86.5,
+          97.4,
+          460.3,
+          159.7
         ],
-        "workingSpaceHeightMm": 20
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "h9bu1b",
+        "page": 43,
+        "rect": [
+          86.5,
+          153.6,
+          459.5,
+          257.7
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "h9bu1c",
+        "page": 43,
+        "rect": [
+          86.5,
+          251.6,
+          478.6,
+          327.9
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
       },
       {
         "type": "image",
@@ -2773,6 +9117,21 @@
         ],
         "workingSpaceHeightMm": 30
       }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "h9bu1",
+        "page": 43,
+        "rect": [
+          62.5,
+          79.4,
+          478.6,
+          330.9
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      }
     ]
   },
   {
@@ -2794,60 +9153,221 @@
         "id": "h9ex1",
         "page": 44,
         "rect": [
-          10.899999999999999,
-          104.7,
-          383.7,
-          132.5
+          12.899999999999999,
+          106.7,
+          381.7,
+          130.5
         ],
-        "workingSpaceHeightMm": 25
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "h9ex2",
+        "id": "h9ex2a",
         "page": 44,
         "rect": [
-          10.899999999999999,
-          124.80000000000001,
-          479.3,
-          181.6
+          70.0,
+          145.7,
+          243.6,
+          162.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "h9ex3",
+        "id": "h9ex2b",
         "page": 44,
         "rect": [
-          10.899999999999999,
-          173.9,
-          479.3,
-          230.7
+          286.5,
+          145.7,
+          477.3,
+          162.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "h9ex4",
+        "id": "h9ex2c",
         "page": 44,
         "rect": [
-          10.899999999999999,
-          223.0,
-          447.1,
-          321.7
+          70.0,
+          159.8,
+          220.3,
+          176.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
-        "id": "h9ex5",
+        "id": "h9ex2d",
         "page": 44,
         "rect": [
-          40,
-          316,
-          500,
-          411
+          286.5,
+          159.8,
+          430.9,
+          176.6
         ],
-        "workingSpaceHeightMm": 35
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex3a",
+        "page": 44,
+        "rect": [
+          70.0,
+          194.8,
+          266.9,
+          211.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex3b",
+        "page": 44,
+        "rect": [
+          286.5,
+          194.8,
+          477.3,
+          211.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex3c",
+        "page": 44,
+        "rect": [
+          70.0,
+          208.9,
+          220.3,
+          225.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex3d",
+        "page": 44,
+        "rect": [
+          286.5,
+          208.9,
+          435.9,
+          225.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex4a",
+        "page": 44,
+        "rect": [
+          70.0,
+          257.9,
+          329.2,
+          274.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex4b",
+        "page": 44,
+        "rect": [
+          70.0,
+          271.9,
+          260.8,
+          288.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex4c",
+        "page": 44,
+        "rect": [
+          70.0,
+          285.9,
+          220.3,
+          302.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex4d",
+        "page": 44,
+        "rect": [
+          70.0,
+          299.9,
+          277.2,
+          316.7
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex5a",
+        "page": 44,
+        "rect": [
+          70.0,
+          333.9,
+          453.5,
+          366.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex5b",
+        "page": 44,
+        "rect": [
+          70.0,
+          363.8,
+          220.3,
+          380.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex5c",
+        "page": 44,
+        "rect": [
+          70.0,
+          377.8,
+          195.8,
+          394.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "h9ex5d",
+        "page": 44,
+        "rect": [
+          70.0,
+          391.8,
+          223.9,
+          408.6
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2861,60 +9381,115 @@
         "id": "h9ex6",
         "page": 44,
         "rect": [
-          48.0,
-          429.1,
-          493.2,
-          470.9
+          50.0,
+          431.1,
+          491.2,
+          468.9
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "h9ex7",
         "page": 44,
         "rect": [
-          40,
-          466,
-          500,
-          545
+          50.0,
+          466.1,
+          486.5,
+          543.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "h9ex8",
         "page": 44,
         "rect": [
-          48.0,
-          543.1,
-          492.8,
-          602.1
+          50.0,
+          545.1,
+          490.8,
+          600.1
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "h9ex9",
         "page": 44,
         "rect": [
-          48.0,
-          602.3,
-          491.1,
-          644.1
+          50.0,
+          604.3,
+          489.1,
+          642.1
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "h9ex10",
         "page": 44,
         "rect": [
-          40,
-          639,
-          500,
-          693
+          50.0,
+          639.3,
+          466.5,
+          693.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "h9ex2",
+        "page": 44,
+        "rect": [
+          12.899999999999999,
+          126.80000000000001,
+          477.3,
+          179.6
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "h9ex3",
+        "page": 44,
+        "rect": [
+          12.899999999999999,
+          175.9,
+          477.3,
+          228.7
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "h9ex4",
+        "page": 44,
+        "rect": [
+          12.899999999999999,
+          225.0,
+          445.1,
+          319.7
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "groupId": "h9ex5",
+        "page": 44,
+        "rect": [
+          50.0,
+          316.9,
+          453.5,
+          411.6
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
       }
     ]
   },
@@ -2925,22 +9500,23 @@
         "id": "h9ex11",
         "page": 45,
         "rect": [
-          40,
-          48,
-          500,
-          118
+          49.6,
+          47.7,
+          485.4,
+          118.7
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "question",
         "id": "h9ex12",
         "page": 45,
         "rect": [
-          47.6,
-          114.7,
-          477.4,
-          170.5
+          49.6,
+          116.7,
+          475.4,
+          168.5
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
@@ -2950,12 +9526,13 @@
         "id": "h9ex13",
         "page": 45,
         "rect": [
-          40,
-          165,
-          500,
-          244
+          49.6,
+          165.7,
+          488.6,
+          242.5
         ],
-        "workingSpaceHeightMm": 30
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "grid"
       },
       {
         "type": "heading",
@@ -2966,28 +9543,67 @@
       },
       {
         "type": "question",
-        "id": "h9ex14",
+        "id": "h9ex14a",
         "page": 45,
         "rect": [
-          47.6,
-          262.0,
-          487.4,
-          345.8
+          69.7,
+          268.0,
+          485.4,
+          301.2
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
         "type": "question",
-        "id": "h9ex15",
+        "id": "h9ex14b",
         "page": 45,
         "rect": [
-          47.6,
-          339.0,
-          474.7,
-          411.2
+          69.6,
+          296.0,
+          469.5,
+          340.8
         ],
-        "workingSpaceHeightMm": 30,
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "h9ex15a",
+        "page": 45,
+        "rect": [
+          69.6,
+          386.1,
+          143.9,
+          406.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "h9ex15b",
+        "page": 45,
+        "rect": [
+          213.9,
+          386.1,
+          288.3,
+          406.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "h9ex15c",
+        "page": 45,
+        "rect": [
+          358.2,
+          386.1,
+          432.6,
+          406.2
+        ],
+        "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
       },
       {
@@ -2995,10 +9611,10 @@
         "id": "h9ex16",
         "page": 45,
         "rect": [
-          40,
-          404,
-          500,
-          485
+          49.6,
+          404.0,
+          478.7,
+          484.2
         ],
         "workingSpaceHeightMm": 30,
         "workingSpaceStyle": "lines"
@@ -3012,13 +9628,77 @@
       },
       {
         "type": "question",
-        "id": "h9ex17",
+        "id": "h9ex17a",
         "page": 45,
         "rect": [
-          40,
-          490,
-          500,
-          664
+          69.6,
+          529.3,
+          469.2,
+          588.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "h9ex17b",
+        "page": 45,
+        "rect": [
+          69.6,
+          585.3,
+          468.0,
+          658.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "h9ex17c",
+        "page": 45,
+        "rect": [
+          69.6,
+          655.3,
+          426.9,
+          672.2
+        ],
+        "workingSpaceHeightMm": 15,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "h9ex14",
+        "page": 45,
+        "rect": [
+          49.6,
+          264.0,
+          485.4,
+          343.8
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "h9ex15",
+        "page": 45,
+        "rect": [
+          49.6,
+          341.0,
+          472.7,
+          409.2
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "groupId": "h9ex17",
+        "page": 45,
+        "rect": [
+          49.6,
+          490.4,
+          469.2,
+          675.2
         ],
         "workingSpaceHeightMm": 35,
         "workingSpaceStyle": "lines"

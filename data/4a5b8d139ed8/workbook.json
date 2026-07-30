@@ -48,11 +48,29 @@
         },
         {
           "type": "question",
-          "id": "a9bu1",
+          "id": "a9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -60,17 +78,35 @@
           "id": "a9bu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "a9bu3",
+          "id": "a9bu3a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9bu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -168,56 +204,362 @@
         },
         {
           "type": "question",
-          "id": "a9ex1",
+          "id": "a9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex2",
+          "id": "a9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex3",
+          "id": "a9ex1c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex4",
+          "id": "a9ex1d",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex5",
+          "id": "a9ex1e",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex6",
+          "id": "a9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex2i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3k",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex3l",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex6f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -227,11 +569,74 @@
       "blocks": [
         {
           "type": "question",
-          "id": "a9ex7",
+          "id": "a9ex7a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex7h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -243,11 +648,47 @@
         },
         {
           "type": "question",
-          "id": "a9ex8",
+          "id": "a9ex8a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex8e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -304,11 +745,110 @@
         },
         {
           "type": "question",
-          "id": "a9ex14",
+          "id": "a9ex14a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14k",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex14l",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -320,20 +860,74 @@
         },
         {
           "type": "question",
-          "id": "a9ex15",
+          "id": "a9ex15a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "a9ex16",
+          "id": "a9ex15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex15c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex15d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex16a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 40
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex16b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex16c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "a9ex16d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         }
       ]
@@ -368,29 +962,110 @@
         },
         {
           "type": "question",
-          "id": "b9bu1",
+          "id": "b9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "b9bu2",
+          "id": "b9bu1b",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "b9bu3",
+          "id": "b9bu1c",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9bu3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -457,47 +1132,380 @@
         },
         {
           "type": "question",
-          "id": "b9ex1",
+          "id": "b9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex2",
+          "id": "b9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex3",
+          "id": "b9ex1c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex4",
+          "id": "b9ex1d",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex5",
+          "id": "b9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex2h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3k",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex3l",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4k",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex4l",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex5f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -509,20 +1517,74 @@
         },
         {
           "type": "question",
-          "id": "b9ex6",
+          "id": "b9ex6a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex7",
+          "id": "b9ex6b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex6e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -532,38 +1594,74 @@
       "blocks": [
         {
           "type": "question",
-          "id": "b9ex8",
+          "id": "b9ex8a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex9",
+          "id": "b9ex8b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex10",
+          "id": "b9ex9a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex11",
+          "id": "b9ex9b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -575,20 +1673,38 @@
         },
         {
           "type": "question",
-          "id": "b9ex12",
+          "id": "b9ex12a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "b9ex13",
+          "id": "b9ex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex13a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex13b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -600,11 +1716,56 @@
         },
         {
           "type": "question",
-          "id": "b9ex14",
+          "id": "b9ex14a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex14b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex14c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex14d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex14e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "b9ex14f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -639,20 +1800,83 @@
         },
         {
           "type": "question",
-          "id": "c9bu1",
+          "id": "c9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "c9bu2",
+          "id": "c9bu1b",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9bu2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -736,38 +1960,236 @@
         },
         {
           "type": "question",
-          "id": "c9ex1",
+          "id": "c9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "c9ex2",
+          "id": "c9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "c9ex3",
+          "id": "c9ex1c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "c9ex4",
+          "id": "c9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex2i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -779,11 +2201,47 @@
         },
         {
           "type": "question",
-          "id": "c9ex5",
+          "id": "c9ex5a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -793,20 +2251,74 @@
       "blocks": [
         {
           "type": "question",
-          "id": "c9ex6",
+          "id": "c9ex6a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "c9ex7",
+          "id": "c9ex6b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -836,11 +2348,20 @@
         },
         {
           "type": "question",
-          "id": "c9ex10",
+          "id": "c9ex10a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -852,11 +2373,38 @@
         },
         {
           "type": "question",
-          "id": "c9ex11",
+          "id": "c9ex11a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 40
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "c9ex11d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         }
       ]
@@ -894,8 +2442,8 @@
           "id": "d9bu1",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -903,8 +2451,8 @@
           "id": "d9bu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "none",
+            "heightMm": 40
           }
         },
         {
@@ -912,8 +2460,8 @@
           "id": "d9bu3",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 15
+            "style": "lines",
+            "heightMm": 10
           }
         }
       ]
@@ -923,11 +2471,38 @@
       "blocks": [
         {
           "type": "question",
-          "id": "d9bu4",
+          "id": "d9bu4a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
           }
         },
         {
@@ -994,56 +2569,281 @@
         },
         {
           "type": "question",
-          "id": "d9ex1",
+          "id": "d9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex2",
+          "id": "d9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex3",
+          "id": "d9ex1c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex4",
+          "id": "d9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex5",
+          "id": "d9ex2b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex6",
+          "id": "d9ex2c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2k",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex2l",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex6f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1053,11 +2853,38 @@
       "blocks": [
         {
           "type": "question",
-          "id": "d9ex7",
+          "id": "d9ex7a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1069,29 +2896,110 @@
         },
         {
           "type": "question",
-          "id": "d9ex8",
+          "id": "d9ex8a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex9",
+          "id": "d9ex8b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "d9ex10",
+          "id": "d9ex8c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex8e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex8f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex10d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1105,11 +3013,29 @@
         },
         {
           "type": "question",
-          "id": "d9ex12",
+          "id": "d9ex12a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex12c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1135,20 +3061,56 @@
         },
         {
           "type": "question",
-          "id": "d9ex14",
+          "id": "d9ex14a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "d9ex15",
+          "id": "d9ex14b",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex14c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex14d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex15a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1160,11 +3122,74 @@
         },
         {
           "type": "question",
-          "id": "d9ex16",
+          "id": "d9ex16a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9ex16h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1189,74 +3214,245 @@
         },
         {
           "type": "question",
-          "id": "quiz2",
+          "id": "quiz2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz3",
+          "id": "quiz2b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz4",
+          "id": "quiz2c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz5",
+          "id": "quiz3a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz6",
+          "id": "quiz3b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz7",
+          "id": "quiz3c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz8",
+          "id": "quiz3d",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "quiz9",
+          "id": "quiz4a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "quiz9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1291,38 +3487,128 @@
         },
         {
           "type": "question",
-          "id": "e9bu1",
+          "id": "e9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 25
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "e9bu2",
+          "id": "e9bu1b",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "e9bu3",
+          "id": "e9bu1c",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 30
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "e9bu4",
+          "id": "e9bu2a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9bu4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1370,20 +3656,83 @@
         },
         {
           "type": "question",
-          "id": "e9ex1",
+          "id": "e9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "e9ex2",
+          "id": "e9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 40
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1393,11 +3742,20 @@
       "blocks": [
         {
           "type": "question",
-          "id": "e9ex3",
+          "id": "e9ex3a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1418,29 +3776,110 @@
         },
         {
           "type": "question",
-          "id": "e9ex5",
+          "id": "e9ex5a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "e9ex6",
+          "id": "e9ex5b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "e9ex7",
+          "id": "e9ex5c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex5f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1457,29 +3896,83 @@
         },
         {
           "type": "question",
-          "id": "e9ex8",
+          "id": "e9ex8a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "e9ex9",
+          "id": "e9ex8b",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "e9ex10",
+          "id": "e9ex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex10a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "e9ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1537,8 +4030,8 @@
           "id": "f9bu1",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 15
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1546,8 +4039,8 @@
           "id": "f9bu2",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "none",
+            "heightMm": 40
           }
         }
       ]
@@ -1557,11 +4050,56 @@
       "blocks": [
         {
           "type": "question",
-          "id": "f9bu3",
+          "id": "f9bu3a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1643,11 +4181,29 @@
         },
         {
           "type": "question",
-          "id": "f9ex1",
+          "id": "f9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1657,20 +4213,146 @@
       "blocks": [
         {
           "type": "question",
-          "id": "f9ex2",
+          "id": "f9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "f9ex3",
+          "id": "f9ex2b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex2h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1684,29 +4366,236 @@
         },
         {
           "type": "question",
-          "id": "f9ex5",
+          "id": "f9ex5a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "f9ex6",
+          "id": "f9ex5b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "f9ex7",
+          "id": "f9ex5c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex5f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex5g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex5h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex6i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex7i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1718,11 +4607,38 @@
         },
         {
           "type": "question",
-          "id": "f9ex8",
+          "id": "f9ex8a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1732,11 +4648,29 @@
       "blocks": [
         {
           "type": "question",
-          "id": "f9ex9",
+          "id": "f9ex9a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1748,20 +4682,65 @@
         },
         {
           "type": "question",
-          "id": "f9ex10",
+          "id": "f9ex10a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "f9ex11",
+          "id": "f9ex10b",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex11d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1782,11 +4761,92 @@
         },
         {
           "type": "question",
-          "id": "f9ex13",
+          "id": "f9ex13a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 45
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9ex13j",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1821,20 +4881,92 @@
         },
         {
           "type": "question",
-          "id": "g9bu1",
+          "id": "g9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "g9bu2",
+          "id": "g9bu1b",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9bu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -1902,47 +5034,137 @@
         },
         {
           "type": "question",
-          "id": "g9ex1",
+          "id": "g9ex1a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex2",
+          "id": "g9ex1b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex3",
+          "id": "g9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex4",
+          "id": "g9ex2b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex5",
+          "id": "g9ex2c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -1954,11 +5176,20 @@
         },
         {
           "type": "question",
-          "id": "g9ex6",
+          "id": "g9ex6a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -1968,29 +5199,92 @@
       "blocks": [
         {
           "type": "question",
-          "id": "g9ex7",
+          "id": "g9ex7a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex8",
+          "id": "g9ex7b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 25
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "g9ex9",
+          "id": "g9ex7c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex9d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -2002,20 +5296,74 @@
         },
         {
           "type": "question",
-          "id": "g9ex10",
+          "id": "g9ex10a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 35
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "g9ex11",
+          "id": "g9ex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex10d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex10e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex11a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         }
       ]
@@ -2025,11 +5373,29 @@
       "blocks": [
         {
           "type": "question",
-          "id": "g9ex12",
+          "id": "g9ex12a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex12c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -2041,11 +5407,38 @@
         },
         {
           "type": "question",
-          "id": "g9ex13",
+          "id": "g9ex13a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 35
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex13b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex13c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "g9ex13d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         }
       ]
@@ -2080,11 +5473,29 @@
         },
         {
           "type": "question",
-          "id": "h9bu1",
+          "id": "h9bu1a",
           "contextImage": null,
           "workingSpace": {
-            "style": "grid",
-            "heightMm": 20
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9bu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -2135,38 +5546,146 @@
         },
         {
           "type": "question",
-          "id": "h9ex2",
+          "id": "h9ex2a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "h9ex3",
+          "id": "h9ex2b",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 30
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "h9ex4",
+          "id": "h9ex2c",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
           }
         },
         {
           "type": "question",
-          "id": "h9ex5",
+          "id": "h9ex2d",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
           }
         },
         {
@@ -2262,20 +5781,47 @@
         },
         {
           "type": "question",
-          "id": "h9ex14",
+          "id": "h9ex14a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
           }
         },
         {
           "type": "question",
-          "id": "h9ex15",
+          "id": "h9ex14b",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex15a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex15c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         },
         {
@@ -2296,11 +5842,29 @@
         },
         {
           "type": "question",
-          "id": "h9ex17",
+          "id": "h9ex17a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
-            "heightMm": 30
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex17b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "h9ex17c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
           }
         }
       ]
@@ -2561,6 +6125,792 @@
       ]
     }
   ],
-  "groupLayout": {},
-  "combinedBlocks": {}
+  "groupLayout": {
+    "a9ex4": "split",
+    "c9ex11": "split",
+    "g9ex11": "combined",
+    "d9ex5": "combined",
+    "e9ex2": "split",
+    "a9bu1": "split",
+    "c9ex7": "split",
+    "d9ex1": "combined",
+    "h9ex14": "combined",
+    "quiz7": "combined",
+    "c9ex2": "split",
+    "d9ex10": "split",
+    "a9ex6": "split",
+    "c9ex6": "split",
+    "b9ex13": "combined",
+    "f9ex2": "split",
+    "f9ex3": "split",
+    "d9ex9": "combined",
+    "b9bu2": "split",
+    "e9ex8": "split",
+    "e9ex5": "split",
+    "b9ex1": "split",
+    "quiz5": "combined",
+    "g9ex6": "combined",
+    "c9ex1": "combined",
+    "b9ex8": "combined",
+    "quiz4": "combined",
+    "h9ex2": "split",
+    "e9bu2": "split",
+    "b9ex7": "combined",
+    "a9ex1": "split",
+    "c9bu1": "split",
+    "b9ex2": "split",
+    "a9ex2": "split",
+    "e9bu1": "split",
+    "h9bu1": "split",
+    "e9ex3": "combined",
+    "g9ex2": "split",
+    "g9ex10": "split",
+    "d9ex14": "split",
+    "e9bu4": "split",
+    "d9ex6": "split",
+    "g9ex7": "combined",
+    "b9ex9": "combined",
+    "b9ex11": "combined",
+    "a9ex16": "split",
+    "c9ex3": "split",
+    "d9ex8": "split",
+    "b9ex4": "split",
+    "h9ex3": "split",
+    "a9ex14": "split",
+    "h9ex4": "split",
+    "quiz3": "combined",
+    "g9ex8": "combined",
+    "quiz6": "combined",
+    "h9ex5": "split",
+    "e9bu3": "split",
+    "c9bu2": "split",
+    "g9ex9": "split",
+    "e9ex9": "combined",
+    "g9ex3": "combined",
+    "b9ex12": "combined",
+    "b9bu3": "split",
+    "b9ex10": "combined",
+    "f9bu3": "split",
+    "quiz9": "combined",
+    "h9ex17": "combined",
+    "b9ex5": "split",
+    "d9ex7": "split",
+    "b9ex14": "split",
+    "d9ex16": "split",
+    "f9ex7": "split",
+    "f9ex9": "combined",
+    "b9bu1": "split",
+    "a9ex3": "split",
+    "e9ex7": "combined",
+    "f9ex10": "combined",
+    "g9ex1": "combined",
+    "d9ex12": "combined",
+    "a9ex8": "split",
+    "d9ex3": "split",
+    "b9ex3": "split",
+    "a9ex5": "split",
+    "quiz2": "combined",
+    "g9ex13": "split",
+    "d9bu4": "split",
+    "c9ex10": "combined",
+    "f9ex1": "combined",
+    "g9bu1": "split",
+    "d9ex4": "split",
+    "quiz8": "combined",
+    "f9ex13": "split",
+    "e9ex1": "combined",
+    "f9ex8": "split",
+    "f9ex5": "split",
+    "g9ex12": "combined",
+    "h9ex15": "combined",
+    "f9ex6": "split",
+    "g9ex4": "combined",
+    "a9ex15": "split",
+    "a9ex7": "split",
+    "d9ex2": "split",
+    "d9ex15": "combined",
+    "g9bu2": "split",
+    "e9ex10": "combined",
+    "a9bu3": "split",
+    "e9ex6": "combined",
+    "g9ex5": "combined",
+    "b9ex6": "split",
+    "f9ex11": "split",
+    "c9ex4": "split",
+    "c9ex5": "split"
+  },
+  "combinedBlocks": {
+    "a9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "a9bu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "a9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "a9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "a9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "a9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "a9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "a9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "a9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "a9ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "a9ex14": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "a9ex15": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "a9ex16": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 40
+      }
+    },
+    "b9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "b9bu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "b9bu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "b9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "b9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "b9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "b9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "b9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "b9ex9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "b9ex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex11": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "b9ex13": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "b9ex14": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "c9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "c9bu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "c9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "c9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "c9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "c9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "c9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "c9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "c9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "c9ex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "c9ex11": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 40
+      }
+    },
+    "d9bu4": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
+      }
+    },
+    "d9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "d9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "d9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "d9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "d9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "d9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "d9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "d9ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "d9ex9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "d9ex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "d9ex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "d9ex14": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "d9ex15": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "d9ex16": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "quiz2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "quiz3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "quiz4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "quiz5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "quiz6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "quiz7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "quiz8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "quiz9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "e9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "e9bu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "e9bu3": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
+      }
+    },
+    "e9bu4": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "e9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "e9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      }
+    },
+    "e9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "e9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "e9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "e9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "e9ex8": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "e9ex9": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "e9ex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "f9bu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "f9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "f9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "f9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "f9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "f9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "f9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "f9ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "f9ex9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "f9ex10": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "f9ex11": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "f9ex13": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      }
+    },
+    "g9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "g9bu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "g9ex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "g9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "g9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "g9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "g9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      }
+    },
+    "g9ex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "g9ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "g9ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      }
+    },
+    "g9ex9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "g9ex10": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "g9ex11": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "g9ex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "g9ex13": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "h9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "h9ex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "h9ex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      }
+    },
+    "h9ex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "h9ex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      }
+    },
+    "h9ex14": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "h9ex15": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    },
+    "h9ex17": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+      }
+    }
+  }
 }

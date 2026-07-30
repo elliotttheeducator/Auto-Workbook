@@ -191,11 +191,20 @@ def plan_group_defaults(pages_proposals: list[dict]) -> dict[str, str]:
     marks that a chapter has moved into its real exercise - and only
     once it has more than 3 parts: 2-3 parts read fine as one combined
     crop, but splitting is what actually helps once there's 4+.
+
+    A combinedGroups entry can also set "forceSplit": true to always
+    default to split regardless of the above - for Building
+    Understanding groups specifically, which should stay compact (small,
+    per-part) even though they sit before any tier heading and so would
+    otherwise always default combined.
     """
     combined_gids: set[str] = set()
+    force_split_gids: set[str] = set()
     for entry in pages_proposals:
         for cg in entry.get("combinedGroups", []):
             combined_gids.add(cg["groupId"])
+            if cg.get("forceSplit"):
+                force_split_gids.add(cg["groupId"])
 
     part_count: dict[str, int] = {}
     in_tier_section = False
@@ -218,7 +227,11 @@ def plan_group_defaults(pages_proposals: list[dict]) -> dict[str, str]:
                 tier_section_gids.add(gid)
 
     return {
-        gid: ("split" if gid in tier_section_gids and part_count.get(gid, 0) > 3 else "combined")
+        gid: (
+            "split"
+            if gid in force_split_gids or (gid in tier_section_gids and part_count.get(gid, 0) > 3)
+            else "combined"
+        )
         for gid in combined_gids
     }
 
