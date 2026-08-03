@@ -215,7 +215,7 @@ function layoutHangingControls() {
 // touchedGroupLayoutIds above) for every group the user never actually
 // chose a layout for. Keep only the ones actually picked through the
 // split/combined radios before saving.
-async function persistAndRerenderEditor() {
+async function renderEditorOnce() {
   const overrides = extractOverrides(currentWorkbook);
   overrides.groupLayout = Object.fromEntries(
     Object.entries(overrides.groupLayout).filter(([gid]) => touchedGroupLayoutIds.has(gid))
@@ -226,6 +226,35 @@ async function persistAndRerenderEditor() {
   await waitForImages(appEl);
   alignSplitRows(appEl);
   layoutHangingControls();
+}
+
+// A full re-render walks every page's pagination from scratch, which on
+// a large workbook (100+ pages) can take a couple of seconds - too slow
+// to run once per click. Every state mutation already lands on
+// currentWorkbook synchronously (see handleControlClick), so a burst of
+// rapid clicks (someone holding the +/- zoom button down, say) doesn't
+// need one render per click, just one more render after the in-flight
+// one finishes to pick up wherever currentWorkbook ended up. Without
+// this, each click kicked off its own overlapping renderEditor() call -
+// all of them competing for the same CPU and racing to overwrite
+// appEl.innerHTML - so the page would sit visually frozen for however
+// long that pile-up took to drain, then jump straight to the last one
+// standing. Coalescing means the UI updates once as soon as possible,
+// and always ends on the true latest state.
+let renderInFlight = null;
+let renderQueued = false;
+
+async function persistAndRerenderEditor() {
+  renderQueued = true;
+  if (renderInFlight) return renderInFlight;
+  renderInFlight = (async () => {
+    while (renderQueued) {
+      renderQueued = false;
+      await renderEditorOnce();
+    }
+    renderInFlight = null;
+  })();
+  return renderInFlight;
 }
 
 async function renderHomeView() {

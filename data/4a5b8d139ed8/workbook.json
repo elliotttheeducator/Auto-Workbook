@@ -1,6 +1,6 @@
 {
   "id": "4a5b8d139ed8",
-  "title": "Year 7 Chapter 9: Equations",
+  "title": "Year 7 - Chapter 9: Equations",
   "sourcePdfName": "f879dea9-EMAC7_4ed_Ch09.pdf",
   "pages": [
     {
@@ -47,6 +47,10 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "a9bu1_stem"
+        },
+        {
           "type": "question",
           "id": "a9bu1a",
           "contextImage": null,
@@ -81,6 +85,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "a9bu3_stem"
         },
         {
           "type": "question",
@@ -203,6 +211,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "a9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "a9ex1a",
           "contextImage": null,
@@ -246,6 +258,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "a9ex2_stem"
         },
         {
           "type": "question",
@@ -327,6 +343,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "a9ex3_stem"
         },
         {
           "type": "question",
@@ -437,6 +457,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "a9ex4_stem"
+        },
+        {
           "type": "question",
           "id": "a9ex4a",
           "contextImage": null,
@@ -473,6 +497,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "a9ex5_stem"
+        },
+        {
           "type": "question",
           "id": "a9ex5a",
           "contextImage": null,
@@ -507,6 +535,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "a9ex6_stem"
         },
         {
           "type": "question",
@@ -567,6 +599,10 @@
     {
       "id": "page6",
       "blocks": [
+        {
+          "type": "image",
+          "id": "a9ex7_stem"
+        },
         {
           "type": "question",
           "id": "a9ex7a",
@@ -645,6 +681,10 @@
           "text": "Problem-solving",
           "style": "tier",
           "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "a9ex8_stem"
         },
         {
           "type": "question",
@@ -742,6 +782,10 @@
             "style": "lines",
             "heightMm": 30
           }
+        },
+        {
+          "type": "image",
+          "id": "a9ex14_stem"
         },
         {
           "type": "question",
@@ -859,6 +903,10 @@
           "tier": "enrichment"
         },
         {
+          "type": "image",
+          "id": "a9ex15_stem"
+        },
+        {
           "type": "question",
           "id": "a9ex15a",
           "contextImage": null,
@@ -961,6 +1009,10 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "b9bu1_stem"
+        },
+        {
           "type": "question",
           "id": "b9bu1a",
           "contextImage": null,
@@ -997,6 +1049,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9bu2_stem"
+        },
+        {
           "type": "question",
           "id": "b9bu2a",
           "contextImage": null,
@@ -1031,6 +1087,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "b9bu3_stem"
         },
         {
           "type": "question",
@@ -1131,6 +1191,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "b9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex1a",
           "contextImage": null,
@@ -1165,6 +1229,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "b9ex2_stem"
         },
         {
           "type": "question",
@@ -1237,6 +1305,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "b9ex3_stem"
         },
         {
           "type": "question",
@@ -1347,6 +1419,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9ex4_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex4a",
           "contextImage": null,
@@ -1455,6 +1531,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9ex5_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex5a",
           "contextImage": null,
@@ -1516,6 +1596,10 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "b9ex6_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex6a",
           "contextImage": null,
@@ -1561,6 +1645,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9ex7_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex7a",
           "contextImage": null,
@@ -1593,6 +1681,10 @@
       "id": "page11",
       "blocks": [
         {
+          "type": "image",
+          "id": "b9ex8_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex8a",
           "contextImage": null,
@@ -1609,6 +1701,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "b9ex9_stem"
         },
         {
           "type": "question",
@@ -1629,6 +1725,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9ex10_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex10a",
           "contextImage": null,
@@ -1645,6 +1745,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "b9ex11_stem"
         },
         {
           "type": "question",
@@ -1690,6 +1794,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "b9ex13_stem"
+        },
+        {
           "type": "question",
           "id": "b9ex13a",
           "contextImage": null,
@@ -1713,6 +1821,10 @@
           "text": "Enrichment: Multiple pronumerals",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "b9ex14_stem"
         },
         {
           "type": "question",
@@ -1799,6 +1911,10 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "c9bu1_stem"
+        },
+        {
           "type": "question",
           "id": "c9bu1a",
           "contextImage": null,
@@ -1833,6 +1949,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "c9bu2_stem"
         },
         {
           "type": "question",
@@ -1959,6 +2079,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "c9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex1a",
           "contextImage": null,
@@ -1984,6 +2108,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "c9ex2_stem"
         },
         {
           "type": "question",
@@ -2067,6 +2195,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "c9ex3_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex3a",
           "contextImage": null,
@@ -2139,6 +2271,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "c9ex4_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex4a",
           "contextImage": null,
@@ -2200,6 +2336,10 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "c9ex5_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex5a",
           "contextImage": null,
@@ -2250,6 +2390,10 @@
       "id": "page17",
       "blocks": [
         {
+          "type": "image",
+          "id": "c9ex6_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex6a",
           "contextImage": null,
@@ -2284,6 +2428,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "c9ex7_stem"
         },
         {
           "type": "question",
@@ -2347,6 +2495,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "c9ex10_stem"
+        },
+        {
           "type": "question",
           "id": "c9ex10a",
           "contextImage": null,
@@ -2370,6 +2522,10 @@
           "text": "Enrichment: Equivalence relations",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "c9ex11_stem"
         },
         {
           "type": "question",
@@ -2470,6 +2626,10 @@
       "id": "page20",
       "blocks": [
         {
+          "type": "image",
+          "id": "d9bu4_stem"
+        },
+        {
           "type": "question",
           "id": "d9bu4a",
           "contextImage": null,
@@ -2568,6 +2728,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "d9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex1a",
           "contextImage": null,
@@ -2593,6 +2757,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "d9ex2_stem"
         },
         {
           "type": "question",
@@ -2703,6 +2871,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "d9ex3_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex3a",
           "contextImage": null,
@@ -2737,6 +2909,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "d9ex4_stem"
         },
         {
           "type": "question",
@@ -2775,6 +2951,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "d9ex5_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex5a",
           "contextImage": null,
@@ -2791,6 +2971,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "d9ex6_stem"
         },
         {
           "type": "question",
@@ -2852,6 +3036,10 @@
       "id": "page23",
       "blocks": [
         {
+          "type": "image",
+          "id": "d9ex7_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex7a",
           "contextImage": null,
@@ -2893,6 +3081,10 @@
           "text": "Problem-solving",
           "style": "tier",
           "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "d9ex8_stem"
         },
         {
           "type": "question",
@@ -2949,6 +3141,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "d9ex9_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex9a",
           "contextImage": null,
@@ -2965,6 +3161,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "d9ex10_stem"
         },
         {
           "type": "question",
@@ -3010,6 +3210,10 @@
             "style": "grid",
             "heightMm": 35
           }
+        },
+        {
+          "type": "image",
+          "id": "d9ex12_stem"
         },
         {
           "type": "question",
@@ -3096,6 +3300,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "d9ex15_stem"
+        },
+        {
           "type": "question",
           "id": "d9ex15a",
           "contextImage": null,
@@ -3119,6 +3327,10 @@
           "text": "Enrichment: Pronumerals on both sides",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "d9ex16_stem"
         },
         {
           "type": "question",
@@ -3213,6 +3425,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "quiz2_stem"
+        },
+        {
           "type": "question",
           "id": "quiz2a",
           "contextImage": null,
@@ -3238,6 +3454,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "quiz3_stem"
         },
         {
           "type": "question",
@@ -3276,6 +3496,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "quiz4_stem"
+        },
+        {
           "type": "question",
           "id": "quiz4a",
           "contextImage": null,
@@ -3312,6 +3536,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "quiz5_stem"
+        },
+        {
           "type": "question",
           "id": "quiz5a",
           "contextImage": null,
@@ -3328,6 +3556,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "quiz6_stem"
         },
         {
           "type": "question",
@@ -3355,6 +3587,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "quiz7_stem"
         },
         {
           "type": "question",
@@ -3393,6 +3629,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "quiz8_stem"
+        },
+        {
           "type": "question",
           "id": "quiz8a",
           "contextImage": null,
@@ -3427,6 +3667,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "quiz9_stem"
         },
         {
           "type": "question",
@@ -3486,6 +3730,10 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "e9bu1_stem"
+        },
+        {
           "type": "question",
           "id": "e9bu1a",
           "contextImage": null,
@@ -3540,6 +3788,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "e9bu3_stem"
+        },
+        {
           "type": "question",
           "id": "e9bu3a",
           "contextImage": null,
@@ -3574,6 +3826,10 @@
             "style": "none",
             "heightMm": 40
           }
+        },
+        {
+          "type": "image",
+          "id": "e9bu4_stem"
         },
         {
           "type": "question",
@@ -3655,6 +3911,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "e9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "e9ex1a",
           "contextImage": null,
@@ -3680,6 +3940,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "e9ex2_stem"
         },
         {
           "type": "question",
@@ -3741,6 +4005,10 @@
       "id": "page29",
       "blocks": [
         {
+          "type": "image",
+          "id": "e9ex3_stem"
+        },
+        {
           "type": "question",
           "id": "e9ex3a",
           "contextImage": null,
@@ -3773,6 +4041,10 @@
           "text": "Problem-solving",
           "style": "tier",
           "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "e9ex5_stem"
         },
         {
           "type": "question",
@@ -3829,6 +4101,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "e9ex6_stem"
+        },
+        {
           "type": "question",
           "id": "e9ex6a",
           "contextImage": null,
@@ -3854,6 +4130,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "e9ex7_stem"
         },
         {
           "type": "question",
@@ -3931,6 +4211,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "e9ex9_stem"
+        },
+        {
           "type": "question",
           "id": "e9ex9a",
           "contextImage": null,
@@ -3956,6 +4240,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "e9ex10_stem"
         },
         {
           "type": "question",
@@ -4048,6 +4336,10 @@
     {
       "id": "page32",
       "blocks": [
+        {
+          "type": "image",
+          "id": "f9bu3_stem"
+        },
         {
           "type": "question",
           "id": "f9bu3a",
@@ -4180,6 +4472,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "f9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "f9ex1a",
           "contextImage": null,
@@ -4211,6 +4507,10 @@
     {
       "id": "page34",
       "blocks": [
+        {
+          "type": "image",
+          "id": "f9ex2_stem"
+        },
         {
           "type": "question",
           "id": "f9ex2a",
@@ -4282,6 +4582,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "f9ex3_stem"
         },
         {
           "type": "question",
@@ -4365,6 +4669,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "f9ex5_stem"
+        },
+        {
           "type": "question",
           "id": "f9ex5a",
           "contextImage": null,
@@ -4435,6 +4743,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "f9ex6_stem"
         },
         {
           "type": "question",
@@ -4516,6 +4828,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "f9ex7_stem"
         },
         {
           "type": "question",
@@ -4606,6 +4922,10 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "f9ex8_stem"
+        },
+        {
           "type": "question",
           "id": "f9ex8a",
           "contextImage": null,
@@ -4647,6 +4967,10 @@
       "id": "page35",
       "blocks": [
         {
+          "type": "image",
+          "id": "f9ex9_stem"
+        },
+        {
           "type": "question",
           "id": "f9ex9a",
           "contextImage": null,
@@ -4681,6 +5005,10 @@
           "tier": "reasoning"
         },
         {
+          "type": "image",
+          "id": "f9ex10_stem"
+        },
+        {
           "type": "question",
           "id": "f9ex10a",
           "contextImage": null,
@@ -4706,6 +5034,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "f9ex11_stem"
         },
         {
           "type": "question",
@@ -4758,6 +5090,10 @@
           "text": "Enrichment: Expanding multiple brackets",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "f9ex13_stem"
         },
         {
           "type": "question",
@@ -4880,6 +5216,10 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "g9bu1_stem"
+        },
+        {
           "type": "question",
           "id": "g9bu1a",
           "contextImage": null,
@@ -4932,6 +5272,10 @@
             "style": "lines",
             "heightMm": 10
           }
+        },
+        {
+          "type": "image",
+          "id": "g9bu2_stem"
         },
         {
           "type": "question",
@@ -5033,6 +5377,10 @@
           "tier": "fluency"
         },
         {
+          "type": "image",
+          "id": "g9ex1_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex1a",
           "contextImage": null,
@@ -5049,6 +5397,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "g9ex2_stem"
         },
         {
           "type": "question",
@@ -5087,6 +5439,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "g9ex3_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex3a",
           "contextImage": null,
@@ -5114,6 +5470,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "g9ex4_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex4a",
           "contextImage": null,
@@ -5139,6 +5499,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "g9ex5_stem"
         },
         {
           "type": "question",
@@ -5175,6 +5539,10 @@
           "tier": "problemsolving"
         },
         {
+          "type": "image",
+          "id": "g9ex6_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex6a",
           "contextImage": null,
@@ -5197,6 +5565,10 @@
     {
       "id": "page39",
       "blocks": [
+        {
+          "type": "image",
+          "id": "g9ex7_stem"
+        },
         {
           "type": "question",
           "id": "g9ex7a",
@@ -5225,6 +5597,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "g9ex8_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex8a",
           "contextImage": null,
@@ -5250,6 +5626,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "g9ex9_stem"
         },
         {
           "type": "question",
@@ -5293,6 +5673,10 @@
           "text": "Reasoning",
           "style": "tier",
           "tier": "reasoning"
+        },
+        {
+          "type": "image",
+          "id": "g9ex10_stem"
         },
         {
           "type": "question",
@@ -5340,6 +5724,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "g9ex11_stem"
+        },
+        {
           "type": "question",
           "id": "g9ex11a",
           "contextImage": null,
@@ -5371,6 +5759,10 @@
     {
       "id": "page40",
       "blocks": [
+        {
+          "type": "image",
+          "id": "g9ex12_stem"
+        },
         {
           "type": "question",
           "id": "g9ex12a",
@@ -5404,6 +5796,10 @@
           "text": "Enrichment: AFL equations",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "g9ex13_stem"
         },
         {
           "type": "question",
@@ -5470,6 +5866,10 @@
           "type": "heading",
           "id": "h9_h_bu",
           "text": "Building Understanding"
+        },
+        {
+          "type": "image",
+          "id": "h9bu1_stem"
         },
         {
           "type": "question",
@@ -5545,6 +5945,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "h9ex2_stem"
+        },
+        {
           "type": "question",
           "id": "h9ex2a",
           "contextImage": null,
@@ -5579,6 +5983,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "h9ex3_stem"
         },
         {
           "type": "question",
@@ -5617,6 +6025,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "h9ex4_stem"
+        },
+        {
           "type": "question",
           "id": "h9ex4a",
           "contextImage": null,
@@ -5651,6 +6063,10 @@
             "style": "grid",
             "heightMm": 15
           }
+        },
+        {
+          "type": "image",
+          "id": "h9ex5_stem"
         },
         {
           "type": "question",
@@ -5798,6 +6214,10 @@
           }
         },
         {
+          "type": "image",
+          "id": "h9ex15_stem"
+        },
+        {
           "type": "question",
           "id": "h9ex15a",
           "contextImage": null,
@@ -5839,6 +6259,10 @@
           "text": "Enrichment: Strange triangles",
           "style": "tier",
           "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "h9ex17_stem"
         },
         {
           "type": "question",
@@ -6126,118 +6550,118 @@
     }
   ],
   "groupLayout": {
-    "a9ex4": "split",
-    "c9ex11": "split",
-    "g9ex11": "combined",
-    "d9ex5": "combined",
-    "e9ex2": "split",
-    "a9bu1": "split",
-    "c9ex7": "split",
-    "d9ex1": "combined",
-    "h9ex14": "combined",
-    "quiz7": "combined",
-    "c9ex2": "split",
-    "d9ex10": "split",
-    "a9ex6": "split",
-    "c9ex6": "split",
-    "b9ex13": "combined",
-    "f9ex2": "split",
-    "f9ex3": "split",
-    "d9ex9": "combined",
-    "b9bu2": "split",
-    "e9ex8": "split",
-    "e9ex5": "split",
-    "b9ex1": "split",
-    "quiz5": "combined",
-    "g9ex6": "combined",
-    "c9ex1": "combined",
-    "b9ex8": "combined",
     "quiz4": "combined",
-    "h9ex2": "split",
-    "e9bu2": "split",
-    "b9ex7": "combined",
-    "a9ex1": "split",
-    "c9bu1": "split",
-    "b9ex2": "split",
-    "a9ex2": "split",
-    "e9bu1": "split",
-    "h9bu1": "split",
-    "e9ex3": "combined",
-    "g9ex2": "split",
-    "g9ex10": "split",
-    "d9ex14": "split",
-    "e9bu4": "split",
-    "d9ex6": "split",
-    "g9ex7": "combined",
-    "b9ex9": "combined",
-    "b9ex11": "combined",
-    "a9ex16": "split",
-    "c9ex3": "split",
-    "d9ex8": "split",
-    "b9ex4": "split",
-    "h9ex3": "split",
-    "a9ex14": "split",
-    "h9ex4": "split",
-    "quiz3": "combined",
-    "g9ex8": "combined",
-    "quiz6": "combined",
-    "h9ex5": "split",
-    "e9bu3": "split",
-    "c9bu2": "split",
-    "g9ex9": "split",
-    "e9ex9": "combined",
-    "g9ex3": "combined",
-    "b9ex12": "combined",
-    "b9bu3": "split",
-    "b9ex10": "combined",
-    "f9bu3": "split",
-    "quiz9": "combined",
-    "h9ex17": "combined",
-    "b9ex5": "split",
-    "d9ex7": "split",
     "b9ex14": "split",
-    "d9ex16": "split",
-    "f9ex7": "split",
-    "f9ex9": "combined",
-    "b9bu1": "split",
-    "a9ex3": "split",
-    "e9ex7": "combined",
-    "f9ex10": "combined",
-    "g9ex1": "combined",
-    "d9ex12": "combined",
-    "a9ex8": "split",
-    "d9ex3": "split",
-    "b9ex3": "split",
-    "a9ex5": "split",
-    "quiz2": "combined",
-    "g9ex13": "split",
-    "d9bu4": "split",
-    "c9ex10": "combined",
-    "f9ex1": "combined",
-    "g9bu1": "split",
+    "g9ex8": "combined",
     "d9ex4": "split",
-    "quiz8": "combined",
-    "f9ex13": "split",
-    "e9ex1": "combined",
-    "f9ex8": "split",
-    "f9ex5": "split",
-    "g9ex12": "combined",
-    "h9ex15": "combined",
-    "f9ex6": "split",
-    "g9ex4": "combined",
-    "a9ex15": "split",
-    "a9ex7": "split",
-    "d9ex2": "split",
-    "d9ex15": "combined",
-    "g9bu2": "split",
+    "e9ex9": "combined",
+    "f9ex2": "split",
+    "g9ex2": "split",
+    "g9ex1": "combined",
+    "d9ex3": "split",
+    "g9ex10": "split",
     "e9ex10": "combined",
-    "a9bu3": "split",
-    "e9ex6": "combined",
-    "g9ex5": "combined",
-    "b9ex6": "split",
+    "a9ex15": "split",
     "f9ex11": "split",
+    "quiz5": "combined",
+    "d9ex2": "split",
+    "f9ex1": "combined",
+    "b9ex8": "combined",
+    "h9ex2": "split",
+    "d9ex7": "split",
+    "b9ex4": "split",
+    "f9ex3": "split",
+    "d9ex16": "split",
+    "f9ex8": "split",
+    "a9ex6": "split",
+    "d9ex10": "split",
+    "h9bu1": "split",
+    "b9ex2": "split",
+    "quiz7": "combined",
+    "e9bu1": "split",
+    "b9ex6": "split",
+    "g9bu2": "split",
+    "h9ex17": "combined",
+    "g9bu1": "split",
+    "g9ex6": "combined",
+    "a9ex14": "split",
+    "quiz9": "combined",
+    "b9ex13": "combined",
+    "d9bu4": "split",
+    "e9ex5": "split",
+    "d9ex6": "split",
+    "e9bu2": "split",
+    "e9bu3": "split",
+    "h9ex3": "split",
+    "g9ex3": "combined",
+    "a9ex7": "split",
+    "e9ex1": "combined",
+    "c9bu2": "split",
+    "quiz8": "combined",
+    "f9ex9": "combined",
+    "d9ex8": "split",
+    "f9ex13": "split",
+    "g9ex7": "combined",
+    "f9ex7": "split",
+    "h9ex15": "combined",
+    "c9ex1": "combined",
+    "c9ex2": "split",
+    "a9bu3": "split",
+    "a9ex1": "split",
+    "e9ex7": "combined",
+    "g9ex4": "combined",
+    "b9bu1": "split",
+    "h9ex5": "split",
+    "a9ex8": "split",
+    "quiz6": "combined",
+    "c9ex11": "split",
+    "d9ex9": "combined",
+    "c9ex10": "combined",
+    "c9ex6": "split",
+    "f9ex6": "split",
+    "c9ex3": "split",
+    "b9bu2": "split",
+    "d9ex1": "combined",
+    "g9ex11": "combined",
+    "b9ex3": "split",
+    "b9ex11": "combined",
+    "e9ex2": "split",
+    "f9bu3": "split",
     "c9ex4": "split",
-    "c9ex5": "split"
+    "g9ex9": "split",
+    "b9ex7": "combined",
+    "quiz2": "combined",
+    "d9ex14": "split",
+    "h9ex4": "split",
+    "f9ex5": "split",
+    "b9ex5": "split",
+    "b9bu3": "split",
+    "b9ex12": "combined",
+    "a9ex16": "split",
+    "h9ex14": "combined",
+    "g9ex12": "combined",
+    "d9ex15": "combined",
+    "c9ex5": "split",
+    "a9ex2": "split",
+    "g9ex5": "combined",
+    "b9ex1": "split",
+    "quiz3": "combined",
+    "d9ex12": "combined",
+    "a9bu1": "split",
+    "e9ex6": "combined",
+    "f9ex10": "combined",
+    "a9ex5": "split",
+    "b9ex9": "combined",
+    "c9ex7": "split",
+    "a9ex3": "split",
+    "b9ex10": "combined",
+    "e9ex3": "combined",
+    "d9ex5": "combined",
+    "e9bu4": "split",
+    "g9ex13": "split",
+    "c9bu1": "split",
+    "a9ex4": "split",
+    "e9ex8": "split"
   },
   "combinedBlocks": {
     "a9bu1": {
