@@ -2594,8 +2594,12 @@
           "text": "Building Understanding"
         },
         {
+          "type": "image",
+          "id": "d9bu1_stem"
+        },
+        {
           "type": "question",
-          "id": "d9bu1",
+          "id": "d9bu1a",
           "contextImage": null,
           "workingSpace": {
             "style": "lines",
@@ -2604,7 +2608,56 @@
         },
         {
           "type": "question",
-          "id": "d9bu2",
+          "id": "d9bu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          }
+        },
+        {
+          "type": "image",
+          "id": "d9bu2_stem"
+        },
+        {
+          "type": "question",
+          "id": "d9bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "d9bu2b",
           "contextImage": null,
           "workingSpace": {
             "style": "none",
@@ -4323,8 +4376,39 @@
           }
         },
         {
+          "type": "image",
+          "id": "f9bu2_stem"
+        },
+        {
           "type": "question",
-          "id": "f9bu2",
+          "id": "f9bu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          }
+        },
+        {
+          "type": "question",
+          "id": "f9bu2d",
           "contextImage": null,
           "workingSpace": {
             "style": "none",
@@ -6550,118 +6634,121 @@
     }
   ],
   "groupLayout": {
-    "quiz4": "combined",
-    "b9ex14": "split",
-    "g9ex8": "combined",
-    "d9ex4": "split",
-    "e9ex9": "combined",
-    "f9ex2": "split",
-    "g9ex2": "split",
-    "g9ex1": "combined",
-    "d9ex3": "split",
-    "g9ex10": "split",
     "e9ex10": "combined",
-    "a9ex15": "split",
-    "f9ex11": "split",
-    "quiz5": "combined",
-    "d9ex2": "split",
-    "f9ex1": "combined",
-    "b9ex8": "combined",
-    "h9ex2": "split",
-    "d9ex7": "split",
-    "b9ex4": "split",
-    "f9ex3": "split",
-    "d9ex16": "split",
-    "f9ex8": "split",
-    "a9ex6": "split",
-    "d9ex10": "split",
-    "h9bu1": "split",
-    "b9ex2": "split",
-    "quiz7": "combined",
-    "e9bu1": "split",
-    "b9ex6": "split",
-    "g9bu2": "split",
-    "h9ex17": "combined",
-    "g9bu1": "split",
-    "g9ex6": "combined",
-    "a9ex14": "split",
-    "quiz9": "combined",
-    "b9ex13": "combined",
-    "d9bu4": "split",
-    "e9ex5": "split",
     "d9ex6": "split",
-    "e9bu2": "split",
-    "e9bu3": "split",
-    "h9ex3": "split",
-    "g9ex3": "combined",
-    "a9ex7": "split",
-    "e9ex1": "combined",
-    "c9bu2": "split",
-    "quiz8": "combined",
-    "f9ex9": "combined",
-    "d9ex8": "split",
-    "f9ex13": "split",
-    "g9ex7": "combined",
-    "f9ex7": "split",
-    "h9ex15": "combined",
-    "c9ex1": "combined",
-    "c9ex2": "split",
-    "a9bu3": "split",
-    "a9ex1": "split",
-    "e9ex7": "combined",
-    "g9ex4": "combined",
     "b9bu1": "split",
-    "h9ex5": "split",
-    "a9ex8": "split",
-    "quiz6": "combined",
-    "c9ex11": "split",
-    "d9ex9": "combined",
-    "c9ex10": "combined",
-    "c9ex6": "split",
-    "f9ex6": "split",
-    "c9ex3": "split",
-    "b9bu2": "split",
-    "d9ex1": "combined",
-    "g9ex11": "combined",
-    "b9ex3": "split",
-    "b9ex11": "combined",
-    "e9ex2": "split",
     "f9bu3": "split",
-    "c9ex4": "split",
-    "g9ex9": "split",
+    "a9ex8": "split",
+    "b9ex13": "combined",
+    "g9ex6": "combined",
     "b9ex7": "combined",
-    "quiz2": "combined",
-    "d9ex14": "split",
+    "a9ex3": "split",
+    "e9bu2": "split",
+    "e9ex5": "split",
+    "e9ex7": "combined",
+    "c9ex10": "combined",
+    "d9ex4": "split",
+    "a9bu1": "split",
+    "c9bu1": "split",
+    "c9bu2": "split",
+    "e9ex3": "combined",
+    "c9ex4": "split",
+    "a9ex15": "split",
+    "g9ex4": "combined",
+    "b9ex1": "split",
+    "b9ex2": "split",
+    "d9ex2": "split",
+    "c9ex6": "split",
+    "g9bu1": "split",
+    "f9ex13": "split",
     "h9ex4": "split",
-    "f9ex5": "split",
-    "b9ex5": "split",
-    "b9bu3": "split",
+    "a9bu3": "split",
+    "e9ex8": "split",
+    "c9ex5": "split",
+    "a9ex6": "split",
+    "e9bu1": "split",
+    "f9ex3": "split",
+    "d9ex15": "combined",
     "b9ex12": "combined",
     "a9ex16": "split",
+    "h9bu1": "split",
+    "a9ex1": "split",
+    "g9ex10": "split",
+    "d9ex1": "combined",
+    "g9bu2": "split",
+    "h9ex17": "combined",
+    "h9ex2": "split",
+    "b9ex4": "split",
+    "a9ex14": "split",
+    "d9ex16": "split",
+    "g9ex1": "combined",
+    "f9ex2": "split",
+    "f9ex7": "split",
     "h9ex14": "combined",
-    "g9ex12": "combined",
-    "d9ex15": "combined",
-    "c9ex5": "split",
-    "a9ex2": "split",
-    "g9ex5": "combined",
-    "b9ex1": "split",
-    "quiz3": "combined",
+    "quiz2": "combined",
+    "d9ex9": "combined",
+    "quiz8": "combined",
+    "g9ex2": "split",
+    "h9ex3": "split",
     "d9ex12": "combined",
-    "a9bu1": "split",
     "e9ex6": "combined",
-    "f9ex10": "combined",
-    "a9ex5": "split",
-    "b9ex9": "combined",
-    "c9ex7": "split",
-    "a9ex3": "split",
-    "b9ex10": "combined",
-    "e9ex3": "combined",
-    "d9ex5": "combined",
-    "e9bu4": "split",
+    "a9ex7": "split",
+    "quiz3": "combined",
+    "b9ex3": "split",
+    "d9ex10": "split",
+    "a9ex2": "split",
+    "f9ex9": "combined",
     "g9ex13": "split",
-    "c9bu1": "split",
+    "d9bu1": "split",
+    "quiz4": "combined",
+    "b9bu3": "split",
+    "c9ex11": "split",
+    "f9ex6": "split",
+    "g9ex3": "combined",
+    "b9ex9": "combined",
+    "b9ex10": "combined",
+    "b9ex11": "combined",
+    "quiz9": "combined",
+    "a9ex5": "split",
+    "c9ex3": "split",
+    "d9ex14": "split",
+    "d9bu2": "split",
+    "g9ex11": "combined",
+    "c9ex7": "split",
+    "quiz7": "combined",
+    "quiz6": "combined",
+    "e9ex9": "combined",
+    "e9ex2": "split",
+    "f9ex1": "combined",
+    "f9ex8": "split",
+    "d9ex3": "split",
+    "c9ex2": "split",
+    "f9bu2": "split",
+    "e9ex1": "combined",
+    "d9ex7": "split",
+    "f9ex11": "split",
+    "f9ex5": "split",
+    "quiz5": "combined",
+    "d9bu4": "split",
+    "e9bu4": "split",
+    "b9bu2": "split",
+    "b9ex8": "combined",
+    "b9ex14": "split",
+    "g9ex8": "combined",
+    "h9ex15": "combined",
+    "f9ex10": "combined",
+    "b9ex6": "split",
+    "g9ex9": "split",
+    "e9bu3": "split",
+    "d9ex8": "split",
+    "g9ex5": "combined",
+    "g9ex12": "combined",
+    "b9ex5": "split",
+    "h9ex5": "split",
+    "g9ex7": "combined",
+    "c9ex1": "combined",
     "a9ex4": "split",
-    "e9ex8": "split"
+    "d9ex5": "combined"
   },
   "combinedBlocks": {
     "a9bu1": {
@@ -6910,6 +6997,18 @@
         "heightMm": 40
       }
     },
+    "d9bu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      }
+    },
+    "d9bu2": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
+      }
+    },
     "d9bu4": {
       "workingSpace": {
         "style": "none",
@@ -7124,6 +7223,12 @@
       "workingSpace": {
         "style": "grid",
         "heightMm": 35
+      }
+    },
+    "f9bu2": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
       }
     },
     "f9bu3": {

@@ -21,6 +21,72 @@ const appEl = document.getElementById("app");
 const topbarActions = document.getElementById("topbar-actions");
 const filterBarMount = document.getElementById("filter-bar-mount");
 
+// Booklet vs 100% view (see applyViewMode below) - a display preference
+// tied to this machine's actual screen, not a document setting, so it's
+// kept in localStorage (survives reloads) rather than saved into the
+// workbook like everything else in db.js.
+const VIEW_MODE_KEY = "wb-view-mode";
+let viewMode = localStorage.getItem(VIEW_MODE_KEY) || "booklet";
+
+// This user's own monitor - native pixel width and physical width, not
+// a generic constant (see applyViewMode). CSS "mm" units are already
+// supposed to render at true physical size, but only if the OS's own
+// display-scaling setting happens to exactly match this screen's real
+// pixel density; deriving the ratio straight from the screen's known
+// physical width sidesteps that assumption rather than trusting it.
+const SCREEN_NATIVE_PX_WIDTH = 4500;
+const SCREEN_PHYSICAL_WIDTH_MM = 637.35;
+
+// The browser's own baked-in CSS mm scale (96 CSS px/inch, the same
+// constant render.js's pagination math uses) - what "booklet" mode
+// already renders at. Comparing that against this screen's own
+// measured px-per-mm gives the correction factor 100% mode needs.
+const CSS_PX_PER_MM = 96 / 25.4;
+
+function truePxPerMm() {
+  const dpr = window.devicePixelRatio || 1;
+  return SCREEN_NATIVE_PX_WIDTH / dpr / SCREEN_PHYSICAL_WIDTH_MM;
+}
+
+// Booklet is the default (2-up spread, sized in CSS mm) - good for
+// flipping through the whole document quickly. 100% forces every page
+// to this screen's actual measured physical size, single page at a
+// time, so a diagram or line of working space can be checked for real
+// print readability instead of guessing from whatever size the browser
+// happened to lay the mm units out at.
+//
+// Applied as a CSS zoom on .page (see app.css), not by overriding
+// --page-width/--page-height directly - everything inside a page
+// (working-space boxes, crops) is itself sized in real mm units, so an
+// independent width/height override on just the outer box would pull
+// it out of proportion with its own contents instead of scaling them
+// together. zoom scales the whole rendered page - box and contents -
+// as one unit, and (unlike transform:scale) actually reflows layout to
+// the new size, so pages stacked in a column really do take up the
+// right amount of space instead of overlapping or leaving gaps.
+function applyViewMode() {
+  const root = document.documentElement;
+  if (viewMode === "actual") {
+    root.style.setProperty("--actual-zoom", (truePxPerMm() / CSS_PX_PER_MM).toFixed(4));
+    root.classList.add("mode-actual");
+  } else {
+    root.classList.remove("mode-actual");
+  }
+  const btn = document.getElementById("view-mode-btn");
+  if (btn) btn.textContent = viewMode === "actual" ? "Booklet view" : "100% size";
+}
+
+function toggleViewMode() {
+  viewMode = viewMode === "actual" ? "booklet" : "actual";
+  localStorage.setItem(VIEW_MODE_KEY, viewMode);
+  applyViewMode();
+  // Content/pagination didn't change, just the page's own CSS size - no
+  // need for a full renderEditorOnce(), just a re-measure of whatever
+  // depends on the page's actual on-screen dimensions.
+  alignSplitRows(appEl);
+  layoutHangingControls();
+}
+
 let currentWorkbook = null;
 let currentProjectId = null;
 // Group ids whose layout (split/combined) the user has explicitly picked
@@ -318,14 +384,17 @@ async function renderEditorView(id) {
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
+    `<button id="view-mode-btn" class="secondary" title="Booklet is a 2-page spread sized in CSS mm. 100% forces every page to this screen's actual measured physical size (one page at a time) so you can check real print readability.">${viewMode === "actual" ? "Booklet view" : "100% size"}</button> ` +
     '<button id="autofit-btn" title="Tries to get Building Understanding and each worked example onto one page, then fills in any other page with real leftover room - never shrinks a diagram below a readable size on its own.">Auto-fit</button> ' +
     '<button id="undo-autofit-btn" class="secondary" disabled title="Reverts everything Auto-fit just changed.">Undo auto-fit</button> ' +
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
+  document.getElementById("view-mode-btn").onclick = toggleViewMode;
   document.getElementById("autofit-btn").onclick = autoFitDocument;
   document.getElementById("undo-autofit-btn").onclick = undoAutoFit;
   preAutoFitSnapshot = null;
 
+  applyViewMode();
   renderTopBars();
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);

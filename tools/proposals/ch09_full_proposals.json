@@ -83,10 +83,10 @@
         "id": "a9bu1a",
         "page": 3,
         "rect": [
-          86.5,
-          214.2,
+          80.5,
+          216.2246856689453,
           147.7,
-          234.4
+          231.3896942138672
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -96,10 +96,10 @@
         "id": "a9bu1b",
         "page": 3,
         "rect": [
-          86.5,
-          228.2,
+          80.5,
+          230.2246856689453,
           147.7,
-          248.4
+          245.3896942138672
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -109,10 +109,10 @@
         "id": "a9bu1c",
         "page": 3,
         "rect": [
-          86.5,
-          242.2,
+          80.5,
+          244.2246856689453,
           147.7,
-          262.4
+          259.3896789550781
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -146,10 +146,10 @@
         "id": "a9bu3a",
         "page": 3,
         "rect": [
-          86.5,
-          298.2,
+          80.5,
+          300.2247009277344,
           312.2,
-          318.4
+          315.3896789550781
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -159,10 +159,10 @@
         "id": "a9bu3b",
         "page": 3,
         "rect": [
-          86.5,
-          312.2,
+          80.5,
+          314.2247009277344,
           318.3,
-          332.4
+          329.3896789550781
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -172,10 +172,10 @@
         "id": "a9bu3c",
         "page": 3,
         "rect": [
-          86.5,
-          326.2,
+          80.5,
+          328.2247009277344,
           334.9,
-          346.4
+          343.3896789550781
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -351,10 +351,10 @@
         "id": "a9ex1a",
         "page": 5,
         "rect": [
-          69.6,
-          366.5,
+          63.599999999999994,
+          368.4726257324219,
           130.8,
-          386.6
+          383.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -364,10 +364,10 @@
         "id": "a9ex1b",
         "page": 5,
         "rect": [
-          156.2,
-          366.5,
+          150.2,
+          368.4726257324219,
           217.4,
-          386.6
+          383.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -377,10 +377,10 @@
         "id": "a9ex1c",
         "page": 5,
         "rect": [
-          242.8,
-          366.5,
+          236.8,
+          368.4726257324219,
           287.1,
-          386.6
+          383.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -390,10 +390,10 @@
         "id": "a9ex1d",
         "page": 5,
         "rect": [
-          329.4,
-          366.5,
+          323.4,
+          368.4726257324219,
           390.0,
-          386.6
+          383.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -403,10 +403,10 @@
         "id": "a9ex1e",
         "page": 5,
         "rect": [
-          416.0,
-          366.5,
+          410.0,
+          368.4726257324219,
           459.8,
-          386.6
+          383.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -427,10 +427,10 @@
         "id": "a9ex2a",
         "page": 5,
         "rect": [
-          69.6,
-          401.5,
+          63.599999999999994,
+          403.4726257324219,
           130.2,
-          421.6
+          418.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -440,10 +440,10 @@
         "id": "a9ex2b",
         "page": 5,
         "rect": [
-          213.9,
-          401.5,
+          207.9,
+          403.4726257324219,
           258.3,
-          421.6
+          418.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -453,10 +453,10 @@
         "id": "a9ex2c",
         "page": 5,
         "rect": [
-          358.2,
-          401.5,
+          352.2,
+          403.4726257324219,
           416.8,
-          421.6
+          418.5726013183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -466,10 +466,10 @@
         "id": "a9ex2d",
         "page": 5,
         "rect": [
-          69.6,
-          415.6,
+          63.599999999999994,
+          417.5726318359375,
           135.2,
-          435.7
+          432.672607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -479,10 +479,10 @@
         "id": "a9ex2e",
         "page": 5,
         "rect": [
-          213.9,
-          415.6,
+          207.9,
+          417.5726318359375,
           258.3,
-          435.7
+          432.672607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -492,10 +492,10 @@
         "id": "a9ex2f",
         "page": 5,
         "rect": [
-          358.2,
-          415.6,
+          352.2,
+          417.5726318359375,
           402.1,
-          435.7
+          432.672607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -505,10 +505,10 @@
         "id": "a9ex2g",
         "page": 5,
         "rect": [
-          69.6,
-          429.7,
+          63.599999999999994,
+          431.672607421875,
           139.6,
-          449.8
+          446.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -518,10 +518,10 @@
         "id": "a9ex2h",
         "page": 5,
         "rect": [
-          213.9,
-          429.7,
+          207.9,
+          431.672607421875,
           274.6,
-          449.8
+          446.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -531,10 +531,10 @@
         "id": "a9ex2i",
         "page": 5,
         "rect": [
-          358.2,
-          429.7,
+          352.2,
+          431.672607421875,
           402.0,
-          449.8
+          446.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -555,10 +555,10 @@
         "id": "a9ex3a",
         "page": 5,
         "rect": [
-          69.6,
-          464.7,
+          63.599999999999994,
+          466.672607421875,
           140.3,
-          484.8
+          481.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -568,10 +568,10 @@
         "id": "a9ex3b",
         "page": 5,
         "rect": [
-          213.9,
-          464.7,
+          207.9,
+          466.672607421875,
           294.7,
-          484.8
+          481.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -581,10 +581,10 @@
         "id": "a9ex3c",
         "page": 5,
         "rect": [
-          358.2,
-          464.7,
+          352.2,
+          466.672607421875,
           435.8,
-          484.8
+          481.7725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -594,10 +594,10 @@
         "id": "a9ex3d",
         "page": 5,
         "rect": [
-          69.6,
-          478.8,
+          63.599999999999994,
+          480.7726135253906,
           162.2,
-          498.9
+          495.8725891113281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -607,10 +607,10 @@
         "id": "a9ex3e",
         "page": 5,
         "rect": [
-          213.9,
-          478.8,
+          207.9,
+          480.7726135253906,
           284.7,
-          498.9
+          495.8725891113281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -620,10 +620,10 @@
         "id": "a9ex3f",
         "page": 5,
         "rect": [
-          358.2,
-          478.8,
+          352.2,
+          480.7726135253906,
           424.4,
-          498.9
+          495.8725891113281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -633,10 +633,10 @@
         "id": "a9ex3g",
         "page": 5,
         "rect": [
-          69.6,
-          492.9,
+          63.599999999999994,
+          494.87261962890625,
           142.4,
-          513.0
+          509.97259521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -646,10 +646,10 @@
         "id": "a9ex3h",
         "page": 5,
         "rect": [
-          213.9,
-          492.9,
+          207.9,
+          494.87261962890625,
           315.5,
-          513.0
+          509.97259521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -659,10 +659,10 @@
         "id": "a9ex3i",
         "page": 5,
         "rect": [
-          358.2,
-          492.9,
+          352.2,
+          494.87261962890625,
           402.6,
-          513.0
+          509.97259521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -672,10 +672,10 @@
         "id": "a9ex3j",
         "page": 5,
         "rect": [
-          69.6,
-          507.0,
+          63.599999999999994,
+          508.97259521484375,
           157.6,
-          527.1
+          524.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -685,10 +685,10 @@
         "id": "a9ex3k",
         "page": 5,
         "rect": [
-          213.9,
-          507.0,
+          207.9,
+          508.97259521484375,
           302.0,
-          527.1
+          524.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -698,10 +698,10 @@
         "id": "a9ex3l",
         "page": 5,
         "rect": [
-          358.2,
-          507.0,
+          352.2,
+          508.97259521484375,
           469.1,
-          527.1
+          524.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -722,10 +722,10 @@
         "id": "a9ex4a",
         "page": 5,
         "rect": [
-          69.6,
-          542.0,
+          63.599999999999994,
+          543.9725952148438,
           130.2,
-          562.1
+          559.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -735,10 +735,10 @@
         "id": "a9ex4b",
         "page": 5,
         "rect": [
-          177.8,
-          542.0,
+          171.8,
+          543.9725952148438,
           238.5,
-          562.1
+          559.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -748,10 +748,10 @@
         "id": "a9ex4c",
         "page": 5,
         "rect": [
-          286.1,
-          542.0,
+          280.1,
+          543.9725952148438,
           373.0,
-          562.1
+          559.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -761,10 +761,10 @@
         "id": "a9ex4d",
         "page": 5,
         "rect": [
-          394.3,
-          542.0,
+          388.3,
+          543.9725952148438,
           443.1,
-          562.1
+          559.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -785,10 +785,10 @@
         "id": "a9ex5a",
         "page": 5,
         "rect": [
-          69.6,
-          577.0,
+          63.599999999999994,
+          578.9725952148438,
           140.8,
-          597.1
+          594.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -798,10 +798,10 @@
         "id": "a9ex5b",
         "page": 5,
         "rect": [
-          286.1,
-          577.0,
+          280.1,
+          578.9725952148438,
           409.0,
-          597.1
+          594.0725708007812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -811,10 +811,10 @@
         "id": "a9ex5c",
         "page": 5,
         "rect": [
-          69.6,
-          591.1,
+          63.599999999999994,
+          593.0726318359375,
           157.6,
-          611.2
+          608.172607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -824,10 +824,10 @@
         "id": "a9ex5d",
         "page": 5,
         "rect": [
-          286.1,
-          591.1,
+          280.1,
+          593.0726318359375,
           375.3,
-          611.2
+          608.172607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -848,10 +848,10 @@
         "id": "a9ex6a",
         "page": 5,
         "rect": [
-          69.6,
-          626.1,
+          63.599999999999994,
+          628.0726318359375,
           135.8,
-          646.2
+          643.172607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -861,10 +861,10 @@
         "id": "a9ex6b",
         "page": 5,
         "rect": [
-          213.9,
-          626.1,
+          207.9,
+          628.0726318359375,
           274.7,
-          646.2
+          643.172607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -874,10 +874,10 @@
         "id": "a9ex6c",
         "page": 5,
         "rect": [
-          358.2,
-          626.1,
+          352.2,
+          628.0726318359375,
           447.5,
-          646.2
+          643.172607421875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -887,10 +887,10 @@
         "id": "a9ex6d",
         "page": 5,
         "rect": [
-          69.6,
-          640.2,
+          63.599999999999994,
+          642.172607421875,
           152.2,
-          660.3
+          657.2725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -900,10 +900,10 @@
         "id": "a9ex6e",
         "page": 5,
         "rect": [
-          213.9,
-          640.2,
+          207.9,
+          642.172607421875,
           285.1,
-          660.3
+          657.2725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -913,10 +913,10 @@
         "id": "a9ex6f",
         "page": 5,
         "rect": [
-          358.2,
-          640.2,
+          352.2,
+          642.172607421875,
           447.5,
-          660.3
+          657.2725830078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1015,10 +1015,10 @@
         "id": "a9ex7a",
         "page": 6,
         "rect": [
-          70.0,
-          65.7,
+          64.0,
+          67.67952728271484,
           225.5,
-          82.5
+          79.50952911376953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1028,10 +1028,10 @@
         "id": "a9ex7b",
         "page": 6,
         "rect": [
-          286.5,
-          65.7,
+          280.5,
+          67.67952728271484,
           486.2,
-          82.5
+          79.50952911376953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1041,10 +1041,10 @@
         "id": "a9ex7c",
         "page": 6,
         "rect": [
-          70.0,
-          79.8,
+          64.0,
+          81.77962493896484,
           191.7,
-          96.6
+          93.60962677001953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1054,10 +1054,10 @@
         "id": "a9ex7d",
         "page": 6,
         "rect": [
-          286.5,
-          79.8,
+          280.5,
+          81.77962493896484,
           447.9,
-          96.6
+          93.60962677001953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1067,10 +1067,10 @@
         "id": "a9ex7e",
         "page": 6,
         "rect": [
-          70.0,
-          93.9,
+          64.0,
+          95.87947845458984,
           205.0,
-          110.7
+          107.70948028564453
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1080,10 +1080,10 @@
         "id": "a9ex7f",
         "page": 6,
         "rect": [
-          286.5,
-          93.9,
+          280.5,
+          95.87947845458984,
           441.8,
-          110.7
+          107.70948028564453
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1093,10 +1093,10 @@
         "id": "a9ex7g",
         "page": 6,
         "rect": [
-          70.0,
-          108.0,
+          64.0,
+          109.97957611083984,
           178.6,
-          124.8
+          135.8095703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1106,10 +1106,10 @@
         "id": "a9ex7h",
         "page": 6,
         "rect": [
-          286.5,
-          108.0,
+          280.5,
+          109.97957611083984,
           491.2,
-          138.8
+          135.8095703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1137,10 +1137,10 @@
         "id": "a9ex8a",
         "page": 6,
         "rect": [
-          70.0,
-          178.4,
+          64.0,
+          180.40037536621094,
           303.1,
-          198.5
+          195.50038146972656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1150,10 +1150,10 @@
         "id": "a9ex8b",
         "page": 6,
         "rect": [
-          70.0,
-          191.6,
+          64.0,
+          193.6003875732422,
           451.0,
-          217.7
+          214.74285888671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1163,10 +1163,10 @@
         "id": "a9ex8c",
         "page": 6,
         "rect": [
-          70.0,
-          214.8,
+          64.0,
+          216.84288024902344,
           433.8,
-          234.9
+          231.94288635253906
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1176,10 +1176,10 @@
         "id": "a9ex8d",
         "page": 6,
         "rect": [
-          70.0,
-          229.7,
+          64.0,
+          231.74288940429688,
           313.0,
-          246.6
+          243.5728759765625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1189,10 +1189,10 @@
         "id": "a9ex8e",
         "page": 6,
         "rect": [
-          70.0,
-          243.7,
+          64.0,
+          245.74288940429688,
           444.5,
-          260.6
+          257.5728759765625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1285,10 +1285,10 @@
         "id": "a9ex14a",
         "page": 6,
         "rect": [
-          70.0,
-          486.9,
+          64.0,
+          488.8685302734375,
           135.6,
-          507.0
+          503.968505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1298,10 +1298,10 @@
         "id": "a9ex14b",
         "page": 6,
         "rect": [
-          178.2,
-          486.9,
+          172.2,
+          488.8685302734375,
           243.3,
-          507.0
+          503.968505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1311,10 +1311,10 @@
         "id": "a9ex14c",
         "page": 6,
         "rect": [
-          286.5,
-          486.9,
+          280.5,
+          488.8685302734375,
           330.9,
-          507.0
+          503.968505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1324,10 +1324,10 @@
         "id": "a9ex14d",
         "page": 6,
         "rect": [
-          394.8,
-          486.9,
+          388.8,
+          488.8685302734375,
           472.8,
-          507.0
+          503.968505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1337,10 +1337,10 @@
         "id": "a9ex14e",
         "page": 6,
         "rect": [
-          70.0,
-          501.0,
+          64.0,
+          502.968505859375,
           131.2,
-          521.1
+          518.0684814453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1350,10 +1350,10 @@
         "id": "a9ex14f",
         "page": 6,
         "rect": [
-          178.2,
-          501.0,
+          172.2,
+          502.968505859375,
           256.3,
-          521.1
+          518.0684814453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1363,10 +1363,10 @@
         "id": "a9ex14g",
         "page": 6,
         "rect": [
-          286.5,
-          501.0,
+          280.5,
+          502.968505859375,
           347.2,
-          521.1
+          518.0684814453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1376,10 +1376,10 @@
         "id": "a9ex14h",
         "page": 6,
         "rect": [
-          394.8,
-          501.0,
+          388.8,
+          502.968505859375,
           465.5,
-          521.1
+          518.0684814453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1389,10 +1389,10 @@
         "id": "a9ex14i",
         "page": 6,
         "rect": [
-          70.0,
-          515.1,
+          64.0,
+          517.0685424804688,
           139.5,
-          535.2
+          532.1685180664062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1402,10 +1402,10 @@
         "id": "a9ex14j",
         "page": 6,
         "rect": [
-          178.2,
-          515.1,
+          172.2,
+          517.0685424804688,
           247.8,
-          535.2
+          532.1685180664062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1415,10 +1415,10 @@
         "id": "a9ex14k",
         "page": 6,
         "rect": [
-          286.5,
-          515.1,
+          280.5,
+          517.0685424804688,
           372.9,
-          535.2
+          532.1685180664062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1428,10 +1428,10 @@
         "id": "a9ex14l",
         "page": 6,
         "rect": [
-          394.8,
-          515.1,
+          388.8,
+          517.0685424804688,
           482.4,
-          535.2
+          532.1685180664062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1459,10 +1459,10 @@
         "id": "a9ex15a",
         "page": 6,
         "rect": [
-          70.0,
-          572.4,
+          64.0,
+          574.3893432617188,
           141.2,
-          592.5
+          589.4893188476562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1472,10 +1472,10 @@
         "id": "a9ex15b",
         "page": 6,
         "rect": [
-          286.5,
-          572.4,
+          280.5,
+          574.3893432617188,
           358.5,
-          592.5
+          589.4893188476562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1485,10 +1485,10 @@
         "id": "a9ex15c",
         "page": 6,
         "rect": [
-          70.0,
-          586.5,
+          64.0,
+          588.4894409179688,
           165.6,
-          606.6
+          603.5894165039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1498,10 +1498,10 @@
         "id": "a9ex15d",
         "page": 6,
         "rect": [
-          286.5,
-          586.5,
+          280.5,
+          588.4894409179688,
           382.1,
-          606.6
+          603.5894165039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -1511,10 +1511,10 @@
         "id": "a9ex16a",
         "page": 6,
         "rect": [
-          70.1,
-          606.5,
+          64.1,
+          608.4894409179688,
           410.5,
-          626.6
+          623.5894165039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -1524,10 +1524,10 @@
         "id": "a9ex16b",
         "page": 6,
         "rect": [
-          70.0,
-          621.4,
+          64.0,
+          623.389404296875,
           288.8,
-          638.2
+          635.2194213867188
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -1537,10 +1537,10 @@
         "id": "a9ex16c",
         "page": 6,
         "rect": [
-          70.0,
-          635.4,
+          64.0,
+          637.389404296875,
           447.2,
-          666.2
+          649.2194213867188
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -1550,10 +1550,10 @@
         "id": "a9ex16d",
         "page": 6,
         "rect": [
-          70.0,
-          662.5,
+          64.0,
+          652.0594482421875,
           479.0,
-          694.2
+          691.2194213867188
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -1678,10 +1678,10 @@
         "id": "b9bu1a",
         "page": 8,
         "rect": [
-          86.5,
-          97.4,
+          80.5,
+          99.38469696044922,
           157.3,
-          117.5
+          114.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1691,10 +1691,10 @@
         "id": "b9bu1b",
         "page": 8,
         "rect": [
-          291.0,
-          97.4,
+          285.0,
+          99.38469696044922,
           388.2,
-          117.5
+          114.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1704,10 +1704,10 @@
         "id": "b9bu1c",
         "page": 8,
         "rect": [
-          86.5,
-          119.7,
+          80.5,
+          121.65660858154297,
           161.9,
-          139.8
+          136.8216094970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1717,10 +1717,10 @@
         "id": "b9bu1d",
         "page": 8,
         "rect": [
-          291.0,
-          119.7,
+          285.0,
+          121.65660858154297,
           382.8,
-          139.8
+          136.8216094970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1741,10 +1741,10 @@
         "id": "b9bu2a",
         "page": 8,
         "rect": [
-          86.5,
-          171.0,
+          80.5,
+          173.0004119873047,
           320.6,
-          191.2
+          188.16542053222656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1754,10 +1754,10 @@
         "id": "b9bu2b",
         "page": 8,
         "rect": [
-          86.5,
-          193.2,
+          80.5,
+          195.1722869873047,
           261.7,
-          213.3
+          210.33729553222656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1767,10 +1767,10 @@
         "id": "b9bu2c",
         "page": 8,
         "rect": [
-          86.5,
-          215.3,
+          80.5,
+          217.3441925048828,
           256.7,
-          235.5
+          232.5092010498047
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1780,10 +1780,10 @@
         "id": "b9bu2d",
         "page": 8,
         "rect": [
-          86.5,
-          237.5,
+          80.5,
+          239.51609802246094,
           318.5,
-          255.5
+          252.50711059570312
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1804,10 +1804,10 @@
         "id": "b9bu3a",
         "page": 8,
         "rect": [
-          86.5,
-          294.7,
+          80.5,
+          296.6880187988281,
           152.1,
-          314.9
+          311.8529968261719
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1817,10 +1817,10 @@
         "id": "b9bu3b",
         "page": 8,
         "rect": [
-          188.7,
-          294.7,
+          182.7,
+          296.6880187988281,
           254.4,
-          314.9
+          311.8529968261719
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1830,10 +1830,10 @@
         "id": "b9bu3c",
         "page": 8,
         "rect": [
-          291.0,
-          294.7,
+          285.0,
+          296.6880187988281,
           362.2,
-          314.9
+          311.8529968261719
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1843,10 +1843,10 @@
         "id": "b9bu3d",
         "page": 8,
         "rect": [
-          393.2,
-          294.7,
+          387.2,
+          296.6880187988281,
           464.4,
-          314.9
+          311.8529968261719
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -1988,10 +1988,10 @@
         "id": "b9ex1a",
         "page": 10,
         "rect": [
-          70.0,
-          125.5,
+          64.0,
+          127.47257995605469,
           144.9,
-          145.6
+          142.5725860595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2001,10 +2001,10 @@
         "id": "b9ex1b",
         "page": 10,
         "rect": [
-          178.3,
-          125.5,
+          172.3,
+          127.47257995605469,
           252.4,
-          145.6
+          142.5725860595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2014,10 +2014,10 @@
         "id": "b9ex1c",
         "page": 10,
         "rect": [
-          286.5,
-          125.5,
+          280.5,
+          127.47257995605469,
           361.9,
-          145.6
+          142.5725860595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2027,10 +2027,10 @@
         "id": "b9ex1d",
         "page": 10,
         "rect": [
-          394.8,
-          125.5,
+          388.8,
+          127.47257995605469,
           470.1,
-          145.6
+          142.5725860595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2051,10 +2051,10 @@
         "id": "b9ex2a",
         "page": 10,
         "rect": [
-          70.0,
-          165.6,
+          64.0,
+          167.64256286621094,
           140.4,
-          185.7
+          182.74452209472656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2064,10 +2064,10 @@
         "id": "b9ex2b",
         "page": 10,
         "rect": [
-          178.3,
-          165.6,
+          172.3,
+          167.64256286621094,
           253.2,
-          185.7
+          182.74452209472656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2077,10 +2077,10 @@
         "id": "b9ex2c",
         "page": 10,
         "rect": [
-          286.5,
-          165.6,
+          280.5,
+          167.64256286621094,
           362.3,
-          185.7
+          182.74452209472656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2090,10 +2090,10 @@
         "id": "b9ex2d",
         "page": 10,
         "rect": [
-          394.8,
-          165.6,
+          388.8,
+          167.64256286621094,
           453.5,
-          185.7
+          182.74452209472656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2103,10 +2103,10 @@
         "id": "b9ex2e",
         "page": 10,
         "rect": [
-          70.0,
-          187.9,
+          64.0,
+          189.9164276123047,
           144.9,
-          208.0
+          205.0164337158203
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2116,10 +2116,10 @@
         "id": "b9ex2f",
         "page": 10,
         "rect": [
-          178.3,
-          187.9,
+          172.3,
+          189.9164276123047,
           263.6,
-          208.0
+          205.0164337158203
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2129,10 +2129,10 @@
         "id": "b9ex2g",
         "page": 10,
         "rect": [
-          286.5,
-          187.9,
+          280.5,
+          189.9164276123047,
           361.4,
-          208.0
+          205.0164337158203
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2142,10 +2142,10 @@
         "id": "b9ex2h",
         "page": 10,
         "rect": [
-          394.8,
-          187.9,
+          388.8,
+          189.9164276123047,
           475.5,
-          208.0
+          205.0164337158203
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2166,10 +2166,10 @@
         "id": "b9ex3a",
         "page": 10,
         "rect": [
-          70.0,
-          228.1,
+          64.0,
+          230.08644104003906,
           135.2,
-          248.2
+          245.1864471435547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2179,10 +2179,10 @@
         "id": "b9ex3b",
         "page": 10,
         "rect": [
-          178.3,
-          228.1,
+          172.3,
+          230.08644104003906,
           236.0,
-          248.2
+          245.1864471435547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2192,10 +2192,10 @@
         "id": "b9ex3c",
         "page": 10,
         "rect": [
-          286.5,
-          228.1,
+          280.5,
+          230.08644104003906,
           350.0,
-          248.2
+          245.1864471435547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2205,10 +2205,10 @@
         "id": "b9ex3d",
         "page": 10,
         "rect": [
-          394.8,
-          228.1,
+          388.8,
+          230.08644104003906,
           456.0,
-          248.2
+          245.1864471435547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2218,10 +2218,10 @@
         "id": "b9ex3e",
         "page": 10,
         "rect": [
-          70.0,
-          242.2,
+          64.0,
+          244.1883087158203,
           134.0,
-          262.3
+          259.2882995605469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2231,10 +2231,10 @@
         "id": "b9ex3f",
         "page": 10,
         "rect": [
-          178.2,
-          242.2,
+          172.2,
+          244.1883087158203,
           239.4,
-          262.3
+          259.2882995605469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2244,10 +2244,10 @@
         "id": "b9ex3g",
         "page": 10,
         "rect": [
-          286.5,
-          242.2,
+          280.5,
+          244.1883087158203,
           351.6,
-          262.3
+          259.2882995605469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2257,10 +2257,10 @@
         "id": "b9ex3h",
         "page": 10,
         "rect": [
-          394.7,
-          242.2,
+          388.7,
+          244.1883087158203,
           454.2,
-          262.3
+          259.2882995605469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2270,10 +2270,10 @@
         "id": "b9ex3i",
         "page": 10,
         "rect": [
-          70.0,
-          256.3,
+          64.0,
+          258.288330078125,
           135.6,
-          276.4
+          273.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2283,10 +2283,10 @@
         "id": "b9ex3j",
         "page": 10,
         "rect": [
-          178.2,
-          256.3,
+          172.2,
+          258.288330078125,
           242.1,
-          276.4
+          273.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2296,10 +2296,10 @@
         "id": "b9ex3k",
         "page": 10,
         "rect": [
-          286.5,
-          256.3,
+          280.5,
+          258.288330078125,
           351.6,
-          276.4
+          273.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2309,10 +2309,10 @@
         "id": "b9ex3l",
         "page": 10,
         "rect": [
-          394.7,
-          256.3,
+          388.7,
+          258.288330078125,
           454.8,
-          276.4
+          273.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2333,10 +2333,10 @@
         "id": "b9ex4a",
         "page": 10,
         "rect": [
-          70.0,
-          291.3,
+          64.0,
+          293.288330078125,
           136.2,
-          311.4
+          308.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2346,10 +2346,10 @@
         "id": "b9ex4b",
         "page": 10,
         "rect": [
-          178.2,
-          291.3,
+          172.2,
+          293.288330078125,
           249.4,
-          311.4
+          308.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2359,10 +2359,10 @@
         "id": "b9ex4c",
         "page": 10,
         "rect": [
-          286.5,
-          291.3,
+          280.5,
+          293.288330078125,
           352.7,
-          311.4
+          308.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2372,10 +2372,10 @@
         "id": "b9ex4d",
         "page": 10,
         "rect": [
-          394.7,
-          291.3,
+          388.7,
+          293.288330078125,
           465.4,
-          311.4
+          308.3883056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2385,10 +2385,10 @@
         "id": "b9ex4e",
         "page": 10,
         "rect": [
-          70.0,
-          305.4,
+          64.0,
+          307.3883056640625,
           136.2,
-          325.5
+          322.48828125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2398,10 +2398,10 @@
         "id": "b9ex4f",
         "page": 10,
         "rect": [
-          178.2,
-          305.4,
+          172.2,
+          307.3883056640625,
           249.4,
-          325.5
+          322.48828125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2411,10 +2411,10 @@
         "id": "b9ex4g",
         "page": 10,
         "rect": [
-          286.5,
-          305.4,
+          280.5,
+          307.3883056640625,
           357.7,
-          325.5
+          322.48828125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2424,10 +2424,10 @@
         "id": "b9ex4h",
         "page": 10,
         "rect": [
-          394.7,
-          305.4,
+          388.7,
+          307.3883056640625,
           467.0,
-          325.5
+          322.48828125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2437,10 +2437,10 @@
         "id": "b9ex4i",
         "page": 10,
         "rect": [
-          70.0,
-          319.5,
+          64.0,
+          321.4883117675781,
           147.9,
-          339.6
+          336.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2450,10 +2450,10 @@
         "id": "b9ex4j",
         "page": 10,
         "rect": [
-          178.2,
-          319.5,
+          172.2,
+          321.4883117675781,
           249.4,
-          339.6
+          336.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2463,10 +2463,10 @@
         "id": "b9ex4k",
         "page": 10,
         "rect": [
-          286.5,
-          319.5,
+          280.5,
+          321.4883117675781,
           354.9,
-          339.6
+          336.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2476,10 +2476,10 @@
         "id": "b9ex4l",
         "page": 10,
         "rect": [
-          394.7,
-          319.5,
+          388.7,
+          321.4883117675781,
           460.9,
-          339.6
+          336.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2500,10 +2500,10 @@
         "id": "b9ex5a",
         "page": 10,
         "rect": [
-          70.0,
-          354.5,
+          64.0,
+          356.4883117675781,
           175.5,
-          374.6
+          371.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2513,10 +2513,10 @@
         "id": "b9ex5b",
         "page": 10,
         "rect": [
-          214.3,
-          354.5,
+          208.3,
+          356.4883117675781,
           290.8,
-          374.6
+          371.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2526,10 +2526,10 @@
         "id": "b9ex5c",
         "page": 10,
         "rect": [
-          358.7,
-          354.5,
+          352.7,
+          356.4883117675781,
           446.6,
-          374.6
+          371.5882873535156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2539,10 +2539,10 @@
         "id": "b9ex5d",
         "page": 10,
         "rect": [
-          70.0,
-          368.6,
+          64.0,
+          370.58831787109375,
           151.9,
-          388.7
+          385.68829345703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2552,10 +2552,10 @@
         "id": "b9ex5e",
         "page": 10,
         "rect": [
-          214.3,
-          368.6,
+          208.3,
+          370.58831787109375,
           319.9,
-          388.7
+          385.68829345703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2565,10 +2565,10 @@
         "id": "b9ex5f",
         "page": 10,
         "rect": [
-          358.7,
-          368.6,
+          352.7,
+          370.58831787109375,
           428.7,
-          388.7
+          385.68829345703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2596,10 +2596,10 @@
         "id": "b9ex6a",
         "page": 10,
         "rect": [
-          70.0,
-          431.8,
+          64.0,
+          433.8092041015625,
           254.7,
-          448.6
+          445.6391906738281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2609,10 +2609,10 @@
         "id": "b9ex6b",
         "page": 10,
         "rect": [
-          70.0,
-          445.8,
+          64.0,
+          447.8092041015625,
           191.4,
-          462.6
+          459.6391906738281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2622,10 +2622,10 @@
         "id": "b9ex6c",
         "page": 10,
         "rect": [
-          70.0,
-          459.8,
+          64.0,
+          461.8092041015625,
           177.8,
-          476.6
+          473.6391906738281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2635,10 +2635,10 @@
         "id": "b9ex6d",
         "page": 10,
         "rect": [
-          70.0,
-          473.8,
+          64.0,
+          475.8092041015625,
           201.9,
-          490.6
+          487.6391906738281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2648,10 +2648,10 @@
         "id": "b9ex6e",
         "page": 10,
         "rect": [
-          70.0,
-          487.8,
+          64.0,
+          489.8092041015625,
           279.5,
-          504.6
+          501.6391906738281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2672,10 +2672,10 @@
         "id": "b9ex7a",
         "page": 10,
         "rect": [
-          70.0,
-          536.8,
-          474.4,
-          584.0
+          64.0,
+          538.8092041015625,
+          450.8,
+          564.6392211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2685,10 +2685,10 @@
         "id": "b9ex7b",
         "page": 10,
         "rect": [
-          70.0,
-          578.8,
-          307.6,
-          595.6
+          64.0,
+          565.9092407226562,
+          474.4,
+          592.6392211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2698,10 +2698,10 @@
         "id": "b9ex7c",
         "page": 10,
         "rect": [
-          70.0,
-          592.8,
+          64.0,
+          594.8092041015625,
           170.6,
-          609.6
+          606.6392211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2812,10 +2812,10 @@
         "id": "b9ex8a",
         "page": 11,
         "rect": [
-          69.6,
-          79.7,
+          63.599999999999994,
+          81.67952728271484,
           310.9,
-          96.5
+          93.50952911376953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2825,10 +2825,10 @@
         "id": "b9ex8b",
         "page": 11,
         "rect": [
-          69.6,
-          93.7,
+          63.599999999999994,
+          95.67952728271484,
           307.2,
-          110.5
+          107.50952911376953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2849,10 +2849,10 @@
         "id": "b9ex9a",
         "page": 11,
         "rect": [
-          69.6,
-          142.7,
+          63.599999999999994,
+          144.67953491210938,
           313.2,
-          159.5
+          156.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2862,10 +2862,10 @@
         "id": "b9ex9b",
         "page": 11,
         "rect": [
-          69.6,
-          156.7,
+          63.599999999999994,
+          158.67953491210938,
           309.5,
-          173.5
+          170.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2886,10 +2886,10 @@
         "id": "b9ex10a",
         "page": 11,
         "rect": [
-          69.6,
-          205.7,
+          63.599999999999994,
+          207.67953491210938,
           257.0,
-          236.5
+          219.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2899,10 +2899,10 @@
         "id": "b9ex10b",
         "page": 11,
         "rect": [
-          69.6,
-          233.7,
+          63.599999999999994,
+          222.3495330810547,
           257.8,
-          250.5
+          247.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2923,10 +2923,10 @@
         "id": "b9ex11a",
         "page": 11,
         "rect": [
-          69.6,
-          282.7,
+          63.599999999999994,
+          284.6795349121094,
           257.0,
-          313.5
+          296.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2936,10 +2936,10 @@
         "id": "b9ex11b",
         "page": 11,
         "rect": [
-          69.6,
-          310.7,
+          63.599999999999994,
+          299.3495178222656,
           257.8,
-          327.5
+          324.509521484375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2956,10 +2956,10 @@
         "id": "b9ex12a",
         "page": 11,
         "rect": [
-          69.3,
-          365.2,
+          63.3,
+          367.1806335449219,
           290.6,
-          385.3
+          382.2806091308594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2969,10 +2969,10 @@
         "id": "b9ex12b",
         "page": 11,
         "rect": [
-          69.2,
-          379.2,
+          63.2,
+          381.1806335449219,
           431.6,
-          413.3
+          410.2806091308594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -2993,10 +2993,10 @@
         "id": "b9ex13a",
         "page": 11,
         "rect": [
-          69.2,
-          428.2,
+          63.2,
+          430.1806335449219,
           432.9,
-          448.3
+          445.2806091308594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -3006,10 +3006,10 @@
         "id": "b9ex13b",
         "page": 11,
         "rect": [
-          69.2,
-          442.2,
+          63.2,
+          444.1806335449219,
           456.1,
-          473.9
+          470.9106140136719
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -3037,10 +3037,10 @@
         "id": "b9ex14a",
         "page": 11,
         "rect": [
-          69.2,
-          527.5,
+          63.2,
+          529.5015258789062,
           129.2,
-          547.6
+          544.6015014648438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3050,10 +3050,10 @@
         "id": "b9ex14b",
         "page": 11,
         "rect": [
-          213.5,
-          527.5,
+          207.5,
+          529.5015258789062,
           273.6,
-          547.6
+          544.6015014648438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3063,10 +3063,10 @@
         "id": "b9ex14c",
         "page": 11,
         "rect": [
-          357.8,
-          527.5,
+          351.8,
+          529.5015258789062,
           422.9,
-          547.6
+          544.6015014648438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3076,10 +3076,10 @@
         "id": "b9ex14d",
         "page": 11,
         "rect": [
-          69.2,
-          541.6,
+          63.2,
+          543.6015014648438,
           128.8,
-          561.7
+          558.7014770507812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3089,10 +3089,10 @@
         "id": "b9ex14e",
         "page": 11,
         "rect": [
-          213.5,
-          541.6,
+          207.5,
+          543.6015014648438,
           295.4,
-          561.7
+          558.7014770507812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3102,10 +3102,10 @@
         "id": "b9ex14f",
         "page": 11,
         "rect": [
-          357.8,
-          541.6,
+          351.8,
+          543.6015014648438,
           433.2,
-          561.7
+          558.7014770507812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3254,10 +3254,10 @@
         "id": "c9bu1a",
         "page": 13,
         "rect": [
-          86.1,
-          431.2,
+          80.1,
+          433.2447204589844,
           162.3,
-          451.4
+          448.4096984863281
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3267,10 +3267,10 @@
         "id": "c9bu1b",
         "page": 13,
         "rect": [
-          188.3,
-          431.2,
+          182.3,
+          433.2447204589844,
           242.1,
-          451.4
+          448.4096984863281
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3280,10 +3280,10 @@
         "id": "c9bu1c",
         "page": 13,
         "rect": [
-          290.6,
-          431.2,
+          284.6,
+          433.2447204589844,
           344.9,
-          451.4
+          448.4096984863281
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3293,10 +3293,10 @@
         "id": "c9bu1d",
         "page": 13,
         "rect": [
-          392.8,
-          431.2,
+          386.8,
+          433.2447204589844,
           441.6,
-          451.4
+          448.4096984863281
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3317,10 +3317,10 @@
         "id": "c9bu2a",
         "page": 13,
         "rect": [
-          86.1,
-          482.0,
+          80.1,
+          483.96160888671875,
           361.9,
-          500.6
+          497.5516052246094
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3330,10 +3330,10 @@
         "id": "c9bu2b",
         "page": 13,
         "rect": [
-          86.1,
-          497.1,
+          80.1,
+          499.1086120605469,
           372.1,
-          515.7
+          512.6986083984375
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3343,10 +3343,10 @@
         "id": "c9bu2c",
         "page": 13,
         "rect": [
-          86.1,
-          512.3,
+          80.1,
+          514.255615234375,
           352.9,
-          530.8
+          527.8455810546875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3356,10 +3356,10 @@
         "id": "c9bu2d",
         "page": 13,
         "rect": [
-          86.1,
-          527.5,
+          80.1,
+          529.53759765625,
           348.4,
-          546.1
+          543.1275634765625
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3369,10 +3369,10 @@
         "id": "c9bu2e",
         "page": 13,
         "rect": [
-          86.1,
-          542.7,
+          80.1,
+          544.6846313476562,
           348.4,
-          561.3
+          558.2745971679688
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -3531,10 +3531,10 @@
         "id": "c9ex1a",
         "page": 15,
         "rect": [
-          69.6,
-          222.9,
+          63.599999999999994,
+          224.8846893310547,
           155.4,
-          243.0
+          239.9846954345703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3544,10 +3544,10 @@
         "id": "c9ex1b",
         "page": 15,
         "rect": [
-          69.6,
-          236.9,
+          63.599999999999994,
+          238.8846893310547,
           142.7,
-          257.0
+          253.9846954345703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3557,10 +3557,10 @@
         "id": "c9ex1c",
         "page": 15,
         "rect": [
-          69.6,
-          250.9,
+          63.599999999999994,
+          252.8846893310547,
           147.6,
-          271.0
+          267.98468017578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3581,10 +3581,10 @@
         "id": "c9ex2a",
         "page": 15,
         "rect": [
-          69.7,
-          299.9,
+          63.7,
+          301.88470458984375,
           160.6,
-          320.0
+          316.98468017578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3594,10 +3594,10 @@
         "id": "c9ex2b",
         "page": 15,
         "rect": [
-          214.1,
-          299.9,
+          208.1,
+          301.88470458984375,
           287.2,
-          320.0
+          316.98468017578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3607,10 +3607,10 @@
         "id": "c9ex2c",
         "page": 15,
         "rect": [
-          358.4,
-          299.9,
+          352.4,
+          301.88470458984375,
           436.4,
-          320.0
+          316.98468017578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3620,10 +3620,10 @@
         "id": "c9ex2d",
         "page": 15,
         "rect": [
-          69.6,
-          314.0,
+          63.599999999999994,
+          315.9848327636719,
           161.0,
-          334.1
+          331.0848083496094
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3633,10 +3633,10 @@
         "id": "c9ex2e",
         "page": 15,
         "rect": [
-          214.0,
-          314.0,
+          208.0,
+          315.9848327636719,
           305.4,
-          334.1
+          331.0848083496094
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3646,10 +3646,10 @@
         "id": "c9ex2f",
         "page": 15,
         "rect": [
-          358.3,
-          314.0,
+          352.3,
+          315.9848327636719,
           449.7,
-          334.1
+          331.0848083496094
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3659,10 +3659,10 @@
         "id": "c9ex2g",
         "page": 15,
         "rect": [
-          69.6,
-          328.1,
+          63.599999999999994,
+          330.0848083496094,
           156.0,
-          348.2
+          345.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3672,10 +3672,10 @@
         "id": "c9ex2h",
         "page": 15,
         "rect": [
-          214.0,
-          328.1,
+          208.0,
+          330.0848083496094,
           309.8,
-          348.2
+          345.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3685,10 +3685,10 @@
         "id": "c9ex2i",
         "page": 15,
         "rect": [
-          358.3,
-          328.1,
+          352.3,
+          330.0848083496094,
           454.7,
-          348.2
+          345.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3709,10 +3709,10 @@
         "id": "c9ex3a",
         "page": 15,
         "rect": [
-          69.7,
-          363.1,
+          63.7,
+          365.0848083496094,
           186.0,
-          383.2
+          380.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3722,10 +3722,10 @@
         "id": "c9ex3b",
         "page": 15,
         "rect": [
-          69.6,
-          377.1,
+          63.599999999999994,
+          379.0848083496094,
           208.9,
-          397.2
+          394.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3735,10 +3735,10 @@
         "id": "c9ex3c",
         "page": 15,
         "rect": [
-          69.6,
-          391.1,
+          63.599999999999994,
+          393.0848083496094,
           175.2,
-          411.2
+          408.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3748,10 +3748,10 @@
         "id": "c9ex3d",
         "page": 15,
         "rect": [
-          69.6,
-          405.1,
+          63.599999999999994,
+          407.0848083496094,
           209.5,
-          425.2
+          422.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3761,10 +3761,10 @@
         "id": "c9ex3e",
         "page": 15,
         "rect": [
-          69.6,
-          419.1,
+          63.599999999999994,
+          421.0848083496094,
           164.1,
-          439.2
+          436.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3774,10 +3774,10 @@
         "id": "c9ex3f",
         "page": 15,
         "rect": [
-          69.6,
-          433.1,
+          63.599999999999994,
+          435.0848083496094,
           197.8,
-          453.2
+          450.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3787,10 +3787,10 @@
         "id": "c9ex3g",
         "page": 15,
         "rect": [
-          69.6,
-          447.1,
+          63.599999999999994,
+          449.0848083496094,
           220.6,
-          467.2
+          464.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3800,10 +3800,10 @@
         "id": "c9ex3h",
         "page": 15,
         "rect": [
-          69.6,
-          461.1,
+          63.599999999999994,
+          463.0848083496094,
           191.0,
-          481.2
+          478.1847839355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3824,10 +3824,10 @@
         "id": "c9ex4a",
         "page": 15,
         "rect": [
-          69.6,
-          510.1,
+          63.599999999999994,
+          512.0847778320312,
           113.4,
-          530.2
+          527.1847534179688
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3837,10 +3837,10 @@
         "id": "c9ex4b",
         "page": 15,
         "rect": [
-          213.9,
-          510.1,
+          207.9,
+          512.0847778320312,
           275.1,
-          530.2
+          527.1847534179688
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3850,10 +3850,10 @@
         "id": "c9ex4c",
         "page": 15,
         "rect": [
-          358.2,
-          510.1,
+          352.2,
+          512.0847778320312,
           419.4,
-          530.2
+          527.1847534179688
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3863,10 +3863,10 @@
         "id": "c9ex4d",
         "page": 15,
         "rect": [
-          69.6,
-          524.2,
+          63.599999999999994,
+          526.184814453125,
           130.8,
-          544.3
+          541.2847900390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3876,10 +3876,10 @@
         "id": "c9ex4e",
         "page": 15,
         "rect": [
-          213.9,
-          524.2,
+          207.9,
+          526.184814453125,
           279.6,
-          544.3
+          541.2847900390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3889,10 +3889,10 @@
         "id": "c9ex4f",
         "page": 15,
         "rect": [
-          358.2,
-          524.2,
+          352.2,
+          526.184814453125,
           407.0,
-          544.3
+          541.2847900390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3920,10 +3920,10 @@
         "id": "c9ex5a",
         "page": 15,
         "rect": [
-          69.6,
-          597.2,
+          63.599999999999994,
+          599.1575317382812,
           343.5,
-          615.7
+          612.7474975585938
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3933,10 +3933,10 @@
         "id": "c9ex5b",
         "page": 15,
         "rect": [
-          69.6,
-          612.3,
+          63.599999999999994,
+          614.3045043945312,
           337.3,
-          630.9
+          627.8944702148438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3946,10 +3946,10 @@
         "id": "c9ex5c",
         "page": 15,
         "rect": [
-          69.6,
-          627.2,
+          63.599999999999994,
+          629.217529296875,
           337.3,
-          645.8
+          642.8074951171875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3959,10 +3959,10 @@
         "id": "c9ex5d",
         "page": 15,
         "rect": [
-          69.6,
-          642.1,
+          63.599999999999994,
+          644.1304931640625,
           337.3,
-          660.7
+          657.720458984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -3972,10 +3972,10 @@
         "id": "c9ex5e",
         "page": 15,
         "rect": [
-          69.6,
-          657.3,
+          63.599999999999994,
+          659.2775268554688,
           352.5,
-          675.9
+          672.8674926757812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4062,10 +4062,10 @@
         "id": "c9ex6a",
         "page": 16,
         "rect": [
-          70.0,
-          78.8,
+          64.0,
+          80.77952575683594,
           181.4,
-          98.9
+          95.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4075,10 +4075,10 @@
         "id": "c9ex6b",
         "page": 16,
         "rect": [
-          286.5,
-          78.8,
+          280.5,
+          80.77952575683594,
           408.4,
-          98.9
+          95.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4088,10 +4088,10 @@
         "id": "c9ex6c",
         "page": 16,
         "rect": [
-          70.0,
-          92.9,
+          64.0,
+          94.87962341308594,
           188.0,
-          113.0
+          109.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4101,10 +4101,10 @@
         "id": "c9ex6d",
         "page": 16,
         "rect": [
-          286.5,
-          92.9,
+          280.5,
+          94.87962341308594,
           402.9,
-          113.0
+          109.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4125,10 +4125,10 @@
         "id": "c9ex7a",
         "page": 16,
         "rect": [
-          70.0,
-          141.9,
+          64.0,
+          143.87962341308594,
           136.2,
-          162.0
+          158.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4138,10 +4138,10 @@
         "id": "c9ex7b",
         "page": 16,
         "rect": [
-          178.2,
-          141.9,
+          172.2,
+          143.87962341308594,
           253.9,
-          162.0
+          158.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4151,10 +4151,10 @@
         "id": "c9ex7c",
         "page": 16,
         "rect": [
-          286.5,
-          141.9,
+          280.5,
+          143.87962341308594,
           363.8,
-          162.0
+          158.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4164,10 +4164,10 @@
         "id": "c9ex7d",
         "page": 16,
         "rect": [
-          394.7,
-          141.9,
+          388.7,
+          143.87962341308594,
           459.2,
-          162.0
+          158.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4221,10 +4221,10 @@
         "id": "c9ex10a",
         "page": 16,
         "rect": [
-          70.0,
-          507.2,
+          64.0,
+          509.20037841796875,
           164.9,
-          527.3
+          524.3003540039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4234,10 +4234,10 @@
         "id": "c9ex10b",
         "page": 16,
         "rect": [
-          286.5,
-          507.2,
+          280.5,
+          509.20037841796875,
           381.4,
-          527.3
+          524.3003540039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4265,10 +4265,10 @@
         "id": "c9ex11a",
         "page": 16,
         "rect": [
-          70.0,
-          565.4,
+          64.0,
+          567.4212646484375,
           238.8,
-          582.3
+          579.2512817382812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -4278,10 +4278,10 @@
         "id": "c9ex11b",
         "page": 16,
         "rect": [
-          70.0,
-          579.4,
+          64.0,
+          581.4212646484375,
           449.8,
-          596.3
+          593.2512817382812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -4291,10 +4291,10 @@
         "id": "c9ex11c",
         "page": 16,
         "rect": [
-          70.0,
-          593.4,
+          64.0,
+          595.4212646484375,
           469.2,
-          624.3
+          607.2512817382812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -4304,10 +4304,10 @@
         "id": "c9ex11d",
         "page": 16,
         "rect": [
-          70.0,
-          621.4,
+          64.0,
+          610.09130859375,
           480.0,
-          652.3
+          649.2512817382812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -4405,27 +4405,113 @@
         "text": "Building Understanding"
       },
       {
-        "type": "question",
-        "id": "d9bu1",
+        "type": "image",
+        "id": "d9bu1_stem",
         "page": 18,
         "rect": [
           62.5,
           458.1,
           339.9,
-          555.3
+          474.14971923828125
+        ]
+      },
+      {
+        "type": "question",
+        "id": "d9bu1a",
+        "page": 18,
+        "rect": [
+          80.5,
+          478.14971923828125,
+          179.5,
+          493.314697265625
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
       },
       {
         "type": "question",
-        "id": "d9bu2",
+        "id": "d9bu1b",
+        "page": 18,
+        "rect": [
+          80.5,
+          492.14971923828125,
+          180.7,
+          507.314697265625
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "d9bu1c",
+        "page": 18,
+        "rect": [
+          80.5,
+          506.14971923828125,
+          192.3,
+          521.314697265625
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "d9bu1d",
+        "page": 18,
+        "rect": [
+          80.5,
+          520.1497192382812,
+          185.7,
+          535.314697265625
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "d9bu1e",
+        "page": 18,
+        "rect": [
+          80.5,
+          534.1497192382812,
+          180.8,
+          549.314697265625
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "image",
+        "id": "d9bu2_stem",
         "page": 18,
         "rect": [
           62.5,
           546.8,
+          320.7,
+          565.1497192382812
+        ]
+      },
+      {
+        "type": "question",
+        "id": "d9bu2a",
+        "page": 18,
+        "rect": [
+          80.5,
+          566.3178100585938,
+          343.6,
+          593.3131713867188
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "d9bu2b",
+        "page": 18,
+        "rect": [
+          80.5,
+          584.7847290039062,
           462.7,
-          632.3
+          623
         ],
         "workingSpaceStyle": "none"
       },
@@ -4443,7 +4529,33 @@
         "workingSpaceHeightMm": 10
       }
     ],
-    "combinedGroups": []
+    "combinedGroups": [
+      {
+        "groupId": "d9bu1",
+        "page": 18,
+        "rect": [
+          80.5,
+          472.1,
+          192.3,
+          555.3
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "d9bu2",
+        "page": 18,
+        "rect": [
+          80.5,
+          560.3,
+          462.7,
+          632.3
+        ],
+        "workingSpaceStyle": "none",
+        "forceSplit": true
+      }
+    ]
   },
   {
     "blocks": [
@@ -4463,10 +4575,10 @@
         "id": "d9bu4a",
         "page": 19,
         "rect": [
-          85.6,
-          91.5,
+          79.6,
+          93.48473358154297,
           168.6,
-          140.3
+          109.32953643798828
         ],
         "workingSpaceStyle": "none"
       },
@@ -4475,10 +4587,10 @@
         "id": "d9bu4b",
         "page": 19,
         "rect": [
-          290.1,
-          91.5,
+          284.1,
+          93.48473358154297,
           365.9,
-          140.3
+          109.32953643798828
         ],
         "workingSpaceStyle": "none"
       },
@@ -4487,10 +4599,10 @@
         "id": "d9bu4c",
         "page": 19,
         "rect": [
-          85.6,
-          145.8,
-          151.7,
-          195.8
+          79.6,
+          124.2995376586914,
+          160.9,
+          192.840576171875
         ],
         "workingSpaceStyle": "none"
       },
@@ -4499,10 +4611,10 @@
         "id": "d9bu4d",
         "page": 19,
         "rect": [
-          290.1,
-          145.8,
+          284.1,
+          124.2995376586914,
           371.4,
-          194.7
+          192.840576171875
         ],
         "workingSpaceStyle": "none"
       },
@@ -4616,10 +4728,10 @@
         "id": "d9ex1a",
         "page": 21,
         "rect": [
-          69.6,
-          123.8,
+          63.599999999999994,
+          125.77061462402344,
           353.9,
-          143.9
+          140.87062072753906
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4629,10 +4741,10 @@
         "id": "d9ex1b",
         "page": 21,
         "rect": [
-          69.6,
-          143.8,
+          63.599999999999994,
+          145.77061462402344,
           370.7,
-          163.9
+          160.87062072753906
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4642,10 +4754,10 @@
         "id": "d9ex1c",
         "page": 21,
         "rect": [
-          69.6,
-          159.9,
+          63.599999999999994,
+          161.9005889892578,
           346.0,
-          188.0
+          184.98297119140625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4666,10 +4778,10 @@
         "id": "d9ex2a",
         "page": 21,
         "rect": [
-          69.6,
-          202.2,
+          63.599999999999994,
+          204.22300720214844,
           126.2,
-          222.3
+          219.32301330566406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4679,10 +4791,10 @@
         "id": "d9ex2b",
         "page": 21,
         "rect": [
-          177.8,
-          202.2,
+          171.8,
+          204.22300720214844,
           239.0,
-          222.3
+          219.32301330566406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4692,10 +4804,10 @@
         "id": "d9ex2c",
         "page": 21,
         "rect": [
-          286.1,
-          202.2,
+          280.1,
+          204.22300720214844,
           350.7,
-          222.3
+          219.32301330566406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4705,10 +4817,10 @@
         "id": "d9ex2d",
         "page": 21,
         "rect": [
-          394.3,
-          202.2,
+          388.3,
+          204.22300720214844,
           453.3,
-          222.3
+          219.32301330566406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4718,10 +4830,10 @@
         "id": "d9ex2e",
         "page": 21,
         "rect": [
-          69.6,
-          216.3,
+          63.599999999999994,
+          218.32569885253906,
           128.6,
-          236.4
+          233.4257049560547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4731,10 +4843,10 @@
         "id": "d9ex2f",
         "page": 21,
         "rect": [
-          177.8,
-          216.3,
+          171.8,
+          218.32569885253906,
           244.0,
-          236.4
+          233.4257049560547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4744,10 +4856,10 @@
         "id": "d9ex2g",
         "page": 21,
         "rect": [
-          286.1,
-          216.3,
+          280.1,
+          218.32569885253906,
           339.9,
-          236.4
+          233.4257049560547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4757,10 +4869,10 @@
         "id": "d9ex2h",
         "page": 21,
         "rect": [
-          394.3,
-          216.3,
+          388.3,
+          218.32569885253906,
           459.4,
-          236.4
+          233.4257049560547
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4770,10 +4882,10 @@
         "id": "d9ex2i",
         "page": 21,
         "rect": [
-          69.6,
-          230.4,
+          63.599999999999994,
+          232.4257049560547,
           133.1,
-          250.5
+          247.5257110595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4783,10 +4895,10 @@
         "id": "d9ex2j",
         "page": 21,
         "rect": [
-          177.8,
-          230.4,
+          171.8,
+          232.4257049560547,
           241.8,
-          250.5
+          247.5257110595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4796,10 +4908,10 @@
         "id": "d9ex2k",
         "page": 21,
         "rect": [
-          286.1,
-          230.4,
+          280.1,
+          232.4257049560547,
           345.5,
-          250.5
+          247.5257110595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4809,10 +4921,10 @@
         "id": "d9ex2l",
         "page": 21,
         "rect": [
-          394.3,
-          230.4,
+          388.3,
+          232.4257049560547,
           460.0,
-          250.5
+          247.5257110595703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4833,10 +4945,10 @@
         "id": "d9ex3a",
         "page": 21,
         "rect": [
-          69.6,
-          294.5,
+          63.599999999999994,
+          296.5257263183594,
           155.1,
-          370.4
+          339.4049987792969
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4846,10 +4958,10 @@
         "id": "d9ex3b",
         "page": 21,
         "rect": [
-          286.1,
-          294.5,
+          280.1,
+          296.5257263183594,
           409.6,
-          370.4
+          339.4049987792969
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4859,10 +4971,10 @@
         "id": "d9ex3c",
         "page": 21,
         "rect": [
-          69.6,
-          369.9,
+          63.599999999999994,
+          354.375,
           187.4,
-          445.7
+          449.1720886230469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4872,10 +4984,10 @@
         "id": "d9ex3d",
         "page": 21,
         "rect": [
-          286.1,
-          369.9,
+          280.1,
+          354.375,
           391.9,
-          452.2
+          449.1720886230469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4896,10 +5008,10 @@
         "id": "d9ex4a",
         "page": 21,
         "rect": [
-          69.6,
-          471.6,
+          63.599999999999994,
+          473.6217041015625,
           135.2,
-          491.7
+          488.7216796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4909,10 +5021,10 @@
         "id": "d9ex4b",
         "page": 21,
         "rect": [
-          286.1,
-          471.6,
+          280.1,
+          473.6217041015625,
           356.7,
-          491.7
+          488.7216796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4922,10 +5034,10 @@
         "id": "d9ex4c",
         "page": 21,
         "rect": [
-          69.6,
-          485.7,
+          63.599999999999994,
+          487.72174072265625,
           147.4,
-          505.8
+          502.82171630859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4935,10 +5047,10 @@
         "id": "d9ex4d",
         "page": 21,
         "rect": [
-          286.1,
-          485.7,
+          280.1,
+          487.72174072265625,
           368.9,
-          505.8
+          502.82171630859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4959,10 +5071,10 @@
         "id": "d9ex5a",
         "page": 21,
         "rect": [
-          69.6,
-          534.7,
+          63.599999999999994,
+          535.2716674804688,
           140.2,
-          592.2
+          589.2041015625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4972,10 +5084,10 @@
         "id": "d9ex5b",
         "page": 21,
         "rect": [
-          177.8,
-          533.3,
+          171.8,
+          535.2716674804688,
           467.2,
-          592.2
+          589.2041015625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -4996,10 +5108,10 @@
         "id": "d9ex6a",
         "page": 21,
         "rect": [
-          69.6,
-          635.3,
+          63.599999999999994,
+          637.3041381835938,
           135.2,
-          655.4
+          652.4041137695312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5009,10 +5121,10 @@
         "id": "d9ex6b",
         "page": 21,
         "rect": [
-          213.9,
-          635.3,
+          207.9,
+          637.3041381835938,
           284.6,
-          655.4
+          652.4041137695312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5022,10 +5134,10 @@
         "id": "d9ex6c",
         "page": 21,
         "rect": [
-          358.2,
-          635.3,
+          352.2,
+          637.3041381835938,
           454.2,
-          655.4
+          652.4041137695312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5035,10 +5147,10 @@
         "id": "d9ex6d",
         "page": 21,
         "rect": [
-          69.6,
-          649.4,
+          63.599999999999994,
+          651.4042358398438,
           158.3,
-          669.5
+          666.5042114257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5048,10 +5160,10 @@
         "id": "d9ex6e",
         "page": 21,
         "rect": [
-          213.9,
-          649.4,
+          207.9,
+          651.4042358398438,
           301.9,
-          669.5
+          666.5042114257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5061,10 +5173,10 @@
         "id": "d9ex6f",
         "page": 21,
         "rect": [
-          358.2,
-          649.4,
+          352.2,
+          651.4042358398438,
           430.5,
-          669.5
+          666.5042114257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5163,10 +5275,10 @@
         "id": "d9ex7a",
         "page": 22,
         "rect": [
-          70.0,
-          78.8,
+          64.0,
+          78.14955139160156,
           140.1,
-          98.9
+          99.24951934814453
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5176,10 +5288,10 @@
         "id": "d9ex7b",
         "page": 22,
         "rect": [
-          214.3,
-          78.8,
+          208.3,
+          78.14955139160156,
           285.0,
-          98.9
+          99.24951934814453
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5189,10 +5301,10 @@
         "id": "d9ex7c",
         "page": 22,
         "rect": [
-          358.7,
-          76.1,
+          352.7,
+          78.14955139160156,
           425.8,
-          102.2
+          99.24951934814453
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5202,10 +5314,10 @@
         "id": "d9ex7d",
         "page": 22,
         "rect": [
-          70.0,
-          92.0,
+          64.0,
+          94.01203918457031,
           429.3,
-          133.8
+          130.79200744628906
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5233,10 +5345,10 @@
         "id": "d9ex8a",
         "page": 22,
         "rect": [
-          70.0,
-          171.9,
+          64.0,
+          173.91293334960938,
           191.1,
-          188.7
+          185.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5246,10 +5358,10 @@
         "id": "d9ex8b",
         "page": 22,
         "rect": [
-          70.0,
-          185.9,
+          64.0,
+          187.91293334960938,
           205.0,
-          202.7
+          199.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5259,10 +5371,10 @@
         "id": "d9ex8c",
         "page": 22,
         "rect": [
-          70.0,
-          199.9,
+          64.0,
+          201.91293334960938,
           311.1,
-          216.7
+          213.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5272,10 +5384,10 @@
         "id": "d9ex8d",
         "page": 22,
         "rect": [
-          70.0,
-          213.9,
+          64.0,
+          215.91293334960938,
           307.1,
-          230.7
+          227.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5285,10 +5397,10 @@
         "id": "d9ex8e",
         "page": 22,
         "rect": [
-          70.0,
-          227.9,
+          64.0,
+          229.91293334960938,
           290.6,
-          244.7
+          241.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5298,10 +5410,10 @@
         "id": "d9ex8f",
         "page": 22,
         "rect": [
-          70.0,
-          241.9,
+          64.0,
+          243.91293334960938,
           293.3,
-          258.7
+          255.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5322,10 +5434,10 @@
         "id": "d9ex9a",
         "page": 22,
         "rect": [
-          70.0,
-          276.9,
+          64.0,
+          278.9129333496094,
           391.1,
-          293.7
+          290.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5335,10 +5447,10 @@
         "id": "d9ex9b",
         "page": 22,
         "rect": [
-          70.0,
-          290.9,
+          64.0,
+          292.9129333496094,
           374.3,
-          307.7
+          304.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5359,10 +5471,10 @@
         "id": "d9ex10a",
         "page": 22,
         "rect": [
-          70.0,
-          325.0,
+          64.0,
+          327.012939453125,
           321.7,
-          345.1
+          342.1129150390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5372,10 +5484,10 @@
         "id": "d9ex10b",
         "page": 22,
         "rect": [
-          70.0,
-          339.0,
+          64.0,
+          341.012939453125,
           334.3,
-          359.1
+          356.1129150390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5385,10 +5497,10 @@
         "id": "d9ex10c",
         "page": 22,
         "rect": [
-          70.0,
-          353.9,
+          64.0,
+          355.9129333496094,
           353.3,
-          370.7
+          367.742919921875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5398,10 +5510,10 @@
         "id": "d9ex10d",
         "page": 22,
         "rect": [
-          70.0,
-          367.0,
+          64.0,
+          369.012939453125,
           349.7,
-          387.1
+          384.1129150390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5435,10 +5547,10 @@
         "id": "d9ex12a",
         "page": 22,
         "rect": [
-          70.0,
-          584.5,
+          64.0,
+          586.4508056640625,
           179.1,
-          604.6
+          601.55078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5448,10 +5560,10 @@
         "id": "d9ex12b",
         "page": 22,
         "rect": [
-          214.3,
-          584.5,
+          208.3,
+          586.4508056640625,
           327.3,
-          604.6
+          601.55078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5461,10 +5573,10 @@
         "id": "d9ex12c",
         "page": 22,
         "rect": [
-          358.7,
-          584.5,
+          352.7,
+          586.4508056640625,
           462.8,
-          604.6
+          601.55078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5560,10 +5672,10 @@
         "id": "d9ex14a",
         "page": 23,
         "rect": [
-          69.7,
-          95.2,
+          63.7,
+          97.155517578125,
           488.6,
-          128.5
+          122.57661437988281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5573,10 +5685,10 @@
         "id": "d9ex14b",
         "page": 23,
         "rect": [
-          69.6,
-          122.9,
+          63.599999999999994,
+          114.34062194824219,
           458.1,
-          144.9
+          141.87062072753906
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5586,10 +5698,10 @@
         "id": "d9ex14c",
         "page": 23,
         "rect": [
-          69.6,
-          139.7,
+          63.599999999999994,
+          141.67062377929688,
           452.9,
-          184.5
+          167.5006103515625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5599,10 +5711,10 @@
         "id": "d9ex14d",
         "page": 23,
         "rect": [
-          69.6,
-          178.2,
+          63.599999999999994,
+          170.3406219482422,
           457.8,
-          212.5
+          209.5006103515625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5623,10 +5735,10 @@
         "id": "d9ex15a",
         "page": 23,
         "rect": [
-          69.6,
-          230.7,
+          63.599999999999994,
+          232.67062377929688,
           183.6,
-          306.5
+          303.5498962402344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5636,10 +5748,10 @@
         "id": "d9ex15b",
         "page": 23,
         "rect": [
-          286.1,
-          230.7,
+          280.1,
+          232.67062377929688,
           412.9,
-          306.5
+          303.5498962402344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -5667,10 +5779,10 @@
         "id": "d9ex16a",
         "page": 23,
         "rect": [
-          69.6,
-          591.8,
+          63.599999999999994,
+          593.8195190429688,
           161.5,
-          611.9
+          608.9194946289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5680,10 +5792,10 @@
         "id": "d9ex16b",
         "page": 23,
         "rect": [
-          286.1,
-          591.8,
+          280.1,
+          593.8195190429688,
           373.0,
-          611.9
+          608.9194946289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5693,10 +5805,10 @@
         "id": "d9ex16c",
         "page": 23,
         "rect": [
-          69.6,
-          605.9,
+          63.599999999999994,
+          607.9225463867188,
           163.2,
-          626.0
+          623.0225219726562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5706,10 +5818,10 @@
         "id": "d9ex16d",
         "page": 23,
         "rect": [
-          286.1,
-          605.9,
+          280.1,
+          607.9225463867188,
           369.7,
-          626.0
+          623.0225219726562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5719,10 +5831,10 @@
         "id": "d9ex16e",
         "page": 23,
         "rect": [
-          69.6,
-          620.0,
+          63.599999999999994,
+          622.0223999023438,
           165.4,
-          640.1
+          637.1223754882812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5732,10 +5844,10 @@
         "id": "d9ex16f",
         "page": 23,
         "rect": [
-          286.1,
-          620.0,
+          280.1,
+          622.0223999023438,
           379.1,
-          640.1
+          637.1223754882812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5745,10 +5857,10 @@
         "id": "d9ex16g",
         "page": 23,
         "rect": [
-          69.6,
-          634.1,
+          63.599999999999994,
+          636.1224975585938,
           158.2,
-          654.2
+          651.2224731445312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5758,10 +5870,10 @@
         "id": "d9ex16h",
         "page": 23,
         "rect": [
-          286.1,
-          634.1,
+          280.1,
+          636.1224975585938,
           374.1,
-          654.2
+          651.2224731445312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5843,10 +5955,10 @@
         "id": "quiz2a",
         "page": 24,
         "rect": [
-          98.0,
-          141.8,
+          92.0,
+          140.67959594726562,
           163.6,
-          161.9
+          158.8795928955078
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5856,10 +5968,10 @@
         "id": "quiz2b",
         "page": 24,
         "rect": [
-          98.0,
-          155.8,
+          92.0,
+          157.7795867919922,
           168.6,
-          175.9
+          172.8795928955078
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5869,10 +5981,10 @@
         "id": "quiz2c",
         "page": 24,
         "rect": [
-          98.0,
-          169.8,
+          92.0,
+          171.7795867919922,
           174.9,
-          189.9
+          186.8795928955078
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5893,10 +6005,10 @@
         "id": "quiz3a",
         "page": 24,
         "rect": [
-          98.0,
-          219.7,
+          92.0,
+          217.67959594726562,
           256.3,
-          236.5
+          233.50958251953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5906,10 +6018,10 @@
         "id": "quiz3b",
         "page": 24,
         "rect": [
-          98.0,
-          233.7,
+          92.0,
+          235.67959594726562,
           259.4,
-          250.5
+          247.50958251953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5919,10 +6031,10 @@
         "id": "quiz3c",
         "page": 24,
         "rect": [
-          98.0,
-          247.7,
+          92.0,
+          249.67959594726562,
           233.0,
-          264.5
+          261.50958251953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5932,10 +6044,10 @@
         "id": "quiz3d",
         "page": 24,
         "rect": [
-          98.0,
-          260.8,
+          92.0,
+          262.77960205078125,
           483.2,
-          280.9
+          277.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5956,10 +6068,10 @@
         "id": "quiz4a",
         "page": 24,
         "rect": [
-          98.0,
-          295.8,
+          92.0,
+          294.6795959472656,
           159.2,
-          315.9
+          312.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5969,10 +6081,10 @@
         "id": "quiz4b",
         "page": 24,
         "rect": [
-          98.0,
-          309.8,
+          92.0,
+          311.77960205078125,
           163.2,
-          329.9
+          326.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5982,10 +6094,10 @@
         "id": "quiz4c",
         "page": 24,
         "rect": [
-          98.0,
-          323.8,
+          92.0,
+          325.77960205078125,
           160.2,
-          343.9
+          340.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -5995,10 +6107,10 @@
         "id": "quiz4d",
         "page": 24,
         "rect": [
-          98.0,
-          337.8,
+          92.0,
+          339.77960205078125,
           164.2,
-          357.9
+          354.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6019,10 +6131,10 @@
         "id": "quiz5a",
         "page": 24,
         "rect": [
-          98.0,
-          386.8,
+          92.0,
+          388.77960205078125,
           207.3,
-          406.9
+          403.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6032,10 +6144,10 @@
         "id": "quiz5b",
         "page": 24,
         "rect": [
-          98.0,
-          400.8,
+          92.0,
+          402.77960205078125,
           215.0,
-          420.9
+          417.87957763671875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6056,10 +6168,10 @@
         "id": "quiz6a",
         "page": 24,
         "rect": [
-          98.0,
-          436.7,
+          92.0,
+          434.6795959472656,
           181.8,
-          468.6
+          465.5589904785156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6069,10 +6181,10 @@
         "id": "quiz6b",
         "page": 24,
         "rect": [
-          233.0,
-          436.7,
+          227.0,
+          434.6795959472656,
           301.5,
-          468.6
+          465.5589904785156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6082,10 +6194,10 @@
         "id": "quiz6c",
         "page": 24,
         "rect": [
-          368.0,
-          436.7,
+          362.0,
+          434.6795959472656,
           438.5,
-          468.6
+          465.5589904785156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6106,10 +6218,10 @@
         "id": "quiz7a",
         "page": 24,
         "rect": [
-          98.0,
-          488.0,
+          92.0,
+          486.9087219238281,
           164.2,
-          508.1
+          505.10870361328125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6119,10 +6231,10 @@
         "id": "quiz7b",
         "page": 24,
         "rect": [
-          98.0,
-          502.0,
+          92.0,
+          504.00872802734375,
           165.9,
-          522.1
+          519.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6132,10 +6244,10 @@
         "id": "quiz7c",
         "page": 24,
         "rect": [
-          98.0,
-          516.0,
+          92.0,
+          518.0087280273438,
           157.4,
-          536.1
+          533.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6145,10 +6257,10 @@
         "id": "quiz7d",
         "page": 24,
         "rect": [
-          98.0,
-          530.0,
+          92.0,
+          532.0087280273438,
           154.6,
-          550.1
+          547.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6169,10 +6281,10 @@
         "id": "quiz8a",
         "page": 24,
         "rect": [
-          98.0,
-          565.0,
+          92.0,
+          563.90869140625,
           161.8,
-          585.1
+          582.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6182,10 +6294,10 @@
         "id": "quiz8b",
         "page": 24,
         "rect": [
-          98.0,
-          579.0,
+          92.0,
+          581.0087280273438,
           169.2,
-          599.1
+          596.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6195,10 +6307,10 @@
         "id": "quiz8c",
         "page": 24,
         "rect": [
-          98.0,
-          593.0,
+          92.0,
+          595.0087280273438,
           171.4,
-          613.1
+          610.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6208,10 +6320,10 @@
         "id": "quiz8d",
         "page": 24,
         "rect": [
-          98.0,
-          607.0,
+          92.0,
+          609.0086059570312,
           185.3,
-          627.1
+          624.1087036132812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6232,10 +6344,10 @@
         "id": "quiz9a",
         "page": 24,
         "rect": [
-          98.0,
-          642.9,
+          92.0,
+          640.9085693359375,
           321.6,
-          659.7
+          656.7385864257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6245,10 +6357,10 @@
         "id": "quiz9b",
         "page": 24,
         "rect": [
-          98.0,
-          656.9,
+          92.0,
+          658.9085693359375,
           330.3,
-          673.7
+          670.7385864257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6258,10 +6370,10 @@
         "id": "quiz9c",
         "page": 24,
         "rect": [
-          98.0,
-          670.9,
+          92.0,
+          672.9085693359375,
           274.4,
-          687.7
+          684.7385864257812
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6422,10 +6534,10 @@
         "id": "e9bu1a",
         "page": 26,
         "rect": [
-          86.5,
-          96.7,
+          80.5,
+          97.21929168701172,
           166.8,
-          122.9
+          119.87427520751953
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6435,10 +6547,10 @@
         "id": "e9bu1b",
         "page": 26,
         "rect": [
-          290.4,
-          94.7,
+          284.4,
+          97.21929168701172,
           380.0,
-          122.8
+          119.87427520751953
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6448,10 +6560,10 @@
         "id": "e9bu1c",
         "page": 26,
         "rect": [
-          86.2,
-          119.5,
+          80.2,
+          121.54667663574219,
           411.4,
-          173.8
+          170.8446044921875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6461,10 +6573,10 @@
         "id": "e9bu2a",
         "page": 26,
         "rect": [
-          86.5,
-          172.6,
+          80.5,
+          174.6121063232422,
           242.6,
-          200.7
+          197.734619140625
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6474,10 +6586,10 @@
         "id": "e9bu2b",
         "page": 26,
         "rect": [
-          86.5,
-          197.1,
+          80.5,
+          199.1370391845703,
           242.6,
-          223.2
+          220.23699951171875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6487,10 +6599,10 @@
         "id": "e9bu2c",
         "page": 26,
         "rect": [
-          86.5,
-          220.3,
+          80.5,
+          222.2718963623047,
           456.8,
-          248.4
+          245.39450073242188
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6511,10 +6623,10 @@
         "id": "e9bu3a",
         "page": 26,
         "rect": [
-          86.5,
-          262.4,
+          80.5,
+          264.42962646484375,
           182.5,
-          317.7
+          299.21148681640625
         ],
         "workingSpaceStyle": "none"
       },
@@ -6523,10 +6635,10 @@
         "id": "e9bu3b",
         "page": 26,
         "rect": [
-          290.5,
-          262.4,
+          284.5,
+          264.42962646484375,
           389.9,
-          311.7
+          299.21148681640625
         ],
         "workingSpaceStyle": "none"
       },
@@ -6535,10 +6647,10 @@
         "id": "e9bu3c",
         "page": 26,
         "rect": [
-          86.5,
-          313.2,
+          80.5,
+          295.6814880371094,
           159.0,
-          368.5
+          365.4779968261719
         ],
         "workingSpaceStyle": "none"
       },
@@ -6547,10 +6659,10 @@
         "id": "e9bu3d",
         "page": 26,
         "rect": [
-          290.5,
-          313.2,
-          362.9,
-          368.5
+          284.5,
+          295.6814880371094,
+          366.1,
+          365.4779968261719
         ],
         "workingSpaceStyle": "none"
       },
@@ -6570,10 +6682,10 @@
         "id": "e9bu4a",
         "page": 26,
         "rect": [
-          86.5,
-          402.1,
+          80.5,
+          404.0599060058594,
           300.3,
-          428.2
+          425.1598815917969
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6583,10 +6695,10 @@
         "id": "e9bu4b",
         "page": 26,
         "rect": [
-          86.5,
-          420.7,
+          80.5,
+          422.7046203613281,
           300.3,
-          446.8
+          443.8045959472656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6596,10 +6708,10 @@
         "id": "e9bu4c",
         "page": 26,
         "rect": [
-          86.5,
-          442.8,
+          80.5,
+          444.834716796875,
           308.1,
-          470.7
+          467.68719482421875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6609,10 +6721,10 @@
         "id": "e9bu4d",
         "page": 26,
         "rect": [
-          86.5,
-          463.1,
+          80.5,
+          465.08941650390625,
           280.3,
-          489.2
+          486.18939208984375
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -6745,10 +6857,10 @@
         "id": "e9ex1a",
         "page": 27,
         "rect": [
-          69.6,
-          540.7,
+          63.599999999999994,
+          542.731689453125,
           115.5,
-          566.8
+          563.9517211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6758,10 +6870,10 @@
         "id": "e9ex1b",
         "page": 27,
         "rect": [
-          177.8,
-          540.7,
+          171.8,
+          542.731689453125,
           228.1,
-          566.8
+          563.9517211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6771,10 +6883,10 @@
         "id": "e9ex1c",
         "page": 27,
         "rect": [
-          286.1,
-          540.7,
+          280.1,
+          542.731689453125,
           449.7,
-          567.0
+          563.9517211914062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6795,10 +6907,10 @@
         "id": "e9ex2a",
         "page": 27,
         "rect": [
-          69.6,
-          578.3,
+          63.599999999999994,
+          580.2843627929688,
           117.8,
-          604.5
+          601.5244140625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6808,10 +6920,10 @@
         "id": "e9ex2b",
         "page": 27,
         "rect": [
-          177.8,
-          578.3,
+          171.8,
+          580.2843627929688,
           223.2,
-          604.4
+          601.5244140625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6821,10 +6933,10 @@
         "id": "e9ex2c",
         "page": 27,
         "rect": [
-          286.1,
-          578.3,
+          280.1,
+          580.2843627929688,
           331.3,
-          604.4
+          601.5244140625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6834,10 +6946,10 @@
         "id": "e9ex2d",
         "page": 27,
         "rect": [
-          394.3,
-          578.4,
+          388.3,
+          580.2843627929688,
           439.6,
-          604.5
+          601.5244140625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6847,10 +6959,10 @@
         "id": "e9ex2e",
         "page": 27,
         "rect": [
-          69.6,
-          601.4,
+          63.599999999999994,
+          603.366943359375,
           125.5,
-          653.0
+          651.8591918945312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6860,10 +6972,10 @@
         "id": "e9ex2f",
         "page": 27,
         "rect": [
-          177.8,
-          601.4,
+          171.8,
+          603.366943359375,
           445.3,
-          654.9
+          651.8591918945312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6914,10 +7026,10 @@
         "id": "e9ex3a",
         "page": 28,
         "rect": [
-          70.0,
-          66.8,
+          64.0,
+          70.3495101928711,
           147.9,
-          190.7
+          189.610595703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6927,10 +7039,10 @@
         "id": "e9ex3b",
         "page": 28,
         "rect": [
-          177.9,
-          65.5,
+          171.9,
+          70.3495101928711,
           471.4,
-          192.6
+          189.610595703125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6971,10 +7083,10 @@
         "id": "e9ex5a",
         "page": 28,
         "rect": [
-          70.0,
-          313.8,
+          64.0,
+          315.8330078125,
           244.0,
-          330.7
+          327.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6984,10 +7096,10 @@
         "id": "e9ex5b",
         "page": 28,
         "rect": [
-          70.0,
-          327.8,
+          64.0,
+          329.8330078125,
           171.4,
-          344.7
+          341.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -6997,10 +7109,10 @@
         "id": "e9ex5c",
         "page": 28,
         "rect": [
-          70.0,
-          341.8,
+          64.0,
+          343.8330078125,
           338.3,
-          358.7
+          355.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7010,10 +7122,10 @@
         "id": "e9ex5d",
         "page": 28,
         "rect": [
-          70.0,
-          355.8,
+          64.0,
+          357.8330078125,
           332.1,
-          372.7
+          369.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7023,10 +7135,10 @@
         "id": "e9ex5e",
         "page": 28,
         "rect": [
-          70.0,
-          369.8,
+          64.0,
+          371.8330078125,
           348.4,
-          386.7
+          383.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7036,10 +7148,10 @@
         "id": "e9ex5f",
         "page": 28,
         "rect": [
-          70.0,
-          383.8,
+          64.0,
+          385.8330078125,
           365.7,
-          400.7
+          397.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7060,10 +7172,10 @@
         "id": "e9ex6a",
         "page": 28,
         "rect": [
-          70.0,
-          418.8,
+          64.0,
+          420.8330078125,
           461.6,
-          435.7
+          432.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7073,10 +7185,10 @@
         "id": "e9ex6b",
         "page": 28,
         "rect": [
-          70.0,
-          432.8,
+          64.0,
+          434.8330078125,
           222.5,
-          449.7
+          446.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7086,10 +7198,10 @@
         "id": "e9ex6c",
         "page": 28,
         "rect": [
-          70.0,
-          446.8,
+          64.0,
+          448.8330078125,
           220.3,
-          463.7
+          460.6629943847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7110,10 +7222,10 @@
         "id": "e9ex7a",
         "page": 28,
         "rect": [
-          70.0,
-          509.8,
+          64.0,
+          511.8330383300781,
           294.0,
-          540.7
+          523.6630249023438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7123,10 +7235,10 @@
         "id": "e9ex7b",
         "page": 28,
         "rect": [
-          70.0,
-          536.9,
+          64.0,
+          526.5030517578125,
           293.7,
-          582.7
+          565.6630249023438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7136,10 +7248,10 @@
         "id": "e9ex7c",
         "page": 28,
         "rect": [
-          70.0,
-          579.8,
+          64.0,
+          568.5030517578125,
           291.6,
-          610.7
+          607.6630249023438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7210,10 +7322,10 @@
         "id": "e9ex8a",
         "page": 29,
         "rect": [
-          69.7,
-          79.5,
+          63.7,
+          81.53300476074219,
           363.4,
-          107.8
+          104.77552032470703
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7223,10 +7335,10 @@
         "id": "e9ex8b",
         "page": 29,
         "rect": [
-          69.6,
-          100.9,
+          63.599999999999994,
+          102.94548034667969,
           401.6,
-          129.2
+          126.19019317626953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7236,10 +7348,10 @@
         "id": "e9ex8c",
         "page": 29,
         "rect": [
-          69.6,
-          123.9,
+          63.599999999999994,
+          125.93022155761719,
           401.6,
-          150.3
+          147.30499267578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7249,10 +7361,10 @@
         "id": "e9ex8d",
         "page": 29,
         "rect": [
-          69.6,
-          143.5,
+          63.599999999999994,
+          145.47496032714844,
           405.7,
-          171.7
+          168.71978759765625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7273,10 +7385,10 @@
         "id": "e9ex9a",
         "page": 29,
         "rect": [
-          69.6,
-          194.2,
+          63.599999999999994,
+          196.2122039794922,
           296.8,
-          220.3
+          217.3472900390625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7286,10 +7398,10 @@
         "id": "e9ex9b",
         "page": 29,
         "rect": [
-          69.6,
-          215.1,
+          63.599999999999994,
+          217.0673065185547,
           267.5,
-          241.2
+          238.21221923828125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7299,10 +7411,10 @@
         "id": "e9ex9c",
         "page": 29,
         "rect": [
-          69.6,
-          235.9,
+          63.599999999999994,
+          237.89222717285156,
           353.3,
-          262.0
+          259.0372009277344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -7323,10 +7435,10 @@
         "id": "e9ex10a",
         "page": 29,
         "rect": [
-          69.6,
-          306.5,
+          63.599999999999994,
+          308.52740478515625,
           361.9,
-          344.1
+          337.73260498046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7336,10 +7448,10 @@
         "id": "e9ex10b",
         "page": 29,
         "rect": [
-          69.6,
-          337.4,
+          63.599999999999994,
+          328.9399719238281,
           485.0,
-          376.5
+          373.4848937988281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7467,19 +7579,79 @@
         "workingSpaceHeightMm": 10
       },
       {
-        "type": "question",
-        "id": "f9bu2",
+        "type": "image",
+        "id": "f9bu2_stem",
         "page": 30,
         "rect": [
           62.5,
           618.0,
+          202.8,
+          633.9847412109375
+        ]
+      },
+      {
+        "type": "question",
+        "id": "f9bu2a",
+        "page": 30,
+        "rect": [
+          80.5,
+          637.264404296875,
+          167.6,
+          653.1497192382812
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "f9bu2b",
+        "page": 30,
+        "rect": [
+          285.0,
+          637.264404296875,
+          383.2,
+          653.1497192382812
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "f9bu2c",
+        "page": 30,
+        "rect": [
+          80.5,
+          659.521728515625,
+          190.4,
+          675.4215698242188
+        ],
+        "workingSpaceStyle": "none"
+      },
+      {
+        "type": "question",
+        "id": "f9bu2d",
+        "page": 30,
+        "rect": [
+          285.0,
+          659.521728515625,
           403.8,
-          681.4
+          675.4215698242188
         ],
         "workingSpaceStyle": "none"
       }
     ],
-    "combinedGroups": []
+    "combinedGroups": [
+      {
+        "groupId": "f9bu2",
+        "page": 30,
+        "rect": [
+          80.5,
+          631.3,
+          403.8,
+          681.4
+        ],
+        "workingSpaceStyle": "none",
+        "forceSplit": true
+      }
+    ]
   },
   {
     "blocks": [
@@ -7499,10 +7671,10 @@
         "id": "f9bu3a",
         "page": 31,
         "rect": [
-          85.6,
-          71.8,
+          79.6,
+          73.84929656982422,
           231.9,
-          92.0
+          89.01429748535156
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7512,10 +7684,10 @@
         "id": "f9bu3b",
         "page": 31,
         "rect": [
-          290.1,
-          71.8,
+          284.1,
+          73.84929656982422,
           443.0,
-          92.0
+          89.01429748535156
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7525,10 +7697,10 @@
         "id": "f9bu3c",
         "page": 31,
         "rect": [
-          85.6,
-          85.9,
+          79.6,
+          87.94933319091797,
           233.5,
-          106.1
+          103.11433410644531
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7538,10 +7710,10 @@
         "id": "f9bu3d",
         "page": 31,
         "rect": [
-          290.1,
-          85.9,
+          284.1,
+          87.94933319091797,
           471.7,
-          106.1
+          103.11433410644531
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7551,10 +7723,10 @@
         "id": "f9bu3e",
         "page": 31,
         "rect": [
-          85.6,
-          100.0,
+          79.6,
+          102.04930877685547,
           228.5,
-          120.2
+          131.2143096923828
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7564,10 +7736,10 @@
         "id": "f9bu3f",
         "page": 31,
         "rect": [
-          290.1,
-          100.0,
+          284.1,
+          102.04930877685547,
           458.2,
-          134.2
+          131.2143096923828
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -7709,10 +7881,10 @@
         "id": "f9ex1a",
         "page": 32,
         "rect": [
-          69.1,
-          626.6,
+          63.099999999999994,
+          628.6185302734375,
           355.1,
-          646.7
+          643.718505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7722,10 +7894,10 @@
         "id": "f9ex1b",
         "page": 32,
         "rect": [
-          69.1,
-          643.6,
+          63.099999999999994,
+          645.6185302734375,
           360.7,
-          663.7
+          660.718505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7735,10 +7907,10 @@
         "id": "f9ex1c",
         "page": 32,
         "rect": [
-          69.1,
-          660.6,
+          63.099999999999994,
+          662.6185302734375,
           360.7,
-          680.7
+          677.718505859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7777,10 +7949,10 @@
         "id": "f9ex2a",
         "page": 33,
         "rect": [
-          69.6,
-          64.8,
+          63.599999999999994,
+          66.77952575683594,
           125.0,
-          84.9
+          81.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7790,10 +7962,10 @@
         "id": "f9ex2b",
         "page": 33,
         "rect": [
-          286.1,
-          64.8,
+          280.1,
+          66.77952575683594,
           347.1,
-          84.9
+          81.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7803,10 +7975,10 @@
         "id": "f9ex2c",
         "page": 33,
         "rect": [
-          69.6,
-          78.9,
+          63.599999999999994,
+          80.87962341308594,
           130.6,
-          99.0
+          95.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7816,10 +7988,10 @@
         "id": "f9ex2d",
         "page": 33,
         "rect": [
-          286.1,
-          78.9,
+          280.1,
+          80.87962341308594,
           347.1,
-          99.0
+          95.97962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7829,10 +8001,10 @@
         "id": "f9ex2e",
         "page": 33,
         "rect": [
-          69.6,
-          93.0,
+          63.599999999999994,
+          94.97947692871094,
           130.0,
-          113.1
+          110.07948303222656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7842,10 +8014,10 @@
         "id": "f9ex2f",
         "page": 33,
         "rect": [
-          286.1,
-          93.0,
+          280.1,
+          94.97947692871094,
           346.5,
-          113.1
+          110.07948303222656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7855,10 +8027,10 @@
         "id": "f9ex2g",
         "page": 33,
         "rect": [
-          69.6,
-          107.1,
+          63.599999999999994,
+          109.07957458496094,
           135.6,
-          127.2
+          124.17958068847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7868,10 +8040,10 @@
         "id": "f9ex2h",
         "page": 33,
         "rect": [
-          286.1,
-          107.1,
+          280.1,
+          109.07957458496094,
           342.1,
-          127.2
+          124.17958068847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7892,10 +8064,10 @@
         "id": "f9ex3a",
         "page": 33,
         "rect": [
-          69.6,
-          142.1,
+          63.599999999999994,
+          144.07957458496094,
           135.8,
-          162.2
+          159.17958068847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7905,10 +8077,10 @@
         "id": "f9ex3b",
         "page": 33,
         "rect": [
-          286.1,
-          142.1,
+          280.1,
+          144.07957458496094,
           351.2,
-          162.2
+          159.17958068847656
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7918,10 +8090,10 @@
         "id": "f9ex3c",
         "page": 33,
         "rect": [
-          69.6,
-          156.2,
+          63.599999999999994,
+          158.1794891357422,
           135.8,
-          176.3
+          173.2794952392578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7931,10 +8103,10 @@
         "id": "f9ex3d",
         "page": 33,
         "rect": [
-          286.1,
-          156.2,
+          280.1,
+          158.1794891357422,
           362.3,
-          176.3
+          173.2794952392578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7944,10 +8116,10 @@
         "id": "f9ex3e",
         "page": 33,
         "rect": [
-          69.6,
-          170.3,
+          63.599999999999994,
+          172.27952575683594,
           134.7,
-          190.4
+          187.37953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7957,10 +8129,10 @@
         "id": "f9ex3f",
         "page": 33,
         "rect": [
-          286.1,
-          170.3,
+          280.1,
+          172.27952575683594,
           356.2,
-          190.4
+          187.37953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7970,10 +8142,10 @@
         "id": "f9ex3g",
         "page": 33,
         "rect": [
-          69.6,
-          184.4,
+          63.599999999999994,
+          186.37962341308594,
           135.8,
-          204.5
+          201.47962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -7983,10 +8155,10 @@
         "id": "f9ex3h",
         "page": 33,
         "rect": [
-          286.1,
-          184.4,
+          280.1,
+          186.37962341308594,
           351.2,
-          204.5
+          201.47962951660156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8020,10 +8192,10 @@
         "id": "f9ex5a",
         "page": 33,
         "rect": [
-          69.6,
-          338.9,
+          63.599999999999994,
+          340.8796081542969,
           152.4,
-          359.0
+          355.9795837402344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8033,10 +8205,10 @@
         "id": "f9ex5b",
         "page": 33,
         "rect": [
-          286.1,
-          338.9,
+          280.1,
+          340.8796081542969,
           368.4,
-          359.0
+          355.9795837402344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8046,10 +8218,10 @@
         "id": "f9ex5c",
         "page": 33,
         "rect": [
-          69.6,
-          353.0,
+          63.599999999999994,
+          354.9796142578125,
           151.9,
-          373.1
+          370.07958984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8059,10 +8231,10 @@
         "id": "f9ex5d",
         "page": 33,
         "rect": [
-          286.1,
-          353.0,
+          280.1,
+          354.9796142578125,
           368.4,
-          373.1
+          370.07958984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8072,10 +8244,10 @@
         "id": "f9ex5e",
         "page": 33,
         "rect": [
-          69.6,
-          367.1,
+          63.599999999999994,
+          369.07952880859375,
           152.4,
-          387.2
+          384.17950439453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8085,10 +8257,10 @@
         "id": "f9ex5f",
         "page": 33,
         "rect": [
-          286.1,
-          367.1,
+          280.1,
+          369.07952880859375,
           372.8,
-          387.2
+          384.17950439453125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8098,10 +8270,10 @@
         "id": "f9ex5g",
         "page": 33,
         "rect": [
-          69.6,
-          381.2,
+          63.599999999999994,
+          383.17950439453125,
           152.4,
-          401.3
+          398.27947998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8111,10 +8283,10 @@
         "id": "f9ex5h",
         "page": 33,
         "rect": [
-          286.1,
-          381.2,
+          280.1,
+          383.17950439453125,
           368.9,
-          401.3
+          398.27947998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8135,10 +8307,10 @@
         "id": "f9ex6a",
         "page": 33,
         "rect": [
-          69.6,
-          430.2,
+          63.599999999999994,
+          432.17950439453125,
           172.1,
-          450.3
+          447.27947998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8148,10 +8320,10 @@
         "id": "f9ex6b",
         "page": 33,
         "rect": [
-          213.9,
-          430.2,
+          207.9,
+          432.17950439453125,
           314.2,
-          450.3
+          447.27947998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8161,10 +8333,10 @@
         "id": "f9ex6c",
         "page": 33,
         "rect": [
-          358.2,
-          430.2,
+          352.2,
+          432.17950439453125,
           456.8,
-          450.3
+          447.27947998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8174,10 +8346,10 @@
         "id": "f9ex6d",
         "page": 33,
         "rect": [
-          69.6,
-          444.3,
+          63.599999999999994,
+          446.2796325683594,
           173.2,
-          464.4
+          461.3796081542969
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8187,10 +8359,10 @@
         "id": "f9ex6e",
         "page": 33,
         "rect": [
-          213.9,
-          444.3,
+          207.9,
+          446.2796325683594,
           312.5,
-          464.4
+          461.3796081542969
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8200,10 +8372,10 @@
         "id": "f9ex6f",
         "page": 33,
         "rect": [
-          358.2,
-          444.3,
+          352.2,
+          446.2796325683594,
           463.0,
-          464.4
+          461.3796081542969
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8213,10 +8385,10 @@
         "id": "f9ex6g",
         "page": 33,
         "rect": [
-          69.6,
-          458.4,
+          63.599999999999994,
+          460.379638671875,
           173.2,
-          478.5
+          475.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8226,10 +8398,10 @@
         "id": "f9ex6h",
         "page": 33,
         "rect": [
-          213.9,
-          458.4,
+          207.9,
+          460.379638671875,
           314.2,
-          478.5
+          475.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8239,10 +8411,10 @@
         "id": "f9ex6i",
         "page": 33,
         "rect": [
-          358.2,
-          458.4,
+          352.2,
+          460.379638671875,
           458.5,
-          478.5
+          475.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8263,10 +8435,10 @@
         "id": "f9ex7a",
         "page": 33,
         "rect": [
-          69.6,
-          507.4,
+          63.599999999999994,
+          509.379638671875,
           142.4,
-          527.5
+          524.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8276,10 +8448,10 @@
         "id": "f9ex7b",
         "page": 33,
         "rect": [
-          213.9,
-          507.4,
+          207.9,
+          509.379638671875,
           286.2,
-          527.5
+          524.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8289,10 +8461,10 @@
         "id": "f9ex7c",
         "page": 33,
         "rect": [
-          358.2,
-          507.4,
+          352.2,
+          509.379638671875,
           443.4,
-          527.5
+          524.4796142578125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8302,10 +8474,10 @@
         "id": "f9ex7d",
         "page": 33,
         "rect": [
-          69.6,
-          521.5,
+          63.599999999999994,
+          523.4796142578125,
           147.4,
-          541.6
+          538.57958984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8315,10 +8487,10 @@
         "id": "f9ex7e",
         "page": 33,
         "rect": [
-          213.9,
-          521.5,
+          207.9,
+          523.4796142578125,
           291.8,
-          541.6
+          538.57958984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8328,10 +8500,10 @@
         "id": "f9ex7f",
         "page": 33,
         "rect": [
-          358.2,
-          521.5,
+          352.2,
+          523.4796142578125,
           447.4,
-          541.6
+          538.57958984375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8341,10 +8513,10 @@
         "id": "f9ex7g",
         "page": 33,
         "rect": [
-          69.6,
-          535.6,
+          63.599999999999994,
+          537.5795288085938,
           171.6,
-          555.7
+          552.6795043945312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8354,10 +8526,10 @@
         "id": "f9ex7h",
         "page": 33,
         "rect": [
-          213.9,
-          535.6,
+          207.9,
+          537.5795288085938,
           328.3,
-          555.7
+          552.6795043945312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8367,10 +8539,10 @@
         "id": "f9ex7i",
         "page": 33,
         "rect": [
-          358.2,
-          535.6,
+          352.2,
+          537.5795288085938,
           456.8,
-          555.7
+          552.6795043945312
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8398,10 +8570,10 @@
         "id": "f9ex8a",
         "page": 33,
         "rect": [
-          69.6,
-          621.8,
+          63.599999999999994,
+          623.8004150390625,
           332.7,
-          638.6
+          635.6304321289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8411,10 +8583,10 @@
         "id": "f9ex8b",
         "page": 33,
         "rect": [
-          69.6,
-          635.8,
+          63.599999999999994,
+          637.8004150390625,
           379.0,
-          652.6
+          649.6304321289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8424,10 +8596,10 @@
         "id": "f9ex8c",
         "page": 33,
         "rect": [
-          69.6,
-          649.8,
+          63.599999999999994,
+          651.8004150390625,
           471.1,
-          666.6
+          663.6304321289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8437,10 +8609,10 @@
         "id": "f9ex8d",
         "page": 33,
         "rect": [
-          69.6,
-          663.8,
+          63.599999999999994,
+          665.8004150390625,
           484.0,
-          680.6
+          677.6304321289062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8539,10 +8711,10 @@
         "id": "f9ex9a",
         "page": 34,
         "rect": [
-          70.0,
-          64.8,
+          64.0,
+          66.77952575683594,
           149.6,
-          104.9
+          101.87542724609375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8552,10 +8724,10 @@
         "id": "f9ex9b",
         "page": 34,
         "rect": [
-          214.3,
-          64.8,
+          208.3,
+          66.77952575683594,
           311.2,
-          103.1
+          101.87542724609375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8565,10 +8737,10 @@
         "id": "f9ex9c",
         "page": 34,
         "rect": [
-          358.7,
-          64.8,
+          352.7,
+          66.77952575683594,
           469.8,
-          104.3
+          101.87542724609375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8596,10 +8768,10 @@
         "id": "f9ex10a",
         "page": 34,
         "rect": [
-          70.0,
-          122.1,
+          64.0,
+          124.10038757324219,
           163.6,
-          142.2
+          139.2003936767578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8609,10 +8781,10 @@
         "id": "f9ex10b",
         "page": 34,
         "rect": [
-          70.0,
-          136.1,
+          64.0,
+          138.1003875732422,
           192.1,
-          156.2
+          153.2003936767578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8622,10 +8794,10 @@
         "id": "f9ex10c",
         "page": 34,
         "rect": [
-          70.0,
-          150.1,
+          64.0,
+          152.1003875732422,
           223.4,
-          170.2
+          167.2003936767578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8646,10 +8818,10 @@
         "id": "f9ex11a",
         "page": 34,
         "rect": [
-          70.0,
-          185.1,
+          64.0,
+          187.1003875732422,
           246.0,
-          205.2
+          202.2003936767578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8659,10 +8831,10 @@
         "id": "f9ex11b",
         "page": 34,
         "rect": [
-          70.0,
-          199.1,
+          64.0,
+          201.1003875732422,
           246.0,
-          219.2
+          216.2003936767578
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8672,10 +8844,10 @@
         "id": "f9ex11c",
         "page": 34,
         "rect": [
-          70.0,
-          214.0,
+          64.0,
+          216.00039672851562,
           254.5,
-          230.8
+          227.83038330078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8685,10 +8857,10 @@
         "id": "f9ex11d",
         "page": 34,
         "rect": [
-          70.0,
-          228.0,
+          64.0,
+          230.00039672851562,
           491.5,
-          258.8
+          255.83038330078125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -8729,10 +8901,10 @@
         "id": "f9ex13a",
         "page": 34,
         "rect": [
-          70.0,
-          347.4,
+          64.0,
+          349.42132568359375,
           198.8,
-          367.5
+          364.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8742,10 +8914,10 @@
         "id": "f9ex13b",
         "page": 34,
         "rect": [
-          70.0,
-          361.4,
+          64.0,
+          363.42132568359375,
           203.2,
-          381.5
+          378.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8755,10 +8927,10 @@
         "id": "f9ex13c",
         "page": 34,
         "rect": [
-          70.0,
-          375.4,
+          64.0,
+          377.42132568359375,
           203.2,
-          395.5
+          392.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8768,10 +8940,10 @@
         "id": "f9ex13d",
         "page": 34,
         "rect": [
-          70.0,
-          389.4,
+          64.0,
+          391.42132568359375,
           208.2,
-          409.5
+          406.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8781,10 +8953,10 @@
         "id": "f9ex13e",
         "page": 34,
         "rect": [
-          70.0,
-          403.4,
+          64.0,
+          405.42132568359375,
           202.1,
-          423.5
+          420.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8794,10 +8966,10 @@
         "id": "f9ex13f",
         "page": 34,
         "rect": [
-          70.0,
-          417.4,
+          64.0,
+          419.42132568359375,
           208.2,
-          437.5
+          434.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8807,10 +8979,10 @@
         "id": "f9ex13g",
         "page": 34,
         "rect": [
-          70.0,
-          431.4,
+          64.0,
+          433.42132568359375,
           192.1,
-          451.5
+          448.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8820,10 +8992,10 @@
         "id": "f9ex13h",
         "page": 34,
         "rect": [
-          70.0,
-          445.4,
+          64.0,
+          447.42132568359375,
           192.1,
-          465.5
+          462.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8833,10 +9005,10 @@
         "id": "f9ex13i",
         "page": 34,
         "rect": [
-          70.0,
-          459.4,
+          64.0,
+          461.42132568359375,
           261.9,
-          479.5
+          476.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8846,10 +9018,10 @@
         "id": "f9ex13j",
         "page": 34,
         "rect": [
-          70.0,
-          473.4,
+          64.0,
+          475.42132568359375,
           236.9,
-          493.5
+          490.52130126953125
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -8962,10 +9134,10 @@
         "id": "g9bu1a",
         "page": 38,
         "rect": [
-          86.5,
-          97.4,
+          80.5,
+          99.38469696044922,
           157.1,
-          117.5
+          114.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -8975,10 +9147,10 @@
         "id": "g9bu1b",
         "page": 38,
         "rect": [
-          222.8,
-          97.4,
+          216.8,
+          99.38469696044922,
           287.9,
-          117.5
+          114.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -8988,10 +9160,10 @@
         "id": "g9bu1c",
         "page": 38,
         "rect": [
-          359.2,
-          97.4,
+          353.2,
+          99.38469696044922,
           411.8,
-          117.5
+          114.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9001,10 +9173,10 @@
         "id": "g9bu1d",
         "page": 38,
         "rect": [
-          86.5,
-          111.5,
+          80.5,
+          113.48473358154297,
           147.7,
-          131.6
+          128.6497344970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9014,10 +9186,10 @@
         "id": "g9bu1e",
         "page": 38,
         "rect": [
-          222.8,
-          111.5,
+          216.8,
+          113.48473358154297,
           290.1,
-          131.6
+          128.6497344970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9027,10 +9199,10 @@
         "id": "g9bu1f",
         "page": 38,
         "rect": [
-          359.2,
-          111.5,
+          353.2,
+          113.48473358154297,
           436.1,
-          131.6
+          128.6497344970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9051,10 +9223,10 @@
         "id": "g9bu2a",
         "page": 38,
         "rect": [
-          86.5,
-          146.5,
+          80.5,
+          148.48472595214844,
           220.1,
-          166.6
+          163.6497344970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9064,10 +9236,10 @@
         "id": "g9bu2b",
         "page": 38,
         "rect": [
-          291.0,
-          146.5,
+          285.0,
+          148.48472595214844,
           448.1,
-          166.6
+          163.6497344970703
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9077,10 +9249,10 @@
         "id": "g9bu2c",
         "page": 38,
         "rect": [
-          86.5,
-          166.6,
+          80.5,
+          165.41209411621094,
           242.0,
-          186.7
+          190.04461669921875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9090,10 +9262,10 @@
         "id": "g9bu2d",
         "page": 38,
         "rect": [
-          291.0,
-          163.4,
+          285.0,
+          165.41209411621094,
           443.1,
-          193.0
+          190.04461669921875
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -9231,10 +9403,10 @@
         "id": "g9ex1a",
         "page": 39,
         "rect": [
-          69.6,
-          332.3,
+          63.599999999999994,
+          334.28662109375,
           360.0,
-          352.4
+          349.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9244,10 +9416,10 @@
         "id": "g9ex1b",
         "page": 39,
         "rect": [
-          69.6,
-          349.3,
+          63.599999999999994,
+          351.28662109375,
           365.0,
-          369.4
+          366.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9268,10 +9440,10 @@
         "id": "g9ex2a",
         "page": 39,
         "rect": [
-          69.6,
-          384.3,
+          63.599999999999994,
+          386.28662109375,
           132.3,
-          404.4
+          401.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9281,10 +9453,10 @@
         "id": "g9ex2b",
         "page": 39,
         "rect": [
-          69.6,
-          398.3,
+          63.599999999999994,
+          400.28662109375,
           132.3,
-          418.4
+          415.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9294,10 +9466,10 @@
         "id": "g9ex2c",
         "page": 39,
         "rect": [
-          69.6,
-          412.3,
+          63.599999999999994,
+          414.28662109375,
           316.5,
-          432.4
+          429.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9307,10 +9479,10 @@
         "id": "g9ex2d",
         "page": 39,
         "rect": [
-          69.6,
-          426.3,
+          63.599999999999994,
+          428.28662109375,
           318.4,
-          446.4
+          443.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9331,10 +9503,10 @@
         "id": "g9ex3a",
         "page": 39,
         "rect": [
-          69.6,
-          461.3,
+          63.599999999999994,
+          463.28662109375,
           128.9,
-          481.4
+          478.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9344,10 +9516,10 @@
         "id": "g9ex3b",
         "page": 39,
         "rect": [
-          213.9,
-          461.3,
+          207.9,
+          463.28662109375,
           278.3,
-          481.4
+          478.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9357,10 +9529,10 @@
         "id": "g9ex3c",
         "page": 39,
         "rect": [
-          358.2,
-          461.3,
+          352.2,
+          463.28662109375,
           422.6,
-          481.4
+          478.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9381,10 +9553,10 @@
         "id": "g9ex4a",
         "page": 39,
         "rect": [
-          69.6,
-          496.3,
+          63.599999999999994,
+          498.28662109375,
           170.2,
-          516.4
+          513.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9394,10 +9566,10 @@
         "id": "g9ex4b",
         "page": 39,
         "rect": [
-          213.9,
-          496.3,
+          207.9,
+          498.28662109375,
           314.5,
-          516.4
+          513.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9407,10 +9579,10 @@
         "id": "g9ex4c",
         "page": 39,
         "rect": [
-          358.2,
-          496.3,
+          352.2,
+          498.28662109375,
           458.9,
-          516.4
+          513.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9431,10 +9603,10 @@
         "id": "g9ex5a",
         "page": 39,
         "rect": [
-          69.6,
-          531.3,
+          63.599999999999994,
+          533.28662109375,
           172.4,
-          551.4
+          548.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9444,10 +9616,10 @@
         "id": "g9ex5b",
         "page": 39,
         "rect": [
-          213.9,
-          531.3,
+          207.9,
+          533.28662109375,
           321.7,
-          551.4
+          548.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9457,10 +9629,10 @@
         "id": "g9ex5c",
         "page": 39,
         "rect": [
-          358.2,
-          531.3,
+          352.2,
+          533.28662109375,
           466.1,
-          551.4
+          548.3865966796875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9488,10 +9660,10 @@
         "id": "g9ex6a",
         "page": 39,
         "rect": [
-          69.6,
-          644.6,
+          63.599999999999994,
+          646.6074829101562,
           421.7,
-          664.7
+          661.7074584960938
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9501,10 +9673,10 @@
         "id": "g9ex6b",
         "page": 39,
         "rect": [
-          69.6,
-          658.6,
+          63.599999999999994,
+          660.6074829101562,
           442.0,
-          690.3
+          687.3374633789062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9603,10 +9775,10 @@
         "id": "g9ex7a",
         "page": 40,
         "rect": [
-          70.0,
-          64.8,
+          64.0,
+          66.77952575683594,
           220.1,
-          84.9
+          81.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9616,10 +9788,10 @@
         "id": "g9ex7b",
         "page": 40,
         "rect": [
-          70.0,
-          78.8,
+          64.0,
+          80.77952575683594,
           227.6,
-          98.9
+          95.87953186035156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9629,10 +9801,10 @@
         "id": "g9ex7c",
         "page": 40,
         "rect": [
-          70.0,
-          93.7,
+          64.0,
+          95.67952728271484,
           310.5,
-          110.5
+          107.50952911376953
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9653,10 +9825,10 @@
         "id": "g9ex8a",
         "page": 40,
         "rect": [
-          70.0,
-          129.1,
+          64.0,
+          131.10191345214844,
           248.7,
-          149.2
+          146.20191955566406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9666,10 +9838,10 @@
         "id": "g9ex8b",
         "page": 40,
         "rect": [
-          70.0,
-          143.0,
+          64.0,
+          145.0285186767578,
           474.2,
-          178.2
+          168.98643493652344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9679,10 +9851,10 @@
         "id": "g9ex8c",
         "page": 40,
         "rect": [
-          70.0,
-          173.1,
+          64.0,
+          160.13450622558594,
           484.5,
-          193.3
+          190
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9703,10 +9875,10 @@
         "id": "g9ex9a",
         "page": 40,
         "rect": [
-          70.0,
-          242.4,
+          64.0,
+          244.3891143798828,
           159.1,
-          262.5
+          259.4891052246094
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9716,10 +9888,10 @@
         "id": "g9ex9b",
         "page": 40,
         "rect": [
-          70.0,
-          256.4,
+          64.0,
+          258.3891296386719,
           208.5,
-          276.5
+          273.4891052246094
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9729,10 +9901,10 @@
         "id": "g9ex9c",
         "page": 40,
         "rect": [
-          70.0,
-          271.3,
+          64.0,
+          273.28912353515625,
           246.4,
-          304.5
+          285.1191101074219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9742,10 +9914,10 @@
         "id": "g9ex9d",
         "page": 40,
         "rect": [
-          70.0,
-          299.3,
+          64.0,
+          286.3891296386719,
           262.9,
-          358.1
+          355.1191101074219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9773,10 +9945,10 @@
         "id": "g9ex10a",
         "page": 40,
         "rect": [
-          70.0,
-          451.7,
+          64.0,
+          453.7101135253906,
           473.6,
-          471.8
+          468.8100891113281
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -9786,10 +9958,10 @@
         "id": "g9ex10b",
         "page": 40,
         "rect": [
-          70.0,
-          466.6,
+          64.0,
+          468.610107421875,
           385.1,
-          483.4
+          480.4400939941406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -9799,10 +9971,10 @@
         "id": "g9ex10c",
         "page": 40,
         "rect": [
-          70.0,
-          480.6,
+          64.0,
+          482.610107421875,
           458.2,
-          497.4
+          494.4400939941406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -9812,10 +9984,10 @@
         "id": "g9ex10d",
         "page": 40,
         "rect": [
-          70.0,
-          494.6,
+          64.0,
+          496.610107421875,
           396.6,
-          511.4
+          508.4400939941406
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -9825,10 +9997,10 @@
         "id": "g9ex10e",
         "page": 40,
         "rect": [
-          70.0,
-          508.6,
+          64.0,
+          510.6101379394531,
           484.1,
-          525.4
+          522
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -9849,10 +10021,10 @@
         "id": "g9ex11a",
         "page": 40,
         "rect": [
-          70.0,
-          598.7,
+          64.0,
+          600.7101440429688,
           440.9,
-          626.3
+          623.2691040039062
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9862,10 +10034,10 @@
         "id": "g9ex11b",
         "page": 40,
         "rect": [
-          70.0,
-          610.8,
+          64.0,
+          612.8091430664062,
           459.6,
-          643.7
+          640.7047729492188
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9875,10 +10047,10 @@
         "id": "g9ex11c",
         "page": 40,
         "rect": [
-          70.0,
-          640.9,
+          64.0,
+          642.94482421875,
           334.6,
-          661.0
+          658.0447998046875
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9965,10 +10137,10 @@
         "id": "g9ex12a",
         "page": 41,
         "rect": [
-          69.6,
-          146.7,
+          63.599999999999994,
+          148.6650848388672,
           259.4,
-          178.4
+          163.7650909423828
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9978,10 +10150,10 @@
         "id": "g9ex12b",
         "page": 41,
         "rect": [
-          69.6,
-          174.7,
+          63.599999999999994,
+          164.23509216308594,
           265.1,
-          206.4
+          191.7650909423828
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -9991,10 +10163,10 @@
         "id": "g9ex12c",
         "page": 41,
         "rect": [
-          69.6,
-          202.7,
+          63.599999999999994,
+          192.23509216308594,
           229.1,
-          234.4
+          231.39508056640625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10022,10 +10194,10 @@
         "id": "g9ex13a",
         "page": 41,
         "rect": [
-          69.6,
-          371.1,
+          63.599999999999994,
+          373.0777282714844,
           489.9,
-          402.8
+          388.1777038574219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10035,10 +10207,10 @@
         "id": "g9ex13b",
         "page": 41,
         "rect": [
-          69.6,
-          399.1,
+          63.599999999999994,
+          388.647705078125,
           476.4,
-          430.8
+          416.1777038574219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10048,10 +10220,10 @@
         "id": "g9ex13c",
         "page": 41,
         "rect": [
-          69.6,
-          428.0,
+          63.599999999999994,
+          416.647705078125,
           467.0,
-          458.8
+          441.8077087402344
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10061,10 +10233,10 @@
         "id": "g9ex13d",
         "page": 41,
         "rect": [
-          69.6,
-          456.0,
+          63.599999999999994,
+          444.647705078125,
           483.5,
-          503.2
+          500.1777038574219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10153,10 +10325,10 @@
         "id": "h9bu1a",
         "page": 43,
         "rect": [
-          86.5,
-          97.4,
-          460.3,
-          159.7
+          80.5,
+          99.38469696044922,
+          398.5,
+          128.54969787597656
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -10166,10 +10338,10 @@
         "id": "h9bu1b",
         "page": 43,
         "rect": [
-          86.5,
-          153.6,
-          459.5,
-          257.7
+          80.5,
+          127.48473358154297,
+          460.3,
+          212.7497100830078
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -10179,10 +10351,10 @@
         "id": "h9bu1c",
         "page": 43,
         "rect": [
-          86.5,
-          251.6,
+          80.5,
+          211.58470153808594,
           478.6,
-          327.9
+          324.94970703125
         ],
         "workingSpaceStyle": "lines",
         "workingSpaceHeightMm": 10
@@ -10277,10 +10449,10 @@
         "id": "h9ex2a",
         "page": 44,
         "rect": [
-          70.0,
-          145.7,
+          64.0,
+          147.67062377929688,
           243.6,
-          162.5
+          159.5006103515625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10290,10 +10462,10 @@
         "id": "h9ex2b",
         "page": 44,
         "rect": [
-          286.5,
-          145.7,
+          280.5,
+          147.67062377929688,
           477.3,
-          162.5
+          159.5006103515625
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10303,10 +10475,10 @@
         "id": "h9ex2c",
         "page": 44,
         "rect": [
-          70.0,
-          159.8,
+          64.0,
+          161.77059936523438,
           220.3,
-          176.6
+          173.6005859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10316,10 +10488,10 @@
         "id": "h9ex2d",
         "page": 44,
         "rect": [
-          286.5,
-          159.8,
+          280.5,
+          161.77059936523438,
           430.9,
-          176.6
+          173.6005859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10340,10 +10512,10 @@
         "id": "h9ex3a",
         "page": 44,
         "rect": [
-          70.0,
-          194.8,
+          64.0,
+          196.77059936523438,
           266.9,
-          211.6
+          208.6005859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10353,10 +10525,10 @@
         "id": "h9ex3b",
         "page": 44,
         "rect": [
-          286.5,
-          194.8,
+          280.5,
+          196.77059936523438,
           477.3,
-          211.6
+          208.6005859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10366,10 +10538,10 @@
         "id": "h9ex3c",
         "page": 44,
         "rect": [
-          70.0,
-          208.9,
+          64.0,
+          210.87060546875,
           220.3,
-          225.7
+          222.70059204101562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10379,10 +10551,10 @@
         "id": "h9ex3d",
         "page": 44,
         "rect": [
-          286.5,
-          208.9,
+          280.5,
+          210.87060546875,
           435.9,
-          225.7
+          222.70059204101562
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10403,10 +10575,10 @@
         "id": "h9ex4a",
         "page": 44,
         "rect": [
-          70.0,
-          257.9,
+          64.0,
+          259.87060546875,
           329.2,
-          274.7
+          271.7005920410156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10416,10 +10588,10 @@
         "id": "h9ex4b",
         "page": 44,
         "rect": [
-          70.0,
-          271.9,
+          64.0,
+          273.87060546875,
           260.8,
-          288.7
+          285.7005920410156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10429,10 +10601,10 @@
         "id": "h9ex4c",
         "page": 44,
         "rect": [
-          70.0,
-          285.9,
+          64.0,
+          287.87060546875,
           220.3,
-          302.7
+          299.7005920410156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10442,10 +10614,10 @@
         "id": "h9ex4d",
         "page": 44,
         "rect": [
-          70.0,
-          299.9,
+          64.0,
+          301.87060546875,
           277.2,
-          316.7
+          313.7005920410156
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10466,10 +10638,10 @@
         "id": "h9ex5a",
         "page": 44,
         "rect": [
-          70.0,
-          333.9,
+          64.0,
+          335.9422912597656,
           453.5,
-          366.6
+          349.61859130859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10479,10 +10651,10 @@
         "id": "h9ex5b",
         "page": 44,
         "rect": [
-          70.0,
-          363.8,
-          220.3,
-          380.6
+          64.0,
+          352.4585876464844,
+          403.4,
+          380.9023132324219
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10492,10 +10664,10 @@
         "id": "h9ex5c",
         "page": 44,
         "rect": [
-          70.0,
-          377.8,
+          64.0,
+          379.7886047363281,
           195.8,
-          394.6
+          391.61859130859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10505,10 +10677,10 @@
         "id": "h9ex5d",
         "page": 44,
         "rect": [
-          70.0,
-          391.8,
+          64.0,
+          393.7886047363281,
           223.9,
-          408.6
+          405.61859130859375
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "grid"
@@ -10690,10 +10862,10 @@
         "id": "h9ex14a",
         "page": 45,
         "rect": [
-          69.7,
-          268.0,
+          63.7,
+          270.00042724609375,
           485.4,
-          301.2
+          281.8304138183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10703,10 +10875,10 @@
         "id": "h9ex14b",
         "page": 45,
         "rect": [
-          69.6,
-          296.0,
+          63.599999999999994,
+          283.1004333496094,
           469.5,
-          340.8
+          337.8304138183594
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10727,10 +10899,10 @@
         "id": "h9ex15a",
         "page": 45,
         "rect": [
-          69.6,
-          386.1,
+          63.599999999999994,
+          388.1004333496094,
           143.9,
-          406.2
+          403.2004089355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10740,10 +10912,10 @@
         "id": "h9ex15b",
         "page": 45,
         "rect": [
-          213.9,
-          386.1,
+          207.9,
+          388.1004333496094,
           288.3,
-          406.2
+          403.2004089355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10753,10 +10925,10 @@
         "id": "h9ex15c",
         "page": 45,
         "rect": [
-          358.2,
-          386.1,
+          352.2,
+          388.1004333496094,
           432.6,
-          406.2
+          403.2004089355469
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10797,10 +10969,10 @@
         "id": "h9ex17a",
         "page": 45,
         "rect": [
-          69.6,
-          529.3,
-          469.2,
-          588.2
+          63.599999999999994,
+          531.3212890625,
+          431.5,
+          571.1312866210938
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10810,10 +10982,10 @@
         "id": "h9ex17b",
         "page": 45,
         "rect": [
-          69.6,
-          585.3,
-          468.0,
-          658.2
+          63.599999999999994,
+          559.9913330078125,
+          469.2,
+          627.1513061523438
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"
@@ -10823,10 +10995,10 @@
         "id": "h9ex17c",
         "page": 45,
         "rect": [
-          69.6,
-          655.3,
-          426.9,
-          672.2
+          63.599999999999994,
+          629.52880859375,
+          468.0,
+          664
         ],
         "workingSpaceHeightMm": 15,
         "workingSpaceStyle": "lines"

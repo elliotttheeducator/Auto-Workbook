@@ -159,6 +159,29 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   display: flex; align-items: flex-start; gap: 10px; justify-content: center;
   margin: 16px auto; width: max-content; max-width: 100%;
 }
+/* 100% view (see the booklet/100% toggle in app.js) - a spread's two
+   pages side by side at true physical A4 size would need a genuinely
+   huge monitor to fit both without scrolling, and defeats the point of
+   a "check this one page for real" mode anyway - stack them instead, one
+   at a time, same as flipping through a printed booklet page by page.
+   Screen-only: @media print below always resets .page's zoom back to
+   1 regardless of this class, so a print triggered while 100% mode is
+   on still exports true, un-zoomed A4. */
+@media screen {
+  :root.mode-actual .spread {
+    flex-direction: column; align-items: center; width: auto;
+  }
+  /* --actual-zoom is set by applyViewMode() (app.js) from this screen's
+     own measured px-per-mm - zoom (not transform:scale) so the page's
+     layout footprint actually changes with it: everything inside is
+     already sized in real mm units, so scaling the whole rendered page
+     as one unit is what keeps a working-space box, a crop, and the page
+     around them all in the same true proportion to each other, instead
+     of pulling the outer box out of sync with its own contents. */
+  :root.mode-actual .page {
+    zoom: var(--actual-zoom, 1);
+  }
+}
 .page {
   /* Safe to pin to exactly one sheet's height here (unlike a naive
      one-workbook-page-per-div layout would be): render.js's
@@ -284,18 +307,30 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    anyway (see renderGroup in render.js), one panel controlling both is
    all that's ever needed. */
 .controls-hang {
-  position: absolute; top: 0; width: 92px; z-index: 1;
+  position: absolute; top: 0; width: 100px; z-index: 1;
   display: flex; flex-direction: column; gap: 3px;
   font-size: 9px;
-  /* A short block's own controls can be taller than the block itself
-     (there's just more to show than there is content to show it next
-     to) and spill down past its bottom edge - a background here keeps
-     that spill reading as a floating label over whatever's behind it,
-     rather than visually merging into it. Only matters on screen: this
+  /* Opaque, not translucent - layoutHangingControls() (app.js) still
+     lets panels sit close together on a dense page, and a see-through
+     background there just blends two panels' text into an unreadable
+     mess. Solid + a real border + a shadow is what actually keeps a
+     nudged panel legible as its own separate thing, even when it's
+     partly overlapping its neighbour. Only matters on screen: this
      whole panel is print:none, so it can never bleed into the export. */
-  background: rgba(255,255,255,0.94);
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
   border-radius: 4px;
-  padding: 2px;
+  padding: 4px;
+}
+/* The one thing that survives a panel being nudged away from its own
+   block (see layoutHangingControls in app.js) - whatever else has
+   moved, this still says which crop the panel controls. Monospace-ish
+   and coloured so it reads as an identifier, not just more label text. */
+.controls-id {
+  font-weight: 700; color: #2a7; font-size: 9px; letter-spacing: 0.02em;
+  padding-bottom: 3px; margin-bottom: 2px; border-bottom: 1px solid #e2e2e2;
+  word-break: break-word;
 }
 .page-left .controls-hang { right: 100%; margin-right: 8px; align-items: flex-end; text-align: right; }
 .page-right .controls-hang { left: 100%; margin-left: 8px; align-items: flex-start; text-align: left; }

@@ -192,6 +192,18 @@ function cropButtonHtml(id, kind) {
   );
 }
 
+// Every hanging controls panel opens with the id of whatever it
+// controls, in small print. layoutHangingControls() (app.js) nudges a
+// panel down whenever a dense run of short questions would otherwise
+// make it overlap the one above it, and once nudged, a panel can end up
+// hanging next to different content than what it actually belongs to -
+// the id is the one thing that survives that drift, so there's always a
+// way to tell which crop a given panel is for even when it's no longer
+// sitting right beside it.
+function controlsHangHtml(label, innerHtml, extraClass = "") {
+  return `<div class="controls-hang${extraClass ? " " + extraClass : ""}"><div class="controls-id">${escapeHtml(label)}</div>${innerHtml}</div>`;
+}
+
 function restoreListHtml(hiddenMembers, gid) {
   if (!hiddenMembers.length) return "";
   const buttons = hiddenMembers
@@ -228,7 +240,7 @@ function buildAnswerRowUnit(a, b) {
   // Crop, unlike the scale/break-before controls above, is always
   // per-image - each half of the row is its own distinct crop.
   const cropButtons = cropButtonHtml(a.id, "block") + (b ? cropButtonHtml(b.id, "block") : "");
-  const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(targets, "block", a.pct)}${breakBeforeControlHtml(targets, "block", a.breakBefore)}${cropButtons}</div>`;
+  const hangingControls = controlsHangHtml(targets, imageScaleControlHtml(targets, "block", a.pct) + breakBeforeControlHtml(targets, "block", a.breakBefore) + cropButtons);
   const html = `<div class="answer-row">${partsHtml}${hangingControls}</div>`;
   // a.pct/b.pct are already each image's fully-resolved current scale
   // (own override, if any, else the "answers" default bucket) - passing
@@ -716,7 +728,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // distinct image, so a shared comma-target button would only ever
     // be able to crop one of the two anyway.
     const partCropButtons = rowBlocks.map((b) => cropButtonHtml(b.id, "block")).join("");
-    const hangingControls = `<div class="controls-hang">${renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore)}${partDeleteButtons}${partCropButtons}</div>`;
+    const hangingControls = controlsHangHtml(targets, renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore) + partDeleteButtons + partCropButtons);
     const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
@@ -932,7 +944,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             b.imageScale ??
             (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
-          const hangingControls = `<div class="controls-hang">${imageScaleControlHtml(b.id, "block", pct)}${breakBeforeControlHtml(b.id, "block", b.breakBefore)}${cropButtonHtml(b.id, "block")}</div>`;
+          const hangingControls = controlsHangHtml(b.id, imageScaleControlHtml(b.id, "block", pct) + breakBeforeControlHtml(b.id, "block", b.breakBefore) + cropButtonHtml(b.id, "block"));
           // glueForward is already exactly "this is a worked example's
           // own diagram" in this dataset (see the docstring in
           // add_chapter.py) - reused here as Auto-fit's other
@@ -975,7 +987,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
           const pct = b.imageScale ?? defaultScales.combined;
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
-          const hangingControls = `<div class="controls-hang">${renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore)}${deleteButtonHtml(b.id, "block", "Delete question")}${cropButtonHtml(b.id, "block")}</div>`;
+          const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
