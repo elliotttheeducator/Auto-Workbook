@@ -323,6 +323,22 @@ async function persistAndRerenderEditor() {
   return renderInFlight;
 }
 
+// Splits a project title like "Year 9 - Chapter 3: Pythagoras' Theorem
+// (3A-3C)" into a book key ("Year 9") and the rest as its chapter label
+// ("Chapter 3: Pythagoras' Theorem (3A-3C)") - falls back to putting the
+// whole title under a single "Other" book if it doesn't start with a
+// recognisable "Year N" prefix, so an oddly-titled project never just
+// disappears from the list.
+function splitBookTitle(title) {
+  const m = title.match(/^(Year\s+\d+)\s*[-:]?\s*(.*)$/i);
+  if (m && m[2]) return { book: m[1], chapter: m[2] };
+  return { book: "Other", chapter: title };
+}
+
+// Groups every project under its book, each book getting one card with a
+// single chapter dropdown instead of a flat list repeating "Year 9"
+// across every one of its chapters - the more chapters accumulate per
+// book, the more this actually saves over one row each.
 async function renderHomeView() {
   currentWorkbook = null;
   currentProjectId = null;
@@ -337,22 +353,54 @@ async function renderHomeView() {
     console.error(err);
   }
 
-  const rows = projects.length
-    ? projects
-        .map(
-          (p) => `
-        <div class="project-row">
-          <div><strong>${escapeHtml(p.title)}</strong><br><span class="status">${p.id}</span></div>
-          <div class="actions">
-            <a href="#/editor/${p.id}">Open editor</a>
-            <button data-action="delete-project" data-id="${p.id}" class="danger">Reset edits</button>
-          </div>
-        </div>`
-        )
-        .join("")
-    : "<div>No projects yet - send Claude a chapter PDF in chat and it'll add one here.</div>";
+  if (!projects.length) {
+    appEl.innerHTML =
+      '<div class="home-main"><div class="project-list">No projects yet - send Claude a chapter PDF in chat and it\'ll add one here.</div></div>';
+    return;
+  }
 
-  appEl.innerHTML = `<div class="home-main"><div class="project-list">${rows}</div></div>`;
+  const books = new Map();
+  for (const p of projects) {
+    const { book, chapter } = splitBookTitle(p.title);
+    if (!books.has(book)) books.set(book, []);
+    books.get(book).push({ id: p.id, chapter });
+  }
+  // Numeric-aware: "Year 9" before "Year 10", "Other" last regardless.
+  const bookNames = [...books.keys()].sort((a, b) =>
+    a === "Other" ? 1 : b === "Other" ? -1 : a.localeCompare(b, undefined, { numeric: true })
+  );
+
+  const cards = bookNames
+    .map((book) => {
+      const chapters = books.get(book);
+      const options = chapters.map((c) => `<option value="${c.id}">${escapeHtml(c.chapter)}</option>`).join("");
+      return `
+        <div class="book-card" data-book="${escapeHtml(book)}">
+          <div class="book-title">${escapeHtml(book)}</div>
+          <div class="book-row">
+            <select class="chapter-select" data-action="select-chapter">${options}</select>
+            <a href="#/editor/${chapters[0].id}" class="open-chapter-btn">Open editor</a>
+            <button data-action="delete-project" data-id="${chapters[0].id}" class="danger">Reset edits</button>
+          </div>
+        </div>`;
+    })
+    .join("");
+
+  appEl.innerHTML = `<div class="home-main"><div class="project-list">${cards}</div></div>`;
+
+  // Keep the "Open editor" link and "Reset edits" button in sync with
+  // whichever chapter the card's own dropdown currently has selected -
+  // they only ever act on one project at a time, so they need to track
+  // the selection rather than the book.
+  for (const select of appEl.querySelectorAll(".chapter-select")) {
+    select.addEventListener("change", () => {
+      const card = select.closest(".book-card");
+      const openBtn = card.querySelector(".open-chapter-btn");
+      const deleteBtn = card.querySelector('[data-action="delete-project"]');
+      openBtn.href = `#/editor/${select.value}`;
+      deleteBtn.dataset.id = select.value;
+    });
+  }
 }
 
 async function renderEditorView(id) {
