@@ -1,0 +1,2814 @@
+[
+  {
+    "cover": true,
+    "blocks": [
+      {
+        "type": "image",
+        "id": "cover",
+        "page": 0,
+        "rect": [
+          0,
+          0,
+          538.58,
+          725.67
+        ]
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "a3_title",
+        "text": "3A Pythagoras' theorem",
+        "style": "title"
+      },
+      {
+        "type": "image",
+        "id": "a3_intro",
+        "page": 2,
+        "rect": [
+          0,
+          160,
+          538,
+          420
+        ]
+      },
+      {
+        "type": "image",
+        "id": "a3_starter",
+        "page": 2,
+        "rect": [
+          0,
+          425,
+          538,
+          605
+        ],
+        "section": true
+      },
+      {
+        "type": "image",
+        "id": "a3_keyideas1",
+        "page": 2,
+        "rect": [
+          0,
+          598,
+          538,
+          700
+        ],
+        "section": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3_keyideas2",
+        "page": 3,
+        "rect": [
+          0,
+          45,
+          538,
+          440
+        ],
+        "section": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3bu1_stem",
+        "page": 3,
+        "rect": [
+          57.599999999999994,
+          452,
+          391.1,
+          495.53472900390625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3bu1a",
+        "page": 3,
+        "rect": [
+          76.6,
+          495.53472900390625,
+          149.8,
+          548
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a3bu1b",
+        "page": 3,
+        "rect": [
+          212.9,
+          495.53472900390625,
+          316.3,
+          548
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a3bu1c",
+        "page": 3,
+        "rect": [
+          349.2,
+          495.53472900390625,
+          435.7,
+          548
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "image",
+        "id": "a3bu2_stem",
+        "page": 3,
+        "rect": [
+          57.599999999999994,
+          548,
+          463.6,
+          585.1802368164062
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3bu2a",
+        "page": 3,
+        "rect": [
+          76.6,
+          585.1802368164062,
+          146.6,
+          640
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a3bu2b",
+        "page": 3,
+        "rect": [
+          212.9,
+          585.1802368164062,
+          323.9,
+          640
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a3bu2c",
+        "page": 3,
+        "rect": [
+          349.2,
+          585.1802368164062,
+          455.0,
+          640
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "a3bu3",
+        "page": 3,
+        "rect": [
+          57.599999999999994,
+          645.7,
+          431.9,
+          683.0
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3bu1",
+        "page": 3,
+        "rect": [
+          75.6,
+          495.53472900390625,
+          436.7,
+          548
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "a3bu2",
+        "page": 3,
+        "rect": [
+          75.6,
+          585.1802368164062,
+          456.0,
+          640
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example1",
+        "page": 4,
+        "rect": [
+          0,
+          48,
+          538,
+          358
+        ],
+        "section": true,
+        "glueForward": true
+      },
+      {
+        "type": "heading",
+        "id": "a3_h_nyt1",
+        "text": "Now you try (Example 1)"
+      },
+      {
+        "type": "question",
+        "id": "nyt1",
+        "page": 4,
+        "rect": [
+          0,
+          363,
+          538,
+          495
+        ],
+        "workingSpaceHeightMm": 25
+      },
+      {
+        "type": "image",
+        "id": "example2a",
+        "page": 4,
+        "rect": [
+          0,
+          505,
+          538,
+          655
+        ],
+        "section": true,
+        "glueForward": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example2b",
+        "page": 5,
+        "rect": [
+          0,
+          50,
+          538,
+          150
+        ],
+        "section": true,
+        "glueForward": true
+      },
+      {
+        "type": "heading",
+        "id": "a3_h_nyt2",
+        "text": "Now you try (Example 2)"
+      },
+      {
+        "type": "question",
+        "id": "nyt2",
+        "page": 5,
+        "rect": [
+          0,
+          150,
+          538,
+          260
+        ],
+        "workingSpaceHeightMm": 30
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "a3_h_ex",
+        "text": "Exercise 3A"
+      },
+      {
+        "type": "heading",
+        "id": "a3_h_fluency",
+        "text": "Fluency",
+        "style": "tier",
+        "tier": "fluency"
+      },
+      {
+        "type": "image",
+        "id": "a3ex1_stem",
+        "page": 5,
+        "rect": [
+          8.7,
+          312,
+          470.0,
+          343.965087890625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex1a",
+        "page": 5,
+        "rect": [
+          60.599999999999994,
+          344.1351013183594,
+          153.1,
+          389.5456848144531
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex1b",
+        "page": 5,
+        "rect": [
+          277.1,
+          344.1351013183594,
+          347.5,
+          389.5456848144531
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex1c",
+        "page": 5,
+        "rect": [
+          60.599999999999994,
+          393.9757995605469,
+          126.4,
+          433.5035095214844
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex1d",
+        "page": 5,
+        "rect": [
+          277.1,
+          393.9757995605469,
+          366.7,
+          433.5035095214844
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex1e",
+        "page": 5,
+        "rect": [
+          60.599999999999994,
+          449.1938171386719,
+          132.5,
+          522
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex1f",
+        "page": 5,
+        "rect": [
+          277.1,
+          449.1938171386719,
+          355.1,
+          522
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex1",
+        "page": 5,
+        "rect": [
+          59.599999999999994,
+          343.965087890625,
+          367.7,
+          512.7
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3ex2_stem",
+        "page": 5,
+        "rect": [
+          8.600000000000001,
+          530,
+          466.6,
+          560.2147827148438
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex2a",
+        "page": 5,
+        "rect": [
+          60.599999999999994,
+          560.384765625,
+          123.1,
+          624.5100708007812
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex2b",
+        "page": 5,
+        "rect": [
+          204.9,
+          560.384765625,
+          302.1,
+          624.5100708007812
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex2c",
+        "page": 5,
+        "rect": [
+          349.2,
+          560.384765625,
+          438.5,
+          624.5100708007812
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex2d",
+        "page": 5,
+        "rect": [
+          60.599999999999994,
+          635.6654663085938,
+          145.6,
+          707
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex2e",
+        "page": 5,
+        "rect": [
+          204.9,
+          635.6654663085938,
+          268.8,
+          707
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex2f",
+        "page": 5,
+        "rect": [
+          349.2,
+          635.6654663085938,
+          423.1,
+          707
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex2",
+        "page": 5,
+        "rect": [
+          59.599999999999994,
+          560.2147827148438,
+          439.5,
+          692.4
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3ex3_stem",
+        "page": 6,
+        "rect": [
+          10.899999999999999,
+          44,
+          442.9,
+          67.50952911376953
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex3a",
+        "page": 6,
+        "rect": [
+          61.0,
+          67.67952728271484,
+          119.2,
+          106.28163146972656
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex3b",
+        "page": 6,
+        "rect": [
+          205.3,
+          67.67952728271484,
+          271.5,
+          106.28163146972656
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex3c",
+        "page": 6,
+        "rect": [
+          349.7,
+          67.67952728271484,
+          443.1,
+          106.28163146972656
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex3d",
+        "page": 6,
+        "rect": [
+          61.0,
+          125.73152923583984,
+          120.1,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex3e",
+        "page": 6,
+        "rect": [
+          205.3,
+          125.73152923583984,
+          287.8,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex3f",
+        "page": 6,
+        "rect": [
+          349.7,
+          125.73152923583984,
+          425.7,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex3",
+        "page": 6,
+        "rect": [
+          60.0,
+          67.50952911376953,
+          444.1,
+          200
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3ex4_stem",
+        "page": 6,
+        "rect": [
+          46.0,
+          200,
+          472.9,
+          228.5665283203125
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex4a",
+        "page": 6,
+        "rect": [
+          61.0,
+          228.73651123046875,
+          156.6,
+          297.2218017578125
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex4b",
+        "page": 6,
+        "rect": [
+          205.3,
+          228.73651123046875,
+          276.1,
+          297.2218017578125
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex4c",
+        "page": 6,
+        "rect": [
+          349.7,
+          228.73651123046875,
+          444.4,
+          297.2218017578125
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex4d",
+        "page": 6,
+        "rect": [
+          61.0,
+          300.1162109375,
+          148.3,
+          368
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex4e",
+        "page": 6,
+        "rect": [
+          205.3,
+          300.1162109375,
+          308.6,
+          368
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex4f",
+        "page": 6,
+        "rect": [
+          349.7,
+          300.1162109375,
+          473.9,
+          368
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex4",
+        "page": 6,
+        "rect": [
+          60.0,
+          228.5665283203125,
+          474.9,
+          368
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3ex5_stem",
+        "page": 6,
+        "rect": [
+          46.0,
+          368,
+          487.9,
+          399.3982849121094
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex5a",
+        "page": 6,
+        "rect": [
+          61.0,
+          399.56829833984375,
+          145.4,
+          452.6838073730469
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex5b",
+        "page": 6,
+        "rect": [
+          205.3,
+          399.56829833984375,
+          290.5,
+          452.6838073730469
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex5c",
+        "page": 6,
+        "rect": [
+          349.7,
+          399.56829833984375,
+          424.0,
+          452.6838073730469
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex5d",
+        "page": 6,
+        "rect": [
+          61.0,
+          467.16021728515625,
+          137.6,
+          535
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex5e",
+        "page": 6,
+        "rect": [
+          205.3,
+          467.16021728515625,
+          310.0,
+          535
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "a3ex5f",
+        "page": 6,
+        "rect": [
+          349.7,
+          467.16021728515625,
+          408.9,
+          535
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex5",
+        "page": 6,
+        "rect": [
+          60.0,
+          399.3982849121094,
+          425.0,
+          535
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "a3_h_ps",
+        "text": "Problem-solving",
+        "style": "tier",
+        "tier": "problemsolving"
+      },
+      {
+        "type": "question",
+        "id": "a3ex6",
+        "page": 6,
+        "rect": [
+          0,
+          575,
+          538,
+          640
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex7",
+        "page": 7,
+        "rect": [
+          0,
+          45,
+          538,
+          145
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex8",
+        "page": 7,
+        "rect": [
+          0,
+          140,
+          538,
+          195
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex9",
+        "page": 7,
+        "rect": [
+          0,
+          185,
+          538,
+          262
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex10",
+        "page": 7,
+        "rect": [
+          0,
+          258,
+          538,
+          340
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex11",
+        "page": 7,
+        "rect": [
+          0,
+          340,
+          538,
+          445
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "a3_h_reasoning",
+        "text": "Reasoning",
+        "style": "tier",
+        "tier": "reasoning"
+      },
+      {
+        "type": "question",
+        "id": "a3ex12",
+        "page": 7,
+        "rect": [
+          0,
+          470,
+          538,
+          522
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "a3ex13_stem",
+        "page": 7,
+        "rect": [
+          45.6,
+          527,
+          464.0,
+          566.656494140625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "a3ex13a",
+        "page": 7,
+        "rect": [
+          60.599999999999994,
+          566.8264770507812,
+          132.2,
+          613.232177734375
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex13b",
+        "page": 7,
+        "rect": [
+          204.9,
+          566.8264770507812,
+          288.5,
+          613.232177734375
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex13c",
+        "page": 7,
+        "rect": [
+          349.2,
+          566.8264770507812,
+          438.5,
+          613.232177734375
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex13d",
+        "page": 7,
+        "rect": [
+          60.599999999999994,
+          627.3674926757812,
+          136.3,
+          690
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex13e",
+        "page": 7,
+        "rect": [
+          204.9,
+          627.3674926757812,
+          304.0,
+          690
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "a3ex13f",
+        "page": 7,
+        "rect": [
+          349.2,
+          627.3674926757812,
+          445.7,
+          690
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "a3ex13",
+        "page": 7,
+        "rect": [
+          59.599999999999994,
+          566.656494140625,
+          446.7,
+          681.1
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex14",
+        "page": 8,
+        "rect": [
+          0,
+          48,
+          538,
+          222
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex15",
+        "page": 8,
+        "rect": [
+          0,
+          226,
+          538,
+          315
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "a3_h_enrichment",
+        "text": "Enrichment: Kennels and kites",
+        "style": "tier",
+        "tier": "enrichment"
+      },
+      {
+        "type": "question",
+        "id": "a3ex16",
+        "page": 8,
+        "rect": [
+          0,
+          338,
+          538,
+          472
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "a3ex17",
+        "page": 8,
+        "rect": [
+          0,
+          485,
+          538,
+          572
+        ],
+        "workingSpaceHeightMm": 30,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "b3_title",
+        "text": "3B Finding the length of the shorter sides",
+        "style": "title"
+      },
+      {
+        "type": "image",
+        "id": "b3_intro",
+        "page": 9,
+        "rect": [
+          0,
+          160,
+          538,
+          385
+        ]
+      },
+      {
+        "type": "image",
+        "id": "b3_starter",
+        "page": 9,
+        "rect": [
+          0,
+          430,
+          538,
+          620
+        ],
+        "section": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3_keyideas",
+        "page": 10,
+        "rect": [
+          0,
+          48,
+          538,
+          200
+        ],
+        "section": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3bu1_stem",
+        "page": 10,
+        "rect": [
+          58.0,
+          234,
+          414.8,
+          276.70672607421875
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3bu1a",
+        "page": 10,
+        "rect": [
+          77.0,
+          276.70672607421875,
+          148.9,
+          296
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu1b",
+        "page": 10,
+        "rect": [
+          179.2,
+          276.70672607421875,
+          250.2,
+          296
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu1c",
+        "page": 10,
+        "rect": [
+          281.5,
+          276.70672607421875,
+          364.0,
+          296
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu1d",
+        "page": 10,
+        "rect": [
+          383.7,
+          276.70672607421875,
+          476.2,
+          296
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "image",
+        "id": "b3bu2_stem",
+        "page": 10,
+        "rect": [
+          58.0,
+          296,
+          446.5,
+          311.70672607421875
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3bu2a",
+        "page": 10,
+        "rect": [
+          77.0,
+          311.70672607421875,
+          169.8,
+          329.4639892578125
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu2b",
+        "page": 10,
+        "rect": [
+          213.3,
+          311.70672607421875,
+          306.1,
+          329.4639892578125
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu2c",
+        "page": 10,
+        "rect": [
+          349.7,
+          311.70672607421875,
+          448.0,
+          329.4639892578125
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu2d",
+        "page": 10,
+        "rect": [
+          77.0,
+          326.2449035644531,
+          170.7,
+          367.4098815917969
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu2e",
+        "page": 10,
+        "rect": [
+          213.3,
+          326.2449035644531,
+          269.7,
+          367.4098815917969
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "type": "question",
+        "id": "b3bu2f",
+        "page": 10,
+        "rect": [
+          349.7,
+          326.2449035644531,
+          411.0,
+          367.4098815917969
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 10
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3bu1",
+        "page": 10,
+        "rect": [
+          76.0,
+          276.70672607421875,
+          477.2,
+          296
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      },
+      {
+        "groupId": "b3bu2",
+        "page": 10,
+        "rect": [
+          76.0,
+          311.70672607421875,
+          449.0,
+          351.4
+        ],
+        "workingSpaceStyle": "lines",
+        "forceSplit": true,
+        "workingSpaceHeightMm": 10
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example3",
+        "page": 10,
+        "rect": [
+          0,
+          365,
+          538,
+          660
+        ],
+        "section": true,
+        "glueForward": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example3_cont",
+        "page": 11,
+        "rect": [
+          0,
+          50,
+          538,
+          148
+        ],
+        "section": true,
+        "glueForward": true
+      },
+      {
+        "type": "heading",
+        "id": "b3_h_nyt3",
+        "text": "Now you try (Example 3)"
+      },
+      {
+        "type": "question",
+        "id": "nyt3",
+        "page": 11,
+        "rect": [
+          0,
+          148,
+          538,
+          260
+        ],
+        "workingSpaceHeightMm": 30
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "b3_h_ex",
+        "text": "Exercise 3B"
+      },
+      {
+        "type": "heading",
+        "id": "b3_h_fluency",
+        "text": "Fluency",
+        "style": "tier",
+        "tier": "fluency"
+      },
+      {
+        "type": "image",
+        "id": "b3ex1_stem",
+        "page": 11,
+        "rect": [
+          7.399999999999999,
+          335,
+          471.7,
+          368.4375915527344
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex1a",
+        "page": 11,
+        "rect": [
+          60.2,
+          368.60760498046875,
+          160.1,
+          429.49371337890625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex1b",
+        "page": 11,
+        "rect": [
+          204.6,
+          368.60760498046875,
+          278.5,
+          429.49371337890625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex1c",
+        "page": 11,
+        "rect": [
+          349.1,
+          368.60760498046875,
+          440.5,
+          429.49371337890625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex1d",
+        "page": 11,
+        "rect": [
+          60.2,
+          442.99420166015625,
+          143.2,
+          500
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex1e",
+        "page": 11,
+        "rect": [
+          204.6,
+          442.99420166015625,
+          335.9,
+          500
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex1f",
+        "page": 11,
+        "rect": [
+          349.1,
+          442.99420166015625,
+          430.7,
+          500
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex1",
+        "page": 11,
+        "rect": [
+          59.2,
+          368.4375915527344,
+          441.5,
+          500
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3ex2_stem",
+        "page": 11,
+        "rect": [
+          7.300000000000001,
+          505,
+          463.5,
+          541.3931884765625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex2a",
+        "page": 11,
+        "rect": [
+          60.2,
+          541.5631713867188,
+          138.2,
+          593.5311889648438
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex2b",
+        "page": 11,
+        "rect": [
+          204.6,
+          541.5631713867188,
+          282.1,
+          593.5311889648438
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex2c",
+        "page": 11,
+        "rect": [
+          349.1,
+          541.5631713867188,
+          443.6,
+          593.5311889648438
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex2d",
+        "page": 11,
+        "rect": [
+          60.2,
+          612.9810791015625,
+          180.5,
+          696.2308959960938
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex2e",
+        "page": 11,
+        "rect": [
+          204.6,
+          612.9810791015625,
+          300.3,
+          696.2308959960938
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex2f",
+        "page": 11,
+        "rect": [
+          349.1,
+          612.9810791015625,
+          419.4,
+          696.2308959960938
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex2",
+        "page": 11,
+        "rect": [
+          59.2,
+          541.3931884765625,
+          444.6,
+          680.2
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3ex3_stem",
+        "page": 12,
+        "rect": [
+          46.0,
+          44,
+          478.2,
+          81.50952911376953
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex3a",
+        "page": 12,
+        "rect": [
+          61.0,
+          81.67952728271484,
+          136.6,
+          141.54559326171875
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex3b",
+        "page": 12,
+        "rect": [
+          205.3,
+          81.67952728271484,
+          310.9,
+          141.54559326171875
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex3c",
+        "page": 12,
+        "rect": [
+          349.7,
+          81.67952728271484,
+          436.1,
+          141.54559326171875
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex3d",
+        "page": 12,
+        "rect": [
+          61.0,
+          145.97543334960938,
+          174.7,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex3e",
+        "page": 12,
+        "rect": [
+          205.3,
+          145.97543334960938,
+          330.5,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      },
+      {
+        "type": "question",
+        "id": "b3ex3f",
+        "page": 12,
+        "rect": [
+          349.7,
+          145.97543334960938,
+          452.0,
+          200
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "grid"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex3",
+        "page": 12,
+        "rect": [
+          60.0,
+          81.50952911376953,
+          453.0,
+          200
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "grid"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3ex4_stem",
+        "page": 12,
+        "rect": [
+          8.3,
+          200,
+          331.8,
+          221.69931030273438
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex4a",
+        "page": 12,
+        "rect": [
+          61.0,
+          221.86932373046875,
+          137.1,
+          290
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex4b",
+        "page": 12,
+        "rect": [
+          205.3,
+          221.86932373046875,
+          284.1,
+          290
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex4c",
+        "page": 12,
+        "rect": [
+          349.7,
+          221.86932373046875,
+          431.5,
+          290
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "heading",
+        "id": "b3_h_ps",
+        "text": "Problem-solving",
+        "style": "tier",
+        "tier": "problemsolving"
+      },
+      {
+        "type": "question",
+        "id": "b3ex5",
+        "page": 12,
+        "rect": [
+          0,
+          314,
+          538,
+          400
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex4",
+        "page": 12,
+        "rect": [
+          60.0,
+          221.69931030273438,
+          432.5,
+          290.0
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "b3ex6",
+        "page": 12,
+        "rect": [
+          0,
+          397,
+          538,
+          462
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3ex7_stem",
+        "page": 12,
+        "rect": [
+          46.0,
+          462,
+          431.2,
+          481.6236877441406
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex7a",
+        "page": 12,
+        "rect": [
+          61.0,
+          481.793701171875,
+          167.0,
+          545
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex7b",
+        "page": 12,
+        "rect": [
+          205.3,
+          481.793701171875,
+          323.8,
+          545
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex7c",
+        "page": 12,
+        "rect": [
+          349.7,
+          481.793701171875,
+          430.8,
+          545
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex7",
+        "page": 12,
+        "rect": [
+          60.0,
+          481.6236877441406,
+          431.8,
+          545
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "b3ex8",
+        "page": 12,
+        "rect": [
+          0,
+          545,
+          538,
+          600
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex9",
+        "page": 12,
+        "rect": [
+          0,
+          578,
+          538,
+          645
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "b3_h_reasoning",
+        "text": "Reasoning",
+        "style": "tier",
+        "tier": "reasoning"
+      },
+      {
+        "type": "image",
+        "id": "b3ex10_stem",
+        "page": 13,
+        "rect": [
+          45.6,
+          50,
+          465.3,
+          106.50061798095703
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex10a",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          106.67061614990234,
+          138.3,
+          165
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex10b",
+        "page": 13,
+        "rect": [
+          204.9,
+          106.67061614990234,
+          287.1,
+          165
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex10c",
+        "page": 13,
+        "rect": [
+          349.2,
+          106.67061614990234,
+          434.2,
+          165
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex10",
+        "page": 13,
+        "rect": [
+          59.599999999999994,
+          106.50061798095703,
+          435.2,
+          165
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "b3ex11_stem",
+        "page": 13,
+        "rect": [
+          45.6,
+          155,
+          492.6,
+          203.89117431640625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex11a",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          204.06118774414062,
+          117.9,
+          230
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex11b",
+        "page": 13,
+        "rect": [
+          204.9,
+          204.06118774414062,
+          262.2,
+          230
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex11c",
+        "page": 13,
+        "rect": [
+          349.2,
+          204.06118774414062,
+          406.5,
+          230
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex11",
+        "page": 13,
+        "rect": [
+          59.599999999999994,
+          203.89117431640625,
+          407.5,
+          225.9
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "b3_h_enrichment",
+        "text": "Enrichment: The power of exact values",
+        "style": "tier",
+        "tier": "enrichment"
+      },
+      {
+        "type": "image",
+        "id": "b3ex12_stem",
+        "page": 13,
+        "rect": [
+          45.6,
+          240,
+          276.0,
+          261.21209716796875
+        ]
+      },
+      {
+        "type": "question",
+        "id": "b3ex12a",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          261.3821105957031,
+          417.6,
+          273.21209716796875
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex12b",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          275.3821105957031,
+          458.5,
+          298.3641052246094
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex12c",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          290.3021240234375,
+          440.4,
+          311.99420166015625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "b3ex12d",
+        "page": 13,
+        "rect": [
+          60.599999999999994,
+          304.30010986328125,
+          442.9,
+          330
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "b3ex12",
+        "page": 13,
+        "rect": [
+          59.599999999999994,
+          261.21209716796875,
+          459.5,
+          330
+        ],
+        "workingSpaceHeightMm": 40,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "b3ex13",
+        "page": 13,
+        "rect": [
+          0,
+          330,
+          538,
+          500
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "c3_title",
+        "text": "3C Using Pythagoras' theorem to solve two-dimensional problems",
+        "style": "title"
+      },
+      {
+        "type": "image",
+        "id": "c3_intro",
+        "page": 14,
+        "rect": [
+          0,
+          160,
+          538,
+          290
+        ]
+      },
+      {
+        "type": "image",
+        "id": "c3_starter",
+        "page": 14,
+        "rect": [
+          0,
+          430,
+          538,
+          565
+        ],
+        "section": true
+      },
+      {
+        "type": "image",
+        "id": "c3_keyideas",
+        "page": 14,
+        "rect": [
+          0,
+          575,
+          538,
+          690
+        ],
+        "section": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3bu1",
+        "page": 15,
+        "rect": [
+          0,
+          56,
+          538,
+          320
+        ],
+        "workingSpaceStyle": "lines",
+        "workingSpaceHeightMm": 15
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example4",
+        "page": 15,
+        "rect": [
+          0,
+          358,
+          538,
+          500
+        ],
+        "section": true,
+        "glueForward": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example4_cont",
+        "page": 15,
+        "rect": [
+          0,
+          500,
+          538,
+          672
+        ],
+        "section": true,
+        "glueForward": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "example4_cont2",
+        "page": 16,
+        "rect": [
+          0,
+          50,
+          538,
+          165
+        ],
+        "section": true,
+        "glueForward": true
+      },
+      {
+        "type": "heading",
+        "id": "c3_h_nyt4",
+        "text": "Now you try (Example 4)"
+      },
+      {
+        "type": "question",
+        "id": "nyt4",
+        "page": 16,
+        "rect": [
+          0,
+          185,
+          538,
+          260
+        ],
+        "workingSpaceHeightMm": 25
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "c3_h_ex",
+        "text": "Exercise 3C"
+      },
+      {
+        "type": "heading",
+        "id": "c3_h_fluency",
+        "text": "Fluency",
+        "style": "tier",
+        "tier": "fluency"
+      },
+      {
+        "type": "question",
+        "id": "c3ex1",
+        "page": 16,
+        "rect": [
+          0,
+          335,
+          538,
+          430
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex2",
+        "page": 16,
+        "rect": [
+          0,
+          448,
+          538,
+          495
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex3",
+        "page": 16,
+        "rect": [
+          0,
+          495,
+          538,
+          605
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex4",
+        "page": 16,
+        "rect": [
+          0,
+          618,
+          538,
+          700
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "c3ex5_stem",
+        "page": 17,
+        "rect": [
+          45.6,
+          50,
+          479.3,
+          81.50952911376953
+        ]
+      },
+      {
+        "type": "question",
+        "id": "c3ex5a",
+        "page": 17,
+        "rect": [
+          60.599999999999994,
+          81.67952728271484,
+          195.9,
+          152.3380889892578
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex5b",
+        "page": 17,
+        "rect": [
+          277.1,
+          81.67952728271484,
+          430.5,
+          152.3380889892578
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex5c",
+        "page": 17,
+        "rect": [
+          60.599999999999994,
+          156.78628540039062,
+          228.9,
+          225
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex5d",
+        "page": 17,
+        "rect": [
+          277.1,
+          156.78628540039062,
+          427.7,
+          225
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c3ex5",
+        "page": 17,
+        "rect": [
+          59.599999999999994,
+          81.50952911376953,
+          431.5,
+          225
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "c3_h_ps",
+        "text": "Problem-solving",
+        "style": "tier",
+        "tier": "problemsolving"
+      },
+      {
+        "type": "question",
+        "id": "c3ex6",
+        "page": 17,
+        "rect": [
+          0,
+          253,
+          538,
+          328
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex7",
+        "page": 17,
+        "rect": [
+          45.6,
+          328.1,
+          492.6,
+          401.9
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": []
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex8",
+        "page": 17,
+        "rect": [
+          45.6,
+          405.1,
+          492.5,
+          511.1
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": []
+  },
+  {
+    "blocks": [
+      {
+        "type": "question",
+        "id": "c3ex9",
+        "page": 17,
+        "rect": [
+          0,
+          540,
+          538,
+          600
+        ],
+        "workingSpaceHeightMm": 25,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "c3_h_reasoning",
+        "text": "Reasoning",
+        "style": "tier",
+        "tier": "reasoning"
+      },
+      {
+        "type": "image",
+        "id": "c3ex10_stem",
+        "page": 18,
+        "rect": [
+          45.6,
+          70,
+          465.4,
+          106.50061798095703
+        ]
+      },
+      {
+        "type": "question",
+        "id": "c3ex10a",
+        "page": 18,
+        "rect": [
+          60.599999999999994,
+          106.67061614990234,
+          343.0,
+          151.5697784423828
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex10b",
+        "page": 18,
+        "rect": [
+          60.599999999999994,
+          174.67062377929688,
+          275.2,
+          235
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c3ex10",
+        "page": 18,
+        "rect": [
+          59.599999999999994,
+          106.50061798095703,
+          344.0,
+          235
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "c3ex11_stem",
+        "page": 18,
+        "rect": [
+          45.6,
+          335,
+          478.0,
+          397.5006103515625
+        ]
+      },
+      {
+        "type": "question",
+        "id": "c3ex11a",
+        "page": 18,
+        "rect": [
+          60.599999999999994,
+          397.6706237792969,
+          235.1,
+          409.5006103515625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex11b",
+        "page": 18,
+        "rect": [
+          60.599999999999994,
+          411.6706237792969,
+          241.2,
+          423.5006103515625
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      },
+      {
+        "type": "question",
+        "id": "c3ex11c",
+        "page": 18,
+        "rect": [
+          60.599999999999994,
+          425.6706237792969,
+          269.6,
+          435
+        ],
+        "workingSpaceHeightMm": 20,
+        "workingSpaceStyle": "lines"
+      }
+    ],
+    "combinedGroups": [
+      {
+        "groupId": "c3ex11",
+        "page": 18,
+        "rect": [
+          59.599999999999994,
+          397.5006103515625,
+          270.6,
+          435
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "c3_h_enrichment",
+        "text": "Enrichment: Folding paper",
+        "style": "tier",
+        "tier": "enrichment"
+      },
+      {
+        "type": "question",
+        "id": "c3ex12",
+        "page": 18,
+        "rect": [
+          0,
+          460,
+          538,
+          660
+        ],
+        "workingSpaceHeightMm": 35,
+        "workingSpaceStyle": "lines"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "heading",
+        "id": "answers_title",
+        "text": "3A-3C Answers",
+        "style": "title"
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "answers_p1",
+        "page": 16,
+        "source": "answers",
+        "rect": [
+          40,
+          40,
+          300,
+          730
+        ],
+        "answers": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "answers_p2",
+        "page": 16,
+        "source": "answers",
+        "rect": [
+          300,
+          40,
+          500,
+          730
+        ],
+        "answers": true
+      }
+    ]
+  },
+  {
+    "blocks": [
+      {
+        "type": "image",
+        "id": "answers_p3",
+        "page": 17,
+        "source": "answers",
+        "rect": [
+          40,
+          40,
+          300,
+          220
+        ],
+        "answers": true
+      }
+    ]
+  }
+]
