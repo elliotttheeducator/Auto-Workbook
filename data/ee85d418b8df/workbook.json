@@ -1,5 +1,5 @@
 {
-  "id": "83c56a15238f",
+  "id": "ee85d418b8df",
   "title": "Year 9 - Chapter 3: Pythagoras' Theorem (3A-3C)",
   "sourcePdfName": "603b5de8-EMAC9_4ed_Ch03.pdf",
   "pages": [
@@ -330,7 +330,7 @@
           "id": "a3ex3a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -339,7 +339,7 @@
           "id": "a3ex3b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -348,7 +348,7 @@
           "id": "a3ex3c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -357,7 +357,7 @@
           "id": "a3ex3d",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -366,7 +366,7 @@
           "id": "a3ex3e",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -375,7 +375,7 @@
           "id": "a3ex3f",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -522,7 +522,7 @@
           "id": "a3ex6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -536,8 +536,8 @@
           "id": "a3ex7",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -550,8 +550,8 @@
           "id": "a3ex8",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         },
         {
@@ -559,8 +559,8 @@
           "id": "a3ex9",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -573,8 +573,8 @@
           "id": "a3ex10",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -587,7 +587,7 @@
           "id": "a3ex11",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -608,8 +608,8 @@
           "id": "a3ex12",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -626,7 +626,7 @@
           "id": "a3ex13a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -635,7 +635,7 @@
           "id": "a3ex13b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -644,7 +644,7 @@
           "id": "a3ex13c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -653,7 +653,7 @@
           "id": "a3ex13d",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -662,7 +662,7 @@
           "id": "a3ex13e",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -671,7 +671,7 @@
           "id": "a3ex13f",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -685,7 +685,7 @@
           "id": "a3ex14",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -699,7 +699,7 @@
           "id": "a3ex15",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -720,8 +720,8 @@
           "id": "a3ex16",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 30
+            "style": "grid",
+            "heightMm": 35
           }
         }
       ]
@@ -734,7 +734,7 @@
           "id": "a3ex17",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 30
           }
         }
@@ -1122,7 +1122,7 @@
           "id": "b3ex4a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1131,7 +1131,7 @@
           "id": "b3ex4b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1140,7 +1140,7 @@
           "id": "b3ex4c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1156,8 +1156,8 @@
           "id": "b3ex5",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1170,8 +1170,8 @@
           "id": "b3ex6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1188,7 +1188,7 @@
           "id": "b3ex7a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1197,7 +1197,7 @@
           "id": "b3ex7b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1206,7 +1206,7 @@
           "id": "b3ex7c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1220,8 +1220,8 @@
           "id": "b3ex8",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         },
         {
@@ -1229,8 +1229,8 @@
           "id": "b3ex9",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1254,7 +1254,7 @@
           "id": "b3ex10a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1263,7 +1263,7 @@
           "id": "b3ex10b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1272,7 +1272,7 @@
           "id": "b3ex10c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1290,7 +1290,7 @@
           "id": "b3ex11a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1299,7 +1299,7 @@
           "id": "b3ex11b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1308,7 +1308,7 @@
           "id": "b3ex11c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1333,7 +1333,7 @@
           "id": "b3ex12a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1342,7 +1342,7 @@
           "id": "b3ex12b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1351,7 +1351,7 @@
           "id": "b3ex12c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1360,7 +1360,7 @@
           "id": "b3ex12d",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1374,8 +1374,8 @@
           "id": "b3ex13",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 30
+            "style": "grid",
+            "heightMm": 35
           }
         }
       ]
@@ -1486,8 +1486,8 @@
           "id": "c3ex1",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1500,8 +1500,8 @@
           "id": "c3ex2",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1514,8 +1514,8 @@
           "id": "c3ex3",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1528,8 +1528,8 @@
           "id": "c3ex4",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1546,7 +1546,7 @@
           "id": "c3ex5a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1555,7 +1555,7 @@
           "id": "c3ex5b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1564,7 +1564,7 @@
           "id": "c3ex5c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1573,7 +1573,7 @@
           "id": "c3ex5d",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1594,8 +1594,8 @@
           "id": "c3ex6",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1608,8 +1608,8 @@
           "id": "c3ex7",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 30
+            "style": "grid",
+            "heightMm": 35
           }
         }
       ]
@@ -1622,8 +1622,8 @@
           "id": "c3ex8",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 30
+            "style": "grid",
+            "heightMm": 35
           }
         }
       ]
@@ -1636,8 +1636,8 @@
           "id": "c3ex9",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 20
+            "style": "grid",
+            "heightMm": 25
           }
         }
       ]
@@ -1661,7 +1661,7 @@
           "id": "c3ex10a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1670,7 +1670,7 @@
           "id": "c3ex10b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1688,7 +1688,7 @@
           "id": "c3ex11a",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1697,7 +1697,7 @@
           "id": "c3ex11b",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         },
@@ -1706,7 +1706,7 @@
           "id": "c3ex11c",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
+            "style": "grid",
             "heightMm": 20
           }
         }
@@ -1727,8 +1727,8 @@
           "id": "c3ex12",
           "contextImage": null,
           "workingSpace": {
-            "style": "lines",
-            "heightMm": 30
+            "style": "grid",
+            "heightMm": 35
           }
         }
       ]
@@ -1776,27 +1776,27 @@
     }
   ],
   "groupLayout": {
-    "b3ex11": "combined",
-    "c3ex11": "combined",
-    "a3ex13": "split",
-    "b3ex3": "split",
-    "c3ex5": "split",
-    "b3bu1": "split",
-    "a3ex2": "split",
-    "a3ex4": "split",
-    "a3ex1": "split",
-    "a3ex5": "split",
-    "b3ex4": "combined",
-    "a3bu1": "split",
-    "b3ex1": "split",
-    "b3ex12": "split",
-    "b3bu2": "split",
-    "b3ex7": "combined",
-    "a3ex3": "split",
-    "a3bu2": "split",
     "b3ex2": "split",
     "c3ex10": "combined",
-    "b3ex10": "combined"
+    "b3ex1": "split",
+    "c3ex5": "split",
+    "a3ex1": "split",
+    "b3ex12": "split",
+    "a3ex13": "split",
+    "a3ex2": "split",
+    "b3ex10": "combined",
+    "b3bu2": "split",
+    "b3bu1": "split",
+    "a3ex5": "split",
+    "c3ex11": "combined",
+    "b3ex3": "split",
+    "b3ex11": "combined",
+    "a3bu2": "split",
+    "a3ex4": "split",
+    "b3ex4": "combined",
+    "b3ex7": "combined",
+    "a3bu1": "split",
+    "a3ex3": "split"
   },
   "combinedBlocks": {
     "a3bu1": {
@@ -1825,8 +1825,8 @@
     },
     "a3ex3": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "a3ex4": {
@@ -1843,8 +1843,8 @@
     },
     "a3ex13": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "b3bu1": {
@@ -1879,50 +1879,50 @@
     },
     "b3ex4": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "b3ex7": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "b3ex10": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "b3ex11": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "b3ex12": {
       "workingSpace": {
-        "style": "lines",
+        "style": "grid",
         "heightMm": 40
       }
     },
     "c3ex5": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "c3ex10": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     },
     "c3ex11": {
       "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 35
       }
     }
   }
