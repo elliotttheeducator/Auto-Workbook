@@ -309,14 +309,19 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .answer-row .block.answer-second { margin-left: 8mm; }
 .answer-row .block .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
-.group-controls {
-  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
-  font-size: 10px; color: #555;
+/* A split group's layout/delete/restore controls, sitting inline above
+   its first row (unlike everything else - see .controls-hang below -
+   there's no per-group hanging panel to fold this into in split view,
+   since the hanging panel there is per-row). Collapsed by default to
+   just its toggle button (see .controls-toggle); .controls-body inside
+   holds the actual radios/buttons and only shows once expanded. */
+.group-controls { margin-bottom: 6px; font-size: 10px; color: #555; }
+.group-controls .controls-body {
+  display: none; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px;
+  margin-top: 5px; padding: 6px 8px;
+  background: #fafafa; border: 1px solid #e2e2e2; border-radius: 4px;
 }
-/* Inside .controls-hang (a narrow hanging column, not a full-width row
-   above the crop), the split/combined choice stacks like everything
-   else rather than trying to lay two long labels out side by side. */
-.controls-hang .group-controls { flex-direction: column; align-items: flex-start; gap: 2px; }
+.group-controls.expanded .controls-body { display: flex; }
 
 /* A block/group's own size/style/diagram/break-before controls, hung
    off the *outside* margin of the page rather than stacked inline below
@@ -333,31 +338,46 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    anyway (see renderGroup in render.js), one panel controlling both is
    all that's ever needed. */
 .controls-hang {
-  position: absolute; top: 0; width: 100px; z-index: 1;
-  display: flex; flex-direction: column; gap: 3px;
+  position: absolute; top: 0; z-index: 1;
+  display: flex; flex-direction: column; gap: 4px;
   font-size: 9px;
-  /* Opaque, not translucent - layoutHangingControls() (app.js) still
-     lets panels sit close together on a dense page, and a see-through
-     background there just blends two panels' text into an unreadable
-     mess. Solid + a real border + a shadow is what actually keeps a
-     nudged panel legible as its own separate thing, even when it's
-     partly overlapping its neighbour. Only matters on screen: this
-     whole panel is print:none, so it can never bleed into the export. */
+}
+/* Collapsed, a panel is just its toggle chip - no background/border of
+   its own needed until there's an actual box of controls under it.
+   Expanded, it becomes the same solid card panels always were: opaque,
+   not translucent, since layoutHangingControls() (app.js) still lets
+   panels sit close together on a dense page, and a see-through
+   background there just blends two panels' text into an unreadable
+   mess. Only matters on screen: this whole panel is print:none, so it
+   can never bleed into the export. */
+.controls-hang.expanded {
+  width: 100px;
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px rgba(0,0,0,0.18);
   border-radius: 4px;
   padding: 4px;
 }
-/* The one thing that survives a panel being nudged away from its own
-   block (see layoutHangingControls in app.js) - whatever else has
-   moved, this still says which crop the panel controls. Monospace-ish
-   and coloured so it reads as an identifier, not just more label text. */
-.controls-id {
-  font-weight: 700; color: #2a7; font-size: 9px; letter-spacing: 0.02em;
-  padding-bottom: 3px; margin-bottom: 2px; border-bottom: 1px solid #e2e2e2;
-  word-break: break-word;
+/* The small always-visible chip a collapsed panel shows - its friendly
+   label (see friendlyLabel in render.js) is the one thing that survives
+   a panel being nudged away from its own block (see
+   layoutHangingControls in app.js): whatever else has moved, this still
+   says which crop the panel controls. Same look wherever it appears -
+   hanging off the page margin (.controls-hang) or sitting inline above
+   a split group's first row (.group-controls, see below). */
+.controls-toggle {
+  background: #eef7f0; color: #278a52; border: 1px solid #bfe0cb;
+  border-radius: 10px; padding: 2px 8px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.02em; cursor: pointer; white-space: nowrap; align-self: flex-start;
 }
+.controls-toggle:hover { background: #dcf0e2; }
+.controls-hang.expanded > .controls-toggle,
+.group-controls.expanded > .controls-toggle { background: #2a7; color: #fff; border-color: #2a7; }
+/* The actual controls (radios, pickers, delete/crop buttons) - present
+   in the DOM the whole time, just hidden until the toggle chip above is
+   clicked, so expanding never needs a fresh render round-trip. */
+.controls-hang .controls-body { display: none; flex-direction: column; gap: 3px; margin-top: 4px; }
+.controls-hang.expanded .controls-body { display: flex; }
 .page-left .controls-hang { right: 100%; margin-right: 8px; align-items: flex-end; text-align: right; }
 .page-right .controls-hang { left: 100%; margin-left: 8px; align-items: flex-start; text-align: left; }
 /* The picker rows themselves were designed as wide horizontal strips -

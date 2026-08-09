@@ -192,16 +192,97 @@ function cropButtonHtml(id, kind) {
   );
 }
 
-// Every hanging controls panel opens with the id of whatever it
-// controls, in small print. layoutHangingControls() (app.js) nudges a
-// panel down whenever a dense run of short questions would otherwise
-// make it overlap the one above it, and once nudged, a panel can end up
-// hanging next to different content than what it actually belongs to -
-// the id is the one thing that survives that drift, so there's always a
-// way to tell which crop a given panel is for even when it's no longer
-// sitting right beside it.
+// Turns a raw block id - or a comma-joined run of split-part ids, e.g.
+// "c10cbu1a,c10cbu1b,c10cbu1c" - into the short label a collapsed
+// controls toggle shows, e.g. "BU1a-c". Every question id in this book
+// ends with its type ("bu"/"ex"/"nyt"), a number, and (for a split
+// part) a single letter - that tail is what actually identifies a
+// question to a reader, not the chapter/section code in front of it,
+// which is already obvious from where the question sits on the page.
+// Falls back to the raw id(s) whenever that pattern doesn't match -
+// never worth guessing wrong over just showing the truth, and this
+// covers ids (an intro image, a worked example) that were never
+// question-shaped to begin with.
+function parseQuestionId(id) {
+  const m = id.match(/(bu|ex|nyt)(\d+)([a-z])?(?:_stem)?$/i);
+  return m ? { type: m[1].toUpperCase(), num: m[2], letter: m[3] || "" } : null;
+}
+
+// Strips a leading chapter/section code (e.g. "c10c_", "a3") off an id
+// that didn't match parseQuestionId, and title-cases what's left - a
+// rough but harmless fallback for the non-question images (intro,
+// starter, key ideas, worked examples) that never had a bu/ex/nyt-style
+// tail. Returns the id unchanged if stripping would empty it out (an id
+// that's ALL chapter-code, with no distinguishing tail of its own,
+// isn't safe to guess-shorten).
+function humanizeId(id) {
+  const stripped = id.replace(/^[a-z]*\d+[a-z]*_?/i, "").replace(/^h_/, "");
+  if (!stripped) return id;
+  const spaced = stripped.replace(/_/g, " ").replace(/([a-z])(\d)/gi, "$1 $2");
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
+function friendlyLabel(idsCsv) {
+  const ids = idsCsv.split(",");
+  const parsed = ids.map(parseQuestionId);
+  if (parsed.every(Boolean)) {
+    const first = parsed[0];
+    if (parsed.every((p) => p.type === first.type && p.num === first.num)) {
+      const letters = parsed.map((p) => p.letter).filter(Boolean);
+      let letterPart = "";
+      if (letters.length === 1) {
+        letterPart = letters[0];
+      } else if (letters.length > 1) {
+        const contiguous = letters.every((l, i) => i === 0 || l.charCodeAt(0) === letters[i - 1].charCodeAt(0) + 1);
+        letterPart = contiguous ? `${letters[0]}-${letters[letters.length - 1]}` : letters.join(",");
+      }
+      const base = `${first.type}${first.num}${letterPart}`;
+      // A question's own leading instruction line (see stem_split in
+      // add_chapter.py) shares its parent question's number - "BU1" for
+      // both the stem's own crop-scale panel and the group's layout
+      // panel, with nothing to tell them apart at a glance. ids.length
+      // === 1 is enough to know this is a stem, never a joined split
+      // row: stem ids are always singular.
+      return ids.length === 1 && /_stem$/.test(ids[0]) ? `${base} stem` : base;
+    }
+  }
+  const extra = ids.length > 1 ? ` +${ids.length - 1}` : "";
+  return humanizeId(ids[0]) + extra;
+}
+
+// The small always-visible button a collapsed controls panel shows -
+// its friendly label is the only thing on screen until clicked; the
+// full raw id(s) still live in the title tooltip, so nothing is lost
+// for anyone who needs the exact id (debugging, matching a crop file).
+// data-action="toggle-controls" (app.js) just flips a CSS class on the
+// closest panel - pure DOM/CSS state, no data changed, so it never
+// needs to persist or trigger a full re-render.
+function collapsibleToggleHtml(label) {
+  return (
+    `<button type="button" class="controls-toggle" data-action="toggle-controls" title="${escapeHtml(label)}">` +
+    `${escapeHtml(friendlyLabel(label))}</button>`
+  );
+}
+
+// Every hanging controls panel opens collapsed, showing only its
+// toggle button (see collapsibleToggleHtml) - the full controls
+// (innerHtml) are there in the DOM the whole time, just hidden by CSS
+// until that button's clicked, so no extra render round-trip is needed
+// to expand one. layoutHangingControls() (app.js) nudges a panel down
+// whenever a dense run of short questions would otherwise make it
+// overlap the one above it, and once nudged, a panel can end up hanging
+// next to different content than what it actually belongs to - the
+// toggle button's own label is what survives that drift now (it used
+// to be a plain "controls-id" tag), so there's always a way to tell
+// which crop a given panel is for even when it's no longer sitting
+// right beside it.
 function controlsHangHtml(label, innerHtml, extraClass = "") {
-  return `<div class="controls-hang${extraClass ? " " + extraClass : ""}"><div class="controls-id">${escapeHtml(label)}</div>${innerHtml}</div>`;
+  return (
+    `<div class="controls-hang${extraClass ? " " + extraClass : ""}">` +
+    collapsibleToggleHtml(label) +
+    `<div class="controls-body">${innerHtml}</div>` +
+    `</div>`
+  );
 }
 
 function restoreListHtml(hiddenMembers, gid) {
@@ -652,12 +733,21 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
           .join("") +
         "</span>"
       : "";
-  const controls =
-    `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
+  // The group-level controls' actual content (layout radios, cols
+  // picker, delete, restore) - built once, then folded into whichever
+  // collapsible shell fits where it ends up: the combined view already
+  // has one hanging panel for everything else about this group (image
+  // scale, break-before, crop), so this just becomes more of that same
+  // panel's body rather than a second toggle stacked on top of it. A
+  // split view has no such panel to fold into (its own hanging panel is
+  // per-row, not per-group - see hangingControls below), so it gets a
+  // small standalone collapsible of its own, sitting inline above the
+  // first row.
+  const layoutControlsInner =
+    `layout: ` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split (small, per part)</label>` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined (large, whole question)</label>` +
     columnsControl +
-    "</div>" +
     deleteButtonHtml(gid, "group", "Delete question") +
     restoreListHtml(restorableHiddenMembers, gid);
 
@@ -685,7 +775,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // of stacking inline below it - unlike a split row's parts, which
     // stay inline (see partHtml below): those are only half-width and
     // sit mid-page, with no clean page edge to hang off of.
-    const hangingControls = `<div class="controls-hang">${controls}${renderQuestionControls(gid, "group", ws, pct, entry.breakBefore)}${cropButtonHtml(gid, "group")}</div>`;
+    const hangingControls = controlsHangHtml(gid, layoutControlsInner + renderQuestionControls(gid, "group", ws, pct, entry.breakBefore) + cropButtonHtml(gid, "group"));
     const html = `<div class="group">${crop}${workingSpaceHtml(ws)}${hangingControls}</div>`;
     const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry, defaultScales.combined) }];
     return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
@@ -746,7 +836,13 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     const hangingControls = controlsHangHtml(targets, renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore) + partDeleteButtons + partCropButtons);
     const rowHtml = `<div class="split-row cols-${splitColumns}">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
-    const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
+    // No hanging panel to fold into here (see layoutControlsInner above)
+    // - its own small standalone collapsible, using .group-controls
+    // itself as the toggle/body shell (same .controls-body mechanism as
+    // .controls-hang, just laid out inline instead of pinned to the
+    // page margin - see app.css).
+    const groupControlsHtml = `<div class="group-controls">${collapsibleToggleHtml(gid)}<div class="controls-body">${layoutControlsInner}</div></div>`;
+    const html = `<div class="group">${isFirstRow ? groupControlsHtml : ""}${rowHtml}</div>`;
     const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.split) }));
     // A break-before toggled on either part in a row breaks before the
     // whole row - the two parts are always paginated as one atomic unit,

@@ -645,6 +645,21 @@ function handleControlClick(e) {
     return;
   }
 
+  // Pure DOM/CSS state, not a data edit - toggles the "expanded" class
+  // read purely from live styles (see .controls-hang/.group-controls in
+  // app.css). No persistAndRerenderEditor here: nothing about the
+  // workbook itself changed, and a full re-render would collapse every
+  // other panel a user might have open elsewhere on the same page for
+  // no reason. layoutHangingControls() still needs to re-run though -
+  // an expanding panel grows taller and may now overlap whatever's
+  // hanging below it in the same margin column.
+  if (action === "toggle-controls") {
+    const panel = el.closest(".controls-hang, .group-controls");
+    if (panel) panel.classList.toggle("expanded");
+    layoutHangingControls();
+    return;
+  }
+
   if (!currentWorkbook) return;
   if (action === "set-layout") {
     touchedGroupLayoutIds.add(el.dataset.group);
