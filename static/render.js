@@ -258,8 +258,9 @@ function friendlyLabel(idsCsv) {
 // closest panel - pure DOM/CSS state, no data changed, so it never
 // needs to persist or trigger a full re-render.
 function collapsibleToggleHtml(label) {
+  const safeLabel = escapeHtml(label);
   return (
-    `<button type="button" class="controls-toggle" data-action="toggle-controls" title="${escapeHtml(label)}">` +
+    `<button type="button" class="controls-toggle" data-action="toggle-controls" data-controls-id="${safeLabel}" title="${safeLabel}">` +
     `${escapeHtml(friendlyLabel(label))}</button>`
   );
 }

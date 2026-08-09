@@ -101,6 +101,30 @@ let currentProjectId = null;
 // the first time anything in the project was edited.
 let touchedGroupLayoutIds = new Set();
 
+// Which controls panels (see .controls-hang/.group-controls in app.css)
+// a user has expanded *this session* - purely local UI state, never
+// saved to overrides. Every edit re-renders the whole document from
+// scratch (appEl.innerHTML = ...), which would otherwise reset every
+// panel straight back to collapsed on the very next click inside one -
+// restoreExpandedControls() re-applies this set's membership right
+// after each such render so an open panel actually stays open while
+// its own controls are being used. Keyed by each toggle's own
+// data-controls-id (the same raw id/ids controlsHangHtml already put
+// in its title tooltip - see friendlyLabel in render.js), not the
+// friendly label text, since two different panels can share a label
+// (e.g. a stem and its group both reading "BU1"). Reset per project
+// load, same as touchedGroupLayoutIds.
+let expandedControlIds = new Set();
+
+function restoreExpandedControls() {
+  if (expandedControlIds.size === 0) return;
+  for (const toggle of appEl.querySelectorAll(".controls-toggle")) {
+    if (!expandedControlIds.has(toggle.dataset.controlsId)) continue;
+    const panel = toggle.closest(".controls-hang, .group-controls");
+    if (panel) panel.classList.add("expanded");
+  }
+}
+
 function findBlock(id) {
   for (const page of currentWorkbook.pages) {
     for (const b of page.blocks) if (b.id === id) return b;
@@ -291,6 +315,7 @@ async function renderEditorOnce() {
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
+  restoreExpandedControls();
   layoutHangingControls();
 }
 
@@ -430,6 +455,7 @@ async function renderEditorView(id) {
   currentWorkbook = workbook;
   currentProjectId = id;
   touchedGroupLayoutIds = new Set();
+  expandedControlIds = new Set();
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
@@ -448,6 +474,7 @@ async function renderEditorView(id) {
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
+  restoreExpandedControls();
   layoutHangingControls();
 }
 
@@ -477,6 +504,7 @@ async function undoAutoFit() {
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   alignSplitRows(appEl);
+  restoreExpandedControls();
   layoutHangingControls();
   updateUndoButton();
 }
@@ -652,10 +680,24 @@ function handleControlClick(e) {
   // other panel a user might have open elsewhere on the same page for
   // no reason. layoutHangingControls() still needs to re-run though -
   // an expanding panel grows taller and may now overlap whatever's
-  // hanging below it in the same margin column.
+  // hanging below it in the same margin column. Also recorded into
+  // expandedControlIds so this panel survives the *next* full
+  // re-render too - every actual edit inside an open panel (nudging a
+  // size, picking a style...) still goes through persistAndRerenderEditor,
+  // which replaces this whole panel's DOM outright; without this, the
+  // very first click inside an opened panel would immediately look
+  // like it closed the panel again, when what really happened is the
+  // panel got rebuilt from scratch back at its default collapsed state.
   if (action === "toggle-controls") {
     const panel = el.closest(".controls-hang, .group-controls");
-    if (panel) panel.classList.toggle("expanded");
+    const cid = el.dataset.controlsId;
+    if (panel) {
+      const isExpanded = panel.classList.toggle("expanded");
+      if (cid) {
+        if (isExpanded) expandedControlIds.add(cid);
+        else expandedControlIds.delete(cid);
+      }
+    }
     layoutHangingControls();
     return;
   }
