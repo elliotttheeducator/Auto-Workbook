@@ -266,11 +266,19 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    breaks would otherwise put between adjacent inline-block elements. */
 .split-row { font-size: 0; position: relative; }
 .split-row .block.question { display: inline-block; vertical-align: top; width: calc(50% - 4mm); font-size: 1rem; }
-/* 3-column layout (see the cols-N picker in the group controls): each
-   part is a third of the row width, minus the two 8mm gaps split three
-   ways. Higher specificity than the base rule above via the extra
-   .cols-3 ancestor class, so it wins regardless of source order. */
+/* N-column layouts (see the Combined/1-4 split picker in the group
+   controls): each part gets an equal share of the row width, minus its
+   share of the (N-1) 8mm gaps between parts. Higher specificity than
+   the base 2-column rule above via the extra .cols-N ancestor class,
+   so whichever one applies wins regardless of source order. cols-1
+   doesn't strictly need its own rule (a splitColumns=1 row always has
+   exactly one part, so .split-only below already gives it 100%), but
+   it's here anyway for the same reason cols-3/cols-4 are: so every
+   width in this set is defined together, not split across two rules a
+   reader has to go find. */
+.split-row.cols-1 .block.question { width: 100%; }
 .split-row.cols-3 .block.question { width: calc((100% - 16mm) / 3); }
+.split-row.cols-4 .block.question { width: calc((100% - 24mm) / 4); }
 /* Explicit .split-only class, not :only-child - a row's hanging
    controls panel (see .controls-hang below) is always one more sibling
    after the part(s), so a lone part is never truly "only" in plain DOM
@@ -384,10 +392,10 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    inside a 92px column they need to wrap onto as many lines as they
    need instead of overflowing it. */
 .controls-hang .style-picker, .controls-hang .size-picker,
-.controls-hang .lines-picker, .controls-hang .columns-picker, .controls-hang .split-columns-picker,
+.controls-hang .lines-picker, .controls-hang .columns-picker, .controls-hang .layout-picker,
 .controls-hang .image-scale-picker { flex-wrap: wrap; justify-content: flex-end; }
 .page-right .controls-hang .style-picker, .page-right .controls-hang .size-picker,
-.page-right .controls-hang .lines-picker, .page-right .controls-hang .columns-picker, .page-right .controls-hang .split-columns-picker,
+.page-right .controls-hang .lines-picker, .page-right .controls-hang .columns-picker, .page-right .controls-hang .layout-picker,
 .page-right .controls-hang .image-scale-picker { justify-content: flex-start; }
 
 /* growth-locked marks a unit whose glued bundle (see bundleEnd() in
@@ -437,14 +445,14 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .grid-line-h { left: 0; right: 0; height: 0.5mm; }
 .rule-line { left: 0; right: 0; height: 0.5mm; background: #bbb; }
 
-.style-picker, .size-picker, .lines-picker, .columns-picker, .split-columns-picker, .image-scale-picker {
+.style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker, .image-scale-picker {
   display: flex; align-items: center; gap: 4px; margin-top: 4px;
 }
-.style-picker button, .size-picker button, .lines-picker button, .columns-picker button, .split-columns-picker button, .image-scale-picker button {
+.style-picker button, .size-picker button, .lines-picker button, .columns-picker button, .layout-picker button, .image-scale-picker button {
   border: 1px solid #999; background: white; border-radius: 3px;
   padding: 2px 8px; font-size: 9px; cursor: pointer;
 }
-.style-picker button.active, .size-picker button.active, .columns-picker button.active, .split-columns-picker button.active { background: #2a7; color: white; border-color: #2a7; }
+.style-picker button.active, .size-picker button.active, .columns-picker button.active, .layout-picker button.active { background: #2a7; color: white; border-color: #2a7; }
 .lines-picker span { font-size: 9px; color: #555; min-width: 46px; text-align: center; }
 .image-scale-picker span { font-size: 9px; color: #555; }
 .image-scale-picker span:first-child { min-width: 44px; }
@@ -464,7 +472,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   @page { size: A4; margin: 0; }
   body { background: white; }
   .topbar, .home-main, #filter-bar-mount,
-  .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .split-columns-picker,
+  .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,
   .image-scale-picker, .break-before-toggle, .controls-hang,
   .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }

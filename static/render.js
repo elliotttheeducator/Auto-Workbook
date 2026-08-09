@@ -718,24 +718,36 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // single crop image and stays atomic; split parts are independent and
 // need to be free to land on different sheets, same as any other
 // question would.
+// One row of buttons - Combined, then 1/2/3/4 split - replacing what
+// used to be two separate controls (a Split/Combined radio, then a
+// cols picker that only appeared once Split was already chosen).
+// Picking a split option sets the layout *and* the column count
+// together in one click (see the "set-group-layout" handler in
+// app.js), so going from Combined straight to "3 split" is one click,
+// not two through an intermediate 2-column state. Always offers all
+// four split widths regardless of how many parts the group actually
+// has - a 2-part group showing "4 split" just renders one row with
+// two of its four slots empty, never broken, and a fixed set of
+// options is easier to scan than one whose choices shift per group.
+function groupLayoutPickerHtml(gid, layout, splitColumns) {
+  const safeGid = escapeHtml(gid);
+  const combinedBtn =
+    `<button class="${layout === "combined" ? "active" : ""}" data-action="set-group-layout" ` +
+    `data-group="${safeGid}" data-mode="combined">Combined</button>`;
+  const splitBtns = [1, 2, 3, 4]
+    .map(
+      (n) =>
+        `<button class="${layout !== "combined" && splitColumns === n ? "active" : ""}" data-action="set-group-layout" ` +
+        `data-group="${safeGid}" data-mode="split" data-columns="${n}">${n} split</button>`
+    )
+    .join("");
+  return `<span class="layout-picker">${combinedBtn}${splitBtns}</span>`;
+}
+
 function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales, splitColumns = 2) {
   const safeGid = escapeHtml(gid);
-  // Only worth offering once a row could actually hold a third part - a
-  // 2-part group has nothing for "3 col" to do differently, and would
-  // just be a control that visibly does nothing when clicked.
-  const columnsControl =
-    layout !== "combined" && blocks.length > 2
-      ? `<span class="split-columns-picker">cols: ` +
-        [2, 3]
-          .map(
-            (n) =>
-              `<button class="${splitColumns === n ? "active" : ""}" data-action="set-split-columns" data-group="${safeGid}" data-columns="${n}">${n}</button>`
-          )
-          .join("") +
-        "</span>"
-      : "";
-  // The group-level controls' actual content (layout radios, cols
-  // picker, delete, restore) - built once, then folded into whichever
+  // The group-level controls' actual content (layout/columns picker,
+  // delete, restore) - built once, then folded into whichever
   // collapsible shell fits where it ends up: the combined view already
   // has one hanging panel for everything else about this group (image
   // scale, break-before, crop), so this just becomes more of that same
@@ -743,12 +755,10 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   // split view has no such panel to fold into (its own hanging panel is
   // per-row, not per-group - see hangingControls below), so it gets a
   // small standalone collapsible of its own, sitting inline above the
-  // first row.
+  // first row (right where the group's stem, if it has one, already
+  // sits - see _stem_block in groupify.py).
   const layoutControlsInner =
-    `layout: ` +
-    `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split (small, per part)</label>` +
-    `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined (large, whole question)</label>` +
-    columnsControl +
+    groupLayoutPickerHtml(gid, layout, splitColumns) +
     deleteButtonHtml(gid, "group", "Delete question") +
     restoreListHtml(restorableHiddenMembers, gid);
 

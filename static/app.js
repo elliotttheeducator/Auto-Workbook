@@ -703,14 +703,19 @@ function handleControlClick(e) {
   }
 
   if (!currentWorkbook) return;
-  if (action === "set-layout") {
-    touchedGroupLayoutIds.add(el.dataset.group);
-    currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
-    persistAndRerenderEditor();
-    return;
-  }
-  if (action === "set-split-columns") {
-    currentWorkbook.groupSplitColumns[el.dataset.group] = Number(el.dataset.columns);
+  // A single picker (Combined / 1 split / 2 split / 3 split / 4 split -
+  // see render.js's groupLayoutPickerHtml) sets both the layout and,
+  // for a split choice, the column count in one click - previously two
+  // separate controls (a layout radio, then a cols picker that only
+  // showed up once split was already chosen), which meant switching
+  // from "Combined" to "3 split" took two clicks through an
+  // intermediate 2-column state. data-columns is only present on a
+  // split option's own button, never on Combined's.
+  if (action === "set-group-layout") {
+    const gid = el.dataset.group;
+    touchedGroupLayoutIds.add(gid);
+    currentWorkbook.groupLayout[gid] = el.dataset.mode;
+    if (el.dataset.columns) currentWorkbook.groupSplitColumns[gid] = Number(el.dataset.columns);
     persistAndRerenderEditor();
     return;
   }
