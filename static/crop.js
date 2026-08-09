@@ -15,11 +15,25 @@ function clamp(v, lo, hi) {
   return Math.max(lo, Math.min(hi, v));
 }
 
-// Resolves with a data: URL for the newly-cropped PNG, the string
+// Resolves with { dataUrl, rect } for the newly-cropped PNG (rect is
+// the selection actually used, in the same 0-100% shape as
+// initialRect, so the caller can offer it back next time), the string
 // "RESET" if the user asked to go back to the original crop, or null if
 // cancelled - the caller decides what each of those means for the
 // block/group's own override.
-export function openCropModal(imgSrc) {
+//
+// imgSrc should always be the original, full-resolution crop - never
+// an already-cropped result. This tool can only ever select a
+// sub-region of whatever image it's given; if it were ever pointed at
+// an already-cropped PNG, there would be no way for a later re-crop to
+// recover the pixels that first crop left out, forcing a full "Reset
+// to original" (losing the crop entirely) just to grow the selection
+// back out a little. Loading the true original every time and passing
+// the previously saved selection as initialRect instead gets the same
+// "start from where I left off" feel with none of that dead end - the
+// box opens right back where the user left it, over the full image, so
+// dragging it back out in any direction always works.
+export function openCropModal(imgSrc, initialRect) {
   return new Promise((resolve) => {
     const overlay = document.createElement("div");
     overlay.className = "crop-modal-overlay";
@@ -49,8 +63,19 @@ export function openCropModal(imgSrc) {
 
     // Percentages of the *displayed* image, 0-100 - converted to real
     // pixel coordinates against img.naturalWidth/Height only at the very
-    // end, when actually drawing to canvas.
-    let rect = { x: 0, y: 0, w: 100, h: 100 };
+    // end, when actually drawing to canvas. Starts at the previously
+    // saved selection, if there is one, rather than always the full
+    // image - clamped defensively in case a saved rect somehow ended up
+    // out of range (a corrupted override, say), since nothing else here
+    // re-validates it once dragging starts.
+    let rect = initialRect
+      ? {
+          x: clamp(initialRect.x, 0, 100),
+          y: clamp(initialRect.y, 0, 100),
+          w: clamp(initialRect.w, 1, 100 - clamp(initialRect.x, 0, 100)),
+          h: clamp(initialRect.h, 1, 100 - clamp(initialRect.y, 0, 100)),
+        }
+      : { x: 0, y: 0, w: 100, h: 100 };
 
     function paintRect() {
       rectEl.style.left = `${rect.x}%`;
@@ -81,7 +106,7 @@ export function openCropModal(imgSrc) {
       canvas.height = Math.max(1, Math.round(sh));
       const ctx = canvas.getContext("2d");
       ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
-      cleanup(canvas.toDataURL("image/png"));
+      cleanup({ dataUrl: canvas.toDataURL("image/png"), rect: { ...rect } });
     };
 
     // Dragging inside the rect moves it; dragging a corner handle

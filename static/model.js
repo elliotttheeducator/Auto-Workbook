@@ -234,8 +234,12 @@ export function extractOverrides(workbook) {
         // A manually re-cropped PNG (see crop.js), stored as a data: URL
         // - present only once a user has actually used the crop tool on
         // this specific block, same "undefined means untouched" pattern
-        // as imageScale.
+        // as imageScale. manualCropRect travels with it - the selection
+        // (as a %-of-original rect) that produced manualCropSrc, so
+        // reopening the crop tool later can start from where this
+        // selection actually was instead of the full image every time.
         o.manualCropSrc = b.manualCropSrc;
+        o.manualCropRect = b.manualCropRect;
       }
       o.breakBefore = b.breakBefore;
       blockOverrides[b.id] = o;
@@ -303,6 +307,7 @@ export function applyOverrides(workbook, overrides) {
         if (o.workingSpace && b.type === "question") b.workingSpace = o.workingSpace;
         if (o.imageScale !== undefined) b.imageScale = o.imageScale;
         if (o.manualCropSrc !== undefined) b.manualCropSrc = o.manualCropSrc;
+        if (o.manualCropRect !== undefined) b.manualCropRect = o.manualCropRect;
         if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
       } else if (b.type === "question" && legacyBlockWorkingSpace[b.id]) {
         b.workingSpace = legacyBlockWorkingSpace[b.id];

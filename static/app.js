@@ -205,22 +205,28 @@ function toggleBreakBefore(kind, id) {
   if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
-// Opens the manual-crop tool (see crop.js) on whatever's currently
-// showing for this one block/group - its own already-applied manual
-// crop if it has one, or the original file otherwise. Both a plain
-// block and a combined group's crop are always named "<id>.png" in the
-// project's crops folder, so the original source can be computed
-// directly rather than having to hunt the live DOM for the right <img>.
+// Opens the manual-crop tool (see crop.js) on this block/group's true
+// original crop - always the server's own "<id>.png" file, never a
+// previously-applied manual crop. crop.js can only ever sub-select
+// pixels from whatever image it's handed; pointing it at an already-
+// cropped result would make anything trimmed off in an earlier crop
+// unrecoverable except by throwing the whole crop away via "Reset to
+// original". Passing the previously saved selection as its own
+// separate initialRect argument instead gets the same "reopen where I
+// left off" feel - the box starts right back where it was, but drawn
+// over the full original, so it can always be dragged back out too.
 async function handleOpenCrop(kind, id) {
   const entry = entryFor(kind, id);
   if (!entry) return;
   const originalSrc = `data/${currentProjectId}/crops/${id}.png`;
-  const result = await openCropModal(entry.manualCropSrc || originalSrc);
+  const result = await openCropModal(originalSrc, entry.manualCropRect);
   if (result === null) return;
   if (result === "RESET") {
     delete entry.manualCropSrc;
+    delete entry.manualCropRect;
   } else {
-    entry.manualCropSrc = result;
+    entry.manualCropSrc = result.dataUrl;
+    entry.manualCropRect = result.rect;
   }
   await persistAndRerenderEditor();
 }
