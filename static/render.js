@@ -744,7 +744,7 @@ function groupLayoutPickerHtml(gid, layout, splitColumns) {
   return `<span class="layout-picker">${combinedBtn}${splitBtns}</span>`;
 }
 
-function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales, splitColumns = 2) {
+function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales, splitColumns = 2, controlsMergedIntoStem = false) {
   const safeGid = escapeHtml(gid);
   // The group-level controls' actual content (layout/columns picker,
   // delete, restore) - built once, then folded into whichever
@@ -852,7 +852,12 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // itself as the toggle/body shell (same .controls-body mechanism as
     // .controls-hang, just laid out inline instead of pinned to the
     // page margin - see app.css).
-    const groupControlsHtml = `<div class="group-controls">${collapsibleToggleHtml(gid)}<div class="controls-body">${layoutControlsInner}</div></div>`;
+    // Suppressed when the caller already folded this exact content into
+    // the group's own stem panel instead (see mergeGroupControls in the
+    // main render loop) - showing it again here would just be the same
+    // picker/delete/restore twice for one question.
+    const groupControlsHtml =
+      controlsMergedIntoStem ? "" : `<div class="group-controls">${collapsibleToggleHtml(gid)}<div class="controls-body">${layoutControlsInner}</div></div>`;
     const html = `<div class="group">${isFirstRow ? groupControlsHtml : ""}${rowHtml}</div>`;
     const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.split) }));
     // A break-before toggled on either part in a row breaks before the
@@ -916,6 +921,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const physicalPagesHtml = [];
   let pending = [];
   let pageNumber = 0;
+  // Group ids whose Combined/1-4-split picker got folded into their
+  // stem's own hanging panel instead of a separate standalone chip (see
+  // the stem-detection lookahead below) - checked when that group
+  // itself gets rendered further down, so renderGroup() knows not to
+  // show a second, redundant copy of the same picker.
+  const mergedStemGids = new Set();
 
   // Packs and emits whatever's been queued up since the last hard break
   // (a cover, or a section start) as physical sheets - see paginateUnits
@@ -1023,12 +1034,29 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // entirely hidden (deleted, or filtered out - see
         // groupVisibility) has nothing left to introduce.
         const next = renderUnits[unitIndex + 1];
+        let mergeGroupControls = null;
         if (next && next.kind === "group") {
           const nextLayout = workbook.groupLayout[next.gid] || "split";
           const nextVisibility = groupVisibility(workbook, next.gid, next.blocks, filterCtx, deletedIds);
           if (b.combinedIncludesStem && nextLayout === "combined") return;
           if (nextVisibility.fullyHidden && (b.combinedIncludesStem || (b.type === "image" && b.id === `${next.gid}_stem`))) {
             return;
+          }
+          // A split group's own layout/columns picker used to always be
+          // its own small standalone chip, sitting inline right above
+          // the group's first row. When the group actually has a stem
+          // (its leading instruction line - see _stem_block in
+          // groupify.py), that chip ends up as a second, separate
+          // clickable thing right next to the stem's own panel for no
+          // real reason - folding the picker into the stem's panel
+          // instead reads as one control per question, not two. Only
+          // for split layout: combined already consolidates everything
+          // (picker included) into its own one hanging panel regardless
+          // of whether a stem exists (see renderGroup), so there's
+          // nothing to merge there.
+          if (b.type === "image" && b.id === `${next.gid}_stem` && nextLayout !== "combined") {
+            mergeGroupControls = { gid: next.gid, layout: nextLayout, restorableHiddenMembers: nextVisibility.explicitlyHiddenMembers };
+            mergedStemGids.add(next.gid);
           }
         }
         if (b.type === "heading") {
@@ -1066,7 +1094,19 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             b.imageScale ??
             (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
-          const hangingControls = controlsHangHtml(b.id, imageScaleControlHtml(b.id, "block", pct) + breakBeforeControlHtml(b.id, "block", b.breakBefore) + cropButtonHtml(b.id, "block"));
+          const ownControls = imageScaleControlHtml(b.id, "block", pct) + breakBeforeControlHtml(b.id, "block", b.breakBefore) + cropButtonHtml(b.id, "block");
+          // Merged case (see mergeGroupControls above): one panel, labelled
+          // by the group's own id (not the stem's), since the picker is
+          // now the more important half of what it controls.
+          const hangingControls = mergeGroupControls
+            ? controlsHangHtml(
+                mergeGroupControls.gid,
+                ownControls +
+                  groupLayoutPickerHtml(mergeGroupControls.gid, mergeGroupControls.layout, workbook.groupSplitColumns?.[mergeGroupControls.gid] || 2) +
+                  deleteButtonHtml(mergeGroupControls.gid, "group", "Delete question") +
+                  restoreListHtml(mergeGroupControls.restorableHiddenMembers, mergeGroupControls.gid)
+              )
+            : controlsHangHtml(b.id, ownControls);
           // glueForward is already exactly "this is a worked example's
           // own diagram" in this dataset (see the docstring in
           // add_chapter.py) - reused here as Auto-fit's other
@@ -1139,7 +1179,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       units.push(
-        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || 2)
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || 2, mergedStemGids.has(unit.gid))
       );
     });
 
