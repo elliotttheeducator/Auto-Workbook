@@ -636,12 +636,27 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // single crop image and stays atomic; split parts are independent and
 // need to be free to land on different sheets, same as any other
 // question would.
-function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales) {
+function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales, splitColumns = 2) {
   const safeGid = escapeHtml(gid);
+  // Only worth offering once a row could actually hold a third part - a
+  // 2-part group has nothing for "3 col" to do differently, and would
+  // just be a control that visibly does nothing when clicked.
+  const columnsControl =
+    layout !== "combined" && blocks.length > 2
+      ? `<span class="split-columns-picker">cols: ` +
+        [2, 3]
+          .map(
+            (n) =>
+              `<button class="${splitColumns === n ? "active" : ""}" data-action="set-split-columns" data-group="${safeGid}" data-columns="${n}">${n}</button>`
+          )
+          .join("") +
+        "</span>"
+      : "";
   const controls =
     `<div class="group-controls"><strong>${safeGid}</strong> layout: ` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout !== "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="split"> Split (small, per part)</label>` +
     `<label><input type="radio" name="layout-${safeGid}" ${layout === "combined" ? "checked" : ""} data-action="set-layout" data-group="${safeGid}" data-mode="combined"> Combined (large, whole question)</label>` +
+    columnsControl +
     "</div>" +
     deleteButtonHtml(gid, "group", "Delete question") +
     restoreListHtml(restorableHiddenMembers, gid);
@@ -693,17 +708,17 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   // instead (as a class, not a structural selector), so the gap between
   // two parts, and the full-width single-part row, are never at the
   // mercy of whatever else happens to share the row.
-  const partHtml = (b, isSecond, isOnly) => {
+  const partHtml = (b, isOnly) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? defaultScales.split, b.manualCropSrc);
-    const cls = isOnly ? "block question split-only" : isSecond ? "block question split-second" : "block question";
+    const cls = isOnly ? "block question split-only" : "block question";
     return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
 
   const units = [];
-  for (let i = 0; i < blocks.length; i += 2) {
-    const rowBlocks = [blocks[i], blocks[i + 1]].filter(Boolean);
+  for (let i = 0; i < blocks.length; i += splitColumns) {
+    const rowBlocks = blocks.slice(i, i + splitColumns).filter(Boolean);
     const isOnly = rowBlocks.length === 1;
-    const partsHtml = rowBlocks.map((b, idx) => partHtml(b, idx === 1, isOnly)).join("");
+    const partsHtml = rowBlocks.map((b) => partHtml(b, isOnly)).join("");
     // A row's two parts are locked to one shared size/style/scale - a
     // matched pair never has a real reason to size differently, and one
     // shared panel (instead of a part's own panel either side plus a
@@ -729,7 +744,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // be able to crop one of the two anyway.
     const partCropButtons = rowBlocks.map((b) => cropButtonHtml(b.id, "block")).join("");
     const hangingControls = controlsHangHtml(targets, renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore) + partDeleteButtons + partCropButtons);
-    const rowHtml = `<div class="split-row">${partsHtml}${hangingControls}</div>`;
+    const rowHtml = `<div class="split-row cols-${splitColumns}">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     const html = `<div class="group">${isFirstRow ? controls : ""}${rowHtml}</div>`;
     const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.split) }));
@@ -1017,7 +1032,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       units.push(
-        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales)
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || 2)
       );
     });
 

@@ -250,6 +250,7 @@ export function extractOverrides(workbook) {
   // changing along with the live document instead of staying frozen.
   return structuredClone({
     groupLayout: workbook.groupLayout || {},
+    groupSplitColumns: workbook.groupSplitColumns || {},
     combinedBlocks: workbook.combinedBlocks || {},
     blockOverrides,
     // Both 100% user-authored (no shipped server-side default either
@@ -274,6 +275,12 @@ export function applyOverrides(workbook, overrides) {
       if (workbook.groupLayout && gid in workbook.groupLayout) {
         workbook.groupLayout[gid] = overrides.groupLayout[gid];
       }
+    }
+  }
+  if (overrides.groupSplitColumns) {
+    workbook.groupSplitColumns = workbook.groupSplitColumns || {};
+    for (const gid of Object.keys(overrides.groupSplitColumns)) {
+      workbook.groupSplitColumns[gid] = overrides.groupSplitColumns[gid];
     }
   }
   if (overrides.combinedBlocks) {

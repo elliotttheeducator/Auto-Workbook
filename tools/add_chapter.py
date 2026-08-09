@@ -136,7 +136,17 @@ SIZE_MEDIUM_MM = 40
 # trim_whitespace). Threshold, not exact-white difference: a scanned or
 # rendered page is rarely pure #fff right at an edge.
 CROP_TRIM_THRESHOLD = 245
-CROP_TRIM_PAD_PX = 10
+# Deliberately generous, not just enough to avoid touching the ink: this
+# margin is what the in-app manual crop tool (crop.js) has to work with.
+# That tool can only ever select a sub-region of the pixels already in
+# the shipped PNG - it has no way to reveal content beyond the image's
+# own edge - so a tightly-trimmed crop leaves nothing for a "grow the
+# selection back out a bit" edit to work with. This only spends margin
+# that a proposal's own rect already captured (trim_whitespace never
+# reaches outside the pixmap it was given), so it's free: no new risk of
+# bleeding into neighbouring content that wasn't already avoided when the
+# rect was chosen.
+CROP_TRIM_PAD_PX = 60
 
 
 def trim_whitespace(img: Image.Image) -> Image.Image:

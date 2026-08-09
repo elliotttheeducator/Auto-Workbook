@@ -425,6 +425,7 @@ async function renderEditorView(id) {
   workbook.tierFilters = workbook.tierFilters || { global: {}, chapters: {} };
   workbook.deletedIds = workbook.deletedIds || [];
   workbook.defaultScales = workbook.defaultScales || {};
+  workbook.groupSplitColumns = workbook.groupSplitColumns || {};
   applyOverrides(workbook, await db.loadOverrides(id));
   currentWorkbook = workbook;
   currentProjectId = id;
@@ -648,6 +649,11 @@ function handleControlClick(e) {
   if (action === "set-layout") {
     touchedGroupLayoutIds.add(el.dataset.group);
     currentWorkbook.groupLayout[el.dataset.group] = el.dataset.mode;
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "set-split-columns") {
+    currentWorkbook.groupSplitColumns[el.dataset.group] = Number(el.dataset.columns);
     persistAndRerenderEditor();
     return;
   }
