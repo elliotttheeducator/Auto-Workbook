@@ -2121,6 +2121,7 @@
         {
           "type": "image",
           "id": "b3ex12_diagram",
+          "glueForward": true,
           "defaultCropRect": {
             "x": 8.0,
             "y": 3.41,
@@ -2131,7 +2132,7 @@
         {
           "type": "question",
           "id": "b3ex12a",
-          "contextImage": "b3ex12_diagram",
+          "contextImage": null,
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
@@ -2146,7 +2147,7 @@
         {
           "type": "question",
           "id": "b3ex12b",
-          "contextImage": "b3ex12_diagram",
+          "contextImage": null,
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
@@ -2161,7 +2162,7 @@
         {
           "type": "question",
           "id": "b3ex12c",
-          "contextImage": "b3ex12_diagram",
+          "contextImage": null,
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
@@ -2176,7 +2177,7 @@
         {
           "type": "question",
           "id": "b3ex12d",
-          "contextImage": "b3ex12_diagram",
+          "contextImage": null,
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
@@ -2798,27 +2799,27 @@
     }
   ],
   "groupLayout": {
-    "b3ex3": "split",
-    "b3ex2": "split",
-    "a3ex4": "split",
-    "a3ex2": "split",
-    "a3bu2": "split",
-    "b3bu1": "split",
-    "a3ex5": "split",
-    "c3ex10": "combined",
-    "a3ex3": "split",
-    "b3ex1": "split",
-    "b3ex10": "combined",
-    "b3ex11": "combined",
-    "a3ex1": "split",
-    "a3ex13": "split",
     "b3ex12": "split",
-    "c3ex11": "combined",
     "c3ex5": "split",
-    "b3bu2": "split",
-    "b3ex4": "combined",
     "b3ex7": "combined",
-    "a3bu1": "split"
+    "b3ex10": "combined",
+    "b3ex2": "split",
+    "c3ex10": "combined",
+    "a3ex13": "split",
+    "b3ex4": "combined",
+    "c3ex11": "combined",
+    "a3ex1": "split",
+    "a3ex3": "split",
+    "a3ex5": "split",
+    "a3ex4": "split",
+    "a3bu2": "split",
+    "b3bu2": "split",
+    "b3ex3": "split",
+    "a3bu1": "split",
+    "b3bu1": "split",
+    "b3ex11": "combined",
+    "b3ex1": "split",
+    "a3ex2": "split"
   },
   "combinedBlocks": {
     "a3bu1": {
