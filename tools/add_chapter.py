@@ -369,6 +369,17 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
         "id": project_id,
         "title": title,
         "sourcePdfName": os.path.basename(docs["chapter"].name),
+        # A fresh value every build, including a --project-id rebuild
+        # that reuses the same project id - crop PNGs keep the exact
+        # same filename across a rebuild (that's the whole point of
+        # --project-id: same URLs, so a browser or CDN that's already
+        # cached the old bytes under that URL has no reason to ever
+        # re-fetch them, and silently keeps showing a fixed crop's
+        # *old*, broken pixels). Every <img> src appends this as a
+        # ?v= query string (see render.js/app.js), which is a different
+        # URL each build and therefore never serves a stale cached
+        # image no matter how aggressively it was cached.
+        "buildVersion": uuid.uuid4().hex[:8],
         "pages": pages,
         "groupLayout": group_layout,
         "combinedBlocks": combined_blocks,

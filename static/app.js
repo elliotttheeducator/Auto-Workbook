@@ -246,8 +246,12 @@ function imageExists(src) {
 async function handleOpenCrop(kind, id) {
   const entry = entryFor(kind, id);
   if (!entry) return;
-  const fullSrc = `data/${currentProjectId}/crops/${id}__full.png`;
-  const tightSrc = `data/${currentProjectId}/crops/${id}.png`;
+  // ?v= busts any stale browser/CDN cache of this exact filename from
+  // before the most recent rebuild - see buildVersion's own comment in
+  // add_chapter.py.
+  const v = currentWorkbook.buildVersion ? `?v=${encodeURIComponent(currentWorkbook.buildVersion)}` : "";
+  const fullSrc = `data/${currentProjectId}/crops/${id}__full.png${v}`;
+  const tightSrc = `data/${currentProjectId}/crops/${id}.png${v}`;
   const hasFull = await imageExists(fullSrc);
   const originalSrc = hasFull ? fullSrc : tightSrc;
   const initialRect = entry.manualCropRect || (hasFull ? entry.defaultCropRect : undefined);

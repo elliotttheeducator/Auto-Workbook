@@ -2,6 +2,7 @@
   "id": "88dcd07f81a9",
   "title": "Year 9 - Chapter 3: Pythagoras' Theorem (3A-3C)",
   "sourcePdfName": "603b5de8-EMAC9_4ed_Ch03.pdf",
+  "buildVersion": "e620e9d9",
   "pages": [
     {
       "id": "page0",
@@ -1185,9 +1186,9 @@
           "id": "answers_3a",
           "answers": true,
           "defaultCropRect": {
-            "x": 3.97,
+            "x": 1.06,
             "y": 2.0,
-            "w": 96.03,
+            "w": 98.64,
             "h": 97.45
           }
         }
@@ -2273,10 +2274,10 @@
           "id": "answers_3b_p2",
           "answers": true,
           "defaultCropRect": {
-            "x": 0.0,
-            "y": 0.0,
-            "w": 100.0,
-            "h": 100.0
+            "x": 0.46,
+            "y": 2.49,
+            "w": 99.54,
+            "h": 97.51
           }
         }
       ]
@@ -2859,7 +2860,7 @@
             "x": 0.0,
             "y": 0.0,
             "w": 100.0,
-            "h": 100.0
+            "h": 99.06
           }
         }
       ]
@@ -2872,38 +2873,38 @@
           "id": "answers_3c_p2",
           "answers": true,
           "defaultCropRect": {
-            "x": 0.0,
-            "y": 0.0,
-            "w": 100.0,
-            "h": 100.0
+            "x": 1.26,
+            "y": 6.11,
+            "w": 97.8,
+            "h": 93.33
           }
         }
       ]
     }
   ],
   "groupLayout": {
-    "b3ex7": "combined",
-    "a3bu1": "split",
-    "b3bu1": "split",
-    "c3ex10": "combined",
-    "b3ex3": "split",
-    "a3ex5": "split",
-    "a3ex2": "split",
     "a3ex1": "split",
     "a3bu2": "split",
     "c3ex11": "combined",
-    "b3ex11": "combined",
-    "a3ex3": "split",
+    "b3bu1": "split",
+    "b3ex7": "combined",
     "b3ex12": "split",
-    "a3ex13": "split",
-    "c3ex5": "split",
-    "c3ex8": "combined",
-    "b3ex2": "split",
-    "b3bu2": "split",
-    "b3ex10": "combined",
+    "b3ex11": "combined",
+    "b3ex1": "split",
     "b3ex4": "combined",
-    "a3ex4": "split",
-    "b3ex1": "split"
+    "c3ex10": "combined",
+    "a3bu1": "split",
+    "a3ex2": "split",
+    "a3ex13": "split",
+    "b3ex10": "combined",
+    "b3ex2": "split",
+    "c3ex8": "combined",
+    "a3ex5": "split",
+    "b3ex3": "split",
+    "b3bu2": "split",
+    "c3ex5": "split",
+    "a3ex3": "split",
+    "a3ex4": "split"
   },
   "combinedBlocks": {
     "a3bu1": {

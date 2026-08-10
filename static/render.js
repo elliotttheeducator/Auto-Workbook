@@ -46,6 +46,16 @@ const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM - PAGE_SAFETY_MARG
 const MIN_SQUEEZE_MM = SIZE_PRESETS_MM.small;
 const MIN_SQUEEZE_PX = MIN_SQUEEZE_MM * CSS_PX_PER_MM;
 
+// Set once per renderEditor() call, from workbook.buildVersion - see
+// its own comment in add_chapter.py for why every crop <img> src needs
+// this appended (a rebuilt crop keeps the exact same filename, so
+// nothing else would ever tell a browser or CDN the cached bytes under
+// that URL just went stale).
+let currentBuildVersion = "";
+function versionSuffix() {
+  return currentBuildVersion ? `?v=${encodeURIComponent(currentBuildVersion)}` : "";
+}
+
 let measurerEl = null;
 function getMeasurer() {
   if (!measurerEl) {
@@ -622,16 +632,18 @@ function markGrowthLocked(html) {
 function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale, manualCropSrc) {
   let contextHtml = "";
   if (contextImage) {
-    contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png">`;
+    contextHtml = `<img src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(contextImage)}.png${versionSuffix()}">`;
   }
   let style = "";
   if (widthMm) style = ` style="width:${widthMm}mm"`;
   else if (imageScale && imageScale !== 100) style = ` style="width:${imageScale}%"`;
   // A manually re-cropped PNG (see crop.js) - a data: URL standing in
-  // for the original file. Everything downstream (pagination
+  // for the original file, so there's no server-side URL to ever go
+  // stale in a cache - versionSuffix() only matters for the plain
+  // server-file path below. Everything downstream (pagination
   // measurement, the diagram-scale control, print export) just sees
   // another <img src>, no special-casing needed anywhere else.
-  const src = manualCropSrc ? escapeHtml(manualCropSrc) : `${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png`;
+  const src = manualCropSrc ? escapeHtml(manualCropSrc) : `${escapeHtml(cropsBaseUrl)}/${escapeHtml(crop)}.png${versionSuffix()}`;
   return `<div class="block-crop"${style}>${contextHtml}<img src="${src}"></div>`;
 }
 
@@ -1002,6 +1014,7 @@ function isSectionStart(page) {
 }
 
 export async function renderEditor(workbook, cropsBaseUrl) {
+  currentBuildVersion = workbook.buildVersion || "";
   const combinedBlocks = workbook.combinedBlocks || {};
   const deletedIds = new Set(workbook.deletedIds || []);
   const filterCtx = buildFilterContext(workbook);
