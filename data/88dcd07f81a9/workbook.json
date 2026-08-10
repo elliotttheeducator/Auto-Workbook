@@ -1171,6 +1171,33 @@
       "blocks": [
         {
           "type": "heading",
+          "id": "answers_3a_title",
+          "text": "3A Answers",
+          "style": "title"
+        }
+      ]
+    },
+    {
+      "id": "page23",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_3a",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 3.97,
+            "y": 2.0,
+            "w": 96.03,
+            "h": 97.45
+          }
+        }
+      ]
+    },
+    {
+      "id": "page24",
+      "blocks": [
+        {
+          "type": "heading",
           "id": "b3_title",
           "text": "3B Finding the length of the shorter sides",
           "style": "title"
@@ -1203,7 +1230,7 @@
       ]
     },
     {
-      "id": "page23",
+      "id": "page25",
       "blocks": [
         {
           "type": "image",
@@ -1219,7 +1246,7 @@
       ]
     },
     {
-      "id": "page24",
+      "id": "page26",
       "blocks": [
         {
           "type": "image",
@@ -1394,7 +1421,7 @@
       ]
     },
     {
-      "id": "page25",
+      "id": "page27",
       "blocks": [
         {
           "type": "image",
@@ -1411,7 +1438,7 @@
       ]
     },
     {
-      "id": "page26",
+      "id": "page28",
       "blocks": [
         {
           "type": "image",
@@ -1448,7 +1475,7 @@
       ]
     },
     {
-      "id": "page27",
+      "id": "page29",
       "blocks": [
         {
           "type": "heading",
@@ -1565,7 +1592,7 @@
       ]
     },
     {
-      "id": "page28",
+      "id": "page30",
       "blocks": [
         {
           "type": "image",
@@ -1670,7 +1697,7 @@
       ]
     },
     {
-      "id": "page29",
+      "id": "page31",
       "blocks": [
         {
           "type": "image",
@@ -1775,7 +1802,7 @@
       ]
     },
     {
-      "id": "page30",
+      "id": "page32",
       "blocks": [
         {
           "type": "image",
@@ -1857,7 +1884,7 @@
       ]
     },
     {
-      "id": "page31",
+      "id": "page33",
       "blocks": [
         {
           "type": "question",
@@ -1877,7 +1904,7 @@
       ]
     },
     {
-      "id": "page32",
+      "id": "page34",
       "blocks": [
         {
           "type": "image",
@@ -1937,7 +1964,7 @@
       ]
     },
     {
-      "id": "page33",
+      "id": "page35",
       "blocks": [
         {
           "type": "question",
@@ -1964,15 +1991,15 @@
           },
           "defaultCropRect": {
             "x": 5.27,
-            "y": 4.98,
+            "y": 4.33,
             "w": 85.32,
-            "h": 95.02
+            "h": 93.94
           }
         }
       ]
     },
     {
-      "id": "page34",
+      "id": "page36",
       "blocks": [
         {
           "type": "heading",
@@ -2039,7 +2066,7 @@
       ]
     },
     {
-      "id": "page35",
+      "id": "page37",
       "blocks": [
         {
           "type": "image",
@@ -2099,7 +2126,7 @@
       ]
     },
     {
-      "id": "page36",
+      "id": "page38",
       "blocks": [
         {
           "type": "heading",
@@ -2192,7 +2219,7 @@
       ]
     },
     {
-      "id": "page37",
+      "id": "page39",
       "blocks": [
         {
           "type": "question",
@@ -2212,7 +2239,50 @@
       ]
     },
     {
-      "id": "page38",
+      "id": "page40",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "answers_3b_title",
+          "text": "3B Answers",
+          "style": "title"
+        }
+      ]
+    },
+    {
+      "id": "page41",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_3b_p1",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 3.07,
+            "w": 100.0,
+            "h": 95.27
+          }
+        }
+      ]
+    },
+    {
+      "id": "page42",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_3b_p2",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page43",
       "blocks": [
         {
           "type": "heading",
@@ -2231,9 +2301,13 @@
           }
         },
         {
-          "type": "image",
+          "type": "question",
           "id": "c3_starter",
-          "section": true,
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
           "defaultCropRect": {
             "x": 9.48,
             "y": 0.0,
@@ -2255,7 +2329,7 @@
       ]
     },
     {
-      "id": "page39",
+      "id": "page44",
       "blocks": [
         {
           "type": "question",
@@ -2275,7 +2349,7 @@
       ]
     },
     {
-      "id": "page40",
+      "id": "page45",
       "blocks": [
         {
           "type": "image",
@@ -2292,7 +2366,7 @@
       ]
     },
     {
-      "id": "page41",
+      "id": "page46",
       "blocks": [
         {
           "type": "image",
@@ -2309,7 +2383,7 @@
       ]
     },
     {
-      "id": "page42",
+      "id": "page47",
       "blocks": [
         {
           "type": "image",
@@ -2346,7 +2420,7 @@
       ]
     },
     {
-      "id": "page43",
+      "id": "page48",
       "blocks": [
         {
           "type": "heading",
@@ -2372,13 +2446,13 @@
             "x": 0.0,
             "y": 0.0,
             "w": 89.34,
-            "h": 100.0
+            "h": 94.7
           }
         }
       ]
     },
     {
-      "id": "page44",
+      "id": "page49",
       "blocks": [
         {
           "type": "question",
@@ -2398,7 +2472,7 @@
       ]
     },
     {
-      "id": "page45",
+      "id": "page50",
       "blocks": [
         {
           "type": "question",
@@ -2418,7 +2492,7 @@
       ]
     },
     {
-      "id": "page46",
+      "id": "page51",
       "blocks": [
         {
           "type": "question",
@@ -2438,7 +2512,7 @@
       ]
     },
     {
-      "id": "page47",
+      "id": "page52",
       "blocks": [
         {
           "type": "image",
@@ -2513,7 +2587,7 @@
       ]
     },
     {
-      "id": "page48",
+      "id": "page53",
       "blocks": [
         {
           "type": "heading",
@@ -2540,7 +2614,7 @@
       ]
     },
     {
-      "id": "page49",
+      "id": "page54",
       "blocks": [
         {
           "type": "question",
@@ -2560,27 +2634,52 @@
       ]
     },
     {
-      "id": "page50",
+      "id": "page55",
       "blocks": [
         {
-          "type": "question",
-          "id": "c3ex8",
-          "contextImage": null,
-          "workingSpace": {
-            "style": "grid",
-            "heightMm": 35
-          },
+          "type": "image",
+          "id": "c3ex8_stem",
           "defaultCropRect": {
             "x": 0.0,
             "y": 0.0,
             "w": 98.88,
             "h": 100.0
           }
+        },
+        {
+          "type": "question",
+          "id": "c3ex8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.21,
+            "y": 0.0,
+            "w": 87.45,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c3ex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.21,
+            "y": 0.0,
+            "w": 87.45,
+            "h": 100.0
+          }
         }
       ]
     },
     {
-      "id": "page51",
+      "id": "page56",
       "blocks": [
         {
           "type": "question",
@@ -2600,7 +2699,7 @@
       ]
     },
     {
-      "id": "page52",
+      "id": "page57",
       "blocks": [
         {
           "type": "heading",
@@ -2652,7 +2751,7 @@
       ]
     },
     {
-      "id": "page53",
+      "id": "page58",
       "blocks": [
         {
           "type": "image",
@@ -2712,7 +2811,7 @@
       ]
     },
     {
-      "id": "page54",
+      "id": "page59",
       "blocks": [
         {
           "type": "heading",
@@ -2733,44 +2832,28 @@
             "x": 5.2,
             "y": 0.0,
             "w": 85.44,
-            "h": 100.0
+            "h": 94.55
           }
         }
       ]
     },
     {
-      "id": "page55",
+      "id": "page60",
       "blocks": [
         {
           "type": "heading",
-          "id": "answers_title",
-          "text": "3A-3C Answers",
+          "id": "answers_3c_title",
+          "text": "3C Answers",
           "style": "title"
         }
       ]
     },
     {
-      "id": "page56",
+      "id": "page61",
       "blocks": [
         {
           "type": "image",
-          "id": "answers_p1",
-          "answers": true,
-          "defaultCropRect": {
-            "x": 0.0,
-            "y": 1.59,
-            "w": 100.0,
-            "h": 98.07
-          }
-        }
-      ]
-    },
-    {
-      "id": "page57",
-      "blocks": [
-        {
-          "type": "image",
-          "id": "answers_p2",
+          "id": "answers_3c_p1",
           "answers": true,
           "defaultCropRect": {
             "x": 0.0,
@@ -2782,11 +2865,11 @@
       ]
     },
     {
-      "id": "page58",
+      "id": "page62",
       "blocks": [
         {
           "type": "image",
-          "id": "answers_p3",
+          "id": "answers_3c_p2",
           "answers": true,
           "defaultCropRect": {
             "x": 0.0,
@@ -2799,27 +2882,28 @@
     }
   ],
   "groupLayout": {
-    "b3ex12": "split",
-    "c3ex5": "split",
     "b3ex7": "combined",
-    "b3ex10": "combined",
-    "b3ex2": "split",
-    "c3ex10": "combined",
-    "a3ex13": "split",
-    "b3ex4": "combined",
-    "c3ex11": "combined",
-    "a3ex1": "split",
-    "a3ex3": "split",
-    "a3ex5": "split",
-    "a3ex4": "split",
-    "a3bu2": "split",
-    "b3bu2": "split",
-    "b3ex3": "split",
     "a3bu1": "split",
     "b3bu1": "split",
+    "c3ex10": "combined",
+    "b3ex3": "split",
+    "a3ex5": "split",
+    "a3ex2": "split",
+    "a3ex1": "split",
+    "a3bu2": "split",
+    "c3ex11": "combined",
     "b3ex11": "combined",
-    "b3ex1": "split",
-    "a3ex2": "split"
+    "a3ex3": "split",
+    "b3ex12": "split",
+    "a3ex13": "split",
+    "c3ex5": "split",
+    "c3ex8": "combined",
+    "b3ex2": "split",
+    "b3bu2": "split",
+    "b3ex10": "combined",
+    "b3ex4": "combined",
+    "a3ex4": "split",
+    "b3ex1": "split"
   },
   "combinedBlocks": {
     "a3bu1": {
@@ -3048,6 +3132,18 @@
         "y": 0.0,
         "w": 85.75,
         "h": 98.24
+      }
+    },
+    "c3ex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 2.21,
+        "y": 0.0,
+        "w": 87.45,
+        "h": 100.0
       }
     },
     "c3ex10": {
