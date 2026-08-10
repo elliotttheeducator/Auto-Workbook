@@ -784,7 +784,7 @@ function headingHtml(b) {
   return `<div class="heading">${text}</div>`;
 }
 
-const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
+const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.medium };
 
 // Returns one or more {html, heading} pagination units for a multi-part
 // question group - never just one joined HTML string, because that
