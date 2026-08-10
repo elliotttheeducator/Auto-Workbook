@@ -66,16 +66,15 @@ export const IMAGE_SCALE_STEP = 5;
 //     with none of the above flags.
 export const DEFAULT_SPLIT_SCALE = 70;
 export const DEFAULT_SECTION_SCALE = 70;
-// Percentage of an *answer row's own column* now (see buildAnswerRowUnit
-// in render.js - two answer-key images share one row, each in a ~half-
+// Percentage of an *answer row's own column* (see buildAnswerRowUnit in
+// render.js - two answer-key images share one row, each in a ~half-
 // width column, the same two-up layout a split question's parts already
 // use), not of the full page width the way it was before that changed.
-// Verified against this project's actual answer pages, in that two-up
-// layout: 55% keeps every "X Answers" section on one physical sheet
-// while still reading as a reasonably-sized crop, not a postage stamp;
-// 65%+ starts pushing the two busiest chapters (three separate answer
-// images each) back onto two sheets.
-export const DEFAULT_ANSWERS_SCALE = 55;
+// Set to 100% (full column width) per explicit request - answers should
+// read at full size by default, not pre-shrunk; a chapter whose answer
+// pages don't fit one sheet at this size can still be shrunk from the
+// editor's own per-image scale control.
+export const DEFAULT_ANSWERS_SCALE = 100;
 export const DEFAULT_COMBINED_SCALE = 100;
 
 function findBlockById(workbook, id) {
