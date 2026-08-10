@@ -319,7 +319,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 10.16,
@@ -334,7 +334,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.36,
@@ -349,7 +349,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 10.53,
@@ -364,7 +364,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.28,
@@ -379,7 +379,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.76,
@@ -394,7 +394,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.98,
@@ -424,7 +424,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 13.06,
@@ -439,7 +439,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.73,
@@ -454,7 +454,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.27,
@@ -469,7 +469,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.6,
@@ -484,7 +484,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 13.17,
@@ -499,7 +499,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.89,
@@ -529,7 +529,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 14.69,
@@ -544,7 +544,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 10.75,
@@ -559,7 +559,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.09,
@@ -574,7 +574,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 13.72,
@@ -589,7 +589,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 11.23,
@@ -604,7 +604,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.79,
@@ -634,7 +634,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.6,
@@ -649,7 +649,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 11.74,
@@ -664,7 +664,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.33,
@@ -679,7 +679,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.84,
@@ -694,7 +694,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.22,
@@ -709,7 +709,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 5.67,
@@ -739,7 +739,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.83,
@@ -754,7 +754,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.27,
@@ -769,7 +769,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.81,
@@ -784,7 +784,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 10.62,
@@ -799,7 +799,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.12,
@@ -814,7 +814,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.29,
@@ -1478,7 +1478,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.5,
@@ -1493,7 +1493,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 12.36,
@@ -1508,7 +1508,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.0,
@@ -1523,7 +1523,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 11.19,
@@ -1538,7 +1538,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.42,
@@ -1553,7 +1553,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.46,
@@ -1583,7 +1583,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 11.81,
@@ -1598,7 +1598,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 10.22,
@@ -1613,7 +1613,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.08,
@@ -1628,7 +1628,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.04,
@@ -1643,7 +1643,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.88,
@@ -1658,7 +1658,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.15,
@@ -1688,7 +1688,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.81,
@@ -1703,7 +1703,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.94,
@@ -1718,7 +1718,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.45,
@@ -1733,7 +1733,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.2,
@@ -1748,7 +1748,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.75,
@@ -1763,7 +1763,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.48,
@@ -1793,7 +1793,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 9.63,
@@ -1808,7 +1808,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 8.62,
@@ -1823,7 +1823,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 6.47,
@@ -2119,63 +2119,73 @@
           }
         },
         {
+          "type": "image",
+          "id": "b3ex12_diagram",
+          "defaultCropRect": {
+            "x": 8.0,
+            "y": 3.41,
+            "w": 82.0,
+            "h": 96.21
+          }
+        },
+        {
           "type": "question",
           "id": "b3ex12a",
-          "contextImage": null,
+          "contextImage": "b3ex12_diagram",
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.46,
+            "x": 3.28,
             "y": 0.0,
-            "w": 86.02,
+            "w": 84.85,
             "h": 100.0
           }
         },
         {
           "type": "question",
           "id": "b3ex12b",
-          "contextImage": null,
+          "contextImage": "b3ex12_diagram",
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.37,
+            "x": 3.61,
             "y": 0.0,
-            "w": 86.53,
+            "w": 74.52,
             "h": 100.0
           }
         },
         {
           "type": "question",
           "id": "b3ex12c",
-          "contextImage": null,
+          "contextImage": "b3ex12_diagram",
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.45,
+            "x": 3.28,
             "y": 0.0,
-            "w": 90.82,
+            "w": 83.32,
             "h": 100.0
           }
         },
         {
           "type": "question",
           "id": "b3ex12d",
-          "contextImage": null,
+          "contextImage": "b3ex12_diagram",
           "workingSpace": {
             "style": "grid",
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.27,
+            "x": 3.28,
             "y": 0.0,
-            "w": 87.11,
-            "h": 99.02
+            "w": 94.68,
+            "h": 92.16
           }
         }
       ]
@@ -2445,7 +2455,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 7.22,
@@ -2460,7 +2470,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 5.19,
@@ -2475,7 +2485,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 5.9,
@@ -2490,7 +2500,7 @@
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 20
+            "heightMm": 40
           },
           "defaultCropRect": {
             "x": 4.94,
@@ -2788,27 +2798,27 @@
     }
   ],
   "groupLayout": {
-    "b3ex2": "split",
-    "a3bu2": "split",
-    "b3ex1": "split",
-    "b3ex4": "combined",
-    "a3bu1": "split",
-    "c3ex10": "combined",
-    "a3ex1": "split",
-    "a3ex13": "split",
-    "a3ex3": "split",
-    "b3ex7": "combined",
-    "b3ex10": "combined",
-    "c3ex11": "combined",
-    "a3ex4": "split",
-    "b3ex12": "split",
-    "b3ex11": "combined",
     "b3ex3": "split",
-    "b3bu2": "split",
+    "b3ex2": "split",
+    "a3ex4": "split",
     "a3ex2": "split",
+    "a3bu2": "split",
     "b3bu1": "split",
     "a3ex5": "split",
-    "c3ex5": "split"
+    "c3ex10": "combined",
+    "a3ex3": "split",
+    "b3ex1": "split",
+    "b3ex10": "combined",
+    "b3ex11": "combined",
+    "a3ex1": "split",
+    "a3ex13": "split",
+    "b3ex12": "split",
+    "c3ex11": "combined",
+    "c3ex5": "split",
+    "b3bu2": "split",
+    "b3ex4": "combined",
+    "b3ex7": "combined",
+    "a3bu1": "split"
   },
   "combinedBlocks": {
     "a3bu1": {
@@ -3021,9 +3031,9 @@
         "heightMm": 40
       },
       "defaultCropRect": {
-        "x": 2.27,
+        "x": 12.08,
         "y": 0.0,
-        "w": 87.11,
+        "w": 76.21,
         "h": 99.56
       }
     },
