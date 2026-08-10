@@ -228,7 +228,15 @@ export function extractOverrides(workbook) {
       // "question", is what lets a heading's or plain image's own
       // overrides survive a reload too.
       const o = {};
-      if (b.type === "question") o.workingSpace = b.workingSpace;
+      if (b.type === "question") {
+        o.workingSpace = b.workingSpace;
+        // Whether this standalone question asked to share a half-width
+        // row with whichever one follows it (see pairWithNextControlHtml/
+        // pairQuestionUnits in render.js) - only meaningful on a question
+        // with no letter suffix (never grouped), but harmless to always
+        // capture here same as every other per-block override.
+        o.pairWithNext = b.pairWithNext;
+      }
       if (b.type === "question" || b.type === "image") {
         o.imageScale = b.imageScale;
         // A manually re-cropped PNG (see crop.js), stored as a data: URL
@@ -305,6 +313,7 @@ export function applyOverrides(workbook, overrides) {
       const o = blockOverrides[b.id];
       if (o) {
         if (o.workingSpace && b.type === "question") b.workingSpace = o.workingSpace;
+        if (o.pairWithNext !== undefined) b.pairWithNext = o.pairWithNext;
         if (o.imageScale !== undefined) b.imageScale = o.imageScale;
         if (o.manualCropSrc !== undefined) b.manualCropSrc = o.manualCropSrc;
         if (o.manualCropRect !== undefined) b.manualCropRect = o.manualCropRect;

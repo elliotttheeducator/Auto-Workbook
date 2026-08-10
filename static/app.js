@@ -205,6 +205,17 @@ function toggleBreakBefore(kind, id) {
   if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
+// "Split with next question" (see pairWithNextControlHtml/
+// pairQuestionUnits in render.js) is always block-kind - a standalone
+// question, never a group - and the toggle can fire from either its own
+// unpaired panel or the shared paired-row panel's "Unpair" button
+// (which always targets the *first* question of the pair), so this
+// never needs to worry about which one it was clicked from.
+function togglePairWithNext(id) {
+  const entry = findBlock(id);
+  if (entry) entry.pairWithNext = !entry.pairWithNext;
+}
+
 // Resolves once with whether `src` actually loads - used below to
 // probe for a "<id>__full.png" source image without ever leaving the
 // crop tool pointed at a 404. Only chapters built after the tight-
@@ -837,6 +848,8 @@ function handleControlClick(e) {
     if (!changed) return;
   } else if (action === "toggle-break-before") {
     for (const t of targets) toggleBreakBefore(el.dataset.kind, t);
+  } else if (action === "toggle-pair-with-next") {
+    for (const t of targets) togglePairWithNext(t);
   } else {
     return;
   }

@@ -129,6 +129,7 @@ import io
 import json
 import os
 import re
+import shutil
 import uuid
 
 import fitz  # PyMuPDF
@@ -379,12 +380,23 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
 
 
 def update_index(data_dir: str, project_id: str, title: str) -> None:
+    """Appends a new project, or - when project_id already has an entry
+    (see --project-id) - just refreshes its title in place. Never adds a
+    second entry for an id that's already listed: that would show the
+    same project twice on the home page for what's really one ongoing
+    chapter being rebuilt, not a new one.
+    """
     index_path = os.path.join(data_dir, "index.json")
     entries = []
     if os.path.exists(index_path):
         with open(index_path) as f:
             entries = json.load(f)
-    entries.append({"id": project_id, "title": title})
+    for entry in entries:
+        if entry["id"] == project_id:
+            entry["title"] = title
+            break
+    else:
+        entries.append({"id": project_id, "title": title})
     with open(index_path, "w") as f:
         json.dump(entries, f, indent=2)
 
@@ -396,14 +408,29 @@ def main() -> None:
     parser.add_argument("--proposals", required=True, help="path to the proposals JSON")
     parser.add_argument("--title", required=True, help="chapter title shown in the editor")
     parser.add_argument("--data-dir", default="data", help="repo-relative data/ directory to write into")
+    # Reuses an existing project id instead of minting a new one - the
+    # only thing that actually keeps someone's in-progress editor
+    # customizations (crops, layout picks, deletes, scales - all stored
+    # client-side in IndexedDB, keyed by this id) attached to a chapter
+    # after it's rebuilt to fix a content/crop bug. A fresh id starts
+    # that person back at zero, which is exactly the "sent back to the
+    # start" complaint this flag exists to stop: every fix from here on
+    # should reuse the chapter's current live id (see data/index.json),
+    # never mint a new one, unless the user explicitly wants a clean
+    # slate. The existing project_dir (crops + workbook.json) is wiped
+    # first so a block renamed or removed since the last build can never
+    # leave a stale, orphaned crop file behind.
+    parser.add_argument("--project-id", help="reuse this existing project id instead of creating a new one")
     args = parser.parse_args()
 
     with open(args.proposals) as f:
         pages_proposals = json.load(f)
 
     os.makedirs(args.data_dir, exist_ok=True)
-    project_id = uuid.uuid4().hex[:12]
+    project_id = args.project_id or uuid.uuid4().hex[:12]
     project_dir = os.path.join(args.data_dir, project_id)
+    if args.project_id and os.path.isdir(project_dir):
+        shutil.rmtree(project_dir)
 
     with fitz.open(args.pdf) as chapter_doc:
         docs = {"chapter": chapter_doc}
@@ -416,7 +443,8 @@ def main() -> None:
     update_index(args.data_dir, workbook["id"], args.title)
 
     num_crops = len([f for f in os.listdir(os.path.join(project_dir, "crops"))])
-    print(f"wrote {project_dir}: {len(workbook['pages'])} pages, {num_crops} crops, id={workbook['id']}")
+    action = "updated" if args.project_id else "wrote"
+    print(f"{action} {project_dir}: {len(workbook['pages'])} pages, {num_crops} crops, id={workbook['id']}")
 
 
 if __name__ == "__main__":

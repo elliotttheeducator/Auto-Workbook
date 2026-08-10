@@ -358,6 +358,65 @@ function pairAnswerImageUnits(units) {
   return merged;
 }
 
+// Builds the shared half-width row for two standalone questions paired
+// via "Split with next question" (see pairWithNextControlHtml). Unlike
+// buildAnswerRowUnit's pair, these two are genuinely unrelated
+// questions - each keeps its own full style/size/scale controls, not
+// one shared setting - so unlike a split-row's parts (which lock to one
+// shared panel because they're truly the same question), both sides'
+// full control sets are kept here, just gathered into one panel instead
+// of each hanging its own off the page margin: .controls-hang positions
+// itself relative to the page, not its own immediate block, so two
+// independent hanging panels side by side would both reach for the same
+// margin and collide - see the .split-row parts comment above for the
+// same reasoning applied to lettered parts.
+function buildPairedQuestionRowUnit(a, b) {
+  const partHtml = (q) => `<div class="block question">${q.crop}${workingSpaceHtml(q.ws)}</div>`;
+  const partsHtml = partHtml(a) + partHtml(b);
+  const sideControls = (q, label) =>
+    `<div class="paired-side-controls"><span class="paired-side-label">${escapeHtml(label)}</span>` +
+    renderQuestionControls(q.id, "block", q.ws, q.pct, q.breakBefore) +
+    deleteButtonHtml(q.id, "block", `${label} question`) +
+    cropButtonHtml(q.id, "block") +
+    `</div>`;
+  const unpairBtn =
+    `<button class="pair-with-next-toggle active" data-action="toggle-pair-with-next" data-target="${a.id}" data-kind="block">` +
+    `✓ Split with next question</button>`;
+  const hangingControls = controlsHangHtml(`${a.id},${b.id}`, sideControls(a, "First") + sideControls(b, "Second") + unpairBtn);
+  const html = `<div class="split-row cols-2">${partsHtml}${hangingControls}</div>`;
+  return {
+    html,
+    heading: false,
+    wsTargets: [
+      { kind: "block", id: a.id, canShrink: canShrink({}, a.pct) },
+      { kind: "block", id: b.id, canShrink: canShrink({}, b.pct) },
+    ],
+    breakBefore: a.breakBefore,
+  };
+}
+
+// Only two standalone questions that end up genuinely adjacent (after
+// deletes/filters/answer-pairing have already resolved) get merged -
+// same reasoning as pairAnswerImageUnits above. wantsPair only has to
+// be true on the *first* of the two: "split with next question" is
+// deliberately a one-sided ask (whatever immediately follows, not a
+// mutual opt-in from both sides), since the second question shouldn't
+// need to also flip its own toggle just to accept.
+function pairQuestionUnits(units) {
+  const merged = [];
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i];
+    const next = units[i + 1];
+    if (u.pairData && u.pairData.wantsPair && next && next.pairData) {
+      merged.push(buildPairedQuestionRowUnit(u.pairData, next.pairData));
+      i++;
+    } else {
+      merged.push(u);
+    }
+  }
+  return merged;
+}
+
 // One tier's All/Odds/Evens picker - shared between the workbook-wide
 // bar and each chapter's own row, which only differ in what they read
 // (global vs a chapter's override) and which id set-tier-filter's click
@@ -687,6 +746,24 @@ function breakBeforeControlHtml(target, kind, breakBefore) {
   );
 }
 
+// A standalone (non-grouped) question is only ever one thing wide - a
+// full page-width row - by default, which wastes most of a sheet on a
+// short Problem-solving/Reasoning question that would happily sit at
+// half width next to whichever standalone question follows it (see
+// pairQuestionUnits below, which actually builds that shared row once
+// both sides are known). This only ever records the *intent*, on this
+// question alone - which two questions actually end up sharing a row
+// still depends on what's genuinely next once deletes/filters have
+// already been resolved, so the merge itself has to happen later, not
+// here.
+function pairWithNextControlHtml(target, active) {
+  return (
+    `<button class="pair-with-next-toggle ${active ? "active" : ""}" ` +
+    `data-action="toggle-pair-with-next" data-target="${target}" data-kind="block">` +
+    `${active ? "✓ Split with next question" : "Split with next question"}</button>`
+  );
+}
+
 // pct is always the already-resolved value (a block's own imageScale if
 // it has one, else whichever workbook-wide default applies - see
 // resolvedDefaultScales in model.js) - never "unset", now that unset no
@@ -729,14 +806,15 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // has - a 2-part group showing "4 split" just renders one row with
 // two of its four slots empty, never broken, and a fixed set of
 // options is easier to scan than one whose choices shift per group.
-// Building Understanding groups are usually short, single-line parts (a
-// quick "State whether..." or "Find x" per letter) that read fine three
-// to a row - Exercise groups' parts are usually meatier (a diagram, a
-// multi-line working-out box) and need the extra width two-per-row
-// gives them. Both are still just a starting point the picker above can
-// override per group at any time.
-function defaultSplitColumnsFor(gid) {
-  return /bu\d/.test(gid) ? 3 : 2;
+// Building Understanding and Fluency groups are usually short,
+// single-line parts (a quick "State whether..." or "Find x" per letter)
+// that read fine three to a row - a Problem-solving/Reasoning/
+// Enrichment group's parts are usually meatier (a diagram, a multi-line
+// working-out box) and need the extra width two-per-row gives them.
+// Both are still just a starting point the picker above can override
+// per group at any time.
+function defaultSplitColumnsFor(gid, tier) {
+  return /bu\d/.test(gid) || tier === "fluency" ? 3 : 2;
 }
 
 function groupLayoutPickerHtml(gid, layout, splitColumns) {
@@ -947,7 +1025,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   // filled by whatever now-following content fits in it.
   async function flushPending() {
     if (pending.length === 0) return;
-    const units = pairAnswerImageUnits(pending);
+    const units = pairQuestionUnits(pairAnswerImageUnits(pending));
     pending = [];
 
     // A heading is never worth stranding alone at the bottom of a sheet -
@@ -1112,7 +1190,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             ? controlsHangHtml(
                 mergeGroupControls.gid,
                 ownControls +
-                  groupLayoutPickerHtml(mergeGroupControls.gid, mergeGroupControls.layout, workbook.groupSplitColumns?.[mergeGroupControls.gid] || defaultSplitColumnsFor(mergeGroupControls.gid)) +
+                  groupLayoutPickerHtml(mergeGroupControls.gid, mergeGroupControls.layout, workbook.groupSplitColumns?.[mergeGroupControls.gid] || defaultSplitColumnsFor(mergeGroupControls.gid, filterCtx.context[mergeGroupControls.gid]?.tier)) +
                   deleteButtonHtml(mergeGroupControls.gid, "group", "Delete question") +
                   restoreListHtml(mergeGroupControls.restorableHiddenMembers, mergeGroupControls.gid)
               )
@@ -1159,13 +1237,19 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
           const pct = b.imageScale ?? defaultScales.combined;
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
-          const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
+          const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
           const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
             breakBefore: !!b.breakBefore,
+            // Raw pieces for pairQuestionUnits() to rebuild a shared
+            // half-width row from, if this question asked to share a
+            // row with whatever standalone question turns out to follow
+            // it (wantsPair) - same idea as answersImage above, just for
+            // an editor-set choice instead of an automatic one.
+            pairData: { id: b.id, crop, ws: b.workingSpace, pct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext },
           });
         }
         return;
@@ -1189,7 +1273,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       units.push(
-        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || defaultSplitColumnsFor(unit.gid), mergedStemGids.has(unit.gid))
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || defaultSplitColumnsFor(unit.gid, filterCtx.context[unit.gid]?.tier), mergedStemGids.has(unit.gid))
       );
     });
 

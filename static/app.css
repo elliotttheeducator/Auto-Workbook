@@ -464,6 +464,24 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 }
 .break-before-toggle.active { background: #2a7; color: white; border-color: #2a7; }
 
+.pair-with-next-toggle {
+  display: block; margin-top: 4px; border: 1px solid #999; background: white;
+  border-radius: 3px; padding: 2px 8px; font-size: 9px; cursor: pointer; color: #555;
+}
+.pair-with-next-toggle.active { background: #57c; color: white; border-color: #57c; }
+
+/* Two independent standalone questions sharing one half-width row (see
+   buildPairedQuestionRowUnit in render.js) still each keep their own
+   full set of controls - gathered into this one shared hanging panel
+   instead of each getting its own (which would collide: .controls-hang
+   hangs off the page margin, not its own local block, so two of them
+   side by side would both reach for the same spot). A small label above
+   each side's own block of controls is what actually keeps the two
+   apart visually once they're sharing one panel. */
+.paired-side-controls { display: flex; flex-direction: column; gap: 3px; }
+.paired-side-controls + .paired-side-controls { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ccc; }
+.paired-side-label { font-size: 9px; font-weight: bold; color: #888; text-transform: uppercase; letter-spacing: 0.03em; }
+
 /* ---- print export ----
    No separate print layout: this hides the chrome (topbar, pickers,
    layout radios, home view) on the exact same DOM the editor renders, so
@@ -473,7 +491,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   body { background: white; }
   .topbar, .home-main, #filter-bar-mount,
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,
-  .image-scale-picker, .break-before-toggle, .controls-hang,
+  .image-scale-picker, .break-before-toggle, .pair-with-next-toggle, .controls-hang,
   .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
