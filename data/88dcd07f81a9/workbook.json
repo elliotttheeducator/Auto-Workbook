@@ -1,5 +1,5 @@
 {
-  "id": "be646b9de5ba",
+  "id": "88dcd07f81a9",
   "title": "Year 9 - Chapter 3: Pythagoras' Theorem (3A-3C)",
   "sourcePdfName": "603b5de8-EMAC9_4ed_Ch03.pdf",
   "pages": [
@@ -1181,19 +1181,23 @@
           "defaultCropRect": {
             "x": 9.36,
             "y": 0.0,
-            "w": 81.35,
+            "w": 81.85,
             "h": 100.0
           }
         },
         {
-          "type": "image",
+          "type": "question",
           "id": "b3_starter",
-          "section": true,
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
           "defaultCropRect": {
             "x": 9.36,
             "y": 0.0,
             "w": 79.99,
-            "h": 100.0
+            "h": 96.26
           }
         }
       ]
@@ -2784,26 +2788,26 @@
     }
   ],
   "groupLayout": {
-    "a3bu2": "split",
-    "a3ex13": "split",
-    "a3ex1": "split",
-    "c3ex11": "combined",
-    "b3ex4": "combined",
-    "b3bu2": "split",
-    "b3ex10": "combined",
-    "b3ex7": "combined",
-    "b3bu1": "split",
-    "b3ex1": "split",
-    "b3ex3": "split",
-    "b3ex12": "split",
-    "c3ex10": "combined",
-    "a3ex4": "split",
-    "b3ex11": "combined",
-    "a3ex2": "split",
     "b3ex2": "split",
+    "a3bu2": "split",
+    "b3ex1": "split",
+    "b3ex4": "combined",
     "a3bu1": "split",
-    "a3ex5": "split",
+    "c3ex10": "combined",
+    "a3ex1": "split",
+    "a3ex13": "split",
     "a3ex3": "split",
+    "b3ex7": "combined",
+    "b3ex10": "combined",
+    "c3ex11": "combined",
+    "a3ex4": "split",
+    "b3ex12": "split",
+    "b3ex11": "combined",
+    "b3ex3": "split",
+    "b3bu2": "split",
+    "a3ex2": "split",
+    "b3bu1": "split",
+    "a3ex5": "split",
     "c3ex5": "split"
   },
   "combinedBlocks": {
