@@ -729,6 +729,16 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.large };
 // has - a 2-part group showing "4 split" just renders one row with
 // two of its four slots empty, never broken, and a fixed set of
 // options is easier to scan than one whose choices shift per group.
+// Building Understanding groups are usually short, single-line parts (a
+// quick "State whether..." or "Find x" per letter) that read fine three
+// to a row - Exercise groups' parts are usually meatier (a diagram, a
+// multi-line working-out box) and need the extra width two-per-row
+// gives them. Both are still just a starting point the picker above can
+// override per group at any time.
+function defaultSplitColumnsFor(gid) {
+  return /bu\d/.test(gid) ? 3 : 2;
+}
+
 function groupLayoutPickerHtml(gid, layout, splitColumns) {
   const safeGid = escapeHtml(gid);
   const combinedBtn =
@@ -1102,7 +1112,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             ? controlsHangHtml(
                 mergeGroupControls.gid,
                 ownControls +
-                  groupLayoutPickerHtml(mergeGroupControls.gid, mergeGroupControls.layout, workbook.groupSplitColumns?.[mergeGroupControls.gid] || 2) +
+                  groupLayoutPickerHtml(mergeGroupControls.gid, mergeGroupControls.layout, workbook.groupSplitColumns?.[mergeGroupControls.gid] || defaultSplitColumnsFor(mergeGroupControls.gid)) +
                   deleteButtonHtml(mergeGroupControls.gid, "group", "Delete question") +
                   restoreListHtml(mergeGroupControls.restorableHiddenMembers, mergeGroupControls.gid)
               )
@@ -1179,7 +1189,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       units.push(
-        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || 2, mergedStemGids.has(unit.gid))
+        ...renderGroup(unit.gid, visibility.visibleMembers, layout, cropsBaseUrl, combinedBlocks, visibility.explicitlyHiddenMembers, defaultScales, workbook.groupSplitColumns?.[unit.gid] || defaultSplitColumnsFor(unit.gid), mergedStemGids.has(unit.gid))
       );
     });
 

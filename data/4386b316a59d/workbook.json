@@ -1,0 +1,8846 @@
+{
+  "id": "4386b316a59d",
+  "title": "Year 7 - Chapter 10: Measurement (10C-10J)",
+  "sourcePdfName": "3503bcf7-EMAC7_4ed_Ch10.pdf",
+  "pages": [
+    {
+      "id": "page0",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_title",
+          "text": "10C Circles, \u03c0 and circumference",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10c_intro",
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.65,
+            "h": 94.41
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 3.88,
+            "w": 95.0,
+            "h": 93.99
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.97,
+            "w": 95.07,
+            "h": 99.03
+          }
+        }
+      ]
+    },
+    {
+      "id": "page1",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10c_keyideas2",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.56,
+            "w": 95.0,
+            "h": 98.52
+          }
+        }
+      ]
+    },
+    {
+      "id": "page2",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10cbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 14.68,
+            "y": 0.0,
+            "w": 68.35,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 13.87,
+            "y": 0.0,
+            "w": 70.59,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.84,
+            "y": 0.0,
+            "w": 85.9,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 14.81,
+            "y": 0.0,
+            "w": 68.06,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 14.81,
+            "y": 0.0,
+            "w": 68.06,
+            "h": 97.06
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 92.02,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10cbu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page4",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cbu3_stem",
+          "defaultCropRect": {
+            "x": 1.99,
+            "y": 0.0,
+            "w": 95.74,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 2.49,
+            "y": 0.0,
+            "w": 94.87,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cbu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.36,
+            "h": 86.54
+          }
+        }
+      ]
+    },
+    {
+      "id": "page5",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10c_example5",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 1.67,
+            "w": 97.39,
+            "h": 98.33
+          }
+        }
+      ]
+    },
+    {
+      "id": "page6",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10c_example5_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "heading",
+          "id": "c10c_h_nyt5",
+          "text": "Now you try (Example 5)"
+        },
+        {
+          "type": "question",
+          "id": "c10c_nyt5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page7",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10c_example6",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 85.78
+          }
+        }
+      ]
+    },
+    {
+      "id": "page8",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10c_example6_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 1.25,
+            "w": 95.0,
+            "h": 98.75
+          }
+        },
+        {
+          "type": "heading",
+          "id": "c10c_h_nyt6",
+          "text": "Now you try (Example 6)"
+        },
+        {
+          "type": "question",
+          "id": "c10c_nyt6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 35
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page9",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_h_ex",
+          "text": "Exercise 10C"
+        },
+        {
+          "type": "heading",
+          "id": "c10c_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10cex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 4.62,
+            "y": 0.0,
+            "w": 71.54,
+            "h": 99.35
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 4.54,
+            "y": 0.0,
+            "w": 91.21,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page10",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 2.44,
+            "w": 96.29,
+            "h": 97.56
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 4.52,
+            "y": 0.0,
+            "w": 72.16,
+            "h": 96.86
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 4.54,
+            "y": 0.0,
+            "w": 93.33,
+            "h": 91.07
+          }
+        }
+      ]
+    },
+    {
+      "id": "page11",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 11.82,
+            "w": 98.25,
+            "h": 88.18
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.61,
+            "y": 0.0,
+            "w": 87.19,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.32,
+            "y": 0.0,
+            "w": 69.93,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.63,
+            "y": 0.52,
+            "w": 87.37,
+            "h": 99.48
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.14,
+            "y": 0.0,
+            "w": 69.98,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page12",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 5.83,
+            "w": 98.26,
+            "h": 94.17
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.63,
+            "y": 0.0,
+            "w": 87.37,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.31,
+            "y": 0.0,
+            "w": 69.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.61,
+            "y": 0.41,
+            "w": 87.19,
+            "h": 79.09
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.14,
+            "y": 0.0,
+            "w": 69.98,
+            "h": 79.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "page13",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex5_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 19.12,
+            "w": 98.39,
+            "h": 80.88
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.42,
+            "y": 0.0,
+            "w": 87.37,
+            "h": 99.76
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.31,
+            "y": 0.0,
+            "w": 69.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.42,
+            "y": 0.44,
+            "w": 87.37,
+            "h": 98.69
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.31,
+            "y": 0.0,
+            "w": 69.82,
+            "h": 99.13
+          }
+        }
+      ]
+    },
+    {
+      "id": "page14",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "c10cex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 93.62,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page15",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex7_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 2.78,
+            "w": 98.24,
+            "h": 97.22
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 3.7,
+            "y": 0.0,
+            "w": 77.57,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 3.8,
+            "y": 0.0,
+            "w": 77.58,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 3.88,
+            "y": 0.0,
+            "w": 76.32,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex7d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 3.82,
+            "y": 0.0,
+            "w": 76.72,
+            "h": 83.61
+          }
+        }
+      ]
+    },
+    {
+      "id": "page16",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10cex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 86.67,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page17",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10cex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 4.53,
+            "y": 1.32,
+            "w": 95.47,
+            "h": 98.68
+          }
+        }
+      ]
+    },
+    {
+      "id": "page18",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "image",
+          "id": "c10cex10_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.28,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 92.6,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 88.18,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 92.52,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page19",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10cex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.38,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page20",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10cex12_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.1,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex12a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 7.36,
+            "y": 0.0,
+            "w": 56.55,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10cex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 7.67,
+            "y": 0.0,
+            "w": 54.68,
+            "h": 66.67
+          }
+        }
+      ]
+    },
+    {
+      "id": "page21",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10c_h_enrichment",
+          "text": "Enrichment: Planetary circumnavigation",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "c10cex13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.81,
+            "h": 97.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page22",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_title",
+          "text": "10D Arc length and perimeter of sectors and composite shapes (Extending)",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10d_intro",
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 96.38,
+            "h": 88.89
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 3.3,
+            "w": 95.07,
+            "h": 94.74
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.15,
+            "w": 95.0,
+            "h": 89.33
+          }
+        }
+      ]
+    },
+    {
+      "id": "page23",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10d_keyideas2",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 96.32
+          }
+        }
+      ]
+    },
+    {
+      "id": "page24",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10dbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.59,
+            "y": 0.0,
+            "w": 44.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 5.19,
+            "y": 0.0,
+            "w": 89.78,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page25",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dbu2_stem",
+          "defaultCropRect": {
+            "x": 1.49,
+            "y": 0.0,
+            "w": 96.83,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.31,
+            "y": 0.0,
+            "w": 58.49,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 17.53,
+            "y": 0.0,
+            "w": 54.07,
+            "h": 79.11
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 14.51,
+            "y": 0.0,
+            "w": 78.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.31,
+            "y": 0.0,
+            "w": 92.69,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 17.28,
+            "y": 11.85,
+            "w": 69.63,
+            "h": 88.15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 14.31,
+            "y": 0.0,
+            "w": 79.02,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page26",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dbu3_stem",
+          "defaultCropRect": {
+            "x": 1.67,
+            "y": 0.0,
+            "w": 96.44,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.08,
+            "y": 0.0,
+            "w": 72.71,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 12.04,
+            "y": 0.0,
+            "w": 82.37,
+            "h": 71.49
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dbu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 92.18,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page27",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10d_example7",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.28,
+            "w": 97.39,
+            "h": 99.72
+          }
+        }
+      ]
+    },
+    {
+      "id": "page28",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_nyt7",
+          "text": "Now you try (Example 7)"
+        },
+        {
+          "type": "question",
+          "id": "c10d_nyt7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 90.59
+          }
+        }
+      ]
+    },
+    {
+      "id": "page29",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10d_example8",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 97.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "page30",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_nyt8",
+          "text": "Now you try (Example 8)"
+        },
+        {
+          "type": "question",
+          "id": "c10d_nyt8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 94.17
+          }
+        }
+      ]
+    },
+    {
+      "id": "page31",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10d_example9",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page32",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_nyt9",
+          "text": "Now you try (Example 9)"
+        },
+        {
+          "type": "question",
+          "id": "c10d_nyt9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 47.62
+          }
+        }
+      ]
+    },
+    {
+      "id": "page33",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_ex",
+          "text": "Exercise 10D"
+        },
+        {
+          "type": "heading",
+          "id": "c10d_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10dex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.64,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 11.19,
+            "y": 0.0,
+            "w": 77.98,
+            "h": 91.42
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.5,
+            "y": 0.0,
+            "w": 63.01,
+            "h": 87.98
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 9.28,
+            "y": 0.51,
+            "w": 81.74,
+            "h": 59.34
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.39,
+            "y": 0.0,
+            "w": 69.36,
+            "h": 92.84
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.54,
+            "y": 0.53,
+            "w": 87.13,
+            "h": 98.42
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.56,
+            "y": 0.0,
+            "w": 67.56,
+            "h": 88.65
+          }
+        }
+      ]
+    },
+    {
+      "id": "page34",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.32,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 10.8,
+            "y": 0.0,
+            "w": 78.75,
+            "h": 96.89
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 7.86,
+            "y": 0.0,
+            "w": 55.28,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 8.54,
+            "y": 0.46,
+            "w": 83.2,
+            "h": 66.67
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.47,
+            "y": 0.0,
+            "w": 68.89,
+            "h": 66.21
+          }
+        }
+      ]
+    },
+    {
+      "id": "page35",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 19.12,
+            "w": 98.19,
+            "h": 80.88
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 9.7,
+            "y": 0.0,
+            "w": 81.21,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 7.13,
+            "y": 0.0,
+            "w": 59.47,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.12,
+            "y": 0.74,
+            "w": 88.15,
+            "h": 98.15
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 5.85,
+            "y": 0.0,
+            "w": 65.85,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page36",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.69,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 11.15,
+            "y": 0.0,
+            "w": 78.4,
+            "h": 85.77
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.12,
+            "y": 0.0,
+            "w": 65.2,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 9.2,
+            "y": 0.78,
+            "w": 82.18,
+            "h": 91.09
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.37,
+            "y": 0.0,
+            "w": 62.83,
+            "h": 84.88
+          }
+        }
+      ]
+    },
+    {
+      "id": "page37",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "c10dex5_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 7.08,
+            "y": 0.0,
+            "w": 86.5,
+            "h": 74.13
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 13.28,
+            "y": 0.0,
+            "w": 74.27,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 7.1,
+            "y": 0.0,
+            "w": 59.65,
+            "h": 74.13
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 7.53,
+            "y": 0.0,
+            "w": 85.41,
+            "h": 56.74
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 8.82,
+            "y": 0.56,
+            "w": 82.92,
+            "h": 82.3
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex5f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 6.58,
+            "y": 0.0,
+            "w": 62.0,
+            "h": 99.44
+          }
+        }
+      ]
+    },
+    {
+      "id": "page38",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10dex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.8,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page39",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex7_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.38,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 9.72,
+            "y": 0.0,
+            "w": 80.88,
+            "h": 68.75
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 10.78,
+            "y": 0.0,
+            "w": 79.41,
+            "h": 97.7
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.61,
+            "y": 0.0,
+            "w": 69.51,
+            "h": 82.89
+          }
+        }
+      ]
+    },
+    {
+      "id": "page40",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex8_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.37,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.81,
+            "y": 0.0,
+            "w": 82.67,
+            "h": 93.21
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.85,
+            "y": 0.0,
+            "w": 83.11,
+            "h": 78.49
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.61,
+            "y": 0.0,
+            "w": 72.49,
+            "h": 67.17
+          }
+        }
+      ]
+    },
+    {
+      "id": "page41",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "c10dex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 1.27,
+            "w": 91.16,
+            "h": 98.73
+          }
+        }
+      ]
+    },
+    {
+      "id": "page42",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10dex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 2.3,
+            "w": 57.75,
+            "h": 97.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "page43",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex11_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.62,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 14.81,
+            "y": 0.0,
+            "w": 71.3,
+            "h": 73.67
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.21,
+            "y": 0.0,
+            "w": 84.1,
+            "h": 82.92
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.79,
+            "y": 0.0,
+            "w": 72.19,
+            "h": 96.09
+          }
+        }
+      ]
+    },
+    {
+      "id": "page44",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10d_h_enrichment",
+          "text": "Enrichment: Exact values and perimeters",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "c10d_ex12_demo",
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 1.03,
+            "w": 71.23,
+            "h": 93.85
+          }
+        }
+      ]
+    },
+    {
+      "id": "page45",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10dex12_stem",
+          "defaultCropRect": {
+            "x": 1.72,
+            "y": 3.92,
+            "w": 96.34,
+            "h": 96.08
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex12a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 7.41,
+            "y": 0.0,
+            "w": 85.65,
+            "h": 74.87
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10dex12b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 7.02,
+            "y": 0.0,
+            "w": 60.09,
+            "h": 92.51
+          }
+        }
+      ]
+    },
+    {
+      "id": "page46",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10dex13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 5.26,
+            "w": 50.22,
+            "h": 94.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page47",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_title",
+          "text": "10E Units of area and area of rectangles",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10e_intro",
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 96.88,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10e_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 3.13,
+            "w": 93.91,
+            "h": 95.16
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10e_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 96.43
+          }
+        }
+      ]
+    },
+    {
+      "id": "page48",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10e_keyideas2",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.29,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page49",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "question",
+          "id": "c10ebu1",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.22,
+            "y": 0.0,
+            "w": 97.11,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page50",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10ebu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.22,
+            "y": 0.0,
+            "w": 97.11,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page51",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10ebu3_stem",
+          "defaultCropRect": {
+            "x": 1.58,
+            "y": 0.0,
+            "w": 95.14,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ebu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 10.65,
+            "y": 0.0,
+            "w": 79.04,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ebu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 13.39,
+            "y": 0.0,
+            "w": 74.06,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ebu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.79,
+            "y": 0.0,
+            "w": 85.56,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page52",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10e_example10",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page53",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10e_example10_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page54",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_nyt10",
+          "text": "Now you try (Example 10)"
+        },
+        {
+          "type": "question",
+          "id": "c10e_nyt10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page55",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10e_example11",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page56",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10e_example11_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page57",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_nyt11",
+          "text": "Now you try (Example 11)"
+        },
+        {
+          "type": "question",
+          "id": "c10e_nyt11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page58",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_ex",
+          "text": "Exercise 10E"
+        },
+        {
+          "type": "heading",
+          "id": "c10e_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10eex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 6.25,
+            "y": 0.0,
+            "w": 93.75,
+            "h": 92.76
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 55.87,
+            "h": 92.76
+          }
+        }
+      ]
+    },
+    {
+      "id": "page59",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10eex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 19.12,
+            "w": 98.41,
+            "h": 80.88
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 6.13,
+            "y": 0.0,
+            "w": 92.27,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 66.67,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 6.13,
+            "y": 0.0,
+            "w": 92.27,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 66.83,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page60",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10eex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.39,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.57,
+            "y": 0.0,
+            "w": 89.62,
+            "h": 64.98
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 90.2,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.61,
+            "y": 0.0,
+            "w": 84.01,
+            "h": 89.27
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 9.01,
+            "y": 0.0,
+            "w": 82.27,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 9.33,
+            "y": 0.0,
+            "w": 81.92,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.4,
+            "y": 0.0,
+            "w": 63.33,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3g",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.57,
+            "y": 1.39,
+            "w": 88.77,
+            "h": 70.49
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3h",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 91.23,
+            "h": 65.97
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex3i",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.82,
+            "y": 0.0,
+            "w": 65.25,
+            "h": 88.19
+          }
+        }
+      ]
+    },
+    {
+      "id": "page61",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10eex4_stem",
+          "defaultCropRect": {
+            "x": 1.31,
+            "y": 5.66,
+            "w": 97.22,
+            "h": 94.34
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 14.98,
+            "y": 0.0,
+            "w": 66.67,
+            "h": 26.59
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 15.71,
+            "y": 0.0,
+            "w": 66.19,
+            "h": 26.59
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 8.64,
+            "y": 0.0,
+            "w": 47.35,
+            "h": 26.59
+          }
+        }
+      ]
+    },
+    {
+      "id": "page62",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10eex5_stem",
+          "defaultCropRect": {
+            "x": 1.58,
+            "y": 1.79,
+            "w": 96.75,
+            "h": 98.21
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 12.36,
+            "y": 0.0,
+            "w": 72.59,
+            "h": 86.79
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 11.68,
+            "y": 0.0,
+            "w": 74.09,
+            "h": 86.79
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 8.89,
+            "y": 0.0,
+            "w": 47.22,
+            "h": 86.79
+          }
+        }
+      ]
+    },
+    {
+      "id": "page63",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.4,
+            "y": 2.13,
+            "w": 95.6,
+            "h": 97.87
+          }
+        }
+      ]
+    },
+    {
+      "id": "page64",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.27,
+            "y": 0.0,
+            "w": 95.73,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page65",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.4,
+            "y": 0.0,
+            "w": 95.6,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page66",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "c10eex9a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 3.66,
+            "y": 7.84,
+            "w": 78.86,
+            "h": 92.16
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex9b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 3.8,
+            "y": 0.0,
+            "w": 78.17,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex9c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 0.0,
+            "w": 85.94,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page67",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.13,
+            "y": 3.7,
+            "w": 95.87,
+            "h": 96.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "page68",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.13,
+            "y": 0.0,
+            "w": 95.87,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page69",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 5.0,
+            "w": 73.04,
+            "h": 95.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page70",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "c10eex13a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 2.08,
+            "w": 81.59,
+            "h": 97.92
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex13b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.43,
+            "y": 0.0,
+            "w": 82.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page71",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 1.15,
+            "w": 95.07,
+            "h": 80.46
+          }
+        }
+      ]
+    },
+    {
+      "id": "page72",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10eex15_stem",
+          "defaultCropRect": {
+            "x": 3.25,
+            "y": 5.66,
+            "w": 91.32,
+            "h": 94.34
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex15a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.34,
+            "y": 0.0,
+            "w": 95.63,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10eex15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.4,
+            "y": 0.0,
+            "w": 94.91,
+            "h": 98.31
+          }
+        }
+      ]
+    },
+    {
+      "id": "page73",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex16",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 2.56,
+            "w": 95.0,
+            "h": 97.44
+          }
+        }
+      ]
+    },
+    {
+      "id": "page74",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10e_h_enrichment",
+          "text": "Enrichment: Area conversions",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "c10eex17a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 2.05,
+            "w": 95.0,
+            "h": 97.95
+          }
+        }
+      ]
+    },
+    {
+      "id": "page75",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex17b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.58,
+            "y": 0.0,
+            "w": 34.2,
+            "h": 97.94
+          }
+        }
+      ]
+    },
+    {
+      "id": "page76",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10eex17c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 45
+          },
+          "defaultCropRect": {
+            "x": 8.31,
+            "y": 0.8,
+            "w": 73.33,
+            "h": 97.21
+          }
+        }
+      ]
+    },
+    {
+      "id": "page77",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_title",
+          "text": "10F Area of parallelograms",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10f_intro",
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.72,
+            "h": 97.04
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10f_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 3.1,
+            "w": 95.07,
+            "h": 96.43
+          }
+        }
+      ]
+    },
+    {
+      "id": "page78",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10f_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page79",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10fbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 9.76,
+            "y": 1.17,
+            "w": 78.66,
+            "h": 92.4
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 10.51,
+            "y": 0.58,
+            "w": 77.07,
+            "h": 99.42
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.84,
+            "y": 0.0,
+            "w": 85.9,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page80",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fbu2_stem",
+          "defaultCropRect": {
+            "x": 1.2,
+            "y": 0.0,
+            "w": 96.95,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 8.53,
+            "y": 0.0,
+            "w": 83.47,
+            "h": 70.09
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 9.12,
+            "y": 0.0,
+            "w": 82.6,
+            "h": 84.19
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.84,
+            "y": 0.0,
+            "w": 85.9,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 96.78
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 96.78
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fbu2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 92.74,
+            "h": 96.78
+          }
+        }
+      ]
+    },
+    {
+      "id": "page81",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10f_example12",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page82",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10f_example12_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page83",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_nyt12",
+          "text": "Now you try (Example 12)"
+        },
+        {
+          "type": "question",
+          "id": "c10f_nyt12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 96.26
+          }
+        }
+      ]
+    },
+    {
+      "id": "page84",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_ex",
+          "text": "Exercise 10F"
+        },
+        {
+          "type": "heading",
+          "id": "c10f_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10fex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.93,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.21,
+            "y": 0.0,
+            "w": 85.81,
+            "h": 60.36
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.88,
+            "y": 0.0,
+            "w": 60.86,
+            "h": 71.64
+          }
+        }
+      ]
+    },
+    {
+      "id": "page85",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.93,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.27,
+            "y": 0.0,
+            "w": 83.73,
+            "h": 68.8
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.77,
+            "y": 0.0,
+            "w": 61.52,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.16,
+            "y": 0.86,
+            "w": 85.91,
+            "h": 99.14
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.95,
+            "y": 0.0,
+            "w": 66.17,
+            "h": 83.62
+          }
+        }
+      ]
+    },
+    {
+      "id": "page86",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.93,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.18,
+            "y": 0.0,
+            "w": 83.91,
+            "h": 71.57
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.4,
+            "y": 0.0,
+            "w": 63.6,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page87",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.93,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.67,
+            "y": 0.0,
+            "w": 86.88,
+            "h": 53.12
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.18,
+            "y": 0.0,
+            "w": 65.06,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.89,
+            "y": 1.09,
+            "w": 86.44,
+            "h": 98.91
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.41,
+            "y": 0.0,
+            "w": 69.26,
+            "h": 76.64
+          }
+        }
+      ]
+    },
+    {
+      "id": "page88",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fex5_stem",
+          "defaultCropRect": {
+            "x": 1.71,
+            "y": 0.0,
+            "w": 96.46,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 12.78,
+            "y": 0.0,
+            "w": 67.78,
+            "h": 70.82
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 3.33,
+            "y": 0.0,
+            "w": 73.33,
+            "h": 71.17
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 1.67,
+            "y": 0.0,
+            "w": 98.33,
+            "h": 86.48
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 3.67,
+            "y": 0.0,
+            "w": 67.67,
+            "h": 86.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "page89",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10fex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 2.94,
+            "w": 88.19,
+            "h": 97.06
+          }
+        }
+      ]
+    },
+    {
+      "id": "page90",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "c10fex7_stem",
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 7.41,
+            "w": 94.9,
+            "h": 92.59
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.13,
+            "y": 0.0,
+            "w": 68.71,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.08,
+            "y": 0.0,
+            "w": 70.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex7c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.71,
+            "y": 0.0,
+            "w": 71.28,
+            "h": 83.61
+          }
+        }
+      ]
+    },
+    {
+      "id": "page91",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10fex8_stem",
+          "defaultCropRect": {
+            "x": 2.64,
+            "y": 5.66,
+            "w": 94.55,
+            "h": 94.34
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.75,
+            "y": 0.0,
+            "w": 71.17,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.88,
+            "y": 0.0,
+            "w": 71.04,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10fex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 4.52,
+            "y": 0.0,
+            "w": 72.45,
+            "h": 93.55
+          }
+        }
+      ]
+    },
+    {
+      "id": "page92",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10fex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 4.08,
+            "w": 92.83,
+            "h": 95.92
+          }
+        }
+      ]
+    },
+    {
+      "id": "page93",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10fex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 2.06,
+            "w": 95.0,
+            "h": 97.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "page94",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "c10fex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 1.2,
+            "w": 75.8,
+            "h": 95.98
+          }
+        }
+      ]
+    },
+    {
+      "id": "page95",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10fex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 1.18,
+            "w": 95.0,
+            "h": 98.82
+          }
+        }
+      ]
+    },
+    {
+      "id": "page96",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10fex13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 1.09,
+            "w": 95.0,
+            "h": 96.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page97",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10f_h_enrichment",
+          "text": "Enrichment: Glass fa\u00e7ade",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "c10fex14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 97.37
+          }
+        }
+      ]
+    },
+    {
+      "id": "page98",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_title",
+          "text": "10G Area of triangles",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10g_intro",
+          "defaultCropRect": {
+            "x": 3.23,
+            "y": 0.0,
+            "w": 96.77,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10g_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 3.23,
+            "y": 1.47,
+            "w": 96.77,
+            "h": 98.53
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10g_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page99",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10gbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.26,
+            "y": 0.0,
+            "w": 86.17,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 5.69,
+            "y": 0.0,
+            "w": 67.62,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.86,
+            "y": 2.07,
+            "w": 84.77,
+            "h": 96.89
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 5.82,
+            "y": 0.0,
+            "w": 66.04,
+            "h": 94.82
+          }
+        }
+      ]
+    },
+    {
+      "id": "page100",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gbu2_stem",
+          "defaultCropRect": {
+            "x": 1.6,
+            "y": 0.0,
+            "w": 96.7,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.24,
+            "y": 0.0,
+            "w": 85.97,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 5.78,
+            "y": 0.0,
+            "w": 67.15,
+            "h": 91.53
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.84,
+            "y": 2.3,
+            "w": 86.75,
+            "h": 97.7
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 5.59,
+            "y": 0.0,
+            "w": 67.39,
+            "h": 90.78
+          }
+        }
+      ]
+    },
+    {
+      "id": "page101",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gbu3_stem",
+          "defaultCropRect": {
+            "x": 2.84,
+            "y": 4.84,
+            "w": 93.95,
+            "h": 95.16
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gbu3c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 92.74,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page102",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10g_example13",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page103",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10g_example13_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page104",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_nyt13",
+          "text": "Now you try (Example 13)"
+        },
+        {
+          "type": "question",
+          "id": "c10g_nyt13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page105",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_ex",
+          "text": "Exercise 10G"
+        },
+        {
+          "type": "heading",
+          "id": "c10g_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10gex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.44,
+            "y": 0.0,
+            "w": 85.58,
+            "h": 97.07
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.66,
+            "y": 0.0,
+            "w": 73.65,
+            "h": 97.49
+          }
+        }
+      ]
+    },
+    {
+      "id": "page106",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.0,
+            "y": 0.0,
+            "w": 86.43,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.0,
+            "y": 0.0,
+            "w": 86.43,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.79,
+            "y": 0.0,
+            "w": 67.94,
+            "h": 92.12
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.85,
+            "y": 0.0,
+            "w": 86.72,
+            "h": 68.85
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 11.19,
+            "y": 0.98,
+            "w": 78.32,
+            "h": 94.43
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.58,
+            "y": 0.0,
+            "w": 77.71,
+            "h": 47.54
+          }
+        }
+      ]
+    },
+    {
+      "id": "page107",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.82,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.97,
+            "y": 0.85,
+            "w": 86.49,
+            "h": 42.78
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.14,
+            "y": 0.0,
+            "w": 65.07,
+            "h": 79.32
+          }
+        }
+      ]
+    },
+    {
+      "id": "page108",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.47,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.58,
+            "y": 0.0,
+            "w": 87.05,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.48,
+            "y": 0.0,
+            "w": 68.84,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.3,
+            "y": 1.2,
+            "w": 87.6,
+            "h": 74.3
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.84,
+            "y": 0.0,
+            "w": 61.11,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.29,
+            "y": 0.72,
+            "w": 86.0,
+            "h": 59.9
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.25,
+            "y": 0.0,
+            "w": 69.37,
+            "h": 93.48
+          }
+        }
+      ]
+    },
+    {
+      "id": "page109",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10gex5_stem",
+          "defaultCropRect": {
+            "x": 1.27,
+            "y": 3.51,
+            "w": 97.3,
+            "h": 96.49
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 6.39,
+            "y": 0.0,
+            "w": 93.61,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 61.9,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 6.39,
+            "y": 0.0,
+            "w": 93.61,
+            "h": 96.3
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex5d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 73.33,
+            "h": 84.75
+          }
+        }
+      ]
+    },
+    {
+      "id": "page110",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.81,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page111",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.25,
+            "h": 99.29
+          }
+        }
+      ]
+    },
+    {
+      "id": "page112",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "c10gex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.29,
+            "h": 97.14
+          }
+        }
+      ]
+    },
+    {
+      "id": "page113",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page114",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 92.83,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page115",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 87.17,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.72,
+            "y": 0.0,
+            "w": 84.38,
+            "h": 93.44
+          }
+        }
+      ]
+    },
+    {
+      "id": "page116",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "c10gex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 2.26,
+            "w": 95.07,
+            "h": 97.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page117",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex13",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page118",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10gex14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page119",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10g_h_enrichment",
+          "text": "Enrichment: Estimating areas with curves",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "c10gex15_demo",
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 1.63,
+            "w": 95.07,
+            "h": 98.37
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex15a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 10.34,
+            "y": 0.0,
+            "w": 72.18,
+            "h": 84.13
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex15b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 9.89,
+            "y": 0.0,
+            "w": 72.18,
+            "h": 84.44
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10gex15c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 8.54,
+            "y": 0.0,
+            "w": 72.5,
+            "h": 95.24
+          }
+        }
+      ]
+    },
+    {
+      "id": "page120",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_title",
+          "text": "10H Area of composite shapes (Extending)",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10h_intro",
+          "defaultCropRect": {
+            "x": 4.78,
+            "y": 0.0,
+            "w": 95.22,
+            "h": 98.1
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.95,
+            "w": 95.0,
+            "h": 99.05
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 99.33
+          }
+        }
+      ]
+    },
+    {
+      "id": "page121",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10hbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 13.75,
+            "y": 0.0,
+            "w": 49.58,
+            "h": 90.71
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 52.78,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 9.17,
+            "y": 0.0,
+            "w": 83.75,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page122",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hbu2_stem",
+          "defaultCropRect": {
+            "x": 1.19,
+            "y": 0.0,
+            "w": 96.99,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 7.82,
+            "y": 0.0,
+            "w": 62.07,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 21.72,
+            "y": 0.0,
+            "w": 61.51,
+            "h": 92.43
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "none",
+            "heightMm": 40
+          },
+          "defaultCropRect": {
+            "x": 9.17,
+            "y": 0.0,
+            "w": 83.75,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page123",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hbu3_stem",
+          "defaultCropRect": {
+            "x": 1.37,
+            "y": 0.0,
+            "w": 97.07,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 92.5
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hbu3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.94,
+            "h": 92.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "page124",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example14",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page125",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example14_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page126",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example14_soln_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 1.16,
+            "w": 95.0,
+            "h": 98.84
+          }
+        }
+      ]
+    },
+    {
+      "id": "page127",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_nyt14",
+          "text": "Now you try (Example 14)"
+        },
+        {
+          "type": "question",
+          "id": "c10h_nyt14",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page128",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example15",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page129",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example15_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page130",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10h_example15_soln_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page131",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_nyt15",
+          "text": "Now you try (Example 15)"
+        },
+        {
+          "type": "question",
+          "id": "c10h_nyt15",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page132",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_ex",
+          "text": "Exercise 10H"
+        },
+        {
+          "type": "heading",
+          "id": "c10h_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10hex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.49,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.94,
+            "y": 0.0,
+            "w": 66.23,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.3,
+            "y": 0.0,
+            "w": 69.87,
+            "h": 57.49
+          }
+        }
+      ]
+    },
+    {
+      "id": "page133",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.28,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.58,
+            "y": 0.0,
+            "w": 85.09,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.35,
+            "y": 0.0,
+            "w": 69.57,
+            "h": 92.73
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.61,
+            "y": 1.65,
+            "w": 83.06,
+            "h": 98.35
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.69,
+            "y": 0.0,
+            "w": 67.62,
+            "h": 75.72
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.4,
+            "y": 1.64,
+            "w": 85.44,
+            "h": 98.36
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.21,
+            "y": 0.0,
+            "w": 69.58,
+            "h": 87.43
+          }
+        }
+      ]
+    },
+    {
+      "id": "page134",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.57,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.79,
+            "y": 0.0,
+            "w": 88.6,
+            "h": 85.5
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.0,
+            "y": 0.0,
+            "w": 65.85,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page135",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.25,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.35,
+            "y": 0.0,
+            "w": 85.55,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.42,
+            "y": 0.0,
+            "w": 69.32,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.65,
+            "y": 0.77,
+            "w": 84.94,
+            "h": 93.85
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.56,
+            "y": 0.0,
+            "w": 68.4,
+            "h": 98.08
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.92,
+            "y": 0.77,
+            "w": 86.38,
+            "h": 99.23
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex4f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.48,
+            "y": 0.0,
+            "w": 68.02,
+            "h": 68.73
+          }
+        }
+      ]
+    },
+    {
+      "id": "page136",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "c10hex5_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.52,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex5a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.77,
+            "y": 0.0,
+            "w": 89.43,
+            "h": 72.76
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex5b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 93.07,
+            "h": 94.48
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex5c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.79,
+            "y": 0.0,
+            "w": 82.38,
+            "h": 81.38
+          }
+        }
+      ]
+    },
+    {
+      "id": "page137",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10hex6_stem",
+          "defaultCropRect": {
+            "x": 1.58,
+            "y": 7.41,
+            "w": 96.84,
+            "h": 92.59
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex6a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.31,
+            "y": 0.0,
+            "w": 83.9,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex6b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.89,
+            "y": 0.0,
+            "w": 72.02,
+            "h": 90.37
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex6c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.51,
+            "y": 0.66,
+            "w": 83.51,
+            "h": 85.86
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10hex6d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.61,
+            "y": 0.0,
+            "w": 73.21,
+            "h": 95.39
+          }
+        }
+      ]
+    },
+    {
+      "id": "page138",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10hex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 98.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "page139",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10hex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.32,
+            "h": 98.29
+          }
+        }
+      ]
+    },
+    {
+      "id": "page140",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "question",
+          "id": "c10hex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 3.03,
+            "w": 94.93,
+            "h": 96.97
+          }
+        }
+      ]
+    },
+    {
+      "id": "page141",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10hex10",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page142",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10h_h_enrichment",
+          "text": "Enrichment: Adding to infinity",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "c10hex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 50
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.64,
+            "w": 95.0,
+            "h": 97.77
+          }
+        }
+      ]
+    },
+    {
+      "id": "page143",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_title",
+          "text": "10I Volume of rectangular prisms",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10i_intro",
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.87,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10i_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 1.87,
+            "w": 92.32,
+            "h": 98.13
+          }
+        }
+      ]
+    },
+    {
+      "id": "page144",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10i_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page145",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10ibu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.56,
+            "y": 0.0,
+            "w": 48.47,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.6,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.56,
+            "y": 0.0,
+            "w": 67.92,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.6,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.56,
+            "y": 0.0,
+            "w": 57.64,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu1f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.6,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page146",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10ibu2_stem",
+          "defaultCropRect": {
+            "x": 1.36,
+            "y": 0.0,
+            "w": 97.11,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.32,
+            "y": 2.22,
+            "w": 85.81,
+            "h": 95.96
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 8.66,
+            "y": 1.01,
+            "w": 81.63,
+            "h": 96.57
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10ibu2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 6.72,
+            "y": 0.0,
+            "w": 86.13,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page147",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10i_example16",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page148",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10i_example16_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page149",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_nyt16",
+          "text": "Now you try (Example 16)"
+        },
+        {
+          "type": "question",
+          "id": "c10i_nyt16",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page150",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_ex",
+          "text": "Exercise 10I"
+        },
+        {
+          "type": "heading",
+          "id": "c10i_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10iex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.18,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 7.65,
+            "y": 0.0,
+            "w": 84.94,
+            "h": 95.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 6.14,
+            "y": 0.0,
+            "w": 65.07,
+            "h": 81.88
+          }
+        }
+      ]
+    },
+    {
+      "id": "page151",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10iex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.18,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.93,
+            "y": 0.0,
+            "w": 82.42,
+            "h": 96.79
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 10.92,
+            "y": 0.0,
+            "w": 78.84,
+            "h": 90.36
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.62,
+            "y": 0.0,
+            "w": 62.65,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 10.65,
+            "y": 0.0,
+            "w": 79.04,
+            "h": 67.26
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.22,
+            "y": 0.88,
+            "w": 87.75,
+            "h": 45.43
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.37,
+            "y": 0.0,
+            "w": 55.77,
+            "h": 67.26
+          }
+        }
+      ]
+    },
+    {
+      "id": "page152",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 5.0,
+            "w": 66.67,
+            "h": 95.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page153",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex4",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 5.26,
+            "w": 69.13,
+            "h": 94.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page154",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 83.41,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page155",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.29,
+            "h": 98.99
+          }
+        }
+      ]
+    },
+    {
+      "id": "page156",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "image",
+          "id": "c10iex7_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.25,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex7a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.16,
+            "y": 0.0,
+            "w": 89.85,
+            "h": 97.95
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.73,
+            "y": 0.0,
+            "w": 73.12,
+            "h": 77.05
+          }
+        }
+      ]
+    },
+    {
+      "id": "page157",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex8",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.8,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page158",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.2,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page159",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 85.94,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.98,
+            "y": 0.0,
+            "w": 82.79,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page160",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "image",
+          "id": "c10iex11_demo",
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 97.14
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex11a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 10.27,
+            "y": 0.57,
+            "w": 73.06,
+            "h": 79.49
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex11b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 9.05,
+            "y": 0.0,
+            "w": 79.91,
+            "h": 52.99
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex11c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 5
+          },
+          "defaultCropRect": {
+            "x": 4.36,
+            "y": 0.57,
+            "w": 71.68,
+            "h": 65.81
+          }
+        }
+      ]
+    },
+    {
+      "id": "page161",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex12a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 35
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.25,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page162",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex12bc",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 5.51,
+            "y": 2.78,
+            "w": 83.7,
+            "h": 90.74
+          }
+        }
+      ]
+    },
+    {
+      "id": "page163",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10i_h_enrichment",
+          "text": "Enrichment: Cubic conversions",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "question",
+          "id": "c10iex13a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 30
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.61,
+            "w": 95.0,
+            "h": 99.39
+          }
+        }
+      ]
+    },
+    {
+      "id": "page164",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex13b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.58,
+            "y": 0.0,
+            "w": 47.32,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page165",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10iex13c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 5.51,
+            "y": 2.08,
+            "w": 59.93,
+            "h": 97.08
+          }
+        }
+      ]
+    },
+    {
+      "id": "page166",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_title",
+          "text": "10J Volume of triangular prisms",
+          "style": "title"
+        },
+        {
+          "type": "image",
+          "id": "c10j_intro",
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.0,
+            "w": 95.87,
+            "h": 99.19
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10j_starter",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.25,
+            "y": 0.73,
+            "w": 97.75,
+            "h": 98.33
+          }
+        }
+      ]
+    },
+    {
+      "id": "page167",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10j_keyideas",
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page168",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_bu",
+          "text": "Building understanding",
+          "style": "section"
+        },
+        {
+          "type": "image",
+          "id": "c10jbu1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 99.44
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jbu1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 7.6,
+            "y": 0.0,
+            "w": 85.04,
+            "h": 91.74
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jbu1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 4.41,
+            "y": 0.0,
+            "w": 91.05,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jbu1c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 10
+          },
+          "defaultCropRect": {
+            "x": 4.83,
+            "y": 2.62,
+            "w": 72.55,
+            "h": 84.82
+          }
+        }
+      ]
+    },
+    {
+      "id": "page169",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jbu2",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page170",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jbu3",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "lines",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page171",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10j_example17",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page172",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10j_example17_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.07,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page173",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_nyt17",
+          "text": "Now you try (Example 17)"
+        },
+        {
+          "type": "question",
+          "id": "c10j_nyt17",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page174",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10j_example18",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.39,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page175",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10j_example18_soln",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page176",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_nyt18",
+          "text": "Now you try (Example 18)"
+        },
+        {
+          "type": "question",
+          "id": "c10j_nyt18",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 2.39,
+            "y": 0.0,
+            "w": 95.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page177",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_ex",
+          "text": "Exercise 10J"
+        },
+        {
+          "type": "heading",
+          "id": "c10j_h_fluency",
+          "text": "Fluency",
+          "style": "tier",
+          "tier": "fluency"
+        },
+        {
+          "type": "image",
+          "id": "c10jex1_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.29,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex1a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.24,
+            "y": 0.0,
+            "w": 89.7,
+            "h": 69.78
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex1b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.87,
+            "y": 0.0,
+            "w": 66.61,
+            "h": 96.98
+          }
+        }
+      ]
+    },
+    {
+      "id": "page178",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10jex2_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 8.27,
+            "y": 0.0,
+            "w": 83.98,
+            "h": 94.59
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.66,
+            "y": 0.0,
+            "w": 77.15,
+            "h": 59.76
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 6.36,
+            "y": 0.57,
+            "w": 87.67,
+            "h": 91.67
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.26,
+            "y": 0.0,
+            "w": 69.27,
+            "h": 79.89
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 7.06,
+            "y": 1.05,
+            "w": 86.31,
+            "h": 81.32
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex2f",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.41,
+            "y": 0.0,
+            "w": 67.57,
+            "h": 97.89
+          }
+        }
+      ]
+    },
+    {
+      "id": "page179",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10jex3_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.13,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex3a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.8,
+            "y": 0.0,
+            "w": 88.77,
+            "h": 57.77
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex3b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.0,
+            "y": 0.0,
+            "w": 71.56,
+            "h": 68.49
+          }
+        }
+      ]
+    },
+    {
+      "id": "page180",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10jex4_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.29,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex4a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.48,
+            "y": 0.0,
+            "w": 89.22,
+            "h": 75.75
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex4b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.55,
+            "y": 0.0,
+            "w": 68.46,
+            "h": 91.83
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex4c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.3,
+            "y": 1.9,
+            "w": 74.9,
+            "h": 95.24
+          }
+        }
+      ]
+    },
+    {
+      "id": "page181",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex5",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 80.51,
+            "h": 98.93
+          }
+        }
+      ]
+    },
+    {
+      "id": "page182",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex6",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.06,
+            "h": 99.32
+          }
+        }
+      ]
+    },
+    {
+      "id": "page183",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_ps",
+          "text": "Problem-solving",
+          "style": "tier",
+          "tier": "problemsolving"
+        },
+        {
+          "type": "question",
+          "id": "c10jex7",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.2,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page184",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "c10jex8_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.6,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex8a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.21,
+            "y": 0.0,
+            "w": 89.75,
+            "h": 98.89
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex8b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.1,
+            "y": 0.0,
+            "w": 70.97,
+            "h": 80.09
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex8c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.88,
+            "y": 0.44,
+            "w": 90.39,
+            "h": 96.72
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex8d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 4.66,
+            "y": 0.0,
+            "w": 80.49,
+            "h": 85.34
+          }
+        }
+      ]
+    },
+    {
+      "id": "page185",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex9",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 96.38,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page186",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_reasoning",
+          "text": "Reasoning",
+          "style": "tier",
+          "tier": "reasoning"
+        },
+        {
+          "type": "image",
+          "id": "c10jex10_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 98.29,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex10a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.64,
+            "y": 0.0,
+            "w": 84.41,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex10b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.75,
+            "y": 0.0,
+            "w": 84.18,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex10c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.59,
+            "y": 0.0,
+            "w": 84.64,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex10d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.57,
+            "y": 0.0,
+            "w": 84.84,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page187",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex11",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 93.48,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page188",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex12",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.51,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page189",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "c10j_h_enrichment",
+          "text": "Enrichment: Reversing the rules",
+          "style": "tier",
+          "tier": "enrichment"
+        },
+        {
+          "type": "image",
+          "id": "c10jex13ad_stem",
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 97.03,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex13ada",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.76,
+            "y": 0.0,
+            "w": 84.0,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex13adb",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.7,
+            "y": 0.0,
+            "w": 84.65,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex13adc",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.32,
+            "y": 0.0,
+            "w": 91.54,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10jex13add",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 2.38,
+            "y": 0.0,
+            "w": 93.18,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page190",
+      "blocks": [
+        {
+          "type": "question",
+          "id": "c10jex13e",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 25
+          },
+          "defaultCropRect": {
+            "x": 5.51,
+            "y": 0.0,
+            "w": 64.93,
+            "h": 98.48
+          }
+        }
+      ]
+    },
+    {
+      "id": "page191",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "answers_title",
+          "text": "10C-10J Answers",
+          "style": "title"
+        }
+      ]
+    },
+    {
+      "id": "page192",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p75l",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 12.42,
+            "y": 0.86,
+            "w": 83.78,
+            "h": 99.14
+          }
+        }
+      ]
+    },
+    {
+      "id": "page193",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p75r",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 3.83,
+            "y": 0.0,
+            "w": 96.17,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page194",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p76l",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 100.0,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page195",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p76r",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 4.07,
+            "y": 0.96,
+            "w": 86.05,
+            "h": 99.04
+          }
+        }
+      ]
+    },
+    {
+      "id": "page196",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p77l",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 12.42,
+            "y": 0.62,
+            "w": 87.45,
+            "h": 99.38
+          }
+        }
+      ]
+    },
+    {
+      "id": "page197",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p77r",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 3.95,
+            "y": 0.0,
+            "w": 96.05,
+            "h": 100.0
+          }
+        }
+      ]
+    },
+    {
+      "id": "page198",
+      "blocks": [
+        {
+          "type": "image",
+          "id": "answers_p78l",
+          "answers": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 91.89,
+            "h": 100.0
+          }
+        }
+      ]
+    }
+  ],
+  "groupLayout": {
+    "c10dex8": "combined",
+    "c10ibu1": "split",
+    "c10gex2": "split",
+    "c10fex1": "combined",
+    "c10hex5": "combined",
+    "c10dex3": "split",
+    "c10cex5": "split",
+    "c10fex3": "combined",
+    "c10jbu1": "split",
+    "c10eex5": "combined",
+    "c10fbu2": "split",
+    "c10hbu2": "split",
+    "c10jex1": "combined",
+    "c10cbu1": "split",
+    "c10dex7": "combined",
+    "c10hex1": "combined",
+    "c10iex1": "combined",
+    "c10dbu1": "split",
+    "c10cbu3": "split",
+    "c10dex11": "combined",
+    "c10fex5": "split",
+    "c10hex4": "split",
+    "c10hex2": "split",
+    "c10iex10": "combined",
+    "c10cex12": "combined",
+    "c10iex2": "split",
+    "c10ebu3": "split",
+    "c10cex1": "combined",
+    "c10hbu3": "split",
+    "c10cex10": "combined",
+    "c10eex15": "combined",
+    "c10jex4": "combined",
+    "c10cex4": "split",
+    "c10eex2": "split",
+    "c10jex13ad": "combined",
+    "c10fex2": "split",
+    "c10fex8": "combined",
+    "c10gex15": "combined",
+    "c10gex3": "combined",
+    "c10hbu1": "split",
+    "c10hex3": "combined",
+    "c10jex2": "split",
+    "c10cex7": "split",
+    "c10fex4": "split",
+    "c10ibu2": "split",
+    "c10iex11": "combined",
+    "c10dex5": "split",
+    "c10hex6": "split",
+    "c10jex10": "split",
+    "c10dbu2": "split",
+    "c10fex7": "combined",
+    "c10iex7": "combined",
+    "c10jex8": "split",
+    "c10eex3": "split",
+    "c10gex4": "split",
+    "c10gbu3": "split",
+    "c10eex1": "combined",
+    "c10dex12": "combined",
+    "c10gex5": "split",
+    "c10gex11": "combined",
+    "c10dex4": "split",
+    "c10gbu2": "split",
+    "c10cex3": "split",
+    "c10dbu3": "split",
+    "c10dex2": "split",
+    "c10fbu1": "split",
+    "c10cex2": "combined",
+    "c10eex4": "combined",
+    "c10gex1": "combined",
+    "c10gbu1": "split",
+    "c10eex9": "combined",
+    "c10jex3": "combined",
+    "c10dex1": "split"
+  },
+  "combinedBlocks": {
+    "c10cbu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 94.87,
+        "h": 100.0
+      }
+    },
+    "c10cbu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 97.36,
+        "h": 90.0
+      }
+    },
+    "c10cex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 4.4,
+        "y": 0.0,
+        "w": 91.35,
+        "h": 100.0
+      }
+    },
+    "c10cex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 4.4,
+        "y": 0.0,
+        "w": 93.48,
+        "h": 96.3
+      }
+    },
+    "c10cex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.55,
+        "y": 0.0,
+        "w": 85.47,
+        "h": 100.0
+      }
+    },
+    "c10cex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.55,
+        "y": 0.0,
+        "w": 85.47,
+        "h": 88.38
+      }
+    },
+    "c10cex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.48,
+        "y": 0.0,
+        "w": 85.54,
+        "h": 99.54
+      }
+    },
+    "c10cex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 3.68,
+        "y": 0.0,
+        "w": 77.7,
+        "h": 94.48
+      }
+    },
+    "c10cex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 92.6,
+        "h": 100.0
+      }
+    },
+    "c10cex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 7.36,
+        "y": 0.0,
+        "w": 56.55,
+        "h": 77.19
+      }
+    },
+    "c10dbu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.3,
+        "y": 0.0,
+        "w": 97.19,
+        "h": 100.0
+      }
+    },
+    "c10dbu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.46,
+        "y": 0.0,
+        "w": 95.07,
+        "h": 100.0
+      }
+    },
+    "c10dbu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.46,
+        "y": 0.0,
+        "w": 95.07,
+        "h": 100.0
+      }
+    },
+    "c10dex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 85.44,
+        "h": 99.6
+      }
+    },
+    "c10dex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.51,
+        "y": 0.0,
+        "w": 85.33,
+        "h": 78.3
+      }
+    },
+    "c10dex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.71,
+        "y": 0.0,
+        "w": 84.58,
+        "h": 100.0
+      }
+    },
+    "c10dex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.73,
+        "y": 0.0,
+        "w": 84.48,
+        "h": 95.88
+      }
+    },
+    "c10dex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 55
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 86.54,
+        "h": 99.67
+      }
+    },
+    "c10dex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 89.29,
+        "h": 97.7
+      }
+    },
+    "c10dex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 90.34,
+        "h": 93.21
+      }
+    },
+    "c10dex11": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 90.2,
+        "h": 96.09
+      }
+    },
+    "c10dex12": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 2.89,
+        "y": 0.0,
+        "w": 83.54,
+        "h": 92.51
+      }
+    },
+    "c10ebu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.4,
+        "y": 0.0,
+        "w": 94.81,
+        "h": 100.0
+      }
+    },
+    "c10eex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+      },
+      "defaultCropRect": {
+        "x": 3.33,
+        "y": 0.0,
+        "w": 76.07,
+        "h": 92.76
+      }
+    },
+    "c10eex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 3.41,
+        "y": 0.0,
+        "w": 81.85,
+        "h": 100.0
+      }
+    },
+    "c10eex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 94.38,
+        "h": 95.72
+      }
+    },
+    "c10eex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 2.53,
+        "y": 0.0,
+        "w": 84.57,
+        "h": 26.59
+      }
+    },
+    "c10eex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 2.61,
+        "y": 0.0,
+        "w": 84.5,
+        "h": 86.79
+      }
+    },
+    "c10eex9": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 2.38,
+        "y": 2.72,
+        "w": 86.38,
+        "h": 97.28
+      }
+    },
+    "c10eex15": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 94.98,
+        "h": 98.71
+      }
+    },
+    "c10fbu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 94.87,
+        "h": 100.0
+      }
+    },
+    "c10fbu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 97.36,
+        "h": 97.96
+      }
+    },
+    "c10fex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.78,
+        "y": 0.0,
+        "w": 83.75,
+        "h": 71.64
+      }
+    },
+    "c10fex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.61,
+        "y": 0.0,
+        "w": 84.75,
+        "h": 100.0
+      }
+    },
+    "c10fex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.7,
+        "y": 0.0,
+        "w": 84.25,
+        "h": 100.0
+      }
+    },
+    "c10fex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.5,
+        "y": 0.0,
+        "w": 85.41,
+        "h": 100.0
+      }
+    },
+    "c10fex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 3.41,
+        "y": 0.0,
+        "w": 90.22,
+        "h": 86.48
+      }
+    },
+    "c10fex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 4.71,
+        "y": 0.0,
+        "w": 71.28,
+        "h": 92.96
+      }
+    },
+    "c10fex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 4.52,
+        "y": 0.0,
+        "w": 72.45,
+        "h": 97.32
+      }
+    },
+    "c10gbu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.72,
+        "y": 0.0,
+        "w": 84.52,
+        "h": 99.46
+      }
+    },
+    "c10gbu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.74,
+        "y": 0.0,
+        "w": 84.43,
+        "h": 100.0
+      }
+    },
+    "c10gbu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 97.36,
+        "h": 100.0
+      }
+    },
+    "c10gex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 86.46,
+        "h": 97.49
+      }
+    },
+    "c10gex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 92.07,
+        "h": 97.24
+      }
+    },
+    "c10gex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.73,
+        "y": 0.0,
+        "w": 84.46,
+        "h": 79.32
+      }
+    },
+    "c10gex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.5,
+        "y": 0.0,
+        "w": 85.4,
+        "h": 96.86
+      }
+    },
+    "c10gex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 3.41,
+        "y": 0.0,
+        "w": 84.15,
+        "h": 97.74
+      }
+    },
+    "c10gex11": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 87.54,
+        "h": 96.49
+      }
+    },
+    "c10gex15": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 3.33,
+        "y": 0.0,
+        "w": 89.93,
+        "h": 95.24
+      }
+    },
+    "c10hbu1": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
+      },
+      "defaultCropRect": {
+        "x": 5.0,
+        "y": 0.0,
+        "w": 92.42,
+        "h": 100.0
+      }
+    },
+    "c10hbu2": {
+      "workingSpace": {
+        "style": "none",
+        "heightMm": 40
+      },
+      "defaultCropRect": {
+        "x": 2.46,
+        "y": 0.0,
+        "w": 95.07,
+        "h": 100.0
+      }
+    },
+    "c10hbu3": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 97.36,
+        "h": 92.5
+      }
+    },
+    "c10hex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 5.3,
+        "y": 0.0,
+        "w": 69.87,
+        "h": 74.43
+      }
+    },
+    "c10hex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 85.49,
+        "h": 100.0
+      }
+    },
+    "c10hex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.62,
+        "y": 0.0,
+        "w": 84.69,
+        "h": 100.0
+      }
+    },
+    "c10hex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.5,
+        "y": 0.0,
+        "w": 85.47,
+        "h": 100.0
+      }
+    },
+    "c10hex5": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 93.79,
+        "h": 94.48
+      }
+    },
+    "c10hex6": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 50
+      },
+      "defaultCropRect": {
+        "x": 2.42,
+        "y": 0.0,
+        "w": 86.31,
+        "h": 97.68
+      }
+    },
+    "c10ibu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 0.3,
+        "y": 0.0,
+        "w": 97.19,
+        "h": 100.0
+      }
+    },
+    "c10ibu2": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 94.87,
+        "h": 100.0
+      }
+    },
+    "c10iex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 40
+      },
+      "defaultCropRect": {
+        "x": 2.65,
+        "y": 0.0,
+        "w": 84.53,
+        "h": 95.0
+      }
+    },
+    "c10iex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 88.61,
+        "h": 81.09
+      }
+    },
+    "c10iex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.34,
+        "y": 0.0,
+        "w": 86.35,
+        "h": 97.95
+      }
+    },
+    "c10iex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 86.3,
+        "h": 100.0
+      }
+    },
+    "c10iex11": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 3.33,
+        "y": 0.0,
+        "w": 88.52,
+        "h": 80.06
+      }
+    },
+    "c10jbu1": {
+      "workingSpace": {
+        "style": "lines",
+        "heightMm": 10
+      },
+      "defaultCropRect": {
+        "x": 2.49,
+        "y": 0.0,
+        "w": 94.87,
+        "h": 100.0
+      }
+    },
+    "c10jex1": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.6,
+        "y": 0.0,
+        "w": 84.84,
+        "h": 96.98
+      }
+    },
+    "c10jex2": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.39,
+        "y": 0.0,
+        "w": 88.26,
+        "h": 99.3
+      }
+    },
+    "c10jex3": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.48,
+        "y": 0.0,
+        "w": 85.89,
+        "h": 68.49
+      }
+    },
+    "c10jex4": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.53,
+        "y": 0.0,
+        "w": 85.24,
+        "h": 98.48
+      }
+    },
+    "c10jex8": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 45
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 90.04,
+        "h": 98.57
+      }
+    },
+    "c10jex10": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 30
+      },
+      "defaultCropRect": {
+        "x": 2.57,
+        "y": 0.0,
+        "w": 84.84,
+        "h": 100.0
+      }
+    },
+    "c10jex13ad": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+      },
+      "defaultCropRect": {
+        "x": 2.32,
+        "y": 0.0,
+        "w": 94.83,
+        "h": 100.0
+      }
+    }
+  }
+}

@@ -205,21 +205,42 @@ function toggleBreakBefore(kind, id) {
   if (entry) entry.breakBefore = !entry.breakBefore;
 }
 
+// Resolves once with whether `src` actually loads - used below to
+// probe for a "<id>__full.png" source image without ever leaving the
+// crop tool pointed at a 404. Only chapters built after the tight-
+// default/generous-source crop split (see CROP_TIGHT_PAD_PX in
+// add_chapter.py) have one; older chapters still ship a single
+// "<id>.png" and fall back to it exactly as before.
+function imageExists(src) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = src;
+  });
+}
+
 // Opens the manual-crop tool (see crop.js) on this block/group's true
-// original crop - always the server's own "<id>.png" file, never a
-// previously-applied manual crop. crop.js can only ever sub-select
-// pixels from whatever image it's handed; pointing it at an already-
-// cropped result would make anything trimmed off in an earlier crop
-// unrecoverable except by throwing the whole crop away via "Reset to
-// original". Passing the previously saved selection as its own
-// separate initialRect argument instead gets the same "reopen where I
-// left off" feel - the box starts right back where it was, but drawn
-// over the full original, so it can always be dragged back out too.
+// source image - the generous "<id>__full.png" the build script kept
+// real margin in (falling back to plain "<id>.png" for older chapters
+// that don't have one), never a previously-applied manual crop. crop.js
+// can only ever sub-select pixels from whatever image it's handed;
+// pointing it at an already-cropped result would make anything trimmed
+// off in an earlier crop unrecoverable except by throwing the whole
+// crop away via "Reset to original". The initial selection box is
+// whatever was saved last time (manualCropRect), or - the first time
+// anyone opens this crop - the same tight rect already showing by
+// default (defaultCropRect), so the box starts exactly where the
+// visible crop already is and can be dragged back out from there.
 async function handleOpenCrop(kind, id) {
   const entry = entryFor(kind, id);
   if (!entry) return;
-  const originalSrc = `data/${currentProjectId}/crops/${id}.png`;
-  const result = await openCropModal(originalSrc, entry.manualCropRect);
+  const fullSrc = `data/${currentProjectId}/crops/${id}__full.png`;
+  const tightSrc = `data/${currentProjectId}/crops/${id}.png`;
+  const hasFull = await imageExists(fullSrc);
+  const originalSrc = hasFull ? fullSrc : tightSrc;
+  const initialRect = entry.manualCropRect || (hasFull ? entry.defaultCropRect : undefined);
+  const result = await openCropModal(originalSrc, initialRect);
   if (result === null) return;
   if (result === "RESET") {
     delete entry.manualCropSrc;

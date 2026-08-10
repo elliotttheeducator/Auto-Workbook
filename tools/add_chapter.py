@@ -84,9 +84,16 @@ workbook cover/title page:
      "rect": [0, 0, 595, 842]}]}
 
 Every crop (except a cover) gets its blank margin auto-trimmed off after
-cropping (trim_whitespace) - a "rect" only has to roughly bound its
-content, not hug it exactly. Don't hand-tune rects tighter to compensate;
-let the trim handle it.
+cropping - a "rect" only has to roughly bound its content, not hug it
+exactly. Don't hand-tune rects tighter to compensate; let the trim
+handle it. Two files get written per crop id: "<id>.png", trimmed tight
+(CROP_TIGHT_PAD_PX) - what every question shows by default - and
+"<id>__full.png", trimmed generously (CROP_SOURCE_PAD_PX) - the source
+image the in-app manual crop tool loads, so a too-tight default crop can
+always be dragged back out to reveal real margin, never just re-cropped
+from nothing. workbook.json also gets a "defaultCropRect" per block
+(percentages of the full image) so the crop tool's selection box starts
+exactly where the default crop already is.
 
 A "Key Ideas" summary image and a worked example's own diagram are both
 just "image" blocks - nothing structural distinguishes them from any
@@ -133,40 +140,43 @@ RULE_MM = 10
 SIZE_MEDIUM_MM = 40
 # A pixel darker than this (out of 255) counts as real content, not
 # background - used to trim blank margin off a hand-picked crop rect (see
-# trim_whitespace). Threshold, not exact-white difference: a scanned or
+# _ink_bbox). Threshold, not exact-white difference: a scanned or
 # rendered page is rarely pure #fff right at an edge.
 CROP_TRIM_THRESHOLD = 245
-# Deliberately generous, not just enough to avoid touching the ink: this
-# margin is what the in-app manual crop tool (crop.js) has to work with.
-# That tool can only ever select a sub-region of the pixels already in
-# the shipped PNG - it has no way to reveal content beyond the image's
-# own edge - so a tightly-trimmed crop leaves nothing for a "grow the
-# selection back out a bit" edit to work with. This only spends margin
-# that a proposal's own rect already captured (trim_whitespace never
-# reaches outside the pixmap it was given), so it's free: no new risk of
-# bleeding into neighbouring content that wasn't already avoided when the
-# rect was chosen.
-CROP_TRIM_PAD_PX = 60
+# The margin the DEFAULT shipped crop (what every question shows before
+# anyone touches the manual crop tool) keeps around its own real ink.
+# Deliberately tight - most crops need no manual adjustment at all, and
+# every point of unwanted blank margin here is a point someone has to
+# manually trim back out later. Getting most crops right and a few too
+# tight (fixable by dragging back out - see CROP_SOURCE_PAD_PX below)
+# beats getting most too loose and every one needing a trim.
+CROP_TIGHT_PAD_PX = 15
+# The margin the SOURCE image (what the manual crop tool loads to select
+# from - see crop.js/app.js's handleOpenCrop) keeps around that same ink.
+# Generous, unlike CROP_TIGHT_PAD_PX above: crop.js can only ever select
+# a sub-region of the pixels it's handed, with no way to reveal content
+# past the image's own edge, so this is the only headroom a "make it
+# bigger" edit ever has to work with. Only spends margin the proposal's
+# own rect already captured (never reaches past the pixmap it was
+# given), so it's free - no new risk of bleeding into neighbouring
+# content that wasn't already avoided when the rect was chosen.
+CROP_SOURCE_PAD_PX = 60
 
 
-def trim_whitespace(img: Image.Image) -> Image.Image:
-    """Crops away blank margin left over from a hand-picked "rect" that
-    ran a bit generous - a proposal's rect only has to roughly bound the
-    content, not hug it exactly, but the slack is worst right where it's
-    most visible: a question's own diagram sitting well clear of its
-    working-space grid below it in the rendered page, reading as a gap
-    between the two rather than one glued unit.
+def _ink_bbox(img: Image.Image, pad_px: int) -> tuple[int, int, int, int] | None:
+    """Bounding box of every pixel darker than CROP_TRIM_THRESHOLD, padded
+    by pad_px and clamped to the image - None if the image is blank.
     """
     mask = img.convert("L").point(lambda p: 255 if p < CROP_TRIM_THRESHOLD else 0)
     bbox = mask.getbbox()
     if bbox is None:
-        return img
+        return None
     left, top, right, bottom = bbox
-    left = max(0, left - CROP_TRIM_PAD_PX)
-    top = max(0, top - CROP_TRIM_PAD_PX)
-    right = min(img.width, right + CROP_TRIM_PAD_PX)
-    bottom = min(img.height, bottom + CROP_TRIM_PAD_PX)
-    return img.crop((left, top, right, bottom))
+    left = max(0, left - pad_px)
+    top = max(0, top - pad_px)
+    right = min(img.width, right + pad_px)
+    bottom = min(img.height, bottom + pad_px)
+    return left, top, right, bottom
 
 
 def snap_down(value_mm: float, spacing_mm: float) -> float:
@@ -251,14 +261,33 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
     os.makedirs(crops_dir, exist_ok=True)
     group_layout = plan_group_defaults(pages_proposals)
 
-    def crop(p: dict, crop_id: str, trim: bool = True) -> None:
+    def crop(p: dict, crop_id: str, trim: bool = True) -> dict | None:
+        """Writes "<crop_id>.png" (tight default) and, when trimmed,
+        "<crop_id>__full.png" (generous source for the manual crop tool)
+        - see CROP_TIGHT_PAD_PX/CROP_SOURCE_PAD_PX above. Returns the
+        tight crop's own rect as percentages of the full image (for
+        workbook.json's "defaultCropRect"), or None for an untrimmed
+        (cover) crop, which has no full/tight split at all.
+        """
         src_doc = docs[p.get("source", "chapter")]
         src_page = src_doc[p["page"]]
         pix = src_page.get_pixmap(matrix=fitz.Matrix(CROP_ZOOM, CROP_ZOOM), clip=fitz.Rect(*p["rect"]))
-        img = Image.open(io.BytesIO(pix.tobytes("png")))
-        if trim:
-            img = trim_whitespace(img)
-        img.save(os.path.join(crops_dir, f"{crop_id}.png"))
+        full_img = Image.open(io.BytesIO(pix.tobytes("png")))
+        if not trim:
+            full_img.save(os.path.join(crops_dir, f"{crop_id}.png"))
+            return None
+        full_img.save(os.path.join(crops_dir, f"{crop_id}__full.png"))
+        tight_bbox = _ink_bbox(full_img, CROP_TIGHT_PAD_PX)
+        if tight_bbox is None:
+            tight_bbox = (0, 0, full_img.width, full_img.height)
+        full_img.crop(tight_bbox).save(os.path.join(crops_dir, f"{crop_id}.png"))
+        left, top, right, bottom = tight_bbox
+        return {
+            "x": round(left / full_img.width * 100, 2),
+            "y": round(top / full_img.height * 100, 2),
+            "w": round((right - left) / full_img.width * 100, 2),
+            "h": round((bottom - top) / full_img.height * 100, 2),
+        }
 
     pages = []
     combined_blocks = {}
@@ -277,7 +306,7 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
             # A cover image is deliberately full-bleed (edge to edge, no
             # margin) - trimming would eat into that framing rather than
             # just removing dead space, so it's the one crop left alone.
-            crop(p, p["id"], trim=not entry.get("cover"))
+            default_crop_rect = crop(p, p["id"], trim=not entry.get("cover"))
             if p["type"] == "image":
                 image_block = {"type": "image", "id": p["id"]}
                 # An answer-key page image - its own default-scale bucket
@@ -301,6 +330,8 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # question's combined/standalone crop) at render time.
                 if p.get("section"):
                     image_block["section"] = True
+                if default_crop_rect:
+                    image_block["defaultCropRect"] = default_crop_rect
                 blocks.append(image_block)
             else:
                 question_block = {
@@ -319,6 +350,8 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # every part in every future chapter.
                 if p.get("imageScale"):
                     question_block["imageScale"] = p["imageScale"]
+                if default_crop_rect:
+                    question_block["defaultCropRect"] = default_crop_rect
                 blocks.append(question_block)
         page = {"id": f"page{i}", "blocks": blocks}
         if entry.get("cover"):
@@ -326,8 +359,10 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
         pages.append(page)
 
         for cg in entry.get("combinedGroups", []):
-            crop(cg, cg["groupId"])
+            cg_default_crop_rect = crop(cg, cg["groupId"])
             combined_blocks[cg["groupId"]] = {"workingSpace": working_space_for(cg)}
+            if cg_default_crop_rect:
+                combined_blocks[cg["groupId"]]["defaultCropRect"] = cg_default_crop_rect
 
     workbook = {
         "id": project_id,
