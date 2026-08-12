@@ -2,7 +2,7 @@
   "id": "88dcd07f81a9",
   "title": "Year 9 - Chapter 3: Pythagoras' Theorem (3A-3C)",
   "sourcePdfName": "603b5de8-EMAC9_4ed_Ch03.pdf",
-  "buildVersion": "9c2edd1f",
+  "buildVersion": "f8a1abd6",
   "pages": [
     {
       "id": "page0",
@@ -1992,9 +1992,9 @@
           },
           "defaultCropRect": {
             "x": 5.27,
-            "y": 4.33,
+            "y": 0.0,
             "w": 85.32,
-            "h": 93.94
+            "h": 98.17
           }
         }
       ]
@@ -2445,9 +2445,9 @@
           "section": true,
           "defaultCropRect": {
             "x": 9.42,
-            "y": 0.87,
+            "y": 0.81,
             "w": 81.29,
-            "h": 99.13
+            "h": 99.19
           }
         },
         {
@@ -2670,17 +2670,54 @@
       "id": "page54",
       "blocks": [
         {
+          "type": "image",
+          "id": "c3ex7_stem",
+          "glueForward": true,
+          "defaultCropRect": {
+            "x": 7.27,
+            "y": 6.48,
+            "w": 91.0,
+            "h": 93.52
+          }
+        },
+        {
+          "type": "image",
+          "id": "c3ex7_diagram",
+          "glueForward": true,
+          "defaultCropRect": {
+            "x": 4.14,
+            "y": 3.42,
+            "w": 62.96,
+            "h": 96.58
+          }
+        },
+        {
           "type": "question",
-          "id": "c3ex7",
+          "id": "c3ex7a",
           "contextImage": null,
           "workingSpace": {
             "style": "grid",
-            "heightMm": 35
+            "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 0.0,
+            "x": 12.08,
             "y": 0.0,
-            "w": 98.88,
+            "w": 78.56,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c3ex7b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 20
+          },
+          "defaultCropRect": {
+            "x": 12.08,
+            "y": 0.0,
+            "w": 76.08,
             "h": 100.0
           }
         }
@@ -2692,11 +2729,23 @@
         {
           "type": "image",
           "id": "c3ex8_stem",
+          "glueForward": true,
+          "defaultCropRect": {
+            "x": 9.18,
+            "y": 1.78,
+            "w": 90.82,
+            "h": 98.22
+          }
+        },
+        {
+          "type": "image",
+          "id": "c3ex8_diagram",
+          "glueForward": true,
           "defaultCropRect": {
             "x": 0.0,
-            "y": 0.0,
-            "w": 98.88,
-            "h": 100.0
+            "y": 3.26,
+            "w": 78.4,
+            "h": 96.74
           }
         },
         {
@@ -2708,9 +2757,9 @@
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.21,
+            "x": 21.67,
             "y": 0.0,
-            "w": 87.45,
+            "w": 78.11,
             "h": 100.0
           }
         },
@@ -2723,10 +2772,10 @@
             "heightMm": 20
           },
           "defaultCropRect": {
-            "x": 2.21,
+            "x": 21.67,
             "y": 0.0,
-            "w": 87.45,
-            "h": 100.0
+            "w": 78.33,
+            "h": 97.06
           }
         }
       ]
@@ -2990,30 +3039,31 @@
     }
   ],
   "groupLayout": {
-    "c3bu1": "split",
-    "c3ex5": "split",
-    "b3ex2": "split",
-    "b3ex3": "split",
-    "c3ex12": "split",
-    "a3ex3": "split",
-    "b3bu2": "split",
-    "a3bu2": "split",
-    "b3bu1": "split",
-    "a3bu1": "split",
-    "b3ex11": "combined",
-    "b3ex1": "split",
-    "b3ex12": "split",
-    "c3ex8": "combined",
-    "b3ex10": "combined",
     "b3ex4": "combined",
-    "c3ex10": "combined",
-    "b3ex7": "combined",
     "a3ex1": "split",
-    "a3ex4": "split",
-    "c3ex11": "combined",
-    "a3ex5": "split",
+    "b3ex1": "split",
+    "c3ex12": "split",
+    "b3ex3": "split",
+    "c3ex5": "split",
     "a3ex13": "split",
-    "a3ex2": "split"
+    "b3ex2": "split",
+    "c3ex10": "split",
+    "c3ex8": "combined",
+    "a3bu1": "split",
+    "c3ex7": "combined",
+    "c3ex11": "combined",
+    "a3bu2": "split",
+    "a3ex3": "split",
+    "a3ex4": "split",
+    "a3ex5": "split",
+    "a3ex2": "split",
+    "b3bu1": "split",
+    "b3ex10": "combined",
+    "b3ex7": "combined",
+    "b3ex11": "combined",
+    "b3ex12": "split",
+    "c3bu1": "split",
+    "b3bu2": "split"
   },
   "combinedBlocks": {
     "a3bu1": {
@@ -3256,16 +3306,28 @@
         "h": 98.24
       }
     },
+    "c3ex7": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 16.88,
+        "y": 0.0,
+        "w": 74.81,
+        "h": 100.0
+      }
+    },
     "c3ex8": {
       "workingSpace": {
         "style": "grid",
         "heightMm": 35
       },
       "defaultCropRect": {
-        "x": 2.21,
+        "x": 21.67,
         "y": 0.0,
-        "w": 87.45,
-        "h": 100.0
+        "w": 78.33,
+        "h": 98.39
       }
     },
     "c3ex10": {
