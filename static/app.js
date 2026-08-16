@@ -28,14 +28,23 @@ const filterBarMount = document.getElementById("filter-bar-mount");
 const VIEW_MODE_KEY = "wb-view-mode";
 let viewMode = localStorage.getItem(VIEW_MODE_KEY) || "booklet";
 
-// This user's own monitor - native pixel width and physical width, not
-// a generic constant (see applyViewMode). CSS "mm" units are already
-// supposed to render at true physical size, but only if the OS's own
-// display-scaling setting happens to exactly match this screen's real
-// pixel density; deriving the ratio straight from the screen's known
-// physical width sidesteps that assumption rather than trusting it.
-const SCREEN_NATIVE_PX_WIDTH = 4500;
-const SCREEN_PHYSICAL_WIDTH_MM = 637.35;
+// Native pixel width and physical width for each monitor 100% mode gets
+// used on, not one generic constant (see applyViewMode). CSS "mm" units
+// are already supposed to render at true physical size, but only if the
+// OS's own display-scaling setting happens to exactly match that
+// screen's real pixel density; deriving the ratio straight from a
+// screen's own known physical width sidesteps that assumption rather
+// than trusting it. There's no browser API for a monitor's actual
+// physical size or PPI - devicePixelRatio alone can't tell a 24" 1080p
+// panel from a 32" one at the same resolution - so this is a small
+// manually-measured lookup table switched by hand (see MONITOR_KEY
+// below), not something auto-detected from the screen itself.
+const MONITOR_PROFILES = {
+  work: { label: "Work (Surface)", nativePxWidth: 4500, physicalWidthMm: 637.35 },
+  home: { label: "Home (27\" 1080p)", nativePxWidth: 1920, physicalWidthMm: 596.74 },
+};
+const MONITOR_KEY = "wb-monitor-profile";
+let monitorProfile = MONITOR_PROFILES[localStorage.getItem(MONITOR_KEY)] ? localStorage.getItem(MONITOR_KEY) : "work";
 
 // The browser's own baked-in CSS mm scale (96 CSS px/inch, the same
 // constant render.js's pagination math uses) - what "booklet" mode
@@ -45,7 +54,18 @@ const CSS_PX_PER_MM = 96 / 25.4;
 
 function truePxPerMm() {
   const dpr = window.devicePixelRatio || 1;
-  return SCREEN_NATIVE_PX_WIDTH / dpr / SCREEN_PHYSICAL_WIDTH_MM;
+  const { nativePxWidth, physicalWidthMm } = MONITOR_PROFILES[monitorProfile];
+  return nativePxWidth / dpr / physicalWidthMm;
+}
+
+function toggleMonitorProfile() {
+  monitorProfile = monitorProfile === "work" ? "home" : "work";
+  localStorage.setItem(MONITOR_KEY, monitorProfile);
+  applyViewMode();
+  if (viewMode === "actual") {
+    alignSplitRows(appEl);
+    layoutHangingControls();
+  }
 }
 
 // Booklet is the default (2-up spread, sized in CSS mm) - good for
@@ -74,6 +94,13 @@ function applyViewMode() {
   }
   const btn = document.getElementById("view-mode-btn");
   if (btn) btn.textContent = viewMode === "actual" ? "Booklet view" : "100% size";
+  // Only meaningful once 100% mode is actually on - hidden otherwise so
+  // it doesn't sit there doing nothing in booklet view.
+  const monitorBtn = document.getElementById("monitor-profile-btn");
+  if (monitorBtn) {
+    monitorBtn.textContent = MONITOR_PROFILES[monitorProfile].label;
+    monitorBtn.style.display = viewMode === "actual" ? "" : "none";
+  }
 }
 
 function toggleViewMode() {
@@ -502,11 +529,13 @@ async function renderEditorView(id) {
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
     `<button id="view-mode-btn" class="secondary" title="Booklet is a 2-page spread sized in CSS mm. 100% forces every page to this screen's actual measured physical size (one page at a time) so you can check real print readability.">${viewMode === "actual" ? "Booklet view" : "100% size"}</button> ` +
+    `<button id="monitor-profile-btn" class="secondary" title="Which screen's own measured size 100% mode scales to - switch this when you open the editor on a different monitor, so 100% stays true physical size on either one." style="display:${viewMode === "actual" ? "" : "none"}">${MONITOR_PROFILES[monitorProfile].label}</button> ` +
     '<button id="autofit-btn" title="Tries to get Building Understanding and each worked example onto one page, then fills in any other page with real leftover room - never shrinks a diagram below a readable size on its own.">Auto-fit</button> ' +
     '<button id="undo-autofit-btn" class="secondary" disabled title="Reverts everything Auto-fit just changed.">Undo auto-fit</button> ' +
     '<button id="export-btn" title="Your browser\'s print dialog will open - choose \'Save as PDF\' and turn off headers/footers and margins for a clean export.">Export PDF</button>';
   document.getElementById("export-btn").onclick = () => window.print();
   document.getElementById("view-mode-btn").onclick = toggleViewMode;
+  document.getElementById("monitor-profile-btn").onclick = toggleMonitorProfile;
   document.getElementById("autofit-btn").onclick = autoFitDocument;
   document.getElementById("undo-autofit-btn").onclick = undoAutoFit;
   preAutoFitSnapshot = null;
