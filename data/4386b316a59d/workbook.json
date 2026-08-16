@@ -2,7 +2,7 @@
   "id": "4386b316a59d",
   "title": "Year 7 - Chapter 10: Measurement (10C-10J)",
   "sourcePdfName": "3503bcf7-EMAC7_4ed_Ch10.pdf",
-  "buildVersion": "5ac50b0f",
+  "buildVersion": "c2699e76",
   "pages": [
     {
       "id": "page0",
@@ -2931,21 +2931,10 @@
             "heightMm": 15
           },
           "defaultCropRect": {
-            "x": 4.4,
+            "x": 2.39,
             "y": 2.13,
-            "w": 95.6,
+            "w": 94.93,
             "h": 97.87
-          }
-        },
-        {
-          "type": "image",
-          "id": "c10eex6_8_photo",
-          "section": true,
-          "defaultCropRect": {
-            "x": 0.0,
-            "y": 0.0,
-            "w": 94.29,
-            "h": 98.19
           }
         }
       ]
@@ -2962,9 +2951,9 @@
             "heightMm": 15
           },
           "defaultCropRect": {
-            "x": 4.27,
+            "x": 2.32,
             "y": 0.0,
-            "w": 95.73,
+            "w": 95.0,
             "h": 100.0
           }
         }
@@ -2982,10 +2971,10 @@
             "heightMm": 15
           },
           "defaultCropRect": {
-            "x": 4.4,
+            "x": 2.39,
             "y": 0.0,
-            "w": 95.6,
-            "h": 100.0
+            "w": 94.93,
+            "h": 95.42
           }
         }
       ]
@@ -3059,9 +3048,9 @@
             "heightMm": 15
           },
           "defaultCropRect": {
-            "x": 4.13,
+            "x": 2.25,
             "y": 3.7,
-            "w": 95.87,
+            "w": 95.07,
             "h": 96.3
           }
         }
@@ -3079,21 +3068,10 @@
             "heightMm": 15
           },
           "defaultCropRect": {
-            "x": 4.13,
+            "x": 2.25,
             "y": 0.0,
-            "w": 95.87,
+            "w": 95.07,
             "h": 100.0
-          }
-        },
-        {
-          "type": "image",
-          "id": "c10eex11_photo",
-          "section": true,
-          "defaultCropRect": {
-            "x": 0.0,
-            "y": 3.73,
-            "w": 94.29,
-            "h": 95.83
           }
         }
       ]
@@ -8211,80 +8189,80 @@
     }
   ],
   "groupLayout": {
-    "c10jex13ad": "combined",
-    "c10jex8": "split",
-    "c10jex2": "split",
-    "c10gex3": "combined",
-    "c10gex11": "combined",
-    "c10hex2": "split",
-    "c10jex4": "combined",
-    "c10iex7": "combined",
-    "c10gex5": "split",
-    "c10gex2": "split",
-    "c10gbu3": "split",
-    "c10jbu1": "split",
-    "c10iex11": "combined",
-    "c10gex15": "combined",
-    "c10eex2": "split",
-    "c10fex8": "combined",
-    "c10gex1": "combined",
-    "c10jex1": "combined",
     "c10dex3": "split",
-    "c10cex4": "split",
-    "c10eex15": "combined",
-    "c10iex1": "combined",
-    "c10dex5": "split",
-    "c10ibu2": "split",
-    "c10dex11": "combined",
-    "c10dex7": "combined",
-    "c10dex2": "split",
-    "c10jex10": "split",
-    "c10cex1": "combined",
-    "c10hex11": "split",
-    "c10fex2": "split",
-    "c10cbu1": "split",
-    "c10dbu3": "split",
-    "c10cex10": "combined",
-    "c10eex1": "combined",
-    "c10hex1": "combined",
-    "c10hex5": "combined",
-    "c10iex2": "split",
     "c10dex1": "split",
-    "c10dex8": "combined",
-    "c10jex3": "combined",
-    "c10fex5": "split",
-    "c10hex6": "split",
-    "c10cex2": "combined",
-    "c10cex3": "split",
-    "c10gbu1": "split",
-    "c10ebu3": "split",
-    "c10gbu2": "split",
+    "c10jex8": "split",
+    "c10ibu2": "split",
+    "c10gex15": "combined",
     "c10eex3": "split",
-    "c10fbu1": "split",
-    "c10hbu2": "split",
-    "c10cex12": "combined",
-    "c10dbu2": "split",
-    "c10gex4": "split",
-    "c10cbu3": "split",
-    "c10cex7": "split",
-    "c10hbu3": "split",
-    "c10dex4": "split",
-    "c10fbu2": "split",
-    "c10dbu1": "split",
-    "c10cex5": "split",
-    "c10eex4": "combined",
-    "c10dex12": "combined",
-    "c10eex9": "combined",
-    "c10fex3": "combined",
-    "c10eex5": "combined",
-    "c10hbu1": "split",
-    "c10iex10": "combined",
-    "c10fex1": "combined",
-    "c10hex4": "split",
-    "c10fex7": "combined",
-    "c10ibu1": "split",
+    "c10fex8": "combined",
+    "c10gbu3": "split",
+    "c10jex4": "combined",
+    "c10eex1": "combined",
+    "c10hex5": "combined",
     "c10hex3": "combined",
-    "c10fex4": "split"
+    "c10fbu2": "split",
+    "c10dex11": "combined",
+    "c10fbu1": "split",
+    "c10gex2": "split",
+    "c10eex5": "combined",
+    "c10iex7": "combined",
+    "c10jex1": "combined",
+    "c10fex5": "split",
+    "c10gex5": "split",
+    "c10fex4": "split",
+    "c10dex12": "combined",
+    "c10cex7": "split",
+    "c10eex2": "split",
+    "c10cex5": "split",
+    "c10cex1": "combined",
+    "c10fex2": "split",
+    "c10hbu1": "split",
+    "c10dex4": "split",
+    "c10fex3": "combined",
+    "c10hex1": "combined",
+    "c10ebu3": "split",
+    "c10fex7": "combined",
+    "c10cbu3": "split",
+    "c10cbu1": "split",
+    "c10gex11": "combined",
+    "c10jex10": "split",
+    "c10iex1": "combined",
+    "c10eex4": "combined",
+    "c10gbu1": "split",
+    "c10ibu1": "split",
+    "c10dbu1": "split",
+    "c10dbu3": "split",
+    "c10eex15": "combined",
+    "c10gex1": "combined",
+    "c10hex6": "split",
+    "c10hex2": "split",
+    "c10hbu2": "split",
+    "c10hex11": "split",
+    "c10gex4": "split",
+    "c10cex10": "combined",
+    "c10gbu2": "split",
+    "c10jex3": "combined",
+    "c10jbu1": "split",
+    "c10eex9": "combined",
+    "c10dex7": "combined",
+    "c10iex10": "combined",
+    "c10cex3": "split",
+    "c10dex2": "split",
+    "c10cex2": "combined",
+    "c10hbu3": "split",
+    "c10iex11": "combined",
+    "c10jex13ad": "combined",
+    "c10fex1": "combined",
+    "c10jex2": "split",
+    "c10dbu2": "split",
+    "c10gex3": "combined",
+    "c10dex5": "split",
+    "c10iex2": "split",
+    "c10dex8": "combined",
+    "c10hex4": "split",
+    "c10cex4": "split",
+    "c10cex12": "combined"
   },
   "combinedBlocks": {
     "c10cbu1": {
