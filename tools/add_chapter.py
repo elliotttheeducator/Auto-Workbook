@@ -121,6 +121,21 @@ a chapter's answer pages can be shrunk to actually fit fewer sheets
 instead of being pinned to a fixed real-world mm width matching the
 source PDF (the old behavior, which meant they could never be adjusted
 at all).
+
+An "image" block can also carry "besideQuestions": ["id1", "id2", ...] -
+for a decorative photo/diagram (not one carrying real per-part
+information - see the shared-diagram pattern in build scripts for that
+case instead) that sits beside a run of standalone questions in the
+source layout, tall enough to run alongside more than one of them. The
+image is cropped once, at its own real bounds (never merged into a
+question's own rect - that squashes its natural aspect ratio into
+whatever sliver of height the text happens to need, and cropping one
+slice per question dissects one photo into disconnected fragments).
+The listed ids must be the exact question blocks immediately following
+this image, in that order - iterRenderUnits() in model.js only forms
+the side-by-side layout on that exact match, so it never silently
+grabs an unrelated block. Only meaningful for standalone questions
+(no letter suffix); not additive with contextImageId.
 """
 from __future__ import annotations
 
@@ -331,6 +346,15 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # question's combined/standalone crop) at render time.
                 if p.get("section"):
                     image_block["section"] = True
+                # A decorative photo/diagram meant to sit beside a run of
+                # standalone questions, not stacked above/below them and
+                # not duplicated/sliced per question - see besideQuestions
+                # in the module docstring. Consumed by iterRenderUnits()
+                # in model.js, which only actually forms this layout when
+                # the listed ids are exactly the blocks immediately
+                # following this one, in order.
+                if p.get("besideQuestions"):
+                    image_block["besideQuestions"] = list(p["besideQuestions"])
                 if default_crop_rect:
                     image_block["defaultCropRect"] = default_crop_rect
                 blocks.append(image_block)

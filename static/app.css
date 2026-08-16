@@ -317,6 +317,32 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .answer-row .block.answer-second { margin-left: 8mm; }
 .answer-row .block .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
 
+/* A decorative photo/diagram beside a run of standalone questions (see
+   besideQuestions in add_chapter.py) - same inline-block mechanics as
+   .split-row/.answer-row above (print-safe fragmentation), but an
+   asymmetric two-column split instead of an even one: the photo column
+   is just wide enough for a typical illustrative photo, the text column
+   takes the rest. Unlike a merged text+photo crop, the photo here is
+   its own untouched image - .side-image-photo img has no forced height,
+   only a max-width, so the browser scales it by its own real aspect
+   ratio instead of it being pre-squashed at crop time. */
+.side-image-row { font-size: 0; position: relative; }
+.side-image-text { display: inline-block; vertical-align: top; width: calc(64% - 4mm); font-size: 1rem; }
+.side-image-photo { display: inline-block; vertical-align: top; width: calc(36% - 4mm); margin-left: 8mm; font-size: 1rem; }
+.side-image-photo .block-crop { margin: 0; }
+.side-image-photo img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+/* Each stacked question still gets its own individual hanging panel
+   (unlike a split-row's parts, these are unrelated questions, not one
+   shared control) - but .block's own position:relative would anchor
+   right:100%/left:100% (see .page-left/.page-right .controls-hang
+   above) to this narrow 64%-wide text column's own edge instead of the
+   page's real outer margin, landing page-right panels stranded in the
+   gap next to the photo instead of hanging off the page. Left static
+   here so that positioning bubbles up to .side-image-row - which spans
+   the full row and shares the text column's own left edge, so this is
+   a no-op for page-left and the actual fix for page-right. */
+.side-image-text .block.question { position: static; }
+
 /* A split group's layout/delete/restore controls, sitting inline above
    its first row (unlike everything else - see .controls-hang below -
    there's no per-group hanging panel to fold this into in split view,

@@ -1267,6 +1267,43 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         }
         return;
       }
+      if (unit.kind === "sideImage") {
+        // A decorative photo/diagram beside a run of standalone questions
+        // (see besideQuestions in add_chapter.py) - unlike a plain image
+        // block, this one never gets its own top-level unit; it renders
+        // in the same flex row as the questions it sits beside, sized by
+        // its own natural aspect ratio (see .side-image-photo img in
+        // app.css - width-capped, height auto, never stretched to match
+        // the text column's height the way a merged text+photo crop
+        // would be).
+        const imgBlock = unit.imageBlock;
+        const pct = imgBlock.imageScale ?? (imgBlock.section ? defaultScales.section : imgBlock.answers ? defaultScales.answers : defaultScales.combined);
+        const crop = cropHtml(cropsBaseUrl, imgBlock.id, imgBlock.contextImage, imgBlock.widthMm, pct, imgBlock.manualCropSrc);
+        const imgControls = controlsHangHtml(
+          imgBlock.id,
+          imageScaleControlHtml(imgBlock.id, "block", pct) + breakBeforeControlHtml(imgBlock.id, "block", imgBlock.breakBefore) + cropButtonHtml(imgBlock.id, "block")
+        );
+        const wsTargets = [{ kind: "block", id: imgBlock.id, canShrink: canShrink(imgBlock, pct) }];
+        const questionHtml = [];
+        for (const qb of unit.blocks) {
+          if (deletedIds.has(qb.id)) {
+            questionHtml.push(deletedPlaceholderHtml(qb.id, qb.id));
+            continue;
+          }
+          if (!passesWholeQuestionFilter(workbook, filterCtx.context[qb.id])) continue;
+          const qPct = qb.imageScale ?? defaultScales.combined;
+          const qCrop = cropHtml(cropsBaseUrl, qb.id, qb.contextImage, qb.widthMm, qPct, qb.manualCropSrc);
+          const qControls = controlsHangHtml(
+            qb.id,
+            renderQuestionControls(qb.id, "block", qb.workingSpace, qPct, qb.breakBefore) + deleteButtonHtml(qb.id, "block", "Delete question") + cropButtonHtml(qb.id, "block")
+          );
+          questionHtml.push(`<div class="block question">${qCrop}${workingSpaceHtml(qb.workingSpace)}${qControls}</div>`);
+          wsTargets.push({ kind: "block", id: qb.id, canShrink: canShrink(qb, defaultScales.combined) });
+        }
+        const html = `<div class="side-image-row"><div class="side-image-text">${questionHtml.join("")}</div><div class="side-image-photo">${crop}${imgControls}</div></div>`;
+        units.push({ html, heading: false, wsTargets, breakBefore: !!imgBlock.breakBefore });
+        return;
+      }
       const layout = workbook.groupLayout[unit.gid] || "split";
       const visibility = groupVisibility(workbook, unit.gid, unit.blocks, filterCtx, deletedIds);
       if (visibility.wholeGroupExplicitDelete) {

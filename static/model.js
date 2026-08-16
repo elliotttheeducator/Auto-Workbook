@@ -183,6 +183,29 @@ export function iterRenderUnits(blocks) {
   let i = 0;
   while (i < blocks.length) {
     const b = blocks[i];
+    // A decorative photo/diagram meant to sit beside a run of standalone
+    // questions (not stacked above/below them, and not sliced into one
+    // fragment per question - see besideQuestions in add_chapter.py) -
+    // only actually forms a unit when the very next blocks are exactly
+    // those questions, in that order; otherwise the data doesn't match
+    // what this image thinks it's beside, and it falls through to
+    // ordinary single-block handling instead of silently eating blocks
+    // that don't belong to it.
+    if (b.type === "image" && Array.isArray(b.besideQuestions) && b.besideQuestions.length) {
+      const matched = [];
+      let j = i + 1;
+      for (const wantId of b.besideQuestions) {
+        const next = blocks[j];
+        if (!next || next.type !== "question" || next.id !== wantId) break;
+        matched.push(next);
+        j++;
+      }
+      if (matched.length === b.besideQuestions.length) {
+        units.push({ kind: "sideImage", imageBlock: b, blocks: matched });
+        i = j;
+        continue;
+      }
+    }
     if (b.type !== "question") {
       units.push({ kind: "single", blocks: [b] });
       i++;
