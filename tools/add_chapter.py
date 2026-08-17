@@ -368,11 +368,12 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # No baked-in imageScale here (unlike an image block's
                 # optional per-block override above) - a split part's
                 # starting scale now comes from the workbook-wide
-                # "default split scale" control (see DEFAULT_SPLIT_SCALE
-                # in model.js), tunable from the editor itself instead of
-                # fixed the moment a chapter's built. Baking a number in
-                # here would just permanently shadow that control for
-                # every part in every future chapter.
+                # "default 2-split/3-split scale" controls (see
+                # DEFAULT_SPLIT_SCALE_2/_3 in model.js), tunable from the
+                # editor itself instead of fixed the moment a chapter's
+                # built. Baking a number in here would just permanently
+                # shadow that control for every part in every future
+                # chapter.
                 if p.get("imageScale"):
                     question_block["imageScale"] = p["imageScale"]
                 if default_crop_rect:

@@ -22,6 +22,7 @@ import {
   SIZE_PRESETS_MM,
   TIERS,
   canShrink,
+  defaultSplitColumnsFor,
   effectiveTierFilter,
   escapeHtml,
   groupIdFor,
@@ -29,6 +30,7 @@ import {
   passesTierFilter,
   resolvedDefaultScales,
   snapDown,
+  splitScaleFor,
 } from "./model.js";
 
 const CSS_PX_PER_MM = 96 / 25.4;
@@ -98,7 +100,7 @@ export function waitForImages(container) {
 // filter bar's own label). Has to be a separate up-front pass, not
 // something read off a block as it's encountered: a block's position
 // can only be known by having already walked everything before it.
-function buildFilterContext(workbook) {
+export function buildFilterContext(workbook) {
   const chapters = [];
   let chapterId = null;
   let tier = null;
@@ -459,14 +461,17 @@ export function filterBarHtml(workbook, chapterId) {
   return `<div class="${chapterId ? "chapter-filter-bar" : "filter-bar"}">${groups}${resetBtn}</div>`;
 }
 
-// Two "starting point" scales, workbook-wide - a split part and a
-// combined/standalone crop each start at a different % of their
-// container by default (see DEFAULT_SPLIT_SCALE/DEFAULT_COMBINED_SCALE
-// in model.js), and this is where that starting point itself gets
-// tuned, rather than clicking every individual diagram's own +/-
-// control by hand. A block's own +/- control still always wins once
-// it's actually been touched (see renderQuestionControls et al) - this
-// only ever moves a diagram nobody has customized yet.
+// "Starting point" scales, workbook-wide - a split part, a section
+// image, an answers image and a combined/standalone crop each start at a
+// different % of their container by default (see DEFAULT_SPLIT_SCALE_2/
+// _3/DEFAULT_COMBINED_SCALE in model.js), and this is where that
+// starting point itself gets tuned, rather than clicking every
+// individual diagram's own +/- control by hand. A block's own +/-
+// control still always wins once it's actually been touched (see
+// renderQuestionControls et al) - this only ever moves a diagram nobody
+// has customized yet. Split gets two independent steppers, not one - a
+// 2-up row and a 3-up row need different starting sizes (less width per
+// part at 3-up), so one flat "split" default could never fit both.
 export function defaultScaleBarHtml(workbook) {
   const scales = resolvedDefaultScales(workbook);
   const stepper = (mode, label, pct) =>
@@ -478,7 +483,8 @@ export function defaultScaleBarHtml(workbook) {
     `</div>`;
   return (
     `<div class="filter-bar default-scale-bar">` +
-    stepper("split", "Default split scale", scales.split) +
+    stepper("split2", "Default 2-split scale", scales.split2) +
+    stepper("split3", "Default 3-split scale", scales.split3) +
     stepper("section", "Default section scale", scales.section) +
     stepper("answers", "Default answer scale", scales.answers) +
     stepper("combined", "Default combined scale", scales.combined) +
@@ -825,10 +831,6 @@ const DEFAULT_COMBINED_WS = { style: "grid", heightMm: SIZE_PRESETS_MM.medium };
 // working-out box) and need the extra width two-per-row gives them.
 // Both are still just a starting point the picker above can override
 // per group at any time.
-function defaultSplitColumnsFor(gid, tier) {
-  return /bu\d/.test(gid) || tier === "fluency" ? 3 : 2;
-}
-
 function groupLayoutPickerHtml(gid, layout, splitColumns) {
   const safeGid = escapeHtml(gid);
   const combinedBtn =
@@ -845,6 +847,17 @@ function groupLayoutPickerHtml(gid, layout, splitColumns) {
 }
 
 function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorableHiddenMembers = [], defaultScales, splitColumns = 2, controlsMergedIntoStem = false) {
+  // A group configured for N-split with fewer than N parts total (a
+  // naturally 2-part question sitting under a tier that defaults to
+  // 3-split, say) would otherwise still render one row stretched to N
+  // columns' worth of width, with the missing column(s) just blank
+  // space - cols-N's CSS divides the row width by N regardless of how
+  // many parts actually exist. Clamping here fixes both the picker's
+  // own "active" button and the row itself in one place. A *later* row
+  // falling short (5 parts at 3-split leaving a 2-wide last row) is a
+  // different case - handled per-row below, since the group's own
+  // chosen split count is still correct there, just not every row's.
+  splitColumns = Math.min(splitColumns, blocks.length) || 1;
   const safeGid = escapeHtml(gid);
   // The group-level controls' actual content (layout/columns picker,
   // delete, restore) - built once, then folded into whichever
@@ -909,8 +922,15 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   // instead (as a class, not a structural selector), so the gap between
   // two parts, and the full-width single-part row, are never at the
   // mercy of whatever else happens to share the row.
+  // Which of the two split-scale defaults (see DEFAULT_SPLIT_SCALE_2/_3
+  // in model.js) applies is the group's own (already-clamped) column
+  // count, not any one row's actual length - a group configured for
+  // 3-split still reads as a 3-up group throughout even where its last
+  // row happens to fall short (see the cols-<rowBlocks.length> comment
+  // below, a separate CSS-only concern).
+  const splitPct = splitScaleFor(defaultScales, splitColumns);
   const partHtml = (b, isOnly) => {
-    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? defaultScales.split, b.manualCropSrc);
+    const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? splitPct, b.manualCropSrc);
     const cls = isOnly ? "block question split-only" : "block question";
     return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
@@ -944,8 +964,15 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // distinct image, so a shared comma-target button would only ever
     // be able to crop one of the two anyway.
     const partCropButtons = rowBlocks.map((b) => cropButtonHtml(b.id, "block")).join("");
-    const hangingControls = controlsHangHtml(targets, renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? defaultScales.split, anchor.breakBefore) + partDeleteButtons + partCropButtons);
-    const rowHtml = `<div class="split-row cols-${splitColumns}">${partsHtml}${hangingControls}</div>`;
+    const hangingControls = controlsHangHtml(targets, renderQuestionControls(targets, "block", anchor.workingSpace, anchor.imageScale ?? splitPct, anchor.breakBefore) + partDeleteButtons + partCropButtons);
+    // cols-<rowBlocks.length>, not cols-<splitColumns> - a later row can
+    // still fall short of the group's own chosen column count (5 parts
+    // at 3-split leaves a 2-wide last row); sizing by what's actually in
+    // *this* row keeps it genuinely full-width instead of stretched to
+    // fit a column that has nothing in it. The group-level clamp above
+    // only catches every row falling short (the whole group has fewer
+    // parts than the split count), not just the last one.
+    const rowHtml = `<div class="split-row cols-${rowBlocks.length}">${partsHtml}${hangingControls}</div>`;
     const isFirstRow = i === 0;
     // No hanging panel to fold into here (see layoutControlsInner above)
     // - its own small standalone collapsible, using .group-controls
@@ -959,7 +986,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     const groupControlsHtml =
       controlsMergedIntoStem ? "" : `<div class="group-controls">${collapsibleToggleHtml(gid)}<div class="controls-body">${layoutControlsInner}</div></div>`;
     const html = `<div class="group">${isFirstRow ? groupControlsHtml : ""}${rowHtml}</div>`;
-    const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.split) }));
+    const wsTargets = rowBlocks.map((b) => ({ kind: "block", id: b.id, canShrink: canShrink(b, splitPct) }));
     // A break-before toggled on either part in a row breaks before the
     // whole row - the two parts are always paginated as one atomic unit,
     // so "break before this part" can only ever mean "break before its
@@ -1277,7 +1304,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // the text column's height the way a merged text+photo crop
         // would be).
         const imgBlock = unit.imageBlock;
-        const pct = imgBlock.imageScale ?? (imgBlock.section ? defaultScales.section : imgBlock.answers ? defaultScales.answers : defaultScales.combined);
+        // Always the combined (full-size) default, never the section
+        // bucket - a besideQuestions photo is tied to real questions (see
+        // add_chapter.py's docstring), unlike a standalone Key Ideas/
+        // worked-example diagram, so it shouldn't start pre-shrunk the
+        // way that bucket's own lower default would otherwise leave it.
+        const pct = imgBlock.imageScale ?? defaultScales.combined;
         const crop = cropHtml(cropsBaseUrl, imgBlock.id, imgBlock.contextImage, imgBlock.widthMm, pct, imgBlock.manualCropSrc);
         const imgControls = controlsHangHtml(
           imgBlock.id,

@@ -39,7 +39,7 @@ function shrinkWorkingSpaceOneStep(ws) {
 // (a shrunk-down diagram symbol can want to go well under half size; an
 // oversized one is a real, if riskier, way to make a single sparse
 // question read as less empty) - this is just how far a step can push a
-// diagram, not what it starts at unset (see DEFAULT_SPLIT_SCALE/
+// diagram, not what it starts at unset (see DEFAULT_SPLIT_SCALE_2/_3/
 // DEFAULT_COMBINED_SCALE below for that).
 export const IMAGE_SCALE_MAX = 200;
 export const IMAGE_SCALE_MIN = 10;
@@ -64,7 +64,13 @@ export const IMAGE_SCALE_STEP = 5;
 //   - combined: everything else - a combined group's whole-question
 //     crop, a standalone single question, or a plain diagram-only image
 //     with none of the above flags.
-export const DEFAULT_SPLIT_SCALE = 70;
+// Split parts default smaller the more of them share a row - a 3-across
+// row (Building Understanding/Fluency's usual shape) has less width per
+// part to begin with, so its parts need to start further down than a
+// 2-across row's do for a freshly-built chapter to already read as
+// "basically done" before anyone touches an individual +/- control.
+export const DEFAULT_SPLIT_SCALE_2 = 40;
+export const DEFAULT_SPLIT_SCALE_3 = 50;
 export const DEFAULT_SECTION_SCALE = 70;
 // Percentage of an *answer row's own column* (see buildAnswerRowUnit in
 // render.js - two answer-key images share one row, each in a ~half-
@@ -84,33 +90,68 @@ function findBlockById(workbook, id) {
   return null;
 }
 
-// Which of the four workbook-wide defaults above applies to a given
+// Building Understanding and Fluency groups default to 3 parts per split
+// row, everything else to 2 - see groupLayoutPickerHtml/renderGroup in
+// render.js, the actual consumer. Lives here (not render.js) so both
+// render.js and defaultScaleFor/resolveSplitColumns below - and app.js,
+// for the click-time +/- controls - share exactly one source of truth for
+// "how many columns does this group render at by default."
+export function defaultSplitColumnsFor(gid, tier) {
+  return /bu\d/.test(gid) || tier === "fluency" ? 3 : 2;
+}
+
+// The actual split-column count a group renders at: whatever the user
+// explicitly picked (workbook.groupSplitColumns), else the tier-based
+// starting point above. Needed anywhere a split part's default scale has
+// to be derived from scratch (see defaultScaleFor) rather than read off
+// the splitColumns a render pass already resolved for itself.
+export function resolveSplitColumns(workbook, gid, tier) {
+  return workbook.groupSplitColumns?.[gid] || defaultSplitColumnsFor(gid, tier);
+}
+
+// The split-scale default depends on how many parts share a row (see
+// DEFAULT_SPLIT_SCALE_2/_3 above) - "split2" applies at 1-2 columns,
+// "split3" at 3 or more (a 4-split row is rare enough not to warrant its
+// own bucket, and reads fine at the 3-up size). `scales` is an already-
+// resolved resolvedDefaultScales() result.
+export function splitScaleFor(scales, splitColumns) {
+  return splitColumns >= 3 ? scales.split3 : scales.split2;
+}
+
+// Which of the five workbook-wide defaults above applies to a given
 // block/group. Needed by app.js at click time (a step-image-scale or
 // squeeze-in action only has a bare (kind, id) to work from, not the
 // render-time context that already knows which bucket applies) -
 // render.js itself never needs this, since it already knows structurally
-// which bucket applies at each call site.
-export function defaultScaleFor(workbook, kind, id) {
-  const defaults = workbook.defaultScales || {};
-  if (kind === "group") return defaults.combined ?? DEFAULT_COMBINED_SCALE;
+// which bucket applies at each call site. `tier` is the caller's best
+// guess at the block's tier (see buildFilterContext in render.js) - only
+// needed to pick the split part's own column count when it hasn't been
+// explicitly set; every other bucket ignores it.
+export function defaultScaleFor(workbook, kind, id, tier) {
+  const scales = resolvedDefaultScales(workbook);
+  if (kind === "group") return scales.combined;
   const gid = groupIdFor(id);
   const isSplitPart = !!gid && (workbook.groupLayout?.[gid] || "split") !== "combined";
-  if (isSplitPart) return defaults.split ?? DEFAULT_SPLIT_SCALE;
+  if (isSplitPart) return splitScaleFor(scales, resolveSplitColumns(workbook, gid, tier));
   const block = findBlockById(workbook, id);
-  if (block?.section) return defaults.section ?? DEFAULT_SECTION_SCALE;
-  if (block?.answers) return defaults.answers ?? DEFAULT_ANSWERS_SCALE;
-  return defaults.combined ?? DEFAULT_COMBINED_SCALE;
+  if (block?.section) return scales.section;
+  if (block?.answers) return scales.answers;
+  return scales.combined;
 }
 
-// All four workbook-wide defaults resolved together, with fallbacks
+// All the workbook-wide defaults resolved together, with fallbacks
 // applied once - render.js computes this a single time per render
 // rather than re-deriving it per block, since (unlike defaultScaleFor)
-// it already knows structurally which of the four applies at each call
-// site.
+// it already knows structurally which bucket applies at each call site.
+// split2/split3 are two independent buckets (not one "split" bucket
+// picked by column count) so each has its own stepper in the settings
+// bar and its own override, matching how differently-sized rows actually
+// need to be tuned.
 export function resolvedDefaultScales(workbook) {
   const defaults = workbook.defaultScales || {};
   return {
-    split: defaults.split ?? DEFAULT_SPLIT_SCALE,
+    split2: defaults.split2 ?? DEFAULT_SPLIT_SCALE_2,
+    split3: defaults.split3 ?? DEFAULT_SPLIT_SCALE_3,
     section: defaults.section ?? DEFAULT_SECTION_SCALE,
     answers: defaults.answers ?? DEFAULT_ANSWERS_SCALE,
     combined: defaults.combined ?? DEFAULT_COMBINED_SCALE,

@@ -4,6 +4,7 @@ import {
   defaultScaleFor,
   escapeHtml,
   extractOverrides,
+  groupIdFor,
   growImageOneStep,
   IMAGE_SCALE_MAX,
   IMAGE_SCALE_MIN,
@@ -14,7 +15,18 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, defaultScaleBarHtml, filterBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, buildFilterContext, defaultScaleBarHtml, filterBarHtml, renderEditor, waitForImages } from "./render.js";
+
+// The tier a given block sits under (needed only to pick the right
+// split-scale default - see defaultScaleFor in model.js), recomputed on
+// demand rather than cached: buildFilterContext is a cheap single walk
+// over the workbook, and app.js's own edits (delete, restore, layout
+// changes) never touch which tier a block is under, so there is no
+// staleness risk to guard against by caching it.
+function tierFor(workbook, id) {
+  const gid = groupIdFor(id) || id;
+  return buildFilterContext(workbook).context[gid]?.tier;
+}
 import { openCropModal } from "./crop.js";
 
 const appEl = document.getElementById("app");
@@ -658,7 +670,7 @@ async function compactSections(btn) {
       if (!bundle || !(bundleSpansMultiplePages(bundle) || bundleOversizedOnOnePage(bundle))) break;
       let changed = false;
       for (const { kind, id } of shrinkableTargetsInBundle(bundle)) {
-        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
+        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id, tierFor(currentWorkbook, id)))) changed = true;
       }
       // Every diagram in this bundle already at the readability floor -
       // it just doesn't fit one page without going further than Auto-fit
@@ -701,7 +713,7 @@ async function autoFitDocument() {
         });
       let changed = false;
       for (const { kind, id } of targets) {
-        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
+        if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id, tierFor(currentWorkbook, id)))) changed = true;
       }
       // Every target already at its floor would mean squeezeInHtml()
       // should never have offered this button in the first place - stop
@@ -836,7 +848,7 @@ function handleControlClick(e) {
       });
     let changed = false;
     for (const { kind, id } of targets) {
-      if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id))) changed = true;
+      if (shrinkOneStep(entryFor(kind, id), defaultScaleFor(currentWorkbook, kind, id, tierFor(currentWorkbook, id)))) changed = true;
     }
     if (changed) persistAndRerenderEditor();
     return;
@@ -871,7 +883,7 @@ function handleControlClick(e) {
     let changed = false;
     for (const t of targets) {
       const entry = entryFor(el.dataset.kind, t);
-      const defaultScale = defaultScaleFor(currentWorkbook, el.dataset.kind, t);
+      const defaultScale = defaultScaleFor(currentWorkbook, el.dataset.kind, t, tierFor(currentWorkbook, t));
       // The one place that gets the full IMAGE_SCALE_MIN range instead of
       // the automatic-shrink readability floor (see READABILITY_FLOOR_SCALE
       // in model.js) - a direct +/- click is a deliberate, single-diagram
