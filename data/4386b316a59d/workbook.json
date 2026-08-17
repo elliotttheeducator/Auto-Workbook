@@ -2,7 +2,7 @@
   "id": "4386b316a59d",
   "title": "Year 7 - Chapter 10: Measurement (10C-10J)",
   "sourcePdfName": "3503bcf7-EMAC7_4ed_Ch10.pdf",
-  "buildVersion": "7bd41545",
+  "buildVersion": "85e6fe5b",
   "pages": [
     {
       "id": "page0",
@@ -7089,18 +7089,73 @@
       "id": "page175",
       "blocks": [
         {
-          "type": "question",
-          "id": "c10iex12a",
-          "contextImage": null,
-          "workingSpace": {
-            "style": "grid",
-            "heightMm": 35
-          },
+          "type": "image",
+          "id": "c10iex120_stem",
           "defaultCropRect": {
             "x": 0.0,
             "y": 0.0,
             "w": 97.25,
             "h": 100.0
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex120a",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 10.11,
+            "y": 0.0,
+            "w": 51.42,
+            "h": 95.7
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex120b",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 1.92,
+            "y": 0.0,
+            "w": 48.24,
+            "h": 98.52
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex120c",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 10.11,
+            "y": 0.88,
+            "w": 51.42,
+            "h": 99.12
+          }
+        },
+        {
+          "type": "question",
+          "id": "c10iex120d",
+          "contextImage": null,
+          "workingSpace": {
+            "style": "grid",
+            "heightMm": 15
+          },
+          "defaultCropRect": {
+            "x": 1.92,
+            "y": 1.23,
+            "w": 80.13,
+            "h": 92.18
           }
         }
       ]
@@ -8070,6 +8125,17 @@
         },
         {
           "type": "image",
+          "id": "c10jex13_diagram",
+          "glueForward": true,
+          "defaultCropRect": {
+            "x": 2.46,
+            "y": 2.43,
+            "w": 93.51,
+            "h": 94.79
+          }
+        },
+        {
+          "type": "image",
           "id": "c10jex13ad_stem",
           "defaultCropRect": {
             "x": 0.0,
@@ -8205,80 +8271,81 @@
     }
   ],
   "groupLayout": {
-    "c10gex2": "split",
-    "c10gbu2": "split",
     "c10fex5": "split",
-    "c10fex4": "split",
-    "c10iex7": "combined",
-    "c10cex1": "combined",
-    "c10cex3": "split",
-    "c10eex9": "combined",
-    "c10gex11": "combined",
-    "c10hex5": "combined",
-    "c10jex2": "split",
-    "c10gex1": "combined",
-    "c10jbu1": "split",
-    "c10dbu3": "split",
-    "c10jex1": "combined",
-    "c10gbu3": "split",
-    "c10hbu3": "split",
-    "c10hex1": "combined",
-    "c10ibu1": "split",
-    "c10cex12": "combined",
-    "c10dex7": "combined",
-    "c10eex4": "combined",
-    "c10eex15": "combined",
-    "c10iex2": "split",
-    "c10jex4": "combined",
-    "c10jex13ad": "combined",
-    "c10dex11": "combined",
-    "c10fbu2": "split",
-    "c10hbu1": "split",
-    "c10hex2": "split",
-    "c10hex6": "split",
-    "c10gex15": "combined",
-    "c10cex5": "split",
-    "c10iex11": "combined",
-    "c10jex3": "combined",
-    "c10iex10": "combined",
-    "c10dex2": "split",
-    "c10dbu2": "split",
-    "c10dex4": "split",
-    "c10ebu3": "split",
-    "c10eex5": "combined",
-    "c10hex11": "split",
-    "c10cex10": "combined",
-    "c10gex4": "split",
-    "c10fex2": "split",
-    "c10eex1": "combined",
-    "c10eex3": "split",
+    "c10cex7": "split",
     "c10cbu1": "split",
-    "c10dex12": "combined",
-    "c10hex3": "combined",
-    "c10hbu2": "split",
-    "c10ibu2": "split",
-    "c10gex5": "split",
-    "c10fbu1": "split",
-    "c10fex8": "combined",
-    "c10eex2": "split",
-    "c10cex4": "split",
-    "c10cbu3": "split",
-    "c10gbu1": "split",
-    "c10fex7": "combined",
-    "c10fex3": "combined",
-    "c10gex3": "combined",
-    "c10cex2": "combined",
-    "c10jex10": "split",
-    "c10dex5": "split",
-    "c10dex3": "split",
-    "c10fex1": "combined",
-    "c10dex1": "split",
-    "c10hex4": "split",
-    "c10iex1": "combined",
-    "c10dbu1": "split",
     "c10jex8": "split",
     "c10dex8": "combined",
-    "c10cex7": "split"
+    "c10hbu3": "split",
+    "c10cex10": "combined",
+    "c10hex6": "split",
+    "c10dex11": "combined",
+    "c10gbu1": "split",
+    "c10fex1": "combined",
+    "c10cex2": "combined",
+    "c10cex3": "split",
+    "c10gex2": "split",
+    "c10dex2": "split",
+    "c10hex11": "split",
+    "c10eex5": "combined",
+    "c10cex4": "split",
+    "c10eex9": "combined",
+    "c10gex15": "combined",
+    "c10fex7": "combined",
+    "c10fex8": "combined",
+    "c10jex2": "split",
+    "c10dbu2": "split",
+    "c10dbu3": "split",
+    "c10eex15": "combined",
+    "c10gbu2": "split",
+    "c10gex1": "combined",
+    "c10gex3": "combined",
+    "c10hex2": "split",
+    "c10iex10": "combined",
+    "c10hbu1": "split",
+    "c10iex2": "split",
+    "c10cex1": "combined",
+    "c10iex11": "combined",
+    "c10iex120": "split",
+    "c10jbu1": "split",
+    "c10cex12": "combined",
+    "c10eex1": "combined",
+    "c10gbu3": "split",
+    "c10hbu2": "split",
+    "c10eex4": "combined",
+    "c10hex3": "combined",
+    "c10ibu2": "split",
+    "c10fex3": "combined",
+    "c10dex4": "split",
+    "c10eex2": "split",
+    "c10fbu2": "split",
+    "c10fex2": "split",
+    "c10fex4": "split",
+    "c10gex4": "split",
+    "c10gex5": "split",
+    "c10hex5": "combined",
+    "c10jex3": "combined",
+    "c10ebu3": "split",
+    "c10hex4": "split",
+    "c10dex12": "combined",
+    "c10jex10": "split",
+    "c10jex13ad": "combined",
+    "c10cex5": "split",
+    "c10eex3": "split",
+    "c10hex1": "combined",
+    "c10ibu1": "split",
+    "c10dbu1": "split",
+    "c10dex1": "split",
+    "c10jex4": "combined",
+    "c10jex1": "combined",
+    "c10dex3": "split",
+    "c10dex5": "split",
+    "c10dex7": "combined",
+    "c10iex7": "combined",
+    "c10gex11": "combined",
+    "c10fbu1": "split",
+    "c10iex1": "combined",
+    "c10cbu3": "split"
   },
   "combinedBlocks": {
     "c10cbu1": {
@@ -9071,6 +9138,18 @@
         "y": 0.0,
         "w": 88.52,
         "h": 80.06
+      }
+    },
+    "c10iex120": {
+      "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+      },
+      "defaultCropRect": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 97.25,
+        "h": 100.0
       }
     },
     "c10jbu1": {
