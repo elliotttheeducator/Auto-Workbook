@@ -15,7 +15,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, buildFilterContext, defaultScaleBarHtml, filterBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, buildFilterContext, defaultScaleBarHtml, filterBarHtml, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -128,6 +128,15 @@ function toggleViewMode() {
 
 let currentWorkbook = null;
 let currentProjectId = null;
+// Which chapters (by their title heading id) should survive into a
+// print/export - see printSelectionBarHtml in render.js. null means
+// "everything" (every checkbox starts checked) - the common case, and
+// the only state that ever needs saving nowhere: this is a per-visit
+// print-time choice, not a document edit, so it resets to "everything"
+// on reload same as viewMode does *not* (viewMode is a real per-device
+// preference; this isn't even that - just today's print job). Reset
+// per project load in renderEditorView.
+let printSelection = null;
 // Group ids whose layout (split/combined) the user has explicitly picked
 // *this session* - see persistAndRerenderEditor for why saving only these
 // (not every group's current value) matters: workbook.json's own
@@ -348,7 +357,31 @@ function stepDefaultScale(mode, delta) {
 // site that touches either one just calls this instead of reassembling
 // the same two pieces by hand.
 function renderTopBars() {
-  filterBarMount.innerHTML = filterBarHtml(currentWorkbook, null) + defaultScaleBarHtml(currentWorkbook);
+  filterBarMount.innerHTML =
+    filterBarHtml(currentWorkbook, null) + defaultScaleBarHtml(currentWorkbook) + printSelectionBarHtml(currentWorkbook, printSelection);
+}
+
+// Applies the current print-selection choice to whatever's actually in
+// #app right now: toggles which physical pages carry .print-excluded
+// (see that rule in app.css, print-only) and fills in the cover's own
+// note (see cover-print-note in render.js) with which chapters are
+// missing, if any. Cheap DOM-only work, never a re-render - called
+// after every fresh render (the pages are new elements then) and again
+// on its own after every checkbox click (the pages are unchanged, only
+// which ones are marked excluded needs to move).
+function applyPrintSelection() {
+  for (const el of appEl.querySelectorAll(".page[data-chapter]")) {
+    const included = !printSelection || printSelection.has(el.dataset.chapter);
+    el.classList.toggle("print-excluded", !included);
+  }
+  const note = appEl.querySelector(".cover-print-note");
+  if (!note) return;
+  const { chapters } = buildFilterContext(currentWorkbook);
+  const included = printSelection ? chapters.filter((c) => printSelection.has(c.id)) : chapters;
+  note.textContent =
+    !printSelection || included.length === chapters.length
+      ? ""
+      : `Printing: ${included.map((c) => (c.text || "").split(/\s+/)[0]).join(", ") || "no chapters selected"}`;
 }
 
 // Every block/group's hanging panel (see .controls-hang in app.css) is
@@ -398,6 +431,7 @@ async function renderEditorOnce() {
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
+  applyPrintSelection();
 }
 
 // A full re-render walks every page's pagination from scratch, which on
@@ -537,6 +571,7 @@ async function renderEditorView(id) {
   currentProjectId = id;
   touchedGroupLayoutIds = new Set();
   expandedControlIds = new Set();
+  printSelection = null;
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
@@ -559,6 +594,7 @@ async function renderEditorView(id) {
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
+  applyPrintSelection();
 }
 
 // A single-level safety net for Auto-fit specifically (not a general undo
@@ -589,6 +625,7 @@ async function undoAutoFit() {
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
+  applyPrintSelection();
   updateUndoButton();
 }
 
@@ -816,6 +853,32 @@ function handleControlClick(e) {
   if (action === "step-default-scale") {
     stepDefaultScale(el.dataset.mode, Number(el.dataset.delta));
     persistAndRerenderEditor();
+    return;
+  }
+  // The print-selection panel (see printSelectionBarHtml in render.js) -
+  // deliberately never goes through persistAndRerenderEditor: it's not a
+  // document edit (nothing here is saved), so a cheap direct DOM update
+  // (applyPrintSelection) is enough, without paying for a full
+  // from-scratch pagination pass on every checkbox click.
+  if (action === "toggle-print-chapter") {
+    if (!printSelection) {
+      printSelection = new Set(buildFilterContext(currentWorkbook).chapters.map((c) => c.id));
+    }
+    if (el.checked) printSelection.add(el.dataset.chapter);
+    else printSelection.delete(el.dataset.chapter);
+    applyPrintSelection();
+    return;
+  }
+  if (action === "print-selection-all") {
+    printSelection = null;
+    renderTopBars();
+    applyPrintSelection();
+    return;
+  }
+  if (action === "print-selection-none") {
+    printSelection = new Set();
+    renderTopBars();
+    applyPrintSelection();
     return;
   }
   if (action === "delete") {

@@ -461,6 +461,45 @@ export function filterBarHtml(workbook, chapterId) {
   return `<div class="${chapterId ? "chapter-filter-bar" : "filter-bar"}">${groups}${resetBtn}</div>`;
 }
 
+// A short on-page label for a chapter checkbox/print note - just its
+// leading token ("10C" out of "10C Circles, π and circumference"), the
+// same short form printed next to each question throughout the book.
+function shortChapterLabel(text) {
+  return (text || "").split(/\s+/)[0] || text || "";
+}
+
+// The "export only some of the book" panel - one checkbox per real
+// content chapter (never its own "X Answers" section separately: see
+// currentChapterId in renderEditor, one print-selection choice covers a
+// chapter and its own answer key together). `selectedIds` is null for
+// "everything" (the default - every box starts checked), or a Set of
+// chapter ids for whatever the user has actually unchecked down to.
+// Purely a print-time filter (see .print-excluded in app.css and
+// applyPrintSelection in app.js) - never touches which chapters are
+// visible/editable on screen, only which physical sheets survive into
+// the printed/exported output.
+export function printSelectionBarHtml(workbook, selectedIds) {
+  const { chapters } = buildFilterContext(workbook);
+  if (chapters.length < 2) return "";
+  const boxes = chapters
+    .map((c) => {
+      const checked = !selectedIds || selectedIds.has(c.id);
+      return (
+        `<label class="print-selection-item">` +
+        `<input type="checkbox" data-action="toggle-print-chapter" data-chapter="${escapeHtml(c.id)}" ${checked ? "checked" : ""}>` +
+        `${escapeHtml(shortChapterLabel(c.text))}</label>`
+      );
+    })
+    .join("");
+  return (
+    `<div class="filter-bar print-selection-bar">` +
+    `<span class="tier-filter-label">Print selection</span>${boxes}` +
+    `<button class="secondary" data-action="print-selection-all">All</button>` +
+    `<button class="secondary" data-action="print-selection-none">None</button>` +
+    `</div>`
+  );
+}
+
 // "Starting point" scales, workbook-wide - a split part, a section
 // image, an answers image and a combined/standalone crop each start at a
 // different % of their container by default (see DEFAULT_SPLIT_SCALE_2/
@@ -1049,6 +1088,20 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   const physicalPagesHtml = [];
   let pending = [];
   let pageNumber = 0;
+  // Which chapter's title heading everything currently in `pending`
+  // belongs to - stamped onto every physical page a flush produces (see
+  // data-chapter below), so app.js's print-selection checkboxes can hide
+  // a deselected chapter's own sheets at print time without needing to
+  // know anything about pagination itself. Updated only on a *content*
+  // chapter's own title (isRealChapterTitle below), never on its
+  // "X Answers" title right after it - answers stay tagged with the
+  // same chapter id as the content they belong to, since one print
+  // selection checkbox covers both. Read by flushPending() below at the
+  // point each physical page is actually pushed - always still holding
+  // the *previous* chapter's id there, since the main loop only updates
+  // it after flushPending() has already drained everything queued
+  // ahead of the new title.
+  let currentChapterId = null;
   // Group ids whose Combined/1-4-split picker got folded into their
   // stem's own hanging panel instead of a separate standalone chip (see
   // the stem-detection lookahead below) - checked when that group
@@ -1131,7 +1184,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       const side = physicalPagesHtml.length % 2 === 0 ? "page-left" : "page-right";
       pageNumber++;
       const pageNumberHtml = `<div class="page-number">${pageNumber}</div>`;
-      physicalPagesHtml.push(`<div class="page ${side}">${continued}${sheet.map((u) => u.html).join("")}${squeeze}${pageNumberHtml}</div>`);
+      const chapterAttr = currentChapterId ? ` data-chapter="${escapeHtml(currentChapterId)}"` : "";
+      physicalPagesHtml.push(`<div class="page ${side}"${chapterAttr}>${continued}${sheet.map((u) => u.html).join("")}${squeeze}${pageNumberHtml}</div>`);
     }
   }
 
@@ -1145,7 +1199,17 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       await flushPending();
       const b = page.blocks[0];
       const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm);
-      physicalPagesHtml.push(`<div class="page page-cover">${crop}</div>`);
+      // Empty placeholder, always present - app.js fills this in with
+      // which chapters are actually included whenever the print-
+      // selection checkboxes (see printSelectionBarHtml) leave out part
+      // of the book, entirely by mutating this node's text after the
+      // fact rather than re-rendering: the selection can change far more
+      // often than the workbook itself does, and redoing this whole
+      // (expensive) render pass on every checkbox click would be wasteful.
+      // Collapses to nothing (see :empty in app.css) the rest of the
+      // time, so a full-selection export still looks exactly like a
+      // plain full-bleed cover.
+      physicalPagesHtml.push(`<div class="page page-cover">${crop}<div class="cover-print-note"></div></div>`);
       continue;
     }
 
@@ -1359,7 +1423,15 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       );
     });
 
-    if (isSectionStart(page)) await flushPending();
+    if (isSectionStart(page)) {
+      await flushPending();
+      // See currentChapterId above - only a real chapter's own title
+      // moves it forward; an "X Answers" title (also isSectionStart,
+      // since it's the same heading style) leaves it as whatever real
+      // chapter came before, so the answers stay grouped with it.
+      const title = page.blocks[0];
+      if (!/answers$/i.test(title.text || "")) currentChapterId = title.id;
+    }
     pending.push(...units);
   }
   await flushPending();

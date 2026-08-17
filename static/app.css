@@ -69,6 +69,19 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    in render.js) - a slightly darker shade plus a hairline border keeps
    the two visually distinct without needing a whole separate look. */
 .default-scale-bar { background: #2b2b2b; border-top: 1px solid #444; }
+/* The "export only some of the book" panel (see printSelectionBarHtml
+   in render.js) - same bar family as the two above it, its own hairline
+   to stay visually distinct from both. */
+.print-selection-bar { background: #23324a; border-top: 1px solid #445; }
+.print-selection-item {
+  display: flex; align-items: center; gap: 4px; cursor: pointer;
+  background: #364a68; border-radius: 3px; padding: 3px 8px; font-size: 10px;
+}
+.print-selection-item input { margin: 0; cursor: pointer; }
+.print-selection-bar button {
+  background: #555; color: white; border: none; border-radius: 3px;
+  padding: 3px 8px; font-size: 10px; cursor: pointer;
+}
 .tier-filter-group { display: flex; align-items: center; gap: 4px; }
 .tier-filter-label { text-transform: capitalize; color: #ccc; margin-right: 2px; }
 .tier-filter-group button {
@@ -213,8 +226,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   padding: var(--page-margin); box-sizing: border-box;
   position: relative;
 }
-.page-cover { padding: 0; overflow: hidden; height: var(--page-height); }
+.page-cover { padding: 0; overflow: hidden; height: var(--page-height); display: flex; flex-direction: column; }
 .page-cover .block, .page-cover .block-crop, .page-cover img { margin: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* The cover art itself flexes to give up just enough room for the note
+   below it (see cover-print-note) when one is present - :empty collapses
+   it to zero height the rest of the time, so a full-selection export's
+   cover still fills the sheet edge to edge exactly as before. */
+.page-cover .block, .page-cover .block-crop { flex: 1 1 auto; min-height: 0; }
+.cover-print-note {
+  flex: 0 0 auto; padding: 2mm 6mm; font-size: 9px; color: #555;
+  text-align: center; background: #fff; box-sizing: border-box;
+}
+.cover-print-note:empty { display: none; padding: 0; }
 /* Sits inside the page's own margin band, well clear of .squeeze-in
    (which stops at the content edge, i.e. bottom: var(--page-margin)) -
    never added on .page-cover, which has no page-number element at all. */
@@ -525,6 +548,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,
   .image-scale-picker, .break-before-toggle, .pair-with-next-toggle, .controls-hang,
   .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn { display: none !important; }
+  /* A chapter left unchecked in the print-selection panel (see
+     printSelectionBarHtml in render.js / applyPrintSelection in app.js) -
+     print-only, so unchecking a chapter never hides it from the editor
+     itself, only from what actually reaches the printer/PDF. The cover
+     has no data-chapter (see renderEditor) so it's never affected. */
+  .page.print-excluded { display: none !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
     /* min-height carries over from the base rule - it's already exactly
