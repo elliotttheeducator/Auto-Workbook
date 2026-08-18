@@ -2,7 +2,7 @@
   "id": "4386b316a59d",
   "title": "Year 7 - Chapter 10: Measurement (10C-10J)",
   "sourcePdfName": "3503bcf7-EMAC7_4ed_Ch10.pdf",
-  "buildVersion": "f9064f42",
+  "buildVersion": "4d1911d5",
   "pages": [
     {
       "id": "page0",
@@ -271,13 +271,28 @@
       "blocks": [
         {
           "type": "image",
-          "id": "c10c_example5_cont",
+          "id": "c10c_example5_soln",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10c_example5_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 5.07,
+            "y": 0.49,
+            "w": 94.93,
+            "h": 99.51
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_example5_expl",
           "glueForward": true,
           "section": true,
           "defaultCropRect": {
-            "x": 2.25,
+            "x": 0.0,
             "y": 0.0,
-            "w": 95.07,
+            "w": 95.18,
             "h": 100.0
           }
         },
@@ -315,7 +330,34 @@
             "x": 0.0,
             "y": 0.0,
             "w": 97.32,
-            "h": 85.78
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_example6_soln",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10c_example6_expl",
+          "blankHeightMm": 60,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 4.32,
+            "y": 0.0,
+            "w": 95.68,
+            "h": 68.34
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_example6_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.42,
+            "h": 68.34
           }
         }
       ]
@@ -325,13 +367,28 @@
       "blocks": [
         {
           "type": "image",
-          "id": "c10c_example6_cont",
+          "id": "c10c_example6_soln_cont",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10c_example6_expl_cont",
+          "blankHeightMm": 20,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 4.6,
+            "y": 1.25,
+            "w": 95.4,
+            "h": 98.75
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10c_example6_expl_cont",
           "glueForward": true,
           "section": true,
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 0.0,
             "y": 1.25,
-            "w": 95.0,
+            "w": 94.57,
             "h": 98.75
           }
         },
@@ -1297,9 +1354,36 @@
           "section": true,
           "defaultCropRect": {
             "x": 0.0,
-            "y": 0.28,
+            "y": 0.51,
             "w": 97.39,
-            "h": 99.72
+            "h": 99.49
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example7_soln",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10d_example7_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 4.72,
+            "y": 0.0,
+            "w": 95.28,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example7_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.71,
+            "h": 100.0
           }
         }
       ]
@@ -1341,7 +1425,34 @@
             "x": 0.0,
             "y": 0.0,
             "w": 97.39,
-            "h": 97.12
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example8_soln",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10d_example8_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 4.72,
+            "y": 0.0,
+            "w": 95.28,
+            "h": 94.53
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example8_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.71,
+            "h": 94.53
           }
         }
       ]
@@ -1383,6 +1494,33 @@
             "x": 0.0,
             "y": 0.0,
             "w": 97.32,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example9_soln",
+          "glueForward": true,
+          "section": true,
+          "teacherExplanation": "c10d_example9_expl",
+          "blankHeightMm": 20,
+          "blankStyle": "grid",
+          "defaultCropRect": {
+            "x": 4.63,
+            "y": 0.0,
+            "w": 95.37,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10d_example9_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.8,
             "h": 100.0
           }
         }
@@ -2434,10 +2572,25 @@
           "id": "c10e_example10_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10e_example10_expl",
+          "blankHeightMm": 20,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 0.0,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10e_example10_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.74,
             "h": 100.0
           }
         }
@@ -2493,10 +2646,25 @@
           "id": "c10e_example11_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10e_example11_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.25,
+            "x": 4.45,
             "y": 0.0,
-            "w": 95.07,
+            "w": 95.55,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10e_example11_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.59,
             "h": 100.0
           }
         }
@@ -3611,10 +3779,25 @@
           "id": "c10f_example12_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10f_example12_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 0.0,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10f_example12_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.74,
             "h": 100.0
           }
         }
@@ -4564,10 +4747,25 @@
           "id": "c10g_example13_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10g_example13_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 0.0,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10g_example13_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.74,
             "h": 100.0
           }
         }
@@ -5574,10 +5772,25 @@
           "id": "c10h_example14_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10h_example14_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.25,
+            "x": 4.45,
             "y": 0.0,
-            "w": 95.07,
+            "w": 95.55,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_example14_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.59,
             "h": 100.0
           }
         }
@@ -5591,10 +5804,25 @@
           "id": "c10h_example14_soln_cont",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10h_example14_expl_cont",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 1.16,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 98.84
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_example14_expl_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 1.16,
+            "w": 94.74,
             "h": 98.84
           }
         }
@@ -5650,10 +5878,25 @@
           "id": "c10h_example15_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10h_example15_expl",
+          "blankHeightMm": 60,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 0.0,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_example15_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.74,
             "h": 100.0
           }
         }
@@ -5667,10 +5910,25 @@
           "id": "c10h_example15_soln_cont",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10h_example15_expl_cont",
+          "blankHeightMm": 60,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.25,
+            "x": 4.45,
             "y": 0.0,
-            "w": 95.07,
+            "w": 95.55,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10h_example15_expl_cont",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.59,
             "h": 100.0
           }
         }
@@ -6623,10 +6881,25 @@
           "id": "c10i_example16_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10i_example16_expl",
+          "blankHeightMm": 20,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 4.74,
             "y": 0.0,
-            "w": 95.0,
+            "w": 95.26,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10i_example16_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 94.74,
             "h": 100.0
           }
         }
@@ -7477,10 +7750,25 @@
           "id": "c10j_example17_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10j_example17_expl",
+          "blankHeightMm": 60,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.32,
+            "x": 5.15,
             "y": 0.0,
-            "w": 95.07,
+            "w": 94.85,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10j_example17_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.26,
             "h": 100.0
           }
         }
@@ -7536,10 +7824,25 @@
           "id": "c10j_example18_soln",
           "glueForward": true,
           "section": true,
+          "teacherExplanation": "c10j_example18_expl",
+          "blankHeightMm": 40,
+          "blankStyle": "grid",
           "defaultCropRect": {
-            "x": 2.39,
+            "x": 5.31,
             "y": 0.0,
-            "w": 95.0,
+            "w": 94.69,
+            "h": 100.0
+          }
+        },
+        {
+          "type": "image",
+          "id": "c10j_example18_expl",
+          "glueForward": true,
+          "section": true,
+          "defaultCropRect": {
+            "x": 0.0,
+            "y": 0.0,
+            "w": 95.26,
             "h": 100.0
           }
         }
@@ -8279,81 +8582,81 @@
     }
   ],
   "groupLayout": {
-    "c10cex10": "combined",
-    "c10cex4": "split",
-    "c10fex2": "split",
-    "c10fex4": "split",
-    "c10iex7": "combined",
-    "c10cbu1": "split",
-    "c10dex8": "combined",
-    "c10cex1": "combined",
     "c10dex5": "split",
-    "c10gex4": "split",
-    "c10hex1": "combined",
-    "c10cex2": "combined",
-    "c10hex6": "split",
-    "c10ibu2": "split",
-    "c10jbu1": "split",
-    "c10gex3": "combined",
-    "c10fex5": "split",
-    "c10gbu1": "split",
-    "c10hex11": "split",
-    "c10iex2": "split",
-    "c10eex2": "split",
-    "c10jex3": "combined",
-    "c10hex3": "combined",
-    "c10eex1": "combined",
-    "c10dbu2": "split",
-    "c10eex4": "combined",
-    "c10cex5": "split",
-    "c10hex5": "combined",
-    "c10gbu3": "split",
-    "c10gex2": "split",
-    "c10hbu3": "split",
-    "c10eex9": "combined",
     "c10fex3": "combined",
-    "c10dex1": "split",
-    "c10hbu1": "split",
-    "c10hex2": "split",
-    "c10hex4": "split",
-    "c10eex5": "combined",
-    "c10iex11": "combined",
-    "c10jex10": "split",
-    "c10gex11": "combined",
-    "c10cex12": "combined",
-    "c10fex7": "combined",
-    "c10iex120": "split",
-    "c10dex12": "combined",
+    "c10cex10": "combined",
+    "c10gbu1": "split",
+    "c10cex1": "combined",
     "c10fex8": "combined",
-    "c10ebu3": "split",
-    "c10dex11": "combined",
-    "c10eex3": "split",
-    "c10fex1": "combined",
-    "c10jex8": "split",
-    "c10jex13ad": "combined",
-    "c10cbu3": "split",
-    "c10dex2": "split",
-    "c10cex3": "split",
-    "c10gex5": "split",
-    "c10dex3": "split",
+    "c10eex9": "combined",
+    "c10fex4": "split",
     "c10hbu2": "split",
-    "c10cex7": "split",
-    "c10gex15": "combined",
-    "c10eex15": "combined",
+    "c10hex1": "combined",
+    "c10cex5": "split",
+    "c10ibu2": "split",
+    "c10iex120": "split",
     "c10jex4": "combined",
-    "c10iex10": "combined",
-    "c10ibu1": "split",
-    "c10iex1": "combined",
-    "c10jex1": "combined",
+    "c10hex4": "split",
+    "c10hex3": "combined",
     "c10fbu2": "split",
+    "c10fex7": "combined",
+    "c10eex3": "split",
+    "c10cex7": "split",
+    "c10cex12": "combined",
     "c10dbu1": "split",
+    "c10hbu1": "split",
+    "c10hex11": "split",
+    "c10dex2": "split",
+    "c10cbu3": "split",
     "c10dex7": "combined",
-    "c10gex1": "combined",
-    "c10jex2": "split",
-    "c10gbu2": "split",
+    "c10gex4": "split",
+    "c10dex8": "combined",
+    "c10iex1": "combined",
+    "c10iex10": "combined",
+    "c10gbu3": "split",
+    "c10jex1": "combined",
+    "c10dex1": "split",
+    "c10ebu3": "split",
+    "c10eex4": "combined",
+    "c10gex11": "combined",
     "c10dex4": "split",
-    "c10dbu3": "split",
-    "c10fbu1": "split"
+    "c10gex5": "split",
+    "c10eex5": "combined",
+    "c10iex7": "combined",
+    "c10fex2": "split",
+    "c10fex1": "combined",
+    "c10jbu1": "split",
+    "c10ibu1": "split",
+    "c10hex5": "combined",
+    "c10gex3": "combined",
+    "c10hbu3": "split",
+    "c10iex2": "split",
+    "c10dex11": "combined",
+    "c10cex4": "split",
+    "c10dex3": "split",
+    "c10gbu2": "split",
+    "c10eex1": "combined",
+    "c10fbu1": "split",
+    "c10cex2": "combined",
+    "c10eex15": "combined",
+    "c10fex5": "split",
+    "c10gex1": "combined",
+    "c10hex2": "split",
+    "c10hex6": "split",
+    "c10jex8": "split",
+    "c10gex15": "combined",
+    "c10jex3": "combined",
+    "c10jex10": "split",
+    "c10cbu1": "split",
+    "c10iex11": "combined",
+    "c10eex2": "split",
+    "c10gex2": "split",
+    "c10cex3": "split",
+    "c10dbu2": "split",
+    "c10dex12": "combined",
+    "c10jex2": "split",
+    "c10jex13ad": "combined",
+    "c10dbu3": "split"
   },
   "combinedBlocks": {
     "c10cbu1": {

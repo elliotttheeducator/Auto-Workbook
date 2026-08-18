@@ -478,7 +478,7 @@ function shortChapterLabel(text) {
 // applyPrintSelection in app.js) - never touches which chapters are
 // visible/editable on screen, only which physical sheets survive into
 // the printed/exported output.
-export function printSelectionBarHtml(workbook, selectedIds) {
+export function printSelectionBarHtml(workbook, selectedIds, teacherWorkthrough) {
   const { chapters } = buildFilterContext(workbook);
   if (chapters.length < 2) return "";
   const boxes = chapters
@@ -496,7 +496,24 @@ export function printSelectionBarHtml(workbook, selectedIds) {
     `<span class="tier-filter-label">Print selection</span>${boxes}` +
     `<button class="secondary" data-action="print-selection-all">All</button>` +
     `<button class="secondary" data-action="print-selection-none">None</button>` +
+    teacherWorkthroughToggleHtml(teacherWorkthrough) +
     `</div>`
+  );
+}
+
+// Off by default: a normal export/print shows every worked example's
+// real Solution column exactly as always. Checking this swaps every
+// Solution crop for a blank working-space box (see teacherExplanation
+// in add_chapter.py / the "workthrough" branch above) for this one
+// print/export - Explanation stays showing either way. Purely a print-
+// time class on <body> (see applyPrintSelection/toggleTeacherWorkthrough
+// in app.js), same as the chapter checkboxes above it - never changes
+// the on-screen editing view.
+function teacherWorkthroughToggleHtml(enabled) {
+  return (
+    `<label class="print-selection-item teacher-workthrough-toggle">` +
+    `<input type="checkbox" data-action="toggle-teacher-workthrough" ${enabled ? "checked" : ""}>` +
+    `Teacher workthrough (blank solutions)</label>`
   );
 }
 
@@ -1398,6 +1415,51 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         }
         const html = `<div class="side-image-row"><div class="side-image-text">${questionHtml.join("")}</div><div class="side-image-photo">${crop}${imgControls}</div></div>`;
         units.push({ html, heading: false, wsTargets, breakBefore: !!imgBlock.breakBefore });
+        return;
+      }
+      if (unit.kind === "workthrough") {
+        // A worked example's Solution/Explanation pair (see
+        // teacherExplanation in add_chapter.py) - both columns render
+        // normally here; the "teacher workthrough" print toggle (see
+        // applyPrintSelection in app.js) is a pure print-time CSS swap
+        // (.teacher-solution-crop/.teacher-solution-blank in app.css),
+        // not anything this render pass needs to know about - the blank
+        // box is always in the DOM, just hidden until print asks for it.
+        const solB = unit.solutionBlock;
+        const expB = unit.explanationBlock;
+        const solPct = solB.imageScale ?? defaultScales.combined;
+        const solCrop = cropHtml(cropsBaseUrl, solB.id, solB.contextImage, solB.widthMm, solPct, solB.manualCropSrc);
+        const blankWs = { style: solB.blankStyle || "grid", heightMm: solB.blankHeightMm || 20 };
+        const solControls = controlsHangHtml(
+          solB.id,
+          imageScaleControlHtml(solB.id, "block", solPct) + breakBeforeControlHtml(solB.id, "block", solB.breakBefore) + cropButtonHtml(solB.id, "block")
+        );
+        const expPct = expB.imageScale ?? defaultScales.combined;
+        const expCrop = cropHtml(cropsBaseUrl, expB.id, expB.contextImage, expB.widthMm, expPct, expB.manualCropSrc);
+        const expControls = controlsHangHtml(
+          expB.id,
+          imageScaleControlHtml(expB.id, "block", expPct) + breakBeforeControlHtml(expB.id, "block", expB.breakBefore) + cropButtonHtml(expB.id, "block")
+        );
+        const html =
+          `<div class="workthrough-row">` +
+          `<div class="workthrough-solution">` +
+          `<div class="teacher-solution-crop">${solCrop}</div>` +
+          `<div class="teacher-solution-blank">${workingSpaceHtml(blankWs)}</div>` +
+          `${solControls}</div>` +
+          `<div class="workthrough-explanation">${expCrop}${expControls}</div>` +
+          `</div>`;
+        const wsTargets = [
+          { kind: "block", id: solB.id, canShrink: canShrink(solB, solPct) },
+          { kind: "block", id: expB.id, canShrink: canShrink(expB, expPct) },
+        ];
+        // glueForward has to be read explicitly here (not left to fall
+        // through from some default) - a workthrough row is one atomic
+        // pagination unit, so whatever the source solution block asked
+        // for (glued into an example's own prompt-before/Now-you-try-
+        // after chain - see build_10*.py) has to survive being folded
+        // from two blocks into one unit here, the same as the group-stem
+        // auto-glue detection above already relies on for its own chain.
+        units.push({ html, heading: false, wsTargets, breakBefore: !!solB.breakBefore, glueForward: !!solB.glueForward });
         return;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";

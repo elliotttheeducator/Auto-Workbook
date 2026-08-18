@@ -137,6 +137,10 @@ let currentProjectId = null;
 // preference; this isn't even that - just today's print job). Reset
 // per project load in renderEditorView.
 let printSelection = null;
+// "Teacher workthrough" checkbox (see teacherWorkthroughToggleHtml in
+// render.js) - off by default, same session-only/print-only reasoning
+// as printSelection above: not a document edit, resets per project load.
+let teacherWorkthrough = false;
 // Group ids whose layout (split/combined) the user has explicitly picked
 // *this session* - see persistAndRerenderEditor for why saving only these
 // (not every group's current value) matters: workbook.json's own
@@ -358,22 +362,28 @@ function stepDefaultScale(mode, delta) {
 // the same two pieces by hand.
 function renderTopBars() {
   filterBarMount.innerHTML =
-    filterBarHtml(currentWorkbook, null) + defaultScaleBarHtml(currentWorkbook) + printSelectionBarHtml(currentWorkbook, printSelection);
+    filterBarHtml(currentWorkbook, null) +
+    defaultScaleBarHtml(currentWorkbook) +
+    printSelectionBarHtml(currentWorkbook, printSelection, teacherWorkthrough);
 }
 
-// Applies the current print-selection choice to whatever's actually in
-// #app right now: toggles which physical pages carry .print-excluded
-// (see that rule in app.css, print-only) and fills in the cover's own
-// note (see cover-print-note in render.js) with which chapters are
-// missing, if any. Cheap DOM-only work, never a re-render - called
-// after every fresh render (the pages are new elements then) and again
-// on its own after every checkbox click (the pages are unchanged, only
-// which ones are marked excluded needs to move).
+// Applies the current print-selection/teacher-workthrough choices to
+// whatever's actually in #app (and <body>) right now: toggles which
+// physical pages carry .print-excluded (see that rule in app.css,
+// print-only), fills in the cover's own note (see cover-print-note in
+// render.js) with which chapters are missing, if any, and toggles the
+// body-level class the "blank solutions" checkbox drives (see
+// .teacher-solution-crop/.teacher-solution-blank in app.css, also
+// print-only). Cheap DOM-only work, never a re-render - called after
+// every fresh render (the pages are new elements then) and again on its
+// own after every checkbox click (the pages are unchanged, only which
+// ones are marked excluded/blanked needs to move).
 function applyPrintSelection() {
   for (const el of appEl.querySelectorAll(".page[data-chapter]")) {
     const included = !printSelection || printSelection.has(el.dataset.chapter);
     el.classList.toggle("print-excluded", !included);
   }
+  document.body.classList.toggle("teacher-workthrough", teacherWorkthrough);
   const note = appEl.querySelector(".cover-print-note");
   if (!note) return;
   const { chapters } = buildFilterContext(currentWorkbook);
@@ -572,6 +582,7 @@ async function renderEditorView(id) {
   touchedGroupLayoutIds = new Set();
   expandedControlIds = new Set();
   printSelection = null;
+  teacherWorkthrough = false;
 
   topbarActions.innerHTML =
     '<a href="#/" class="secondary">Home</a> ' +
@@ -878,6 +889,11 @@ function handleControlClick(e) {
   if (action === "print-selection-none") {
     printSelection = new Set();
     renderTopBars();
+    applyPrintSelection();
+    return;
+  }
+  if (action === "toggle-teacher-workthrough") {
+    teacherWorkthrough = el.checked;
     applyPrintSelection();
     return;
   }

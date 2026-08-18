@@ -136,6 +136,21 @@ this image, in that order - iterRenderUnits() in model.js only forms
 the side-by-side layout on that exact match, so it never silently
 grabs an unrelated block. Only meaningful for standalone questions
 (no letter suffix); not additive with contextImageId.
+
+An "image" block can also carry "teacherExplanation": "<id>" - for a
+worked example's own Solution column, paired with its Explanation
+column (the block immediately following it, same exact-match rule as
+besideQuestions above). Renders as an ordinary two-column row normally;
+the "teacher workthrough" print toggle (see printSelectionBarHtml/
+applyPrintSelection - the checkbox sits next to it) swaps the Solution
+crop for a blank working-space box at print time only, leaving the
+Explanation column showing as always, so a teacher can redo the actual
+working live in class instead of just reading the book's own answer
+off the page. "blankHeightMm"/"blankStyle" (default 20mm/grid) size
+that blank box - independent of the Explanation column's own height,
+since a one-line solution and a five-line one need different amounts
+of room to redo by hand regardless of how much explanation prose sits
+next to either.
 """
 from __future__ import annotations
 
@@ -355,6 +370,21 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                 # following this one, in order.
                 if p.get("besideQuestions"):
                     image_block["besideQuestions"] = list(p["besideQuestions"])
+                # A worked example's own Solution column, paired with its
+                # Explanation column (the id of the block immediately
+                # following it) for the "teacher workthrough" print toggle -
+                # see the module docstring, and teacherExplanation handling
+                # in iterRenderUnits() (model.js). blankHeightMm/blankStyle
+                # size the blank working-space box that swaps in for this
+                # crop at print time (see the "workthrough" branch in
+                # render.js) - independent of the Explanation column's own
+                # height, since a one-line solution and a five-line one need
+                # different amounts of room to redo by hand regardless of
+                # how much explanation prose sits next to either.
+                if p.get("teacherExplanation"):
+                    image_block["teacherExplanation"] = p["teacherExplanation"]
+                    image_block["blankHeightMm"] = p.get("blankHeightMm", 20)
+                    image_block["blankStyle"] = p.get("blankStyle", "grid")
                 if default_crop_rect:
                     image_block["defaultCropRect"] = default_crop_rect
                 blocks.append(image_block)

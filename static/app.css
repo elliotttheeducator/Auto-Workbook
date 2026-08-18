@@ -372,6 +372,22 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    a no-op for page-left and the actual fix for page-right. */
 .side-image-text .block.question { position: static; }
 
+/* A worked example's Solution/Explanation pair (see teacherExplanation
+   in add_chapter.py) - same inline-block two-column mechanics as
+   .side-image-row above, proportioned to roughly match the source
+   book's own Solution/Explanation table (Solution is usually just a
+   short answer; Explanation carries the prose + any diagram, so it
+   gets the wider half). .teacher-solution-blank is the print-only
+   stand-in for the Solution crop (see the @media print block below,
+   and applyPrintSelection in app.js which flips the body-level class
+   that switches between them) - always in the DOM, just hidden on
+   screen and by default in print too, so a normal export is completely
+   unaffected unless the teacher-workthrough checkbox is actually on. */
+.workthrough-row { font-size: 0; position: relative; }
+.workthrough-solution { display: inline-block; vertical-align: top; width: calc(40% - 4mm); font-size: 1rem; position: static; }
+.workthrough-explanation { display: inline-block; vertical-align: top; width: calc(60% - 4mm); margin-left: 8mm; font-size: 1rem; position: static; }
+.teacher-solution-blank { display: none; }
+
 /* A split group's layout/delete/restore controls, sitting inline above
    its first row (unlike everything else - see .controls-hang below -
    there's no per-group hanging panel to fold this into in split view,
@@ -554,6 +570,14 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
      itself, only from what actually reaches the printer/PDF. The cover
      has no data-chapter (see renderEditor) so it's never affected. */
   .page.print-excluded { display: none !important; }
+  /* "Teacher workthrough" checkbox (see printSelectionBarHtml/
+     applyPrintSelection) - off by default, so a normal export shows
+     every worked example's actual Solution column exactly as always;
+     switching it on for this one print/export swaps every Solution
+     crop for a blank working-space box instead, leaving Explanation
+     showing untouched, so the teacher can redo the working live. */
+  body.teacher-workthrough .teacher-solution-crop { display: none !important; }
+  body.teacher-workthrough .teacher-solution-blank { display: block !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }
   .page {
     /* min-height carries over from the base rule - it's already exactly

@@ -247,6 +247,20 @@ export function iterRenderUnits(blocks) {
         continue;
       }
     }
+    // A worked example's Solution column paired with its Explanation
+    // column right after it (see teacherExplanation in add_chapter.py) -
+    // same exact-match discipline as besideQuestions above, so a
+    // Solution crop with no matching Explanation right behind it just
+    // falls through to rendering as a plain image instead of silently
+    // being treated as one half of a pair that doesn't exist.
+    if (b.type === "image" && b.teacherExplanation) {
+      const next = blocks[i + 1];
+      if (next && next.type === "image" && next.id === b.teacherExplanation) {
+        units.push({ kind: "workthrough", solutionBlock: b, explanationBlock: next });
+        i += 2;
+        continue;
+      }
+    }
     if (b.type !== "question") {
       units.push({ kind: "single", blocks: [b] });
       i++;
