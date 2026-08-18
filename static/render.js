@@ -1418,15 +1418,26 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         return;
       }
       if (unit.kind === "workthrough") {
-        // A worked example's Solution/Explanation pair (see
-        // teacherExplanation in add_chapter.py) - both columns render
-        // normally here; the "teacher workthrough" print toggle (see
-        // applyPrintSelection in app.js) is a pure print-time CSS swap
-        // (.teacher-solution-crop/.teacher-solution-blank in app.css),
-        // not anything this render pass needs to know about - the blank
-        // box is always in the DOM, just hidden until print asks for it.
+        // A worked example's ordinary Solution+Explanation image (see
+        // teacherSolutionId in add_chapter.py) plus the Solution
+        // (blankable)/Explanation pair it stands in front of - all three
+        // always render, unconditionally; which one actually shows is a
+        // pure print-only CSS toggle (.workthrough-combined/
+        // .workthrough-split, .teacher-solution-crop/-blank in app.css),
+        // never anything this render pass has to decide. Combined is
+        // what's visible by default (on screen always, and in a plain
+        // print/export) - the split pair only appears when the "teacher
+        // workthrough" checkbox (see applyPrintSelection in app.js) is
+        // on AND this is actually printing.
+        const combB = unit.combinedBlock;
         const solB = unit.solutionBlock;
         const expB = unit.explanationBlock;
+        const combPct = combB.imageScale ?? defaultScales.combined;
+        const combCrop = cropHtml(cropsBaseUrl, combB.id, combB.contextImage, combB.widthMm, combPct, combB.manualCropSrc);
+        const combControls = controlsHangHtml(
+          combB.id,
+          imageScaleControlHtml(combB.id, "block", combPct) + breakBeforeControlHtml(combB.id, "block", combB.breakBefore) + cropButtonHtml(combB.id, "block")
+        );
         const solPct = solB.imageScale ?? defaultScales.combined;
         const solCrop = cropHtml(cropsBaseUrl, solB.id, solB.contextImage, solB.widthMm, solPct, solB.manualCropSrc);
         const blankWs = { style: solB.blankStyle || "grid", heightMm: solB.blankHeightMm || 20 };
@@ -1441,25 +1452,30 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           imageScaleControlHtml(expB.id, "block", expPct) + breakBeforeControlHtml(expB.id, "block", expB.breakBefore) + cropButtonHtml(expB.id, "block")
         );
         const html =
-          `<div class="workthrough-row">` +
+          `<div class="workthrough-unit">` +
+          `<div class="workthrough-combined">${combCrop}${combControls}</div>` +
+          `<div class="workthrough-split"><div class="workthrough-row">` +
           `<div class="workthrough-solution">` +
           `<div class="teacher-solution-crop">${solCrop}</div>` +
           `<div class="teacher-solution-blank">${workingSpaceHtml(blankWs)}</div>` +
           `${solControls}</div>` +
           `<div class="workthrough-explanation">${expCrop}${expControls}</div>` +
+          `</div></div>` +
           `</div>`;
         const wsTargets = [
+          { kind: "block", id: combB.id, canShrink: canShrink(combB, combPct) },
           { kind: "block", id: solB.id, canShrink: canShrink(solB, solPct) },
           { kind: "block", id: expB.id, canShrink: canShrink(expB, expPct) },
         ];
         // glueForward has to be read explicitly here (not left to fall
-        // through from some default) - a workthrough row is one atomic
-        // pagination unit, so whatever the source solution block asked
+        // through from some default) - a workthrough unit is one atomic
+        // pagination unit, so whatever the source combined block asked
         // for (glued into an example's own prompt-before/Now-you-try-
         // after chain - see build_10*.py) has to survive being folded
-        // from two blocks into one unit here, the same as the group-stem
-        // auto-glue detection above already relies on for its own chain.
-        units.push({ html, heading: false, wsTargets, breakBefore: !!solB.breakBefore, glueForward: !!solB.glueForward });
+        // from three blocks into one unit here, the same as the group-
+        // stem auto-glue detection above already relies on for its own
+        // chain.
+        units.push({ html, heading: false, wsTargets, breakBefore: !!combB.breakBefore, glueForward: !!combB.glueForward });
         return;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";

@@ -140,17 +140,26 @@ grabs an unrelated block. Only meaningful for standalone questions
 An "image" block can also carry "teacherExplanation": "<id>" - for a
 worked example's own Solution column, paired with its Explanation
 column (the block immediately following it, same exact-match rule as
-besideQuestions above). Renders as an ordinary two-column row normally;
-the "teacher workthrough" print toggle (see printSelectionBarHtml/
-applyPrintSelection - the checkbox sits next to it) swaps the Solution
-crop for a blank working-space box at print time only, leaving the
-Explanation column showing as always, so a teacher can redo the actual
-working live in class instead of just reading the book's own answer
-off the page. "blankHeightMm"/"blankStyle" (default 20mm/grid) size
-that blank box - independent of the Explanation column's own height,
-since a one-line solution and a five-line one need different amounts
-of room to redo by hand regardless of how much explanation prose sits
-next to either.
+besideQuestions above). "blankHeightMm"/"blankStyle" (default 20mm/
+grid) size the blank working-space box that stands in for the Solution
+crop when the "teacher workthrough" print toggle is on (see
+printSelectionBarHtml/applyPrintSelection - the checkbox sits next to
+it) - independent of the Explanation column's own height, since a
+one-line solution and a five-line one need different amounts of room
+to redo by hand regardless of how much explanation prose sits next to
+either.
+
+That Solution/Explanation pair only actually shows on its own when
+teacher workthrough is on, though. Normally - on screen always, and in
+a plain print/export - the block immediately *before* the Solution
+crop is what shows instead: a third, ordinary image carrying
+"teacherSolutionId": "<id-of-the-solution-block>", cropped as one
+seamless Solution+Explanation image exactly like every other worked
+example in the book (no visible seam between the two crops the way
+abutting them separately would have - see the teacherSolutionId
+handling in iterRenderUnits(), model.js, for how the three blocks -
+this one, the Solution, the Explanation - are tied together into one
+render unit that swaps between the two views at print time only).
 """
 from __future__ import annotations
 
@@ -385,6 +394,18 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                     image_block["teacherExplanation"] = p["teacherExplanation"]
                     image_block["blankHeightMm"] = p.get("blankHeightMm", 20)
                     image_block["blankStyle"] = p.get("blankStyle", "grid")
+                # The same worked example's ordinary, uncropped Solution+
+                # Explanation image (one seamless crop, same as every other
+                # example in the book) - what actually shows normally, on
+                # screen and in a plain print/export alike. "id" is the
+                # Solution block immediately following this one (which
+                # itself points at its own Explanation via
+                # teacherExplanation above) - see teacherSolutionId
+                # handling in iterRenderUnits() (model.js). Only the
+                # "teacher workthrough" print toggle ever swaps this out
+                # for the split Solution/Explanation pair.
+                if p.get("teacherSolutionId"):
+                    image_block["teacherSolutionId"] = p["teacherSolutionId"]
                 if default_crop_rect:
                     image_block["defaultCropRect"] = default_crop_rect
                 blocks.append(image_block)

@@ -372,17 +372,24 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    a no-op for page-left and the actual fix for page-right. */
 .side-image-text .block.question { position: static; }
 
-/* A worked example's Solution/Explanation pair (see teacherExplanation
-   in add_chapter.py) - same inline-block two-column mechanics as
-   .side-image-row above, proportioned to roughly match the source
-   book's own Solution/Explanation table (Solution is usually just a
-   short answer; Explanation carries the prose + any diagram, so it
-   gets the wider half). .teacher-solution-blank is the print-only
-   stand-in for the Solution crop (see the @media print block below,
-   and applyPrintSelection in app.js which flips the body-level class
-   that switches between them) - always in the DOM, just hidden on
-   screen and by default in print too, so a normal export is completely
-   unaffected unless the teacher-workthrough checkbox is actually on. */
+/* A worked example's ordinary Solution+Explanation image (see
+   teacherSolutionId in add_chapter.py) plus the Solution/Explanation
+   crop pair it fronts for - .workthrough-combined is what actually
+   shows, on screen always and in a plain print/export too, so a normal
+   export looks exactly like it always has (one seamless crop, same as
+   every other worked example - no visible seam between two separately-
+   cropped halves the split view can't avoid). .workthrough-split only
+   ever appears under the @media print rule below, and only when the
+   teacher-workthrough checkbox is actually on - see applyPrintSelection
+   in app.js, which flips the body-level class that switches between
+   them. Same inline-block two-column mechanics as .side-image-row
+   above once the split *is* showing, proportioned to roughly match the
+   source book's own Solution/Explanation table (Solution is usually
+   just a short answer; Explanation carries the prose + any diagram, so
+   it gets the wider half). .teacher-solution-blank is the further
+   print-only stand-in for the Solution crop specifically, within that
+   split view - always in the DOM, just hidden until print asks for it. */
+.workthrough-split { display: none; }
 .workthrough-row { font-size: 0; position: relative; }
 .workthrough-solution { display: inline-block; vertical-align: top; width: calc(40% - 4mm); font-size: 1rem; position: static; }
 .workthrough-explanation { display: inline-block; vertical-align: top; width: calc(60% - 4mm); margin-left: 8mm; font-size: 1rem; position: static; }
@@ -572,10 +579,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   .page.print-excluded { display: none !important; }
   /* "Teacher workthrough" checkbox (see printSelectionBarHtml/
      applyPrintSelection) - off by default, so a normal export shows
-     every worked example's actual Solution column exactly as always;
-     switching it on for this one print/export swaps every Solution
-     crop for a blank working-space box instead, leaving Explanation
-     showing untouched, so the teacher can redo the working live. */
+     every worked example's ordinary seamless Solution+Explanation crop
+     exactly as always; switching it on for this one print/export swaps
+     that for the split Solution (blanked)/Explanation pair instead, so
+     the teacher can redo the actual working live. */
+  body.teacher-workthrough .workthrough-combined { display: none !important; }
+  body.teacher-workthrough .workthrough-split { display: block !important; }
   body.teacher-workthrough .teacher-solution-crop { display: none !important; }
   body.teacher-workthrough .teacher-solution-blank { display: block !important; }
   .spread { display: block; margin: 0; width: auto; max-width: none; }

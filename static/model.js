@@ -247,17 +247,24 @@ export function iterRenderUnits(blocks) {
         continue;
       }
     }
-    // A worked example's Solution column paired with its Explanation
-    // column right after it (see teacherExplanation in add_chapter.py) -
+    // A worked example's ordinary, seamless Solution+Explanation image
+    // (see teacherSolutionId in add_chapter.py), immediately followed by
+    // the Solution/Explanation crop pair it stands in front of normally -
     // same exact-match discipline as besideQuestions above, so a
-    // Solution crop with no matching Explanation right behind it just
-    // falls through to rendering as a plain image instead of silently
-    // being treated as one half of a pair that doesn't exist.
-    if (b.type === "image" && b.teacherExplanation) {
-      const next = blocks[i + 1];
-      if (next && next.type === "image" && next.id === b.teacherExplanation) {
-        units.push({ kind: "workthrough", solutionBlock: b, explanationBlock: next });
-        i += 2;
+    // combined image with no matching pair right behind it just falls
+    // through to rendering as a plain image instead of silently being
+    // treated as the front of a trio that doesn't exist. The combined
+    // image is what actually shows, on screen and in a plain print/
+    // export alike; only the "teacher workthrough" print toggle ever
+    // swaps it out for the Solution (blanked)/Explanation pair - see the
+    // "workthrough" branch in render.js, which renders all three
+    // unconditionally and leaves the swap to a print-only CSS rule.
+    if (b.type === "image" && b.teacherSolutionId) {
+      const sol = blocks[i + 1];
+      const expl = sol && sol.type === "image" && sol.teacherExplanation ? blocks[i + 2] : null;
+      if (sol && sol.type === "image" && sol.id === b.teacherSolutionId && expl && expl.type === "image" && expl.id === sol.teacherExplanation) {
+        units.push({ kind: "workthrough", combinedBlock: b, solutionBlock: sol, explanationBlock: expl });
+        i += 3;
         continue;
       }
     }
