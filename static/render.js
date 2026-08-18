@@ -762,14 +762,27 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
         `style="width:${((f.wMm * figPct) / 100).toFixed(1)}mm" alt="">`
     )
     .join("");
-  const figCol = figs ? `<div class="flowq-figs">${figs}</div>` : "";
+  // One figure sits beside the text (a photo alongside a short
+  // question, as the book prints it); several go in a wrapping row
+  // below it. Stacking a set of four diagrams down a narrow side
+  // column is what the source never does and what makes them run a
+  // whole page tall - across is both denser and closer to the original.
+  const many = (b.figures || []).length > 1;
+  const figBlock = figs ? `<div class="flowq-figs${many ? " flowq-figs-row" : ""}">${figs}</div>` : "";
   return (
     `<div class="flowq-row">` +
     `<div class="flowq-num">${escapeHtml(b.number || "")}</div>` +
-    `<div class="flowq-body">${stem}${parts}${workingSpaceHtml(ws)}</div>` +
-    figCol +
+    `<div class="flowq-body">${stem}${parts}${many ? figBlock : ""}${workingSpaceHtml(ws)}</div>` +
+    (many ? "" : figBlock) +
     `</div>`
   );
+}
+
+// Alignment hint carried from build time (content_kind in
+// add_chapter.py) - see the .block-crop rules in app.css. Absent means
+// text, the common case.
+function kindAttr(b) {
+  return b && b.contentKind === "diagram" ? ' data-kind="diagram"' : "";
 }
 
 function ruleLinesHtml(height, spacing) {
@@ -1051,7 +1064,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   const partHtml = (b, isOnly) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? splitPct, b.manualCropSrc);
     const cls = isOnly ? "block question split-only" : "block question";
-    return `<div class="${cls}">${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
+    return `<div class="${cls}"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
   };
 
   const units = [];
@@ -1414,7 +1427,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // add_chapter.py) - reused here as Auto-fit's other
           // section-compaction marker, rather than a second flag meaning
           // the same thing.
-          const html = `<div class="block"${b.glueForward ? ' data-glue-example="true"' : ""}>${crop}${hangingControls}</div>`;
+          const html = `<div class="block"${kindAttr(b)}${b.glueForward ? ' data-glue-example="true"' : ""}>${crop}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
@@ -1452,7 +1465,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           const pct = b.imageScale ?? defaultScales.combined;
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
           const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
-          const html = `<div class="block question">${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
+          const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,

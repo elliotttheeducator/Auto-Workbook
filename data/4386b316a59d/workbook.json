@@ -2,14 +2,15 @@
   "id": "4386b316a59d",
   "title": "Year 7 - Chapter 10: Measurement (10C-10J)",
   "sourcePdfName": "3503bcf7-EMAC7_4ed_Ch10.pdf",
-  "buildVersion": "bf5f8df5",
+  "buildVersion": "901f5845",
   "pages": [
     {
       "id": "page0",
       "blocks": [
         {
           "type": "image",
-          "id": "cover"
+          "id": "cover",
+          "contentKind": "diagram"
         }
       ],
       "cover": true
@@ -53,7 +54,8 @@
             "y": 0.97,
             "w": 95.07,
             "h": 99.03
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -69,7 +71,8 @@
             "y": 0.56,
             "w": 95.0,
             "h": 98.52
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -90,7 +93,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -200,7 +204,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -262,7 +267,8 @@
             "y": 1.67,
             "w": 97.39,
             "h": 98.33
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -280,7 +286,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -307,7 +314,8 @@
             "y": 0.0,
             "w": 95.18,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "heading",
@@ -344,7 +352,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -357,7 +366,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 68.34
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -372,7 +382,8 @@
             "y": 0.0,
             "w": 95.68,
             "h": 68.34
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -402,7 +413,8 @@
             "y": 1.25,
             "w": 95.0,
             "h": 98.75
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -449,7 +461,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -581,7 +594,8 @@
             "y": 0.0,
             "w": 87.19,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -596,7 +610,8 @@
             "y": 0.0,
             "w": 69.93,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -611,7 +626,8 @@
             "y": 0.52,
             "w": 87.37,
             "h": 99.48
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -626,7 +642,8 @@
             "y": 0.0,
             "w": 69.98,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -656,7 +673,8 @@
             "y": 0.0,
             "w": 87.37,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -671,7 +689,8 @@
             "y": 0.0,
             "w": 69.82,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -686,7 +705,8 @@
             "y": 0.41,
             "w": 87.19,
             "h": 79.09
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -701,7 +721,8 @@
             "y": 0.0,
             "w": 69.98,
             "h": 79.5
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -731,7 +752,8 @@
             "y": 0.0,
             "w": 87.37,
             "h": 99.76
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -746,7 +768,8 @@
             "y": 0.0,
             "w": 69.82,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -761,7 +784,8 @@
             "y": 0.44,
             "w": 87.37,
             "h": 98.69
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -776,7 +800,8 @@
             "y": 0.0,
             "w": 69.82,
             "h": 99.13
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1136,7 +1161,8 @@
             "y": 3.3,
             "w": 95.07,
             "h": 94.74
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1147,7 +1173,8 @@
             "y": 0.15,
             "w": 95.0,
             "h": 89.33
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1163,7 +1190,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 96.32
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1184,7 +1212,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1199,7 +1228,8 @@
             "y": 0.0,
             "w": 44.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1214,7 +1244,8 @@
             "y": 0.0,
             "w": 89.78,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1244,7 +1275,8 @@
             "y": 0.0,
             "w": 58.49,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1259,7 +1291,8 @@
             "y": 0.0,
             "w": 54.07,
             "h": 79.11
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1274,7 +1307,8 @@
             "y": 0.0,
             "w": 78.82,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1289,7 +1323,8 @@
             "y": 0.0,
             "w": 92.69,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1304,7 +1339,8 @@
             "y": 11.85,
             "w": 69.63,
             "h": 88.15
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1319,7 +1355,8 @@
             "y": 0.0,
             "w": 79.02,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1349,7 +1386,8 @@
             "y": 0.0,
             "w": 72.71,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1364,7 +1402,8 @@
             "y": 0.0,
             "w": 82.37,
             "h": 71.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1379,7 +1418,8 @@
             "y": 0.0,
             "w": 92.18,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1396,7 +1436,8 @@
             "y": 0.51,
             "w": 97.39,
             "h": 99.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1409,7 +1450,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1424,7 +1466,8 @@
             "y": 0.0,
             "w": 95.28,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1461,7 +1504,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 90.59
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1478,7 +1522,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1491,7 +1536,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 94.53
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1506,7 +1552,8 @@
             "y": 0.0,
             "w": 95.28,
             "h": 94.53
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1543,7 +1590,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 94.17
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1560,7 +1608,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1573,7 +1622,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -1625,7 +1675,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 47.62
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1667,7 +1718,8 @@
             "y": 0.0,
             "w": 77.98,
             "h": 91.42
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1682,7 +1734,8 @@
             "y": 0.0,
             "w": 63.01,
             "h": 87.98
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1697,7 +1750,8 @@
             "y": 0.51,
             "w": 81.74,
             "h": 59.34
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1712,7 +1766,8 @@
             "y": 0.0,
             "w": 69.36,
             "h": 92.84
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1727,7 +1782,8 @@
             "y": 0.53,
             "w": 87.13,
             "h": 98.42
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1742,7 +1798,8 @@
             "y": 0.0,
             "w": 67.56,
             "h": 88.65
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1772,7 +1829,8 @@
             "y": 0.0,
             "w": 78.75,
             "h": 96.89
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1787,7 +1845,8 @@
             "y": 0.0,
             "w": 55.28,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1802,7 +1861,8 @@
             "y": 0.46,
             "w": 83.2,
             "h": 66.67
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1817,7 +1877,8 @@
             "y": 0.0,
             "w": 68.89,
             "h": 66.21
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1847,7 +1908,8 @@
             "y": 0.0,
             "w": 81.21,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1862,7 +1924,8 @@
             "y": 0.0,
             "w": 59.47,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1877,7 +1940,8 @@
             "y": 0.74,
             "w": 88.15,
             "h": 98.15
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1892,7 +1956,8 @@
             "y": 0.0,
             "w": 65.85,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -1922,7 +1987,8 @@
             "y": 0.0,
             "w": 78.4,
             "h": 85.77
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1937,7 +2003,8 @@
             "y": 0.0,
             "w": 65.2,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1952,7 +2019,8 @@
             "y": 0.78,
             "w": 82.18,
             "h": 91.09
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -1967,7 +2035,8 @@
             "y": 0.0,
             "w": 62.83,
             "h": 84.88
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2004,7 +2073,8 @@
             "y": 0.0,
             "w": 86.5,
             "h": 74.13
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2019,7 +2089,8 @@
             "y": 0.0,
             "w": 74.27,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2034,7 +2105,8 @@
             "y": 0.0,
             "w": 59.65,
             "h": 74.13
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2049,7 +2121,8 @@
             "y": 0.0,
             "w": 85.41,
             "h": 56.74
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2064,7 +2137,8 @@
             "y": 0.56,
             "w": 82.92,
             "h": 82.3
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2079,7 +2153,8 @@
             "y": 0.0,
             "w": 62.0,
             "h": 99.44
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2129,7 +2204,8 @@
             "y": 0.0,
             "w": 80.88,
             "h": 68.75
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2144,7 +2220,8 @@
             "y": 0.0,
             "w": 79.41,
             "h": 97.7
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2159,7 +2236,8 @@
             "y": 0.0,
             "w": 69.51,
             "h": 82.89
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2189,7 +2267,8 @@
             "y": 0.0,
             "w": 82.67,
             "h": 93.21
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2204,7 +2283,8 @@
             "y": 0.0,
             "w": 83.11,
             "h": 78.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2219,7 +2299,8 @@
             "y": 0.0,
             "w": 72.49,
             "h": 67.17
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2246,7 +2327,8 @@
             "y": 0.78,
             "w": 91.16,
             "h": 99.22
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2266,7 +2348,8 @@
             "y": 2.3,
             "w": 57.75,
             "h": 97.7
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2311,7 +2394,8 @@
             "y": 0.0,
             "w": 84.1,
             "h": 82.92
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2326,7 +2410,8 @@
             "y": 0.0,
             "w": 72.19,
             "h": 96.09
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2348,7 +2433,8 @@
             "y": 1.03,
             "w": 71.23,
             "h": 93.85
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2378,7 +2464,8 @@
             "y": 0.0,
             "w": 85.65,
             "h": 74.87
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2393,7 +2480,8 @@
             "y": 0.0,
             "w": 60.09,
             "h": 92.51
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2477,7 +2565,8 @@
             "y": 0.0,
             "w": 96.88,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -2499,7 +2588,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 96.43
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2515,7 +2605,8 @@
             "y": 0.0,
             "w": 95.29,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2541,7 +2632,8 @@
             "y": 0.0,
             "w": 97.11,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2561,7 +2653,8 @@
             "y": 0.0,
             "w": 97.11,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2638,7 +2731,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2656,7 +2750,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -2683,7 +2778,8 @@
             "y": 0.0,
             "w": 94.74,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2708,7 +2804,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2725,7 +2822,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2743,7 +2841,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -2795,7 +2894,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2837,7 +2937,8 @@
             "y": 0.0,
             "w": 54.78,
             "h": 92.76
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2852,7 +2953,8 @@
             "y": 0.0,
             "w": 57.12,
             "h": 92.76
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2882,7 +2984,8 @@
             "y": 0.0,
             "w": 54.78,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2897,7 +3000,8 @@
             "y": 0.0,
             "w": 68.79,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2912,7 +3016,8 @@
             "y": 0.0,
             "w": 65.8,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2927,7 +3032,8 @@
             "y": 0.0,
             "w": 68.94,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -2957,7 +3063,8 @@
             "y": 0.0,
             "w": 89.62,
             "h": 64.98
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2972,7 +3079,8 @@
             "y": 0.0,
             "w": 90.2,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -2987,7 +3095,8 @@
             "y": 0.0,
             "w": 84.01,
             "h": 89.27
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3002,7 +3111,8 @@
             "y": 0.0,
             "w": 82.27,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3017,7 +3127,8 @@
             "y": 0.0,
             "w": 81.92,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3032,7 +3143,8 @@
             "y": 0.0,
             "w": 63.33,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3047,7 +3159,8 @@
             "y": 1.39,
             "w": 88.77,
             "h": 70.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3062,7 +3175,8 @@
             "y": 0.0,
             "w": 91.23,
             "h": 65.97
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3077,7 +3191,8 @@
             "y": 0.0,
             "w": 65.25,
             "h": 88.19
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3216,7 +3331,8 @@
             "y": 0.0,
             "w": 94.44,
             "h": 98.19
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3338,7 +3454,8 @@
             "y": 3.73,
             "w": 94.44,
             "h": 95.83
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3415,7 +3532,8 @@
             "y": 1.96,
             "w": 81.59,
             "h": 98.04
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3450,7 +3568,8 @@
             "y": 1.15,
             "w": 95.07,
             "h": 80.46
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3505,7 +3624,8 @@
             "y": 1.2,
             "w": 90.32,
             "h": 98.8
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3552,7 +3672,8 @@
             "y": 2.05,
             "w": 95.0,
             "h": 97.95
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3656,7 +3777,8 @@
             "y": 0.0,
             "w": 95.72,
             "h": 97.04
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -3667,7 +3789,8 @@
             "y": 3.1,
             "w": 95.07,
             "h": 96.43
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3683,7 +3806,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3704,7 +3828,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3779,7 +3904,8 @@
             "y": 0.0,
             "w": 83.47,
             "h": 70.09
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3794,7 +3920,8 @@
             "y": 0.0,
             "w": 82.6,
             "h": 84.19
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3809,7 +3936,8 @@
             "y": 0.0,
             "w": 85.9,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3824,7 +3952,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 96.78
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3839,7 +3968,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 96.78
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3854,7 +3984,8 @@
             "y": 0.0,
             "w": 92.74,
             "h": 96.78
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3871,7 +4002,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3889,7 +4021,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -3941,7 +4074,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 96.26
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -3983,7 +4117,8 @@
             "y": 0.0,
             "w": 85.81,
             "h": 60.36
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -3998,7 +4133,8 @@
             "y": 0.0,
             "w": 60.86,
             "h": 71.64
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4028,7 +4164,8 @@
             "y": 0.0,
             "w": 83.73,
             "h": 68.8
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4043,7 +4180,8 @@
             "y": 0.0,
             "w": 61.52,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4058,7 +4196,8 @@
             "y": 0.86,
             "w": 85.91,
             "h": 99.14
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4073,7 +4212,8 @@
             "y": 0.0,
             "w": 66.17,
             "h": 83.62
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4103,7 +4243,8 @@
             "y": 0.0,
             "w": 83.91,
             "h": 71.57
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4118,7 +4259,8 @@
             "y": 0.0,
             "w": 63.6,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4148,7 +4290,8 @@
             "y": 0.0,
             "w": 86.88,
             "h": 53.12
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4163,7 +4306,8 @@
             "y": 0.0,
             "w": 65.06,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4178,7 +4322,8 @@
             "y": 1.09,
             "w": 86.44,
             "h": 98.91
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4193,7 +4338,8 @@
             "y": 0.0,
             "w": 69.26,
             "h": 76.64
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4223,7 +4369,8 @@
             "y": 0.0,
             "w": 67.78,
             "h": 70.82
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4238,7 +4385,8 @@
             "y": 0.0,
             "w": 73.33,
             "h": 71.17
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4253,7 +4401,8 @@
             "y": 0.0,
             "w": 98.33,
             "h": 86.48
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4268,7 +4417,8 @@
             "y": 0.0,
             "w": 67.67,
             "h": 86.12
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4455,7 +4605,8 @@
             "y": 2.06,
             "w": 95.0,
             "h": 97.12
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4482,7 +4633,8 @@
             "y": 1.2,
             "w": 75.8,
             "h": 95.98
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4502,7 +4654,8 @@
             "y": 1.18,
             "w": 95.0,
             "h": 98.82
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4522,7 +4675,8 @@
             "y": 1.09,
             "w": 95.0,
             "h": 96.74
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4549,7 +4703,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 97.37
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4608,7 +4763,8 @@
             "y": 1.47,
             "w": 96.77,
             "h": 98.53
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -4619,7 +4775,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4640,7 +4797,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4655,7 +4813,8 @@
             "y": 0.0,
             "w": 86.17,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4670,7 +4829,8 @@
             "y": 0.0,
             "w": 67.62,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4685,7 +4845,8 @@
             "y": 2.07,
             "w": 84.77,
             "h": 96.89
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4700,7 +4861,8 @@
             "y": 0.0,
             "w": 66.04,
             "h": 94.82
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4730,7 +4892,8 @@
             "y": 0.0,
             "w": 85.97,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4745,7 +4908,8 @@
             "y": 0.0,
             "w": 67.15,
             "h": 91.53
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4760,7 +4924,8 @@
             "y": 2.3,
             "w": 86.75,
             "h": 97.7
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4775,7 +4940,8 @@
             "y": 0.0,
             "w": 67.39,
             "h": 90.78
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4852,7 +5018,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4870,7 +5037,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -4885,7 +5053,8 @@
             "y": 0.0,
             "w": 95.26,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -4922,7 +5091,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -4964,7 +5134,8 @@
             "y": 0.0,
             "w": 85.58,
             "h": 97.07
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -4979,7 +5150,8 @@
             "y": 0.0,
             "w": 73.65,
             "h": 97.49
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5009,7 +5181,8 @@
             "y": 0.0,
             "w": 86.43,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5024,7 +5197,8 @@
             "y": 0.0,
             "w": 86.43,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5039,7 +5213,8 @@
             "y": 0.0,
             "w": 67.94,
             "h": 92.12
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5054,7 +5229,8 @@
             "y": 0.0,
             "w": 86.72,
             "h": 68.85
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5069,7 +5245,8 @@
             "y": 0.98,
             "w": 78.32,
             "h": 94.43
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5084,7 +5261,8 @@
             "y": 0.0,
             "w": 77.71,
             "h": 47.54
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5114,7 +5292,8 @@
             "y": 0.85,
             "w": 86.49,
             "h": 42.78
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5129,7 +5308,8 @@
             "y": 0.0,
             "w": 65.07,
             "h": 79.32
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5159,7 +5339,8 @@
             "y": 0.0,
             "w": 87.05,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5174,7 +5355,8 @@
             "y": 0.0,
             "w": 68.84,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5189,7 +5371,8 @@
             "y": 1.2,
             "w": 87.6,
             "h": 74.3
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5204,7 +5387,8 @@
             "y": 0.0,
             "w": 61.11,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5219,7 +5403,8 @@
             "y": 0.72,
             "w": 86.0,
             "h": 59.9
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5234,7 +5419,8 @@
             "y": 0.0,
             "w": 69.37,
             "h": 93.48
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5264,7 +5450,8 @@
             "y": 0.0,
             "w": 35.36,
             "h": 68.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5279,7 +5466,8 @@
             "y": 0.0,
             "w": 62.73,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5294,7 +5482,8 @@
             "y": 0.0,
             "w": 71.3,
             "h": 96.3
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5309,7 +5498,8 @@
             "y": 0.0,
             "w": 73.64,
             "h": 84.75
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5349,7 +5539,8 @@
             "y": 0.0,
             "w": 97.25,
             "h": 99.29
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5406,7 +5597,8 @@
             "y": 3.54,
             "w": 92.09,
             "h": 96.46
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5488,7 +5680,8 @@
             "y": 1.85,
             "w": 95.07,
             "h": 98.15
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5518,7 +5711,8 @@
             "y": 1.03,
             "w": 89.72,
             "h": 98.97
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5560,7 +5754,8 @@
             "y": 1.63,
             "w": 95.07,
             "h": 98.37
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5575,7 +5770,8 @@
             "y": 0.0,
             "w": 72.18,
             "h": 84.13
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5590,7 +5786,8 @@
             "y": 0.0,
             "w": 72.18,
             "h": 84.44
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5605,7 +5802,8 @@
             "y": 0.0,
             "w": 72.5,
             "h": 95.24
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5691,7 +5889,8 @@
             "y": 0.95,
             "w": 95.0,
             "h": 99.05
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -5702,7 +5901,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 99.33
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5723,7 +5923,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5738,7 +5939,8 @@
             "y": 0.0,
             "w": 49.58,
             "h": 80.38
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5753,7 +5955,8 @@
             "y": 0.0,
             "w": 52.78,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5768,7 +5971,8 @@
             "y": 0.0,
             "w": 83.75,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5798,7 +6002,8 @@
             "y": 0.0,
             "w": 62.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5813,7 +6018,8 @@
             "y": 0.0,
             "w": 61.51,
             "h": 92.43
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5828,7 +6034,8 @@
             "y": 0.0,
             "w": 83.75,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5858,7 +6065,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 92.5
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -5873,7 +6081,8 @@
             "y": 0.0,
             "w": 94.94,
             "h": 92.5
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5890,7 +6099,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -5908,7 +6118,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -5953,7 +6164,8 @@
             "y": 1.16,
             "w": 95.0,
             "h": 98.84
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -5980,7 +6192,8 @@
             "y": 1.16,
             "w": 94.74,
             "h": 98.84
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6005,7 +6218,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6022,7 +6236,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6040,7 +6255,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -6067,7 +6283,8 @@
             "y": 0.0,
             "w": 94.74,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6085,7 +6302,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -6112,7 +6330,8 @@
             "y": 0.0,
             "w": 94.59,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6137,7 +6356,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6179,7 +6399,8 @@
             "y": 0.0,
             "w": 66.23,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6194,7 +6415,8 @@
             "y": 0.0,
             "w": 69.87,
             "h": 57.49
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6224,7 +6446,8 @@
             "y": 0.0,
             "w": 85.09,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6239,7 +6462,8 @@
             "y": 0.0,
             "w": 69.57,
             "h": 92.73
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6254,7 +6478,8 @@
             "y": 1.65,
             "w": 83.06,
             "h": 98.35
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6269,7 +6494,8 @@
             "y": 0.0,
             "w": 67.62,
             "h": 75.72
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6284,7 +6510,8 @@
             "y": 1.64,
             "w": 85.44,
             "h": 98.36
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6299,7 +6526,8 @@
             "y": 0.0,
             "w": 69.58,
             "h": 87.43
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6329,7 +6557,8 @@
             "y": 0.0,
             "w": 88.6,
             "h": 85.5
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6344,7 +6573,8 @@
             "y": 0.0,
             "w": 65.85,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6374,7 +6604,8 @@
             "y": 0.0,
             "w": 85.55,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6389,7 +6620,8 @@
             "y": 0.0,
             "w": 69.32,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6404,7 +6636,8 @@
             "y": 0.77,
             "w": 84.94,
             "h": 93.85
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6419,7 +6652,8 @@
             "y": 0.0,
             "w": 68.4,
             "h": 98.08
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6434,7 +6668,8 @@
             "y": 0.77,
             "w": 86.38,
             "h": 99.23
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6449,7 +6684,8 @@
             "y": 0.0,
             "w": 68.02,
             "h": 68.73
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6486,7 +6722,8 @@
             "y": 0.0,
             "w": 89.43,
             "h": 72.76
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6501,7 +6738,8 @@
             "y": 0.0,
             "w": 93.07,
             "h": 94.48
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6516,7 +6754,8 @@
             "y": 0.0,
             "w": 82.38,
             "h": 81.38
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6546,7 +6785,8 @@
             "y": 0.0,
             "w": 83.9,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6561,7 +6801,8 @@
             "y": 0.0,
             "w": 72.02,
             "h": 90.37
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6576,7 +6817,8 @@
             "y": 0.66,
             "w": 83.51,
             "h": 85.86
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6591,7 +6833,8 @@
             "y": 0.0,
             "w": 73.21,
             "h": 95.39
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6611,7 +6854,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 98.9
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6631,7 +6875,8 @@
             "y": 0.0,
             "w": 97.32,
             "h": 98.29
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6658,7 +6903,8 @@
             "y": 2.27,
             "w": 95.0,
             "h": 97.73
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6678,7 +6924,8 @@
             "y": 0.0,
             "w": 94.71,
             "h": 96.08
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6712,7 +6959,8 @@
             "y": 1.42,
             "w": 90.32,
             "h": 98.58
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -6799,7 +7047,8 @@
             "y": 2.08,
             "w": 72.13,
             "h": 97.92
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6847,7 +7096,8 @@
             "y": 1.87,
             "w": 92.32,
             "h": 98.13
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6863,7 +7113,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -6884,7 +7135,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7004,7 +7256,8 @@
             "y": 2.22,
             "w": 85.81,
             "h": 95.96
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7019,7 +7272,8 @@
             "y": 1.01,
             "w": 81.63,
             "h": 96.57
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7034,7 +7288,8 @@
             "y": 0.0,
             "w": 86.13,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7051,7 +7306,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7069,7 +7325,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -7121,7 +7378,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7163,7 +7421,8 @@
             "y": 0.0,
             "w": 84.94,
             "h": 95.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7178,7 +7437,8 @@
             "y": 0.0,
             "w": 65.07,
             "h": 81.88
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7208,7 +7468,8 @@
             "y": 0.0,
             "w": 82.42,
             "h": 96.79
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7223,7 +7484,8 @@
             "y": 0.0,
             "w": 78.84,
             "h": 90.36
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7238,7 +7500,8 @@
             "y": 0.0,
             "w": 62.65,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7253,7 +7516,8 @@
             "y": 0.0,
             "w": 79.04,
             "h": 67.26
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7268,7 +7532,8 @@
             "y": 0.88,
             "w": 87.75,
             "h": 45.43
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7400,7 +7665,8 @@
             "y": 0.0,
             "w": 89.85,
             "h": 97.95
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7415,7 +7681,8 @@
             "y": 0.0,
             "w": 73.12,
             "h": 77.05
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7512,7 +7779,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 97.14
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7527,7 +7795,8 @@
             "y": 0.57,
             "w": 73.06,
             "h": 79.49
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7542,7 +7811,8 @@
             "y": 0.0,
             "w": 79.91,
             "h": 52.99
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7557,7 +7827,8 @@
             "y": 0.57,
             "w": 71.68,
             "h": 65.81
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7587,7 +7858,8 @@
             "y": 0.0,
             "w": 51.42,
             "h": 95.7
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7602,7 +7874,8 @@
             "y": 0.0,
             "w": 48.24,
             "h": 98.52
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7617,7 +7890,8 @@
             "y": 0.88,
             "w": 51.42,
             "h": 99.12
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7632,7 +7906,8 @@
             "y": 1.23,
             "w": 80.13,
             "h": 92.18
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7679,7 +7954,8 @@
             "y": 0.61,
             "w": 95.0,
             "h": 99.39
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7783,7 +8059,8 @@
             "y": 0.0,
             "w": 95.87,
             "h": 99.19
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -7794,7 +8071,8 @@
             "y": 0.73,
             "w": 97.75,
             "h": 98.33
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7810,7 +8088,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7831,7 +8110,8 @@
             "y": 0.0,
             "w": 100.0,
             "h": 99.44
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7846,7 +8126,8 @@
             "y": 0.0,
             "w": 85.04,
             "h": 91.74
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7861,7 +8142,8 @@
             "y": 0.0,
             "w": 91.05,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -7876,7 +8158,8 @@
             "y": 2.62,
             "w": 72.55,
             "h": 84.82
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7933,7 +8216,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -7951,7 +8235,8 @@
             "y": 0.0,
             "w": 95.07,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -7978,7 +8263,8 @@
             "y": 0.0,
             "w": 95.26,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8003,7 +8289,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8020,7 +8307,8 @@
             "y": 0.0,
             "w": 97.39,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8038,7 +8326,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -8065,7 +8354,8 @@
             "y": 0.0,
             "w": 95.26,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8090,7 +8380,8 @@
             "y": 0.0,
             "w": 95.0,
             "h": 100.0
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8132,7 +8423,8 @@
             "y": 0.0,
             "w": 89.7,
             "h": 69.78
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8147,7 +8439,8 @@
             "y": 0.0,
             "w": 66.61,
             "h": 96.98
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8177,7 +8470,8 @@
             "y": 0.0,
             "w": 83.98,
             "h": 94.59
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8192,7 +8486,8 @@
             "y": 0.0,
             "w": 77.15,
             "h": 59.76
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8207,7 +8502,8 @@
             "y": 0.57,
             "w": 87.67,
             "h": 91.67
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8222,7 +8518,8 @@
             "y": 0.0,
             "w": 69.27,
             "h": 79.89
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8237,7 +8534,8 @@
             "y": 1.05,
             "w": 86.31,
             "h": 81.32
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8252,7 +8550,8 @@
             "y": 0.0,
             "w": 67.57,
             "h": 97.89
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8282,7 +8581,8 @@
             "y": 0.0,
             "w": 88.77,
             "h": 57.77
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8297,7 +8597,8 @@
             "y": 0.0,
             "w": 71.56,
             "h": 68.49
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8327,7 +8628,8 @@
             "y": 0.0,
             "w": 89.22,
             "h": 75.75
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8342,7 +8644,8 @@
             "y": 0.0,
             "w": 68.46,
             "h": 91.83
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8357,7 +8660,8 @@
             "y": 1.9,
             "w": 74.9,
             "h": 95.24
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8377,7 +8681,8 @@
             "y": 0.0,
             "w": 80.51,
             "h": 98.93
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8397,7 +8702,8 @@
             "y": 0.0,
             "w": 94.06,
             "h": 99.32
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8454,7 +8760,8 @@
             "y": 0.0,
             "w": 89.75,
             "h": 98.89
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8469,7 +8776,8 @@
             "y": 0.0,
             "w": 70.97,
             "h": 80.09
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8484,7 +8792,8 @@
             "y": 0.44,
             "w": 90.39,
             "h": 96.72
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "question",
@@ -8499,7 +8808,8 @@
             "y": 0.0,
             "w": 80.49,
             "h": 85.34
-          }
+          },
+          "contentKind": "diagram"
         }
       ]
     },
@@ -8664,7 +8974,8 @@
             "y": 2.43,
             "w": 93.51,
             "h": 94.79
-          }
+          },
+          "contentKind": "diagram"
         },
         {
           "type": "image",
@@ -8803,81 +9114,81 @@
     }
   ],
   "groupLayout": {
-    "c10cex5": "split",
-    "c10cex2": "combined",
-    "c10cex7": "split",
-    "c10gex5": "split",
-    "c10cex1": "combined",
-    "c10hbu2": "split",
-    "c10hbu3": "split",
-    "c10jex8": "split",
-    "c10eex1": "combined",
-    "c10hex11": "split",
-    "c10fbu2": "split",
-    "c10cbu3": "split",
-    "c10eex9": "combined",
-    "c10dex1": "split",
-    "c10dex4": "split",
-    "c10iex120": "split",
-    "c10fex3": "combined",
-    "c10eex15": "combined",
-    "c10fex5": "split",
-    "c10gbu2": "split",
-    "c10cex4": "split",
-    "c10jex10": "split",
-    "c10ibu2": "split",
-    "c10dex12": "combined",
-    "c10hex1": "combined",
-    "c10eex3": "split",
-    "c10fbu1": "split",
-    "c10hbu1": "split",
-    "c10hex4": "split",
-    "c10ebu3": "split",
-    "c10fex1": "combined",
-    "c10jex2": "split",
-    "c10fex7": "combined",
-    "c10hex6": "split",
-    "c10ibu1": "split",
-    "c10iex2": "split",
-    "c10dbu2": "split",
-    "c10gex4": "split",
-    "c10cex3": "split",
-    "c10gex11": "combined",
-    "c10fex8": "combined",
-    "c10iex7": "combined",
-    "c10dex11": "combined",
-    "c10iex11": "combined",
-    "c10hex5": "combined",
-    "c10dbu3": "split",
-    "c10dex2": "split",
-    "c10gex15": "combined",
-    "c10cex10": "combined",
-    "c10eex4": "combined",
-    "c10fex4": "split",
-    "c10iex10": "combined",
-    "c10iex1": "combined",
-    "c10dex3": "split",
-    "c10cex12": "combined",
     "c10dbu1": "split",
-    "c10gex1": "combined",
-    "c10hex3": "combined",
-    "c10jex1": "combined",
-    "c10eex5": "combined",
-    "c10jbu1": "split",
-    "c10jex3": "combined",
-    "c10jex13ad": "combined",
-    "c10eex2": "split",
-    "c10hex2": "split",
-    "c10jex4": "combined",
+    "c10fex3": "combined",
     "c10cbu1": "split",
-    "c10dex5": "split",
-    "c10gbu1": "split",
-    "c10gex3": "combined",
-    "c10gex2": "split",
-    "c10gbu3": "split",
+    "c10ebu3": "split",
+    "c10fex4": "split",
+    "c10hbu1": "split",
+    "c10dex12": "combined",
+    "c10eex4": "combined",
     "c10fex2": "split",
+    "c10jex1": "combined",
+    "c10dex5": "split",
+    "c10dbu2": "split",
+    "c10dex11": "combined",
+    "c10iex2": "split",
+    "c10dbu3": "split",
+    "c10iex10": "combined",
+    "c10dex4": "split",
+    "c10gex5": "split",
+    "c10hex4": "split",
+    "c10cex1": "combined",
+    "c10fbu1": "split",
+    "c10hbu3": "split",
+    "c10dex7": "combined",
+    "c10eex1": "combined",
+    "c10gex2": "split",
+    "c10hex1": "combined",
+    "c10hex11": "split",
+    "c10gbu2": "split",
+    "c10cex7": "split",
+    "c10cex5": "split",
     "c10dex8": "combined",
-    "c10dex7": "combined"
+    "c10eex3": "split",
+    "c10eex15": "combined",
+    "c10fbu2": "split",
+    "c10gex4": "split",
+    "c10gex3": "combined",
+    "c10cex10": "combined",
+    "c10cbu3": "split",
+    "c10gbu3": "split",
+    "c10hex2": "split",
+    "c10eex9": "combined",
+    "c10jex2": "split",
+    "c10jex10": "split",
+    "c10cex2": "combined",
+    "c10fex1": "combined",
+    "c10fex8": "combined",
+    "c10iex1": "combined",
+    "c10eex2": "split",
+    "c10gex15": "combined",
+    "c10jex13ad": "combined",
+    "c10hbu2": "split",
+    "c10cex12": "combined",
+    "c10gbu1": "split",
+    "c10cex4": "split",
+    "c10gex1": "combined",
+    "c10ibu1": "split",
+    "c10dex1": "split",
+    "c10cex3": "split",
+    "c10hex5": "combined",
+    "c10hex6": "split",
+    "c10jbu1": "split",
+    "c10jex4": "combined",
+    "c10dex3": "split",
+    "c10jex8": "split",
+    "c10eex5": "combined",
+    "c10hex3": "combined",
+    "c10dex2": "split",
+    "c10iex7": "combined",
+    "c10fex7": "combined",
+    "c10iex120": "split",
+    "c10ibu2": "split",
+    "c10jex3": "combined",
+    "c10iex11": "combined",
+    "c10gex11": "combined",
+    "c10fex5": "split"
   },
   "combinedBlocks": {
     "c10cbu1": {

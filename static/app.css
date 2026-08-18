@@ -266,16 +266,29 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .tier-reasoning { background: #7b4fa0; }
 .tier-enrichment { background: #b5406a; }
 .tier-default { background: #555; }
-.block { margin-bottom: 10px; position: relative; }
-/* A crop below its full container width (imageScale < 100, or a split
-   part's own natural width) reads cleaner centred in the space it's
-   given rather than pinned to the left edge with all the slack on the
-   right - margin:auto is a no-op at full width, so this is safe on
-   every block-crop, not just scaled-down ones. */
-.block-crop { margin-left: auto; margin-right: auto; }
+.block { margin-bottom: 5px; position: relative; }
+/* Text left, diagrams centred (contentKind, set by content_kind() in
+   add_chapter.py).
+
+   Everything used to be centred, which is right for a diagram - it
+   reads as a figure placed in its column - but wrong for a sentence:
+   a text crop narrower than its container floated with slack on BOTH
+   sides, so consecutive questions started at different left edges and
+   a page of short questions looked ragged and loose. Prose wants a
+   consistent left margin, the same as it has in the book. */
+.block-crop { margin-left: 0; margin-right: auto; }
 .block-crop img { max-width: 100%; display: block; }
-.group { margin-bottom: 16px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; position: relative; }
-.group .block-crop { margin-bottom: 6px; }
+[data-kind="diagram"] > .block-crop,
+[data-kind="diagram"].block-crop { margin-left: auto; margin-right: auto; }
+.block-crop img { margin-left: 0; }
+[data-kind="diagram"] > .block-crop img,
+[data-kind="diagram"].block-crop img { margin-left: auto; margin-right: auto; }
+/* Tightened from 16px/8px. This border is editor chrome - it marks a
+   group on screen and is hidden in print (see @media print) - so its
+   padding was costing real vertical space on every printed group for
+   something the printed page never shows. */
+.group { margin-bottom: 8px; border: 1px solid #ddd; border-radius: 6px; padding: 4px; position: relative; }
+.group .block-crop { margin-bottom: 3px; }
 /* Split parts render two to a row instead of one full page width each -
    most part crops are far narrower than a whole page, so a single
    full-width part wastes most of the sheet on blank margin either side
@@ -325,7 +338,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    centers the shorter image within that added height (column, not row,
    so a part that still carries its own context image above the main
    crop keeps that stacked instead of side by side). */
-.split-row .block.question .block-crop { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+/* justify-content centres the crop vertically within the min-height
+   alignSplitRows() adds; align-items decides the HORIZONTAL edge, and
+   that follows the same text-left/diagram-centre rule as everywhere
+   else (see .block-crop above). */
+.split-row .block.question .block-crop { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.split-row .block.question[data-kind="diagram"] .block-crop { align-items: center; }
 
 /* Two answer-key page images sharing one row (see buildAnswerRowUnit in
    render.js) - identical mechanics to .split-row above (same reasoning:
@@ -409,6 +427,17 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    stay inside a narrow column instead of forcing the row wider. */
 .flowq-figs { flex: 0 0 auto; display: flex; flex-direction: column; gap: 2mm; align-items: flex-end; }
 .flowq-fig { display: block; max-width: 62mm; height: auto; }
+/* Several diagrams belonging to one question run ACROSS, wrapping, the
+   way the book sets them - and capped smaller, since four of them
+   sharing a row each need only a quarter of the width. Stacked down a
+   side column instead they ran a full page tall for a single question,
+   which is most of where a diagram-heavy exercise's wasted paper came
+   from. */
+.flowq-figs-row {
+  flex-direction: row; flex-wrap: wrap; align-items: flex-start;
+  gap: 3mm 5mm; margin: 1mm 0 2mm;
+}
+.flowq-figs-row .flowq-fig { max-width: 38mm; }
 /* Inline math is sized in em by the renderer, so it tracks --flow-body
    automatically; this only stops it inheriting any surrounding rules. */
 .flowq .imath { display: inline-block; margin: 0; width: auto; }
@@ -642,7 +671,9 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
      cover to have a height to resolve against - to fix its height here,
      unlike normal content pages above. */
   .page-cover { height: var(--page-height); }
-  .group { border: none; padding: 0; }
+  /* Editor chrome only - dropping it in print reclaims its padding and
+     margin as real page space rather than printing an invisible box. */
+  .group { border: none; padding: 0; margin-bottom: 4px; }
   /* Never slice a working-space box (or the group/question around it)
      across a page boundary - if it doesn't fit in what's left of the
      current sheet, push the whole thing to the next one instead. */

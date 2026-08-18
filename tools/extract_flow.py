@@ -325,6 +325,88 @@ def merge_stacked(runs, all_lines, line_bbox):
     return runs
 
 
+def page_figures(page: fitz.Page, y_floor: float):
+    """Every real figure on the page, resolved ONCE for the whole page.
+
+    Figures must be assigned globally rather than searched per question.
+    Doing it per question compares each candidate against that one
+    question's band by area overlap, which lets a tall drawing be
+    claimed by a question it merely overlaps - observed as a 298pt
+    figure starting 100pt above the band that claimed it, so a circle
+    question rendered a neighbour's trapezium. Resolving the page first
+    and then giving each figure to exactly one owner (see assign_figures)
+    makes double- and mis-attribution impossible rather than unlikely."""
+    raw = []
+    for d in page.get_drawings():
+        raw.append(fitz.Rect(d["rect"]))
+    for i in page.get_image_info():
+        raw.append(fitz.Rect(i["bbox"]))
+
+    parts = []
+    for r in raw:
+        if r.width < 8 or r.height < 8:
+            continue
+        if r.y1 < y_floor:
+            continue
+        if r.x1 < QNUM_X[1]:  # left-margin icon or rule
+            continue
+        # Page furniture: full-width rules, panel borders, the tier band.
+        if r.width > 0.80 * page.rect.width:
+            continue
+        parts.append(r)
+
+    # One diagram is drawn as many paths, so they have to be unioned -
+    # but only on genuine overlap, and never past the height a single
+    # diagram plausibly occupies. Without the ceiling a chain of near
+    # touches merges separate diagrams into one page-tall streak.
+    MAX_FIG_H = 0.32 * page.rect.height
+    merged = []
+    for r in sorted(parts, key=lambda b: (b.y0, b.x0)):
+        placed = False
+        for m in merged:
+            inter = m & r
+            if inter.is_empty:
+                continue
+            if inter.get_area() <= 0.10 * min(m.get_area(), r.get_area()):
+                continue
+            grown = m | r
+            if grown.height > MAX_FIG_H:
+                continue
+            m.x0, m.y0, m.x1, m.y1 = grown.x0, grown.y0, grown.x1, grown.y1
+            placed = True
+            break
+        if not placed:
+            merged.append(fitz.Rect(r))
+
+    keep = []
+    for r in merged:
+        if r.width < 18 or r.height < 18 or r.height > MAX_FIG_H:
+            continue
+        # Rules and coloured bands (an "Exercise 10C" underline measures
+        # 427x24) are long, flat and never a diagram. Judged on aspect
+        # rather than width alone, since a genuinely wide diagram is also
+        # tall enough to keep its ratio reasonable.
+        if r.width > 6.0 * r.height and r.height < 40:
+            continue
+        keep.append(r)
+    return keep
+
+
+def assign_figures(figs, bands):
+    """Gives each figure to exactly one question: the band containing its
+    vertical centre. A figure whose centre falls outside every band (page
+    furniture that survived the filters) is dropped rather than forced
+    onto whichever question happens to be nearest."""
+    owned = {i: [] for i in range(len(bands))}
+    for f in figs:
+        cy = 0.5 * (f.y0 + f.y1)
+        for i, (y0, y1) in enumerate(bands):
+            if y0 <= cy < y1:
+                owned[i].append(f)
+                break
+    return owned
+
+
 def owned_figures(page: fitz.Page, region: fitz.Rect, text_right_edge: float):
     """Figures genuinely belonging to this question: substantial, and
     mostly *inside* its region rather than a section container passing
@@ -600,13 +682,21 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
     if not starts:
         return [], tier
 
+    # Bands and figures are both resolved for the whole page up front,
+    # so every figure has exactly one owner (see page_figures).
+    bands = []
+    for i, (ystart, _n) in enumerate(starts):
+        yend = starts[i + 1][0] - 1 if i + 1 < len(starts) else page.rect.y1 - 40
+        bands.append((ystart - 4, yend))
+    fig_owner = assign_figures(page_figures(page, (y_floor or 0.0)), bands)
+
     questions = []
     counter = [0]
     for i, (ystart, number) in enumerate(starts):
-        yend = starts[i + 1][0] - 1 if i + 1 < len(starts) else page.rect.y1 - 40
+        yend = bands[i][1]
         region = fitz.Rect(40, ystart - 4, page.rect.x1 - 40, yend)
 
-        figs = owned_figures(page, region, 0)
+        figs = fig_owner[i]
         # Labels first, so the crop below captures the diagram complete
         # with its measurements and the same boxes then keep those
         # labels out of the prose stream.
@@ -735,6 +825,14 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
     tier = None
     seen_tier = None
     in_exercise = False
+    # Ids (and therefore crop filenames) must be scoped per section.
+    # Every section restarts its numbering at 1, so a chapter-wide
+    # prefix gives 10C's question 3 and 10J's question 3 the same id -
+    # and the same crop filename, so the later section silently
+    # overwrites the earlier one's figures on disk. The text survives
+    # (it lives in the JSON) which makes the failure look like bad
+    # figure attribution rather than a name collision.
+    sec_prefix = prefix
     stats = {"questions": 0, "math": 0, "figures": 0, "sections": 0}
 
     for pno in range(first, last + 1):
@@ -747,6 +845,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
             tier = None
             seen_tier = None
             in_exercise = False
+            sec_prefix = f"{prefix}{(code or 'sec').lower()}_"
             blocks.append({
                 "type": "heading",
                 "id": f"{prefix}{(code or 'sec').lower()}_title",
@@ -770,7 +869,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
             y_floor = None
 
         qs, tier = ([], tier) if y_floor is None else extract_questions(
-            doc, pno, crops_dir, prefix, tier, y_floor
+            doc, pno, crops_dir, sec_prefix, tier, y_floor
         )
         for q in qs:
             # One tier heading per run of questions under it, not one per

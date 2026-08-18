@@ -301,6 +301,44 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
     os.makedirs(crops_dir, exist_ok=True)
     group_layout = plan_group_defaults(pages_proposals)
 
+    def content_kind(p: dict) -> str:
+        """"text" or "diagram", by asking whether the source region owns
+        any real drawing of its own.
+
+        Drives horizontal alignment at render time: a crop that is a
+        sentence should sit flush against the left margin like ordinary
+        prose, while a diagram reads better centred in whatever column
+        it lands in. Centring everything (the previous behaviour) leaves
+        every text crop floating with slack on both sides, which is what
+        makes a page of short questions look ragged and loose.
+
+        Containment, not mere intersection - a section panel's border or
+        the tier band crosses many questions' regions without belonging
+        to any of them, and would otherwise mark every question in a
+        Building Understanding block as a diagram.
+        """
+        try:
+            src_page = docs[p.get("source", "chapter")][p["page"]]
+            region = fitz.Rect(*p["rect"])
+        except Exception:
+            return "text"
+        cands = [d["rect"] for d in src_page.get_drawings()]
+        cands += [fitz.Rect(i["bbox"]) for i in src_page.get_image_info()]
+        for r in cands:
+            if r.width < 18 or r.height < 18:
+                continue
+            inter = r & region
+            if inter.is_empty or r.get_area() <= 0:
+                continue
+            if (inter.get_area() / r.get_area()) < 0.5:
+                continue
+            # Left-margin furniture (the calculator icon, the rule beside
+            # a question) is decoration, not the question's diagram.
+            if inter.x1 < region.x0 + 34:
+                continue
+            return "diagram"
+        return "text"
+
     def crop(p: dict, crop_id: str, trim: bool = True) -> dict | None:
         """Writes "<crop_id>.png" (tight default) and, when trimmed,
         "<crop_id>__full.png" (generous source for the manual crop tool)
@@ -408,6 +446,8 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                     image_block["teacherSolutionId"] = p["teacherSolutionId"]
                 if default_crop_rect:
                     image_block["defaultCropRect"] = default_crop_rect
+                if content_kind(p) == "diagram":
+                    image_block["contentKind"] = "diagram"
                 blocks.append(image_block)
             else:
                 question_block = {
@@ -429,6 +469,11 @@ def build_project(docs: dict, title: str, pages_proposals: list[dict], project_d
                     question_block["imageScale"] = p["imageScale"]
                 if default_crop_rect:
                     question_block["defaultCropRect"] = default_crop_rect
+                # Alignment hint for the renderer - see content_kind.
+                # Only recorded when it is a diagram, since text is the
+                # common case and the renderer defaults to it.
+                if content_kind(p) == "diagram":
+                    question_block["contentKind"] = "diagram"
                 blocks.append(question_block)
         page = {"id": f"page{i}", "blocks": blocks}
         if entry.get("cover"):
