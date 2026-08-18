@@ -372,6 +372,47 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    a no-op for page-left and the actual fix for page-right. */
 .side-image-text .block.question { position: static; }
 
+/* ---- text-flow questions (tools/extract_flow.py) ------------------
+   The whole point of this block: --flow-body sets the body size ONCE,
+   in absolute pt, and nothing downstream is allowed to scale it. In the
+   bitmap pipeline a question's text size was whatever its crop's scale
+   happened to be - measured as low as 2.2pt once a wide question was
+   dropped into a 2-split - because text and diagram shared one bitmap
+   and therefore one scale factor. Here they are separate elements, so
+   a narrow column makes the text WRAP rather than shrink, and a figure
+   can be resized without touching the words beside it.
+
+   Tinos/Liberation Serif are metric-compatible with the Times the book
+   is set in, so the substitution is close to invisible. */
+:root { --flow-body: 10.5pt; --flow-lh: 1.32; }
+.flowq { font-family: Tinos, "Liberation Serif", "Times New Roman", Times, serif; }
+.flowq-row { display: flex; align-items: flex-start; gap: 3mm; }
+/* The question number keeps its own fixed-width gutter, mirroring the
+   source layout and keeping every question's text aligned down the page
+   however many digits the number has. */
+.flowq-num {
+  flex: 0 0 7mm; font-weight: 700; font-size: var(--flow-body);
+  line-height: var(--flow-lh); color: #1a4f8a;
+  font-family: Arimo, "Liberation Sans", Arial, sans-serif;
+}
+.flowq-body { flex: 1 1 auto; min-width: 0; font-size: var(--flow-body); line-height: var(--flow-lh); }
+.flowq-stem { margin: 0 0 1mm; }
+.flowq-parts { margin: 0; }
+.flowq-part { display: flex; gap: 2mm; margin-bottom: 0.6mm; }
+.flowq-letter {
+  flex: 0 0 4mm; font-weight: 700; color: #1a4f8a;
+  font-family: Arimo, "Liberation Sans", Arial, sans-serif;
+}
+.flowq-ptext { flex: 1 1 auto; min-width: 0; }
+/* Figures sit in their own column and are the only scalable thing in
+   the question - see flowQuestionHtml. max-width lets a large diagram
+   stay inside a narrow column instead of forcing the row wider. */
+.flowq-figs { flex: 0 0 auto; display: flex; flex-direction: column; gap: 2mm; align-items: flex-end; }
+.flowq-fig { display: block; max-width: 62mm; height: auto; }
+/* Inline math is sized in em by the renderer, so it tracks --flow-body
+   automatically; this only stops it inheriting any surrounding rules. */
+.flowq .imath { display: inline-block; margin: 0; width: auto; }
+
 /* A worked example's ordinary Solution+Explanation image (see
    teacherSolutionId in add_chapter.py) plus the Solution/Explanation
    crop pair it fronts for - .workthrough-combined is what actually

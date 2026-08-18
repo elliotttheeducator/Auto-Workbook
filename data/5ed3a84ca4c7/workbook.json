@@ -1,0 +1,5919 @@
+{
+ "title": "Year 7 - Chapter 10: Measurement (text-flow build)",
+ "flowVersion": 1,
+ "pages": [
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10c_title",
+     "text": "10C Circles, π and circumference",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "m": "fc10_q1_m1",
+       "hMm": 4.64,
+       "wMm": 3.25,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m2",
+       "hMm": 4.64,
+       "wMm": 15.79,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m3",
+       "hMm": 4.64,
+       "wMm": 21.28,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m4",
+       "hMm": 4.64,
+       "wMm": 3.64,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m5",
+       "hMm": 4.64,
+       "wMm": 2.53,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m6",
+       "hMm": 4.64,
+       "wMm": 3.06,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m7",
+       "hMm": 4.64,
+       "wMm": 5.02,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m8",
+       "hMm": 4.64,
+       "wMm": 11.68,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q1_m9",
+       "hMm": 8.21,
+       "wMm": 4.8,
+       "dropMm": 3.14
+      },
+      {
+       "t": " . "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q1_m10",
+         "hMm": 4.64,
+         "wMm": 8.74,
+         "dropMm": 1.11
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q1_m11",
+         "hMm": 8.21,
+         "wMm": 4.8,
+         "dropMm": 3.14
+        },
+        {
+         "t": " as a decimal rounded to: i two decimal places ii three decimal places. "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q1_m12",
+         "hMm": 4.64,
+         "wMm": 10.7,
+         "dropMm": 1.11
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q1_m13",
+         "hMm": 4.64,
+         "wMm": 2.86,
+         "dropMm": 1.11
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q1_m14",
+         "hMm": 8.21,
+         "wMm": 4.8,
+         "dropMm": 3.14
+        },
+        {
+         "t": " is a better approximation to π than the number 3.14 . "
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 9.600000000000001
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "A good approximation of π is the fraction "
+      },
+      {
+       "m": "fc10_q2_m15",
+       "hMm": 8.21,
+       "wMm": 6.56,
+       "dropMm": 3.14
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q2_m16",
+       "hMm": 4.64,
+       "wMm": 1.59,
+       "dropMm": -0.9
+      },
+      {
+       "t": " "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Write "
+        },
+        {
+         "m": "fc10_q2_m17",
+         "hMm": 8.21,
+         "wMm": 6.56,
+         "dropMm": 3.15
+        },
+        {
+         "t": " as a decimal rounded to: i three decimal places ii four decimal places. "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Decide if "
+        },
+        {
+         "m": "fc10_q2_m18",
+         "hMm": 8.21,
+         "wMm": 6.56,
+         "dropMm": 3.14
+        },
+        {
+         "t": " is a better approximation to π than the number 3.142 . "
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 71.68,
+       "hMm": 106.74
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 9.600000000000001
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Calculate the circumference of these circles using "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " = π"
+      },
+      {
+       "t": "d",
+       "i": true
+      },
+      {
+       "t": " and round your answer correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 50.07,
+       "hMm": 50.86
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 54.67,
+       "hMm": 50.53
+      },
+      {
+       "crop": "fc10_q3_f2",
+       "wMm": 47.43,
+       "hMm": 47.43
+      },
+      {
+       "crop": "fc10_q3_f3",
+       "wMm": 45.34,
+       "hMm": 45.34
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Calculate the circumference of these circles using "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " = 2π"
+      },
+      {
+       "t": "r",
+       "i": true
+      },
+      {
+       "t": " and round your answer correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 50.28,
+       "hMm": 51.08
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 53.69,
+       "hMm": 49.55
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 47.96,
+       "hMm": 47.96
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 46.65,
+       "hMm": 46.65
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Estimate the circumference of these circles using the given approximation of π."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 50.27,
+       "hMm": 56.26
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 54.9,
+       "hMm": 55.95
+      },
+      {
+       "crop": "fc10_q5_f2",
+       "wMm": 47.74,
+       "hMm": 60.9
+      },
+      {
+       "crop": "fc10_q5_f3",
+       "wMm": 48.12,
+       "hMm": 60.91
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q6_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A log in a wood yard has a diameter of 40 cm. Find its circumference, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " We know that the rule "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " = π"
+      },
+      {
+       "t": "d",
+       "i": true
+      },
+      {
+       "t": " can be rearranged to give "
+      },
+      {
+       "t": "d",
+       "i": true
+      },
+      {
+       "t": " = "
+      },
+      {
+       "m": "fc10_q7_m1",
+       "hMm": 7.39,
+       "wMm": 3.62,
+       "dropMm": 2.37
+      },
+      {
+       "t": " . Use this rearranged rule to calculate the following, correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " a circle’s diameter if the circumference is 10 cm"
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " a circle’s diameter if the circumference is 12.5 m"
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " a circle’s radius if the circumference is 7 mm"
+        }
+       ]
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " a circle’s radius if the circumference is 37.4 m"
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A circular pond has radius 1.4 metres. Find its circumference, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A bicycle wheel completes 1024 revolutions while on a Sunday ride. Find the distance travelled by the bicycle if the wheel’s diameter is 85 cm. Round to the nearest metre."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q9_f0",
+       "wMm": 83.98,
+       "hMm": 56.44
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q10_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The following are four fractions which ancient cultures used to approximate π. "
+      },
+      {
+       "m": "fc10_q10_m1",
+       "hMm": 4.65,
+       "wMm": 2.04,
+       "dropMm": 1.15
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m2",
+       "hMm": 4.64,
+       "wMm": 13.44,
+       "dropMm": 1.12
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m3",
+       "hMm": 8.11,
+       "wMm": 4.8,
+       "dropMm": 3.1
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m4",
+       "hMm": 4.65,
+       "wMm": 2.04,
+       "dropMm": 1.16
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m5",
+       "hMm": 4.64,
+       "wMm": 18.34,
+       "dropMm": 1.14
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m6",
+       "hMm": 8.21,
+       "wMm": 4.8,
+       "dropMm": 3.16
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m7",
+       "hMm": 4.65,
+       "wMm": 2.04,
+       "dropMm": 1.13
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m8",
+       "hMm": 4.64,
+       "wMm": 9.72,
+       "dropMm": 1.11
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m9",
+       "hMm": 8.24,
+       "wMm": 6.56,
+       "dropMm": 3.13
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m10",
+       "hMm": 4.65,
+       "wMm": 2.04,
+       "dropMm": 1.16
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m11",
+       "hMm": 4.64,
+       "wMm": 12.07,
+       "dropMm": 1.14
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q10_m12",
+       "hMm": 8.21,
+       "wMm": 6.56,
+       "dropMm": 3.2
+      },
+      {
+       "t": " "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Which one of these ancient historical approximations is closest to the true value of π? Note that π written to five decimal places is 3.14159."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q10_m13",
+         "hMm": 4.64,
+         "wMm": 3.64,
+         "dropMm": 1.14
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q10_m14",
+         "hMm": 4.64,
+         "wMm": 7.96,
+         "dropMm": 1.14
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q10_m15",
+         "hMm": 4.64,
+         "wMm": 9.32,
+         "dropMm": 1.14
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q10_m16",
+         "hMm": 4.64,
+         "wMm": 9.23,
+         "dropMm": 1.14
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q10_m17",
+         "hMm": 8.12,
+         "wMm": 4.8,
+         "dropMm": 3.11
+        },
+        {
+         "t": " has been a very popular approximation throughout many countries. Explain why you think this is the case."
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Find your own simple fraction which is a reasonable approximation of π. Write your fraction as a decimal and compare it with π written in decimal form with at least five decimal places."
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " If "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " = π"
+      },
+      {
+       "t": "d",
+       "i": true
+      },
+      {
+       "t": ", find a rule for the radius of a circle, "
+      },
+      {
+       "t": "r",
+       "i": true
+      },
+      {
+       "t": ", in terms of its circumference, "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": ", and use it to find the radius of a circle if its circumference is 25 cm. Round to two decimal places."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A professor expresses the circumference of a circle with diameter 5 cm using the exact value, 5π cm. Use an exact value to give the circumference of a circle with the given diameter or radius."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Diameter 7 cm"
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Radius 3 mmENRICHMENT: Planetary circumnavigation––13"
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " While not being perfect spheres, the circumference of the planets in our solar system can be approximated by using a circle. Here are some planetary facts with some missing details. Calculate the missing numbers, rounding to the nearest integer.PartPlanetDiameter (km approx.)Circumference (km approx.)Earth12 750Mars 6 780Jupiter439 260Mercury 15 330"
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10d_title",
+     "text": "10D Arc length and perimeter of sectors and composite shapes",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10d_title",
+     "text": "10D Exercise",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the length of each of the following arcs for the given angles, correct to two decimal places. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 34.47,
+       "hMm": 20.6
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 28.25,
+       "hMm": 31.98
+      },
+      {
+       "crop": "fc10_q1_f2",
+       "wMm": 24.88,
+       "hMm": 25.57
+      },
+      {
+       "crop": "fc10_q1_f3",
+       "wMm": 46.34,
+       "hMm": 41.32
+      },
+      {
+       "crop": "fc10_q1_f4",
+       "wMm": 46.34,
+       "hMm": 44.91
+      },
+      {
+       "crop": "fc10_q1_f5",
+       "wMm": 42.23,
+       "hMm": 38.1
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the perimeter of each of these quadrants, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 25.78,
+       "hMm": 32.48
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 29.25,
+       "hMm": 31.43
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 27.37,
+       "hMm": 32.49
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 40.29,
+       "hMm": 30.16
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the perimeter of these semicircles, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 35.99,
+       "hMm": 26.54
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 29.26,
+       "hMm": 27.67
+      },
+      {
+       "crop": "fc10_q3_f2",
+       "wMm": 46.92,
+       "hMm": 29.46
+      },
+      {
+       "crop": "fc10_q3_f3",
+       "wMm": 33.82,
+       "hMm": 46.92
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the perimeter of these sectors, correct to one decimal place. Include the two radii in each case. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 19.36,
+       "hMm": 23.59
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 37.95,
+       "hMm": 44.72
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 26.28,
+       "hMm": 25.12
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 28.57,
+       "hMm": 23.48
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q5_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Find the perimeter of each of these composite shapes, correct to one decimal place. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 31.95,
+       "hMm": 21.62
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 29.39,
+       "hMm": 22.77
+      },
+      {
+       "crop": "fc10_q5_f2",
+       "wMm": 19.05,
+       "hMm": 24.63
+      },
+      {
+       "crop": "fc10_q5_f3",
+       "wMm": 24.32,
+       "hMm": 21.94
+      },
+      {
+       "crop": "fc10_q5_f4",
+       "wMm": 32.28,
+       "hMm": 34.18
+      },
+      {
+       "crop": "fc10_q5_f5",
+       "wMm": 32.18,
+       "hMm": 34.18
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A window consists of a rectangular part of height 2 m and width 1 m, with a semicircular top having a diameter of 1 m. Find its perimeter, correct to the nearest 1 cm."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q6_f0",
+       "wMm": 86.09,
+       "hMm": 52.01
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " For these sectors, find only the length of the arc, correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q7_f0",
+       "wMm": 23.97,
+       "hMm": 23.55
+      },
+      {
+       "crop": "fc10_q7_f1",
+       "wMm": 37.53,
+       "hMm": 30.42
+      },
+      {
+       "crop": "fc10_q7_f2",
+       "wMm": 26.7,
+       "hMm": 35.33
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Calculate the perimeter of each of these shapes, correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q8_f0",
+       "wMm": 26.91,
+       "hMm": 26.91
+      },
+      {
+       "crop": "fc10_q8_f1",
+       "wMm": 34.4,
+       "hMm": 23.78
+      },
+      {
+       "crop": "fc10_q8_f2",
+       "wMm": 37.75,
+       "hMm": 21.15
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q9_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Give reasons why the circumference of this composite shape can be found by simply using the rule "
+      },
+      {
+       "t": "P",
+       "i": true
+      },
+      {
+       "t": " = 2π"
+      },
+      {
+       "t": "r",
+       "i": true
+      },
+      {
+       "t": " + 4"
+      },
+      {
+       "t": "r",
+       "i": true
+      },
+      {
+       "t": "."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q9_f0",
+       "wMm": 33.28,
+       "hMm": 33.28
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Explain why the perimeter of this shape is given by "
+      },
+      {
+       "t": "P",
+       "i": true
+      },
+      {
+       "t": " = 2π"
+      },
+      {
+       "t": "r",
+       "i": true
+      },
+      {
+       "t": "."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q10_f0",
+       "wMm": 29.28,
+       "hMm": 22.31
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Find the radius of each of these sectors for the given arc lengths, correct to one decimal place.4 m30° "
+      },
+      {
+       "m": "fc10_q11_m1",
+       "hMm": 4.59,
+       "wMm": 2.08,
+       "dropMm": 2.75
+      },
+      {
+       "t": "ENRICHMENT: Exact values and perimeters–"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q11_f0",
+       "wMm": 37.76,
+       "hMm": 39.27
+      },
+      {
+       "crop": "fc10_q11_f1",
+       "wMm": 36.48,
+       "hMm": 22.66
+      },
+      {
+       "crop": "fc10_q11_f2",
+       "wMm": 14.29,
+       "hMm": 13.75
+      },
+      {
+       "crop": "fc10_q11_f3",
+       "wMm": 15.31,
+       "hMm": 12.37
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The working to find the exact perimeter of this composite shape is given by:"
+      },
+      {
+       "t": "P",
+       "i": true
+      },
+      {
+       "t": " = 2 × 8 + 4 + "
+      },
+      {
+       "m": "fc10_q12_m2",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": -0.36
+      },
+      {
+       "t": " _ "
+      },
+      {
+       "m": "fc10_q12_m3",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.16
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q12_m4",
+       "hMm": 4.64,
+       "wMm": 2.53,
+       "dropMm": 1.14
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q12_m5",
+       "hMm": 6.03,
+       "wMm": 2.96,
+       "dropMm": 1.98
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q12_m6",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 1.14
+      },
+      {
+       "t": " =20 + 8π cmFind the exact perimeter of each of the following composite shapes."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q12_f0",
+       "wMm": 42.61,
+       "hMm": 20.23
+      },
+      {
+       "crop": "fc10_q12_f1",
+       "wMm": 30.14,
+       "hMm": 14.62
+      },
+      {
+       "crop": "fc10_q12_f2",
+       "wMm": 30.22,
+       "hMm": 20.55
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Find the exact answers for Question 8 in terms of π."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10e_title",
+     "text": "10E Units of area and area of rectangles",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Count the number of squares to find the area of these shapes on centimetre grids. b "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 19.36,
+       "hMm": 19.36
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 19.36,
+       "hMm": 28.34
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Count the number of squares to find the area of these shapes on centimetre grids. b d "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 28.34,
+       "hMm": 28.34
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 10.39,
+       "hMm": 28.34
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 37.31,
+       "hMm": 37.31
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 28.34,
+       "hMm": 28.86
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these rectangles and squares. Diagrams are not drawn to scale. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 44.24,
+       "hMm": 32.47
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 40.06,
+       "hMm": 43.39
+      },
+      {
+       "crop": "fc10_q3_f2",
+       "wMm": 31.38,
+       "hMm": 21.8
+      },
+      {
+       "crop": "fc10_q3_f3",
+       "wMm": 31.03,
+       "hMm": 26.5
+      },
+      {
+       "crop": "fc10_q3_f4",
+       "wMm": 34.04,
+       "hMm": 35.92
+      },
+      {
+       "crop": "fc10_q3_f5",
+       "wMm": 36.18,
+       "hMm": 25.79
+      },
+      {
+       "crop": "fc10_q3_f6",
+       "wMm": 26.32,
+       "hMm": 27.79
+      },
+      {
+       "crop": "fc10_q3_f7",
+       "wMm": 25.71,
+       "hMm": 19.32
+      },
+      {
+       "crop": "fc10_q3_f8",
+       "wMm": 41.32,
+       "hMm": 21.46
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the side length of a square with each of these areas. Use trial and error if you are unsure."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " 4 cm"
+        },
+        {
+         "m": "fc10_q4_m1",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " b 25 m"
+        },
+        {
+         "m": "fc10_q4_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " c 144 km"
+        },
+        {
+         "m": "fc10_q4_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " There are 10 000 m"
+      },
+      {
+       "m": "fc10_q5_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.2
+      },
+      {
+       "t": " in one hectare (ha). Convert these measurements to hectares."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " 20 000 m"
+        },
+        {
+         "m": "fc10_q5_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": " b 100 000 m"
+        },
+        {
+         "m": "fc10_q5_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": " c 5000 m"
+        },
+        {
+         "m": "fc10_q5_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A rectangular soccer field is to be laid with new grass. The field is 100 m long and 50 m wide. Find the area of grass to be laid."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Glass is to be cut for a square window of side length 50 cm. Find the area of glass required for the window."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Two hundred square tiles, each measuring 10 cm by 10 cm, are used to tile an open floor area. Find the area of flooring that is tiled."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q9_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " A square has a perimeter of 20 cm. Find its area."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " A square has an area of 9 cm"
+        },
+        {
+         "m": "fc10_q9_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": ". Find its perimeter."
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " A square’s area and perimeter are the same number. How many units is the side length?"
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " The carpet chosen for a room costs $70 per square metre. The room is rectangular and is 6 m long by 5 m wide. What is the cost of carpeting the room?"
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Troy wishes to paint a garden wall that is 11 m long and 3 m high. Two coats of paint are needed. The paint suitable to do the job can be purchased only in whole numbers of litres and covers an area of 15 m"
+      },
+      {
+       "m": "fc10_q11_m6",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": " per litre. How many litres of paint will Troy need to purchase?"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q11_f0",
+       "wMm": 72.97,
+       "hMm": 49.1
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A rectangular area of land measures 200 m by 400 m. Find its area in hectares."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q13_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Find the missing length for each of these rectangles. i "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Explain the method that you used for finding the missing lengths of the rectangles above."
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q13_f0",
+       "wMm": 32.74,
+       "hMm": 17.73
+      },
+      {
+       "crop": "fc10_q13_f1",
+       "wMm": 43.93,
+       "hMm": 16.81
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q14",
+     "number": "14",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Explain why the area shaded here is exactly 2 cm"
+      },
+      {
+       "m": "fc10_q14_m7",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.2
+      },
+      {
+       "t": "."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q14_f0",
+       "wMm": 21.12,
+       "hMm": 13.99
+      },
+      {
+       "crop": "fc10_q14_f1",
+       "wMm": 9.52,
+       "hMm": 9.53
+      },
+      {
+       "crop": "fc10_q14_f2",
+       "wMm": 9.52,
+       "hMm": 9.52
+      },
+      {
+       "crop": "fc10_q14_f3",
+       "wMm": 17.3,
+       "hMm": 9.52
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q15",
+     "number": "15",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A square has perimeter "
+      },
+      {
+       "t": "P",
+       "i": true
+      },
+      {
+       "t": "cm . "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " If "
+        },
+        {
+         "t": "P",
+         "i": true
+        },
+        {
+         "t": " = 44 , fi nd the area of the square. "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " If "
+        },
+        {
+         "t": "P",
+         "i": true
+        },
+        {
+         "t": " is unknown, write an expression for the area of the square, using "
+        },
+        {
+         "t": "P",
+         "i": true
+        },
+        {
+         "t": " . "
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q15_f0",
+       "wMm": 15.89,
+       "hMm": 21.56
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q16",
+     "number": "16",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer. ENRICHMENT: Area conversions – – 17 17 a Use this diagram or similar to help answer the following. How many mm"
+      },
+      {
+       "m": "fc10_q16_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": " in 1cm"
+      },
+      {
+       "m": "fc10_q16_m2",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": " ? i ii How many cm"
+      },
+      {
+       "m": "fc10_q16_m3",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.21
+      },
+      {
+       "t": " in 1m"
+      },
+      {
+       "m": "fc10_q16_m4",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.21
+      },
+      {
+       "t": " ? iii How many m"
+      },
+      {
+       "m": "fc10_q16_m5",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.21
+      },
+      {
+       "t": " in 1km"
+      },
+      {
+       "m": "fc10_q16_m6",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.21
+      },
+      {
+       "t": " ? "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Complete the diagram below. ×××____________km"
+        },
+        {
+         "m": "fc10_q16_m7",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.02
+        },
+        {
+         "t": "m"
+        },
+        {
+         "m": "fc10_q16_m8",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.02
+        },
+        {
+         "t": "cm"
+        },
+        {
+         "m": "fc10_q16_m9",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.02
+        },
+        {
+         "t": "mm"
+        },
+        {
+         "m": "fc10_q16_m10",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.02
+        },
+        {
+         "t": "÷ ____÷ ____÷ ____"
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Convert these units to the units shown in brackets. 2 cm"
+        },
+        {
+         "m": "fc10_q16_m11",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m12",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.36
+        },
+        {
+         "t": "mm"
+        },
+        {
+         "m": "fc10_q16_m13",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.36
+        },
+        {
+         "t": " i ii 10 m"
+        },
+        {
+         "m": "fc10_q16_m14",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m15",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.37
+        },
+        {
+         "t": "cm"
+        },
+        {
+         "m": "fc10_q16_m16",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.37
+        },
+        {
+         "t": " iii 3.5 km"
+        },
+        {
+         "m": "fc10_q16_m17",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.19
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m18",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.37
+        },
+        {
+         "t": "m"
+        },
+        {
+         "m": "fc10_q16_m19",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.37
+        },
+        {
+         "t": " iv 300 mm"
+        },
+        {
+         "m": "fc10_q16_m20",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m21",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.34
+        },
+        {
+         "t": "cm"
+        },
+        {
+         "m": "fc10_q16_m22",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.34
+        },
+        {
+         "t": " v 21600 cm"
+        },
+        {
+         "m": "fc10_q16_m23",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m24",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.35
+        },
+        {
+         "t": "m"
+        },
+        {
+         "m": "fc10_q16_m25",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.35
+        },
+        {
+         "t": " vi 4200000 m"
+        },
+        {
+         "m": "fc10_q16_m26",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m27",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.35
+        },
+        {
+         "t": "km"
+        },
+        {
+         "m": "fc10_q16_m28",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.35
+        },
+        {
+         "t": " vii 0.005 m"
+        },
+        {
+         "m": "fc10_q16_m29",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q16_m30",
+         "hMm": 7.58,
+         "wMm": 2.36,
+         "dropMm": 2.36
+        },
+        {
+         "t": "mm"
+        },
+        {
+         "m": "fc10_q16_m31",
+         "hMm": 7.58,
+         "wMm": 3.77,
+         "dropMm": 2.36
+        },
+        {
+         "t": " viii 1 km"
+        },
+        {
+         "m": "fc10_q16_m32",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": " (ha) ix 40000000 cm"
+        },
+        {
+         "m": "fc10_q16_m33",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": " (ha)"
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q16_f0",
+       "wMm": 24.14,
+       "hMm": 20.31
+      },
+      {
+       "crop": "fc10_q16_f1",
+       "wMm": 51.36,
+       "hMm": 81.0
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10f_title",
+     "text": "10F Area of parallelograms",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the area of these parallelograms."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 36.09,
+       "hMm": 17.47
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 31.1,
+       "hMm": 23.33
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these parallelograms. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 32.09,
+       "hMm": 34.45
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 29.59,
+       "hMm": 17.01
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 36.62,
+       "hMm": 25.81
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 34.64,
+       "hMm": 14.59
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these parallelograms."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 35.35,
+       "hMm": 36.99
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 29.56,
+       "hMm": 24.04
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these parallelograms. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 20.63,
+       "hMm": 28.58
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 19.08,
+       "hMm": 36.43
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 40.26,
+       "hMm": 18.02
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 19.41,
+       "hMm": 8.68
+      },
+      {
+       "crop": "fc10_q4_f4",
+       "wMm": 46.2,
+       "hMm": 24.14
+      },
+      {
+       "crop": "fc10_q4_f5",
+       "wMm": 34.85,
+       "hMm": 22.75
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " These parallelograms are on 1 cm grids (not to scale). Find their area. b "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 31.46,
+       "hMm": 27.81
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 26.47,
+       "hMm": 27.81
+      },
+      {
+       "crop": "fc10_q5_f2",
+       "wMm": 11.38,
+       "hMm": 21.36
+      },
+      {
+       "crop": "fc10_q5_f3",
+       "wMm": 21.36,
+       "hMm": 11.38
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " The floor of an office space is in the shape of a parallelogram. The longest sides are 9 m and the perpendicular distance between them is 6 m. Find the area of the office floor."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q7_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Find the height of a parallelogram when its:"
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " area = 10 m"
+        },
+        {
+         "m": "fc10_q7_m1",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.19
+        },
+        {
+         "t": " and base = 5 m"
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " area = 28 cm"
+        },
+        {
+         "m": "fc10_q7_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.19
+        },
+        {
+         "t": " and base = 4 cm"
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " area = 2.5 mm"
+        },
+        {
+         "m": "fc10_q7_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.19
+        },
+        {
+         "t": " and base = 5 mm"
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Find the base of a parallelogram when its:"
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " area = 40 cm"
+        },
+        {
+         "m": "fc10_q8_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " and height = 4 cm"
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " area = 150 m"
+        },
+        {
+         "m": "fc10_q8_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " and height = 30 m"
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " area = 2.4 km"
+        },
+        {
+         "m": "fc10_q8_m6",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " and height = 1.2 km"
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A large wall in the shape of a parallelogram is to be painted with a special red paint, which costs $20 per litre. Each litre of paint covers 5 m"
+      },
+      {
+       "m": "fc10_q9_m7",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.2
+      },
+      {
+       "t": ". The wall has a base length of 30 m and a height of 10 m. Find the cost of painting the wall."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A proposed rectangular flag for a new country is yellow with a red stripe in the shape of a parallelogram, as shown."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Find the area of the red stripe."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Find the yellow area."
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q10_f0",
+       "wMm": 49.1,
+       "hMm": 25.96
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q11_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Explain why this parallelogram’s area will be less than the given rectangle’s area."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q11_f0",
+       "wMm": 40.02,
+       "hMm": 19.67
+      },
+      {
+       "crop": "fc10_q11_f1",
+       "wMm": 37.01,
+       "hMm": 19.67
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A parallelogram includes a green triangular area, as shown. What fraction of the total area is the green area? Give reasons for your answer."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q12_f0",
+       "wMm": 34.72,
+       "hMm": 14.74
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The area of a parallelogram can be thought of as twice the area of a triangle. Use this idea to complete this proof of the rule for the area of a parallelogram.=Areatwice triangle area "
+      },
+      {
+       "m": "fc10_q13_m8",
+       "hMm": 6.03,
+       "wMm": 3.12,
+       "dropMm": 1.94
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q13_m9",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 1.1
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q13_m10",
+       "hMm": 6.03,
+       "wMm": 2.96,
+       "dropMm": 1.94
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q13_m11",
+       "hMm": 6.03,
+       "wMm": 14.82,
+       "dropMm": 1.94
+      },
+      {
+       "t": " =___________"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q13_f0",
+       "wMm": 35.28,
+       "hMm": 18.99
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q14",
+     "number": "14",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The Puerta de Europa (Gate of Europe) towers are twin office buildings in Madrid, Spain. They look like normal rectangular glass-covered skyscrapers but they lean towards each other at an angle of 15° to the vertical. Two sides are parallelograms and two sides are rectangles. Each tower has a vertical height of 120 m, a slant height of 130 m and a square base of side 50 m.All four sides are covered with glass. If the glass costs $180 per square metre, find the cost of covering "
+      },
+      {
+       "t": "one",
+       "i": true
+      },
+      {
+       "t": " of the towers with glass. (Assume the glass covers the entire surface, ignoring the beams.)120 m"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q14_f0",
+       "wMm": 35.61,
+       "hMm": 42.3
+      },
+      {
+       "crop": "fc10_q14_f1",
+       "wMm": 31.99,
+       "hMm": 48.88
+      },
+      {
+       "crop": "fc10_q14_f2",
+       "wMm": 111.5,
+       "hMm": 76.3
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10g_title",
+     "text": "10G Area of triangles",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the area of each triangle given."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 36.04,
+       "hMm": 26.04
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 57.41,
+       "hMm": 26.71
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of each triangle given."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 48.81,
+       "hMm": 36.26
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 34.98,
+       "hMm": 35.43
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 43.87,
+       "hMm": 36.42
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 31.87,
+       "hMm": 22.56
+      },
+      {
+       "crop": "fc10_q2_f4",
+       "wMm": 18.88,
+       "hMm": 30.83
+      },
+      {
+       "crop": "fc10_q2_f5",
+       "wMm": 28.68,
+       "hMm": 12.33
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of each triangle given."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 37.91,
+       "hMm": 32.4
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 39.59,
+       "hMm": 16.16
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of each of the following triangles. 5 m"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 51.08,
+       "hMm": 34.42
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 45.25,
+       "hMm": 30.32
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 34.81,
+       "hMm": 20.07
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 26.38,
+       "hMm": 16.91
+      },
+      {
+       "crop": "fc10_q4_f4",
+       "wMm": 21.25,
+       "hMm": 12.68
+      },
+      {
+       "crop": "fc10_q4_f5",
+       "wMm": 43.47,
+       "hMm": 23.85
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these triangles, which have been drawn on 1 cm grids. Give your answer in cm"
+      },
+      {
+       "m": "fc10_q5_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.21
+      },
+      {
+       "t": ". "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 21.41,
+       "hMm": 21.41
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 46.53,
+       "hMm": 38.79
+      },
+      {
+       "crop": "fc10_q5_f2",
+       "wMm": 50.04,
+       "hMm": 44.83
+      },
+      {
+       "crop": "fc10_q5_f3",
+       "wMm": 50.66,
+       "hMm": 51.11
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A rectangular block of land measuring 40 m long by 24 m wide is cut in half along a diagonal. Find the area of each triangular block of land."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A square pyramid has a base length of 120 m and a triangular face of height 80 m. Find the area of one triangular face of the pyramid."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q7_f0",
+       "wMm": 59.35,
+       "hMm": 38.56
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q8_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Each face of a 4-sided die is triangular, with a base of 2 cm and a height of 1.7 cm. Find the total area of all 4 faces of the die."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A farmer uses fencing to divide a triangular piece of land into two 18 m26 msmaller triangles, as shown. What is the difference in the two areas?"
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A yacht must have two of its sails replaced as they have been damaged by a recent storm. One sail has a base length of 2.5 m and a height of 8 m and the bigger sail has a base length of 4 m and a height of 16 m. If the cost of sail material is $150 per square metre, find the total cost to replace the yacht’s damaged sails."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q10_f0",
+       "wMm": 48.45,
+       "hMm": 33.5
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "problemsolving",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " The area of a triangle is 10 cm"
+        },
+        {
+         "m": "fc10_q11_m1",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.19
+        },
+        {
+         "t": " and its base length is 4 cm. Find its height."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " The area of a triangle is 44 mm"
+        },
+        {
+         "m": "fc10_q11_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " and its height is 20 mm. Find its base length."
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q12_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The midpoint, "
+      },
+      {
+       "t": "M",
+       "i": true
+      },
+      {
+       "t": ", of the base of a triangle joins the opposite vertex. Is the triangle area split in half exactly? Give reasons for your answer."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q12_f0",
+       "wMm": 28.87,
+       "hMm": 24.2
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " If the vertex "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " for this triangle moves parallel to the base "
+      },
+      {
+       "t": "AB",
+       "i": true
+      },
+      {
+       "t": ", will the area of the triangle change? Justify your answer."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q13_f0",
+       "wMm": 31.57,
+       "hMm": 18.16
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q14",
+     "number": "14",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The area of a triangle can be found using the formula "
+      },
+      {
+       "t": "A",
+       "i": true
+      },
+      {
+       "t": " = "
+      },
+      {
+       "m": "fc10_q14_m3",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": -0.39
+      },
+      {
+       "t": " the formula to find the base, "
+      },
+      {
+       "t": "b",
+       "i": true
+      },
+      {
+       "t": ", if you are given the area, "
+      },
+      {
+       "t": "A",
+       "i": true
+      },
+      {
+       "t": ", and height, "
+      },
+      {
+       "t": "h",
+       "i": true
+      },
+      {
+       "t": ".ENRICHMENT: Estimating areas with curves––15"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q14_f0",
+       "wMm": 64.85,
+       "hMm": 17.51
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q15",
+     "number": "15",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " This diagram shows a shaded region that is "
+      },
+      {
+       "m": "fc10_q15_m4",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": -0.39
+      },
+      {
+       "t": " _ "
+      },
+      {
+       "m": "fc10_q15_m5",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.13
+      },
+      {
+       "t": " of 3 cm"
+      },
+      {
+       "m": "fc10_q15_m6",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": " = 1.5 cm"
+      },
+      {
+       "m": "fc10_q15_m7",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": ".Using triangles like the one shown here, and by counting whole squares also, estimate the areas of these shapes below."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q15_f0",
+       "wMm": 31.41,
+       "hMm": 11.41
+      },
+      {
+       "crop": "fc10_q15_f1",
+       "wMm": 29.66,
+       "hMm": 29.66
+      },
+      {
+       "crop": "fc10_q15_f2",
+       "wMm": 38.77,
+       "hMm": 35.12
+      },
+      {
+       "crop": "fc10_q15_f3",
+       "wMm": 34.78,
+       "hMm": 31.14
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_sec_title",
+     "text": "None Progress quiz",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_sec_title",
+     "text": "None Progress quiz",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10h_title",
+     "text": "10H Area of composite shapes",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 39.82,
+       "hMm": 43.36
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 35.66,
+       "hMm": 18.75
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these composite shapes by adding together the area of simpler shapes. Assume that all angles that look like right angles are right angles."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 46.9,
+       "hMm": 47.59
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 43.87,
+       "hMm": 31.26
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 31.04,
+       "hMm": 11.29
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 44.98,
+       "hMm": 44.97
+      },
+      {
+       "crop": "fc10_q2_f4",
+       "wMm": 46.53,
+       "hMm": 18.43
+      },
+      {
+       "crop": "fc10_q2_f5",
+       "wMm": 26.81,
+       "hMm": 12.3
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 48.73,
+       "hMm": 26.24
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 39.31,
+       "hMm": 31.94
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Use subtraction to find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 46.05,
+       "hMm": 35.73
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 45.35,
+       "hMm": 43.59
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 36.87,
+       "hMm": 34.48
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 44.31,
+       "hMm": 45.77
+      },
+      {
+       "crop": "fc10_q4_f4",
+       "wMm": 30.34,
+       "hMm": 15.52
+      },
+      {
+       "crop": "fc10_q4_f5",
+       "wMm": 37.47,
+       "hMm": 26.81
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q5_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " Find the areas of these composite shapes. Assume that all angles that look like right angles are right angles."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 62.66,
+       "hMm": 24.92
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 43.58,
+       "hMm": 27.87
+      },
+      {
+       "crop": "fc10_q5_f2",
+       "wMm": 36.23,
+       "hMm": 28.93
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " By finding the missing lengths first, calculate the area of these composite shapes."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q6_f0",
+       "wMm": 53.47,
+       "hMm": 32.23
+      },
+      {
+       "crop": "fc10_q6_f1",
+       "wMm": 39.86,
+       "hMm": 39.15
+      },
+      {
+       "crop": "fc10_q6_f2",
+       "wMm": 29.57,
+       "hMm": 28.27
+      },
+      {
+       "crop": "fc10_q6_f3",
+       "wMm": 55.45,
+       "hMm": 33.66
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A wall has three square holes cut into it to allow for windows, as shown. Find the remaining area of the wall."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q7_f0",
+       "wMm": 68.4,
+       "hMm": 29.59
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A factory floor, with dimensions shown opposite, is to be covered with linoleum. Including underlay and installation, the linoleum will cost $25 per square metre. The budget for the job is $3000. Is there enough money in the budget to cover the cost?"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q8_f0",
+       "wMm": 29.1,
+       "hMm": 25.36
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q9_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " Explain why using subtraction is sometimes quicker than using addition to fi nd the area of a composite shape. Refer to the diagram as an example. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q9_f0",
+       "wMm": 22.97,
+       "hMm": 14.0
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The 4 -sided shape called the trapezium has one pair of parallel sides. "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " For the trapezium shown opposite, is it possible to fi nd the base length of each triangle on the sides? Justify your answer. "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Can you come up with a method for fi nding the area of this trapezium using the rectangle and triangles shown in the diagram? Use diagrams to explain your method. ENRICHMENT: Adding to infinity – "
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q10_f0",
+       "wMm": 44.45,
+       "hMm": 29.77
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The square given opposite, which has an area of 1 unit, is divided to show the areas of "
+      },
+      {
+       "m": "fc10_q11_m1",
+       "hMm": 4.83,
+       "wMm": 3.03,
+       "dropMm": -0.19
+      },
+      {
+       "m": "fc10_q11_m2",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", "
+      },
+      {
+       "m": "fc10_q11_m3",
+       "hMm": 4.83,
+       "wMm": 3.03,
+       "dropMm": -0.19
+      },
+      {
+       "m": "fc10_q11_m4",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", "
+      },
+      {
+       "m": "fc10_q11_m5",
+       "hMm": 4.83,
+       "wMm": 3.03,
+       "dropMm": -0.19
+      },
+      {
+       "m": "fc10_q11_m6",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", … Similar to the one shown opposite, draw your own square, showing as many fractions as you can. Try to follow the spiral pattern shown. (Note: The bigger the square you start with, the more squares you will be able to show.) b i Write the next 10 numbers in this number pattern. 1_"
+      },
+      {
+       "m": "fc10_q11_m7",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", "
+      },
+      {
+       "m": "fc10_q11_m8",
+       "hMm": 4.83,
+       "wMm": 3.03,
+       "dropMm": -0.19
+      },
+      {
+       "m": "fc10_q11_m9",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", "
+      },
+      {
+       "m": "fc10_q11_m10",
+       "hMm": 4.83,
+       "wMm": 3.03,
+       "dropMm": -0.19
+      },
+      {
+       "m": "fc10_q11_m11",
+       "hMm": 4.64,
+       "wMm": 2.47,
+       "dropMm": 3.14
+      },
+      {
+       "t": ", …ii Will the pattern ever stop? "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " What is the total area of the starting square? "
+        }
+       ]
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " What do your answers to parts b ii and c tell you about the answer to the sum below? "
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q11_f0",
+       "wMm": 38.63,
+       "hMm": 39.44
+      },
+      {
+       "crop": "fc10_q11_f1",
+       "wMm": 112.73,
+       "hMm": 87.72
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10i_title",
+     "text": "10I Volume of rectangular prisms",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the volume of these rectangular prisms."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 37.9,
+       "hMm": 15.55
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 33.26,
+       "hMm": 16.53
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the volume of these rectangular prisms. f 5 km"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 19.67,
+       "hMm": 34.71
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 36.53,
+       "hMm": 33.89
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 19.59,
+       "hMm": 35.36
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 21.41,
+       "hMm": 24.11
+      },
+      {
+       "crop": "fc10_q2_f4",
+       "wMm": 44.18,
+       "hMm": 17.01
+      },
+      {
+       "crop": "fc10_q2_f5",
+       "wMm": 14.48,
+       "hMm": 19.71
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A fruit box is 40 cm long, 30 cm wide and 20 cm high. Find its volume."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A shipping container is 3 m wide, 4 m high and 8 m long. Find its volume."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A short rectangular ruler is 150 mm long, 40 mm wide and 2 mm thick. Find its volume."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " There is enough ice on Earth to fill a cube of side length 300 km. Find the approximate volume of ice on Earth."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q7_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " These solids are made up of more than one rectangular prism. Use addition or subtraction to find the volume of the composite solid. b "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q7_f0",
+       "wMm": 37.68,
+       "hMm": 48.84
+      },
+      {
+       "crop": "fc10_q7_f1",
+       "wMm": 24.88,
+       "hMm": 20.21
+      },
+      {
+       "crop": "fc10_q7_f2",
+       "wMm": 20.22,
+       "hMm": 22.58
+      },
+      {
+       "crop": "fc10_q7_f3",
+       "wMm": 27.6,
+       "hMm": 13.34
+      },
+      {
+       "crop": "fc10_q7_f4",
+       "wMm": 24.52,
+       "hMm": 11.99
+      },
+      {
+       "crop": "fc10_q7_f5",
+       "wMm": 56.2,
+       "hMm": 35.4
+      },
+      {
+       "crop": "fc10_q7_f6",
+       "wMm": 17.25,
+       "hMm": 29.51
+      },
+      {
+       "crop": "fc10_q7_f7",
+       "wMm": 16.06,
+       "hMm": 34.45
+      },
+      {
+       "crop": "fc10_q7_f8",
+       "wMm": 34.04,
+       "hMm": 22.34
+      },
+      {
+       "crop": "fc10_q7_f9",
+       "wMm": 23.05,
+       "hMm": 19.89
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A box measuring 30 cm long, 20 cm high and 30 cm wide is packed with matchboxes, each measuring 5 cm long, 2 cm high and 3 cm wide. How many matchboxes will fit in the box?"
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " The outside dimensions of a closed wooden box are 20 cm by 20 cm by 20 cm. If the box is made of wood that is 2 cm thick, find the volume of air inside the box."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "problemsolving",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " The area of one face of a cube is 25 cm"
+        },
+        {
+         "m": "fc10_q10_m1",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": ". Find the cube’s volume."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " The perimeter of one face of a cube is 36 m. Find the cube’s volume."
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q11_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " We can find the area of this shaded triangle by thinking of it as half a rectangle. Use the same idea to find the volume of each of these solids. b c "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q11_f0",
+       "wMm": 9.52,
+       "hMm": 9.53
+      },
+      {
+       "crop": "fc10_q11_f1",
+       "wMm": 9.52,
+       "hMm": 9.53
+      },
+      {
+       "crop": "fc10_q11_f2",
+       "wMm": 9.52,
+       "hMm": 9.52
+      },
+      {
+       "crop": "fc10_q11_f3",
+       "wMm": 13.36,
+       "hMm": 13.36
+      },
+      {
+       "crop": "fc10_q11_f4",
+       "wMm": 9.88,
+       "hMm": 10.83
+      },
+      {
+       "crop": "fc10_q11_f5",
+       "wMm": 9.88,
+       "hMm": 10.83
+      },
+      {
+       "crop": "fc10_q11_f6",
+       "wMm": 21.35,
+       "hMm": 8.06
+      },
+      {
+       "crop": "fc10_q11_f7",
+       "wMm": 9.88,
+       "hMm": 10.83
+      },
+      {
+       "crop": "fc10_q11_f8",
+       "wMm": 9.88,
+       "hMm": 10.83
+      },
+      {
+       "crop": "fc10_q11_f9",
+       "wMm": 13.36,
+       "hMm": 13.36
+      },
+      {
+       "crop": "fc10_q11_f10",
+       "wMm": 8.06,
+       "hMm": 8.06
+      },
+      {
+       "crop": "fc10_q11_f11",
+       "wMm": 11.38,
+       "hMm": 11.38
+      },
+      {
+       "crop": "fc10_q11_f12",
+       "wMm": 13.36,
+       "hMm": 13.36
+      },
+      {
+       "crop": "fc10_q11_f13",
+       "wMm": 11.38,
+       "hMm": 11.38
+      },
+      {
+       "crop": "fc10_q11_f14",
+       "wMm": 8.06,
+       "hMm": 8.06
+      },
+      {
+       "crop": "fc10_q11_f15",
+       "wMm": 8.41,
+       "hMm": 8.41
+      },
+      {
+       "crop": "fc10_q11_f16",
+       "wMm": 8.41,
+       "hMm": 8.41
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Find the height of these rectangular prisms with the given volumes. Use trial and error if you prefer. "
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Can you explain a method that always works for finding the height of a rectangular prism?"
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Use "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": ", "
+        },
+        {
+         "t": "l",
+         "i": true
+        },
+        {
+         "t": " and "
+        },
+        {
+         "t": "w",
+         "i": true
+        },
+        {
+         "t": " to write a rule for "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": ".ENRICHMENT: Cubic conversions––13"
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q12_f0",
+       "wMm": 33.45,
+       "hMm": 37.7
+      },
+      {
+       "crop": "fc10_q12_f1",
+       "wMm": 40.49,
+       "hMm": 21.64
+      },
+      {
+       "crop": "fc10_q12_f2",
+       "wMm": 15.55,
+       "hMm": 17.7
+      },
+      {
+       "crop": "fc10_q12_f3",
+       "wMm": 40.49,
+       "hMm": 39.09
+      },
+      {
+       "crop": "fc10_q12_f4",
+       "wMm": 22.52,
+       "hMm": 23.6
+      },
+      {
+       "crop": "fc10_q12_f5",
+       "wMm": 37.57,
+       "hMm": 20.08
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " The diagram shows a 1 cm"
+        },
+        {
+         "m": "fc10_q13_m1",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.23
+        },
+        {
+         "t": " block that is divided into cubic millimetres.How many mm"
+        },
+        {
+         "m": "fc10_q13_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " are there along one side of the cube? i ii How many mm"
+        },
+        {
+         "m": "fc10_q13_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.25
+        },
+        {
+         "t": " are there in one layer of the cube? ("
+        },
+        {
+         "t": "Hint:",
+         "i": true
+        },
+        {
+         "t": " How many cubes sit on the base?) iii How many layers of mm"
+        },
+        {
+         "m": "fc10_q13_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.24
+        },
+        {
+         "t": " are there in the cube? iv Use your answers from parts i to iii above to now calculate how many mm"
+        },
+        {
+         "m": "fc10_q13_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " there are in 1 cm"
+        },
+        {
+         "m": "fc10_q13_m6",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": "."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Use a similar method to calculate the number of:cm"
+        },
+        {
+         "m": "fc10_q13_m7",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " in 1 m"
+        },
+        {
+         "m": "fc10_q13_m8",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " i ii m"
+        },
+        {
+         "m": "fc10_q13_m9",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " in 1 km"
+        },
+        {
+         "m": "fc10_q13_m10",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Complete the diagram shown.×××____________km"
+        },
+        {
+         "m": "fc10_q13_m11",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.03
+        },
+        {
+         "t": "m"
+        },
+        {
+         "m": "fc10_q13_m12",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.03
+        },
+        {
+         "t": "cm"
+        },
+        {
+         "m": "fc10_q13_m13",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.03
+        },
+        {
+         "t": "mm"
+        },
+        {
+         "m": "fc10_q13_m14",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.03
+        },
+        {
+         "t": "÷ ____÷ ____÷ ____"
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q13_f0",
+       "wMm": 34.82,
+       "hMm": 12.56
+      },
+      {
+       "crop": "fc10_q13_f1",
+       "wMm": 8.82,
+       "hMm": 8.82
+      },
+      {
+       "crop": "fc10_q13_f2",
+       "wMm": 19.4,
+       "hMm": 23.94
+      },
+      {
+       "crop": "fc10_q13_f3",
+       "wMm": 13.52,
+       "hMm": 11.09
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_sec_title",
+     "text": "None Applications and problem-solving",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_sec_title",
+     "text": "None Applications and problem-solving",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10j_title",
+     "text": "10J Volume of triangular prisms",
+     "style": "title"
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the volume of these triangular prisms."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q1_f0",
+       "wMm": 36.64,
+       "hMm": 28.57
+      },
+      {
+       "crop": "fc10_q1_f1",
+       "wMm": 19.3,
+       "hMm": 9.55
+      },
+      {
+       "crop": "fc10_q1_f2",
+       "wMm": 24.93,
+       "hMm": 16.24
+      },
+      {
+       "crop": "fc10_q1_f3",
+       "wMm": 8.91,
+       "hMm": 12.09
+      },
+      {
+       "crop": "fc10_q1_f4",
+       "wMm": 37.3,
+       "hMm": 15.99
+      },
+      {
+       "crop": "fc10_q1_f5",
+       "wMm": 34.3,
+       "hMm": 26.9
+      },
+      {
+       "crop": "fc10_q1_f6",
+       "wMm": 19.3,
+       "hMm": 9.55
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the volume of these triangular prisms. b 2 m d 8 mm f 6 m"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q2_f0",
+       "wMm": 36.64,
+       "hMm": 28.57
+      },
+      {
+       "crop": "fc10_q2_f1",
+       "wMm": 19.3,
+       "hMm": 9.55
+      },
+      {
+       "crop": "fc10_q2_f2",
+       "wMm": 12.36,
+       "hMm": 15.93
+      },
+      {
+       "crop": "fc10_q2_f3",
+       "wMm": 37.3,
+       "hMm": 15.99
+      },
+      {
+       "crop": "fc10_q2_f4",
+       "wMm": 19.3,
+       "hMm": 9.55
+      },
+      {
+       "crop": "fc10_q2_f5",
+       "wMm": 15.51,
+       "hMm": 16.32
+      },
+      {
+       "crop": "fc10_q2_f6",
+       "wMm": 10.62,
+       "hMm": 14.94
+      },
+      {
+       "crop": "fc10_q2_f7",
+       "wMm": 19.36,
+       "hMm": 14.57
+      },
+      {
+       "crop": "fc10_q2_f8",
+       "wMm": 19.36,
+       "hMm": 12.27
+      },
+      {
+       "crop": "fc10_q2_f9",
+       "wMm": 12.14,
+       "hMm": 11.63
+      },
+      {
+       "crop": "fc10_q2_f10",
+       "wMm": 17.56,
+       "hMm": 16.04
+      },
+      {
+       "crop": "fc10_q2_f11",
+       "wMm": 17.48,
+       "hMm": 19.9
+      },
+      {
+       "crop": "fc10_q2_f12",
+       "wMm": 17.71,
+       "hMm": 15.4
+      },
+      {
+       "crop": "fc10_q2_f13",
+       "wMm": 25.56,
+       "hMm": 22.73
+      },
+      {
+       "crop": "fc10_q2_f14",
+       "wMm": 14.3,
+       "hMm": 11.22
+      },
+      {
+       "crop": "fc10_q2_f15",
+       "wMm": 14.3,
+       "hMm": 11.22
+      },
+      {
+       "crop": "fc10_q2_f16",
+       "wMm": 30.61,
+       "hMm": 19.26
+      },
+      {
+       "crop": "fc10_q2_f17",
+       "wMm": 35.21,
+       "hMm": 23.8
+      },
+      {
+       "crop": "fc10_q2_f18",
+       "wMm": 19.8,
+       "hMm": 14.75
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the volume of these triangular prisms."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q3_f0",
+       "wMm": 9.05,
+       "hMm": 18.92
+      },
+      {
+       "crop": "fc10_q3_f1",
+       "wMm": 51.94,
+       "hMm": 25.57
+      },
+      {
+       "crop": "fc10_q3_f2",
+       "wMm": 29.49,
+       "hMm": 25.31
+      },
+      {
+       "crop": "fc10_q3_f3",
+       "wMm": 18.48,
+       "hMm": 9.08
+      },
+      {
+       "crop": "fc10_q3_f4",
+       "wMm": 16.53,
+       "hMm": 9.08
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " Find the volume of these triangular prisms. "
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q4_f0",
+       "wMm": 52.36,
+       "hMm": 31.57
+      },
+      {
+       "crop": "fc10_q4_f1",
+       "wMm": 19.92,
+       "hMm": 13.91
+      },
+      {
+       "crop": "fc10_q4_f2",
+       "wMm": 23.39,
+       "hMm": 28.34
+      },
+      {
+       "crop": "fc10_q4_f3",
+       "wMm": 22.59,
+       "hMm": 13.22
+      },
+      {
+       "crop": "fc10_q4_f4",
+       "wMm": 56.29,
+       "hMm": 45.38
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A simple tent is in the shape of a triangular prism as shown. Find the tent’s volume.1.4 m3 m"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q5_f0",
+       "wMm": 22.98,
+       "hMm": 16.8
+      },
+      {
+       "crop": "fc10_q5_f1",
+       "wMm": 27.4,
+       "hMm": 23.27
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " A concrete ramp is in the shape of a triangular prism as shown. Find the volume of concrete in cm"
+      },
+      {
+       "m": "fc10_q6_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.25
+      },
+      {
+       "t": "."
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q6_f0",
+       "wMm": 60.36,
+       "hMm": 40.25
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 12
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_q7_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A chocolate bar is in the shape of a triangular prism. The triangular cross-section has base 3 cm and height 2 cm. Its total length is 12 cm. Find the volume of the chocolate in the bar."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " The following composite solids combine rectangular and triangular prisms. Find the volume. b 4 m2 cm3 cm5 cm"
+      }
+     ],
+     "parts": [],
+     "figures": [
+      {
+       "crop": "fc10_q8_f0",
+       "wMm": 28.78,
+       "hMm": 19.31
+      },
+      {
+       "crop": "fc10_q8_f1",
+       "wMm": 28.15,
+       "hMm": 11.79
+      },
+      {
+       "crop": "fc10_q8_f2",
+       "wMm": 24.72,
+       "hMm": 12.04
+      },
+      {
+       "crop": "fc10_q8_f3",
+       "wMm": 32.81,
+       "hMm": 32.13
+      },
+      {
+       "crop": "fc10_q8_f4",
+       "wMm": 17.51,
+       "hMm": 36.49
+      },
+      {
+       "crop": "fc10_q8_f5",
+       "wMm": 31.29,
+       "hMm": 12.44
+      },
+      {
+       "crop": "fc10_q8_f6",
+       "wMm": 49.42,
+       "hMm": 36.33
+      },
+      {
+       "crop": "fc10_q8_f7",
+       "wMm": 35.36,
+       "hMm": 39.22
+      },
+      {
+       "crop": "fc10_q8_f8",
+       "wMm": 53.95,
+       "hMm": 20.44
+      },
+      {
+       "crop": "fc10_q8_f9",
+       "wMm": 41.47,
+       "hMm": 32.36
+      },
+      {
+       "crop": "fc10_q8_f10",
+       "wMm": 11.34,
+       "hMm": 15.04
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A box in the shape of a cube has side length 20 cm. It contains 400 small metal wedges, each of which is a triangular prism with cross-sectional area 2.8 cm"
+      },
+      {
+       "m": "fc10_q9_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.19
+      },
+      {
+       "t": " and length 3.5 cm. Find the volume of air space remaining in the box."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_q10_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The following refer to triangular prisms with given volumes and unknown cross-sectional areas or height measurements."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " If the volume is 40 cm"
+        },
+        {
+         "m": "fc10_q10_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.25
+        },
+        {
+         "t": " and the cross-sectional area is 10 cm"
+        },
+        {
+         "m": "fc10_q10_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": ", find its height."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " If the volume is 8.2 m"
+        },
+        {
+         "m": "fc10_q10_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.24
+        },
+        {
+         "t": " and the cross-sectional area is 1.6 m"
+        },
+        {
+         "m": "fc10_q10_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.2
+        },
+        {
+         "t": ", find its height."
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " If the volume is 125 mm"
+        },
+        {
+         "m": "fc10_q10_m6",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.26
+        },
+        {
+         "t": " and the height is 20 mm, find its cross-sectional area."
+        }
+       ]
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " If the volume is 4000 cm"
+        },
+        {
+         "m": "fc10_q10_m7",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.25
+        },
+        {
+         "t": " and the height is 400 cm, find its cross-sectional area."
+        }
+       ]
+      }
+     ],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A triangular prism has volume 24 cm"
+      },
+      {
+       "m": "fc10_q11_m8",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.24
+      },
+      {
+       "t": " and height 8 cm. The height of the triangular cross-section is 2 cm. Find the base length of the triangular cross-section."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_q12",
+     "number": "12",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " A triangular prism has volume 100 mm"
+      },
+      {
+       "m": "fc10_q12_m9",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.23
+      },
+      {
+       "t": " and height 20 mm. The base of the triangular cross-section is 4 mm. Find the height of the triangular cross-section."
+      }
+     ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "fc10_q13",
+     "number": "13",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": " The given triangular prism has volume "
+      },
+      {
+       "t": "V",
+       "i": true
+      },
+      {
+       "t": ", height "
+      },
+      {
+       "t": "h",
+       "i": true
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q13_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": 2.15
+      },
+      {
+       "t": " and the triangular cross-section has base "
+      },
+      {
+       "t": "b",
+       "i": true
+      },
+      {
+       "t": " and height "
+      },
+      {
+       "t": "h",
+       "i": true
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "fc10_q13_m2",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": 2.14
+      },
+      {
+       "t": "."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Write a rule for the volume "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": " in terms of "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": ", "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.16
+        },
+        {
+         "t": ", and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.16
+        },
+        {
+         "t": "."
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Write a rule for the volume "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " in terms of "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": ", "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m6",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": "."
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Write a rule for the volume "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m7",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.13
+        },
+        {
+         "t": " in terms of "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": ", "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m8",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.13
+        },
+        {
+         "t": "."
+        }
+       ]
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " Write a rule for the volume "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " in terms of "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": ", "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m9",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.15
+        },
+        {
+         "t": " and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m10",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.15
+        },
+        {
+         "t": "."
+        }
+       ]
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": " Use one of your rules above to find:"
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m11",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " if "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": " = 12, "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " = 4 and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m12",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " = 4. i ii "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m13",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " if "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": " = 20, "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " = 5 and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m14",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " = 8. iii "
+        },
+        {
+         "t": "b",
+         "i": true
+        },
+        {
+         "t": " if "
+        },
+        {
+         "t": "V",
+         "i": true
+        },
+        {
+         "t": " = 80, "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m15",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " = 20 and "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_q13_m16",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": 2.14
+        },
+        {
+         "t": " = 10."
+        }
+       ]
+      }
+     ],
+     "figures": [
+      {
+       "crop": "fc10_q13_f0",
+       "wMm": 46.36,
+       "hMm": 30.48
+      },
+      {
+       "crop": "fc10_q13_f1",
+       "wMm": 111.5,
+       "hMm": 81.46
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 14.4
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "fc10_10k_title",
+     "text": "10K Capacity",
+     "style": "title"
+    }
+   ]
+  }
+ ],
+ "buildVersion": "ba8825f5"
+}

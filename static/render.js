@@ -709,6 +709,69 @@ function cropHtml(cropsBaseUrl, crop, contextImage, widthMm, imageScale, manualC
   return `<div class="block-crop"${style}>${contextHtml}<img src="${src}"></div>`;
 }
 
+// The source book sets its body at 10pt, so every mm measurement the
+// extractor recorded is relative to that. Dividing by 10pt-in-mm turns
+// those into `em`, which is what makes an inline math fragment scale
+// with the body text automatically: change the workbook's font size and
+// the fractions follow, with no re-cropping and no second scale to keep
+// in sync.
+const PT10_MM = 10 * 25.4 / 72;
+
+function flowRunsHtml(runs, cropsBaseUrl) {
+  return (runs || [])
+    .map((r) => {
+      if (r.t !== undefined) {
+        const t = escapeHtml(r.t);
+        return r.i ? `<i>${t}</i>` : t;
+      }
+      // A 2D-layout fragment (fraction, superscript) spliced back into
+      // the line. Height in em keeps it the same visual size as the
+      // words around it; the negative vertical-align is how far its
+      // bottom sits below the baseline, so a denominator hangs and a
+      // superscript rides high instead of both sitting on the line.
+      const hEm = (r.hMm / PT10_MM).toFixed(3);
+      const dropEm = ((r.dropMm || 0) / PT10_MM).toFixed(3);
+      return (
+        `<img class="imath" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(r.m)}.png${versionSuffix()}" ` +
+        `style="height:${hEm}em;vertical-align:${-dropEm}em" alt="">`
+      );
+    })
+    .join("");
+}
+
+function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
+  const stem = (b.stem || []).length ? `<p class="flowq-stem">${flowRunsHtml(b.stem, cropsBaseUrl)}</p>` : "";
+  const parts = (b.parts || []).length
+    ? `<div class="flowq-parts">` +
+      b.parts
+        .map(
+          (p) =>
+            `<div class="flowq-part"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
+            `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>`
+        )
+        .join("") +
+      `</div>`
+    : "";
+  // Figures are the only thing here that scales. They carry their true
+  // mm size from the PDF, so the percentage is a real proportion of the
+  // printed original rather than of whatever container they land in.
+  const figs = (b.figures || [])
+    .map(
+      (f) =>
+        `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
+        `style="width:${((f.wMm * figPct) / 100).toFixed(1)}mm" alt="">`
+    )
+    .join("");
+  const figCol = figs ? `<div class="flowq-figs">${figs}</div>` : "";
+  return (
+    `<div class="flowq-row">` +
+    `<div class="flowq-num">${escapeHtml(b.number || "")}</div>` +
+    `<div class="flowq-body">${stem}${parts}${workingSpaceHtml(ws)}</div>` +
+    figCol +
+    `</div>`
+  );
+}
+
 function ruleLinesHtml(height, spacing) {
   let inner = "";
   for (let y = spacing; y < height; y += spacing) {
@@ -1267,6 +1330,36 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             mergeGroupControls = { gid: next.gid, layout: nextLayout, restorableHiddenMembers: nextVisibility.explicitlyHiddenMembers };
             mergedStemGids.add(next.gid);
           }
+        }
+        if (b.type === "flowquestion") {
+          // The text-flow pipeline's question (see tools/extract_flow.py).
+          // Unlike every other block here it carries no whole-question
+          // bitmap: its prose is real text set at one workbook-wide size,
+          // and only its figures are images - which is what lets it wrap
+          // into a narrow column instead of shrinking, and lets a figure
+          // be resized without dragging the words down with it.
+          if (deletedIds.has(b.id)) {
+            units.push({ html: deletedPlaceholderHtml(b.id, b.id), heading: false, breakBefore: false });
+            return;
+          }
+          if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
+          const ws = b.workingSpace || { style: "grid", heightMm: 15 };
+          const figPct = b.imageScale ?? defaultScales.combined;
+          const controls = controlsHangHtml(
+            b.id,
+            renderQuestionControls(b.id, "block", ws, figPct, b.breakBefore) +
+              deleteButtonHtml(b.id, "block", "Delete question") +
+              pairWithNextControlHtml(b.id, !!b.pairWithNext)
+          );
+          const html = flowQuestionHtml(b, cropsBaseUrl, ws, figPct) + controls;
+          units.push({
+            html: `<div class="block question flowq">${html}</div>`,
+            heading: false,
+            wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
+            breakBefore: !!b.breakBefore,
+            pairData: { id: b.id, crop: flowQuestionHtml(b, cropsBaseUrl, ws, figPct), ws, pct: figPct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext },
+          });
+          return;
         }
         if (b.type === "heading") {
           // Wrapped in one container, not two sibling top-level elements
