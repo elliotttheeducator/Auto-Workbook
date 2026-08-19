@@ -347,6 +347,10 @@ export function extractOverrides(workbook) {
   return structuredClone({
     groupLayout: workbook.groupLayout || {},
     groupSplitColumns: workbook.groupSplitColumns || {},
+    // Body text size for a flow chapter (see flowBodyPt in render.js).
+    // A real document setting - it changes how text wraps and therefore
+    // how the chapter paginates - so it persists like any other edit.
+    flowBodyPt: workbook.flowBodyPt,
     combinedBlocks: workbook.combinedBlocks || {},
     blockOverrides,
     // Both 100% user-authored (no shipped server-side default either
@@ -372,6 +376,9 @@ export function applyOverrides(workbook, overrides) {
         workbook.groupLayout[gid] = overrides.groupLayout[gid];
       }
     }
+  }
+  if (overrides.flowBodyPt !== undefined && overrides.flowBodyPt !== null) {
+    workbook.flowBodyPt = overrides.flowBodyPt;
   }
   if (overrides.groupSplitColumns) {
     workbook.groupSplitColumns = workbook.groupSplitColumns || {};

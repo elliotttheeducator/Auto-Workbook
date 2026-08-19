@@ -404,7 +404,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    is set in, so the substitution is close to invisible. */
 :root { --flow-body: 10.5pt; --flow-lh: 1.32; }
 .flowq { font-family: Tinos, "Liberation Serif", "Times New Roman", Times, serif; }
-.flowq-row { display: flex; align-items: flex-start; gap: 3mm; }
+/* The answer space is a sibling of the row, not a child of its text
+   column, so every question's grid spans the same full width whether or
+   not it has a figure beside it (see flowQuestionHtml). */
+.flowq-unit { margin-bottom: 2mm; }
+.flowq-row { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 1mm; }
 /* The question number keeps its own fixed-width gutter, mirroring the
    source layout and keeping every question's text aligned down the page
    however many digits the number has. */

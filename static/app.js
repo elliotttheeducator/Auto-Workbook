@@ -15,7 +15,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, buildFilterContext, defaultScaleBarHtml, filterBarHtml, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, buildFilterContext, DEFAULT_FLOW_BODY_PT, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -890,6 +890,17 @@ function handleControlClick(e) {
     printSelection = new Set();
     renderTopBars();
     applyPrintSelection();
+    return;
+  }
+  if (action === "step-flow-body") {
+    // A real document edit (unlike the print-only toggles above), so it
+    // saves and re-renders: changing the body size changes how the text
+    // wraps, which changes pagination.
+    const cur = currentWorkbook.flowBodyPt ?? DEFAULT_FLOW_BODY_PT;
+    const next = Math.max(FLOW_BODY_PT_MIN, Math.min(FLOW_BODY_PT_MAX, cur + Number(el.dataset.delta) * FLOW_BODY_PT_STEP));
+    if (next === cur) return;
+    currentWorkbook.flowBodyPt = next;
+    persistAndRerenderEditor();
     return;
   }
   if (action === "toggle-teacher-workthrough") {

@@ -528,6 +528,33 @@ function teacherWorkthroughToggleHtml(enabled) {
 // has customized yet. Split gets two independent steppers, not one - a
 // 2-up row and a 3-up row need different starting sizes (less width per
 // part at 3-up), so one flat "split" default could never fit both.
+// Body text size for a text-flow chapter (tools/extract_flow.py) - the
+// one control that sets how large EVERY question reads, since flowed
+// text is set at a single absolute size rather than inheriting whatever
+// scale its crop happened to land on. Only shown for a flow workbook;
+// a bitmap chapter has no such single size to set.
+export const FLOW_BODY_PT_MIN = 7.5;
+export const FLOW_BODY_PT_MAX = 14;
+export const FLOW_BODY_PT_STEP = 0.5;
+export const DEFAULT_FLOW_BODY_PT = 10.5;
+
+export function flowBodyPt(workbook) {
+  return workbook?.flowBodyPt ?? DEFAULT_FLOW_BODY_PT;
+}
+
+function flowBodyStepperHtml(workbook) {
+  if (!workbook || !workbook.flowVersion) return "";
+  const pt = flowBodyPt(workbook);
+  return (
+    `<div class="tier-filter-group">` +
+    `<span class="tier-filter-label">Text size</span>` +
+    `<button data-action="step-flow-body" data-delta="-1" ${pt <= FLOW_BODY_PT_MIN ? "disabled" : ""}>−</button>` +
+    `<span>${pt}pt</span>` +
+    `<button data-action="step-flow-body" data-delta="1" ${pt >= FLOW_BODY_PT_MAX ? "disabled" : ""}>+</button>` +
+    `</div>`
+  );
+}
+
 export function defaultScaleBarHtml(workbook) {
   const scales = resolvedDefaultScales(workbook);
   const stepper = (mode, label, pct) =>
@@ -539,6 +566,7 @@ export function defaultScaleBarHtml(workbook) {
     `</div>`;
   return (
     `<div class="filter-bar default-scale-bar">` +
+    flowBodyStepperHtml(workbook) +
     stepper("split2", "Default 2-split scale", scales.split2) +
     stepper("split3", "Default 3-split scale", scales.split3) +
     stepper("section", "Default section scale", scales.section) +
@@ -769,11 +797,19 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
   // whole page tall - across is both denser and closer to the original.
   const many = (b.figures || []).length > 1;
   const figBlock = figs ? `<div class="flowq-figs${many ? " flowq-figs-row" : ""}">${figs}</div>` : "";
+  // The answer space sits OUTSIDE the row, so it spans the full content
+  // width for every question. Inside the row it inherited whatever was
+  // left after the figure column, so a question with a photo beside it
+  // got a visibly narrower grid than the one above - the ragged,
+  // stepped look of a page of mixed questions.
   return (
+    `<div class="flowq-unit">` +
     `<div class="flowq-row">` +
     `<div class="flowq-num">${escapeHtml(b.number || "")}</div>` +
-    `<div class="flowq-body">${stem}${parts}${many ? figBlock : ""}${workingSpaceHtml(ws)}</div>` +
+    `<div class="flowq-body">${stem}${parts}${many ? figBlock : ""}</div>` +
     (many ? "" : figBlock) +
+    `</div>` +
+    workingSpaceHtml(ws) +
     `</div>`
   );
 }
@@ -1620,9 +1656,14 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   }
   await flushPending();
 
+  // One inline custom property drives every flowed question's size (see
+  // --flow-body in app.css) - a text-flow chapter has exactly one body
+  // size by design, so it is set once here rather than per block.
+  const flowStyle = workbook.flowVersion ? ` style="--flow-body:${flowBodyPt(workbook)}pt"` : "";
+
   const spreads = [];
   for (let i = 0; i < physicalPagesHtml.length; i += 2) {
     spreads.push(`<div class="spread">${physicalPagesHtml.slice(i, i + 2).join("")}</div>`);
   }
-  return spreads.join("");
+  return flowStyle ? `<div${flowStyle}>${spreads.join("")}</div>` : spreads.join("");
 }

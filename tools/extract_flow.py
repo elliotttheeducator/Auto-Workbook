@@ -404,7 +404,39 @@ def assign_figures(figs, bands):
             if y0 <= cy < y1:
                 owned[i].append(f)
                 break
-    return owned
+    return {i: reading_order(v) for i, v in owned.items()}
+
+
+def reading_order(figs):
+    """Sorts figures the way they are read: by visual row, then left to
+    right within it.
+
+    Sorting on raw y first looks equivalent but is not. Two diagrams
+    printed side by side are never typeset at exactly the same y - here
+    the right-hand one starts 0.94pt ABOVE its left-hand partner - so a
+    plain (y, x) sort interleaves the columns and emits them b, a, d, c.
+    Snapping to rows first is what makes the order match the labels."""
+    if not figs:
+        return []
+    rows = []
+    for f in sorted(figs, key=lambda r: r.y0):
+        for row in rows:
+            # same row if they overlap vertically by a real fraction of
+            # their height - tolerant of the point or two of stagger,
+            # intolerant of a genuinely separate row below
+            top, bottom = row["top"], row["bottom"]
+            overlap = min(bottom, f.y1) - max(top, f.y0)
+            if overlap > 0.45 * min(bottom - top, f.height):
+                row["items"].append(f)
+                row["top"] = min(top, f.y0)
+                row["bottom"] = max(bottom, f.y1)
+                break
+        else:
+            rows.append({"top": f.y0, "bottom": f.y1, "items": [f]})
+    out = []
+    for row in rows:
+        out.extend(sorted(row["items"], key=lambda r: r.x0))
+    return out
 
 
 def owned_figures(page: fitz.Page, region: fitz.Rect, text_right_edge: float):
@@ -587,8 +619,14 @@ def tier_of(spans):
             continue
         txt = "".join(c["c"] for c in s.chars).strip()
         key = re.sub(r"[^a-z]", "", txt.lower())
-        if key in ("fluency", "problemsolving", "reasoning", "enrichment"):
-            return key
+        # Prefix match, not equality: an Enrichment band carries its own
+        # title ("ENRICHMENT: Planetary circumnavigation"), so an exact
+        # comparison fails to recognise it as a band at all - and the
+        # whole row then flows into the preceding question as text
+        # ("Radius 3 mmENRICHMENT: Planetary circumnavigation").
+        for name in ("fluency", "problemsolving", "reasoning", "enrichment"):
+            if key.startswith(name):
+                return name
     return None
 
 

@@ -307,23 +307,23 @@
      "figures": [
       {
        "crop": "fc10_10c_q3_f0",
-       "wMm": 50.07,
-       "hMm": 50.86
-      },
-      {
-       "crop": "fc10_10c_q3_f1",
        "wMm": 54.67,
        "hMm": 50.53
       },
       {
+       "crop": "fc10_10c_q3_f1",
+       "wMm": 50.07,
+       "hMm": 50.86
+      },
+      {
        "crop": "fc10_10c_q3_f2",
-       "wMm": 47.43,
-       "hMm": 47.43
+       "wMm": 45.34,
+       "hMm": 45.34
       },
       {
        "crop": "fc10_10c_q3_f3",
-       "wMm": 45.34,
-       "hMm": 45.34
+       "wMm": 47.43,
+       "hMm": 47.43
       }
      ],
      "workingSpace": {
@@ -359,23 +359,23 @@
      "figures": [
       {
        "crop": "fc10_10c_q4_f0",
-       "wMm": 50.28,
-       "hMm": 51.08
-      },
-      {
-       "crop": "fc10_10c_q4_f1",
        "wMm": 53.69,
        "hMm": 49.55
       },
       {
+       "crop": "fc10_10c_q4_f1",
+       "wMm": 50.28,
+       "hMm": 51.08
+      },
+      {
        "crop": "fc10_10c_q4_f2",
-       "wMm": 47.96,
-       "hMm": 47.96
+       "wMm": 46.65,
+       "hMm": 46.65
       },
       {
        "crop": "fc10_10c_q4_f3",
-       "wMm": 46.65,
-       "hMm": 46.65
+       "wMm": 47.96,
+       "hMm": 47.96
       }
      ],
      "workingSpace": {
@@ -401,23 +401,23 @@
      "figures": [
       {
        "crop": "fc10_10c_q5_f0",
-       "wMm": 50.27,
-       "hMm": 56.26
-      },
-      {
-       "crop": "fc10_10c_q5_f1",
        "wMm": 54.9,
        "hMm": 55.95
       },
       {
+       "crop": "fc10_10c_q5_f1",
+       "wMm": 50.27,
+       "hMm": 56.26
+      },
+      {
        "crop": "fc10_10c_q5_f2",
-       "wMm": 47.74,
-       "hMm": 60.9
+       "wMm": 48.12,
+       "hMm": 60.91
       },
       {
        "crop": "fc10_10c_q5_f3",
-       "wMm": 48.12,
-       "hMm": 60.91
+       "wMm": 47.74,
+       "hMm": 60.9
       }
      ],
      "workingSpace": {
@@ -843,7 +843,7 @@
        "letter": "b",
        "content": [
         {
-         "t": " Radius 3 mmENRICHMENT: Planetary circumnavigation––13"
+         "t": " Radius 3 mm"
         }
        ]
       }
@@ -855,10 +855,17 @@
      }
     },
     {
+     "type": "heading",
+     "id": "fc10_10c_q13_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10c_q13",
      "number": "13",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " While not being perfect spheres, the circumference of the planets in our solar system can be approximated by using a circle. Here are some planetary facts with some missing details. Calculate the missing numbers, rounding to the nearest integer.PartPlanetDiameter (km approx.)Circumference (km approx.)Earth12 750Mars 6 780Jupiter439 260Mercury 15 330"
@@ -868,7 +875,7 @@
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 20
      }
     }
    ]
@@ -912,13 +919,13 @@
      "figures": [
       {
        "crop": "fc10_10d_q1_f0",
-       "wMm": 34.47,
-       "hMm": 24.34
+       "wMm": 28.25,
+       "hMm": 32.53
       },
       {
        "crop": "fc10_10d_q1_f1",
-       "wMm": 28.25,
-       "hMm": 32.53
+       "wMm": 34.47,
+       "hMm": 24.34
       },
       {
        "crop": "fc10_10d_q1_f2",
@@ -960,13 +967,13 @@
      "figures": [
       {
        "crop": "fc10_10d_q2_f0",
-       "wMm": 25.78,
-       "hMm": 32.48
+       "wMm": 29.25,
+       "hMm": 31.43
       },
       {
        "crop": "fc10_10d_q2_f1",
-       "wMm": 29.25,
-       "hMm": 31.43
+       "wMm": 25.78,
+       "hMm": 32.48
       },
       {
        "crop": "fc10_10d_q2_f2",
@@ -1090,13 +1097,13 @@
       },
       {
        "crop": "fc10_10d_q5_f1",
-       "wMm": 29.39,
-       "hMm": 22.77
+       "wMm": 19.05,
+       "hMm": 36.62
       },
       {
        "crop": "fc10_10d_q5_f2",
-       "wMm": 19.05,
-       "hMm": 36.62
+       "wMm": 29.39,
+       "hMm": 22.77
       },
       {
        "crop": "fc10_10d_q5_f3",
@@ -1165,13 +1172,13 @@
       },
       {
        "crop": "fc10_10d_q7_f1",
-       "wMm": 37.53,
-       "hMm": 30.42
+       "wMm": 26.7,
+       "hMm": 35.33
       },
       {
        "crop": "fc10_10d_q7_f2",
-       "wMm": 26.7,
-       "hMm": 35.33
+       "wMm": 37.53,
+       "hMm": 30.42
       }
      ],
      "workingSpace": {
@@ -1318,32 +1325,29 @@
        "hMm": 4.59,
        "wMm": 2.08,
        "dropMm": 2.75
-      },
-      {
-       "t": "ENRICHMENT: Exact values and perimeters–"
       }
      ],
      "parts": [],
      "figures": [
       {
        "crop": "fc10_10d_q11_f0",
-       "wMm": 37.76,
-       "hMm": 39.27
-      },
-      {
-       "crop": "fc10_10d_q11_f1",
        "wMm": 36.48,
        "hMm": 22.66
       },
       {
-       "crop": "fc10_10d_q11_f2",
+       "crop": "fc10_10d_q11_f1",
        "wMm": 14.29,
        "hMm": 13.75
       },
       {
-       "crop": "fc10_10d_q11_f3",
+       "crop": "fc10_10d_q11_f2",
        "wMm": 15.31,
        "hMm": 12.37
+      },
+      {
+       "crop": "fc10_10d_q11_f3",
+       "wMm": 37.76,
+       "hMm": 39.27
       }
      ],
      "workingSpace": {
@@ -1352,10 +1356,17 @@
      }
     },
     {
+     "type": "heading",
+     "id": "fc10_10d_q12_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10d_q12",
      "number": "12",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " The working to find the exact perimeter of this composite shape is given by:"
@@ -1433,14 +1444,14 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 20
      }
     },
     {
      "type": "flowquestion",
      "id": "fc10_10d_q13",
      "number": "13",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " Find the exact answers for Question 8 in terms of π."
@@ -1450,7 +1461,7 @@
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 20
      }
     }
    ]
@@ -1489,12 +1500,12 @@
       {
        "crop": "fc10_10e_q1_f0",
        "wMm": 19.36,
-       "hMm": 19.36
+       "hMm": 28.34
       },
       {
        "crop": "fc10_10e_q1_f1",
        "wMm": 19.36,
-       "hMm": 28.34
+       "hMm": 19.36
       }
      ],
      "workingSpace": {
@@ -1520,23 +1531,23 @@
      "figures": [
       {
        "crop": "fc10_10e_q2_f0",
-       "wMm": 28.34,
-       "hMm": 28.34
-      },
-      {
-       "crop": "fc10_10e_q2_f1",
        "wMm": 10.39,
        "hMm": 28.34
       },
       {
+       "crop": "fc10_10e_q2_f1",
+       "wMm": 28.34,
+       "hMm": 28.34
+      },
+      {
        "crop": "fc10_10e_q2_f2",
-       "wMm": 37.31,
-       "hMm": 37.31
+       "wMm": 28.34,
+       "hMm": 28.86
       },
       {
        "crop": "fc10_10e_q2_f3",
-       "wMm": 28.34,
-       "hMm": 28.86
+       "wMm": 37.31,
+       "hMm": 37.31
       }
      ],
      "workingSpace": {
@@ -1558,38 +1569,38 @@
      "figures": [
       {
        "crop": "fc10_10e_q3_f0",
-       "wMm": 44.24,
-       "hMm": 32.47
+       "wMm": 54.84,
+       "hMm": 24.4
       },
       {
        "crop": "fc10_10e_q3_f1",
-       "wMm": 40.06,
+       "wMm": 26.67,
        "hMm": 43.39
       },
       {
        "crop": "fc10_10e_q3_f2",
-       "wMm": 31.38,
-       "hMm": 21.8
+       "wMm": 44.24,
+       "hMm": 32.47
       },
       {
        "crop": "fc10_10e_q3_f3",
-       "wMm": 31.03,
-       "hMm": 26.5
-      },
-      {
-       "crop": "fc10_10e_q3_f4",
-       "wMm": 34.04,
-       "hMm": 35.92
-      },
-      {
-       "crop": "fc10_10e_q3_f5",
        "wMm": 36.18,
        "hMm": 25.79
       },
       {
+       "crop": "fc10_10e_q3_f4",
+       "wMm": 31.03,
+       "hMm": 26.5
+      },
+      {
+       "crop": "fc10_10e_q3_f5",
+       "wMm": 34.04,
+       "hMm": 35.92
+      },
+      {
        "crop": "fc10_10e_q3_f6",
-       "wMm": 26.32,
-       "hMm": 27.79
+       "wMm": 41.32,
+       "hMm": 21.46
       },
       {
        "crop": "fc10_10e_q3_f7",
@@ -1598,8 +1609,8 @@
       },
       {
        "crop": "fc10_10e_q3_f8",
-       "wMm": 41.32,
-       "hMm": 21.46
+       "wMm": 26.32,
+       "hMm": 27.79
       }
      ],
      "workingSpace": {
@@ -2071,7 +2082,7 @@
      "tier": "reasoning",
      "stem": [
       {
-       "t": " A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer. ENRICHMENT: Area conversions – – 17 17 a Use this diagram or similar to help answer the following. How many mm"
+       "t": " A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer. 17 a Use this diagram or similar to help answer the following. How many mm"
       },
       {
        "m": "fc10_10e_q16_m1",
@@ -2473,13 +2484,13 @@
      "figures": [
       {
        "crop": "fc10_10f_q2_f0",
-       "wMm": 32.09,
-       "hMm": 34.45
+       "wMm": 29.59,
+       "hMm": 17.01
       },
       {
        "crop": "fc10_10f_q2_f1",
-       "wMm": 29.59,
-       "hMm": 17.01
+       "wMm": 32.09,
+       "hMm": 34.45
       },
       {
        "crop": "fc10_10f_q2_f2",
@@ -2511,13 +2522,13 @@
      "figures": [
       {
        "crop": "fc10_10f_q3_f0",
-       "wMm": 35.35,
-       "hMm": 36.99
+       "wMm": 29.56,
+       "hMm": 24.04
       },
       {
        "crop": "fc10_10f_q3_f1",
-       "wMm": 29.56,
-       "hMm": 24.04
+       "wMm": 35.35,
+       "hMm": 36.99
       }
      ],
      "workingSpace": {
@@ -2539,33 +2550,33 @@
      "figures": [
       {
        "crop": "fc10_10f_q4_f0",
-       "wMm": 20.63,
-       "hMm": 28.58
-      },
-      {
-       "crop": "fc10_10f_q4_f1",
-       "wMm": 19.08,
-       "hMm": 36.43
-      },
-      {
-       "crop": "fc10_10f_q4_f2",
        "wMm": 40.26,
        "hMm": 18.02
       },
       {
+       "crop": "fc10_10f_q4_f1",
+       "wMm": 20.63,
+       "hMm": 28.58
+      },
+      {
+       "crop": "fc10_10f_q4_f2",
+       "wMm": 19.08,
+       "hMm": 36.43
+      },
+      {
        "crop": "fc10_10f_q4_f3",
-       "wMm": 19.41,
-       "hMm": 8.68
+       "wMm": 38.55,
+       "hMm": 29.95
       },
       {
        "crop": "fc10_10f_q4_f4",
-       "wMm": 46.2,
-       "hMm": 24.14
+       "wMm": 15.71,
+       "hMm": 8.45
       },
       {
        "crop": "fc10_10f_q4_f5",
-       "wMm": 34.85,
-       "hMm": 22.75
+       "wMm": 46.2,
+       "hMm": 24.14
       }
      ],
      "workingSpace": {
@@ -2587,23 +2598,23 @@
      "figures": [
       {
        "crop": "fc10_10f_q5_f0",
-       "wMm": 31.46,
-       "hMm": 27.81
+       "wMm": 21.36,
+       "hMm": 11.38
       },
       {
        "crop": "fc10_10f_q5_f1",
-       "wMm": 26.47,
-       "hMm": 27.81
-      },
-      {
-       "crop": "fc10_10f_q5_f2",
        "wMm": 11.38,
        "hMm": 21.36
       },
       {
+       "crop": "fc10_10f_q5_f2",
+       "wMm": 31.46,
+       "hMm": 27.81
+      },
+      {
        "crop": "fc10_10f_q5_f3",
-       "wMm": 21.36,
-       "hMm": 11.38
+       "wMm": 26.47,
+       "hMm": 27.81
       }
      ],
      "workingSpace": {
@@ -2965,10 +2976,17 @@
   {
    "blocks": [
     {
+     "type": "heading",
+     "id": "fc10_10f_q14_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10f_q14",
      "number": "14",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " The Puerta de Europa (Gate of Europe) towers are twin office buildings in Madrid, Spain. They look like normal rectangular glass-covered skyscrapers but they lean towards each other at an angle of 15° to the vertical. Two sides are parallelograms and two sides are rectangles. Each tower has a vertical height of 120 m, a slant height of 130 m and a square base of side 50 m.All four sides are covered with glass. If the glass costs $180 per square metre, find the cost of covering "
@@ -3001,7 +3019,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 20
      }
     }
    ]
@@ -3072,13 +3090,13 @@
       },
       {
        "crop": "fc10_10g_q2_f1",
-       "wMm": 34.98,
-       "hMm": 35.43
+       "wMm": 43.87,
+       "hMm": 36.42
       },
       {
        "crop": "fc10_10g_q2_f2",
-       "wMm": 43.87,
-       "hMm": 36.42
+       "wMm": 34.98,
+       "hMm": 35.43
       },
       {
        "crop": "fc10_10g_q2_f3",
@@ -3115,13 +3133,13 @@
      "figures": [
       {
        "crop": "fc10_10g_q3_f0",
-       "wMm": 37.91,
-       "hMm": 32.4
+       "wMm": 39.59,
+       "hMm": 16.16
       },
       {
        "crop": "fc10_10g_q3_f1",
-       "wMm": 39.59,
-       "hMm": 16.16
+       "wMm": 37.91,
+       "hMm": 32.4
       }
      ],
      "workingSpace": {
@@ -3167,13 +3185,13 @@
       },
       {
        "crop": "fc10_10g_q4_f4",
-       "wMm": 40.9,
-       "hMm": 43.43
+       "wMm": 43.47,
+       "hMm": 26.65
       },
       {
        "crop": "fc10_10g_q4_f5",
-       "wMm": 43.47,
-       "hMm": 26.65
+       "wMm": 40.9,
+       "hMm": 43.43
       }
      ],
      "workingSpace": {
@@ -3214,13 +3232,13 @@
       },
       {
        "crop": "fc10_10g_q5_f2",
-       "wMm": 50.04,
-       "hMm": 44.83
+       "wMm": 50.66,
+       "hMm": 51.11
       },
       {
        "crop": "fc10_10g_q5_f3",
-       "wMm": 50.66,
-       "hMm": 51.11
+       "wMm": 50.04,
+       "hMm": 44.83
       }
      ],
      "workingSpace": {
@@ -3525,7 +3543,7 @@
        "i": true
       },
       {
-       "t": ".ENRICHMENT: Estimating areas with curves––15"
+       "t": "."
       }
      ],
      "parts": [],
@@ -3536,10 +3554,17 @@
      }
     },
     {
+     "type": "heading",
+     "id": "fc10_10g_q15_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10g_q15",
      "number": "15",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " This diagram shows a shaded region that is "
@@ -3595,18 +3620,18 @@
       },
       {
        "crop": "fc10_10g_q15_f2",
-       "wMm": 38.77,
-       "hMm": 35.12
+       "wMm": 34.78,
+       "hMm": 31.14
       },
       {
        "crop": "fc10_10g_q15_f3",
-       "wMm": 34.78,
-       "hMm": 31.14
+       "wMm": 38.77,
+       "hMm": 35.12
       }
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 20
      }
     }
    ]
@@ -3696,33 +3721,33 @@
      "figures": [
       {
        "crop": "fc10_10h_q2_f0",
-       "wMm": 46.9,
-       "hMm": 47.59
-      },
-      {
-       "crop": "fc10_10h_q2_f1",
        "wMm": 43.87,
        "hMm": 31.26
       },
       {
-       "crop": "fc10_10h_q2_f2",
-       "wMm": 31.04,
-       "hMm": 11.29
+       "crop": "fc10_10h_q2_f1",
+       "wMm": 46.9,
+       "hMm": 47.59
       },
       {
-       "crop": "fc10_10h_q2_f3",
+       "crop": "fc10_10h_q2_f2",
        "wMm": 44.98,
        "hMm": 44.97
       },
       {
+       "crop": "fc10_10h_q2_f3",
+       "wMm": 31.04,
+       "hMm": 11.29
+      },
+      {
        "crop": "fc10_10h_q2_f4",
-       "wMm": 46.53,
-       "hMm": 18.43
+       "wMm": 26.81,
+       "hMm": 12.3
       },
       {
        "crop": "fc10_10h_q2_f5",
-       "wMm": 26.81,
-       "hMm": 12.3
+       "wMm": 46.53,
+       "hMm": 18.43
       }
      ],
      "workingSpace": {
@@ -3744,13 +3769,13 @@
      "figures": [
       {
        "crop": "fc10_10h_q3_f0",
-       "wMm": 39.31,
-       "hMm": 31.94
+       "wMm": 48.73,
+       "hMm": 26.24
       },
       {
        "crop": "fc10_10h_q3_f1",
-       "wMm": 48.73,
-       "hMm": 26.24
+       "wMm": 39.31,
+       "hMm": 31.94
       }
      ],
      "workingSpace": {
@@ -3772,13 +3797,13 @@
      "figures": [
       {
        "crop": "fc10_10h_q4_f0",
-       "wMm": 46.05,
-       "hMm": 35.73
+       "wMm": 45.35,
+       "hMm": 43.59
       },
       {
        "crop": "fc10_10h_q4_f1",
-       "wMm": 45.35,
-       "hMm": 43.59
+       "wMm": 46.05,
+       "hMm": 35.73
       },
       {
        "crop": "fc10_10h_q4_f2",
@@ -3792,13 +3817,13 @@
       },
       {
        "crop": "fc10_10h_q4_f4",
-       "wMm": 30.34,
-       "hMm": 15.52
+       "wMm": 37.47,
+       "hMm": 27.34
       },
       {
        "crop": "fc10_10h_q4_f5",
-       "wMm": 37.47,
-       "hMm": 27.34
+       "wMm": 30.34,
+       "hMm": 15.52
       }
      ],
      "workingSpace": {
@@ -3836,13 +3861,13 @@
       },
       {
        "crop": "fc10_10h_q5_f1",
-       "wMm": 43.58,
-       "hMm": 27.87
+       "wMm": 36.23,
+       "hMm": 28.93
       },
       {
        "crop": "fc10_10h_q5_f2",
-       "wMm": 36.23,
-       "hMm": 28.93
+       "wMm": 43.58,
+       "hMm": 27.87
       }
      ],
      "workingSpace": {
@@ -3864,13 +3889,13 @@
      "figures": [
       {
        "crop": "fc10_10h_q6_f0",
-       "wMm": 53.47,
-       "hMm": 32.23
+       "wMm": 39.86,
+       "hMm": 39.15
       },
       {
        "crop": "fc10_10h_q6_f1",
-       "wMm": 39.86,
-       "hMm": 39.15
+       "wMm": 53.47,
+       "hMm": 32.23
       },
       {
        "crop": "fc10_10h_q6_f2",
@@ -3991,7 +4016,7 @@
        "letter": "b",
        "content": [
         {
-         "t": " Can you come up with a method for fi nding the area of this trapezium using the rectangle and triangles shown in the diagram? Use diagrams to explain your method. ENRICHMENT: Adding to infinity – "
+         "t": " Can you come up with a method for fi nding the area of this trapezium using the rectangle and triangles shown in the diagram? Use diagrams to explain your method. "
         }
        ]
       }
@@ -4009,10 +4034,17 @@
      }
     },
     {
+     "type": "heading",
+     "id": "fc10_10h_q11_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10h_q11",
      "number": "11",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " The square given opposite, which has an area of 1 unit, is divided to show the areas of "
@@ -4134,7 +4166,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 16.0
      }
     }
    ]
@@ -4172,13 +4204,13 @@
      "figures": [
       {
        "crop": "fc10_10i_q1_f0",
-       "wMm": 37.9,
-       "hMm": 15.55
+       "wMm": 33.26,
+       "hMm": 16.53
       },
       {
        "crop": "fc10_10i_q1_f1",
-       "wMm": 33.26,
-       "hMm": 16.53
+       "wMm": 37.9,
+       "hMm": 15.55
       }
      ],
      "workingSpace": {
@@ -4200,8 +4232,8 @@
      "figures": [
       {
        "crop": "fc10_10i_q2_f0",
-       "wMm": 27.77,
-       "hMm": 36.18
+       "wMm": 36.53,
+       "hMm": 33.89
       },
       {
        "crop": "fc10_10i_q2_f1",
@@ -4210,8 +4242,8 @@
       },
       {
        "crop": "fc10_10i_q2_f2",
-       "wMm": 36.53,
-       "hMm": 33.89
+       "wMm": 27.77,
+       "hMm": 36.18
       },
       {
        "crop": "fc10_10i_q2_f3",
@@ -4332,23 +4364,23 @@
       },
       {
        "crop": "fc10_10i_q7_f2",
-       "wMm": 56.2,
-       "hMm": 35.4
-      },
-      {
-       "crop": "fc10_10i_q7_f3",
-       "wMm": 17.25,
-       "hMm": 29.51
-      },
-      {
-       "crop": "fc10_10i_q7_f4",
        "wMm": 17.08,
        "hMm": 34.45
       },
       {
-       "crop": "fc10_10i_q7_f5",
+       "crop": "fc10_10i_q7_f3",
        "wMm": 23.63,
        "hMm": 19.89
+      },
+      {
+       "crop": "fc10_10i_q7_f4",
+       "wMm": 17.25,
+       "hMm": 29.51
+      },
+      {
+       "crop": "fc10_10i_q7_f5",
+       "wMm": 56.2,
+       "hMm": 35.4
       }
      ],
      "workingSpace": {
@@ -4460,23 +4492,23 @@
       },
       {
        "crop": "fc10_10i_q11_f2",
-       "wMm": 26.81,
-       "hMm": 16.39
-      },
-      {
-       "crop": "fc10_10i_q11_f3",
-       "wMm": 36.43,
-       "hMm": 26.13
-      },
-      {
-       "crop": "fc10_10i_q11_f4",
        "wMm": 30.26,
        "hMm": 30.26
       },
       {
-       "crop": "fc10_10i_q11_f5",
+       "crop": "fc10_10i_q11_f3",
        "wMm": 16.82,
        "hMm": 20.63
+      },
+      {
+       "crop": "fc10_10i_q11_f4",
+       "wMm": 26.81,
+       "hMm": 16.39
+      },
+      {
+       "crop": "fc10_10i_q11_f5",
+       "wMm": 36.43,
+       "hMm": 26.13
       }
      ],
      "workingSpace": {
@@ -4543,7 +4575,7 @@
          "i": true
         },
         {
-         "t": ".ENRICHMENT: Cubic conversions––13"
+         "t": "."
         }
        ]
       }
@@ -4561,13 +4593,13 @@
       },
       {
        "crop": "fc10_10i_q12_f2",
-       "wMm": 51.71,
-       "hMm": 24.49
+       "wMm": 40.49,
+       "hMm": 39.09
       },
       {
        "crop": "fc10_10i_q12_f3",
-       "wMm": 40.49,
-       "hMm": 39.09
+       "wMm": 51.71,
+       "hMm": 24.49
       }
      ],
      "workingSpace": {
@@ -4576,10 +4608,17 @@
      }
     },
     {
+     "type": "heading",
+     "id": "fc10_10i_q13_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10i_q13",
      "number": "13",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [],
      "parts": [
       {
@@ -4746,7 +4785,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 16.0
      }
     }
    ]
@@ -4851,18 +4890,18 @@
      "figures": [
       {
        "crop": "fc10_10j_q2_f0",
+       "wMm": 27.97,
+       "hMm": 19.98
+      },
+      {
+       "crop": "fc10_10j_q2_f1",
        "wMm": 60.13,
        "hMm": 30.03
       },
       {
-       "crop": "fc10_10j_q2_f1",
+       "crop": "fc10_10j_q2_f2",
        "wMm": 19.3,
        "hMm": 9.55
-      },
-      {
-       "crop": "fc10_10j_q2_f2",
-       "wMm": 27.97,
-       "hMm": 19.98
       },
       {
        "crop": "fc10_10j_q2_f3",
@@ -4871,13 +4910,13 @@
       },
       {
        "crop": "fc10_10j_q2_f4",
-       "wMm": 10.62,
-       "hMm": 14.94
+       "wMm": 19.36,
+       "hMm": 14.57
       },
       {
        "crop": "fc10_10j_q2_f5",
-       "wMm": 19.36,
-       "hMm": 14.57
+       "wMm": 10.62,
+       "hMm": 14.94
       },
       {
        "crop": "fc10_10j_q2_f6",
@@ -4891,8 +4930,8 @@
       },
       {
        "crop": "fc10_10j_q2_f8",
-       "wMm": 17.56,
-       "hMm": 16.04
+       "wMm": 54.72,
+       "hMm": 32.62
       },
       {
        "crop": "fc10_10j_q2_f9",
@@ -4906,8 +4945,8 @@
       },
       {
        "crop": "fc10_10j_q2_f11",
-       "wMm": 54.72,
-       "hMm": 32.62
+       "wMm": 17.56,
+       "hMm": 16.04
       },
       {
        "crop": "fc10_10j_q2_f12",
@@ -4954,18 +4993,18 @@
      "figures": [
       {
        "crop": "fc10_10j_q3_f0",
-       "wMm": 50.65,
-       "hMm": 31.05
+       "wMm": 29.49,
+       "hMm": 25.31
       },
       {
        "crop": "fc10_10j_q3_f1",
-       "wMm": 51.94,
-       "hMm": 37.66
+       "wMm": 42.53,
+       "hMm": 26.59
       },
       {
        "crop": "fc10_10j_q3_f2",
-       "wMm": 9.62,
-       "hMm": 20.84
+       "wMm": 51.94,
+       "hMm": 37.66
       }
      ],
      "workingSpace": {
@@ -5107,33 +5146,33 @@
      "figures": [
       {
        "crop": "fc10_10j_q8_f0",
-       "wMm": 28.78,
-       "hMm": 19.31
+       "wMm": 39.41,
+       "hMm": 12.44
       },
       {
        "crop": "fc10_10j_q8_f1",
+       "wMm": 49.42,
+       "hMm": 36.33
+      },
+      {
+       "crop": "fc10_10j_q8_f2",
+       "wMm": 20.66,
+       "hMm": 11.79
+      },
+      {
+       "crop": "fc10_10j_q8_f3",
        "wMm": 28.15,
        "hMm": 11.79
       },
       {
-       "crop": "fc10_10j_q8_f2",
-       "wMm": 50.26,
-       "hMm": 42.88
-      },
-      {
-       "crop": "fc10_10j_q8_f3",
+       "crop": "fc10_10j_q8_f4",
        "wMm": 17.51,
        "hMm": 36.49
       },
       {
-       "crop": "fc10_10j_q8_f4",
-       "wMm": 31.29,
-       "hMm": 12.44
-      },
-      {
        "crop": "fc10_10j_q8_f5",
-       "wMm": 49.42,
-       "hMm": 36.33
+       "wMm": 50.26,
+       "hMm": 42.88
       },
       {
        "crop": "fc10_10j_q8_f6",
@@ -5345,10 +5384,17 @@
   {
    "blocks": [
     {
+     "type": "heading",
+     "id": "fc10_10j_q13_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
      "type": "flowquestion",
      "id": "fc10_10j_q13",
      "number": "13",
-     "tier": "reasoning",
+     "tier": "enrichment",
      "stem": [
       {
        "t": " The given triangular prism has volume "
@@ -5778,7 +5824,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 16.0
      }
     }
    ]
@@ -5794,5 +5840,5 @@
    ]
   }
  ],
- "buildVersion": "8d12c435"
+ "buildVersion": "6287eba0"
 }
