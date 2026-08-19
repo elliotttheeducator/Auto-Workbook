@@ -546,12 +546,10 @@ def is_qnum(spans, bbox):
     little "Example 5" cross-reference tags in the margin, which sit at
     a similar x and would otherwise each be read as the start of a new
     question - shredding the page into fragments named after examples."""
-    for s in spans:
-        if s.font != QNUM_FONT or s.size < QNUM_MIN_SIZE:
-            continue
-        txt = "".join(c["c"] for c in s.chars).strip()
-        if txt.isdigit() and QNUM_X[0] <= s.chars[0]["bbox"][0] <= QNUM_X[1]:
-            return txt
+    for i in range(len(spans)):
+        m = marker_parse(spans, i)
+        if m and "num" in m:
+            return m["num"]
     return None
 
 
@@ -573,16 +571,194 @@ def exercise_start_y(page):
     return None
 
 
+def marker_parse(spans, i):
+    """Reads the structural marker at span i: its question number, its
+    part letter, or both.
+
+    Both, because the book sometimes sets them in ONE span. Question 17
+    opens with the single span " 17  a ", so a test that asked whether
+    the span read as a bare number said no, and a test that asked
+    whether it read as a bare letter also said no. The question was
+    therefore never opened and the part never seen: its whole page of
+    text flowed into question 16 above it, and once question 16 was
+    correctly ended at the tier banner, that text was dropped
+    altogether. Parsing the span into its parts is what makes a fused
+    marker behave exactly like a split one.
+
+    Returns None for anything that is not a marker, else a dict with
+    "num" and/or "letter" (and the letter's own bbox, which the figure
+    grid needs to know which column it labels)."""
+    s = spans[i]
+    if s.font != QNUM_FONT or s.size < QNUM_MIN_SIZE or not s.chars:
+        return None
+    text = "".join(c["c"] for c in s.chars)
+    toks = text.split()
+    if not toks:
+        return None
+    out = {}
+    rest = toks
+    x0 = s.chars[0]["bbox"][0]
+    if toks[0].isdigit() and QNUM_X[0] <= x0 <= QNUM_X[1]:
+        out["num"] = toks[0]
+        rest = toks[1:]
+    # A part letter either follows the number in the same span, or is
+    # the whole span. Either way it must be a lone letter, and (when it
+    # stands alone) sit past the number's gutter.
+    if len(rest) == 1 and len(rest[0]) == 1 and rest[0].isalpha():
+        if "num" in out or x0 >= PART_X[0]:
+            out["letter"] = rest[0].lower()
+            want = rest[0]
+            for c in s.chars:
+                if c["c"] == want:
+                    out["lbox"] = c["bbox"]
+                    break
+    return out or None
+
+
 def is_part_letter(spans):
     """A part marker ('a', 'b', ...) - same rounded-bold face as a
-    question number but a single letter, one gutter step further in."""
-    for s in spans:
-        if s.font != QNUM_FONT:
-            continue
-        txt = "".join(c["c"] for c in s.chars).strip()
-        if len(txt) == 1 and txt.isalpha() and PART_X[0] <= s.chars[0]["bbox"][0] <= PART_X[1]:
-            return txt.lower()
+    question number but a single letter, anywhere past the question
+    number's own gutter.
+
+    Deliberately NOT restricted to the left margin. A diagram-grid
+    question labels its parts in columns - measured here at x=70 for
+    a/c/e and x=286.5 for b/d/f - so a narrow left-margin window sees
+    only every other part. That both loses half the structure and
+    scrambles what remains, since the parts that ARE found no longer
+    line up with the diagrams beside them."""
+    for i, s in enumerate(spans):
+        if part_label(spans, i):
+            return part_label(spans, i)
     return None
+
+
+def part_label(spans, i):
+    """The part letter at span i, or None.
+
+    Two conditions, and both are needed. The letter must be set in the
+    marker face at label size, and it must OPEN its line. Position
+    alone cannot decide it: dropping the right-hand bound to reach the
+    second column (x=286) also admits every inline marker-face letter,
+    so "rounded to: i two decimal places" starts reporting a part i.
+    Opening the line is what a label does and what an inline letter
+    never does, so it separates them wherever on the page they sit."""
+    if i != 0:
+        return None
+    m = marker_parse(spans, i)
+    return m.get("letter") if m else None
+
+
+def part_markers(lines, y0, y1):
+    """Every part label in a question's band, with its position.
+
+    Returned in the book's own reading order (row by row, left to right
+    within a row) rather than raw y order - the two columns of a diagram
+    grid are never typeset at identical y, so raw y interleaves them."""
+    marks = []
+    for bbox, spans in lines:
+        if not (y0 <= bbox.y0 < y1):
+            continue
+        for i in range(len(spans)):
+            m = marker_parse(spans, i) if i == 0 else None
+            if m and "letter" in m:
+                cb = m.get("lbox") or spans[i].chars[0]["bbox"]
+                marks.append({"letter": m["letter"], "x": cb[0], "y": cb[1]})
+    rows = []
+    for m in sorted(marks, key=lambda k: k["y"]):
+        for row in rows:
+            if abs(row["y"] - m["y"]) <= 6:
+                row["items"].append(m)
+                break
+        else:
+            rows.append({"y": m["y"], "items": [m]})
+    out = []
+    for row in rows:
+        out.extend(sorted(row["items"], key=lambda k: k["x"]))
+    return out
+
+
+def prune_letters(letters):
+    """Keeps only the labels that really are this question's part letters.
+
+    A single italic letter in the part column is not proof of a part.
+    Roman-numeral sub-parts (i, ii, iii) are set the same way one level
+    in, so "i" reads as a part letter and lands after c as a fifth part
+    - and a question with two sub-lists contributes "i" twice, which
+    then sorts into two parts with the same name. Real parts advance
+    through the alphabet in order and never repeat, so that is the
+    test: keep a letter only if it follows the last kept one by at most
+    one gap. It admits a genuine ninth part i (h then i) and rejects a
+    sub-part i (c then i), which is exactly the distinction the letter
+    alone cannot make."""
+    acc = []
+    for l in letters:
+        if l in acc:
+            continue
+        if not acc or 0 < ord(l) - ord(acc[-1]) <= 2:
+            acc.append(l)
+    return acc
+
+
+def label_figures(figs, marks):
+    """Attaches each figure to the part label that names it, and clips it
+    to that label's cell.
+
+    A reader pairs a diagram with the nearest label above-and-left of
+    it, so that is the rule here. Doing it by label rather than by
+    position is also what fixes ordering for good: parts come out in
+    a, b, c, d order because the book SAYS so, not because their
+    geometry happened to sort that way.
+
+    Clipping matters as much as attribution. A diagram is drawn as many
+    separate paths and the unioning in page_figures is deliberately
+    generous, so part a's rect routinely swallows the label and the top
+    arc of part c below it - the crop then shows one and a bit circles.
+    The labels themselves are the cell grid the book was typeset on, so
+    they are exactly the right ruler: a figure may not cross into the
+    next label row below it, nor into the next label column across."""
+    row_ys = []
+    for m in sorted(marks, key=lambda k: k["y"]):
+        if not row_ys or m["y"] - row_ys[-1] > 6:
+            row_ys.append(m["y"])
+    by_letter = {}
+    for f in figs:
+        best, best_d = None, None
+        for m in marks:
+            # the label must sit above the figure's bottom and no
+            # further right than the figure itself
+            if m["y"] > f.y1 or m["x"] > f.x1 + 6:
+                continue
+            d = (f.y0 - m["y"]) ** 2 + 0.35 * (f.x0 - m["x"]) ** 2
+            if best_d is None or d < best_d:
+                best, best_d = m, d
+        if best is not None:
+            # The label's own top line is the ceiling. It is NOT below
+            # the label: the book sets the letter level with the top of
+            # its diagram (measured 95.3 against 95.6), so clipping
+            # under the letter takes the top off every circle. What is
+            # above that line belongs to the row before, and is the
+            # stray arc that was appearing across the top of a crop.
+            f.y0 = max(f.y0, best["y"] - 2)
+            # The letter itself sits just left of the diagram, so on a
+            # figure it is level with it lands inside the crop and
+            # prints twice - once in the bitmap and once as the part's
+            # own rendered letter. Trimming that column removes it
+            # without touching a diagram lower down the cell.
+            if f.y0 <= best["y"] + 12:
+                f.x0 = max(f.x0, best["x"] + 8)
+            floor = next((y for y in row_ys if y > best["y"] + 6), None)
+            if floor is not None:
+                f.y1 = min(f.y1, floor - 3)
+            wall = min((m["x"] for m in marks
+                        if abs(m["y"] - best["y"]) <= 6 and m["x"] > best["x"] + 6),
+                       default=None)
+            if wall is not None:
+                f.x1 = min(f.x1, wall - 4)
+            if f.height < 18 or f.width < 18:
+                continue
+        key = best["letter"] if best else None
+        by_letter.setdefault(key, []).append(f)
+    return by_letter
 
 
 def body_spans(spans):
@@ -592,7 +768,7 @@ def body_spans(spans):
     letting them through here would print them twice and, worse, weld
     "6" onto the front of the sentence as one unsplittable text run."""
     out = []
-    for s in spans:
+    for i, s in enumerate(spans):
         txt = "".join(c["c"] for c in s.chars).strip()
         # Margin cross-reference tags ("Example 5", "Example 6a") are set
         # in the marker face at 6pt out in the margin. They are an index
@@ -601,12 +777,12 @@ def body_spans(spans):
         # places").
         if s.font == QNUM_FONT and s.size < QNUM_MIN_SIZE:
             continue
-        if s.font == QNUM_FONT and s.chars:
-            x0 = s.chars[0]["bbox"][0]
-            if (txt.isdigit() and QNUM_X[0] <= x0 <= QNUM_X[1]) or (
-                len(txt) == 1 and txt.isalpha() and PART_X[0] <= x0 <= PART_X[1]
-            ):
-                continue
+        # Markers are stripped by the SAME parse that recognises them
+        # upstream. When the two drifted apart, a second-column label
+        # was recognised as a part and also left in the prose, printing
+        # it twice ("b b Find the area").
+        if marker_parse(spans, i):
+            continue
         out.append(s)
     return out
 
@@ -732,22 +908,47 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
     counter = [0]
     for i, (ystart, number) in enumerate(starts):
         yend = bands[i][1]
+        # A tier banner ("PROBLEM SOLVING") that falls inside this
+        # question's band belongs to the NEXT tier, not to this
+        # question. It is a filled bar the width of a few words, so it
+        # passes the page-furniture filters and gets unioned into the
+        # last diagram above it - the crop then shows a circle with a
+        # blue banner stuck to its foot.
+        nxt = min((y for kind, y, _ in marks if kind == "tier" and y > ystart + 4),
+                  default=None)
+        if nxt is not None:
+            yend = min(yend, nxt - 2)
         region = fitz.Rect(40, ystart - 4, page.rect.x1 - 40, yend)
 
-        figs = fig_owner[i]
+        figs = [fitz.Rect(f) & region for f in fig_owner[i]]
+        figs = [f for f in figs if not f.is_empty and f.width >= 18 and f.height >= 18]
         # Labels first, so the crop below captures the diagram complete
         # with its measurements and the same boxes then keep those
         # labels out of the prose stream.
         figs = absorb_labels(figs, lines, region, PART_X[1])
-        fig_json = []
+        # Attribution and clipping have to happen BEFORE the crops are
+        # written, since clipping is what decides the rect each PNG is
+        # cut from. Done afterwards it changed only the bookkeeping: the
+        # images on disk still carried the next row's label and the top
+        # of its diagram.
+        pmarks = part_markers(lines, ystart - 4, yend)
+        keep = prune_letters([m["letter"] for m in pmarks])
+        pmarks = [m for m in pmarks if m["letter"] in keep]
+        # With no part labels there is nothing to attach figures TO, so
+        # they all belong to the question itself. Falling through to an
+        # empty mapping instead would silently drop every figure on any
+        # question without lettered parts.
+        figs_by_letter = label_figures(figs, pmarks) if pmarks else {None: list(figs)}
+        figs = [f for v in figs_by_letter.values() for f in v]
+        fig_json = {}
         for fi, fr in enumerate(figs):
             cid = f"{prefix}q{number}_f{fi}"
             actual = crop_png(page, fr, os.path.join(crops_dir, cid + ".png"), pad=2.0)
-            fig_json.append({
+            fig_json[id(fr)] = {
                 "crop": cid,
                 "wMm": round(mm(actual.width), 2),
                 "hMm": round(mm(actual.height), 2),
-            })
+            }
 
         # Which tier band was most recently passed above this question.
         cur_tier = want_tier
@@ -775,7 +976,17 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             if any((fr & bbox).get_area() > 0.6 * bbox.get_area() for fr in figs):
                 continue
 
+            # The part is opened as soon as its label is seen, BEFORE the
+            # empty-line test. A label very often sits alone on its own
+            # line - every diagram-grid label does, and so does a
+            # sub-part marker - and such a line has no body text left
+            # once the marker is stripped. Testing for emptiness first
+            # therefore threw the label away with the line, so the prose
+            # that followed silently joined the previous part.
             letter = is_part_letter(spans)
+            if letter:
+                cur_part = {"letter": letter, "content": []}
+                parts.append(cur_part)
             body_only = body_spans(spans)
             if not body_only:
                 continue
@@ -784,13 +995,52 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             runs = build_runs(body_only, baseline, body, fracs, emitted_fracs)
             stream = runs_to_json(runs, page, crops_dir, f"{prefix}q{number}", counter, baseline)
 
-            if letter:
-                cur_part = {"letter": letter, "content": stream}
-                parts.append(cur_part)
-            elif cur_part is not None:
+            if cur_part is not None:
                 cur_part["content"] += stream
             else:
                 stem += stream
+
+        # Attach each figure to the part that labels it, so a diagram
+        # grid comes back as real parts (a, b, c, d - each with its own
+        # diagram and its own answer space) instead of one flat row of
+        # pictures sharing a single box. Ordering follows the letters,
+        # which is why it is now stable regardless of how the two
+        # columns happen to be staggered on the page.
+        # Text that belonged to a rejected label is not thrown away - it
+        # is sub-part prose, so it folds back into the part that owns it.
+        merged, by_letter = [], {}
+        for p in parts:
+            if p["letter"] in keep and p["letter"] not in by_letter:
+                by_letter[p["letter"]] = p
+                merged.append(p)
+            else:
+                # The rejected label is still a real sub-part marker, so
+                # it is put back into the prose rather than deleted -
+                # without it two sub-parts run together into one
+                # unreadable sentence ("...to: two decimal places three
+                # decimal places").
+                back = [{"t": f" {p['letter']} "}] + p["content"]
+                if merged:
+                    merged[-1]["content"] += back
+                else:
+                    stem += back
+        parts = merged
+        seen = {p["letter"] for p in parts}
+        for m in pmarks:
+            if m["letter"] not in seen and m["letter"] in figs_by_letter:
+                parts.append({"letter": m["letter"], "content": []})
+                seen.add(m["letter"])
+
+        def fig_entries(letter):
+            return [fig_json[id(f)] for f in figs_by_letter.get(letter, []) if id(f) in fig_json]
+
+        part_json = []
+        for p in sorted(parts, key=lambda k: k["letter"]):
+            part_json.append({
+                "letter": p["letter"],
+                "content": tidy(p["content"]),
+                "figures": fig_entries(p["letter"]),
+            })
 
         q = {
             "type": "flowquestion",
@@ -798,8 +1048,10 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             "number": number,
             "tier": cur_tier,
             "stem": tidy(stem),
-            "parts": [{"letter": p["letter"], "content": tidy(p["content"])} for p in parts],
-            "figures": fig_json,
+            "parts": part_json,
+            # Only figures no part claimed stay at question level - a
+            # lone photo beside a one-part question, typically.
+            "figures": fig_entries(None),
         }
         questions.append(q)
     return questions, tier

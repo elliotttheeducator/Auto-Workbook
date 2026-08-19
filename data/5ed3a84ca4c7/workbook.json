@@ -134,7 +134,8 @@
         {
          "t": " as a decimal rounded to: i two decimal places ii three decimal places. "
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -169,7 +170,8 @@
         {
          "t": " is a better approximation to π than the number 3.14 . "
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -222,7 +224,8 @@
         {
          "t": " as a decimal rounded to: i three decimal places ii four decimal places. "
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -266,7 +269,8 @@
         {
          "t": " . "
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -303,32 +307,60 @@
        "t": " and round your answer correct to two decimal places."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10c_q3_f0",
-       "wMm": 54.67,
-       "hMm": 50.53
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q3_f0",
+         "wMm": 46.87,
+         "hMm": 45.12
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q3_f1",
-       "wMm": 50.07,
-       "hMm": 50.86
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10c_q3_f1",
+         "wMm": 47.21,
+         "hMm": 45.12
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q3_f2",
-       "wMm": 45.34,
-       "hMm": 45.34
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q3_f2",
+         "wMm": 45.34,
+         "hMm": 45.34
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q3_f3",
-       "wMm": 47.43,
-       "hMm": 47.43
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q3_f3",
+         "wMm": 47.1,
+         "hMm": 47.02
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -355,32 +387,60 @@
        "t": " and round your answer correct to two decimal places."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10c_q4_f0",
-       "wMm": 53.69,
-       "hMm": 49.55
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q4_f0",
+         "wMm": 45.89,
+         "hMm": 44.32
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q4_f1",
-       "wMm": 50.28,
-       "hMm": 51.08
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10c_q4_f1",
+         "wMm": 47.43,
+         "hMm": 45.12
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q4_f2",
-       "wMm": 46.65,
-       "hMm": 46.65
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q4_f2",
+         "wMm": 46.65,
+         "hMm": 46.63
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q4_f3",
-       "wMm": 47.96,
-       "hMm": 47.96
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q4_f3",
+         "wMm": 47.37,
+         "hMm": 47.28
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -397,32 +457,60 @@
        "t": " Estimate the circumference of these circles using the given approximation of π."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10c_q5_f0",
-       "wMm": 54.9,
-       "hMm": 55.95
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q5_f0",
+         "wMm": 47.1,
+         "hMm": 50.31
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q5_f1",
-       "wMm": 50.27,
-       "hMm": 56.26
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10c_q5_f1",
+         "wMm": 47.42,
+         "hMm": 50.31
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q5_f2",
-       "wMm": 48.12,
-       "hMm": 60.91
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q5_f2",
+         "wMm": 43.75,
+         "hMm": 52.22
+        }
+       ]
       },
       {
-       "crop": "fc10_10c_q5_f3",
-       "wMm": 47.74,
-       "hMm": 60.9
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10c_q5_f3",
+         "wMm": 45.01,
+         "hMm": 52.88
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -496,7 +584,8 @@
         {
          "t": " a circle’s diameter if the circumference is 10 cm"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -504,7 +593,8 @@
         {
          "t": " a circle’s diameter if the circumference is 12.5 m"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -512,7 +602,8 @@
         {
          "t": " a circle’s radius if the circumference is 7 mm"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "d",
@@ -520,7 +611,8 @@
         {
          "t": " a circle’s radius if the circumference is 37.4 m"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -705,7 +797,8 @@
         {
          "t": " Which one of these ancient historical approximations is closest to the true value of π? Note that π written to five decimal places is 3.14159."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -758,7 +851,8 @@
         {
          "t": " has been a very popular approximation throughout many countries. Explain why you think this is the case."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -766,7 +860,8 @@
         {
          "t": " Find your own simple fraction which is a reasonable approximation of π. Write your fraction as a decimal and compare it with π written in decimal form with at least five decimal places."
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -837,7 +932,8 @@
         {
          "t": " Diameter 7 cm"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -845,7 +941,8 @@
         {
          "t": " Radius 3 mm"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -868,14 +965,47 @@
      "tier": "enrichment",
      "stem": [
       {
-       "t": " While not being perfect spheres, the circumference of the planets in our solar system can be approximated by using a circle. Here are some planetary facts with some missing details. Calculate the missing numbers, rounding to the nearest integer.PartPlanetDiameter (km approx.)Circumference (km approx.)Earth12 750Mars 6 780Jupiter439 260Mercury 15 330"
+       "t": " While not being perfect spheres, the circumference of the planets in our solar system can be approximated by using a circle. Here are some planetary facts with some missing details. Calculate the missing numbers, rounding to the nearest integer.PartPlanetDiameter (km approx.)Circumference (km approx.)Earth12 750"
       }
      ],
-     "parts": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Mars 6 780"
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Jupiter439 260"
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Mercury 15 330"
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": []
+      }
+     ],
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 16.0
      }
     }
    ]
@@ -912,45 +1042,89 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": "Find the length of each of the following arcs for the given angles, correct to two decimal places. "
+       "t": "Find the length of each of the following arcs for the given angles, correct to two decimal places."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q1_f0",
-       "wMm": 28.25,
-       "hMm": 32.53
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f0",
+         "wMm": 20.45,
+         "hMm": 27.31
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q1_f1",
-       "wMm": 34.47,
-       "hMm": 24.34
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f1",
+         "wMm": 31.61,
+         "hMm": 24.21
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q1_f2",
-       "wMm": 24.88,
-       "hMm": 25.57
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f2",
+         "wMm": 24.88,
+         "hMm": 25.57
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q1_f3",
-       "wMm": 46.34,
-       "hMm": 41.32
+       "letter": "d",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f3",
+         "wMm": 43.48,
+         "hMm": 41.32
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q1_f4",
-       "wMm": 46.37,
-       "hMm": 44.91
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f4",
+         "wMm": 43.51,
+         "hMm": 44.35
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q1_f5",
-       "wMm": 42.23,
-       "hMm": 38.1
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q1_f5",
+         "wMm": 39.37,
+         "hMm": 38.1
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -963,32 +1137,60 @@
        "t": " Find the perimeter of each of these quadrants, correct to one decimal place."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q2_f0",
-       "wMm": 29.25,
-       "hMm": 31.43
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q2_f0",
+         "wMm": 21.45,
+         "hMm": 26.21
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q2_f1",
-       "wMm": 25.78,
-       "hMm": 32.48
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q2_f1",
+         "wMm": 22.92,
+         "hMm": 27.25
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q2_f2",
-       "wMm": 27.37,
-       "hMm": 32.49
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q2_f2",
+         "wMm": 27.37,
+         "hMm": 32.49
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q2_f3",
-       "wMm": 40.29,
-       "hMm": 30.16
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q2_f3",
+         "wMm": 40.29,
+         "hMm": 30.16
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -1005,32 +1207,60 @@
        "t": " Find the perimeter of these semicircles, correct to one decimal place."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q3_f0",
-       "wMm": 35.99,
-       "hMm": 26.54
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q3_f0",
+         "wMm": 28.19,
+         "hMm": 21.31
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q3_f1",
-       "wMm": 29.26,
-       "hMm": 27.67
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q3_f1",
+         "wMm": 26.4,
+         "hMm": 22.45
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q3_f2",
-       "wMm": 46.92,
-       "hMm": 29.46
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q3_f2",
+         "wMm": 46.92,
+         "hMm": 29.46
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q3_f3",
-       "wMm": 33.82,
-       "hMm": 46.92
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q3_f3",
+         "wMm": 33.82,
+         "hMm": 46.92
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -1040,35 +1270,63 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the perimeter of these sectors, correct to one decimal place. Include the two radii in each case. "
+       "t": " Find the perimeter of these sectors, correct to one decimal place. Include the two radii in each case."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q4_f0",
-       "wMm": 19.36,
-       "hMm": 23.59
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q4_f0",
+         "wMm": 19.36,
+         "hMm": 23.59
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q4_f1",
-       "wMm": 37.95,
-       "hMm": 44.72
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q4_f1",
+         "wMm": 35.09,
+         "hMm": 30.64
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q4_f2",
-       "wMm": 26.28,
-       "hMm": 25.12
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q4_f2",
+         "wMm": 26.28,
+         "hMm": 25.12
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q4_f3",
-       "wMm": 28.57,
-       "hMm": 23.48
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q4_f3",
+         "wMm": 28.57,
+         "hMm": 23.48
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -1085,45 +1343,85 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " Find the perimeter of each of these composite shapes, correct to one decimal place. "
+       "t": " Find the perimeter of each of these composite shapes, correct to one decimal place."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q5_f0",
-       "wMm": 38.86,
-       "hMm": 21.62
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f0",
+         "wMm": 38.86,
+         "hMm": 21.62
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q5_f1",
-       "wMm": 19.05,
-       "hMm": 36.62
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f1",
+         "wMm": 16.19,
+         "hMm": 31.39
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q5_f2",
-       "wMm": 29.39,
-       "hMm": 22.77
+       "letter": "c",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f2",
+         "wMm": 26.53,
+         "hMm": 22.77
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q5_f3",
-       "wMm": 35.59,
-       "hMm": 21.94
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f3",
+         "wMm": 35.59,
+         "hMm": 21.94
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q5_f4",
-       "wMm": 28.22,
-       "hMm": 32.71
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f4",
+         "wMm": 28.22,
+         "hMm": 32.71
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q5_f5",
-       "wMm": 32.18,
-       "hMm": 34.18
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q5_f5",
+         "wMm": 29.32,
+         "hMm": 34.18
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     }
    ]
@@ -1163,27 +1461,45 @@
        "t": " For these sectors, find only the length of the arc, correct to two decimal places."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q7_f0",
-       "wMm": 23.97,
-       "hMm": 23.55
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q7_f0",
+         "wMm": 23.97,
+         "hMm": 23.55
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q7_f1",
-       "wMm": 26.7,
-       "hMm": 35.33
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q7_f1",
+         "wMm": 23.85,
+         "hMm": 35.33
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q7_f2",
-       "wMm": 37.53,
-       "hMm": 30.42
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q7_f2",
+         "wMm": 34.67,
+         "hMm": 30.42
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -1196,27 +1512,45 @@
        "t": " Calculate the perimeter of each of these shapes, correct to two decimal places."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q8_f0",
-       "wMm": 26.91,
-       "hMm": 26.91
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q8_f0",
+         "wMm": 26.91,
+         "hMm": 26.91
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q8_f1",
-       "wMm": 34.4,
-       "hMm": 23.78
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q8_f1",
+         "wMm": 31.54,
+         "hMm": 23.78
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q8_f2",
-       "wMm": 37.75,
-       "hMm": 21.15
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q8_f2",
+         "wMm": 34.89,
+         "hMm": 21.15
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -1299,7 +1633,7 @@
       {
        "crop": "fc10_10d_q10_f0",
        "wMm": 29.28,
-       "hMm": 22.31
+       "hMm": 20.78
       }
      ],
      "workingSpace": {
@@ -1318,41 +1652,62 @@
      "tier": "reasoning",
      "stem": [
       {
-       "t": " Find the radius of each of these sectors for the given arc lengths, correct to one decimal place.4 m30° "
-      },
-      {
-       "m": "fc10_10d_q11_m1",
-       "hMm": 4.59,
-       "wMm": 2.08,
-       "dropMm": 2.75
+       "t": " Find the radius of each of these sectors for the given arc lengths, correct to one decimal place."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10d_q11_f0",
-       "wMm": 36.48,
-       "hMm": 22.66
+       "letter": "a",
+       "content": [],
+       "figures": []
       },
       {
-       "crop": "fc10_10d_q11_f1",
-       "wMm": 14.29,
-       "hMm": 13.75
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q11_f0",
+         "wMm": 33.63,
+         "hMm": 22.66
+        },
+        {
+         "crop": "fc10_10d_q11_f1",
+         "wMm": 14.29,
+         "hMm": 13.75
+        },
+        {
+         "crop": "fc10_10d_q11_f2",
+         "wMm": 15.31,
+         "hMm": 12.37
+        }
+       ]
       },
       {
-       "crop": "fc10_10d_q11_f2",
-       "wMm": 15.31,
-       "hMm": 12.37
-      },
-      {
-       "crop": "fc10_10d_q11_f3",
-       "wMm": 37.76,
-       "hMm": 39.27
+       "letter": "c",
+       "content": [
+        {
+         "t": "4 m30° "
+        },
+        {
+         "m": "fc10_10d_q11_m1",
+         "hMm": 4.59,
+         "wMm": 2.08,
+         "dropMm": 2.75
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10d_q11_f3",
+         "wMm": 34.91,
+         "hMm": 32.5
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -1424,27 +1779,40 @@
        "t": " =20 + 8π cmFind the exact perimeter of each of the following composite shapes."
       }
      ],
-     "parts": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q12_f1",
+         "wMm": 36.41,
+         "hMm": 14.62
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10d_q12_f2",
+         "wMm": 27.36,
+         "hMm": 20.55
+        }
+       ]
+      }
+     ],
      "figures": [
       {
        "crop": "fc10_10d_q12_f0",
        "wMm": 42.61,
        "hMm": 20.23
-      },
-      {
-       "crop": "fc10_10d_q12_f1",
-       "wMm": 36.41,
-       "hMm": 14.62
-      },
-      {
-       "crop": "fc10_10d_q12_f2",
-       "wMm": 30.22,
-       "hMm": 20.55
       }
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 16.0
      }
     },
     {
@@ -1492,25 +1860,37 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": "Count the number of squares to find the area of these shapes on centimetre grids. b "
+       "t": "Count the number of squares to find the area of these shapes on centimetre grids."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10e_q1_f0",
-       "wMm": 19.36,
-       "hMm": 28.34
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q1_f0",
+         "wMm": 19.36,
+         "hMm": 28.34
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q1_f1",
-       "wMm": 19.36,
-       "hMm": 19.36
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q1_f1",
+         "wMm": 19.36,
+         "hMm": 19.36
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -1524,35 +1904,63 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Count the number of squares to find the area of these shapes on centimetre grids. b d "
+       "t": " Count the number of squares to find the area of these shapes on centimetre grids."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10e_q2_f0",
-       "wMm": 10.39,
-       "hMm": 28.34
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q2_f0",
+         "wMm": 10.39,
+         "hMm": 28.34
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q2_f1",
-       "wMm": 28.34,
-       "hMm": 28.34
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10e_q2_f1",
+         "wMm": 28.34,
+         "hMm": 28.34
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q2_f2",
-       "wMm": 28.34,
-       "hMm": 28.86
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q2_f2",
+         "wMm": 28.34,
+         "hMm": 28.86
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q2_f3",
-       "wMm": 37.31,
-       "hMm": 37.31
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q2_f3",
+         "wMm": 37.31,
+         "hMm": 37.31
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -1562,60 +1970,122 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the area of these rectangles and squares. Diagrams are not drawn to scale. "
+       "t": " Find the area of these rectangles and squares. Diagrams are not drawn to scale."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10e_q3_f0",
-       "wMm": 54.84,
-       "hMm": 24.4
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f0",
+         "wMm": 48.1,
+         "hMm": 24.4
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f1",
-       "wMm": 26.67,
-       "hMm": 43.39
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f1",
+         "wMm": 23.82,
+         "hMm": 38.16
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f2",
-       "wMm": 44.24,
-       "hMm": 32.47
+       "letter": "c",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f2",
+         "wMm": 41.38,
+         "hMm": 32.47
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f3",
-       "wMm": 36.18,
-       "hMm": 25.79
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f3",
+         "wMm": 28.38,
+         "hMm": 20.57
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f4",
-       "wMm": 31.03,
-       "hMm": 26.5
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f4",
+         "wMm": 28.17,
+         "hMm": 21.27
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f5",
-       "wMm": 34.04,
-       "hMm": 35.92
+       "letter": "f",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f5",
+         "wMm": 31.19,
+         "hMm": 22.81
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f6",
-       "wMm": 41.32,
-       "hMm": 21.46
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f6",
+         "wMm": 41.32,
+         "hMm": 21.46
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f7",
-       "wMm": 25.71,
-       "hMm": 19.32
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f7",
+         "wMm": 25.71,
+         "hMm": 19.32
+        }
+       ]
       },
       {
-       "crop": "fc10_10e_q3_f8",
-       "wMm": 26.32,
-       "hMm": 27.79
+       "letter": "i",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10e_q3_f8",
+         "wMm": 26.32,
+         "hMm": 27.79
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -1640,18 +2110,30 @@
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.21
-        },
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "b",
+       "content": [
         {
-         "t": " b 25 m"
+         "t": " 25 m"
         },
         {
          "m": "fc10_10e_q4_m2",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.21
-        },
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "c",
+       "content": [
         {
-         "t": " c 144 km"
+         "t": " 144 km"
         },
         {
          "m": "fc10_10e_q4_m3",
@@ -1659,13 +2141,14 @@
          "wMm": 2.12,
          "dropMm": -0.21
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -1703,18 +2186,30 @@
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.2
-        },
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "b",
+       "content": [
         {
-         "t": " b 100 000 m"
+         "t": " 100 000 m"
         },
         {
          "m": "fc10_10e_q5_m3",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.2
-        },
+        }
+       ],
+       "figures": []
+      },
+      {
+       "letter": "c",
+       "content": [
         {
-         "t": " c 5000 m"
+         "t": " 5000 m"
         },
         {
          "m": "fc10_10e_q5_m4",
@@ -1722,13 +2217,14 @@
          "wMm": 2.12,
          "dropMm": -0.2
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -1763,7 +2259,7 @@
       {
        "crop": "fc10_10e_q7_f0",
        "wMm": 72.97,
-       "hMm": 49.1
+       "hMm": 19.76
       }
      ],
      "workingSpace": {
@@ -1800,16 +2296,12 @@
      "id": "fc10_10e_q9",
      "number": "9",
      "tier": "problemsolving",
-     "stem": [],
-     "parts": [
+     "stem": [
       {
-       "letter": "a",
-       "content": [
-        {
-         "t": " A square has a perimeter of 20 cm. Find its area."
-        }
-       ]
-      },
+       "t": " A square has a perimeter of 20 cm. Find its area."
+      }
+     ],
+     "parts": [
       {
        "letter": "b",
        "content": [
@@ -1825,7 +2317,8 @@
         {
          "t": ". Find its perimeter."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -1833,7 +2326,8 @@
         {
          "t": " A square’s area and perimeter are the same number. How many units is the side length?"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -1883,7 +2377,7 @@
       {
        "crop": "fc10_10e_q11_f0",
        "wMm": 72.97,
-       "hMm": 49.1
+       "hMm": 29.35
       }
      ],
      "workingSpace": {
@@ -1920,40 +2414,37 @@
      "id": "fc10_10e_q13",
      "number": "13",
      "tier": "reasoning",
-     "stem": [],
+     "stem": [
+      {
+       "t": " Find the missing length for each of these rectangles."
+      }
+     ],
      "parts": [
       {
-       "letter": "a",
+       "letter": "i",
        "content": [
         {
-         "t": " Find the missing length for each of these rectangles. i "
+         "t": " b Explain the method that you used for finding the missing lengths of the rectangles above."
         }
-       ]
-      },
-      {
-       "letter": "b",
-       "content": [
+       ],
+       "figures": [
         {
-         "t": " Explain the method that you used for finding the missing lengths of the rectangles above."
+         "crop": "fc10_10e_q13_f0",
+         "wMm": 32.74,
+         "hMm": 17.73
+        },
+        {
+         "crop": "fc10_10e_q13_f1",
+         "wMm": 43.93,
+         "hMm": 16.81
         }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10e_q13_f0",
-       "wMm": 32.74,
-       "hMm": 17.73
-      },
-      {
-       "crop": "fc10_10e_q13_f1",
-       "wMm": 43.93,
-       "hMm": 16.81
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 18
      }
     },
     {
@@ -2038,7 +2529,8 @@
         {
          "t": " = 44 , fi nd the area of the square. "
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -2059,17 +2551,28 @@
         },
         {
          "t": " . "
+        },
+        {
+         "t": "P",
+         "i": true
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "fc10_10e_q15_m1",
+         "hMm": 5.3,
+         "wMm": 2.64,
+         "dropMm": 1.38
+        },
+        {
+         "t": " 44 "
         }
-       ]
+       ],
+       "figures": []
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10e_q15_f0",
-       "wMm": 15.89,
-       "hMm": 21.56
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 14.4
@@ -2082,64 +2585,99 @@
      "tier": "reasoning",
      "stem": [
       {
-       "t": " A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer. 17 a Use this diagram or similar to help answer the following. How many mm"
-      },
-      {
-       "m": "fc10_10e_q16_m1",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.22
-      },
-      {
-       "t": " in 1cm"
-      },
-      {
-       "m": "fc10_10e_q16_m2",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.22
-      },
-      {
-       "t": " ? i ii How many cm"
-      },
-      {
-       "m": "fc10_10e_q16_m3",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.21
-      },
-      {
-       "t": " in 1m"
-      },
-      {
-       "m": "fc10_10e_q16_m4",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.21
-      },
-      {
-       "t": " ? iii How many m"
-      },
-      {
-       "m": "fc10_10e_q16_m5",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.21
-      },
-      {
-       "t": " in 1km"
-      },
-      {
-       "m": "fc10_10e_q16_m6",
-       "hMm": 3.86,
-       "wMm": 2.12,
-       "dropMm": -0.21
-      },
-      {
-       "t": " ? "
+       "t": " A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer. "
       }
      ],
+     "parts": [],
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 18
+     }
+    },
+    {
+     "type": "heading",
+     "id": "fc10_10e_q17_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "fc10_10e_q17",
+     "number": "17",
+     "tier": "enrichment",
+     "stem": [],
      "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Use this diagram or similar to help answer the following. How many mm"
+        },
+        {
+         "m": "fc10_10e_q17_m2",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " in 1cm"
+        },
+        {
+         "m": "fc10_10e_q17_m3",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.22
+        },
+        {
+         "t": " ? i ii How many cm"
+        },
+        {
+         "m": "fc10_10e_q17_m4",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " in 1m"
+        },
+        {
+         "m": "fc10_10e_q17_m5",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " ? iii How many m"
+        },
+        {
+         "m": "fc10_10e_q17_m6",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " in 1km"
+        },
+        {
+         "m": "fc10_10e_q17_m7",
+         "hMm": 3.86,
+         "wMm": 2.12,
+         "dropMm": -0.21
+        },
+        {
+         "t": " ? "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10e_q17_f0",
+         "wMm": 24.14,
+         "hMm": 20.31
+        }
+       ]
+      },
       {
        "letter": "b",
        "content": [
@@ -2147,7 +2685,7 @@
          "t": " Complete the diagram below. ×××____________km"
         },
         {
-         "m": "fc10_10e_q16_m7",
+         "m": "fc10_10e_q17_m8",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.02
@@ -2156,7 +2694,7 @@
          "t": "m"
         },
         {
-         "m": "fc10_10e_q16_m8",
+         "m": "fc10_10e_q17_m9",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.02
@@ -2165,7 +2703,7 @@
          "t": "cm"
         },
         {
-         "m": "fc10_10e_q16_m9",
+         "m": "fc10_10e_q17_m10",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.02
@@ -2174,7 +2712,7 @@
          "t": "mm"
         },
         {
-         "m": "fc10_10e_q16_m10",
+         "m": "fc10_10e_q17_m11",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.02
@@ -2182,7 +2720,8 @@
         {
          "t": "÷ ____÷ ____÷ ____"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -2191,7 +2730,7 @@
          "t": " Convert these units to the units shown in brackets. 2 cm"
         },
         {
-         "m": "fc10_10e_q16_m11",
+         "m": "fc10_10e_q17_m12",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.21
@@ -2200,7 +2739,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m12",
+         "m": "fc10_10e_q17_m13",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.36
@@ -2209,7 +2748,7 @@
          "t": "mm"
         },
         {
-         "m": "fc10_10e_q16_m13",
+         "m": "fc10_10e_q17_m14",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.36
@@ -2218,7 +2757,7 @@
          "t": " i ii 10 m"
         },
         {
-         "m": "fc10_10e_q16_m14",
+         "m": "fc10_10e_q17_m15",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.2
@@ -2227,7 +2766,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m15",
+         "m": "fc10_10e_q17_m16",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.37
@@ -2236,7 +2775,7 @@
          "t": "cm"
         },
         {
-         "m": "fc10_10e_q16_m16",
+         "m": "fc10_10e_q17_m17",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.37
@@ -2245,7 +2784,7 @@
          "t": " iii 3.5 km"
         },
         {
-         "m": "fc10_10e_q16_m17",
+         "m": "fc10_10e_q17_m18",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.19
@@ -2254,7 +2793,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m18",
+         "m": "fc10_10e_q17_m19",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.37
@@ -2263,7 +2802,7 @@
          "t": "m"
         },
         {
-         "m": "fc10_10e_q16_m19",
+         "m": "fc10_10e_q17_m20",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.37
@@ -2272,7 +2811,7 @@
          "t": " iv 300 mm"
         },
         {
-         "m": "fc10_10e_q16_m20",
+         "m": "fc10_10e_q17_m21",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.22
@@ -2281,7 +2820,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m21",
+         "m": "fc10_10e_q17_m22",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.34
@@ -2290,7 +2829,7 @@
          "t": "cm"
         },
         {
-         "m": "fc10_10e_q16_m22",
+         "m": "fc10_10e_q17_m23",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.34
@@ -2299,7 +2838,7 @@
          "t": " v 21600 cm"
         },
         {
-         "m": "fc10_10e_q16_m23",
+         "m": "fc10_10e_q17_m24",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.22
@@ -2308,7 +2847,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m24",
+         "m": "fc10_10e_q17_m25",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.35
@@ -2317,7 +2856,7 @@
          "t": "m"
         },
         {
-         "m": "fc10_10e_q16_m25",
+         "m": "fc10_10e_q17_m26",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.35
@@ -2326,7 +2865,7 @@
          "t": " vi 4200000 m"
         },
         {
-         "m": "fc10_10e_q16_m26",
+         "m": "fc10_10e_q17_m27",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.21
@@ -2335,7 +2874,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m27",
+         "m": "fc10_10e_q17_m28",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.35
@@ -2344,7 +2883,7 @@
          "t": "km"
         },
         {
-         "m": "fc10_10e_q16_m28",
+         "m": "fc10_10e_q17_m29",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.35
@@ -2353,7 +2892,7 @@
          "t": " vii 0.005 m"
         },
         {
-         "m": "fc10_10e_q16_m29",
+         "m": "fc10_10e_q17_m30",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.21
@@ -2362,7 +2901,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10e_q16_m30",
+         "m": "fc10_10e_q17_m31",
          "hMm": 7.58,
          "wMm": 2.36,
          "dropMm": 2.36
@@ -2371,7 +2910,7 @@
          "t": "mm"
         },
         {
-         "m": "fc10_10e_q16_m31",
+         "m": "fc10_10e_q17_m32",
          "hMm": 7.58,
          "wMm": 3.77,
          "dropMm": 2.36
@@ -2380,7 +2919,7 @@
          "t": " viii 1 km"
         },
         {
-         "m": "fc10_10e_q16_m32",
+         "m": "fc10_10e_q17_m33",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.2
@@ -2389,7 +2928,7 @@
          "t": " (ha) ix 40000000 cm"
         },
         {
-         "m": "fc10_10e_q16_m33",
+         "m": "fc10_10e_q17_m34",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.2
@@ -2397,24 +2936,20 @@
         {
          "t": " (ha)"
         }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10e_q17_f1",
+         "wMm": 51.36,
+         "hMm": 81.0
+        }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10e_q16_f0",
-       "wMm": 24.14,
-       "hMm": 20.31
-      },
-      {
-       "crop": "fc10_10e_q16_f1",
-       "wMm": 51.36,
-       "hMm": 81.0
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 16.0
      }
     }
    ]
@@ -2448,22 +2983,34 @@
        "t": "Find the area of these parallelograms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10f_q1_f0",
-       "wMm": 36.09,
-       "hMm": 17.47
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q1_f0",
+         "wMm": 36.09,
+         "hMm": 17.47
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q1_f1",
-       "wMm": 31.1,
-       "hMm": 23.33
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q1_f1",
+         "wMm": 28.25,
+         "hMm": 23.33
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -2477,35 +3024,67 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the area of these parallelograms. "
+       "t": " Find the area of these parallelograms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10f_q2_f0",
-       "wMm": 29.59,
-       "hMm": 17.01
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q2_f0",
+         "wMm": 29.59,
+         "hMm": 17.01
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q2_f1",
-       "wMm": 32.09,
-       "hMm": 34.45
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10f_q2_f1",
+         "wMm": 29.23,
+         "hMm": 28.4
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q2_f2",
-       "wMm": 36.62,
-       "hMm": 25.81
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q2_f2",
+         "wMm": 36.62,
+         "hMm": 25.81
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q2_f3",
-       "wMm": 34.64,
-       "hMm": 14.59
+       "letter": "d",
+       "content": [
+        {
+         "t": "7 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10f_q2_f3",
+         "wMm": 34.64,
+         "hMm": 14.59
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -2518,22 +3097,34 @@
        "t": " Find the area of these parallelograms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10f_q3_f0",
-       "wMm": 29.56,
-       "hMm": 24.04
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q3_f0",
+         "wMm": 29.56,
+         "hMm": 24.04
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q3_f1",
-       "wMm": 35.35,
-       "hMm": 36.99
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q3_f1",
+         "wMm": 32.49,
+         "hMm": 36.99
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -2543,45 +3134,73 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the area of these parallelograms. "
+       "t": " Find the area of these parallelograms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10f_q4_f0",
-       "wMm": 40.26,
-       "hMm": 18.02
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q4_f0",
+         "wMm": 40.26,
+         "hMm": 18.02
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q4_f1",
-       "wMm": 20.63,
-       "hMm": 28.58
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10f_q4_f1",
+         "wMm": 17.77,
+         "hMm": 28.58
+        },
+        {
+         "crop": "fc10_10f_q4_f2",
+         "wMm": 19.08,
+         "hMm": 36.43
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q4_f2",
-       "wMm": 19.08,
-       "hMm": 36.43
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q4_f3",
+         "wMm": 38.55,
+         "hMm": 29.95
+        },
+        {
+         "crop": "fc10_10f_q4_f4",
+         "wMm": 15.71,
+         "hMm": 8.45
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q4_f3",
-       "wMm": 38.55,
-       "hMm": 29.95
-      },
-      {
-       "crop": "fc10_10f_q4_f4",
-       "wMm": 15.71,
-       "hMm": 8.45
-      },
-      {
-       "crop": "fc10_10f_q4_f5",
-       "wMm": 46.2,
-       "hMm": 24.14
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q4_f5",
+         "wMm": 43.35,
+         "hMm": 24.14
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -2591,35 +3210,59 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " These parallelograms are on 1 cm grids (not to scale). Find their area. b "
+       "t": " These parallelograms are on 1 cm grids (not to scale). Find their area."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10f_q5_f0",
-       "wMm": 21.36,
-       "hMm": 11.38
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q5_f0",
+         "wMm": 21.36,
+         "hMm": 11.38
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q5_f1",
-       "wMm": 11.38,
-       "hMm": 21.36
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q5_f1",
+         "wMm": 11.38,
+         "hMm": 21.36
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q5_f2",
-       "wMm": 31.46,
-       "hMm": 27.81
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q5_f2",
+         "wMm": 28.6,
+         "hMm": 27.81
+        }
+       ]
       },
       {
-       "crop": "fc10_10f_q5_f3",
-       "wMm": 26.47,
-       "hMm": 27.81
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10f_q5_f3",
+         "wMm": 23.62,
+         "hMm": 27.81
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -2676,7 +3319,8 @@
         {
          "t": " and base = 5 m"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -2693,7 +3337,8 @@
         {
          "t": " and base = 4 cm"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -2710,7 +3355,8 @@
         {
          "t": " and base = 5 mm"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -2745,7 +3391,8 @@
         {
          "t": " and height = 4 cm"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -2762,7 +3409,8 @@
         {
          "t": " and height = 30 m"
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -2779,7 +3427,8 @@
         {
          "t": " and height = 1.2 km"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -2821,7 +3470,7 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " A proposed rectangular flag for a new country is yellow with a red stripe in the shape of a parallelogram, as shown."
+       "t": " A proposed rectangular flag for a new country is yellow with a red stripe in the shape of a parallelogram, as shown.60 cm"
       }
      ],
      "parts": [
@@ -2831,24 +3480,20 @@
         {
          "t": " Find the area of the red stripe."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
        "content": [
         {
-         "t": " Find the yellow area."
+         "t": " Find the yellow area.30 cm70 cm"
         }
-       ]
+       ],
+       "figures": []
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10f_q10_f0",
-       "wMm": 49.1,
-       "hMm": 25.96
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 14.4
@@ -3053,22 +3698,34 @@
        "t": "Find the area of each triangle given."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10g_q1_f0",
-       "wMm": 36.04,
-       "hMm": 26.04
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q1_f0",
+         "wMm": 36.04,
+         "hMm": 26.04
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q1_f1",
-       "wMm": 57.41,
-       "hMm": 26.71
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q1_f1",
+         "wMm": 54.56,
+         "hMm": 26.71
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3081,42 +3738,86 @@
        "t": " Find the area of each triangle given."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10g_q2_f0",
-       "wMm": 48.81,
-       "hMm": 36.26
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f0",
+         "wMm": 41.01,
+         "hMm": 23.31
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q2_f1",
-       "wMm": 43.87,
-       "hMm": 36.42
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f1",
+         "wMm": 41.01,
+         "hMm": 24.84
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q2_f2",
-       "wMm": 34.98,
-       "hMm": 35.43
+       "letter": "c",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f2",
+         "wMm": 32.12,
+         "hMm": 24.84
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q2_f3",
-       "wMm": 31.87,
-       "hMm": 22.56
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f3",
+         "wMm": 31.87,
+         "hMm": 22.56
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q2_f4",
-       "wMm": 18.88,
-       "hMm": 30.83
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f4",
+         "wMm": 18.88,
+         "hMm": 30.83
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q2_f5",
-       "wMm": 28.68,
-       "hMm": 12.33
+       "letter": "f",
+       "content": [
+        {
+         "t": "2.5 cm1 cm16 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10g_q2_f5",
+         "wMm": 28.68,
+         "hMm": 12.33
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3129,22 +3830,34 @@
        "t": " Find the area of each triangle given."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10g_q3_f0",
-       "wMm": 39.59,
-       "hMm": 16.16
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q3_f0",
+         "wMm": 39.59,
+         "hMm": 16.16
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q3_f1",
-       "wMm": 37.91,
-       "hMm": 32.4
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q3_f1",
+         "wMm": 35.06,
+         "hMm": 32.4
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -3158,45 +3871,89 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the area of each of the following triangles. "
+       "t": " Find the area of each of the following triangles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10g_q4_f0",
-       "wMm": 51.08,
-       "hMm": 34.42
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f0",
+         "wMm": 43.28,
+         "hMm": 22.81
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q4_f1",
-       "wMm": 45.25,
-       "hMm": 30.32
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f1",
+         "wMm": 42.4,
+         "hMm": 24.27
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q4_f2",
-       "wMm": 34.81,
-       "hMm": 20.07
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f2",
+         "wMm": 34.81,
+         "hMm": 20.07
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q4_f3",
-       "wMm": 31.42,
-       "hMm": 30.8
+       "letter": "d",
+       "content": [
+        {
+         "t": "1.3 cm4 cm "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f3",
+         "wMm": 31.42,
+         "hMm": 24.22
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q4_f4",
-       "wMm": 43.47,
-       "hMm": 26.65
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f4",
+         "wMm": 43.47,
+         "hMm": 26.65
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q4_f5",
-       "wMm": 40.9,
-       "hMm": 43.43
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q4_f5",
+         "wMm": 40.9,
+         "hMm": 43.43
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3215,35 +3972,63 @@
        "dropMm": -0.21
       },
       {
-       "t": ". "
+       "t": "."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10g_q5_f0",
-       "wMm": 21.41,
-       "hMm": 21.41
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q5_f0",
+         "wMm": 21.41,
+         "hMm": 21.41
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q5_f1",
-       "wMm": 46.53,
-       "hMm": 38.79
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10g_q5_f1",
+         "wMm": 43.67,
+         "hMm": 33.56
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q5_f2",
-       "wMm": 50.66,
-       "hMm": 51.11
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q5_f2",
+         "wMm": 50.66,
+         "hMm": 51.11
+        }
+       ]
       },
       {
-       "crop": "fc10_10g_q5_f3",
-       "wMm": 50.04,
-       "hMm": 44.83
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q5_f3",
+         "wMm": 50.04,
+         "hMm": 44.83
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3281,8 +4066,8 @@
      "figures": [
       {
        "crop": "fc10_10g_q7_f0",
-       "wMm": 69.22,
-       "hMm": 38.56
+       "wMm": 64.48,
+       "hMm": 30.87
       }
      ],
      "workingSpace": {
@@ -3346,7 +4131,7 @@
       {
        "crop": "fc10_10g_q10_f0",
        "wMm": 48.45,
-       "hMm": 33.5
+       "hMm": 27.6
       }
      ],
      "workingSpace": {
@@ -3359,25 +4144,21 @@
      "id": "fc10_10g_q11",
      "number": "11",
      "tier": "problemsolving",
-     "stem": [],
-     "parts": [
+     "stem": [
       {
-       "letter": "a",
-       "content": [
-        {
-         "t": " The area of a triangle is 10 cm"
-        },
-        {
-         "m": "fc10_10g_q11_m1",
-         "hMm": 3.86,
-         "wMm": 2.12,
-         "dropMm": -0.19
-        },
-        {
-         "t": " and its base length is 4 cm. Find its height."
-        }
-       ]
+       "t": " The area of a triangle is 10 cm"
       },
+      {
+       "m": "fc10_10g_q11_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.19
+      },
+      {
+       "t": " and its base length is 4 cm. Find its height."
+      }
+     ],
+     "parts": [
       {
        "letter": "b",
        "content": [
@@ -3393,13 +4174,14 @@
         {
          "t": " and its height is 20 mm. Find its base length."
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 18
      }
     },
     {
@@ -3468,7 +4250,7 @@
       {
        "crop": "fc10_10g_q13_f0",
        "wMm": 31.57,
-       "hMm": 18.16
+       "hMm": 12.76
       }
      ],
      "workingSpace": {
@@ -3606,32 +4388,51 @@
        "t": ".Using triangles like the one shown here, and by counting whole squares also, estimate the areas of these shapes below."
       }
      ],
-     "parts": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q15_f1",
+         "wMm": 29.66,
+         "hMm": 29.66
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q15_f2",
+         "wMm": 31.93,
+         "hMm": 31.14
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10g_q15_f3",
+         "wMm": 35.92,
+         "hMm": 33.83
+        }
+       ]
+      }
+     ],
      "figures": [
       {
        "crop": "fc10_10g_q15_f0",
        "wMm": 31.41,
        "hMm": 11.41
-      },
-      {
-       "crop": "fc10_10g_q15_f1",
-       "wMm": 29.66,
-       "hMm": 29.66
-      },
-      {
-       "crop": "fc10_10g_q15_f2",
-       "wMm": 34.78,
-       "hMm": 31.14
-      },
-      {
-       "crop": "fc10_10g_q15_f3",
-       "wMm": 38.77,
-       "hMm": 35.12
       }
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 16.0
      }
     }
    ]
@@ -3685,22 +4486,38 @@
        "t": "Find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q1_f0",
-       "wMm": 39.82,
-       "hMm": 43.36
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q1_f0",
+         "wMm": 36.96,
+         "hMm": 28.49
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q1_f1",
-       "wMm": 35.66,
-       "hMm": 18.75
+       "letter": "b",
+       "content": [
+        {
+         "t": "10 m4 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q1_f1",
+         "wMm": 35.66,
+         "hMm": 18.75
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -3717,42 +4534,90 @@
        "t": " Find the area of these composite shapes by adding together the area of simpler shapes. Assume that all angles that look like right angles are right angles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q2_f0",
-       "wMm": 43.87,
-       "hMm": 31.26
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f0",
+         "wMm": 36.07,
+         "hMm": 25.22
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q2_f1",
-       "wMm": 46.9,
-       "hMm": 47.59
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f1",
+         "wMm": 44.04,
+         "hMm": 26.79
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q2_f2",
-       "wMm": 44.98,
-       "hMm": 44.97
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f2",
+         "wMm": 44.98,
+         "hMm": 23.44
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q2_f3",
-       "wMm": 31.04,
-       "hMm": 11.29
+       "letter": "d",
+       "content": [
+        {
+         "t": "2 m5 m3 m9 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f3",
+         "wMm": 31.04,
+         "hMm": 11.29
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q2_f4",
-       "wMm": 26.81,
-       "hMm": 12.3
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f4",
+         "wMm": 26.81,
+         "hMm": 12.3
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q2_f5",
-       "wMm": 46.53,
-       "hMm": 18.43
+       "letter": "f",
+       "content": [
+        {
+         "t": "21 cm9 cm17 cm"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q2_f5",
+         "wMm": 43.67,
+         "hMm": 18.43
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3765,22 +4630,34 @@
        "t": " Find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q3_f0",
-       "wMm": 48.73,
-       "hMm": 26.24
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q3_f0",
+         "wMm": 48.73,
+         "hMm": 26.24
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q3_f1",
-       "wMm": 39.31,
-       "hMm": 31.94
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q3_f1",
+         "wMm": 36.45,
+         "hMm": 31.94
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -3793,42 +4670,90 @@
        "t": " Use subtraction to find the area of these composite shapes. Assume that all angles that look like right angles are right angles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q4_f0",
-       "wMm": 45.35,
-       "hMm": 43.59
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f0",
+         "wMm": 37.56,
+         "hMm": 28.63
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q4_f1",
-       "wMm": 46.05,
-       "hMm": 35.73
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f1",
+         "wMm": 43.19,
+         "hMm": 29.68
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q4_f2",
-       "wMm": 36.87,
-       "hMm": 34.48
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f2",
+         "wMm": 29.07,
+         "hMm": 29.25
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q4_f3",
-       "wMm": 44.31,
-       "hMm": 45.77
+       "letter": "d",
+       "content": [
+        {
+         "t": "12 m5 m "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f3",
+         "wMm": 44.31,
+         "hMm": 25.44
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q4_f4",
-       "wMm": 37.47,
-       "hMm": 27.34
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f4",
+         "wMm": 37.47,
+         "hMm": 23.75
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q4_f5",
-       "wMm": 30.34,
-       "hMm": 15.52
+       "letter": "f",
+       "content": [
+        {
+         "t": "2.5 m4 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q4_f5",
+         "wMm": 30.34,
+         "hMm": 15.52
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -3852,27 +4777,45 @@
        "t": " Find the areas of these composite shapes. Assume that all angles that look like right angles are right angles."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q5_f0",
-       "wMm": 62.66,
-       "hMm": 24.92
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q5_f0",
+         "wMm": 48.1,
+         "hMm": 24.92
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q5_f1",
-       "wMm": 36.23,
-       "hMm": 28.93
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q5_f1",
+         "wMm": 36.23,
+         "hMm": 28.93
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q5_f2",
-       "wMm": 43.58,
-       "hMm": 27.87
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q5_f2",
+         "wMm": 40.72,
+         "hMm": 27.87
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -3885,32 +4828,60 @@
        "t": " By finding the missing lengths first, calculate the area of these composite shapes."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10h_q6_f0",
-       "wMm": 39.86,
-       "hMm": 39.15
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q6_f0",
+         "wMm": 32.07,
+         "hMm": 33.92
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q6_f1",
-       "wMm": 53.47,
-       "hMm": 32.23
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q6_f1",
+         "wMm": 50.62,
+         "hMm": 32.23
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q6_f2",
-       "wMm": 29.57,
-       "hMm": 28.27
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q6_f2",
+         "wMm": 29.57,
+         "hMm": 28.27
+        }
+       ]
       },
       {
-       "crop": "fc10_10h_q6_f3",
-       "wMm": 55.45,
-       "hMm": 33.66
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10h_q6_f3",
+         "wMm": 52.59,
+         "hMm": 33.66
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -3985,7 +4956,7 @@
       {
        "crop": "fc10_10h_q9_f0",
        "wMm": 22.97,
-       "hMm": 14.0
+       "hMm": 12.33
       }
      ],
      "workingSpace": {
@@ -4008,26 +4979,22 @@
        "letter": "a",
        "content": [
         {
-         "t": " For the trapezium shown opposite, is it possible to fi nd the base length of each triangle on the sides? Justify your answer. "
+         "t": " For the trapezium shown opposite, is it possible to fi nd the base 6 mlength of each triangle on the sides? Justify your answer. "
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
        "content": [
         {
-         "t": " Can you come up with a method for fi nding the area of this trapezium using the rectangle and triangles shown in the diagram? Use diagrams to explain your method. "
+         "t": " Can you come up with a method for fi nding the area of this 5 mtrapezium using the rectangle and triangles shown in the 10 mdiagram? Use diagrams to explain your method. "
         }
-       ]
+       ],
+       "figures": []
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10h_q10_f0",
-       "wMm": 44.45,
-       "hMm": 29.77
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 14.4
@@ -4092,78 +5059,90 @@
        "dropMm": 3.14
       },
       {
-       "t": ", … Similar to the one shown opposite, draw your own square, showing as many fractions as you can. Try to follow the spiral pattern shown. (Note: The bigger the square you start with, the more squares you will be able to show.) b i Write the next 10 numbers in this number pattern. 1_"
-      },
-      {
-       "m": "fc10_10h_q11_m7",
-       "hMm": 4.64,
-       "wMm": 2.47,
-       "dropMm": 3.14
-      },
-      {
-       "t": ", "
-      },
-      {
-       "m": "fc10_10h_q11_m8",
-       "hMm": 4.83,
-       "wMm": 3.03,
-       "dropMm": -0.19
-      },
-      {
-       "m": "fc10_10h_q11_m9",
-       "hMm": 4.64,
-       "wMm": 2.47,
-       "dropMm": 3.14
-      },
-      {
-       "t": ", "
-      },
-      {
-       "m": "fc10_10h_q11_m10",
-       "hMm": 4.83,
-       "wMm": 3.03,
-       "dropMm": -0.19
-      },
-      {
-       "m": "fc10_10h_q11_m11",
-       "hMm": 4.64,
-       "wMm": 2.47,
-       "dropMm": 3.14
-      },
-      {
-       "t": ", …ii Will the pattern ever stop? "
+       "t": ", …14"
       }
      ],
      "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Similar to the one shown opposite, draw your own square, showing as many fractions as you can. Try to follow the spiral pattern shown. (Note: The bigger the square you start with, the more squares you will be able to show.) b i Write the next 10 numbers in this number pattern. 1_"
+        },
+        {
+         "m": "fc10_10h_q11_m7",
+         "hMm": 4.64,
+         "wMm": 2.47,
+         "dropMm": 3.14
+        },
+        {
+         "t": ", "
+        },
+        {
+         "m": "fc10_10h_q11_m8",
+         "hMm": 4.83,
+         "wMm": 3.03,
+         "dropMm": -0.19
+        },
+        {
+         "m": "fc10_10h_q11_m9",
+         "hMm": 4.64,
+         "wMm": 2.47,
+         "dropMm": 3.14
+        },
+        {
+         "t": ", "
+        },
+        {
+         "m": "fc10_10h_q11_m10",
+         "hMm": 4.83,
+         "wMm": 3.03,
+         "dropMm": -0.19
+        },
+        {
+         "m": "fc10_10h_q11_m11",
+         "hMm": 4.64,
+         "wMm": 2.47,
+         "dropMm": 3.14
+        },
+        {
+         "t": ", …ii Will the pattern ever stop? "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q11_f0",
+         "wMm": 38.63,
+         "hMm": 27.25
+        }
+       ]
+      },
       {
        "letter": "c",
        "content": [
         {
          "t": " What is the total area of the starting square? "
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "d",
        "content": [
         {
-         "t": " What do your answers to parts b ii and c tell you about the answer to the sum below? "
+         "t": " What do your answers to parts b ii and tell you about the answer to the sum below? "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10h_q11_f1",
+         "wMm": 112.73,
+         "hMm": 87.72
         }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10h_q11_f0",
-       "wMm": 38.63,
-       "hMm": 39.44
-      },
-      {
-       "crop": "fc10_10h_q11_f1",
-       "wMm": 112.73,
-       "hMm": 87.72
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 16.0
@@ -4200,22 +5179,34 @@
        "t": "Find the volume of these rectangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10i_q1_f0",
-       "wMm": 33.26,
-       "hMm": 16.53
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q1_f0",
+         "wMm": 33.26,
+         "hMm": 16.53
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q1_f1",
-       "wMm": 37.9,
-       "hMm": 15.55
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q1_f1",
+         "wMm": 35.04,
+         "hMm": 15.55
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -4225,40 +5216,83 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the volume of these rectangular prisms.5 km"
+       "t": " Find the volume of these rectangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10i_q2_f0",
-       "wMm": 36.53,
-       "hMm": 33.89
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q2_f0",
+         "wMm": 28.73,
+         "hMm": 28.67
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q2_f1",
-       "wMm": 25.02,
-       "hMm": 35.36
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q2_f1",
+         "wMm": 22.16,
+         "hMm": 30.13
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q2_f2",
-       "wMm": 27.77,
-       "hMm": 36.18
+       "letter": "c",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10i_q2_f2",
+         "wMm": 24.91,
+         "hMm": 30.13
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q2_f3",
-       "wMm": 19.7,
-       "hMm": 24.93
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q2_f3",
+         "wMm": 19.7,
+         "hMm": 24.93
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q2_f4",
-       "wMm": 44.18,
-       "hMm": 17.01
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q2_f4",
+         "wMm": 44.18,
+         "hMm": 17.01
+        }
+       ]
+      },
+      {
+       "letter": "f",
+       "content": [
+        {
+         "t": "1.5 km5 km"
+        }
+       ],
+       "figures": []
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -4350,42 +5384,74 @@
        "t": " These solids are made up of more than one rectangular prism. Use addition or subtraction to find the volume of the composite solid."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10i_q7_f0",
-       "wMm": 66.37,
-       "hMm": 48.84
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q7_f0",
+         "wMm": 58.57,
+         "hMm": 34.48
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q7_f1",
-       "wMm": 56.19,
-       "hMm": 26.61
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10i_q7_f1",
+         "wMm": 53.33,
+         "hMm": 26.61
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q7_f2",
-       "wMm": 17.08,
-       "hMm": 34.45
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q7_f2",
+         "wMm": 17.08,
+         "hMm": 34.45
+        },
+        {
+         "crop": "fc10_10i_q7_f3",
+         "wMm": 23.63,
+         "hMm": 19.89
+        },
+        {
+         "crop": "fc10_10i_q7_f4",
+         "wMm": 17.25,
+         "hMm": 29.51
+        }
+       ]
       },
       {
-       "crop": "fc10_10i_q7_f3",
-       "wMm": 23.63,
-       "hMm": 19.89
-      },
-      {
-       "crop": "fc10_10i_q7_f4",
-       "wMm": 17.25,
-       "hMm": 29.51
-      },
-      {
-       "crop": "fc10_10i_q7_f5",
-       "wMm": 56.2,
-       "hMm": 35.4
+       "letter": "d",
+       "content": [
+        {
+         "t": "8 cm4 cm"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10i_q7_f5",
+         "wMm": 53.34,
+         "hMm": 35.4
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -4427,38 +5493,35 @@
      "id": "fc10_10i_q10",
      "number": "10",
      "tier": "problemsolving",
-     "stem": [],
-     "parts": [
+     "stem": [
       {
-       "letter": "a",
-       "content": [
-        {
-         "t": " The area of one face of a cube is 25 cm"
-        },
-        {
-         "m": "fc10_10i_q10_m1",
-         "hMm": 3.86,
-         "wMm": 2.12,
-         "dropMm": -0.22
-        },
-        {
-         "t": ". Find the cube’s volume."
-        }
-       ]
+       "t": " The area of one face of a cube is 25 cm"
       },
+      {
+       "m": "fc10_10i_q10_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.22
+      },
+      {
+       "t": ". Find the cube’s volume."
+      }
+     ],
+     "parts": [
       {
        "letter": "b",
        "content": [
         {
          "t": " The perimeter of one face of a cube is 36 m. Find the cube’s volume."
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 18
      }
     },
     {
@@ -4478,7 +5541,46 @@
        "t": " We can find the area of this shaded triangle by thinking of it as half a rectangle. Use the same idea to find the volume of each of these solids."
       }
      ],
-     "parts": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q11_f2",
+         "wMm": 30.26,
+         "hMm": 30.26
+        }
+       ]
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q11_f3",
+         "wMm": 13.96,
+         "hMm": 20.63
+        },
+        {
+         "crop": "fc10_10i_q11_f4",
+         "wMm": 26.81,
+         "hMm": 16.39
+        }
+       ]
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10i_q11_f5",
+         "wMm": 33.57,
+         "hMm": 26.13
+        }
+       ]
+      }
+     ],
      "figures": [
       {
        "crop": "fc10_10i_q11_f0",
@@ -4489,31 +5591,11 @@
        "crop": "fc10_10i_q11_f1",
        "wMm": 9.52,
        "hMm": 9.53
-      },
-      {
-       "crop": "fc10_10i_q11_f2",
-       "wMm": 30.26,
-       "hMm": 30.26
-      },
-      {
-       "crop": "fc10_10i_q11_f3",
-       "wMm": 16.82,
-       "hMm": 20.63
-      },
-      {
-       "crop": "fc10_10i_q11_f4",
-       "wMm": 26.81,
-       "hMm": 16.39
-      },
-      {
-       "crop": "fc10_10i_q11_f5",
-       "wMm": 36.43,
-       "hMm": 26.13
       }
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     }
    ]
@@ -4525,29 +5607,17 @@
      "id": "fc10_10i_q12",
      "number": "12",
      "tier": "reasoning",
-     "stem": [],
+     "stem": [
+      {
+       "t": " Find the height of these rectangular prisms with the given volumes. Use trial and error if you prefer."
+      }
+     ],
      "parts": [
       {
-       "letter": "a",
+       "letter": "i",
        "content": [
         {
-         "t": " Find the height of these rectangular prisms with the given volumes. Use trial and error if you prefer. "
-        }
-       ]
-      },
-      {
-       "letter": "b",
-       "content": [
-        {
-         "t": " Can you explain a method that always works for finding the height of a rectangular prism?"
-        }
-       ]
-      },
-      {
-       "letter": "c",
-       "content": [
-        {
-         "t": " Use "
+         "t": " b Can you explain a method that always works for finding the height of a rectangular prism? c Use "
         },
         {
          "t": "V",
@@ -4577,34 +5647,35 @@
         {
          "t": "."
         }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10i_q12_f0",
+         "wMm": 37.63,
+         "hMm": 21.64
+        },
+        {
+         "crop": "fc10_10i_q12_f1",
+         "wMm": 33.45,
+         "hMm": 37.7
+        },
+        {
+         "crop": "fc10_10i_q12_f2",
+         "wMm": 40.49,
+         "hMm": 39.09
+        },
+        {
+         "crop": "fc10_10i_q12_f3",
+         "wMm": 51.71,
+         "hMm": 24.49
+        }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10i_q12_f0",
-       "wMm": 40.49,
-       "hMm": 21.64
-      },
-      {
-       "crop": "fc10_10i_q12_f1",
-       "wMm": 33.45,
-       "hMm": 37.7
-      },
-      {
-       "crop": "fc10_10i_q12_f2",
-       "wMm": 40.49,
-       "hMm": 39.09
-      },
-      {
-       "crop": "fc10_10i_q12_f3",
-       "wMm": 51.71,
-       "hMm": 24.49
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 14.4
+      "heightMm": 18
      }
     },
     {
@@ -4619,31 +5690,35 @@
      "id": "fc10_10i_q13",
      "number": "13",
      "tier": "enrichment",
-     "stem": [],
+     "stem": [
+      {
+       "t": " The diagram shows a 1 cm"
+      },
+      {
+       "m": "fc10_10i_q13_m1",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.23
+      },
+      {
+       "t": " block that is divided into cubic millimetres.How many mm"
+      },
+      {
+       "m": "fc10_10i_q13_m2",
+       "hMm": 3.86,
+       "wMm": 2.12,
+       "dropMm": -0.26
+      },
+      {
+       "t": " are there along one side of the cube?"
+      }
+     ],
      "parts": [
       {
-       "letter": "a",
+       "letter": "i",
        "content": [
         {
-         "t": " The diagram shows a 1 cm"
-        },
-        {
-         "m": "fc10_10i_q13_m1",
-         "hMm": 3.86,
-         "wMm": 2.12,
-         "dropMm": -0.23
-        },
-        {
-         "t": " block that is divided into cubic millimetres.How many mm"
-        },
-        {
-         "m": "fc10_10i_q13_m2",
-         "hMm": 3.86,
-         "wMm": 2.12,
-         "dropMm": -0.26
-        },
-        {
-         "t": " are there along one side of the cube? i ii How many mm"
+         "t": " ii How many mm"
         },
         {
          "m": "fc10_10i_q13_m3",
@@ -4668,7 +5743,7 @@
          "dropMm": -0.24
         },
         {
-         "t": " are there in the cube? iv Use your answers from parts i to iii above to now calculate how many mm"
+         "t": " are there in the cube? iv Use your answers from parts to iii above to now calculate how many mm"
         },
         {
          "m": "fc10_10i_q13_m5",
@@ -4686,15 +5761,7 @@
          "dropMm": -0.26
         },
         {
-         "t": "."
-        }
-       ]
-      },
-      {
-       "letter": "b",
-       "content": [
-        {
-         "t": " Use a similar method to calculate the number of:cm"
+         "t": ". b Use a similar method to calculate the number of:cm"
         },
         {
          "m": "fc10_10i_q13_m7",
@@ -4728,14 +5795,9 @@
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": -0.26
-        }
-       ]
-      },
-      {
-       "letter": "c",
-       "content": [
+        },
         {
-         "t": " Complete the diagram shown.×××____________km"
+         "t": " c Complete the diagram shown.×××____________km"
         },
         {
          "m": "fc10_10i_q13_m11",
@@ -4773,19 +5835,20 @@
         {
          "t": "÷ ____÷ ____÷ ____"
         }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10i_q13_f0",
+         "wMm": 34.82,
+         "hMm": 28.4
+        }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10i_q13_f0",
-       "wMm": 34.82,
-       "hMm": 31.35
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 16.0
+      "heightMm": 20
      }
     }
    ]
@@ -4839,37 +5902,49 @@
        "t": " Find the volume of these triangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10j_q1_f0",
-       "wMm": 55.2,
-       "hMm": 28.57
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q1_f0",
+         "wMm": 55.2,
+         "hMm": 28.57
+        },
+        {
+         "crop": "fc10_10j_q1_f1",
+         "wMm": 19.3,
+         "hMm": 9.55
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q1_f1",
-       "wMm": 19.3,
-       "hMm": 9.55
-      },
-      {
-       "crop": "fc10_10j_q1_f2",
-       "wMm": 24.93,
-       "hMm": 16.24
-      },
-      {
-       "crop": "fc10_10j_q1_f3",
-       "wMm": 8.91,
-       "hMm": 12.09
-      },
-      {
-       "crop": "fc10_10j_q1_f4",
-       "wMm": 34.3,
-       "hMm": 26.9
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q1_f2",
+         "wMm": 22.07,
+         "hMm": 16.24
+        },
+        {
+         "crop": "fc10_10j_q1_f3",
+         "wMm": 8.91,
+         "hMm": 12.09
+        },
+        {
+         "crop": "fc10_10j_q1_f4",
+         "wMm": 34.3,
+         "hMm": 26.9
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -4883,100 +5958,144 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the volume of these triangular prisms. d f "
+       "t": " Find the volume of these triangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10j_q2_f0",
-       "wMm": 27.97,
-       "hMm": 19.98
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f0",
+         "wMm": 27.97,
+         "hMm": 19.98
+        },
+        {
+         "crop": "fc10_10j_q2_f1",
+         "wMm": 31.12,
+         "hMm": 16.32
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q2_f1",
-       "wMm": 60.13,
-       "hMm": 30.03
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f2",
+         "wMm": 57.28,
+         "hMm": 30.03
+        },
+        {
+         "crop": "fc10_10j_q2_f3",
+         "wMm": 19.3,
+         "hMm": 9.55
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q2_f2",
-       "wMm": 19.3,
-       "hMm": 9.55
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f4",
+         "wMm": 19.36,
+         "hMm": 14.57
+        },
+        {
+         "crop": "fc10_10j_q2_f5",
+         "wMm": 10.62,
+         "hMm": 14.94
+        },
+        {
+         "crop": "fc10_10j_q2_f6",
+         "wMm": 54.72,
+         "hMm": 26.57
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q2_f3",
-       "wMm": 31.12,
-       "hMm": 16.32
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f7",
+         "wMm": 19.36,
+         "hMm": 13.03
+        },
+        {
+         "crop": "fc10_10j_q2_f8",
+         "wMm": 12.14,
+         "hMm": 11.63
+        },
+        {
+         "crop": "fc10_10j_q2_f9",
+         "wMm": 20.4,
+         "hMm": 19.9
+        },
+        {
+         "crop": "fc10_10j_q2_f10",
+         "wMm": 17.71,
+         "hMm": 15.4
+        },
+        {
+         "crop": "fc10_10j_q2_f11",
+         "wMm": 17.56,
+         "hMm": 16.04
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q2_f4",
-       "wMm": 19.36,
-       "hMm": 14.57
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f12",
+         "wMm": 14.3,
+         "hMm": 11.22
+        },
+        {
+         "crop": "fc10_10j_q2_f13",
+         "wMm": 14.3,
+         "hMm": 11.22
+        },
+        {
+         "crop": "fc10_10j_q2_f14",
+         "wMm": 35.21,
+         "hMm": 23.8
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q2_f5",
-       "wMm": 10.62,
-       "hMm": 14.94
-      },
-      {
-       "crop": "fc10_10j_q2_f6",
-       "wMm": 19.36,
-       "hMm": 13.03
-      },
-      {
-       "crop": "fc10_10j_q2_f7",
-       "wMm": 12.14,
-       "hMm": 11.63
-      },
-      {
-       "crop": "fc10_10j_q2_f8",
-       "wMm": 54.72,
-       "hMm": 32.62
-      },
-      {
-       "crop": "fc10_10j_q2_f9",
-       "wMm": 20.4,
-       "hMm": 19.9
-      },
-      {
-       "crop": "fc10_10j_q2_f10",
-       "wMm": 17.71,
-       "hMm": 15.4
-      },
-      {
-       "crop": "fc10_10j_q2_f11",
-       "wMm": 17.56,
-       "hMm": 16.04
-      },
-      {
-       "crop": "fc10_10j_q2_f12",
-       "wMm": 14.3,
-       "hMm": 11.22
-      },
-      {
-       "crop": "fc10_10j_q2_f13",
-       "wMm": 14.3,
-       "hMm": 11.22
-      },
-      {
-       "crop": "fc10_10j_q2_f14",
-       "wMm": 30.61,
-       "hMm": 19.26
-      },
-      {
-       "crop": "fc10_10j_q2_f15",
-       "wMm": 35.21,
-       "hMm": 23.8
-      },
-      {
-       "crop": "fc10_10j_q2_f16",
-       "wMm": 19.8,
-       "hMm": 14.75
+       "letter": "f",
+       "content": [
+        {
+         "t": "6 m"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10j_q2_f15",
+         "wMm": 30.61,
+         "hMm": 19.26
+        },
+        {
+         "crop": "fc10_10j_q2_f16",
+         "wMm": 19.8,
+         "hMm": 14.75
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -4989,27 +6108,39 @@
        "t": " Find the volume of these triangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10j_q3_f0",
-       "wMm": 29.49,
-       "hMm": 25.31
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q3_f0",
+         "wMm": 29.49,
+         "hMm": 25.31
+        },
+        {
+         "crop": "fc10_10j_q3_f1",
+         "wMm": 42.53,
+         "hMm": 26.59
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q3_f1",
-       "wMm": 42.53,
-       "hMm": 26.59
-      },
-      {
-       "crop": "fc10_10j_q3_f2",
-       "wMm": 51.94,
-       "hMm": 37.66
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q3_f2",
+         "wMm": 49.08,
+         "hMm": 37.66
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     }
    ]
@@ -5023,30 +6154,52 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": " Find the volume of these triangular prisms. "
+       "t": " Find the volume of these triangular prisms."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10j_q4_f0",
-       "wMm": 52.36,
-       "hMm": 31.57
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q4_f0",
+         "wMm": 52.36,
+         "hMm": 31.57
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q4_f1",
-       "wMm": 44.47,
-       "hMm": 38.97
+       "letter": "b",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10j_q4_f1",
+         "wMm": 41.61,
+         "hMm": 38.97
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q4_f2",
-       "wMm": 56.29,
-       "hMm": 45.38
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q4_f2",
+         "wMm": 56.29,
+         "hMm": 45.38
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 12
+      "heightMm": 9.600000000000001
      }
     },
     {
@@ -5142,52 +6295,76 @@
        "t": " The following composite solids combine rectangular and triangular prisms. Find the volume."
       }
      ],
-     "parts": [],
-     "figures": [
+     "parts": [
       {
-       "crop": "fc10_10j_q8_f0",
-       "wMm": 39.41,
-       "hMm": 12.44
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q8_f0",
+         "wMm": 39.41,
+         "hMm": 12.44
+        },
+        {
+         "crop": "fc10_10j_q8_f1",
+         "wMm": 49.42,
+         "hMm": 31.1
+        },
+        {
+         "crop": "fc10_10j_q8_f2",
+         "wMm": 20.66,
+         "hMm": 11.79
+        },
+        {
+         "crop": "fc10_10j_q8_f3",
+         "wMm": 28.15,
+         "hMm": 11.79
+        },
+        {
+         "crop": "fc10_10j_q8_f4",
+         "wMm": 17.51,
+         "hMm": 36.49
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q8_f1",
-       "wMm": 49.42,
-       "hMm": 36.33
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q8_f5",
+         "wMm": 47.41,
+         "hMm": 42.88
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q8_f2",
-       "wMm": 20.66,
-       "hMm": 11.79
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q8_f6",
+         "wMm": 60.45,
+         "hMm": 50.38
+        }
+       ]
       },
       {
-       "crop": "fc10_10j_q8_f3",
-       "wMm": 28.15,
-       "hMm": 11.79
-      },
-      {
-       "crop": "fc10_10j_q8_f4",
-       "wMm": 17.51,
-       "hMm": 36.49
-      },
-      {
-       "crop": "fc10_10j_q8_f5",
-       "wMm": 50.26,
-       "hMm": 42.88
-      },
-      {
-       "crop": "fc10_10j_q8_f6",
-       "wMm": 60.45,
-       "hMm": 50.38
-      },
-      {
-       "crop": "fc10_10j_q8_f7",
-       "wMm": 62.84,
-       "hMm": 44.6
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "fc10_10j_q8_f7",
+         "wMm": 59.98,
+         "hMm": 44.6
+        }
+       ]
       }
      ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 18
+      "heightMm": 14.4
      }
     },
     {
@@ -5258,7 +6435,8 @@
         {
          "t": ", find its height."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -5284,7 +6462,8 @@
         {
          "t": ", find its height."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -5301,7 +6480,8 @@
         {
          "t": " and the height is 20 mm, find its cross-sectional area."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "d",
@@ -5318,7 +6498,8 @@
         {
          "t": " and the height is 400 cm, find its cross-sectional area."
         }
-       ]
+       ],
+       "figures": []
       }
      ],
      "figures": [],
@@ -5499,7 +6680,8 @@
         {
          "t": "."
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "b",
@@ -5552,8 +6734,19 @@
         },
         {
          "t": "."
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "m": "fc10_10j_q13_m7",
+         "hMm": 3.0,
+         "wMm": 1.73,
+         "dropMm": 1.98
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "c",
@@ -5569,7 +6762,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m7",
+         "m": "fc10_10j_q13_m8",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.13
@@ -5599,15 +6792,26 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m8",
+         "m": "fc10_10j_q13_m9",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.13
         },
         {
          "t": "."
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "m": "fc10_10j_q13_m10",
+         "hMm": 3.0,
+         "wMm": 1.73,
+         "dropMm": 1.99
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "d",
@@ -5637,7 +6841,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m9",
+         "m": "fc10_10j_q13_m11",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.15
@@ -5653,15 +6857,20 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m10",
+         "m": "fc10_10j_q13_m12",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.15
         },
         {
          "t": "."
+        },
+        {
+         "t": "b",
+         "i": true
         }
-       ]
+       ],
+       "figures": []
       },
       {
        "letter": "e",
@@ -5677,7 +6886,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m11",
+         "m": "fc10_10j_q13_m13",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5707,7 +6916,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m12",
+         "m": "fc10_10j_q13_m14",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5723,7 +6932,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m13",
+         "m": "fc10_10j_q13_m15",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5753,7 +6962,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m14",
+         "m": "fc10_10j_q13_m16",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5783,7 +6992,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m15",
+         "m": "fc10_10j_q13_m17",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5799,7 +7008,7 @@
          "t": " "
         },
         {
-         "m": "fc10_10j_q13_m16",
+         "m": "fc10_10j_q13_m18",
          "hMm": 3.86,
          "wMm": 2.12,
          "dropMm": 2.14
@@ -5807,21 +7016,17 @@
         {
          "t": " = 10."
         }
+       ],
+       "figures": [
+        {
+         "crop": "fc10_10j_q13_f0",
+         "wMm": 111.5,
+         "hMm": 81.46
+        }
        ]
       }
      ],
-     "figures": [
-      {
-       "crop": "fc10_10j_q13_f0",
-       "wMm": 60.07,
-       "hMm": 30.48
-      },
-      {
-       "crop": "fc10_10j_q13_f1",
-       "wMm": 111.5,
-       "hMm": 81.46
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 16.0
@@ -5840,5 +7045,5 @@
    ]
   }
  ],
- "buildVersion": "6287eba0"
+ "buildVersion": "05efdde0"
 }

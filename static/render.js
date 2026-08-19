@@ -768,17 +768,49 @@ function flowRunsHtml(runs, cropsBaseUrl) {
 }
 
 function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
+  // Each grid cell carries its own answer box, so it is deliberately
+  // shorter than the single whole-question box it replaces - six parts
+  // each given the full height would run several pages.
+  const partWs = { style: ws.style, heightMm: Math.max(GRID_MM * 3, Math.round((ws.heightMm || 15) * 0.9)) };
   const stem = (b.stem || []).length ? `<p class="flowq-stem">${flowRunsHtml(b.stem, cropsBaseUrl)}</p>` : "";
+  // A part carrying its own diagram becomes a real cell - letter,
+  // diagram, and its own answer box - laid out in a grid, which is what
+  // restores the book's clean a/b/c/d structure and makes each part
+  // independently workable. Parts that are only text stay a simple
+  // stacked list, which is what they look like in the book too.
+  const partsHaveFigs = (b.parts || []).some((p) => (p.figures || []).length);
+  const partFig = (p) =>
+    (p.figures || [])
+      .map(
+        (f) =>
+          `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
+          `style="width:${((f.wMm * figPct) / 100).toFixed(1)}mm" alt="">`
+      )
+      .join("");
   const parts = (b.parts || []).length
-    ? `<div class="flowq-parts">` +
-      b.parts
-        .map(
-          (p) =>
-            `<div class="flowq-part"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
-            `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>`
-        )
-        .join("") +
-      `</div>`
+    ? partsHaveFigs
+      ? `<div class="flowq-grid">` +
+        b.parts
+          .map(
+            (p) =>
+              `<div class="flowq-cell">` +
+              `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
+              `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
+              `<div class="flowq-cell-fig">${partFig(p)}</div>` +
+              workingSpaceHtml(partWs) +
+              `</div>`
+          )
+          .join("") +
+        `</div>`
+      : `<div class="flowq-parts">` +
+        b.parts
+          .map(
+            (p) =>
+              `<div class="flowq-part"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
+              `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>`
+          )
+          .join("") +
+        `</div>`
     : "";
   // Figures are the only thing here that scales. They carry their true
   // mm size from the PDF, so the percentage is a real proportion of the
@@ -809,7 +841,7 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
     `<div class="flowq-body">${stem}${parts}${many ? figBlock : ""}</div>` +
     (many ? "" : figBlock) +
     `</div>` +
-    workingSpaceHtml(ws) +
+    (partsHaveFigs ? "" : workingSpaceHtml(ws)) +
     `</div>`
   );
 }
