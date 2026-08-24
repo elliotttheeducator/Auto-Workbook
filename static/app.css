@@ -447,11 +447,24 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    its own cell - letter, diagram, answer box - laid out two across, the
    way the book sets them. This is what makes the parts independently
    workable again instead of one shared box under a row of pictures. */
+/* Column count is set inline by flowGridColumns - it depends on how
+   wide that question's diagrams actually are. Two is only the fallback
+   for a chapter built before that existed. */
 .flowq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 5mm; margin: 1mm 0 0; }
 .flowq-cell { display: flex; flex-direction: column; min-width: 0; break-inside: avoid; }
 .flowq-cell-head { display: flex; gap: 2mm; align-items: baseline; }
+/* Roman sub-items, indented under their part the way the book sets
+   them - one instruction per line. */
+.flowq-subs { margin: 0.5mm 0 0 5mm; }
+.flowq-sub { display: flex; gap: 2mm; align-items: baseline; }
+.flowq-subletter { font-weight: 700; color: #1f4e79; min-width: 5mm; }
 .flowq-cell-fig { display: flex; justify-content: center; align-items: flex-end; min-height: 0; margin: 1mm 0; }
-.flowq-cell-fig .flowq-fig { max-width: 100%; max-height: 42mm; width: auto !important; }
+/* Height is set inline, to one of a handful of standard heights shared
+   by every diagram in the question (see figureHeightMm), so a row of
+   triangles sits on a common baseline instead of stepping up and down.
+   Width follows the true aspect ratio, and max-width is the guard for
+   an unusually wide one. */
+.flowq-cell-fig .flowq-fig { max-width: 100%; width: auto !important; }
 .flowq-cell .working-space { width: 100%; }
 /* Inline math is sized in em by the renderer, so it tracks --flow-body
    automatically; this only stops it inheriting any surrounding rules. */

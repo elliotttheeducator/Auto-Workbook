@@ -767,59 +767,129 @@ function flowRunsHtml(runs, cropsBaseUrl) {
     .join("");
 }
 
+// How many parts to set across the page.
+//
+// The book itself varies this - three ratio triangles go across in a
+// row, sixteen small ones go four across - and matching it is what
+// keeps a grid looking typeset rather than arbitrary. The widest
+// diagram in the grid decides the ceiling, since every column has to
+// hold the widest one without squeezing it; the part count then keeps
+// short grids from being split into silly little columns.
+function flowGridColumns(parts, figH, sourceCols) {
+  // Width AFTER the height snap, not the figure's own width - a figure
+  // scaled to a common height is not the width it was cropped at, and
+  // sizing columns on the raw width overflows the row.
+  const widest = parts.reduce(
+    (m, p) =>
+      Math.max(
+        m,
+        ...(p.figures || []).map((f) => (figH && f.hMm ? (f.wMm * figH) / f.hMm : f.wMm)),
+        0
+      ),
+    0
+  );
+  // Usable content width is ~170mm; leave a gutter between columns.
+  const byWidth = widest > 0 ? Math.floor(170 / (widest + 6)) : 4;
+  // The book's own count leads, since it is a typesetter's decision
+  // about this particular grid rather than a rule. It is still capped
+  // by what actually fits: these pages are narrower than the source's,
+  // so a source column count is a preference, not a guarantee. A
+  // source count of ONE is a real decision too - a question whose
+  // parts are prose sets them down the page, and pairing them into
+  // columns is what made a three-part question read a, b / c.
+  const byCount = sourceCols >= 1 ? sourceCols : parts.length >= 9 ? 4 : parts.length >= 5 ? 3 : 2;
+  return Math.max(1, Math.min(4, byWidth, byCount));
+}
+
+// The only diagram heights this book uses. Snapping every figure to
+// one of them is what stops the page looking sporadic: the source
+// crops run from 9mm to 98mm tall in arbitrary increments, and printed
+// at their true sizes no two diagrams ever quite agree. Five steps is
+// enough to keep a thumbnail small and a detailed diagram legible,
+// while being few enough that the eye reads them as a set.
+const FIG_HEIGHTS_MM = [16, 22, 28, 34, 40];
+
+// One height for all the figures in a question, chosen from the median
+// of their true heights. Median rather than max, so a single oversized
+// diagram cannot inflate the whole row; and one value for the whole
+// question, so its diagrams line up with each other rather than each
+// being independently correct and collectively ragged.
+function figureHeightMm(figs, figPct) {
+  const hs = figs.map((f) => (f.hMm * figPct) / 100).filter((h) => h > 0).sort((a, b) => a - b);
+  if (!hs.length) return null;
+  const med = hs[Math.floor(hs.length / 2)];
+  return FIG_HEIGHTS_MM.reduce((best, h) => (Math.abs(h - med) < Math.abs(best - med) ? h : best));
+}
+
 function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
-  // Each grid cell carries its own answer box, so it is deliberately
-  // shorter than the single whole-question box it replaces - six parts
-  // each given the full height would run several pages.
-  const partWs = { style: ws.style, heightMm: Math.max(GRID_MM * 3, Math.round((ws.heightMm || 15) * 0.9)) };
+  // Each part carries its own answer box, sized at build time from what
+  // that part actually asks (see assign_working_space). A part that
+  // says "explain why" gets ruled lines while its neighbour that says
+  // "find x" gets squares, which one box for the whole question can
+  // never do. The 90%-of-the-question fallback is only for older
+  // chapters built before parts carried their own.
+  const fallbackWs = {
+    style: ws.style,
+    heightMm: Math.max(GRID_MM * 3, Math.round((ws.heightMm || 15) * 0.9)),
+  };
+  const wsFor = (p) => p.workingSpace || fallbackWs;
   const stem = (b.stem || []).length ? `<p class="flowq-stem">${flowRunsHtml(b.stem, cropsBaseUrl)}</p>` : "";
-  // A part carrying its own diagram becomes a real cell - letter,
-  // diagram, and its own answer box - laid out in a grid, which is what
-  // restores the book's clean a/b/c/d structure and makes each part
-  // independently workable. Parts that are only text stay a simple
-  // stacked list, which is what they look like in the book too.
+  // Every part is a real cell - letter, its text, its diagram, and its
+  // own answer box. Parts without diagrams are cells too: they are
+  // still separate questions to be answered separately, and a single
+  // shared box underneath gives a student nowhere to put the working
+  // for part (g) that is recognisably part (g)'s.
   const partsHaveFigs = (b.parts || []).some((p) => (p.figures || []).length);
+  const partFigList = (b.parts || []).flatMap((p) => p.figures || []);
+  const partFigH = figureHeightMm(partFigList, figPct);
   const partFig = (p) =>
     (p.figures || [])
       .map(
         (f) =>
           `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
-          `style="width:${((f.wMm * figPct) / 100).toFixed(1)}mm" alt="">`
+          `style="height:${partFigH}mm" alt="">`
       )
       .join("");
+  const cols = (b.parts || []).length ? flowGridColumns(b.parts, partFigH, b.columns || 0) : 0;
   const parts = (b.parts || []).length
-    ? partsHaveFigs
-      ? `<div class="flowq-grid">` +
-        b.parts
-          .map(
-            (p) =>
-              `<div class="flowq-cell">` +
-              `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
-              `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
-              `<div class="flowq-cell-fig">${partFig(p)}</div>` +
-              workingSpaceHtml(partWs) +
-              `</div>`
-          )
-          .join("") +
-        `</div>`
-      : `<div class="flowq-parts">` +
-        b.parts
-          .map(
-            (p) =>
-              `<div class="flowq-part"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
-              `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>`
-          )
-          .join("") +
-        `</div>`
+    ? `<div class="flowq-grid" style="grid-template-columns:repeat(${cols},1fr)">` +
+      b.parts
+        .map(
+          (p) =>
+            `<div class="flowq-cell">` +
+            `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
+            `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
+            // Roman sub-items keep their own line and their own marker,
+            // as the book sets them. Run together into the part's own
+            // sentence they read as one impossible instruction.
+            ((p.subs || []).length
+              ? `<div class="flowq-subs">` +
+                p.subs
+                  .map(
+                    (s) =>
+                      `<div class="flowq-sub"><span class="flowq-subletter">${escapeHtml(s.letter)}</span>` +
+                      `<span class="flowq-ptext">${flowRunsHtml(s.content, cropsBaseUrl)}</span></div>` +
+                      (s.workingSpace ? workingSpaceHtml(s.workingSpace) : "")
+                  )
+                  .join("") +
+                `</div>`
+              : "") +
+            ((p.figures || []).length ? `<div class="flowq-cell-fig">${partFig(p)}</div>` : "") +
+            workingSpaceHtml(wsFor(p)) +
+            `</div>`
+        )
+        .join("") +
+      `</div>`
     : "";
   // Figures are the only thing here that scales. They carry their true
   // mm size from the PDF, so the percentage is a real proportion of the
   // printed original rather than of whatever container they land in.
+  const ownFigH = figureHeightMm(b.figures || [], figPct);
   const figs = (b.figures || [])
     .map(
       (f) =>
         `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
-        `style="width:${((f.wMm * figPct) / 100).toFixed(1)}mm" alt="">`
+        `style="height:${ownFigH}mm" alt="">`
     )
     .join("");
   // One figure sits beside the text (a photo alongside a short
@@ -829,6 +899,12 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
   // whole page tall - across is both denser and closer to the original.
   const many = (b.figures || []).length > 1;
   const figBlock = figs ? `<div class="flowq-figs${many ? " flowq-figs-row" : ""}">${figs}</div>` : "";
+  // A question-level figure on a question that HAS parts is shared
+  // context - "here are two similar triangles A and B" - which every
+  // part then refers to. It has to come before them: printed after,
+  // the diagrams landed at the foot of the question, below all the
+  // answer boxes that depend on reading them.
+  const contextFig = (b.parts || []).length ? figBlock : "";
   // The answer space sits OUTSIDE the row, so it spans the full content
   // width for every question. Inside the row it inherited whatever was
   // left after the figure column, so a question with a photo beside it
@@ -838,10 +914,15 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
     `<div class="flowq-unit">` +
     `<div class="flowq-row">` +
     `<div class="flowq-num">${escapeHtml(b.number || "")}</div>` +
-    `<div class="flowq-body">${stem}${parts}${many ? figBlock : ""}</div>` +
-    (many ? "" : figBlock) +
+    `<div class="flowq-body">${stem}${contextFig}${parts}` +
+    (contextFig || !many ? "" : figBlock) +
     `</div>` +
-    (partsHaveFigs ? "" : workingSpaceHtml(ws)) +
+    (contextFig || many ? "" : figBlock) +
+    `</div>` +
+    // Parts bring their own boxes, so the whole-question box is only
+    // for a question that has no parts at all - otherwise every
+    // multi-part question ended with a second, unusable spare box.
+    ((b.parts || []).length ? "" : workingSpaceHtml(ws)) +
     `</div>`
   );
 }

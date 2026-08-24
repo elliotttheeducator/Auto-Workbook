@@ -1,0 +1,5427 @@
+{
+ "title": "Year 9 - Chapter 3: Trigonometry (3E-3I)",
+ "flowVersion": 1,
+ "pages": [
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3e_title",
+     "text": "3E Trigonometric ratios",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "tg_3e_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Using the given sides, write a trigonometric ratio (in fraction form) for each of the following triangles and simplify where possible."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f0",
+         "wMm": 24.3,
+         "hMm": 19.5
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f1",
+         "wMm": 24.09,
+         "hMm": 23.6
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f2",
+         "wMm": 21.38,
+         "hMm": 23.31
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f3",
+         "wMm": 20.07,
+         "hMm": 26.66
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f4",
+         "wMm": 24.3,
+         "hMm": 24.3
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f5",
+         "wMm": 21.47,
+         "hMm": 15.09
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f6",
+         "wMm": 26.52,
+         "hMm": 24.87
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f7",
+         "wMm": 28.61,
+         "hMm": 17.99
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "i",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q1_f8",
+         "wMm": 27.49,
+         "hMm": 18.67
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 15
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Here are two similar triangles A and B."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": "Write the ratio sin θ (as a fraction) for triangle A ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": "Write the ratio sin θ (as a fraction) for triangle B ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": "What do you notice about your two answers from parts a i and ii above?"
+          }
+         ],
+         "workingSpace": {
+          "style": "lines",
+          "heightMm": 30
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "none",
+        "heightMm": 0
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": "Write the ratio cos θ (as a fraction) for triangle A ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": "Write the ratio cos θ (as a fraction) for triangle B ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": "What do you notice about your two answers from parts b i and ii above?"
+          }
+         ],
+         "workingSpace": {
+          "style": "lines",
+          "heightMm": 30
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "none",
+        "heightMm": 0
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": "Write the ratio tan θ (as a fraction) for triangle A ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": "Write the ratio tan θ (as a fraction) for triangle B ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 10
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": "What do you notice about your two answers from parts c i and ii above?"
+          }
+         ],
+         "workingSpace": {
+          "style": "lines",
+          "heightMm": 30
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "none",
+        "heightMm": 0
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3e_q2_f0",
+       "wMm": 28.84,
+       "hMm": 18.63
+      },
+      {
+       "crop": "tg_3e_q2_f1",
+       "wMm": 40.34,
+       "hMm": 23.76
+      }
+     ],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "For each of these triangles, write a ratio (in simplified fraction form) for sin θ, cos θ and tan θ ."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q3_f0",
+         "wMm": 27.75,
+         "hMm": 22.83
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q3_f1",
+         "wMm": 27.44,
+         "hMm": 23.64
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3e_q3_f2",
+         "wMm": 27.87,
+         "hMm": 15.01
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 15
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": " For the triangle shown on the right, write a ratio (in fraction form) for: "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "sin θ"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "sin α"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "cos θ"
+        },
+        {
+         "m": "tg_3e_q4_m1",
+         "hMm": 5.29,
+         "wMm": 2.92,
+         "dropMm": 1.38
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "tan α"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": "cos α"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "f",
+       "content": [
+        {
+         "t": "tan θ108"
+        },
+        {
+         "m": "tg_3e_q4_m2",
+         "hMm": 5.29,
+         "wMm": 2.54,
+         "dropMm": 1.39
+        },
+        {
+         "t": "6"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 15
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3e_q5_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " A vertical fl ag pole casts a shadow 20m long. If the pole is 15m high, fi nd the ratio for tan θ . "
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3e_q5_f0",
+       "wMm": 45.23,
+       "hMm": 29.72
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " The facade of a Roman temple has the given measurements in feet (f) below. Write down the ratio for: "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "sin θ"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "cos θ"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3e_q6_f0",
+         "wMm": 51.62,
+         "hMm": 67.28
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "tan θ"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 15
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": " For each of the following: "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "i",
+       "content": [
+        {
+         "t": " use Pythagoras’ theorem to fi nd the unknown side "
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3e_q7_f0",
+         "wMm": 18.14,
+         "hMm": 20.33
+        },
+        {
+         "crop": "tg_3e_q7_f1",
+         "wMm": 13.33,
+         "hMm": 19.68
+        },
+        {
+         "crop": "tg_3e_q7_f2",
+         "wMm": 18.96,
+         "hMm": 17.95
+        },
+        {
+         "crop": "tg_3e_q7_f3",
+         "wMm": 16.22,
+         "hMm": 18.59
+        }
+       ],
+       "subs": [
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " fi nd the ratios for sin θ, cos θ and tan θ . "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " Draw a right-angled triangle and mark one of the angles as θ . Mark in the length of the opposite side as 15 units and the length of the hypotenuse as 17 units. "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " Using Pythagoras’ theorem, fi nd the length of the adjacent side. "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " Determine the ratios for sin θ, cos θ and tan θ . "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 40
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3e_q9_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q9",
+     "number": "9",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "This triangle has angles 90° , 60° and 30° and side lengths 1, 2 and √ 3 . "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Write a ratio for:"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3e_q9_f0",
+         "wMm": 29.39,
+         "hMm": 16.01
+        }
+       ],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " sin 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "v",
+         "content": [
+          {
+           "t": " cos 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "vi",
+         "content": [
+          {
+           "t": " tan 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "What do you notice about the following pairs of ratios?"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " cos 30° and sin 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " sin 30° and cos 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Measure all the side lengths of this triangle to the nearest millimetre."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Use your measurements from part a to find an approximate ratio for:"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " cos 40° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " sin 40° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan 40° 40°"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " sin 50° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "v",
+         "content": [
+          {
+           "t": " tan 50° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "vi",
+         "content": [
+          {
+           "t": " cos 50° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Do you notice anything about the trigonometric ratios for 40° and 50° ?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 15
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "Decide if it is possible to draw a right-angled triangle with the given properties. Explain."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " tan θ = 1 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " sin θ = 1 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " cos θ = 0 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " sin θ > 1 or cos θ > 1 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 2,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3e_q12_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3e_q12",
+     "number": "12",
+     "tier": "enrichment",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Given that θ is acute and cos θ = "
+        },
+        {
+         "m": "tg_3e_q12_m1",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.37
+        },
+        {
+         "t": " _ "
+        },
+        {
+         "m": "tg_3e_q12_m2",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": 3.19
+        },
+        {
+         "t": " , find sin θ and tan θ . ("
+        },
+        {
+         "t": "Hint",
+         "i": true
+        },
+        {
+         "t": ": Use Pythagoras’ theorem.)"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3e_q12_f0",
+         "wMm": 29.05,
+         "hMm": 26.02
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "For each of the following, draw a right-angled triangle then use it to find the other two trigonometric ratios."
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin θ = "
+          },
+          {
+           "m": "tg_3e_q12_m3",
+           "hMm": 4.63,
+           "wMm": 2.46,
+           "dropMm": -0.36
+          },
+          {
+           "t": " _ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos θ = "
+          },
+          {
+           "m": "tg_3e_q12_m4",
+           "hMm": 4.63,
+           "wMm": 2.46,
+           "dropMm": -0.39
+          },
+          {
+           "t": " _ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan θ = 1 2 2 "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 35
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Use your results from part a to calculate (cos θ) "
+        },
+        {
+         "m": "tg_3e_q12_m5",
+         "hMm": 3.85,
+         "wMm": 2.11,
+         "dropMm": -0.23
+        },
+        {
+         "t": " + (sin θ) "
+        },
+        {
+         "m": "tg_3e_q12_m6",
+         "hMm": 3.85,
+         "wMm": 2.11,
+         "dropMm": -0.23
+        },
+        {
+         "t": " . What do you notice?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "Evaluate (cos θ) "
+        },
+        {
+         "m": "tg_3e_q12_m7",
+         "hMm": 3.85,
+         "wMm": 2.11,
+         "dropMm": -0.22
+        },
+        {
+         "t": " + (sin θ) "
+        },
+        {
+         "m": "tg_3e_q12_m8",
+         "hMm": 3.85,
+         "wMm": 2.11,
+         "dropMm": -0.22
+        },
+        {
+         "t": " for other combinations of cos θ and sin θ . Research and describe what you have found."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3f_title",
+     "text": "3F Finding unknown side lengths",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "tg_3f_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Use a calculator to evaluate the following, correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " sin 47° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " cos 84° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " tan 14.1° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " sin 27.4° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 10
+       }
+      }
+     ],
+     "columns": 4,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 10
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "For each of the following, find the value of "
+      },
+      {
+       "t": "x",
+       "i": true
+      },
+      {
+       "t": " correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " sin 50° = "
+        },
+        {
+         "m": "tg_3f_q2_m1",
+         "hMm": 4.57,
+         "wMm": 2.27,
+         "dropMm": -0.41
+        },
+        {
+         "t": " _ "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " tan 81° = "
+        },
+        {
+         "m": "tg_3f_q2_m2",
+         "hMm": 4.57,
+         "wMm": 2.27,
+         "dropMm": -0.41
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m3",
+         "hMm": 4.04,
+         "wMm": 2.83,
+         "dropMm": -0.18
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " cos 33° = "
+        },
+        {
+         "m": "tg_3f_q2_m4",
+         "hMm": 4.57,
+         "wMm": 2.27,
+         "dropMm": -0.41
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m5",
+         "hMm": 4.04,
+         "wMm": 2.83,
+         "dropMm": -0.18
+        },
+        {
+         "t": " 4 3 6 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m6",
+         "hMm": 4.63,
+         "wMm": 5.4,
+         "dropMm": 1.12
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m7",
+         "hMm": 6.02,
+         "wMm": 5.64,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m8",
+         "hMm": 6.02,
+         "wMm": 3.11,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m9",
+         "hMm": 9.01,
+         "wMm": 5.42,
+         "dropMm": 4.03
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m10",
+         "hMm": 4.63,
+         "wMm": 4.81,
+         "dropMm": 1.13
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m11",
+         "hMm": 6.02,
+         "wMm": 5.64,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m12",
+         "hMm": 6.02,
+         "wMm": 3.11,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m13",
+         "hMm": 8.97,
+         "wMm": 5.42,
+         "dropMm": 3.98
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m14",
+         "hMm": 4.63,
+         "wMm": 5.0,
+         "dropMm": 1.13
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m15",
+         "hMm": 6.02,
+         "wMm": 5.64,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m16",
+         "hMm": 6.02,
+         "wMm": 3.11,
+         "dropMm": 1.96
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3f_q2_m17",
+         "hMm": 8.14,
+         "wMm": 4.54,
+         "dropMm": 3.15
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "f",
+       "content": [
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "g",
+       "content": [
+        {
+         "m": "tg_3f_q2_m18",
+         "hMm": 8.97,
+         "wMm": 5.42,
+         "dropMm": 3.98
+        },
+        {
+         "t": " = tan 18.4° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "h",
+       "content": [
+        {
+         "m": "tg_3f_q2_m19",
+         "hMm": 9.01,
+         "wMm": 5.42,
+         "dropMm": 4.03
+        },
+        {
+         "t": " = sin 64.7° "
+        },
+        {
+         "m": "tg_3f_q2_m20",
+         "hMm": 9.0,
+         "wMm": 7.18,
+         "dropMm": 4.01
+        },
+        {
+         "t": " = cos 52.9° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "i",
+       "content": [],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "For the triangles given below, find the value of "
+      },
+      {
+       "t": "x",
+       "i": true
+      },
+      {
+       "t": " correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f0",
+         "wMm": 18.15,
+         "hMm": 19.15
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f1",
+         "wMm": 20.76,
+         "hMm": 12.38
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f2",
+         "wMm": 22.87,
+         "hMm": 16.26
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "17°4"
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f3",
+         "wMm": 20.35,
+         "hMm": 19.2
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f4",
+         "wMm": 20.7,
+         "hMm": 15.38
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f5",
+         "wMm": 16.73,
+         "hMm": 16.95
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f6",
+         "wMm": 16.45,
+         "hMm": 16.28
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "i",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f7",
+         "wMm": 18.15,
+         "hMm": 19.43
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "j",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f8",
+         "wMm": 16.77,
+         "hMm": 23.01
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "k",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f9",
+         "wMm": 20.3,
+         "hMm": 15.63
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "l",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f10",
+         "wMm": 15.39,
+         "hMm": 20.67
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "m",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f11",
+         "wMm": 18.62,
+         "hMm": 21.32
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "n",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f12",
+         "wMm": 15.13,
+         "hMm": 17.29
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "o",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f13",
+         "wMm": 15.87,
+         "hMm": 16.06
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "p",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q3_f14",
+         "wMm": 15.92,
+         "hMm": 21.7
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 4,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3f_q4_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q4",
+     "number": "4",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Amy walks 5.4 m up a ramp that is inclined at 12° to the horizontal. How high (correct to two decimal places) is she above her starting point?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3f_q4_f0",
+       "wMm": 26.61,
+       "hMm": 12.39
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Kane wanted to measure the width of a river. He placed two markers, "
+      },
+      {
+       "t": "A",
+       "i": true
+      },
+      {
+       "t": " and "
+      },
+      {
+       "t": "B",
+       "i": true
+      },
+      {
+       "t": ", 72 m apart along the bank. "
+      },
+      {
+       "t": "C",
+       "i": true
+      },
+      {
+       "t": " is a point directly opposite marker "
+      },
+      {
+       "t": "B",
+       "i": true
+      },
+      {
+       "t": " . Kane measured angle "
+      },
+      {
+       "t": "CAB",
+       "i": true
+      },
+      {
+       "t": " to be 32° . Find the width of the river correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3f_q5_f0",
+       "wMm": 50.69,
+       "hMm": 34.26
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "One end of a 12.2 m rope is tied to a boat. The other end is tied to an anchor, which is holding the boat steady in the water. If the anchor is making an angle of 34° with the vertical, how deep is the water? Give your answer correct to two decimal places."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3f_q6_f0",
+       "wMm": 17.86,
+       "hMm": 19.6
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Find the length "
+      },
+      {
+       "t": "AB",
+       "i": true
+      },
+      {
+       "t": " in these diagrams. Round to two decimal places where "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q7_f0",
+         "wMm": 57.62,
+         "hMm": 29.06
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3f_q7_f1",
+         "wMm": 35.25,
+         "hMm": 30.49
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 2,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3f_q8_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q8",
+     "number": "8",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "Consider the right-angled triangle shown."
+      },
+      {
+       "t": "C",
+       "i": true
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Find the size of ∠"
+        },
+        {
+         "t": "C",
+         "i": true
+        },
+        {
+         "t": " .4"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Calculate the value of "
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": " correct to three decimal places using the sine "
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": "25°ratio."
+        },
+        {
+         "t": "BA",
+         "i": true
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Calculate the value of "
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": " correct to three decimal places using the cosine ratio."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "Comment on your answers to parts b and c."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q9",
+     "number": "9",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "Complementary angles sum to 90° ."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Find the complementary angles to these angles."
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " 10° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " 28° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " 54° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " 81° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Evaluate:"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin 10° and cos 80° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " sin 28° and cos 62° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " cos 54° and sin 36° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " cos 81° and sin 9° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "What do you notice in part b?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "Complete the following."
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin 20° = cos _____"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " sin 59° = cos _____"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " cos 36° = sin _____"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " cos 73° = sin _____"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3f_q10_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3f_q10",
+     "number": "10",
+     "tier": "enrichment",
+     "stem": [
+      {
+       "t": "3 and "
+      },
+      {
+       "m": "tg_3f_q10_m1",
+       "hMm": 8.32,
+       "wMm": 4.72,
+       "dropMm": 3.32
+      },
+      {
+       "t": "√ 2 , √ are examples of exact values. "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "For the triangle shown (right), use Pythagoras’ theorem to find the exact length "
+        },
+        {
+         "t": "BC",
+         "i": true
+        },
+        {
+         "t": " ."
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3f_q10_f0",
+         "wMm": 27.47,
+         "hMm": 10.94
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Use your result from part a to write down the exact value of: sin 45° "
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos 45° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan 45° 45°"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": "AB",
+           "i": true
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "For the second triangle (below right), use Pythagoras’ theorem to find the exact length "
+        },
+        {
+         "t": "BC",
+         "i": true
+        },
+        {
+         "t": " ."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "Use your result from part c to write down the exact value of:"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3f_q10_f1",
+         "wMm": 26.47,
+         "hMm": 15.27
+        }
+       ],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan 30° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "t": " sin 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "v",
+         "content": [
+          {
+           "t": " cos 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "vi",
+         "content": [
+          {
+           "t": " tan 60° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3g_title",
+     "text": "3G Solving for the denominator",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "tg_3g_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "For each of the following equations, find the value of x correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " tan 64° = "
+        },
+        {
+         "m": "tg_3g_q1_m1",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.37
+        },
+        {
+         "t": " _ "
+        },
+        {
+         "m": "tg_3g_q1_m2",
+         "hMm": 5.37,
+         "wMm": 2.27,
+         "dropMm": 2.63
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " cos 67° = "
+        },
+        {
+         "m": "tg_3g_q1_m3",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.43
+        },
+        {
+         "t": " _ "
+        },
+        {
+         "m": "tg_3g_q1_m4",
+         "hMm": 5.37,
+         "wMm": 2.27,
+         "dropMm": 2.61
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " sin 12° = "
+        },
+        {
+         "m": "tg_3g_q1_m5",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.44
+        },
+        {
+         "t": " _ "
+        },
+        {
+         "m": "tg_3g_q1_m6",
+         "hMm": 5.37,
+         "wMm": 2.27,
+         "dropMm": 2.61
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q1_m7",
+         "hMm": 4.63,
+         "wMm": 4.81,
+         "dropMm": 1.11
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q1_m8",
+         "hMm": 6.02,
+         "wMm": 8.29,
+         "dropMm": 1.94
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q1_m9",
+         "hMm": 6.02,
+         "wMm": 3.11,
+         "dropMm": 1.94
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q1_m10",
+         "hMm": 8.26,
+         "wMm": 5.66,
+         "dropMm": 2.61
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "m": "tg_3g_q1_m11",
+         "hMm": 7.68,
+         "wMm": 4.79,
+         "dropMm": 2.62
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q1_m12",
+         "hMm": 8.23,
+         "wMm": 7.42,
+         "dropMm": 4.17
+        },
+        {
+         "t": " = tan 21.4° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "f",
+       "content": [
+        {
+         "t": " = cos 32° "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the value of x correct to two decimal places using the sine, cosine or tangent ratios. "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f0",
+         "wMm": 17.63,
+         "hMm": 13.91
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f1",
+         "wMm": 20.51,
+         "hMm": 13.86
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f2",
+         "wMm": 19.31,
+         "hMm": 16.48
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f3",
+         "wMm": 16.0,
+         "hMm": 14.57
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f4",
+         "wMm": 17.11,
+         "hMm": 17.87
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f5",
+         "wMm": 21.31,
+         "hMm": 23.81
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f6",
+         "wMm": 14.78,
+         "hMm": 20.87
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f7",
+         "wMm": 17.04,
+         "hMm": 13.34
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "i",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f8",
+         "wMm": 19.45,
+         "hMm": 18.07
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "j",
+       "content": [
+        {
+         "t": "8°"
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": "7"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "k",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f9",
+         "wMm": 24.22,
+         "hMm": 12.3
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "l",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q2_f10",
+         "wMm": 18.32,
+         "hMm": 19.43
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 5,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the value of each pronumeral correct to one decimal place. "
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f0",
+         "wMm": 19.4,
+         "hMm": 16.77
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f1",
+         "wMm": 19.4,
+         "hMm": 16.69
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f2",
+         "wMm": 20.12,
+         "hMm": 19.61
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f3",
+         "wMm": 14.51,
+         "hMm": 18.99
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f4",
+         "wMm": 20.31,
+         "hMm": 14.27
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f5",
+         "wMm": 13.98,
+         "hMm": 19.58
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f6",
+         "wMm": 21.98,
+         "hMm": 20.73
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q3_f7",
+         "wMm": 19.67,
+         "hMm": 13.12
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 4,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3g_q4_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q4",
+     "number": "4",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A kite is flying at a height of 27 m above the anchor point. If the string is inclined at an angle of 42° to the horizontal, find the length of the string, correct to the nearest metre."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3g_q4_f0",
+       "wMm": 8.82,
+       "hMm": 7.99
+      },
+      {
+       "crop": "tg_3g_q4_f1",
+       "wMm": 25.62,
+       "hMm": 20.53
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A paraglider flying at a height of 800 m descends at an angle of 12° to the horizontal. How far (to the nearest metre) does it travel as it descends to the ground?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3g_q5_f0",
+       "wMm": 59.06,
+       "hMm": 22.14
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Find the perimeter of these triangles, correct to one decimal place."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q6_f0",
+         "wMm": 32.27,
+         "hMm": 15.29
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3g_q6_f1",
+         "wMm": 42.33,
+         "hMm": 16.49
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 2,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3g_q7_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q7",
+     "number": "7",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "In calculating the value of x for this triangle, two students come up with these answers, correct to two decimal places."
+      },
+      {
+       "t": "x",
+       "i": true
+      },
+      {
+       "t": " m5 m"
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " x = "
+        },
+        {
+         "m": "tg_3g_q7_m1",
+         "hMm": 9.06,
+         "wMm": 10.83,
+         "dropMm": 4.0
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q7_m2",
+         "hMm": 6.02,
+         "wMm": 3.11,
+         "dropMm": -0.09
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q7_m3",
+         "hMm": 9.08,
+         "wMm": 7.18,
+         "dropMm": 1.98
+        },
+        {
+         "t": " = 9.62 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " x = "
+        },
+        {
+         "m": "tg_3g_q7_m4",
+         "hMm": 9.06,
+         "wMm": 10.83,
+         "dropMm": 4.0
+        },
+        {
+         "t": " = 9.71 31°"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "a",
+         "content": [
+          {
+           "t": "Which of the two answers is more accurate and why?"
+          }
+         ],
+         "workingSpace": {
+          "style": "lines",
+          "heightMm": 30
+         }
+        },
+        {
+         "letter": "b",
+         "content": [
+          {
+           "t": "What advice would you give to the student whose answer is not accurate?"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Find the difference in the answers for these triangles when methods A and B are used to calculate the value of x correct to two decimal places."
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3g_q7_f0",
+         "wMm": 35.74,
+         "hMm": 12.13
+        }
+       ],
+       "subs": [
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": "58°"
+          },
+          {
+           "t": "x",
+           "i": true
+          },
+          {
+           "t": " m120 m"
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 2,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3g_q8_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3g_q8",
+     "number": "8",
+     "tier": "enrichment",
+     "stem": [],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "For this triangle, find the length of these sides correct to three decimal places."
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3g_q8_f0",
+         "wMm": 36.51,
+         "hMm": 13.13
+        }
+       ],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " AB "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " BC "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "Calculate these ratios to two decimal places.20°"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin 20° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos 20° "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan 20° "
+          },
+          {
+           "t": "AB",
+           "i": true
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "m": "tg_3g_q8_m5",
+         "hMm": 4.63,
+         "wMm": 12.95,
+         "dropMm": 1.12
+        },
+        {
+         "t": " "
+        },
+        {
+         "m": "tg_3g_q8_m6",
+         "hMm": 9.59,
+         "wMm": 11.42,
+         "dropMm": 3.98
+        },
+        {
+         "t": " using your results from part b. What do you notice?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "For this triangle with side lengths a , b and c , find an expression for:"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3g_q8_f1",
+         "wMm": 20.55,
+         "hMm": 13.27
+        }
+       ],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " sin θ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " cos θ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " tan θ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        },
+        {
+         "letter": "iv",
+         "content": [
+          {
+           "m": "tg_3g_q8_m7",
+           "hMm": 8.94,
+           "wMm": 8.18,
+           "dropMm": 4.98
+          },
+          {
+           "t": " "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 20
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": "Simplify your expression for part d iv. What do you notice?Using a CAS calculator 3G: TrigonometryThis activity is in the Interactive Textbook in the form of a printable PDF."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3h_title",
+     "text": "3H Finding unknown angles",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "tg_3h_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the value of θ to the nearest degree."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " cos θ = 0.8660 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " sin θ = 0.7071 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " tan θ = 0.5774 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " sin θ = 1 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": " tan θ = 1.192 cos θ = 0 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the angle θ correct to two decimal places."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " sin θ = "
+        },
+        {
+         "m": "tg_3h_q2_m1",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.38
+        },
+        {
+         "t": " _"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "sin θ = "
+        },
+        {
+         "m": "tg_3h_q2_m2",
+         "hMm": 4.82,
+         "wMm": 3.03,
+         "dropMm": -0.19
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " sin θ = "
+        },
+        {
+         "m": "tg_3h_q2_m3",
+         "hMm": 8.23,
+         "wMm": 4.54,
+         "dropMm": 3.15
+        },
+        {
+         "t": " 73 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": " cos θ = "
+        },
+        {
+         "m": "tg_3h_q2_m4",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.37
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": " cos θ = "
+        },
+        {
+         "m": "tg_3h_q2_m5",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.37
+        },
+        {
+         "t": " cos θ = "
+        },
+        {
+         "m": "tg_3h_q2_m6",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.42
+        },
+        {
+         "t": " _ 4 _ 5 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "f",
+       "content": [
+        {
+         "t": "_ 9 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "g",
+       "content": [
+        {
+         "t": " tan θ = "
+        },
+        {
+         "m": "tg_3h_q2_m7",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.44
+        },
+        {
+         "t": " "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "h",
+       "content": [
+        {
+         "t": " tan θ = "
+        },
+        {
+         "m": "tg_3h_q2_m8",
+         "hMm": 4.63,
+         "wMm": 2.46,
+         "dropMm": -0.44
+        },
+        {
+         "t": " tan θ = 12 _ 5 _ 5 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "i",
+       "content": [],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "Find the value of θ to the nearest degree."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f0",
+         "wMm": 16.91,
+         "hMm": 16.17
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f1",
+         "wMm": 21.05,
+         "hMm": 12.38
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f2",
+         "wMm": 21.49,
+         "hMm": 16.21
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f3",
+         "wMm": 17.94,
+         "hMm": 25.86
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "e",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f4",
+         "wMm": 20.51,
+         "hMm": 11.93
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "f",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f5",
+         "wMm": 20.26,
+         "hMm": 24.64
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "g",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f6",
+         "wMm": 19.99,
+         "hMm": 15.25
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "h",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q3_f7",
+         "wMm": 20.26,
+         "hMm": 21.89
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 4,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3h_q4_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q4",
+     "number": "4",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A road rises at a grade of 3 in 10 . Find the angle (to the nearest degree) the road makes with the horizontal."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3h_q4_f0",
+       "wMm": 37.33,
+       "hMm": 17.72
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q5",
+     "number": "5",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Adam, who is 1.8 m tall, holds up a plank of wood that is 4.2 m long. Find the angle that the plank makes with the ground, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3h_q5_f0",
+       "wMm": 16.32,
+       "hMm": 15.47
+      },
+      {
+       "crop": "tg_3h_q5_f1",
+       "wMm": 35.56,
+       "hMm": 18.01
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q6",
+     "number": "6",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A children’s slide has a length of 5.8 m . The vertical ladder is 2.6 m high. Find the angle the slide makes with the ground, correct to one decimal place."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3h_q6_f0",
+       "wMm": 39.39,
+       "hMm": 24.12
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q7",
+     "number": "7",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "When a 2.8 m long seesaw is at its maximum height it is 1.1 m off the ground. What angle (correct to two decimal places) does the seesaw make with the ground?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q8",
+     "number": "8",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "Find the value of θ , correct to one decimal place."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q8_f0",
+         "wMm": 35.13,
+         "hMm": 26.51
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q8_f1",
+         "wMm": 21.15,
+         "hMm": 25.87
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
+        {
+         "crop": "tg_3h_q8_f2",
+         "wMm": 32.63,
+         "hMm": 29.21
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 3,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3h_q9_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q9",
+     "number": "9",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "Find all the angles to the nearest degree in right-angled triangles with these side lengths."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": " 3, 4, 5 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": " 5, 12, 13 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": " 7, 24, 25 "
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q10",
+     "number": "10",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "For what value of θ is sin θ = cos θ ? "
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q11",
+     "number": "11",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "If M is the midpoint of AB , decide whether ∠ACM is exactly half of angle ∠ACB . Investigate and explain."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3h_q11_f0",
+       "wMm": 47.01,
+       "hMm": 29.41
+      }
+     ],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3h_q12_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3h_q12",
+     "number": "12",
+     "tier": "enrichment",
+     "stem": [
+      {
+       "t": "Jo has forgotten her glasses and is trying to view a painting in a gallery. Her eye level is at the same level as the base of the painting and the painting is 1 metre tall.Answer the following to the nearest degree for angles and to two decimal places for lengths."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "If x = 3 , find the viewing angle θ ."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "If x = 2 , find the viewing angle θ ."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "If Jo can stand no closer than 1 metre from the painting, what is Jo’s largest viewing angle?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "When the viewing angle is 10° , Jo has trouble seeing the painting. How far is she from the painting at this viewing angle?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "e",
+       "content": [
+        {
+         "t": "Theoretically, what would be the largest viewing angle if Jo could go as close as she would like to the painting?"
+        }
+       ],
+       "figures": [
+        {
+         "crop": "tg_3h_q12_f1",
+         "wMm": 98.1,
+         "hMm": 65.76
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3h_q12_f0",
+       "wMm": 57.2,
+       "hMm": 24.6
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 25
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3i_title",
+     "text": "3I Applying trigonometry",
+     "style": "title"
+    },
+    {
+     "type": "heading",
+     "id": "tg_3i_q1_tier",
+     "text": "Fluency",
+     "style": "tier",
+     "tier": "fluency"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q1",
+     "number": "1",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "The angle of elevation of the top of a tower from a point on the ground 40 m from the base of the tower is 36° . Find the height of the tower to the nearest metre."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q1_f0",
+       "wMm": 32.11,
+       "hMm": 24.26
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q2",
+     "number": "2",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "The angle of elevation of the top of a castle wall from a point on the ground 25 m from the base of the wall is 32° . Find the height of the castle wall to the nearest metre."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q3",
+     "number": "3",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "From a point on the ground, Emma measures the angle of elevation of an 80 m tower to be 27° .Find how far Emma is from the base of the tower, correct to the nearest metre."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q4",
+     "number": "4",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "From a pedestrian overpass, Chris spots a landmark at an angle of depression of 32° . How far away (to the nearest metre) is the landmark from the base of the 24 m high overpass?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q4_f0",
+       "wMm": 33.43,
+       "hMm": 16.44
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q5",
+     "number": "5",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "From a lookout tower, David spots a bushfire at an angle of depression of 25°. If the lookout tower is 42 m high, how far away (to the nearest metre) is the bushfire from the base of the tower?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q6",
+     "number": "6",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "From the top of a vertical cliff, Josh spots a swimmer out at sea. If the top of the cliff is 38 m above sea level and the swimmer is 50 m from the base of the cliff, find the angle of depression from Josh to the swimmer, to the nearest degree."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q7",
+     "number": "7",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "From a ship, a person is spotted floating in the sea 200 m away. If the viewing position on the ship is 20 m above sea level, find the angle of depression from the ship to the person in the sea. Give your answer to the nearest degree."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q8",
+     "number": "8",
+     "tier": "fluency",
+     "stem": [
+      {
+       "t": "A power line is stretched from a pole to the top of a house. The house is 4.1 m high and the power pole is 6.2 m high. The horizontal distance between the house and the power pole is 12 m . Find the angle of elevation of the top of the power pole from the top of the house, to the nearest degree."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3i_q9_tier",
+     "text": "Problem-solving",
+     "style": "tier",
+     "tier": "problemsolving"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q9",
+     "number": "9",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "An aeroplane flying at 1850 m starts to climb at an angle of 18° to the horizontal to clear a mountain peak 2450 m high and a horizontal distance of 2600 m away. Will the aeroplane clear the mountain?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q9_f0",
+       "wMm": 39.81,
+       "hMm": 18.12
+      },
+      {
+       "crop": "tg_3i_q9_f1",
+       "wMm": 29.26,
+       "hMm": 18.81
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q10",
+     "number": "10",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A road has a steady gradient of 1 in 10 ."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "What angle does the road make with the horizontal? Give your answer to the nearest degree."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "A car starts from the bottom of the inclined road and drives 2 km along the road. How high vertically has the car climbed? Use your rounded answer from part a and give your answer correct to the nearest metre."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q11",
+     "number": "11",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A house is to be built using the design shown on the right. The eaves are 600 mm and the house is 7200 mm wide, excluding the eaves. Calculate the length (to the nearest mm) of a sloping edge of the roof, which is pitched at 25° to the horizontal."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q11_f0",
+       "wMm": 43.03,
+       "hMm": 15.42
+      },
+      {
+       "crop": "tg_3i_q11_f1",
+       "wMm": 17.42,
+       "hMm": 19.24
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q12",
+     "number": "12",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "A garage is to be built with measurements as shown in the diagram on the right. Calculate the sloping length and pitch (angle) of the roof if the eaves extend 500 mm on each side. Give your answers correct to the nearest unit."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q12_f0",
+       "wMm": 48.84,
+       "hMm": 22.76
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q13",
+     "number": "13",
+     "tier": "problemsolving",
+     "stem": [
+      {
+       "t": "The chains on a swing are 3.2 m long and the seat is 0.5 m off the ground when it is in the vertical position. When the swing is pulled as far back as possible, the chains make an angle of 40° with the vertical. How high off the ground, to the nearest cm, is the seat when it is at this extreme position?"
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 45
+     }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "tg_3i_q14_tier",
+     "text": "Reasoning",
+     "style": "tier",
+     "tier": "reasoning"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q14",
+     "number": "14",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "A person views a vertical monument "
+      },
+      {
+       "t": "x",
+       "i": true
+      },
+      {
+       "t": " metres away as shown."
+      },
+      {
+       "t": "y",
+       "i": true
+      },
+      {
+       "t": " mmonument("
+      },
+      {
+       "t": "m",
+       "i": true
+      },
+      {
+       "t": " m)height"
+      },
+      {
+       "t": "h",
+       "i": true
+      },
+      {
+       "t": " m"
+      },
+      {
+       "t": "x",
+       "i": true
+      },
+      {
+       "t": " m"
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "If "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " = 1.5 , "
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": " = 20 and θ = 15° , find the height of the monument to two decimal places."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "If "
+        },
+        {
+         "t": "h",
+         "i": true
+        },
+        {
+         "t": " = 1.5 , "
+        },
+        {
+         "t": "x",
+         "i": true
+        },
+        {
+         "t": " = 20 and "
+        },
+        {
+         "t": "y",
+         "i": true
+        },
+        {
+         "t": " = 10 , find θ correct to one decimal place."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "Let the height of the monument be "
+        },
+        {
+         "t": "m",
+         "i": true
+        },
+        {
+         "t": " metres. Write expressions for:"
+        }
+       ],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": " "
+          },
+          {
+           "t": "m",
+           "i": true
+          },
+          {
+           "t": " using (in terms of ) "
+          },
+          {
+           "t": "y",
+           "i": true
+          },
+          {
+           "t": " and "
+          },
+          {
+           "t": "h",
+           "i": true
+          },
+          {
+           "t": " "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 25
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": " "
+          },
+          {
+           "t": "y",
+           "i": true
+          },
+          {
+           "t": " using (in terms of) "
+          },
+          {
+           "t": "x",
+           "i": true
+          },
+          {
+           "t": " and θ "
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 25
+         }
+        },
+        {
+         "letter": "iii",
+         "content": [
+          {
+           "t": " "
+          },
+          {
+           "t": "m",
+           "i": true
+          },
+          {
+           "t": " using (in terms of ) "
+          },
+          {
+           "t": "x",
+           "i": true
+          },
+          {
+           "t": " , θ and "
+          },
+          {
+           "t": "h",
+           "i": true
+          },
+          {
+           "t": " ."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 25
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 25
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q14_f0",
+       "wMm": 41.13,
+       "hMm": 19.04
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 30
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q15",
+     "number": "15",
+     "tier": "reasoning",
+     "stem": [
+      {
+       "t": "Find an expression for the area of this triangle using "
+      },
+      {
+       "t": "a",
+       "i": true
+      },
+      {
+       "t": " and θ ."
+      }
+     ],
+     "parts": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3i_q15_f0",
+       "wMm": 19.7,
+       "hMm": 22.27
+      }
+     ],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 30
+     }
+    },
+    {
+     "type": "heading",
+     "id": "tg_3i_q16_tier",
+     "text": "Enrichment",
+     "style": "tier",
+     "tier": "enrichment"
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q16",
+     "number": "16",
+     "tier": "enrichment",
+     "stem": [
+      {
+       "t": "An aeroplane takes off and climbs at an angle of 20° to the horizontal, at 190 km / h a speed of along its flight path for 15 minutes."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [],
+       "figures": [],
+       "subs": [
+        {
+         "letter": "i",
+         "content": [
+          {
+           "t": "Find the distance the aeroplane travels in 15 minutes."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        },
+        {
+         "letter": "ii",
+         "content": [
+          {
+           "t": "Calculate the height of the aeroplane after 15 minutes correct to two decimal places."
+          }
+         ],
+         "workingSpace": {
+          "style": "grid",
+          "heightMm": 15
+         }
+        }
+       ],
+       "workingSpace": {
+        "style": "none",
+        "heightMm": 0
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "If the angle at which the aeroplane climbs is twice the original angle but its speed is halved, will it reach a greater height after 15 minutes? Explain."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "If the aeroplane’s speed is doubled and its climbing angle is halved, will the aeroplane reach a greater height after 15 minutes? Explain."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q17",
+     "number": "17",
+     "tier": "enrichment",
+     "stem": [
+      {
+       "t": "The residents of Skeville live 12 km from an airport. They maintain that any aeroplane flying at aheight lower than 4 km disturbs their peace. Each Sunday they have an outdoor concert from 12:00 noon till 2:00 p.m."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "Will an aeroplane taking off from the airport at an angle of 15° over Skeville disturb the residents?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "When the aeroplane in part a is directly above Skeville, how far (to the nearest metre) has it flown?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "c",
+       "content": [
+        {
+         "t": "If the aeroplane leaves the airport at 11:50 a.m. on Sunday and travels at an average speed of 180 km / h , will it disturb the start of the concert?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "d",
+       "content": [
+        {
+         "t": "Investigate what average speed (correct to the nearest km/h) the aeroplane can travel at so that it does not disturb the concert. Assume it leaves at 11:50 a.m."
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "lines",
+        "heightMm": 30
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "lines",
+      "heightMm": 40
+     }
+    },
+    {
+     "type": "flowquestion",
+     "id": "tg_3i_q18",
+     "number": "18",
+     "tier": "enrichment",
+     "stem": [
+      {
+       "t": "Peter observes an aeroplane flying directly overhead at a height of 820 m . Twenty seconds later, the angle of elevation of the aeroplane from Peter is 32° . Assume the aeroplane flies horizontally."
+      }
+     ],
+     "parts": [
+      {
+       "letter": "a",
+       "content": [
+        {
+         "t": "How far (to the nearest metre) did the aeroplane fly in 20 seconds?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      },
+      {
+       "letter": "b",
+       "content": [
+        {
+         "t": "What is the aeroplane’s speed in km / h , correct to the nearest km / h ?"
+        }
+       ],
+       "figures": [],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 15
+       }
+      }
+     ],
+     "columns": 1,
+     "figures": [],
+     "workingSpace": {
+      "style": "grid",
+      "heightMm": 20
+     }
+    }
+   ]
+  }
+ ],
+ "buildVersion": "e94af51c"
+}
