@@ -1346,19 +1346,16 @@
     {
      "type": "image",
      "id": "ans_3e_00",
-     "contentKind": "diagram",
      "widthMm": 78.3
     },
     {
      "type": "image",
      "id": "ans_3e_01",
-     "contentKind": "diagram",
      "widthMm": 77.6
     },
     {
      "type": "image",
      "id": "ans_3e_02",
-     "contentKind": "diagram",
      "widthMm": 78.3
     }
    ]
@@ -2801,13 +2798,11 @@
     {
      "type": "image",
      "id": "ans_3f_00",
-     "contentKind": "diagram",
      "widthMm": 78.3
     },
     {
      "type": "image",
      "id": "ans_3f_01",
-     "contentKind": "diagram",
      "widthMm": 77.6
     }
    ]
@@ -3884,13 +3879,11 @@
     {
      "type": "image",
      "id": "ans_3g_00",
-     "contentKind": "diagram",
      "widthMm": 77.6
     },
     {
      "type": "image",
      "id": "ans_3g_01",
-     "contentKind": "diagram",
      "widthMm": 78.3
     }
    ]
@@ -4837,7 +4830,6 @@
     {
      "type": "image",
      "id": "ans_3h_00",
-     "contentKind": "diagram",
      "widthMm": 78.3
     }
    ]
@@ -5827,11 +5819,10 @@
     {
      "type": "image",
      "id": "ans_3i_00",
-     "contentKind": "diagram",
      "widthMm": 77.6
     }
    ]
   }
  ],
- "buildVersion": "2dc7d6b6"
+ "buildVersion": "a758709c"
 }

@@ -904,8 +904,13 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // diagrams; the rest carry grid rows only.
   const shown = slice ? slice.parts : b.parts || [];
   const head = !slice || slice.head;
+  // Beside a float the parts are plain blocks, not a grid. A grid
+  // container establishes its own formatting context, so it would
+  // shorten beside the diagram and STAY short for its whole height -
+  // holding the dead space open under a short diagram, which is the
+  // thing the float is meant to reclaim.
   const parts = shown.length
-    ? `<div class="flowq-grid" style="grid-template-columns:repeat(${cols},1fr)">` +
+    ? `<div class="flowq-grid${sharedFig ? " flowq-flow" : ""}" style="grid-template-columns:repeat(${cols},1fr)">` +
       shown
         .map(
           (p) =>
@@ -973,15 +978,15 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // half the page, and clamped so a wide photograph does not crowd
   // the answer boxes out.
   const figMm = sharedFig ? Math.max(38, Math.min(78, (b.figures[0].wMm * figPct) / 100)) : 0;
-  // The figure column is reserved on EVERY row of the question, but
-  // only drawn on the first. A tall question still has to be able to
-  // break across a page, and if later rows reclaimed the width their
-  // answer boxes would be visibly wider than the ones above them.
+  // The diagram FLOATS right rather than sitting in a reserved column.
+  // Every answer box establishes its own formatting context (it has to,
+  // to clip its grid lines), so each one shortens to clear the float
+  // while it is beside the diagram and takes the full width again once
+  // past it. That is what a reserved column cannot do: it holds the
+  // dead space under a short diagram open for the whole question.
   const splitHtml = () =>
-    `<div class="flowq-split">` +
-    `<div class="flowq-split-main">${parts}</div>` +
-    `<div class="flowq-split-fig" style="flex:0 0 ${figMm.toFixed(0)}mm">${head ? figBlock : ""}</div>` +
-    `</div>`;
+    (head ? `<div class="flowq-float" style="width:${figMm.toFixed(0)}mm">${figBlock}</div>` : "") +
+    parts;
   // The answer space sits OUTSIDE the row, so it spans the full content
   // width for every question. Inside the row it inherited whatever was
   // left after the figure column, so a question with a photo beside it

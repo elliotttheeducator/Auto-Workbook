@@ -127,10 +127,12 @@ def build_section(doc, code, specs, crops_dir):
         if ink:
             img = img.crop((0, max(ink[1] - 8, 0), img.width, min(ink[3] + 8, img.height)))
         img.save(os.path.join(crops_dir, cid + ".png"))
+        # Left-aligned, not centred. An answers column is a column of
+        # TEXT, and centring a 78mm column on a 170mm page leaves an
+        # indent down the left that reads as a mistake.
         blocks.append({
             "type": "image",
             "id": cid,
-            "contentKind": "diagram",
             "widthMm": round(mm(rect.width), 1),
         })
 

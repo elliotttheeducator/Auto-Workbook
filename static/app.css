@@ -459,14 +459,24 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .flowq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 5mm; margin: 1mm 0 0; }
 .flowq-cell { display: flex; flex-direction: column; min-width: 0; break-inside: avoid; }
 .flowq-cell-head { display: flex; gap: 2mm; align-items: baseline; }
-/* One shared diagram set beside its parts: answer boxes down the left,
-   picture on the right. The picture is top-aligned so it sits level
-   with part a, which is what it is being read against. */
-.flowq-split { display: flex; gap: 5mm; align-items: flex-start; }
-.flowq-split-main { flex: 1 1 auto; min-width: 0; }
-.flowq-split-fig { min-width: 0; }
-.flowq-split-fig .flowq-figs { margin: 0; }
-.flowq-split-fig .flowq-fig { max-width: 100%; }
+/* One shared diagram set beside its parts: the picture floats right and
+   the parts, sub-items and answer boxes flow around it - shortening
+   while they are level with it, then taking the full width again once
+   clear of it. Every .working-space clips its own grid lines
+   (overflow:hidden), which makes it a block formatting context, which
+   is exactly what makes it shorten beside a float rather than run
+   underneath one. */
+/* Plain blocks beside a float, so each part clears the diagram on its
+   own rather than the whole list being held to the narrow column. */
+.flowq-grid.flowq-flow { display: block; }
+.flowq-grid.flowq-flow .flowq-cell { display: block; }
+.flowq-grid.flowq-flow .flowq-cell + .flowq-cell { margin-top: 1.5mm; }
+.flowq-float { float: right; margin: 0 0 2mm 5mm; }
+.flowq-float .flowq-figs { margin: 0; }
+.flowq-float .flowq-fig { max-width: 100%; }
+/* The question body contains its own float, so a short question cannot
+   let the diagram hang down into the question below it. */
+.flowq-body { display: flow-root; }
 /* Roman sub-items, indented under their part the way the book sets
    them - one instruction per line. */
 /* Sub-items are set across the page, in the book's own column count -
@@ -484,6 +494,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    an unusually wide one. */
 .flowq-cell-fig .flowq-fig { max-width: 100%; width: auto !important; }
 .flowq-cell .working-space { width: 100%; }
+/* Beside a floated diagram the box must NOT be told to be 100% of its
+   container: at that width it cannot fit next to the float, so it drops
+   below it and the whole strip beside the diagram is wasted. Auto lets
+   it take the room that is actually there. */
+.flowq-flow .flowq-cell .working-space,
+.flowq-flow .flowq-sub-cell .working-space { width: auto; }
 /* Inline math is sized in em by the renderer, so it tracks --flow-body
    automatically; this only stops it inheriting any surrounding rules. */
 .flowq .imath { display: inline-block; margin: 0; width: auto; }
@@ -617,8 +633,14 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .squeeze-in:hover { background: #d5f3e2; }
 
 .working-space {
+  /* Width is AUTO, not a fixed 185mm. A box that establishes its own
+     formatting context (overflow:hidden, below) and has an explicit
+     width too wide for the space beside a float is pushed below that
+     float instead of shrinking - which left the whole strip next to a
+     diagram empty. Auto lets it take exactly the room that is there,
+     and the full width again once past the diagram. */
   position: relative; overflow: hidden; border: 0.3mm solid #999;
-  width: 185mm; max-width: 100%; box-sizing: border-box;
+  width: auto; max-width: 185mm; box-sizing: border-box;
   /* Browsers skip background colours when printing unless told
      otherwise - without this, every grid/rule line (a solid-fill div,
      not a border) silently vanishes from the exported PDF regardless of
