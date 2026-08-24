@@ -459,6 +459,14 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .flowq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 5mm; margin: 1mm 0 0; }
 .flowq-cell { display: flex; flex-direction: column; min-width: 0; break-inside: avoid; }
 .flowq-cell-head { display: flex; gap: 2mm; align-items: baseline; }
+/* One shared diagram set beside its parts: answer boxes down the left,
+   picture on the right. The picture is top-aligned so it sits level
+   with part a, which is what it is being read against. */
+.flowq-split { display: flex; gap: 5mm; align-items: flex-start; }
+.flowq-split-main { flex: 1 1 auto; min-width: 0; }
+.flowq-split-fig { min-width: 0; }
+.flowq-split-fig .flowq-figs { margin: 0; }
+.flowq-split-fig .flowq-fig { max-width: 100%; }
 /* Roman sub-items, indented under their part the way the book sets
    them - one instruction per line. */
 .flowq-subs { margin: 0.5mm 0 0 5mm; }

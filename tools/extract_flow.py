@@ -190,6 +190,29 @@ def decode_pua(font, ch):
     return ch
 
 
+def drop_filler_spaces(chars):
+    """Removes the padding spaces the typesetter puts inside ligatures.
+
+    An "fi" ligature is set as one glyph followed by a space that
+    occupies no new ground - its box sits INSIDE the ligature's own -
+    which is the typesetter balancing the glyph's advance, not a word
+    break. Kept, it splits the word: the chapter read "fi nd the ratio"
+    and "a vertical fl ag pole".
+
+    A real space starts where the glyph before it ends, so overlap is
+    what separates the two - not the character, and not the font."""
+    out = []
+    for c in chars:
+        if not c["c"].strip() and out:
+            pb, cb = out[-1]["bbox"], c["bbox"]
+            width = cb[2] - cb[0]
+            overlap = min(pb[2], cb[2]) - max(pb[0], cb[0])
+            if width > 0 and overlap > 0.5 * width:
+                continue
+        out.append(c)
+    return out
+
+
 def norm_font(name):
     """The font's real name, with any subset tag removed.
 
@@ -213,6 +236,7 @@ class Span:
         self.chars = [c for c in raw["chars"] if c["c"] not in ZERO_WIDTH]
         for c in self.chars:
             c["c"] = decode_pua(self.font, c["c"])
+        self.chars = drop_filler_spaces(self.chars)
 
 
 def page_lines(page: fitz.Page):
@@ -783,10 +807,16 @@ def marker_parse(spans, i):
     x0 = s.chars[0]["bbox"][0]
     if rest and rest[0].isdigit() and QNUM_X[0] <= x0 <= QNUM_X[1]:
         out["num"] = rest.pop(0)
-    if rest and len(rest[0]) == 1 and rest[0].isalpha() and ("num" in out or x0 >= PART_X[0]):
-        out["letter"] = rest.pop(0).lower()
+    # Lowercase only. This series letters its parts a, b, c and uses
+    # CAPITALS for other things set in the same face - question 7 labels
+    # two students' competing solutions "A" and "B", in the marker font
+    # in the marker column. Read as parts they took over the letters of
+    # the real parts a and b, so those parts' text and diagrams were
+    # merged into the worked solutions above them.
+    if rest and len(rest[0]) == 1 and rest[0].islower() and ("num" in out or x0 >= PART_X[0]):
+        out["letter"] = rest.pop(0)
         for c in s.chars:
-            if c["c"].lower() == out["letter"]:
+            if c["c"] == out["letter"]:
                 out["lbox"] = c["bbox"]
                 break
     # A single "i" is deliberately NOT read as a roman on its own: it
@@ -794,9 +824,9 @@ def marker_parse(spans, i):
     # by sequence (h then i is a part, c then i is not). Following a
     # part letter in the same span there is no ambiguity.
     roman = r"i{1,3}|iv|vi{0,3}|ix|xi{0,3}"
-    if rest and re.fullmatch(roman, rest[0].lower()) and x0 >= PART_X[0]:
+    if rest and re.fullmatch(roman, rest[0]) and x0 >= PART_X[0]:
         if "letter" in out or len(rest[0]) > 1:
-            out["roman"] = rest.pop(0).lower()
+            out["roman"] = rest.pop(0)
     # Anything left over means this was never a marker span - a stray
     # word in the marker face, not structure.
     return out if (out and not rest) else None
@@ -892,6 +922,14 @@ def prune_letters(letters):
     one gap. It admits a genuine ninth part i (h then i) and rejects a
     sub-part i (c then i), which is exactly the distinction the letter
     alone cannot make."""
+    # Part lists start at "a". Anything before the first one is a
+    # sub-item belonging to the stem, and letting it anchor the sequence
+    # loses the real parts entirely: question 7 opens "For each of the
+    # following: i ... ii ...", then sets parts a-d, and anchoring on
+    # that "i" rejected a, b, c and d as out of sequence - so all four
+    # triangles ended up on a single part called i.
+    if "a" in letters:
+        letters = letters[letters.index("a"):]
     acc = []
     for l in letters:
         if l in acc:
@@ -899,6 +937,34 @@ def prune_letters(letters):
         if not acc or 0 < ord(l) - ord(acc[-1]) <= 2:
             acc.append(l)
     return acc
+
+
+def merge_near(figs, gap=8.0):
+    """Unions figures that are all but touching.
+
+    One drawing is often reported as several rects that do not quite
+    overlap - a flag pole's shadow triangle and the flag on top of it
+    are 4pt apart - and page_figures only unions on real overlap, on
+    purpose, so that a grid of separate diagrams stays separate. Here,
+    where the figures are already known to belong to one question with
+    no parts to tell apart, near-touching means one picture. Left
+    apart, the flag printed beside its own diagram as a second image."""
+    out = [fitz.Rect(f) for f in figs]
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(out)):
+            for j in range(i + 1, len(out)):
+                a, b = out[i], out[j]
+                grown = fitz.Rect(a.x0 - gap, a.y0 - gap, a.x1 + gap, a.y1 + gap)
+                if grown.intersects(b):
+                    out[i] = a | b
+                    del out[j]
+                    changed = True
+                    break
+            if changed:
+                break
+    return out
 
 
 def label_figures(figs, marks):
@@ -938,8 +1004,18 @@ def label_figures(figs, marks):
             (wall - 4) if wall is not None else 1e5,
             (floor - 3) if floor is not None else 1e5,
         )
+    first_row = row_ys[0] if row_ys else None
     by_letter = {}
     for f in figs:
+        # A diagram that starts ABOVE the first part label cannot belong
+        # to a part - nothing has been lettered yet where it sits. It is
+        # the question's own diagram, set in the margin beside the stem
+        # ("In calculating the value of x for THIS triangle..."), and
+        # forcing it onto the nearest label put it in the wrong column
+        # under the wrong letter.
+        if first_row is not None and f.y0 < first_row - 2:
+            by_letter.setdefault(None, []).append(f)
+            continue
         best, best_d = None, None
         for m in marks:
             # the label must sit above the figure's bottom and no
@@ -1160,10 +1236,18 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
         # empty mapping instead would silently drop every figure on any
         # question without lettered parts.
         cells = {}
-        if pmarks:
+        if pmarks and len(figs) > 1:
             figs_by_letter, cells = label_figures(figs, pmarks)
         else:
-            figs_by_letter = {None: list(figs)}
+            # ONE diagram serving SEVERAL parts is shared context, not
+            # any single part's - "the triangle shown on the right",
+            # then six ratios to read off it. Attributed to a part it
+            # was drawn under the wrong letter, in the wrong column,
+            # and sometimes clipped to that part's cell until it was
+            # too small to keep and vanished. Counting is what
+            # separates the two cases: a per-part grid has a diagram
+            # for each part, a shared one has exactly one.
+            figs_by_letter = {None: merge_near(figs)}
         # Dimension labels are absorbed only AFTER each figure knows
         # which cell it lives in, and never past that cell's walls.
         # Run before the grid existed, a figure grew into the row below
@@ -1418,10 +1502,10 @@ RULE_MM = 10
 # write a sentence inside grid squares is the wrong paper.
 WORKING_RULES = [
     ("prose", r"\b(explain|justify|investigate|describe|discuss|comment|"
-              r"decide (if|whether)|give (a )?reasons?|what do you notice|why)\b"),
+              r"decide (if|whether)|give (a )?reasons?|notice|why)\b"),
     ("draw", r"\b(draw|sketch|construct|complete the (diagram|table))\b"),
     ("evaluate", r"\b(use a calculator to evaluate|evaluate the following)\b"),
-    ("ratio", r"\b((write|find)( down)? (a|the)[^.]{0,40}\bratio|"
+    ("ratio", r"\b((write|find)( down)? (a|an|the)[^.]{0,40}\bratio|"
               r"in (simplified )?fraction form)\b"),
     ("expression", r"\b(find an expression|write a rule|in terms of)\b"),
 ]
@@ -1506,17 +1590,24 @@ def assign_working_space(q):
         # that was recognisably ii's.
         subs = p.get("subs", [])
         for s in subs:
-            stext = (stem + " " + flat_text(s["content"])).strip()
+            # A sub-item's instruction lives in its PARENT PART, not in
+            # the question stem - "use your measurements to find an
+            # approximate ratio for:" then "cos 40". Read against the
+            # stem alone, "cos 40" says nothing about what to do with
+            # it, and every such sub-item got the largest default box.
+            stext = " ".join([stem, flat_text(p["content"]), flat_text(s["content"])]).strip()
             skind = working_kind(stext, bool(p.get("figures")) or has_figs, True)
             for name, pattern in WORKING_RULES:
                 if name == "prose" and re.search(pattern, flat_text(s["content"])):
                     skind = "prose"
             s["workingSpace"] = space_for(skind, False)
-        # A part whose whole content is its sub-items has nothing of its
-        # own left to answer, so it takes no box.
+        # A part that has sub-items takes no box of its own. Its text is
+        # the instruction those sub-items are answered under ("use your
+        # measurements from part a to find a ratio for:") - there is
+        # nothing to write against it, and a box there printed an empty
+        # extra grid between the last sub-item and the next part.
         p["workingSpace"] = (
-            {"style": "none", "heightMm": 0} if subs and not flat_text(p["content"]).strip()
-            else space_for(kind, False)
+            {"style": "none", "heightMm": 0} if subs else space_for(kind, False)
         )
 
 

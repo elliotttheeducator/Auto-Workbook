@@ -508,13 +508,7 @@
          "t": "cos θ"
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3e_q4_f0",
-         "wMm": 16.76,
-         "hMm": 6.03
-        }
-       ],
+       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 10
@@ -551,15 +545,6 @@
        "content": [
         {
          "t": "tan θ"
-        },
-        {
-         "m": "tg_3e_q4_m1",
-         "hMm": 5.29,
-         "wMm": 2.54,
-         "dropMm": 1.39
-        },
-        {
-         "t": "6"
         }
        ],
        "figures": [],
@@ -570,7 +555,13 @@
       }
      ],
      "columns": 3,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3e_q4_f0",
+       "wMm": 19.32,
+       "hMm": 27.17
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 15
@@ -590,7 +581,7 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " A vertical fl ag pole casts a shadow 20m long. If the pole is 15m high, fi nd the ratio for tan θ . "
+       "t": " A vertical flag pole casts a shadow 20m long. If the pole is 15m high, find the ratio for tan θ . "
       }
      ],
      "parts": [],
@@ -598,18 +589,13 @@
      "figures": [
       {
        "crop": "tg_3e_q5_f0",
-       "wMm": 45.23,
-       "hMm": 29.72
-      },
-      {
-       "crop": "tg_3e_q5_f1",
-       "wMm": 10.75,
-       "hMm": 5.3
+       "wMm": 46.43,
+       "hMm": 30.88
       }
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 15
      }
     },
     {
@@ -643,13 +629,7 @@
          "t": "cos θ"
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3e_q6_f0",
-         "wMm": 51.62,
-         "hMm": 67.28
-        }
-       ],
+       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 10
@@ -670,7 +650,13 @@
       }
      ],
      "columns": 3,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3e_q6_f0",
+       "wMm": 88.96,
+       "hMm": 67.28
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 15
@@ -683,51 +669,63 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " For each of the following: "
+       "t": " For each of the following: i use Pythagoras’ theorem to find the unknown side "
       }
      ],
      "parts": [
       {
-       "letter": "i",
-       "content": [
-        {
-         "t": " use Pythagoras’ theorem to fi nd the unknown side "
-        }
-       ],
+       "letter": "a",
+       "content": [],
        "figures": [
         {
          "crop": "tg_3e_q7_f0",
          "wMm": 18.14,
          "hMm": 20.33
-        },
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "b",
+       "content": [],
+       "figures": [
         {
          "crop": "tg_3e_q7_f1",
          "wMm": 13.33,
          "hMm": 19.68
-        },
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "c",
+       "content": [],
+       "figures": [
         {
          "crop": "tg_3e_q7_f2",
          "wMm": 18.96,
          "hMm": 17.95
-        },
+        }
+       ],
+       "workingSpace": {
+        "style": "grid",
+        "heightMm": 20
+       }
+      },
+      {
+       "letter": "d",
+       "content": [],
+       "figures": [
         {
          "crop": "tg_3e_q7_f3",
          "wMm": 16.22,
          "hMm": 18.59
-        }
-       ],
-       "subs": [
-        {
-         "letter": "ii",
-         "content": [
-          {
-           "t": " fi nd the ratios for sin θ, cos θ and tan θ . "
-          }
-         ],
-         "workingSpace": {
-          "style": "grid",
-          "heightMm": 20
-         }
         }
        ],
        "workingSpace": {
@@ -736,7 +734,7 @@
        }
       }
      ],
-     "columns": 1,
+     "columns": 4,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -767,7 +765,7 @@
        "letter": "b",
        "content": [
         {
-         "t": " Using Pythagoras’ theorem, fi nd the length of the adjacent side. "
+         "t": " Using Pythagoras’ theorem, find the length of the adjacent side. "
         }
        ],
        "figures": [],
@@ -826,13 +824,7 @@
          "t": "Write a ratio for:"
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3e_q9_f0",
-         "wMm": 29.39,
-         "hMm": 16.01
-        }
-       ],
+       "figures": [],
        "subs": [
         {
          "letter": "i",
@@ -843,7 +835,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         },
         {
@@ -855,7 +847,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         },
         {
@@ -867,7 +859,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         },
         {
@@ -879,7 +871,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         },
         {
@@ -891,7 +883,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         },
         {
@@ -903,13 +895,13 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 10
          }
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 10
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -929,8 +921,8 @@
           }
          ],
          "workingSpace": {
-          "style": "grid",
-          "heightMm": 20
+          "style": "lines",
+          "heightMm": 30
          }
         },
         {
@@ -941,19 +933,25 @@
           }
          ],
          "workingSpace": {
-          "style": "grid",
-          "heightMm": 20
+          "style": "lines",
+          "heightMm": 30
          }
         }
        ],
        "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "none",
+        "heightMm": 0
        }
       }
      ],
      "columns": 1,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3e_q9_f0",
+       "wMm": 29.39,
+       "hMm": 23.1
+      }
+     ],
      "workingSpace": {
       "style": "lines",
       "heightMm": 40
@@ -976,7 +974,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 15
+        "heightMm": 20
        }
       },
       {
@@ -997,7 +995,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         },
         {
@@ -1009,19 +1007,19 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         },
         {
          "letter": "iii",
          "content": [
           {
-           "t": " tan 40° 40°"
+           "t": " tan 40° "
           }
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         },
         {
@@ -1033,7 +1031,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         },
         {
@@ -1045,7 +1043,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         },
         {
@@ -1057,13 +1055,13 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 15
+          "heightMm": 10
          }
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 10
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -1075,16 +1073,22 @@
        ],
        "figures": [],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 15
+        "style": "lines",
+        "heightMm": 30
        }
       }
      ],
      "columns": 1,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3e_q10_f0",
+       "wMm": 20.61,
+       "hMm": 17.65
+      }
+     ],
      "workingSpace": {
-      "style": "grid",
-      "heightMm": 15
+      "style": "lines",
+      "heightMm": 40
      }
     },
     {
@@ -1195,13 +1199,7 @@
          "t": ": Use Pythagoras’ theorem.)"
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3e_q12_f0",
-         "wMm": 29.05,
-         "hMm": 26.02
-        }
-       ],
+       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 20
@@ -1234,7 +1232,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 35
          }
         },
         {
@@ -1255,7 +1253,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 35
          }
         },
         {
@@ -1267,13 +1265,13 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 35
          }
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 35
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -1340,7 +1338,13 @@
       }
      ],
      "columns": 1,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3e_q12_f0",
+       "wMm": 29.05,
+       "hMm": 26.02
+      }
+     ],
      "workingSpace": {
       "style": "lines",
       "heightMm": 40
@@ -2143,12 +2147,7 @@
       {
        "crop": "tg_3f_q6_f0",
        "wMm": 35.39,
-       "hMm": 12.83
-      },
-      {
-       "crop": "tg_3f_q6_f1",
-       "wMm": 17.86,
-       "hMm": 19.6
+       "hMm": 20.04
       }
      ],
      "workingSpace": {
@@ -2244,13 +2243,7 @@
          "t": " ."
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3f_q8_f0",
-         "wMm": 34.26,
-         "hMm": 5.35
-        }
-       ],
+       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 20
@@ -2267,11 +2260,7 @@
          "i": true
         },
         {
-         "t": " correct to three decimal places using the sine 25°ratio."
-        },
-        {
-         "t": "BA",
-         "i": true
+         "t": " correct to three decimal places using the sine ratio."
         }
        ],
        "figures": [],
@@ -2315,7 +2304,13 @@
       }
      ],
      "columns": 1,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3f_q8_f0",
+       "wMm": 37.21,
+       "hMm": 22.38
+      }
+     ],
      "workingSpace": {
       "style": "lines",
       "heightMm": 40
@@ -2391,8 +2386,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 15
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -2454,8 +2449,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 15
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -2530,8 +2525,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 15
+        "style": "none",
+        "heightMm": 0
        }
       }
      ],
@@ -2583,13 +2578,7 @@
          "t": " ."
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3f_q10_f0",
-         "wMm": 27.47,
-         "hMm": 10.94
-        }
-       ],
+       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 20
@@ -2632,11 +2621,7 @@
          "letter": "iii",
          "content": [
           {
-           "t": " tan 45° 45°"
-          },
-          {
-           "t": "AB",
-           "i": true
+           "t": " tan 45° "
           }
          ],
          "workingSpace": {
@@ -2646,8 +2631,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 20
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -2759,13 +2744,19 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 20
+        "style": "none",
+        "heightMm": 0
        }
       }
      ],
      "columns": 1,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "tg_3f_q10_f0",
+       "wMm": 28.51,
+       "hMm": 52.6
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 25
@@ -2943,15 +2934,6 @@
         },
         {
          "t": " "
-        },
-        {
-         "m": "tg_3g_q1_m6",
-         "hMm": 8.23,
-         "wMm": 7.42,
-         "dropMm": 4.17
-        },
-        {
-         "t": " "
         }
        ],
        "figures": [],
@@ -3004,6 +2986,12 @@
       {
        "letter": "f",
        "content": [
+        {
+         "m": "tg_3g_q1_m6",
+         "hMm": 8.23,
+         "wMm": 7.42,
+         "dropMm": 4.17
+        },
         {
          "t": " = cos 32° "
         }
@@ -3384,13 +3372,8 @@
      "figures": [
       {
        "crop": "tg_3g_q4_f0",
-       "wMm": 8.82,
-       "hMm": 7.99
-      },
-      {
-       "crop": "tg_3g_q4_f1",
-       "wMm": 25.62,
-       "hMm": 20.53
+       "wMm": 29.66,
+       "hMm": 27.11
       }
      ],
      "workingSpace": {
@@ -3489,7 +3472,43 @@
      "tier": "reasoning",
      "stem": [
       {
-       "t": "In calculating the value of x for this triangle, two students come up with these answers, correct to two decimal places."
+       "t": "In calculating the value of x for this triangle, two students come up with these answers, correct to two decimal places.A x = "
+      },
+      {
+       "m": "tg_3g_q7_m1",
+       "hMm": 9.06,
+       "wMm": 10.83,
+       "dropMm": 4.0
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "tg_3g_q7_m2",
+       "hMm": 6.02,
+       "wMm": 3.11,
+       "dropMm": -0.09
+      },
+      {
+       "t": " "
+      },
+      {
+       "m": "tg_3g_q7_m3",
+       "hMm": 9.08,
+       "wMm": 7.18,
+       "dropMm": 1.98
+      },
+      {
+       "t": " = 9.62 B x = "
+      },
+      {
+       "m": "tg_3g_q7_m4",
+       "hMm": 9.06,
+       "wMm": 10.83,
+       "dropMm": 4.0
+      },
+      {
+       "t": " = 9.71 "
       }
      ],
      "parts": [
@@ -3497,94 +3516,26 @@
        "letter": "a",
        "content": [
         {
-         "t": " x = "
-        },
-        {
-         "m": "tg_3g_q7_m1",
-         "hMm": 9.06,
-         "wMm": 10.83,
-         "dropMm": 4.0
-        },
-        {
-         "t": " "
-        },
-        {
-         "m": "tg_3g_q7_m2",
-         "hMm": 6.02,
-         "wMm": 3.11,
-         "dropMm": -0.09
-        },
-        {
-         "t": " "
-        },
-        {
-         "m": "tg_3g_q7_m3",
-         "hMm": 9.08,
-         "wMm": 7.18,
-         "dropMm": 1.98
-        },
-        {
-         "t": " = 9.62 "
+         "t": "Which of the two answers is more accurate and why?"
         }
        ],
        "figures": [],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 20
+        "style": "lines",
+        "heightMm": 30
        }
       },
       {
        "letter": "b",
        "content": [
         {
-         "t": " x = "
-        },
-        {
-         "m": "tg_3g_q7_m4",
-         "hMm": 9.06,
-         "wMm": 10.83,
-         "dropMm": 4.0
-        },
-        {
-         "t": " = 9.71 "
+         "t": "What advice would you give to the student whose answer is not accurate?"
         }
        ],
-       "figures": [
-        {
-         "crop": "tg_3g_q7_f0",
-         "wMm": 26.34,
-         "hMm": 6.93
-        }
-       ],
-       "subs": [
-        {
-         "letter": "a",
-         "content": [
-          {
-           "t": "Which of the two answers is more accurate and why?"
-          }
-         ],
-         "workingSpace": {
-          "style": "lines",
-          "heightMm": 30
-         }
-        },
-        {
-         "letter": "b",
-         "content": [
-          {
-           "t": "What advice would you give to the student whose answer is not accurate?"
-          }
-         ],
-         "workingSpace": {
-          "style": "grid",
-          "heightMm": 20
-         }
-        }
-       ],
+       "figures": [],
        "workingSpace": {
-        "style": "lines",
-        "heightMm": 30
+        "style": "grid",
+        "heightMm": 20
        }
       },
       {
@@ -3599,27 +3550,11 @@
          "crop": "tg_3g_q7_f1",
          "wMm": 35.74,
          "hMm": 12.13
-        }
-       ],
-       "subs": [
+        },
         {
-         "letter": "ii",
-         "content": [
-          {
-           "t": "58°"
-          },
-          {
-           "t": "x",
-           "i": true
-          },
-          {
-           "t": " m120 m"
-          }
-         ],
-         "workingSpace": {
-          "style": "grid",
-          "heightMm": 20
-         }
+         "crop": "tg_3g_q7_f2",
+         "wMm": 36.14,
+         "hMm": 14.97
         }
        ],
        "workingSpace": {
@@ -3628,8 +3563,14 @@
        }
       }
      ],
-     "columns": 2,
-     "figures": [],
+     "columns": 1,
+     "figures": [
+      {
+       "crop": "tg_3g_q7_f0",
+       "wMm": 32.79,
+       "hMm": 16.72
+      }
+     ],
      "workingSpace": {
       "style": "lines",
       "heightMm": 40
@@ -3690,8 +3631,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 20
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -3745,8 +3686,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 20
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -3795,7 +3736,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 25
          }
         },
         {
@@ -3807,7 +3748,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 25
          }
         },
         {
@@ -3819,7 +3760,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 25
          }
         },
         {
@@ -3837,13 +3778,13 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 20
+          "heightMm": 25
          }
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 25
+        "style": "none",
+        "heightMm": 0
        }
       },
       {
@@ -4107,9 +4048,6 @@
          "hMm": 8.15,
          "wMm": 3.03,
          "dropMm": 3.14
-        },
-        {
-         "t": " "
         }
        ],
        "figures": [],
@@ -4460,12 +4398,7 @@
      "figures": [
       {
        "crop": "tg_3h_q5_f0",
-       "wMm": 16.32,
-       "hMm": 15.47
-      },
-      {
-       "crop": "tg_3h_q5_f1",
-       "wMm": 35.56,
+       "wMm": 50.4,
        "hMm": 18.01
       }
      ],
@@ -5218,12 +5151,7 @@
       {
        "crop": "tg_3i_q11_f0",
        "wMm": 43.03,
-       "hMm": 15.42
-      },
-      {
-       "crop": "tg_3i_q11_f1",
-       "wMm": 17.42,
-       "hMm": 19.24
+       "hMm": 27.48
       }
      ],
      "workingSpace": {
@@ -5501,8 +5429,8 @@
         }
        ],
        "workingSpace": {
-        "style": "grid",
-        "heightMm": 25
+        "style": "none",
+        "heightMm": 0
        }
       }
      ],
@@ -5754,53 +5682,7 @@
      }
     }
    ]
-  },
-  {
-   "blocks": [
-    {
-     "type": "heading",
-     "id": "ans_title",
-     "text": "Answers: 3E-3I",
-     "style": "title"
-    },
-    {
-     "type": "image",
-     "id": "ans_00",
-     "contentKind": "diagram",
-     "widthMm": 78.3
-    },
-    {
-     "type": "image",
-     "id": "ans_01",
-     "contentKind": "diagram",
-     "widthMm": 80.4
-    },
-    {
-     "type": "image",
-     "id": "ans_02",
-     "contentKind": "diagram",
-     "widthMm": 78.3
-    },
-    {
-     "type": "image",
-     "id": "ans_03",
-     "contentKind": "diagram",
-     "widthMm": 80.4
-    },
-    {
-     "type": "image",
-     "id": "ans_04",
-     "contentKind": "diagram",
-     "widthMm": 78.3
-    },
-    {
-     "type": "image",
-     "id": "ans_05",
-     "contentKind": "diagram",
-     "widthMm": 80.4
-    }
-   ]
   }
  ],
- "buildVersion": "791e78c9"
+ "buildVersion": "4c492542"
 }

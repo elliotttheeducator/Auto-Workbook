@@ -866,7 +866,20 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
           `style="height:${partFigH}mm" alt="">`
       )
       .join("");
-  const cols = (b.parts || []).length ? flowGridColumns(b.parts, partFigH, b.columns || 0) : 0;
+  // One diagram serving several parts is set BESIDE them, not above:
+  // the diagram on the right, the parts and their answer boxes down
+  // the left. That is how the page reads - you look at the picture
+  // once and work down the list against it - and it recovers the
+  // whole right-hand half of the page, which a full-width diagram
+  // with the parts underneath simply leaves empty.
+  const sharedFig = (b.parts || []).length > 0 && (b.figures || []).length === 1;
+  const cols = (b.parts || []).length
+    ? sharedFig
+      // The left column is only about half the page now, so the parts
+      // stack rather than trying to hold the book's own column count.
+      ? (b.parts.length > 4 ? 2 : 1)
+      : flowGridColumns(b.parts, partFigH, b.columns || 0)
+    : 0;
   // A slice renders only some of the parts, so a tall grid can be split
   // over a page break. `head` carries the number, stem and shared
   // diagrams; the rest carry grid rows only.
@@ -880,6 +893,11 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             `<div class="flowq-cell">` +
             `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
             `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
+            // The part's own diagram comes BEFORE its sub-items: it is
+            // what they are answered against, so printing it after
+            // them left it stranded under a column of answer boxes
+            // with nothing to say which question it belonged to.
+            ((p.figures || []).length ? `<div class="flowq-cell-fig">${partFig(p)}</div>` : "") +
             // Roman sub-items keep their own line and their own marker,
             // as the book sets them. Run together into the part's own
             // sentence they read as one impossible instruction.
@@ -895,7 +913,6 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
                   .join("") +
                 `</div>`
               : "") +
-            ((p.figures || []).length ? `<div class="flowq-cell-fig">${partFig(p)}</div>` : "") +
             workingSpaceHtml(wsFor(p)) +
             `</div>`
         )
@@ -907,10 +924,14 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // printed original rather than of whatever container they land in.
   const ownFigH = figureHeightMm(b.figures || [], figPct);
   const figs = (b.figures || [])
-    .map(
-      (f) =>
-        `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
-        `style="height:${ownFigH}mm" alt="">`
+    .map((f) =>
+      // Beside the parts a diagram is sized by WIDTH, so it fills its
+      // column; on its own it keeps the shared standard height.
+      sharedFig
+        ? `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
+          `style="width:100%;height:auto;max-height:95mm" alt="">`
+        : `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(f.crop)}.png${versionSuffix()}" ` +
+          `style="height:${ownFigH}mm" alt="">`
     )
     .join("");
   // One figure sits beside the text (a photo alongside a short
@@ -926,6 +947,16 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // the diagrams landed at the foot of the question, below all the
   // answer boxes that depend on reading them.
   const contextFig = (b.parts || []).length ? figBlock : "";
+  // Diagram right, parts left. The figure column is sized from the
+  // diagram's own printed width so a small triangle does not claim
+  // half the page, and clamped so a wide photograph does not crowd
+  // the answer boxes out.
+  const figMm = sharedFig ? Math.max(38, Math.min(78, (b.figures[0].wMm * figPct) / 100)) : 0;
+  const splitHtml = () =>
+    `<div class="flowq-split">` +
+    `<div class="flowq-split-main">${parts}</div>` +
+    `<div class="flowq-split-fig" style="flex:0 0 ${figMm.toFixed(0)}mm">${figBlock}</div>` +
+    `</div>`;
   // The answer space sits OUTSIDE the row, so it spans the full content
   // width for every question. Inside the row it inherited whatever was
   // left after the figure column, so a question with a photo beside it
@@ -935,7 +966,9 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
     `<div class="flowq-unit">` +
     `<div class="flowq-row">` +
     `<div class="flowq-num">${head ? escapeHtml(b.number || "") : ""}</div>` +
-    `<div class="flowq-body">${head ? stem + contextFig : ""}${parts}` +
+    `<div class="flowq-body">` +
+    (head ? stem : "") +
+    (sharedFig ? splitHtml() : (head ? contextFig : "") + parts) +
     (head && !contextFig && many ? figBlock : "") +
     `</div>` +
     (head && !contextFig && !many ? figBlock : "") +
