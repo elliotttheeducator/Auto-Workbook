@@ -827,6 +827,25 @@ function figureHeightMm(figs, figPct) {
 // taller than the space left under the question above it far more
 // often than not, and as one atomic unit it left half a page empty
 // every time.
+// A question whose parts are set beside a shared diagram is never
+// split: the whole point of that layout is that the parts sit next to
+// the picture they are read against, and a row on its own on the next
+// page would have neither the picture nor anything to say why.
+// How many sub-items to set across. The book's own count leads, since
+// it already judged how wide each item is: four bare angles go four
+// across, four "sin 28 and cos 62" pairs go two. It is then capped by
+// how much width this part actually has - a part inside a two-column
+// part grid has half a page, not a whole one.
+function subCols(p, partCols) {
+  const want = p.subColumns || 1;
+  const room = partCols >= 3 ? 1 : partCols === 2 ? 2 : 4;
+  return Math.max(1, Math.min(want, room));
+}
+
+function sharedFigOn(b) {
+  return (b.parts || []).length > 0 && (b.figures || []).length === 1;
+}
+
 function flowQuestionRows(b, figPct) {
   const parts = b.parts || [];
   if (!parts.length) return [];
@@ -902,13 +921,15 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             // as the book sets them. Run together into the part's own
             // sentence they read as one impossible instruction.
             ((p.subs || []).length
-              ? `<div class="flowq-subs">` +
+              ? `<div class="flowq-subs" style="grid-template-columns:repeat(${subCols(p, cols)},1fr)">` +
                 p.subs
                   .map(
                     (s) =>
+                      `<div class="flowq-sub-cell">` +
                       `<div class="flowq-sub"><span class="flowq-subletter">${escapeHtml(s.letter)}</span>` +
                       `<span class="flowq-ptext">${flowRunsHtml(s.content, cropsBaseUrl)}</span></div>` +
-                      (s.workingSpace ? workingSpaceHtml(s.workingSpace) : "")
+                      (s.workingSpace ? workingSpaceHtml(s.workingSpace) : "") +
+                      `</div>`
                   )
                   .join("") +
                 `</div>`
@@ -952,10 +973,14 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // half the page, and clamped so a wide photograph does not crowd
   // the answer boxes out.
   const figMm = sharedFig ? Math.max(38, Math.min(78, (b.figures[0].wMm * figPct) / 100)) : 0;
+  // The figure column is reserved on EVERY row of the question, but
+  // only drawn on the first. A tall question still has to be able to
+  // break across a page, and if later rows reclaimed the width their
+  // answer boxes would be visibly wider than the ones above them.
   const splitHtml = () =>
     `<div class="flowq-split">` +
     `<div class="flowq-split-main">${parts}</div>` +
-    `<div class="flowq-split-fig" style="flex:0 0 ${figMm.toFixed(0)}mm">${figBlock}</div>` +
+    `<div class="flowq-split-fig" style="flex:0 0 ${figMm.toFixed(0)}mm">${head ? figBlock : ""}</div>` +
     `</div>`;
   // The answer space sits OUTSIDE the row, so it spans the full content
   // width for every question. Inside the row it inherited whatever was
@@ -1571,8 +1596,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // so it can flow over a page break instead of moving whole.
           // The head (number, stem, shared diagrams) glues to the first
           // row so it can never be orphaned at the foot of a page.
+          // Single-column part lists split too, not just grids. A
+          // twelve-part question set one per line is far taller than a
+          // page, and as one atomic unit it simply overflowed the
+          // sheet - the last parts printed past the bottom edge.
           const rows = flowQuestionRows(b, figPct);
-          if (rows.length > 2 && rows[0].length > 1) {
+          if (rows.length > 2) {
             rows.forEach((rowParts, ri) => {
               const slice = { parts: rowParts, head: ri === 0 };
               const rowHtml = flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice);

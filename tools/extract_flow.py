@@ -307,6 +307,24 @@ def body_size_of(spans) -> float:
     return max(tally, key=tally.get) if tally else BODY_SIZE
 
 
+# Superscripts and subscripts that Unicode can write directly. Cropping
+# these as images is technically faithful and practically worse: a 2mm
+# bitmap of a "2" prints softer than the type around it, ignores the
+# text-size control, and carries whatever specks sat next to it in the
+# source. Only the characters that actually appear raised or lowered in
+# maths of this kind are listed - anything else still becomes a crop.
+SUPERSCRIPT = {
+    "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
+    "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹",
+    "-": "⁻", "−": "⁻", "+": "⁺", "(": "⁽", ")": "⁾",
+    "n": "ⁿ",
+}
+SUBSCRIPT = {
+    "0": "₀", "1": "₁", "2": "₂", "3": "₃", "4": "₄",
+    "5": "₅", "6": "₆", "7": "₇", "8": "₈", "9": "₉",
+}
+
+
 def classify_char(c, span, baseline, body_size):
     """text | italic | symbol | crop - see the module docstring for why
     only the last of these has to leave the text flow.
@@ -329,6 +347,15 @@ def classify_char(c, span, baseline, body_size):
     # smaller than its line - superscripts, subscripts, and the halves
     # of a stacked fraction all land here.
     if off_baseline or wrong_size:
+        # A raised or lowered character that Unicode can write is
+        # written, not photographed - see SUPERSCRIPT. It has to be
+        # genuinely off the line, not merely a size outlier, or an
+        # ordinary digit would be turned into an exponent.
+        dy = c["origin"][1] - baseline
+        if dy < -BASELINE_TOL_PT and ch in SUPERSCRIPT:
+            return "super"
+        if dy > BASELINE_TOL_PT and ch in SUBSCRIPT:
+            return "under"
         return "crop"
     if span.font.startswith("Symbol"):
         # This face remaps the Latin alphabet onto Greek, so its bytes
@@ -440,10 +467,17 @@ def build_runs(spans, baseline, body_size, frac_boxes=(), emitted=None):
                 atoms.append({"kind": "crop", "c": "", "bbox": fitz.Rect(frac_boxes[hit])})
                 continue
             kind = classify_char(c, s, baseline, body_size)
-            ch = SYMBOL_TEXT.get(c["c"], c["c"]) if kind == "symbol" else c["c"]
+            ch = c["c"]
+            if kind == "symbol":
+                ch = SYMBOL_TEXT.get(ch, ch)
+            elif kind == "super":
+                ch = SUPERSCRIPT[ch]
+            elif kind == "under":
+                ch = SUBSCRIPT[ch]
             if ch in THIN_SPACE:
                 ch = " "
-            atoms.append({"kind": "text" if kind == "symbol" else kind, "c": ch, "bbox": fitz.Rect(c["bbox"])})
+            flow = kind in ("symbol", "super", "under")
+            atoms.append({"kind": "text" if flow else kind, "c": ch, "bbox": fitz.Rect(c["bbox"])})
     if not atoms:
         return []
 
@@ -680,7 +714,7 @@ def is_label_line(bbox, text, figs):
     )
 
 
-def absorb_labels(figs, lines, region, body_left):
+def absorb_labels(figs, lines, region, body_left, others=()):
     """Grows each figure box to swallow its own dimension labels.
 
     A diagram's "5 cm" / "2.5 mm" annotations are typeset as ordinary
@@ -724,6 +758,22 @@ def absorb_labels(figs, lines, region, body_left):
                 if bbox.x0 < body_left + 2 and bbox.y0 < g.y0:
                     continue
                 new = (g | bbox) & region
+                # Growing must never reach another figure - any other
+                # figure in the question, not just one in the same
+                # group. A question's own diagram is absorbed against
+                # the whole question region (it has no cell), so
+                # without this it grew down the page until it enclosed
+                # the NEXT diagram, which then printed twice: once
+                # inside this crop and once as itself.
+                # Each obstacle is padded by the label margin, because a
+                # diagram's labels sit just outside its box: stopping at
+                # the box itself still let a crop swallow the NEXT
+                # diagram's "A" hanging above it.
+                m = LABEL_MARGIN_PT
+                blocked = [o for o in grown if o is not g] + list(others)
+                if any(fitz.Rect(o.x0 - m, o.y0 - m, o.x1 + m, o.y1 + m).intersects(new)
+                       for o in blocked):
+                    continue
                 if not new.is_empty and new != g:
                     g.x0, g.y0, g.x1, g.y1 = new.x0, new.y0, new.x1, new.y1
                     changed = True
@@ -826,7 +876,14 @@ def marker_parse(spans, i):
     roman = r"i{1,3}|iv|vi{0,3}|ix|xi{0,3}"
     if rest and re.fullmatch(roman, rest[0]) and x0 >= PART_X[0]:
         if "letter" in out or len(rest[0]) > 1:
-            out["roman"] = rest.pop(0)
+            want = rest.pop(0)
+            out["roman"] = want
+            # Where the marker sits, so the renderer can reproduce the
+            # book's own column count for a run of sub-items.
+            for c in s.chars:
+                if c["c"] == want[0]:
+                    out["rbox"] = c["bbox"]
+                    break
     # Anything left over means this was never a marker span - a stray
     # word in the marker face, not structure.
     return out if (out and not rest) else None
@@ -1254,8 +1311,9 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
         # and took the next part's labels with it.
         for letter, group in figs_by_letter.items():
             bounds = cells.get(letter) or region
+            elsewhere = [f for k, v in figs_by_letter.items() if k != letter for f in v]
             figs_by_letter[letter] = absorb_labels(
-                group, lines, bounds & region, PART_X[1]
+                group, lines, bounds & region, PART_X[1], others=elsewhere
             )
         figs = [f for v in figs_by_letter.values() for f in v]
         fig_json = {}
@@ -1324,7 +1382,8 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             letter = m0.get("letter") if m0 else None
             roman = m0.get("roman") if m0 else None
             if letter:
-                cur_part = {"letter": letter, "content": [], "subs": []}
+                cur_part = {"letter": letter, "content": [], "subs": [],
+                            "x": (m0.get("lbox") or [0])[0]}
                 parts.append(cur_part)
                 part_by_letter.setdefault(letter, cur_part)
                 cur_sub = None
@@ -1332,13 +1391,13 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                 # this the first item lost its marker while ii and iii
                 # kept theirs, so the list read b, ii, iii.
                 if roman:
-                    cur_sub = {"letter": roman, "content": []}
+                    cur_sub = {"letter": roman, "content": [], "x": (m0.get("rbox") or [0])[0]}
                     cur_part["subs"].append(cur_sub)
             elif roman:
                 # A roman marker opens a sub-item of the part above it,
                 # kept as its own line rather than spliced into that
                 # part's sentence.
-                cur_sub = {"letter": roman, "content": []}
+                cur_sub = {"letter": roman, "content": [], "x": (m0.get("rbox") or [0])[0]}
                 if cur_part is not None:
                     cur_part["subs"].append(cur_sub)
                 else:
@@ -1383,17 +1442,27 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
         # own line and its own marker. Folded into that part's prose
         # instead, three separate questions ran together into one
         # unreadable sentence.
-        merged, by_letter = [], {}
+        merged, by_letter, stem_items = [], {}, 0
         for p in parts:
             p.setdefault("subs", [])
             if p["letter"] in keep and p["letter"] not in by_letter:
                 by_letter[p["letter"]] = p
                 merged.append(p)
             elif merged:
-                merged[-1]["subs"].append({"letter": p["letter"], "content": p["content"]})
+                merged[-1]["subs"].append(
+                    {"letter": p["letter"], "content": p["content"], "x": p.get("x", 0)})
                 merged[-1]["subs"] += p["subs"]
             else:
+                # A rejected label before any part has opened folds back
+                # into the stem - and so do ITS sub-items. Dropping them
+                # silently lost half the instruction: question 7 reads
+                # "For each of the following: i use Pythagoras' theorem
+                # ... ii find the ratios for sin, cos and tan", and only
+                # the first survived.
                 stem += [{"t": f" {p['letter']} "}] + p["content"]
+                for s in p["subs"]:
+                    stem += [{"t": f" {s['letter']} "}] + s["content"]
+                stem_items += 1 + len(p["subs"])
         parts = merged
         seen = {p["letter"] for p in parts}
         for m in pmarks:
@@ -1420,6 +1489,15 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             ]
             if subs:
                 entry["subs"] = subs
+                # The book sets a run of short sub-items across the
+                # page - "i 10  ii 28  iii 54  iv 81" on one line - and
+                # printing each on its own full-width row instead is
+                # what made these questions run several pages with a
+                # gap at the foot of each.
+                entry["subColumns"] = marker_columns(
+                    [{"x": s.get("x", 0), "y": 0} for s in p.get("subs", [])
+                     if tidy(s["content"])]
+                )
             part_json.append(entry)
 
         q = {
@@ -1432,6 +1510,10 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             # The book's own column count for this grid, so the rebuilt
             # page reproduces the source layout instead of guessing one.
             "columns": marker_columns(pmarks) if pmarks else 1,
+            # How many separate instructions the stem itself lists. A
+            # part under "i do this ... ii then do that" is answering
+            # both, so its box has to hold both.
+            "stemItems": stem_items,
             # Only figures no part claimed stay at question level - a
             # lone photo beside a one-part question, typically.
             "figures": fig_entries(None),
@@ -1512,7 +1594,10 @@ WORKING_RULES = [
 
 
 SQUARES = {
-    "evaluate": 2, "ratio": 3, "equation": 4, "triangle": 5,
+    # A ratio answer is a FRACTION - two storeys and a rule between
+    # them - so three squares is the floor, not two. Written into two
+    # it runs out of room vertically before it runs out horizontally.
+    "evaluate": 2, "ratio": 4, "equation": 4, "triangle": 5,
     "expression": 6, "draw": 8, "worded": 9,
 }
 
@@ -1606,9 +1691,15 @@ def assign_working_space(q):
         # measurements from part a to find a ratio for:") - there is
         # nothing to write against it, and a box there printed an empty
         # extra grid between the last sub-item and the next part.
-        p["workingSpace"] = (
-            {"style": "none", "heightMm": 0} if subs else space_for(kind, False)
-        )
+        ws = {"style": "none", "heightMm": 0} if subs else space_for(kind, False)
+        # Where the STEM lists several instructions ("i use Pythagoras'
+        # theorem to find the unknown side ... ii find the ratios for
+        # sin, cos and tan"), the part is answering all of them in one
+        # box, so the box has to hold all of them.
+        n_stem = max(1, q.get("stemItems", 0))
+        if n_stem > 1 and ws["style"] == "grid":
+            ws["heightMm"] = min(GRID_MM * 10, ws["heightMm"] * n_stem)
+        p["workingSpace"] = ws
 
 
 # --- teaching panels -------------------------------------------------
@@ -1818,6 +1909,13 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
             text = band_text(page, box)
             has_figs = bool(page_figures(page, box.y0))
             ws = space_for(working_kind(text, has_figs, False), True)
+            # A "Now you try" often sets three lettered triangles, and
+            # the whole panel is one bitmap - so its single box is the
+            # only place all three answers can go. One question's worth
+            # of room for three questions is not enough.
+            n = len(part_markers(page_lines(page), box.y0, box.y1)) or 1
+            if ws["style"] == "grid":
+                ws["heightMm"] = min(GRID_MM * 12, ws["heightMm"] * n)
             blocks.append({
                 "type": "question", "id": cid, "contentKind": "diagram",
                 "contextImage": None, "workingSpace": ws,

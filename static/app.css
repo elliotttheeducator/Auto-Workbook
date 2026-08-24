@@ -469,7 +469,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .flowq-split-fig .flowq-fig { max-width: 100%; }
 /* Roman sub-items, indented under their part the way the book sets
    them - one instruction per line. */
-.flowq-subs { margin: 0.5mm 0 0 5mm; }
+/* Sub-items are set across the page, in the book's own column count -
+   see subCols(). One per full-width row is what made a four-part
+   question run most of a page. */
+.flowq-subs { display: grid; gap: 1mm 5mm; margin: 0.5mm 0 0 5mm; }
+.flowq-sub-cell { min-width: 0; break-inside: avoid; }
 .flowq-sub { display: flex; gap: 2mm; align-items: baseline; }
 .flowq-subletter { font-weight: 700; color: #1f4e79; min-width: 5mm; }
 .flowq-cell-fig { display: flex; justify-content: center; align-items: flex-end; min-height: 0; margin: 1mm 0; }

@@ -57,7 +57,7 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 60
      }
     }
    ]
@@ -94,7 +94,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -104,12 +104,12 @@
         {
          "crop": "tg_3e_q1_f1",
          "wMm": 24.09,
-         "hMm": 23.6
+         "hMm": 19.35
         }
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -119,12 +119,12 @@
         {
          "crop": "tg_3e_q1_f2",
          "wMm": 21.38,
-         "hMm": 23.31
+         "hMm": 19.02
         }
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -139,7 +139,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -149,12 +149,12 @@
         {
          "crop": "tg_3e_q1_f4",
          "wMm": 24.3,
-         "hMm": 24.3
+         "hMm": 19.9
         }
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -164,12 +164,12 @@
         {
          "crop": "tg_3e_q1_f5",
          "wMm": 21.47,
-         "hMm": 15.09
+         "hMm": 13.89
         }
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -179,12 +179,12 @@
         {
          "crop": "tg_3e_q1_f6",
          "wMm": 26.52,
-         "hMm": 24.87
+         "hMm": 21.24
         }
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -199,7 +199,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -214,15 +214,16 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 20
      }
     },
     {
@@ -250,7 +251,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -262,7 +263,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -278,6 +279,7 @@
          }
         }
        ],
+       "subColumns": 1,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -297,7 +299,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -309,7 +311,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -325,6 +327,7 @@
          }
         }
        ],
+       "subColumns": 1,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -344,7 +347,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -356,7 +359,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -372,6 +375,7 @@
          }
         }
        ],
+       "subColumns": 1,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -379,6 +383,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q2_f0",
@@ -419,7 +424,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -434,7 +439,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -449,15 +454,16 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 20
      }
     }
    ]
@@ -485,7 +491,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -498,7 +504,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -511,7 +517,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -524,7 +530,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -537,7 +543,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -550,11 +556,12 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q4_f0",
@@ -564,7 +571,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 20
      }
     },
     {
@@ -586,6 +593,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q5_f0",
@@ -595,7 +603,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 20
      }
     },
     {
@@ -619,7 +627,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -632,7 +640,7 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       },
       {
@@ -645,11 +653,12 @@
        "figures": [],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 10
+        "heightMm": 15
        }
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q6_f0",
@@ -659,7 +668,7 @@
      ],
      "workingSpace": {
       "style": "grid",
-      "heightMm": 15
+      "heightMm": 20
      }
     },
     {
@@ -669,7 +678,7 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " For each of the following: i use Pythagoras’ theorem to find the unknown side "
+       "t": " For each of the following: i use Pythagoras’ theorem to find the unknown side ii find the ratios for sin θ, cos θ and tan θ . "
       }
      ],
      "parts": [
@@ -685,7 +694,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 20
+        "heightMm": 40
        }
       },
       {
@@ -700,7 +709,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 20
+        "heightMm": 40
        }
       },
       {
@@ -715,7 +724,7 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 20
+        "heightMm": 40
        }
       },
       {
@@ -730,11 +739,12 @@
        ],
        "workingSpace": {
         "style": "grid",
-        "heightMm": 20
+        "heightMm": 40
        }
       }
      ],
      "columns": 4,
+     "stemItems": 2,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -789,6 +799,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -835,7 +846,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -847,7 +858,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -859,7 +870,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -871,7 +882,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -883,7 +894,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -895,10 +906,11 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -938,6 +950,7 @@
          }
         }
        ],
+       "subColumns": 2,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -945,6 +958,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q9_f0",
@@ -995,7 +1009,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -1007,7 +1021,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -1019,7 +1033,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -1031,7 +1045,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -1043,7 +1057,7 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         },
         {
@@ -1055,10 +1069,11 @@
          ],
          "workingSpace": {
           "style": "grid",
-          "heightMm": 10
+          "heightMm": 15
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -1079,6 +1094,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q10_f0",
@@ -1156,6 +1172,7 @@
       }
      ],
      "columns": 2,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "lines",
@@ -1269,6 +1286,7 @@
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -1278,25 +1296,7 @@
        "letter": "c",
        "content": [
         {
-         "t": "Use your results from part a to calculate (cos θ) "
-        },
-        {
-         "m": "tg_3e_q12_m4",
-         "hMm": 3.85,
-         "wMm": 2.11,
-         "dropMm": -0.23
-        },
-        {
-         "t": " + (sin θ) "
-        },
-        {
-         "m": "tg_3e_q12_m5",
-         "hMm": 3.85,
-         "wMm": 2.11,
-         "dropMm": -0.23
-        },
-        {
-         "t": " . What do you notice?"
+         "t": "Use your results from part a to calculate (cos θ) ² + (sin θ) ² . What do you notice?"
         }
        ],
        "figures": [],
@@ -1309,25 +1309,7 @@
        "letter": "d",
        "content": [
         {
-         "t": "Evaluate (cos θ) "
-        },
-        {
-         "m": "tg_3e_q12_m6",
-         "hMm": 3.85,
-         "wMm": 2.11,
-         "dropMm": -0.22
-        },
-        {
-         "t": " + (sin θ) "
-        },
-        {
-         "m": "tg_3e_q12_m7",
-         "hMm": 3.85,
-         "wMm": 2.11,
-         "dropMm": -0.22
-        },
-        {
-         "t": " for other combinations of cos θ and sin θ . Research and describe what you have found."
+         "t": "Evaluate (cos θ) ² + (sin θ) ² for other combinations of cos θ and sin θ . Research and describe what you have found."
         }
        ],
        "figures": [],
@@ -1338,6 +1320,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3e_q12_f0",
@@ -1431,7 +1414,7 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 10
+      "heightMm": 30
      }
     },
     {
@@ -1499,7 +1482,7 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 60
      }
     }
    ]
@@ -1578,6 +1561,7 @@
       }
      ],
      "columns": 4,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -1793,6 +1777,7 @@
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -1884,7 +1869,7 @@
         {
          "crop": "tg_3f_q3_f4",
          "wMm": 20.35,
-         "hMm": 19.2
+         "hMm": 15.61
         }
        ],
        "workingSpace": {
@@ -2059,6 +2044,7 @@
       }
      ],
      "columns": 4,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -2084,6 +2070,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3f_q4_f0",
@@ -2143,6 +2130,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3f_q5_f0",
@@ -2171,6 +2159,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3f_q6_f0",
@@ -2233,6 +2222,7 @@
       }
      ],
      "columns": 2,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -2332,6 +2322,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3f_q8_f0",
@@ -2413,6 +2404,7 @@
          }
         }
        ],
+       "subColumns": 4,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -2476,6 +2468,7 @@
          }
         }
        ],
+       "subColumns": 2,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -2552,6 +2545,7 @@
          }
         }
        ],
+       "subColumns": 2,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -2559,6 +2553,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "lines",
@@ -2658,6 +2653,7 @@
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -2771,6 +2767,7 @@
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -2778,11 +2775,12 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3f_q10_f0",
        "wMm": 28.51,
-       "hMm": 52.6
+       "hMm": 30.71
       }
      ],
      "workingSpace": {
@@ -2901,7 +2899,7 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 20
+      "heightMm": 40
      }
     }
    ]
@@ -3054,6 +3052,7 @@
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -3255,6 +3254,7 @@
       }
      ],
      "columns": 5,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -3268,7 +3268,7 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": "Find the value of each pronumeral correct to one decimal place. "
+       "t": "Find the value of each pronumeral correct to one decimal place."
       }
      ],
      "parts": [
@@ -3304,12 +3304,16 @@
       },
       {
        "letter": "c",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3g_q3_f2",
-         "wMm": 20.12,
-         "hMm": 19.61
+         "wMm": 17.29,
+         "hMm": 17.43
         }
        ],
        "workingSpace": {
@@ -3368,8 +3372,8 @@
        "figures": [
         {
          "crop": "tg_3g_q3_f6",
-         "wMm": 21.98,
-         "hMm": 20.73
+         "wMm": 18.9,
+         "hMm": 19.51
         }
        ],
        "workingSpace": {
@@ -3384,7 +3388,7 @@
         {
          "crop": "tg_3g_q3_f7",
          "wMm": 19.67,
-         "hMm": 13.12
+         "hMm": 9.3
         }
        ],
        "workingSpace": {
@@ -3394,6 +3398,7 @@
       }
      ],
      "columns": 4,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -3419,6 +3424,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3g_q4_f0",
@@ -3447,6 +3453,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3g_q5_f0",
@@ -3502,6 +3509,7 @@
       }
      ],
      "columns": 2,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -3614,6 +3622,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3g_q7_f0",
@@ -3680,6 +3689,7 @@
          }
         }
        ],
+       "subColumns": 2,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -3735,6 +3745,7 @@
          }
         }
        ],
+       "subColumns": 3,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -3832,6 +3843,7 @@
          }
         }
        ],
+       "subColumns": 4,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -3852,6 +3864,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "lines",
@@ -3933,7 +3946,7 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 45
+      "heightMm": 60
      }
     }
    ]
@@ -4070,6 +4083,7 @@
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4275,6 +4289,7 @@
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4408,7 +4423,7 @@
         {
          "crop": "tg_3h_q3_f7",
          "wMm": 20.26,
-         "hMm": 21.89
+         "hMm": 18.17
         }
        ],
        "workingSpace": {
@@ -4418,6 +4433,7 @@
       }
      ],
      "columns": 4,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4443,6 +4459,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3h_q4_f0",
@@ -4467,6 +4484,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3h_q5_f0",
@@ -4491,6 +4509,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3h_q6_f0",
@@ -4515,6 +4534,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4579,6 +4599,7 @@
       }
      ],
      "columns": 3,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4648,6 +4669,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4666,6 +4688,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -4684,6 +4707,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3h_q11_f0",
@@ -4787,6 +4811,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3h_q12_f0",
@@ -4994,6 +5019,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q1_f0",
@@ -5018,6 +5044,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5036,6 +5063,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5058,6 +5086,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q4_f0",
@@ -5082,6 +5111,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5100,6 +5130,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5118,6 +5149,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5136,6 +5168,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5161,16 +5194,17 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q9_f0",
-       "wMm": 39.81,
-       "hMm": 18.12
+       "wMm": 10.93,
+       "hMm": 8.37
       },
       {
        "crop": "tg_3i_q9_f1",
-       "wMm": 29.26,
-       "hMm": 18.81
+       "wMm": 29.71,
+       "hMm": 22.21
       }
      ],
      "workingSpace": {
@@ -5217,6 +5251,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5235,6 +5270,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q11_f0",
@@ -5259,6 +5295,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q12_f0",
@@ -5283,6 +5320,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5516,6 +5554,7 @@
          }
         }
        ],
+       "subColumns": 1,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -5523,6 +5562,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q14_f0",
@@ -5554,6 +5594,7 @@
      ],
      "parts": [],
      "columns": 1,
+     "stemItems": 0,
      "figures": [
       {
        "crop": "tg_3i_q15_f0",
@@ -5614,6 +5655,7 @@
          }
         }
        ],
+       "subColumns": 1,
        "workingSpace": {
         "style": "none",
         "heightMm": 0
@@ -5647,6 +5689,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "lines",
@@ -5718,6 +5761,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "lines",
@@ -5763,6 +5807,7 @@
       }
      ],
      "columns": 1,
+     "stemItems": 0,
      "figures": [],
      "workingSpace": {
       "style": "grid",
@@ -5788,5 +5833,5 @@
    ]
   }
  ],
- "buildVersion": "9746f790"
+ "buildVersion": "2dc7d6b6"
 }
