@@ -106,18 +106,19 @@ SIZE_TOL_PT = 0.8
 # space at body size - wider than the sub-point gaps inside a fraction,
 # narrower than the gap back to surrounding prose.
 MATH_RUN_GAP_PT = 3.0
-# Smallest thing that can be a diagram. Height is the looser of the two
-# because a flat wide triangle is a perfectly ordinary figure here - one
-# measured 47 x 16pt, and an 18pt floor on BOTH sides silently dropped
-# it, leaving the question a diagram short and its labels loose in the
-# prose ("417 x"). The area floor is what still rejects stray marks.
-MIN_FIG_W = 18.0
-MIN_FIG_H = 11.0
+# Smallest thing that can be a diagram, judged on its SHORT side and
+# its area rather than on width and height separately. Triangles here
+# come in every proportion - one is 47 x 16pt and another 14 x 40pt -
+# so a floor on each axis drops whichever ones happen to be thin that
+# way round, leaving the question a diagram short and its labels loose
+# in the prose. The area floor is what still rejects stray marks: an
+# arrowhead is 7 x 7, a tick is 3 x 1.
+MIN_FIG_SIDE = 11.0
 MIN_FIG_AREA = 250.0
 
 
 def too_small(r):
-    return r.width < MIN_FIG_W or r.height < MIN_FIG_H or r.get_area() < MIN_FIG_AREA
+    return min(r.width, r.height) < MIN_FIG_SIDE or r.get_area() < MIN_FIG_AREA
 
 # Two text lines this close together are one row of the page, printed
 # with a little stagger, not two separate lines.
@@ -1097,8 +1098,16 @@ def label_figures(figs, marks):
             # without touching a diagram lower down the cell.
             if f.y0 <= best["y"] + 12:
                 f.x0 = max(f.x0, best["x"] + 8)
+            # A diagram out in the right margin beside a single column
+            # of parts is not IN any part's row - it is set alongside
+            # several of them and is routinely taller than one. Clipped
+            # to the row its top happens to fall in, it lost its lower
+            # half, and the labels that went with that half then leaked
+            # into the next part's text ("...to two decimal places.20").
+            single_col = len({round(m["x"]) for m in marks}) == 1
+            margin_fig = single_col and f.x0 > min(m["x"] for m in marks) + 200
             floor = next((y for y in row_ys if y > best["y"] + 6), None)
-            if floor is not None:
+            if floor is not None and not margin_fig:
                 f.y1 = min(f.y1, floor - 3)
             wall = min((m["x"] for m in marks
                         if abs(m["y"] - best["y"]) <= 6 and m["x"] > best["x"] + 6),
@@ -1198,6 +1207,24 @@ def runs_to_json(runs, page, crops_dir, prefix, counter, baseline):
     return out
 
 
+def append_line(target, stream):
+    """Adds a line's runs to a growing block, with the word break the
+    line ending itself was.
+
+    A line break IS a space once the text reflows, and neither side of
+    it carries one: the sentence ends "...is 1 metre tall." and the
+    next line starts "Answer the following", so joining them directly
+    printed "tall.Answer". Only inserted where there is not already
+    whitespace on one side, so it cannot double up a space."""
+    if target and stream:
+        prev = target[-1].get("t", "")
+        nxt = stream[0].get("t", "")
+        needs = (not prev or not prev[-1].isspace()) and (not nxt or not nxt[0].isspace())
+        if needs:
+            target.append({"t": " "})
+    target += stream
+
+
 def tidy(stream):
     """Collapses adjacent text runs and squeezes runs of spaces - the
     per-character walk upstream is deliberately naive so that run
@@ -1276,6 +1303,20 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                   default=None)
         if nxt is not None:
             yend = min(yend, nxt - 2)
+        # The publisher closes a section with a full-width coloured
+        # panel ("Using a CAS calculator 3G: Trigonometry - this
+        # activity is in the Interactive Textbook"). It is not part of
+        # the exercise and there is nothing to answer in it, but it sits
+        # inside the last question's band, so its wording was running on
+        # to the end of that question's last part.
+        panel = min((fitz.Rect(d["rect"]).y0 for d in page.get_drawings()
+                     if d.get("fill")
+                     and fitz.Rect(d["rect"]).width > 0.75 * page.rect.width
+                     and fitz.Rect(d["rect"]).height > 12
+                     and fitz.Rect(d["rect"]).y0 > ystart + 8),
+                    default=None)
+        if panel is not None:
+            yend = min(yend, panel - 2)
         region = fitz.Rect(40, ystart - 4, page.rect.x1 - 40, yend)
 
         figs = [fitz.Rect(f) & region for f in fig_owner[i]]
@@ -1304,17 +1345,37 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             # too small to keep and vanished. Counting is what
             # separates the two cases: a per-part grid has a diagram
             # for each part, a shared one has exactly one.
-            figs_by_letter = {None: merge_near(figs)}
+            # A question with no parts has one illustration, however
+            # many paths the typesetter drew it with - an aeroplane, its
+            # flight path and the mountain it clears are one picture
+            # even though the plane sits 19pt clear of the peak. Merged
+            # generously here because there are no parts to tell apart;
+            # a grid of separate diagrams never reaches this branch.
+            gap = 24.0 if len(pmarks) == 0 else 8.0
+            figs_by_letter = {None: merge_near(figs, gap=gap)}
         # Dimension labels are absorbed only AFTER each figure knows
         # which cell it lives in, and never past that cell's walls.
         # Run before the grid existed, a figure grew into the row below
         # and took the next part's labels with it.
         for letter, group in figs_by_letter.items():
-            bounds = cells.get(letter) or region
+            cell = cells.get(letter)
             elsewhere = [f for k, v in figs_by_letter.items() if k != letter for f in v]
-            figs_by_letter[letter] = absorb_labels(
-                group, lines, bounds & region, PART_X[1], others=elsewhere
-            )
+            out = []
+            for f in group:
+                # A figure that already reaches past its cell is one
+                # label_figures deliberately did not confine to a row -
+                # a margin diagram set alongside several parts. Bounding
+                # its label absorption by the cell would clip it back to
+                # that row anyway, taking off the half of the triangle
+                # that made it answerable.
+                bounds = region if (cell is None or not cell.contains(f)) else cell
+                # Siblings in the SAME group are obstacles too. Absorbed
+                # one figure at a time, a figure had no siblings in view
+                # and grew across its neighbour, so both crops ended up
+                # containing both diagrams.
+                near = elsewhere + [g for g in group if g is not f]
+                out += absorb_labels([f], lines, bounds & region, PART_X[1], others=near)
+            figs_by_letter[letter] = out
         figs = [f for v in figs_by_letter.values() for f in v]
         fig_json = {}
         for fi, fr in enumerate(figs):
@@ -1425,11 +1486,11 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                     cur_part, cur_sub = owner, None
 
             if cur_sub is not None:
-                cur_sub["content"] += stream
+                append_line(cur_sub["content"], stream)
             elif cur_part is not None:
-                cur_part["content"] += stream
+                append_line(cur_part["content"], stream)
             else:
-                stem += stream
+                append_line(stem, stream)
 
         # Attach each figure to the part that labels it, so a diagram
         # grid comes back as real parts (a, b, c, d - each with its own

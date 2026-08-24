@@ -3202,16 +3202,14 @@
       },
       {
        "letter": "j",
-       "content": [
+       "content": [],
+       "figures": [
         {
-         "t": "x",
-         "i": true
-        },
-        {
-         "t": "8°7"
+         "crop": "tg_3g_q2_f9",
+         "wMm": 12.9,
+         "hMm": 20.06
         }
        ],
-       "figures": [],
        "workingSpace": {
         "style": "grid",
         "heightMm": 20
@@ -3222,7 +3220,7 @@
        "content": [],
        "figures": [
         {
-         "crop": "tg_3g_q2_f9",
+         "crop": "tg_3g_q2_f10",
          "wMm": 24.22,
          "hMm": 12.3
         }
@@ -3237,7 +3235,7 @@
        "content": [],
        "figures": [
         {
-         "crop": "tg_3g_q2_f10",
+         "crop": "tg_3g_q2_f11",
          "wMm": 18.32,
          "hMm": 19.43
         }
@@ -3525,7 +3523,7 @@
      "tier": "reasoning",
      "stem": [
       {
-       "t": "In calculating the value of x for this triangle, two students come up with these answers, correct to two decimal places.A x = "
+       "t": "In calculating the value of x for this triangle, two students come up with these answers, correct to two decimal places. A x = "
       },
       {
        "m": "tg_3g_q7_m1",
@@ -3654,8 +3652,8 @@
        "figures": [
         {
          "crop": "tg_3g_q8_f0",
-         "wMm": 36.51,
-         "hMm": 13.13
+         "wMm": 37.58,
+         "hMm": 24.72
         }
        ],
        "subs": [
@@ -3694,7 +3692,7 @@
        "letter": "b",
        "content": [
         {
-         "t": "Calculate these ratios to two decimal places.20°"
+         "t": "Calculate these ratios to two decimal places."
         }
        ],
        "figures": [],
@@ -3728,10 +3726,6 @@
          "content": [
           {
            "t": " tan 20° "
-          },
-          {
-           "t": "AB",
-           "i": true
           }
          ],
          "workingSpace": {
@@ -3779,7 +3773,7 @@
         {
          "crop": "tg_3g_q8_f1",
          "wMm": 20.55,
-         "hMm": 13.27
+         "hMm": 18.81
         }
        ],
        "subs": [
@@ -3848,7 +3842,7 @@
        "letter": "e",
        "content": [
         {
-         "t": "Simplify your expression for part d iv. What do you notice?Using a CAS calculator 3G: TrigonometryThis activity is in the Interactive Textbook in the form of a printable PDF."
+         "t": "Simplify your expression for part d iv. What do you notice?"
         }
        ],
        "figures": [],
@@ -4727,7 +4721,7 @@
      "tier": "enrichment",
      "stem": [
       {
-       "t": "Jo has forgotten her glasses and is trying to view a painting in a gallery. Her eye level is at the same level as the base of the painting and the painting is 1 metre tall.Answer the following to the nearest degree for angles and to two decimal places for lengths."
+       "t": "Jo has forgotten her glasses and is trying to view a painting in a gallery. Her eye level is at the same level as the base of the painting and the painting is 1 metre tall. Answer the following to the nearest degree for angles and to two decimal places for lengths."
       }
      ],
      "parts": [
@@ -5050,7 +5044,7 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": "From a point on the ground, Emma measures the angle of elevation of an 80 m tower to be 27° .Find how far Emma is from the base of the tower, correct to the nearest metre."
+       "t": "From a point on the ground, Emma measures the angle of elevation of an 80 m tower to be 27° . Find how far Emma is from the base of the tower, correct to the nearest metre."
       }
      ],
      "parts": [],
@@ -5190,12 +5184,7 @@
      "figures": [
       {
        "crop": "tg_3i_q9_f0",
-       "wMm": 10.93,
-       "hMm": 8.37
-      },
-      {
-       "crop": "tg_3i_q9_f1",
-       "wMm": 29.71,
+       "wMm": 45.53,
        "hMm": 22.21
       }
      ],
@@ -5344,28 +5333,28 @@
        "i": true
       },
       {
-       "t": " metres away as shown."
+       "t": " metres away as shown. "
       },
       {
        "t": "y",
        "i": true
       },
       {
-       "t": " mmonument("
+       "t": " m monument ("
       },
       {
        "t": "m",
        "i": true
       },
       {
-       "t": " m)height"
+       "t": " m) height "
       },
       {
        "t": "h",
        "i": true
       },
       {
-       "t": " m"
+       "t": " m "
       },
       {
        "t": "x",
@@ -5695,7 +5684,7 @@
      "tier": "enrichment",
      "stem": [
       {
-       "t": "The residents of Skeville live 12 km from an airport. They maintain that any aeroplane flying at aheight lower than 4 km disturbs their peace. Each Sunday they have an outdoor concert from 12:00 noon till 2:00 p.m."
+       "t": "The residents of Skeville live 12 km from an airport. They maintain that any aeroplane flying at a height lower than 4 km disturbs their peace. Each Sunday they have an outdoor concert from 12:00 noon till 2:00 p.m."
       }
      ],
      "parts": [
@@ -5824,5 +5813,5 @@
    ]
   }
  ],
- "buildVersion": "a758709c"
+ "buildVersion": "e542e775"
 }

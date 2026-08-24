@@ -472,6 +472,13 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .flowq-grid.flowq-flow .flowq-cell { display: block; }
 .flowq-grid.flowq-flow .flowq-cell + .flowq-cell { margin-top: 1.5mm; }
 .flowq-float { float: right; margin: 0 0 2mm 5mm; }
+/* A part floating its own diagram: the cell has to be a plain block
+   for the float to work at all, and its own boxes must be auto-width
+   so they shorten beside it rather than dropping below. */
+.flowq-cell:has(> .flowq-part-float) { display: block; }
+.flowq-part-float { max-width: 45%; }
+.flowq-part-float .flowq-fig { max-width: 100%; }
+.flowq-cell:has(> .flowq-part-float) .working-space { width: auto; }
 .flowq-float .flowq-figs { margin: 0; }
 .flowq-float .flowq-fig { max-width: 100%; }
 /* The question body contains its own float, so a short question cannot

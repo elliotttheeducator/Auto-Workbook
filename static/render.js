@@ -842,6 +842,21 @@ function subCols(p, partCols) {
   return Math.max(1, Math.min(want, room));
 }
 
+// A part floats its own diagram when it has other content to wrap
+// around it - sub-items, or prose of its own. A bare diagram-and-box
+// part is a grid cell and keeps its diagram above the box.
+// A floated diagram is sized in mm, from its own printed width. Left to
+// its intrinsic pixel size it renders at the crop's 3x zoom - about
+// twice its true size - and overflows the column it is floating in.
+function floatMm(f, figPct) {
+  return Math.max(30, Math.min(72, (f.wMm * figPct) / 100)).toFixed(0);
+}
+
+function partFloats(p) {
+  if ((p.figures || []).length !== 1) return false;
+  return (p.subs || []).length > 0;
+}
+
 function sharedFigOn(b) {
   return (b.parts || []).length > 0 && (b.figures || []).length === 1;
 }
@@ -921,7 +936,20 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             // what they are answered against, so printing it after
             // them left it stranded under a column of answer boxes
             // with nothing to say which question it belonged to.
-            ((p.figures || []).length ? `<div class="flowq-cell-fig">${partFig(p)}</div>` : "") +
+            //
+            // A part that has BOTH a diagram and sub-items floats the
+            // diagram right, so its sub-items and their boxes wrap
+            // beside it, exactly as a shared diagram does. A part with
+            // a diagram and nothing else keeps the diagram above its
+            // box, centred - that is the grid case, and floating there
+            // would break the rows' alignment.
+            ((p.figures || []).length
+              ? partFloats(p)
+                ? `<div class="flowq-float flowq-part-float" style="width:${floatMm(p.figures[0], figPct)}mm">` +
+                  `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(p.figures[0].crop)}.png${versionSuffix()}" ` +
+                  `style="width:100%;height:auto" alt=""></div>`
+                : `<div class="flowq-cell-fig">${partFig(p)}</div>`
+              : "") +
             // Roman sub-items keep their own line and their own marker,
             // as the book sets them. Run together into the part's own
             // sentence they read as one impossible instruction.
