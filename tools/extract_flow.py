@@ -1432,6 +1432,222 @@ def assign_working_space(q):
         )
 
 
+# --- teaching panels -------------------------------------------------
+#
+# The pages before an exercise are not question-shaped: Key Ideas,
+# Building Understanding and the worked Examples are multi-column
+# panels with their own background, and a panel genuinely IS one
+# indivisible picture - so these are cropped as bitmaps rather than
+# flowed. What the flow pipeline contributes is knowing where each one
+# starts and stops, which is read from the panel headings themselves
+# rather than from background colours (a colour is a styling decision
+# and changes between chapters; the headings do not).
+PANEL_HEAD = re.compile(r"(?i)^(key ideas|building understanding|example\s+\d+|now you try)\b")
+PANEL_KIND = [
+    ("keyideas", re.compile(r"(?i)^key ideas\b")),
+    ("building", re.compile(r"(?i)^building understanding\b")),
+    ("example", re.compile(r"(?i)^example\s+\d+\b")),
+    ("nowyoutry", re.compile(r"(?i)^now you try\b")),
+]
+# The Solution column ends and the Explanation column begins here.
+# Measured: the solution's algebra runs to x=130 and the explanation's
+# prose starts at x=306, with the explanation's own diagrams between
+# them at x=178 - so the split belongs just left of those diagrams,
+# which illustrate the explanation rather than the working.
+SOL_SPLIT_X = 172.0
+# Height of the running footer, which is never part of a panel.
+PAGE_FOOTER_PT = 46.0
+PANEL_HEAD_MIN_SIZE = 11.0
+
+
+def panel_marks(page):
+    """Teaching-panel headings on this page, in reading order."""
+    out = []
+    for bbox, spans in page_lines(page):
+        text = "".join(c["c"] for s in spans for c in s.chars).strip()
+        size = max((s.size for s in spans), default=0)
+        if re.match(r"(?i)^solution\b", text) and size >= 8.0:
+            out.append({"y": bbox.y0, "kind": "solution", "text": text})
+            continue
+        if size < PANEL_HEAD_MIN_SIZE or not PANEL_HEAD.match(text):
+            continue
+        for kind, pat in PANEL_KIND:
+            if pat.match(text):
+                out.append({"y": bbox.y0, "kind": kind, "text": text})
+                break
+    out.sort(key=lambda m: m["y"])
+    return out
+
+
+def content_box(page, y0, y1):
+    """The ink actually present in a horizontal band, padded a little.
+
+    Measured rather than assumed so a panel crop is tight on both sides
+    without needing this series' margins hard-coded."""
+    box = None
+    for bbox, _spans in page_lines(page):
+        if y0 <= bbox.y0 < y1:
+            box = bbox if box is None else (box | bbox)
+    for d in page.get_drawings():
+        r = fitz.Rect(d["rect"])
+        if r.width > 0.9 * page.rect.width or r.height > 0.9 * page.rect.height:
+            continue  # page furniture, not content
+        if y0 <= r.y0 < y1 and r.width > 2 and r.height > 2:
+            box = r if box is None else (box | r)
+    for i in page.get_image_info():
+        r = fitz.Rect(i["bbox"])
+        if y0 <= r.y0 < y1:
+            box = r if box is None else (box | r)
+    if box is None:
+        return None
+    return fitz.Rect(
+        max(box.x0 - 4, 40), max(box.y0 - 4, y0 - 2),
+        min(box.x1 + 4, page.rect.x1 - 40), min(box.y1 + 4, y1),
+    )
+
+
+def panel_floor(page, y):
+    """The bottom of the coloured box a panel heading sits in, if any.
+
+    The heading tells us where a panel STARTS; nothing in the text says
+    where it stops, so without this a panel runs on to the next heading
+    and swallows whatever sits between - on the Building Understanding
+    page, a full-width decorative photograph. The panel's own
+    background is drawn as one wide rectangle, which is exactly the
+    answer, so it is used as a ceiling on the extent measured from the
+    text."""
+    # Content that a cut here would slice through. The panel's own
+    # backgrounds are excluded - they are what we are measuring, and
+    # they overlap each other freely.
+    items = [b for b, _s in page_lines(page)]
+    for d in page.get_drawings():
+        r = fitz.Rect(d["rect"])
+        if r.width >= 0.55 * page.rect.width and r.height >= 40:
+            continue
+        items.append(r)
+    for i in page.get_image_info():
+        items.append(fitz.Rect(i["bbox"]))
+
+    best = None
+    for d in page.get_drawings():
+        r = fitz.Rect(d["rect"])
+        if r.width < 0.55 * page.rect.width or r.width > 0.95 * page.rect.width:
+            continue
+        if r.height < 40 or r.height > 0.95 * page.rect.height:
+            continue
+        if not (r.y0 - 8 <= y <= r.y1):
+            continue
+        # Only a floor that lands in a clear horizontal gap is a real
+        # panel edge. These backgrounds are stacked and overlapping, so
+        # the lowest one containing a heading is often some enclosing
+        # box rather than that heading's own - on a worked example it
+        # was the whole page's background, and cutting there sliced the
+        # "Now you try" diagrams in half.
+        if any(it.y0 < r.y1 + 6 and it.y1 > r.y1 - 6 for it in items):
+            continue
+        if best is None or r.y1 < best:
+            best = r.y1
+    return best
+
+
+def page_panels(page, stop_y):
+    """The teaching panels on this page as (kind, rect, text) tuples.
+
+    A panel runs from its own heading to the next one. An Example is
+    split three ways at its inner headings - the question, then the
+    worked Solution/Explanation, then "Now you try" - because those
+    three want different treatment: the middle one is what the teacher
+    workthrough print blanks out, and the last one is a question the
+    student answers and so needs an answer box."""
+    marks = [m for m in panel_marks(page) if m["y"] < stop_y]
+    if not marks:
+        return []
+    # Solution headings subdivide an Example; every other kind starts a
+    # new panel, and so ends the one before it.
+    breaks = [m["y"] for m in marks if m["kind"] != "solution"] + [stop_y]
+    out = []
+    for i, m in enumerate(marks):
+        if m["kind"] == "solution":
+            continue
+        end = next(y for y in breaks if y > m["y"] + 1)
+        floor = panel_floor(page, m["y"])
+        if floor is not None:
+            end = min(end, floor + 3)
+        if m["kind"] != "example":
+            box = content_box(page, m["y"] - 4, end)
+            if box:
+                out.append((m["kind"], box, m["text"]))
+            continue
+        # An Example: question above its Solution heading, worked
+        # answer below it.
+        sol = next((s["y"] for s in marks if s["kind"] == "solution"
+                    and m["y"] < s["y"] < end), None)
+        qbox = content_box(page, m["y"] - 4, sol if sol else end)
+        if qbox:
+            out.append(("example", qbox, m["text"]))
+        if sol:
+            wbox = content_box(page, sol - 4, end)
+            if wbox:
+                out.append(("worked", wbox, m["text"]))
+    return out
+
+
+def band_text(page, rect):
+    """The plain text inside a rect - used to size a Now-you-try box."""
+    out = []
+    for bbox, spans in page_lines(page):
+        if rect.contains(fitz.Point(bbox.x0 + 1, bbox.y0 + 1)):
+            out += [c["c"] for s in spans for c in s.chars]
+    return re.sub(r"\s+", " ", "".join(out)).lower()
+
+
+def panel_blocks(page, panels, crops_dir, pid_prefix):
+    """Crops each teaching panel and returns the blocks that show it.
+
+    A worked Example becomes the renderer's three-image workthrough
+    trio: the combined Solution+Explanation strip that normally shows,
+    plus the Solution and Explanation halves it fronts for, so the
+    "teacher workthrough" print can blank the working and keep the
+    explanation. "Now you try" becomes a question with an answer box -
+    it is the one part of a worked example the student is meant to do."""
+    blocks = []
+    for n, (kind, box, _text) in enumerate(panels):
+        base = f"{pid_prefix}p{n}"
+        if kind == "worked":
+            # Combined first, then the two halves it stands in front of.
+            split = min(max(SOL_SPLIT_X, box.x0 + 20), box.x1 - 20)
+            trio = [
+                (f"{base}_work", box),
+                (f"{base}_sol", fitz.Rect(box.x0, box.y0, split, box.y1)),
+                (f"{base}_exp", fitz.Rect(split, box.y0, box.x1, box.y1)),
+            ]
+            for cid, r in trio:
+                crop_png(page, r, os.path.join(crops_dir, cid + ".png"), pad=1.0)
+            blocks.append({
+                "type": "image", "id": trio[0][0], "contentKind": "diagram",
+                "teacherSolutionId": trio[1][0],
+            })
+            blocks.append({
+                "type": "image", "id": trio[1][0], "contentKind": "diagram",
+                "teacherExplanation": trio[2][0],
+            })
+            blocks.append({"type": "image", "id": trio[2][0], "contentKind": "diagram"})
+            continue
+        cid = f"{base}_{kind}"
+        crop_png(page, box, os.path.join(crops_dir, cid + ".png"), pad=1.0)
+        if kind == "nowyoutry":
+            text = band_text(page, box)
+            has_figs = bool(page_figures(page, box.y0))
+            ws = space_for(working_kind(text, has_figs, False), True)
+            blocks.append({
+                "type": "question", "id": cid, "contentKind": "diagram",
+                "contextImage": None, "workingSpace": ws,
+            })
+        else:
+            blocks.append({"type": "image", "id": cid, "contentKind": "diagram"})
+    return blocks
+
+
 def build_flow_document(pdf, first, last, title, out_dir, prefix):
     """Walks a page range and emits the flow document: section headings,
     tier headings and flowquestion blocks, with every figure and inline
@@ -1453,7 +1669,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
     # figure attribution rather than a name collision.
     sec_prefix = prefix
     pending_title = None
-    stats = {"questions": 0, "math": 0, "figures": 0, "sections": 0}
+    stats = {"questions": 0, "math": 0, "figures": 0, "sections": 0, "panels": 0}
 
     for pno in range(first, last + 1):
         page = doc[pno]
@@ -1485,6 +1701,21 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
         # pages with no repeated marker), then clears at the next section
         # title above.
         ex_y = exercise_start_y(page)
+        # Teaching panels are read BEFORE the exercise latch flips, and
+        # only from the part of the page above the exercise. Once an
+        # exercise is running, an "Example 12b" in the margin is a
+        # cross-reference tag, not a panel.
+        if not in_exercise:
+            stop = ex_y if ex_y is not None else page.rect.y1 - PAGE_FOOTER_PT
+            found = page_panels(page, stop)
+            if found:
+                if pending_title is not None:
+                    blocks.append(pending_title)
+                    pending_title = None
+                    stats["sections"] += 1
+                new = panel_blocks(page, found, crops_dir, f"{sec_prefix}{pno}")
+                stats["panels"] += len(found)
+                blocks.extend(new)
         if ex_y is not None:
             in_exercise = True
             y_floor = ex_y
@@ -1566,7 +1797,8 @@ def main():
 
     print(
         f"wrote {out_dir}: {stats['sections']} sections, {stats['questions']} questions, "
-        f"{stats['figures']} figures, {stats['math']} inline math crops, id={pid}"
+        f"{stats['figures']} figures, {stats['panels']} teaching panels, "
+        f"{stats['math']} inline math crops, id={pid}"
     )
     if UNMAPPED_PUA:
         print("\nWARNING: unmapped private-use glyphs reached the text.")
