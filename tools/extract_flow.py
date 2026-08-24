@@ -106,6 +106,19 @@ SIZE_TOL_PT = 0.8
 # space at body size - wider than the sub-point gaps inside a fraction,
 # narrower than the gap back to surrounding prose.
 MATH_RUN_GAP_PT = 3.0
+# Smallest thing that can be a diagram. Height is the looser of the two
+# because a flat wide triangle is a perfectly ordinary figure here - one
+# measured 47 x 16pt, and an 18pt floor on BOTH sides silently dropped
+# it, leaving the question a diagram short and its labels loose in the
+# prose ("417 x"). The area floor is what still rejects stray marks.
+MIN_FIG_W = 18.0
+MIN_FIG_H = 11.0
+MIN_FIG_AREA = 250.0
+
+
+def too_small(r):
+    return r.width < MIN_FIG_W or r.height < MIN_FIG_H or r.get_area() < MIN_FIG_AREA
+
 # Two text lines this close together are one row of the page, printed
 # with a little stagger, not two separate lines.
 LINE_ROW_TOL_PT = 4.0
@@ -219,10 +232,18 @@ def page_lines(page: fitz.Page):
     # wrong text. Body leading here is ~14pt, so a few points of
     # stagger cannot be a genuinely different line.
     out.sort(key=lambda t: t[0].y0)
-    rows, top = [], None
-    for i, (bbox, _spans) in enumerate(out):
-        if top is None or bbox.y0 - top > LINE_ROW_TOL_PT:
+    # A row ends where the gap to the NEXT line exceeds the tolerance,
+    # not where the distance from the row's first line does. Measuring
+    # from the first line lets one stray spacer set the anchor and then
+    # cut the row a couple of points early - which put a part's marker
+    # after its own text, so the text joined the part before it. Body
+    # leading here is ~14pt, so consecutive lines a few points apart
+    # are always one row.
+    rows, top, prev = [], None, None
+    for bbox, _spans in out:
+        if prev is None or bbox.y0 - prev > LINE_ROW_TOL_PT:
             top = bbox.y0
+        prev = bbox.y0
         rows.append(top)
     order = sorted(range(len(out)), key=lambda i: (rows[i], out[i][0].x0))
     return [out[i] for i in order]
@@ -243,6 +264,23 @@ def baseline_of(spans) -> float:
             key = round(c["origin"][1], 1)
             tally[key] = tally.get(key, 0) + 1
     return max(tally, key=tally.get) if tally else 0.0
+
+
+def body_size_of(spans) -> float:
+    """The line's dominant point size, by character count.
+
+    Not the largest size on the line. A line often ends with a stray
+    space span set a point larger than the text it follows, and taking
+    the maximum let that one invisible character redefine what "body
+    size" meant for the whole line - every real glyph then measured as
+    the wrong size, so an ordinary "cos 75 =" was cropped into images
+    word by word instead of staying editable text."""
+    tally = {}
+    for s in spans:
+        n = sum(1 for c in s.chars if c["c"].strip())
+        if n:
+            tally[round(s.size, 1)] = tally.get(round(s.size, 1), 0) + n
+    return max(tally, key=tally.get) if tally else BODY_SIZE
 
 
 def classify_char(c, span, baseline, body_size):
@@ -292,17 +330,27 @@ def find_fractions(lines):
 
     So the bar is found first, then everything vertically stacked within
     its horizontal span is pulled into one box - the whole fraction, to
-    be cropped once as a single inline image."""
+    be cropped once as a single inline image.
+
+    A bar is recognised by what is STACKED ON IT, not by how big it is.
+    Size looked like the discriminator - one book sets its rules
+    oversized - but another sets them at body size, and there the test
+    found no fractions at all and every one came out as three loose
+    fragments. Requiring something directly above AND directly below is
+    what a fraction actually is, and it still rejects the other thing
+    underscores are used for here: the fill-in-the-blank rules in
+    "H stands for the word ______", which have neither."""
     bars = []
     for _bbox, spans in lines:
         for s in spans:
             for c in s.chars:
-                if c["c"] == "_" and s.size > BODY_SIZE + 1.0:
+                if c["c"] == "_":
                     bars.append((fitz.Rect(c["bbox"]), c["origin"][1]))
 
     boxes = []
     for bar, bar_origin in bars:
         box = fitz.Rect(bar)
+        above = below = False
         for _bbox, spans in lines:
             for s in spans:
                 for c in s.chars:
@@ -323,8 +371,25 @@ def find_fractions(lines):
                     # origin-to-origin so a raised numerator and a
                     # dropped denominator both register.
                     if abs(c["origin"][1] - bar_origin) <= 10.0:
+                        # Which side of the rule a glyph is on: its own
+                        # CENTRE against the rule's BASELINE. Both
+                        # halves of that matter. Comparing baselines
+                        # alone fails because the numerator's origin
+                        # sits under a point above the bar's; comparing
+                        # the bar's box centre fails because an
+                        # underscore's box is nearly a full em tall, so
+                        # its centre lands above the rule it draws.
+                        # Underscores are skipped - a rule is never the
+                        # numerator or denominator of another rule.
+                        ccy = 0.5 * (cb.y0 + cb.y1)
+                        if c["c"] != "_":
+                            if ccy < bar_origin - 1.0:
+                                above = True
+                            elif ccy > bar_origin + 1.0:
+                                below = True
                         box |= cb
-        boxes.append(box)
+        if above and below:
+            boxes.append(box)
     return boxes
 
 
@@ -456,7 +521,7 @@ def page_figures(page: fitz.Page, y_floor: float):
 
     keep = []
     for r in merged:
-        if r.width < 18 or r.height < 18 or r.height > MAX_FIG_H:
+        if too_small(r) or r.height > MAX_FIG_H:
             continue
         # Rules and coloured bands (an "Exercise 10C" underline measures
         # 427x24) are long, flat and never a diagram. Judged on aspect
@@ -526,7 +591,7 @@ def owned_figures(page: fitz.Page, region: fitz.Rect, text_right_edge: float):
     cands = [d["rect"] for d in page.get_drawings()]
     cands += [fitz.Rect(i["bbox"]) for i in page.get_image_info()]
     for r in cands:
-        if r.width < 18 or r.height < 18:
+        if too_small(r):
             continue
         inter = r & region
         if inter.is_empty:
@@ -562,7 +627,7 @@ def owned_figures(page: fitz.Page, region: fitz.Rect, text_right_edge: float):
     for r in merged:
         if r.height > 0.45 * page_h or r.width > 0.80 * page_w:
             continue
-        if r.width < 18 or r.height < 18:
+        if too_small(r):
             continue
         keep.append(r)
     return keep
@@ -907,7 +972,7 @@ def label_figures(figs, marks):
                        default=None)
             if wall is not None:
                 f.x1 = min(f.x1, wall - 4)
-            if f.height < 18 or f.width < 18:
+            if too_small(f):
                 continue
         key = best["letter"] if best else None
         by_letter.setdefault(key, []).append(f)
@@ -1081,7 +1146,7 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
         region = fitz.Rect(40, ystart - 4, page.rect.x1 - 40, yend)
 
         figs = [fitz.Rect(f) & region for f in fig_owner[i]]
-        figs = [f for f in figs if not f.is_empty and f.width >= 18 and f.height >= 18]
+        figs = [f for f in figs if not f.is_empty and not too_small(f)]
         # Attribution and clipping have to happen BEFORE the crops are
         # written, since clipping is what decides the rect each PNG is
         # cut from. Done afterwards it changed only the bookkeeping: the
@@ -1134,6 +1199,16 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
         stem, parts = [], []
         cur_part = None
         cur_sub = None
+        # In a multi-column grid, content cannot be routed to "whichever
+        # part was opened last". A stacked fraction is typeset as three
+        # separate lines, and the denominators of all three columns
+        # share one line BELOW all three markers - so the last column
+        # collected every denominator on the row ("cos 33 = x 4 3 6")
+        # while the other two lost theirs. The marker cells say which
+        # column a line is in, which is the question the router has to
+        # answer.
+        multi_col = bool(pmarks) and marker_columns(pmarks) > 1
+        part_by_letter = {}
         for bbox, spans in lines:
             if not (ystart - 4 <= bbox.y0 < yend):
                 continue
@@ -1167,6 +1242,7 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             if letter:
                 cur_part = {"letter": letter, "content": [], "subs": []}
                 parts.append(cur_part)
+                part_by_letter.setdefault(letter, cur_part)
                 cur_sub = None
                 # "b i" opens the part AND its first sub-item. Without
                 # this the first item lost its marker while ii and iii
@@ -1189,9 +1265,21 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             if not body_only:
                 continue
             baseline = baseline_of(body_only)
-            body = max((s.size for s in body_only), default=BODY_SIZE)
+            body = body_size_of(body_only)
             runs = build_runs(body_only, baseline, body, fracs, emitted_fracs)
             stream = runs_to_json(runs, page, crops_dir, f"{prefix}q{number}", counter, baseline)
+
+            # A continuation line in a column grid belongs to the column
+            # it sits in, not to the part opened most recently.
+            if multi_col and not letter and not roman:
+                pt = fitz.Point(bbox.x0 + 1, bbox.y0 + 1)
+                owner = next(
+                    (part_by_letter[L] for L, cell in cells.items()
+                     if L in part_by_letter and cell.contains(pt)),
+                    None,
+                )
+                if owner is not None and owner is not cur_part:
+                    cur_part, cur_sub = owner, None
 
             if cur_sub is not None:
                 cur_sub["content"] += stream

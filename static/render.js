@@ -821,7 +821,23 @@ function figureHeightMm(figs, figPct) {
   return FIG_HEIGHTS_MM.reduce((best, h) => (Math.abs(h - med) < Math.abs(best - med) ? h : best));
 }
 
-function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
+// Splits a question's parts into the rows its grid will actually set
+// them in, so a tall grid can paginate a row at a time instead of
+// jumping to the next page whole. A sixteen-triangle question is
+// taller than the space left under the question above it far more
+// often than not, and as one atomic unit it left half a page empty
+// every time.
+function flowQuestionRows(b, figPct) {
+  const parts = b.parts || [];
+  if (!parts.length) return [];
+  const figH = figureHeightMm(parts.flatMap((p) => p.figures || []), figPct);
+  const cols = flowGridColumns(parts, figH, b.columns || 0);
+  const rows = [];
+  for (let i = 0; i < parts.length; i += cols) rows.push(parts.slice(i, i + cols));
+  return rows;
+}
+
+function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // Each part carries its own answer box, sized at build time from what
   // that part actually asks (see assign_working_space). A part that
   // says "explain why" gets ruled lines while its neighbour that says
@@ -851,9 +867,14 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
       )
       .join("");
   const cols = (b.parts || []).length ? flowGridColumns(b.parts, partFigH, b.columns || 0) : 0;
-  const parts = (b.parts || []).length
+  // A slice renders only some of the parts, so a tall grid can be split
+  // over a page break. `head` carries the number, stem and shared
+  // diagrams; the rest carry grid rows only.
+  const shown = slice ? slice.parts : b.parts || [];
+  const head = !slice || slice.head;
+  const parts = shown.length
     ? `<div class="flowq-grid" style="grid-template-columns:repeat(${cols},1fr)">` +
-      b.parts
+      shown
         .map(
           (p) =>
             `<div class="flowq-cell">` +
@@ -913,16 +934,16 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct) {
   return (
     `<div class="flowq-unit">` +
     `<div class="flowq-row">` +
-    `<div class="flowq-num">${escapeHtml(b.number || "")}</div>` +
-    `<div class="flowq-body">${stem}${contextFig}${parts}` +
-    (contextFig || !many ? "" : figBlock) +
+    `<div class="flowq-num">${head ? escapeHtml(b.number || "") : ""}</div>` +
+    `<div class="flowq-body">${head ? stem + contextFig : ""}${parts}` +
+    (head && !contextFig && many ? figBlock : "") +
     `</div>` +
-    (contextFig || many ? "" : figBlock) +
+    (head && !contextFig && !many ? figBlock : "") +
     `</div>` +
     // Parts bring their own boxes, so the whole-question box is only
     // for a question that has no parts at all - otherwise every
     // multi-part question ended with a second, unusable spare box.
-    ((b.parts || []).length ? "" : workingSpaceHtml(ws)) +
+    (head && !(b.parts || []).length ? workingSpaceHtml(ws) : "") +
     `</div>`
   );
 }
@@ -1513,6 +1534,27 @@ export async function renderEditor(workbook, cropsBaseUrl) {
               deleteButtonHtml(b.id, "block", "Delete question") +
               pairWithNextControlHtml(b.id, !!b.pairWithNext)
           );
+          // A grid more than two rows deep is emitted a row at a time,
+          // so it can flow over a page break instead of moving whole.
+          // The head (number, stem, shared diagrams) glues to the first
+          // row so it can never be orphaned at the foot of a page.
+          const rows = flowQuestionRows(b, figPct);
+          if (rows.length > 2 && rows[0].length > 1) {
+            rows.forEach((rowParts, ri) => {
+              const slice = { parts: rowParts, head: ri === 0 };
+              const rowHtml = flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice);
+              units.push({
+                html: `<div class="block question flowq${ri ? " flowq-cont" : ""}">${rowHtml}${ri === 0 ? controls : ""}</div>`,
+                heading: false,
+                wsTargets: ri === 0
+                  ? [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }]
+                  : [],
+                breakBefore: ri === 0 ? !!b.breakBefore : false,
+                glueForward: ri === 0,
+              });
+            });
+            return;
+          }
           const html = flowQuestionHtml(b, cropsBaseUrl, ws, figPct) + controls;
           units.push({
             html: `<div class="block question flowq">${html}</div>`,

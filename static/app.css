@@ -267,6 +267,12 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .tier-enrichment { background: #b5406a; }
 .tier-default { background: #555; }
 .block { margin-bottom: 5px; position: relative; }
+/* Continuation rows of one split grid question (see flowQuestionRows).
+   They are separate blocks only so the paginator can break between
+   them; on the page they have to read as one question, so they carry
+   none of the spacing that separates real neighbours. */
+.block.flowq-cont { margin-bottom: 0; }
+.block.flowq-cont .flowq-grid { margin-top: 0; }
 /* Text left, diagrams centred (contentKind, set by content_kind() in
    add_chapter.py).
 
