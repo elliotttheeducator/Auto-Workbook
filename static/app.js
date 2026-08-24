@@ -15,7 +15,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, buildFilterContext, DEFAULT_FLOW_BODY_PT, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -900,6 +900,40 @@ function handleControlClick(e) {
     const next = Math.max(FLOW_BODY_PT_MIN, Math.min(FLOW_BODY_PT_MAX, cur + Number(el.dataset.delta) * FLOW_BODY_PT_STEP));
     if (next === cur) return;
     currentWorkbook.flowBodyPt = next;
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "set-row-cols") {
+    // Cycles how many parts sit on one row of a question's grid. The
+    // pattern is stored whole rather than as a single edited row, so
+    // the rows AFTER the one changed reflow to absorb the difference -
+    // which is the point: making row 1 narrower is how you free the
+    // space beside a diagram, and the parts pushed out have to go
+    // somewhere sensible on their own.
+    const block = findBlock(el.dataset.target);
+    if (!block || block.type !== "flowquestion") return;
+    const rowIndex = Number(el.dataset.row);
+    const rows = flowQuestionRows(block, block.imageScale ?? currentWorkbook.defaultScales?.combined ?? 100);
+    const pattern = rows.map((r) => r.parts.length);
+    if (rowIndex >= pattern.length) return;
+    // automatic, 1, 2, 3, 4, back to automatic. Leaving automatic goes
+    // to ONE rather than to whatever the automatic count happened to
+    // be plus one: a row already laid out three across would otherwise
+    // only ever offer four, and one and two would be unreachable.
+    // Ending the cycle back at automatic is what makes this undoable.
+    const pinned = el.dataset.set === "1";
+    const next = !pinned ? 1 : pattern[rowIndex] >= 4 ? 0 : pattern[rowIndex] + 1;
+    // Only the rows up to and including the edited one are pinned;
+    // everything after it goes back to the automatic split, so a
+    // question does not accumulate a frozen layout for rows nobody
+    // has looked at.
+    if (next === 0) {
+      block.rowPattern = pattern.slice(0, rowIndex);
+    } else {
+      pattern[rowIndex] = next;
+      block.rowPattern = pattern.slice(0, rowIndex + 1);
+    }
+    if (!block.rowPattern.length) delete block.rowPattern;
     persistAndRerenderEditor();
     return;
   }

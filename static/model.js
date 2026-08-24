@@ -321,6 +321,14 @@ export function extractOverrides(workbook) {
         // capture here same as every other per-block override.
         o.pairWithNext = b.pairWithNext;
       }
+      if (b.type === "flowquestion") {
+        // How many parts sit on each row of this question's grid, as an
+        // array like [1, 2, 2]. A real layout decision rather than a
+        // derived one: which parts share a row depends on where the
+        // diagrams fall on the page, which only the person looking at
+        // the page can see - so it persists like any other edit.
+        o.rowPattern = b.rowPattern;
+      }
       if (b.type === "question" || b.type === "image") {
         o.imageScale = b.imageScale;
         // A manually re-cropped PNG (see crop.js), stored as a data: URL
@@ -409,6 +417,7 @@ export function applyOverrides(workbook, overrides) {
         if (o.manualCropSrc !== undefined) b.manualCropSrc = o.manualCropSrc;
         if (o.manualCropRect !== undefined) b.manualCropRect = o.manualCropRect;
         if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
+        if (o.rowPattern !== undefined && b.type === "flowquestion") b.rowPattern = o.rowPattern;
       } else if (b.type === "question" && legacyBlockWorkingSpace[b.id]) {
         b.workingSpace = legacyBlockWorkingSpace[b.id];
       }

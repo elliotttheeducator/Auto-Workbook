@@ -852,6 +852,21 @@ function floatMm(f, figPct) {
   return Math.max(30, Math.min(72, (f.wMm * figPct) / 100)).toFixed(0);
 }
 
+// The per-row layout control: a small chip on each row of a part grid
+// showing how many parts are on it, which cycles 1 - 2 - 3 - 4 on
+// click. Editor-only (hidden in print, like every other control), and
+// it is the only way to say something the build cannot work out for
+// itself: whether THIS row should be narrow because a diagram is
+// beside it, or wide because the space below one is now free.
+function rowColsControlHtml(blockId, rowIndex, count, pinned) {
+  return (
+    `<button class="row-cols${pinned ? " row-cols-set" : ""}" data-action="set-row-cols" ` +
+    `data-target="${escapeHtml(blockId)}" data-row="${rowIndex}" data-set="${pinned ? 1 : 0}" ` +
+    `title="${pinned ? "Parts on this row (set by hand)" : "Parts on this row (automatic)"}` +
+    ` - click to change">${count}</button>`
+  );
+}
+
 function partFloats(p) {
   if ((p.figures || []).length !== 1) return false;
   return (p.subs || []).length > 0;
@@ -861,13 +876,32 @@ function sharedFigOn(b) {
   return (b.parts || []).length > 0 && (b.figures || []).length === 1;
 }
 
-function flowQuestionRows(b, figPct) {
+export function flowQuestionRows(b, figPct) {
   const parts = b.parts || [];
   if (!parts.length) return [];
   const figH = figureHeightMm(parts.flatMap((p) => p.figures || []), figPct);
   const cols = flowGridColumns(parts, figH, b.columns || 0);
   const rows = [];
-  for (let i = 0; i < parts.length; i += cols) rows.push(parts.slice(i, i + cols));
+  // A saved pattern says how many parts sit on each row - [1, 2, 2]
+  // rather than the even 2, 2, 1 the column count alone would give.
+  // It is read as far as it goes and the rest falls back to the even
+  // split, so a pattern stays usable if the question later gains parts.
+  const pattern = Array.isArray(b.rowPattern) ? b.rowPattern : [];
+  let i = 0;
+  for (const n of pattern) {
+    if (i >= parts.length) break;
+    const take = Math.max(1, Math.min(4, n | 0));
+    // A row the pattern set uses exactly that many columns, so asking
+    // for one part on a row really does give it the full width. A row
+    // that fell through to the even split keeps the question's own
+    // column count, so a lone part at the end of a 2-wide grid still
+    // sits in a 2-wide column rather than stretching across the page.
+    rows.push({ parts: parts.slice(i, i + take), cols: take, set: true });
+    i += take;
+  }
+  for (; i < parts.length; i += cols) {
+    rows.push({ parts: parts.slice(i, i + cols), cols, set: false });
+  }
   return rows;
 }
 
@@ -917,18 +951,18 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // A slice renders only some of the parts, so a tall grid can be split
   // over a page break. `head` carries the number, stem and shared
   // diagrams; the rest carry grid rows only.
-  const shown = slice ? slice.parts : b.parts || [];
   const head = !slice || slice.head;
   // Beside a float the parts are plain blocks, not a grid. A grid
   // container establishes its own formatting context, so it would
   // shorten beside the diagram and STAY short for its whole height -
   // holding the dead space open under a short diagram, which is the
   // thing the float is meant to reclaim.
-  const parts = shown.length
-    ? `<div class="flowq-grid${sharedFig ? " flowq-flow" : ""}" style="grid-template-columns:repeat(${cols},1fr)">` +
-      shown
-        .map(
-          (p) =>
+  // One grid PER ROW, so rows can differ in width. An even split is
+  // only ever a guess at where the diagrams fall; the person looking at
+  // the page can see that 1, 2, 2 fits where 2, 2, 1 does not, and
+  // rowPattern is how they say so (see rowColsControlHtml).
+  const rowsFor = slice ? [slice.row] : flowQuestionRows(b, figPct);
+  const cellHtml = (p) =>
             `<div class="flowq-cell">` +
             `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
             `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
@@ -968,10 +1002,18 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
                 `</div>`
               : "") +
             workingSpaceHtml(wsFor(p)) +
+            `</div>`;
+  const parts = rowsFor.length
+    ? rowsFor
+        .map(
+          (row, ri) =>
+            `<div class="flowq-grid${sharedFig ? " flowq-flow" : ""}" ` +
+            `style="grid-template-columns:repeat(${row.cols},1fr)">` +
+            row.parts.map(cellHtml).join("") +
+            rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.parts.length, row.set) +
             `</div>`
         )
-        .join("") +
-      `</div>`
+        .join("")
     : "";
   // Figures are the only thing here that scales. They carry their true
   // mm size from the PDF, so the percentage is a real proportion of the
@@ -1635,8 +1677,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // sheet - the last parts printed past the bottom edge.
           const rows = flowQuestionRows(b, figPct);
           if (rows.length > 2) {
-            rows.forEach((rowParts, ri) => {
-              const slice = { parts: rowParts, head: ri === 0 };
+            rows.forEach((row, ri) => {
+              const slice = { row, head: ri === 0, rowIndex: ri };
               const rowHtml = flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice);
               units.push({
                 html: `<div class="block question flowq${ri ? " flowq-cont" : ""}">${rowHtml}${ri === 0 ? controls : ""}</div>`,

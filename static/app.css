@@ -471,6 +471,20 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 .flowq-grid.flowq-flow { display: block; }
 .flowq-grid.flowq-flow .flowq-cell { display: block; }
 .flowq-grid.flowq-flow .flowq-cell + .flowq-cell { margin-top: 1.5mm; }
+/* Per-row layout control (see rowColsControlHtml). Sits in the left
+   gutter beside its row, out of the text's way, and is editor chrome -
+   hidden in print like every other control. */
+.row-cols {
+  position: absolute; left: -7mm; margin-top: 0.5mm;
+  width: 5mm; height: 5mm; padding: 0; line-height: 1;
+  border: 1px solid #cbd5e1; border-radius: 3px; background: #fff;
+  color: #64748b; font-size: 8px; cursor: pointer;
+}
+.row-cols:hover { border-color: #0f766e; color: #0f766e; }
+/* A row someone set by hand, so it is obvious at a glance which rows
+   the layout still owns and which have been taken over. */
+.row-cols-set { border-color: #0f766e; color: #0f766e; font-weight: 700; }
+.flowq-grid { position: relative; }
 .flowq-float { float: right; margin: 0 0 2mm 5mm; }
 /* A part floating its own diagram: the cell has to be a plain block
    for the float to work at all, and its own boxes must be auto-width
@@ -715,7 +729,8 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   .topbar, .home-main, #filter-bar-mount,
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,
   .image-scale-picker, .break-before-toggle, .pair-with-next-toggle, .controls-hang,
-  .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn { display: none !important; }
+  .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn,
+  .row-cols { display: none !important; }
   /* A chapter left unchecked in the print-selection panel (see
      printSelectionBarHtml in render.js / applyPrintSelection in app.js) -
      print-only, so unchecking a chapter never hides it from the editor
