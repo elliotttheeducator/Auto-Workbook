@@ -922,7 +922,12 @@ function handleControlClick(e) {
     // only ever offer four, and one and two would be unreachable.
     // Ending the cycle back at automatic is what makes this undoable.
     const pinned = el.dataset.set === "1";
-    const next = !pinned ? 1 : pattern[rowIndex] >= 4 ? 0 : pattern[rowIndex] + 1;
+    // Leaving automatic goes to 1 - unless automatic already gives 1,
+    // in which case 2, so the first click always changes something
+    // visible rather than pinning the row to the width it already had.
+    const next = !pinned
+      ? (pattern[rowIndex] === 1 ? 2 : 1)
+      : pattern[rowIndex] >= 4 ? 0 : pattern[rowIndex] + 1;
     // Only the rows up to and including the edited one are pinned;
     // everything after it goes back to the automatic split, so a
     // question does not accumulate a frozen layout for rows nobody

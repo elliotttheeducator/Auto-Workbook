@@ -876,11 +876,24 @@ function sharedFigOn(b) {
   return (b.parts || []).length > 0 && (b.figures || []).length === 1;
 }
 
+// The automatic column count for a question's part grid. Shared by the
+// renderer and by flowQuestionRows so the two cannot disagree: when
+// they did, a question whose parts are narrowed to sit beside a
+// diagram still had its ROWS grouped by the book's full-width count,
+// and three ratio boxes ended up squeezed into the strip left over
+// next to a photograph.
+function flowColsFor(b, figPct) {
+  const parts = b.parts || [];
+  if (!parts.length) return 0;
+  if (sharedFigOn(b)) return parts.length > 4 ? 2 : 1;
+  const figH = figureHeightMm(parts.flatMap((p) => p.figures || []), figPct);
+  return flowGridColumns(parts, figH, b.columns || 0);
+}
+
 export function flowQuestionRows(b, figPct) {
   const parts = b.parts || [];
   if (!parts.length) return [];
-  const figH = figureHeightMm(parts.flatMap((p) => p.figures || []), figPct);
-  const cols = flowGridColumns(parts, figH, b.columns || 0);
+  const cols = flowColsFor(b, figPct);
   const rows = [];
   // A saved pattern says how many parts sit on each row - [1, 2, 2]
   // rather than the even 2, 2, 1 the column count alone would give.
@@ -941,13 +954,11 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // whole right-hand half of the page, which a full-width diagram
   // with the parts underneath simply leaves empty.
   const sharedFig = (b.parts || []).length > 0 && (b.figures || []).length === 1;
-  const cols = (b.parts || []).length
-    ? sharedFig
-      // The left column is only about half the page now, so the parts
-      // stack rather than trying to hold the book's own column count.
-      ? (b.parts.length > 4 ? 2 : 1)
-      : flowGridColumns(b.parts, partFigH, b.columns || 0)
-    : 0;
+  // Beside a floated diagram the parts have about half the page, so
+  // they stack rather than trying to hold the book's own column count
+  // - see flowColsFor, which flowQuestionRows uses too so the rows are
+  // grouped by the same number they are laid out in.
+  const cols = flowColsFor(b, figPct);
   // A slice renders only some of the parts, so a tall grid can be split
   // over a page break. `head` carries the number, stem and shared
   // diagrams; the rest carry grid rows only.

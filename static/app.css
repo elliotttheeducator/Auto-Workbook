@@ -466,11 +466,13 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    (overflow:hidden), which makes it a block formatting context, which
    is exactly what makes it shorten beside a float rather than run
    underneath one. */
-/* Plain blocks beside a float, so each part clears the diagram on its
-   own rather than the whole list being held to the narrow column. */
-.flowq-grid.flowq-flow { display: block; }
-.flowq-grid.flowq-flow .flowq-cell { display: block; }
-.flowq-grid.flowq-flow .flowq-cell + .flowq-cell { margin-top: 1.5mm; }
+/* Beside a float each ROW is its own grid, which is what lets it both
+   shorten next to the diagram and still lay its parts out in columns.
+   A single grid for the whole question could not: it establishes one
+   formatting context, so it would shorten for its entire height and
+   hold the space under a short diagram open. Rows are separate
+   containers, so each one shortens only for as long as it is actually
+   level with the diagram, and the rows below it take the full width. */
 /* Per-row layout control (see rowColsControlHtml). Sits in the left
    gutter beside its row, out of the text's way, and is editor chrome -
    hidden in print like every other control. */
