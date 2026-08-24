@@ -5754,7 +5754,53 @@
      }
     }
    ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "ans_title",
+     "text": "Answers: 3E-3I",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_00",
+     "contentKind": "diagram",
+     "widthMm": 78.3
+    },
+    {
+     "type": "image",
+     "id": "ans_01",
+     "contentKind": "diagram",
+     "widthMm": 80.4
+    },
+    {
+     "type": "image",
+     "id": "ans_02",
+     "contentKind": "diagram",
+     "widthMm": 78.3
+    },
+    {
+     "type": "image",
+     "id": "ans_03",
+     "contentKind": "diagram",
+     "widthMm": 80.4
+    },
+    {
+     "type": "image",
+     "id": "ans_04",
+     "contentKind": "diagram",
+     "widthMm": 78.3
+    },
+    {
+     "type": "image",
+     "id": "ans_05",
+     "contentKind": "diagram",
+     "widthMm": 80.4
+    }
+   ]
   }
  ],
- "buildVersion": "bde573da"
+ "buildVersion": "791e78c9"
 }
