@@ -1072,6 +1072,42 @@ function floatMm(f, figPct) {
 // it is the only way to say something the build cannot work out for
 // itself: whether THIS row should be narrow because a diagram is
 // beside it, or wide because the space below one is now free.
+// What this row's column button can actually do. Every candidate is
+// laid out and compared against the layout on screen, and only the ones
+// that come out different are offered - so a press always moves
+// something. Without that the button had settings that were no-ops:
+// asking a row for one part when it already holds one, or asking the
+// LAST row for more when there is nothing after it to pull up. Those
+// presses lit the button up and changed nothing, which is what made the
+// control feel broken on 3E Q2 and every other question ending in a
+// single-part row. A row with no useful setting at all gets no button.
+export function rowColsCycle(b, figPct, rowIndex) {
+  const rows = flowQuestionRows(b, figPct);
+  if (rowIndex >= rows.length) return null;
+  const saved = Array.isArray(b.rowPattern) ? b.rowPattern : [];
+  const base = saved.slice(0, rowIndex);
+  const shapeOf = (value) =>
+    flowQuestionRows({ ...b, rowPattern: value === 0 ? base : base.concat([value]) }, figPct)
+      .map((r) => r.parts.length)
+      .join(",");
+  // Never more columns than there are parts left to fill them.
+  const left = rows.slice(rowIndex).reduce((n, r) => n + r.parts.length, 0);
+  const current = rows[rowIndex].set ? saved[rowIndex] | 0 : 0;
+  const here = shapeOf(current);
+  // 1..max, then automatic to close the cycle.
+  const order = [];
+  for (let n = 1; n <= Math.min(4, left); n++) order.push(n);
+  order.push(0);
+  const from = order.indexOf(current);
+  for (let i = 1; i <= order.length; i++) {
+    const candidate = order[(from + i + order.length) % order.length];
+    if (shapeOf(candidate) !== here) {
+      return { current, next: candidate, label: current || rows[rowIndex].parts.length };
+    }
+  }
+  return null;
+}
+
 function rowColsControlHtml(blockId, rowIndex, count, pinned) {
   return (
     `<button class="row-cols${pinned ? " row-cols-set" : ""}" data-action="set-row-cols" ` +
@@ -1257,6 +1293,15 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
               : "") +
             workingSpaceHtml(wsFor(p), b.id, p.letter) +
             `</div>`;
+  // No button on a row that cannot change, and none on the tail of a row
+  // split between its sub-items - the button belongs to the row, and the
+  // row starts on the piece before.
+  const rowControlHtml = (index, suppressed) => {
+    if (suppressed) return "";
+    const cycle = rowColsCycle(b, figPct, index);
+    if (!cycle) return "";
+    return rowColsControlHtml(b.id, index, cycle.label, cycle.current !== 0);
+  };
   const parts = rowsFor.length
     ? rowsFor
         .map(
@@ -1264,9 +1309,7 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             `<div class="flowq-grid${sharedFig ? " flowq-flow" : ""}" ` +
             `style="grid-template-columns:repeat(${row.cols},1fr)">` +
             row.parts.map(cellHtml).join("") +
-            (slice && slice.noRowControl
-              ? ""
-              : rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.set ? row.cols : row.parts.length, row.set)) +
+            rowControlHtml((slice ? slice.rowIndex : 0) + ri, slice && slice.noRowControl) +
             `</div>`
         )
         .join("")

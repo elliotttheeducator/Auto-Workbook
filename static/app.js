@@ -18,7 +18,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, fitTeacherBlanks, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, fitTeacherBlanks, rowColsCycle, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -79,8 +79,8 @@ function toggleMonitorProfile() {
   applyViewMode();
   if (viewMode === "actual") {
     wrapWorkingSpaces(appEl);
-  fitTeacherBlanks(appEl);
-  alignSplitRows(appEl);
+    fitTeacherBlanks(appEl);
+    alignSplitRows(appEl);
     layoutHangingControls();
   }
 }
@@ -930,72 +930,23 @@ function handleControlClick(e) {
     // the rows AFTER the one changed reflow to absorb the difference -
     // which is the point: making row 1 narrower is how you free the
     // space beside a diagram, and the parts pushed out have to go
-    // somewhere sensible on their own.
+    // somewhere sensible on their own. Which setting comes next is
+    // rowColsCycle's call, the same function that decided whether to
+    // draw this button at all, so what a press does and what the button
+    // offers can never disagree.
     const block = findBlock(el.dataset.target);
     if (!block || block.type !== "flowquestion") return;
     const rowIndex = Number(el.dataset.row);
-    const rows = flowQuestionRows(block, block.imageScale ?? currentWorkbook.defaultScales?.combined ?? 100);
-    // What each row is CURRENTLY set to. A row someone has set by hand
-    // is its saved number, not the number of parts that number happened
-    // to gather: on the last rows of a question those differ - a row set
-    // to 4 with only 3 parts left to fill it reads back as 3, so the
-    // cycle asked for 4 again and the button stuck there instead of
-    // coming back round to automatic.
-    const pattern = rows.map((r, i) => (r.set ? block.rowPattern[i] : r.parts.length));
-    if (rowIndex >= pattern.length) return;
-    // Never offer more columns than there are parts left to put in them.
-    const left = rows.slice(rowIndex).reduce((n, r) => n + r.parts.length, 0);
-    const max = Math.max(1, Math.min(4, left));
-    // automatic, 1, 2, 3, 4, back to automatic. Leaving automatic goes
-    // to ONE rather than to whatever the automatic count happened to
-    // be plus one: a row already laid out three across would otherwise
-    // only ever offer four, and one and two would be unreachable.
-    // Ending the cycle back at automatic is what makes this undoable.
-    const pinned = el.dataset.set === "1";
-    // Leaving automatic goes to 1 - unless automatic already gives 1,
-    // in which case 2, so the first click always changes something
-    // visible rather than pinning the row to the width it already had.
-    const next = !pinned
-      ? (pattern[rowIndex] === 1 ? Math.min(2, max) : 1)
-      : pattern[rowIndex] >= max ? 0 : pattern[rowIndex] + 1;
+    const figPct = block.imageScale ?? currentWorkbook.defaultScales?.combined ?? 100;
+    const cycle = rowColsCycle(block, figPct, rowIndex);
+    if (!cycle) return;
     // Only the rows up to and including the edited one are pinned;
     // everything after it goes back to the automatic split, so a
     // question does not accumulate a frozen layout for rows nobody
     // has looked at.
-    if (next === 0) {
-      block.rowPattern = pattern.slice(0, rowIndex);
-    } else {
-      pattern[rowIndex] = next;
-      block.rowPattern = pattern.slice(0, rowIndex + 1);
-    }
+    const base = (Array.isArray(block.rowPattern) ? block.rowPattern : []).slice(0, rowIndex);
+    block.rowPattern = cycle.next === 0 ? base : base.concat([cycle.next]);
     if (!block.rowPattern.length) delete block.rowPattern;
-    persistAndRerenderEditor();
-    return;
-  }
-  if (action === "step-part-height") {
-    // Resizes ONE part's answer box. A flow question's boxes belong to
-    // its parts, each sized at build time from what that part actually
-    // asks, so the question-level size control has nothing to move on a
-    // question that has any - these grips are how those boxes are
-    // reached. Stored per box on the block rather than written back into
-    // the part, so the shipped measurement stays intact underneath and
-    // the edit persists like any other override.
-    const block = findBlock(el.dataset.target);
-    if (!block || block.type !== "flowquestion") return;
-    const key = el.dataset.part || "";
-    if (!key) return;
-    const [letter, subLetter] = key.split(".");
-    const part = (block.parts || []).find((p) => p.letter === letter);
-    const sub = subLetter && (part?.subs || []).find((x) => x.letter === subLetter);
-    const current = (block.partSpaces || {})[key] || (sub ? sub.workingSpace : part?.workingSpace);
-    if (!current) return;
-    const step = current.style === "lines" ? RULE_MM : GRID_MM;
-    const next = current.heightMm + Number(el.dataset.delta) * step;
-    // Two rows is the floor - a box shorter than that is not somewhere a
-    // student can write. The ceiling keeps one box from being taller
-    // than the sheet it has to print on.
-    if (next < step * 2 || next > PAGE_HEIGHT_MM - PAGE_MARGIN_MM * 2) return;
-    block.partSpaces = { ...(block.partSpaces || {}), [key]: { ...current, heightMm: next } };
     persistAndRerenderEditor();
     return;
   }
