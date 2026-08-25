@@ -382,7 +382,17 @@ function pairAnswerImageUnits(units) {
 // margin and collide - see the .split-row parts comment above for the
 // same reasoning applied to lettered parts.
 function buildPairedQuestionRowUnit(a, b) {
-  const partHtml = (q) => `<div class="block question">${q.crop}${workingSpaceHtml(q.ws)}</div>`;
+  // wsInCrop: a text-flow question renders its own answer space as part
+  // of itself - one box per part, or one for the whole question when it
+  // has no parts (see flowQuestionHtml) - so adding another here gave
+  // every paired flow question a second box underneath the first. On a
+  // multi-part question that spare box was also the only one the size
+  // controls moved, since the real boxes are the parts' own: the
+  // "working space gets split and can't be changed" this used to look
+  // like. A bitmap question carries no box of its own and still needs
+  // one added.
+  const partHtml = (q) =>
+    `<div class="block question">${q.crop}${q.wsInCrop ? "" : workingSpaceHtml(q.ws)}</div>`;
   const partsHtml = partHtml(a) + partHtml(b);
   const sideControls = (q, label) =>
     `<div class="paired-side-controls"><span class="paired-side-label">${escapeHtml(label)}</span>` +
@@ -593,15 +603,54 @@ export function defaultScaleBarHtml(workbook) {
 // what fits on a sheet.
 export function alignSplitRows(container) {
   for (const row of container.querySelectorAll(".split-row, .answer-row")) {
-    const crops = Array.from(row.children)
-      .filter((el) => el.classList.contains("block"))
-      .map((el) => el.querySelector(".block-crop"))
-      .filter(Boolean);
-    if (crops.length < 2) continue;
-    for (const c of crops) c.style.minHeight = "";
-    const maxHeight = Math.max(...crops.map((c) => c.getBoundingClientRect().height));
-    for (const c of crops) c.style.minHeight = `${maxHeight}px`;
+    const sides = Array.from(row.children).filter((el) => el.classList.contains("block"));
+    const crops = sides.map((el) => el.querySelector(".block-crop")).filter(Boolean);
+    if (crops.length >= 2) {
+      for (const c of crops) c.style.minHeight = "";
+      const maxHeight = Math.max(...crops.map((c) => c.getBoundingClientRect().height));
+      for (const c of crops) c.style.minHeight = `${maxHeight}px`;
+    }
+    if (sides.length >= 2) levelRowBottoms(sides);
   }
+}
+
+// Two questions sharing a row rarely have the same amount of text above
+// their answer boxes, so their boxes stop at different heights and the
+// row ends on a ragged step. The space beside the shorter one is dead
+// either way - nothing else can be placed in it - so it is given to that
+// question's own box instead, and both sides finish level. Only the
+// bottom-most boxes on each side grow (a two-column bottom row grows
+// both), and the original height is remembered so repeated calls level
+// against the real heights rather than compounding.
+function levelRowBottoms(sides) {
+  const bottomBoxes = (side) => {
+    const all = Array.from(side.querySelectorAll(".working-space"));
+    if (!all.length) return [];
+    for (const box of all) {
+      if (box.dataset.baseHeight === undefined) box.dataset.baseHeight = box.style.height || "";
+      box.style.height = box.dataset.baseHeight;
+    }
+    const low = Math.max(...all.map((b) => b.getBoundingClientRect().bottom));
+    return all.filter((b) => low - b.getBoundingClientRect().bottom < 1);
+  };
+  const groups = sides.map(bottomBoxes);
+  if (groups.some((g) => !g.length)) return;
+  const boxBottom = groups.map((g) => g[0].getBoundingClientRect().bottom);
+  // What sits between the box and the end of its side - normally just
+  // the block's own trailing margin, the same on both. If the two sides
+  // disagree, one of them has something else below its box; growing
+  // that box would push that something down and make the row taller
+  // than the height pagination measured, so leave the row alone.
+  const gaps = sides.map((s, i) => s.getBoundingClientRect().bottom - boxBottom[i]);
+  if (Math.max(...gaps) - Math.min(...gaps) > 4) return;
+  const target = Math.max(...boxBottom);
+  groups.forEach((boxes, i) => {
+    const grow = target - boxBottom[i];
+    if (grow < 1) return;
+    for (const box of boxes) {
+      box.style.height = `${box.getBoundingClientRect().height + grow}px`;
+    }
+  });
 }
 
 // A heading - or a question's shared stem/context image sitting right
@@ -1735,7 +1784,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             heading: false,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
             breakBefore: !!b.breakBefore,
-            pairData: { id: b.id, crop: flowQuestionHtml(b, cropsBaseUrl, ws, figPct), ws, pct: figPct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext },
+            pairData: { id: b.id, crop: flowQuestionHtml(b, cropsBaseUrl, ws, figPct), ws, pct: figPct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext, wsInCrop: true },
           });
           return;
         }
