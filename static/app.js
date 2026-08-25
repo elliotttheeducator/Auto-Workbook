@@ -18,7 +18,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, fitTeacherBlanks, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -79,6 +79,7 @@ function toggleMonitorProfile() {
   applyViewMode();
   if (viewMode === "actual") {
     wrapWorkingSpaces(appEl);
+  fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
     layoutHangingControls();
   }
@@ -127,6 +128,7 @@ function toggleViewMode() {
   // need for a full renderEditorOnce(), just a re-measure of whatever
   // depends on the page's actual on-screen dimensions.
   wrapWorkingSpaces(appEl);
+  fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
   layoutHangingControls();
 }
@@ -452,6 +454,7 @@ async function renderEditorOnce() {
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   wrapWorkingSpaces(appEl);
+  fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
@@ -617,6 +620,7 @@ async function renderEditorView(id) {
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
   wrapWorkingSpaces(appEl);
+  fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
@@ -649,6 +653,7 @@ async function undoAutoFit() {
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
   wrapWorkingSpaces(appEl);
+  fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();

@@ -702,6 +702,46 @@ export function wrapWorkingSpaces(container) {
   }
 }
 
+// Sizes each teacher-workthrough blank to the space it is standing in
+// for. The blank replaces the worked Solution, so the room it can have
+// is whatever that column had - and the Explanation beside it is often
+// taller still, in which case the extra is there for free: the row is
+// that tall either way, and a bigger box is a better one to work in.
+// The split view is print-only and hidden here, so it is shown just
+// long enough to measure and put straight back.
+export function fitTeacherBlanks(container) {
+  for (const split of container.querySelectorAll(".workthrough-split")) {
+    const blank = split.querySelector(".teacher-solution-blank");
+    const box = blank && blank.querySelector(".working-space");
+    if (!box) continue;
+    const shown = split.style.display;
+    const blankShown = blank.style.display;
+    split.style.display = "block";
+    blank.style.display = "block";
+    box.style.height = "0";
+    const zoom = localScale(split);
+    const crop = split.querySelector(".teacher-solution-crop");
+    const exp = split.querySelector(".workthrough-explanation");
+    const combined = split.parentElement.querySelector(".workthrough-combined");
+    const height = (el) => (el ? el.getBoundingClientRect().height / zoom : 0);
+    // Everything the Solution column had: its own crop, or the
+    // Explanation beside it when that is taller, since the row is that
+    // tall either way and the extra is free.
+    const want = Math.max(height(crop), height(exp));
+    // ...but never taller than the combined strip this whole unit
+    // stands in for. That strip is what pagination measured (the split
+    // is print-only and hidden while it measures), so a blank past it
+    // pushes the sheet past its own height and the export spills onto
+    // extra pages. The Explanation is a floor - it is there whatever
+    // the blank does.
+    const cap = Math.max(height(exp), height(combined) - 6);
+    const room = Math.min(want, cap);
+    split.style.display = shown;
+    blank.style.display = blankShown;
+    if (room > 10) box.style.height = `${room}px`;
+  }
+}
+
 export function alignSplitRows(container) {
   for (const row of container.querySelectorAll(".split-row, .answer-row")) {
     const sides = Array.from(row.children).filter((el) => el.classList.contains("block"));
@@ -796,6 +836,7 @@ async function paginateUnits(units) {
   measurer.innerHTML = units.map((u) => u.html).join("") + repeats.map((u) => u.repeatHtml).join("");
   await waitForImages(measurer);
   wrapWorkingSpaces(measurer);
+  fitTeacherBlanks(measurer);
   alignSplitRows(measurer);
   const containerTop = measurer.getBoundingClientRect().top;
   const bottoms = Array.from(measurer.children).map((el) => el.getBoundingClientRect().bottom - containerTop);
@@ -1411,6 +1452,20 @@ function workingSpaceHtml(ws, blockId, key, kind = "block") {
     return `<div class="working-space-row">${col}${col}</div>`;
   }
   return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${grip}</div>`;
+}
+
+// The stand-in a teacher-workthrough export puts where the worked
+// Solution was. Ruled by a tiled pattern rather than a fixed run of
+// lines, so it can be given any height after layout and still fill it -
+// see fitTeacherBlanks, which sizes it to the space actually cut out.
+function blankSpaceHtml(ws) {
+  const fill = ws.style === "lines" ? RULE_PATTERN_ID : GRID_PATTERN_ID;
+  const height = snapDown(ws.heightMm, ws.style === "lines" ? RULE_MM : GRID_MM);
+  return (
+    `<div class="working-space ws-filled" style="height:${height}mm">` +
+    `<svg class="ws-grid" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#${fill})"></rect></svg>` +
+    `</div>`
+  );
 }
 
 // An answer box with a diagram floated beside part of it: ONE box, not
@@ -2253,7 +2308,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           `<div class="workthrough-split"><div class="workthrough-row">` +
           `<div class="workthrough-solution">` +
           `<div class="teacher-solution-crop">${solCrop}</div>` +
-          `<div class="teacher-solution-blank">${workingSpaceHtml(blankWs)}</div>` +
+          `<div class="teacher-solution-blank">${blankSpaceHtml(blankWs)}</div>` +
           `${solControls}</div>` +
           `<div class="workthrough-explanation">${expCrop}${expControls}</div>` +
           `</div></div>` +
