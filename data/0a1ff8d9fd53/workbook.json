@@ -13,7 +13,8 @@
     {
      "type": "image",
      "id": "tg_3e_1p0_keyideas",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -22,7 +23,8 @@
     {
      "type": "image",
      "id": "tg_3e_2p0_building",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -31,24 +33,30 @@
     {
      "type": "image",
      "id": "tg_3e_3p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3e_3p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3e_3p1_sol"
+     "teacherSolutionId": "tg_3e_3p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3e_3p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3e_3p1_exp"
+     "teacherExplanation": "tg_3e_3p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3e_3p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -57,8 +65,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 60
-     }
+      "heightMm": 10
+     },
+     "section": true
     }
    ]
   },
@@ -1371,12 +1380,14 @@
     {
      "type": "image",
      "id": "tg_3f_8p0_keyideas",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3f_8p1_building",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -1385,24 +1396,30 @@
     {
      "type": "image",
      "id": "tg_3f_9p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3f_9p1_sol"
+     "teacherSolutionId": "tg_3f_9p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3f_9p1_exp"
+     "teacherExplanation": "tg_3f_9p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -1412,29 +1429,36 @@
      "workingSpace": {
       "style": "grid",
       "heightMm": 30
-     }
+     },
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p3_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p4_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3f_9p4_sol"
+     "teacherSolutionId": "tg_3f_9p4_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p4_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3f_9p4_exp"
+     "teacherExplanation": "tg_3f_9p4_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3f_9p4_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -1444,7 +1468,8 @@
      "workingSpace": {
       "style": "grid",
       "heightMm": 20
-     }
+     },
+     "section": true
     }
    ]
   },
@@ -1453,24 +1478,30 @@
     {
      "type": "image",
      "id": "tg_3f_10p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_10p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3f_10p1_sol"
+     "teacherSolutionId": "tg_3f_10p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3f_10p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3f_10p1_exp"
+     "teacherExplanation": "tg_3f_10p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3f_10p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -1479,8 +1510,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 60
-     }
+      "heightMm": 10
+     },
+     "section": true
     }
    ]
   },
@@ -2830,7 +2862,8 @@
     {
      "type": "image",
      "id": "tg_3g_14p0_keyideas",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -2839,29 +2872,36 @@
     {
      "type": "image",
      "id": "tg_3g_15p0_building",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3g_15p1_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3g_15p2_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3g_15p2_sol"
+     "teacherSolutionId": "tg_3g_15p2_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3g_15p2_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3g_15p2_exp"
+     "teacherExplanation": "tg_3g_15p2_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3g_15p2_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -2871,7 +2911,8 @@
      "workingSpace": {
       "style": "grid",
       "heightMm": 20
-     }
+     },
+     "section": true
     }
    ]
   },
@@ -2880,24 +2921,30 @@
     {
      "type": "image",
      "id": "tg_3g_16p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3g_16p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3g_16p1_sol"
+     "teacherSolutionId": "tg_3g_16p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3g_16p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3g_16p1_exp"
+     "teacherExplanation": "tg_3g_16p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3g_16p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -2906,8 +2953,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 40
-     }
+      "heightMm": 10
+     },
+     "section": true
     }
    ]
   },
@@ -3913,7 +3961,8 @@
     {
      "type": "image",
      "id": "tg_3h_19p0_keyideas",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -3922,29 +3971,36 @@
     {
      "type": "image",
      "id": "tg_3h_20p0_building",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3h_20p1_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3h_20p2_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3h_20p2_sol"
+     "teacherSolutionId": "tg_3h_20p2_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3h_20p2_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3h_20p2_exp"
+     "teacherExplanation": "tg_3h_20p2_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3h_20p2_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -3953,8 +4009,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 60
-     }
+      "heightMm": 40
+     },
+     "section": true
     }
    ]
   },
@@ -3963,24 +4020,30 @@
     {
      "type": "image",
      "id": "tg_3h_21p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3h_21p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3h_21p1_sol"
+     "teacherSolutionId": "tg_3h_21p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3h_21p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3h_21p1_exp"
+     "teacherExplanation": "tg_3h_21p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3h_21p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -3990,7 +4053,8 @@
      "workingSpace": {
       "style": "grid",
       "heightMm": 20
-     }
+     },
+     "section": true
     },
     {
      "type": "heading",
@@ -4859,12 +4923,14 @@
     {
      "type": "image",
      "id": "tg_3i_27p0_keyideas",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_27p1_building",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -4873,24 +4939,30 @@
     {
      "type": "image",
      "id": "tg_3i_28p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3i_28p1_sol"
+     "teacherSolutionId": "tg_3i_28p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3i_28p1_exp"
+     "teacherExplanation": "tg_3i_28p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -4899,30 +4971,37 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 45
-     }
+      "heightMm": 30
+     },
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p3_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p4_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3i_28p4_sol"
+     "teacherSolutionId": "tg_3i_28p4_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p4_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3i_28p4_exp"
+     "teacherExplanation": "tg_3i_28p4_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_28p4_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     }
    ]
   },
@@ -4936,29 +5015,36 @@
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
-     }
+     },
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_29p1_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_29p2_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3i_29p2_sol"
+     "teacherSolutionId": "tg_3i_29p2_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_29p2_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3i_29p2_exp"
+     "teacherExplanation": "tg_3i_29p2_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_29p2_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -4967,8 +5053,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 45
-     }
+      "heightMm": 25
+     },
+     "section": true
     }
    ]
   },
@@ -4977,24 +5064,30 @@
     {
      "type": "image",
      "id": "tg_3i_30p0_example",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_30p1_work",
      "contentKind": "diagram",
-     "teacherSolutionId": "tg_3i_30p1_sol"
+     "teacherSolutionId": "tg_3i_30p1_sol",
+     "section": true,
+     "glueForward": true
     },
     {
      "type": "image",
      "id": "tg_3i_30p1_sol",
      "contentKind": "diagram",
-     "teacherExplanation": "tg_3i_30p1_exp"
+     "teacherExplanation": "tg_3i_30p1_exp",
+     "section": true
     },
     {
      "type": "image",
      "id": "tg_3i_30p1_exp",
-     "contentKind": "diagram"
+     "contentKind": "diagram",
+     "section": true
     },
     {
      "type": "question",
@@ -5003,8 +5096,9 @@
      "contextImage": null,
      "workingSpace": {
       "style": "grid",
-      "heightMm": 45
-     }
+      "heightMm": 10
+     },
+     "section": true
     },
     {
      "type": "heading",
@@ -5805,5 +5899,5 @@
    ]
   }
  ],
- "buildVersion": "a74df9d3"
+ "buildVersion": "96bcfaa8"
 }

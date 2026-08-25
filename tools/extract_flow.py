@@ -1783,6 +1783,17 @@ def section_title(page):
 # a clipped last row.
 GRID_MM = 5
 RULE_MM = 10
+# The booklet's own page geometry, mirrored from static/model.js - only
+# needed to work out how much room a teaching panel leaves for the box
+# under it (see panel_blocks).
+CONTENT_WIDTH_MM = 186.0
+USABLE_HEIGHT_MM = 270.0
+# What a teaching panel prints at, as a fraction of the content width.
+# Must match DEFAULT_SECTION_SCALE in static/model.js. The panels are
+# cropped ~150mm wide from a book that prints them at that size, so
+# rendering them to fill the 186mm column blew them up to 123% of the
+# original for no reason; this brings them back under it.
+SECTION_SCALE = 0.65
 
 # What a question ASKS is what decides how much room it needs - not its
 # tier, and not how many parts it happens to have. These patterns are
@@ -2200,6 +2211,13 @@ def band_text(page, rect):
     return re.sub(r"\s+", " ", "".join(out)).lower()
 
 
+def rendered_mm(box):
+    """How tall a panel crop prints in the booklet, at section scale."""
+    if box.width <= 0:
+        return 0.0
+    return mm(box.height) * (CONTENT_WIDTH_MM * SECTION_SCALE / mm(box.width))
+
+
 def panel_blocks(page, panels, crops_dir, pid_prefix):
     """Crops each teaching panel and returns the blocks that show it.
 
@@ -2210,8 +2228,15 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
     explanation. "Now you try" becomes a question with an answer box -
     it is the one part of a worked example the student is meant to do."""
     blocks = []
+    # How much of a sheet the example above this "Now you try" has
+    # already used, so its box can be sized to what is left of half a
+    # page rather than to a fixed guess - which is what decides whether
+    # two worked examples fit on one sheet or only one does.
+    trio_mm = 0.0
     for n, (kind, box, _text) in enumerate(panels):
         base = f"{pid_prefix}p{n}"
+        if kind in ("example", "worked"):
+            trio_mm += rendered_mm(box)
         if kind == "worked":
             # Combined first, then the two halves it stands in front of.
             split = min(max(SOL_SPLIT_X, box.x0 + 20), box.x1 - 20)
@@ -2229,13 +2254,16 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
                 crop_png(page, r, os.path.join(crops_dir, cid + ".png"), pad=0)
             blocks.append({
                 "type": "image", "id": trio[0][0], "contentKind": "diagram",
-                "teacherSolutionId": trio[1][0],
+                "teacherSolutionId": trio[1][0], "section": True,
+                # The worked answer belongs with the "Now you try" that
+                # follows it, so the pair is never split across a sheet.
+                "glueForward": True,
             })
             blocks.append({
                 "type": "image", "id": trio[1][0], "contentKind": "diagram",
-                "teacherExplanation": trio[2][0],
+                "teacherExplanation": trio[2][0], "section": True,
             })
-            blocks.append({"type": "image", "id": trio[2][0], "contentKind": "diagram"})
+            blocks.append({"type": "image", "id": trio[2][0], "contentKind": "diagram", "section": True})
             continue
         cid = f"{base}_{kind}"
         crop_png(page, box, os.path.join(crops_dir, cid + ".png"), pad=0)
@@ -2248,14 +2276,28 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
             # only place all three answers can go. One question's worth
             # of room for three questions is not enough.
             n = len(part_markers(page_lines(page), box.y0, box.y1)) or 1
-            if ws["style"] == "grid":
-                ws["heightMm"] = min(GRID_MM * 12, ws["heightMm"] * n)
+            step = RULE_MM if ws["style"] == "lines" else GRID_MM
+            want = min(GRID_MM * 12, ws["heightMm"] * n)
+            # Half a sheet, less what the example, its worked answer and
+            # this panel have already taken, less the margins between
+            # them - so the example and the one after it share a page
+            # instead of taking one each. Whatever is left over goes to
+            # the box: it is the only part of a worked example a student
+            # writes in, so it gets the room rather than the sheet.
+            room = USABLE_HEIGHT_MM / 2 - (trio_mm + rendered_mm(box)) - 8
+            fit = max(step * 2, min(want, int(room / step) * step))
+            ws["heightMm"] = fit
+            trio_mm = 0.0
             blocks.append({
                 "type": "question", "id": cid, "contentKind": "diagram",
-                "contextImage": None, "workingSpace": ws,
+                "contextImage": None, "workingSpace": ws, "section": True,
             })
         else:
-            blocks.append({"type": "image", "id": cid, "contentKind": "diagram"})
+            blocks.append({"type": "image", "id": cid, "contentKind": "diagram",
+                           "section": True,
+                           # An Example's question glues to the worked
+                           # answer that explains it.
+                           **({"glueForward": True} if kind == "example" else {})})
     return blocks
 
 

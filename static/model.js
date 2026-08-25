@@ -71,7 +71,14 @@ export const IMAGE_SCALE_STEP = 5;
 // "basically done" before anyone touches an individual +/- control.
 export const DEFAULT_SPLIT_SCALE_2 = 40;
 export const DEFAULT_SPLIT_SCALE_3 = 50;
-export const DEFAULT_SECTION_SCALE = 70;
+// A teaching panel is cropped ~150mm wide from a book that prints it at
+// that size, so filling the 186mm content column blew it up to 123% of
+// the original - larger than the textbook, for no reason, on a third of
+// the booklet's pages. 65% brings it back UNDER the source's own size,
+// which is what lets two worked examples share a sheet. Mirrored as
+// SECTION_SCALE in tools/extract_flow.py, which sizes a "Now you try"
+// box from what the example above it leaves of half a page.
+export const DEFAULT_SECTION_SCALE = 65;
 // Percentage of an *answer row's own column* (see buildAnswerRowUnit in
 // render.js - two answer-key images share one row, each in a ~half-
 // width column, the same two-up layout a split question's parts already

@@ -2250,7 +2250,10 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             return;
           }
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
-          const pct = b.imageScale ?? defaultScales.combined;
+          // A "Now you try" is a question, but its crop is a teaching
+          // panel like the example above it - same bucket, so the two
+          // never drift apart in size.
+          const pct = b.imageScale ?? (b.section ? defaultScales.section : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
           const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
           const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace, b.id, "")}${hangingControls}</div>`;
@@ -2326,20 +2329,26 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         const combB = unit.combinedBlock;
         const solB = unit.solutionBlock;
         const expB = unit.explanationBlock;
-        const combPct = combB.imageScale ?? defaultScales.combined;
+        // A worked example is teaching material like the Example panel
+        // above it (see "section" in tools/extract_flow.py) - the whole
+        // trio has to scale together or the solution prints half again
+        // as large as the question it answers.
+        const sectionPct = (blk) =>
+          blk.imageScale ?? (blk.section ? defaultScales.section : defaultScales.combined);
+        const combPct = sectionPct(combB);
         const combCrop = cropHtml(cropsBaseUrl, combB.id, combB.contextImage, combB.widthMm, combPct, combB.manualCropSrc);
         const combControls = controlsHangHtml(
           combB.id,
           imageScaleControlHtml(combB.id, "block", combPct) + breakBeforeControlHtml(combB.id, "block", combB.breakBefore) + cropButtonHtml(combB.id, "block")
         );
-        const solPct = solB.imageScale ?? defaultScales.combined;
+        const solPct = sectionPct(solB);
         const solCrop = cropHtml(cropsBaseUrl, solB.id, solB.contextImage, solB.widthMm, solPct, solB.manualCropSrc);
         const blankWs = { style: solB.blankStyle || "grid", heightMm: solB.blankHeightMm || 20 };
         const solControls = controlsHangHtml(
           solB.id,
           imageScaleControlHtml(solB.id, "block", solPct) + breakBeforeControlHtml(solB.id, "block", solB.breakBefore) + cropButtonHtml(solB.id, "block")
         );
-        const expPct = expB.imageScale ?? defaultScales.combined;
+        const expPct = sectionPct(expB);
         const expCrop = cropHtml(cropsBaseUrl, expB.id, expB.contextImage, expB.widthMm, expPct, expB.manualCropSrc);
         const expControls = controlsHangHtml(
           expB.id,
@@ -2347,13 +2356,13 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         );
         const html =
           `<div class="workthrough-unit">` +
-          `<div class="workthrough-combined">${combCrop}${combControls}</div>` +
+          `<div class="workthrough-combined"${kindAttr(combB)}>${combCrop}${combControls}</div>` +
           `<div class="workthrough-split"><div class="workthrough-row">` +
-          `<div class="workthrough-solution">` +
+          `<div class="workthrough-solution"${kindAttr(solB)}>` +
           `<div class="teacher-solution-crop">${solCrop}</div>` +
           `<div class="teacher-solution-blank">${blankSpaceHtml(blankWs)}</div>` +
           `${solControls}</div>` +
-          `<div class="workthrough-explanation">${expCrop}${expControls}</div>` +
+          `<div class="workthrough-explanation"${kindAttr(expB)}>${expCrop}${expControls}</div>` +
           `</div></div>` +
           `</div>`;
         const wsTargets = [
