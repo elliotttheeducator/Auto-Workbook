@@ -486,6 +486,22 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 /* A row someone set by hand, so it is obvious at a glance which rows
    the layout still owns and which have been taken over. */
 .row-cols-set { border-color: #0f766e; color: #0f766e; font-weight: 700; }
+/* Taller/shorter for one answer box (see boxGripHtml). Inside the box's
+   own bottom-right corner rather than out in the gutter like .row-cols:
+   there is one per part, and a column of them in the margin could not
+   say which box each belonged to. Editor chrome, so it is hidden in
+   print and never costs the box any room. */
+.ws-grip {
+  position: absolute; right: 0.5mm; bottom: 0.5mm;
+  display: flex; gap: 1px; opacity: 0.35;
+}
+.working-space:hover .ws-grip { opacity: 1; }
+.ws-grip button {
+  width: 4.5mm; height: 4.5mm; padding: 0; line-height: 1;
+  border: 1px solid #cbd5e1; border-radius: 3px; background: #fff;
+  color: #64748b; font-size: 9px; cursor: pointer;
+}
+.ws-grip button:hover { border-color: #0f766e; color: #0f766e; }
 .flowq-grid { position: relative; }
 .flowq-float { float: right; margin: 0 0 2mm 5mm; }
 /* A part floating its own diagram: the cell has to be a plain block
@@ -737,7 +753,7 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,
   .image-scale-picker, .break-before-toggle, .pair-with-next-toggle, .controls-hang,
   .squeeze-in, .delete-btn, .restore-list, .deleted-placeholder, .crop-btn,
-  .row-cols { display: none !important; }
+  .row-cols, .ws-grip { display: none !important; }
   /* A chapter left unchecked in the print-selection panel (see
      printSelectionBarHtml in render.js / applyPrintSelection in app.js) -
      print-only, so unchecking a chapter never hides it from the editor

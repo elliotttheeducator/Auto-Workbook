@@ -328,6 +328,11 @@ export function extractOverrides(workbook) {
         // diagrams fall on the page, which only the person looking at
         // the page can see - so it persists like any other edit.
         o.rowPattern = b.rowPattern;
+        // The answer boxes belonging to this question's parts, keyed by
+        // part letter ("a") or sub-item path ("a.i") - present only for
+        // the ones someone has resized by hand (see step-part-height in
+        // app.js); the rest keep the height the build measured for them.
+        o.partSpaces = b.partSpaces;
       }
       if (b.type === "question" || b.type === "image") {
         o.imageScale = b.imageScale;
@@ -418,6 +423,7 @@ export function applyOverrides(workbook, overrides) {
         if (o.manualCropRect !== undefined) b.manualCropRect = o.manualCropRect;
         if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
         if (o.rowPattern !== undefined && b.type === "flowquestion") b.rowPattern = o.rowPattern;
+        if (o.partSpaces !== undefined && b.type === "flowquestion") b.partSpaces = o.partSpaces;
       } else if (b.type === "question" && legacyBlockWorkingSpace[b.id]) {
         b.workingSpace = legacyBlockWorkingSpace[b.id];
       }

@@ -1010,7 +1010,11 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
     style: ws.style,
     heightMm: Math.max(GRID_MM * 3, Math.round((ws.heightMm || 15) * 0.9)),
   };
-  const wsFor = (p) => p.workingSpace || fallbackWs;
+  // A box someone has resized by hand wins over the one the build
+  // measured for that part (see step-part-height in app.js).
+  const sized = b.partSpaces || {};
+  const wsFor = (p) => sized[p.letter] || p.workingSpace || fallbackWs;
+  const subWsFor = (p, sub) => sized[`${p.letter}.${sub.letter}`] || sub.workingSpace;
   const stem = (b.stem || []).length ? `<p class="flowq-stem">${flowRunsHtml(b.stem, cropsBaseUrl)}</p>` : "";
   // Every part is a real cell - letter, its text, its diagram, and its
   // own answer box. Parts without diagrams are cells too: they are
@@ -1087,13 +1091,13 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
                       `<div class="flowq-sub-cell">` +
                       `<div class="flowq-sub"><span class="flowq-subletter">${escapeHtml(s.letter)}</span>` +
                       `<span class="flowq-ptext">${flowRunsHtml(s.content, cropsBaseUrl)}</span></div>` +
-                      (s.workingSpace ? workingSpaceHtml(s.workingSpace) : "") +
+                      (s.workingSpace ? workingSpaceHtml(subWsFor(p, s), b.id, `${p.letter}.${s.letter}`) : "") +
                       `</div>`
                   )
                   .join("") +
                 `</div>`
               : "") +
-            workingSpaceHtml(wsFor(p)) +
+            workingSpaceHtml(wsFor(p), b.id, p.letter) +
             `</div>`;
   const parts = rowsFor.length
     ? rowsFor
@@ -1218,24 +1222,40 @@ function gridPatternDefs() {
   );
 }
 
-function gridBoxHtml(height) {
+function gridBoxHtml(height, grip) {
   return (
     `<div class="working-space" style="height:${height}mm">` +
     `<svg class="ws-grid" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#${GRID_PATTERN_ID})"></rect></svg>` +
+    grip +
     `</div>`
   );
 }
 
-function workingSpaceHtml(ws) {
+// Taller/shorter for one box, sitting in its own corner. A question's
+// parts each own their answer space (see assign_workingspace in
+// tools/extract_flow.py), so the question-level size control in the
+// hanging panel has nothing to move on a question that has parts - the
+// boxes on the page belong to the parts, and this is how they are
+// reached. `key` is the part's letter, or "a.i" for a sub-item's box.
+function boxGripHtml(blockId, key) {
+  if (!blockId || !key) return "";
+  const btn = (delta, label, title) =>
+    `<button data-action="step-part-height" data-target="${escapeHtml(blockId)}" ` +
+    `data-part="${escapeHtml(key)}" data-delta="${delta}" title="${title}">${label}</button>`;
+  return `<span class="ws-grip">${btn(-1, "−", "Shorter")}${btn(1, "+", "Taller")}</span>`;
+}
+
+function workingSpaceHtml(ws, blockId, key) {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
   const height = snapDown(ws.heightMm, spacing);
-  if (ws.style === "grid") return gridBoxHtml(height);
+  const grip = boxGripHtml(blockId, key);
+  if (ws.style === "grid") return gridBoxHtml(height, grip);
   if (ws.columns === 2) {
-    const col = `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
-    return `<div class="working-space-row">${col}${col}</div>`;
+    const col = (g) => `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${g}</div>`;
+    return `<div class="working-space-row">${col("")}${col(grip)}</div>`;
   }
-  return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
+  return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${grip}</div>`;
 }
 
 function stylePickerHtml(target, kind, activeStyle) {

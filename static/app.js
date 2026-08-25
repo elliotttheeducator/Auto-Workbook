@@ -4,11 +4,14 @@ import {
   defaultScaleFor,
   escapeHtml,
   extractOverrides,
+  GRID_MM,
   groupIdFor,
   growImageOneStep,
   IMAGE_SCALE_MAX,
   IMAGE_SCALE_MIN,
   IMAGE_SCALE_STEP,
+  PAGE_HEIGHT_MM,
+  PAGE_MARGIN_MM,
   resolvedDefaultScales,
   RULE_MM,
   shrinkImageOneStep,
@@ -939,6 +942,32 @@ function handleControlClick(e) {
       block.rowPattern = pattern.slice(0, rowIndex + 1);
     }
     if (!block.rowPattern.length) delete block.rowPattern;
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "step-part-height") {
+    // Resizes ONE part's answer box. A flow question's boxes belong to
+    // its parts, each sized at build time from what that part actually
+    // asks, so the question-level size control has nothing to move on a
+    // question that has any - these grips are how those boxes are
+    // reached. Stored per box on the block rather than written back into
+    // the part, so the shipped measurement stays intact underneath and
+    // the edit persists like any other override.
+    const block = findBlock(el.dataset.target);
+    if (!block || block.type !== "flowquestion") return;
+    const key = el.dataset.part || "";
+    const [letter, subLetter] = key.split(".");
+    const part = (block.parts || []).find((p) => p.letter === letter);
+    const sub = subLetter && (part?.subs || []).find((x) => x.letter === subLetter);
+    const current = (block.partSpaces || {})[key] || (sub ? sub.workingSpace : part?.workingSpace);
+    if (!current) return;
+    const step = current.style === "lines" ? RULE_MM : GRID_MM;
+    const next = current.heightMm + Number(el.dataset.delta) * step;
+    // Two rows is the floor - a box shorter than that is not somewhere a
+    // student can write. The ceiling keeps one box from being taller
+    // than the sheet it has to print on.
+    if (next < step * 2 || next > PAGE_HEIGHT_MM - PAGE_MARGIN_MM * 2) return;
+    block.partSpaces = { ...(block.partSpaces || {}), [key]: { ...current, heightMm: next } };
     persistAndRerenderEditor();
     return;
   }
