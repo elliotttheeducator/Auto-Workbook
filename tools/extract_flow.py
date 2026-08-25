@@ -1800,6 +1800,10 @@ FOOTER_TEXT = re.compile(
     r"|Essential Mathematics for)"
 )
 PANEL_HEAD_MIN_SIZE = 11.0
+# How close a panel's last line has to be to the bottom edge of its own
+# coloured box for the crop to be taken flush with that edge instead of
+# tight to the content.
+PANEL_FLUSH_PT = 20.0
 
 
 def footer_top(page):
@@ -1904,6 +1908,88 @@ def panel_floor(page, y):
     return best
 
 
+def panel_bands(page):
+    """The wide coloured rectangles teaching panels are drawn on."""
+    out = []
+    for d in page.get_drawings():
+        if not d.get("fill"):
+            continue
+        r = fitz.Rect(d["rect"])
+        w = r.width / page.rect.width
+        if w < 0.55 or w > 0.95:
+            continue  # the page's own background, or something inside a panel
+        if r.height < 8 or r.height > 0.95 * page.rect.height:
+            continue
+        out.append(r)
+    return out
+
+
+def band_top_above(bands, y, reach=24.0):
+    """The top edge of the coloured box a heading at y sits inside.
+
+    A sub-panel's heading ("Solution", "Now you try") is set a few
+    points down from the top of its own box, so cutting the panel above
+    it at the heading leaves a sliver of the next box's edge hanging off
+    the bottom of the crop. This finds the edge itself to cut at."""
+    tops = [b.y0 for b in bands if y - reach <= b.y0 <= y]
+    return max(tops) if tops else None
+
+
+def panel_ink_bottom(page, y0, y1, bands):
+    """The lowest real content in a band - backgrounds don't count."""
+    bottom = None
+    def note(r):
+        nonlocal bottom
+        if y0 <= r.y0 < y1:
+            bottom = r.y1 if bottom is None else max(bottom, r.y1)
+    for bbox, _spans in page_lines(page):
+        note(bbox)
+    for d in page.get_drawings():
+        r = fitz.Rect(d["rect"])
+        if r.width > 0.55 * page.rect.width or r.height > 0.9 * page.rect.height:
+            continue  # a panel background or page furniture, not content
+        if r.width > 2 and r.height > 2:
+            note(r)
+    for i in page.get_image_info():
+        note(fitz.Rect(i["bbox"]))
+    return bottom
+
+
+def panel_frame(page, y0, y1, bands):
+    """The crop for one panel, flush with its own coloured background.
+
+    A panel is drawn on a wide coloured rectangle, and that rectangle -
+    not the ink inside it - is the edge a reader sees. Measuring the
+    crop from ink alone put its left and right wherever the widest glyph
+    on that particular panel happened to fall, so no two panels were cut
+    at quite the same place; worse, on an Example page it reached past
+    the box entirely and took a slice of the video-thumbnail icon
+    sitting out in the margin with it.
+
+    Vertically a panel is only sometimes a whole box: an Example's
+    question and its worked Solution are two slices of one continuous
+    background, so the bottom snaps to a box edge when the content ends
+    near one and stays tight to the content when it doesn't."""
+    own = [b for b in bands if b.y0 < y1 - 2 and b.y1 > y0 + 2]
+    box = content_box(page, y0, y1)
+    if box is None or not own:
+        return box
+    # Only a box edge right about where the panel starts: a heading set
+    # part-way down a longer background (a "Now you try" under an
+    # Example's working, say) starts where its text does, not at the top
+    # of the box it happens to be sitting on. Lowest such edge, so a
+    # panel led by a coloured title bar keeps the bar rather than
+    # starting below it.
+    tops = [b.y0 for b in own if y0 - 12 <= b.y0 <= y0 + 8]
+    ink = panel_ink_bottom(page, y0, y1, bands)
+    bottom = min(y1, (ink + 4) if ink is not None else y1)
+    edges = [b.y1 for b in own if bottom - 4 <= b.y1 <= min(y1, bottom + PANEL_FLUSH_PT)]
+    return fitz.Rect(
+        min(b.x0 for b in own), min(tops) if tops else y0,
+        max(b.x1 for b in own), min(edges) if edges else bottom,
+    )
+
+
 def page_panels(page, stop_y):
     """The teaching panels on this page as (kind, rect, text) tuples.
 
@@ -1919,16 +2005,19 @@ def page_panels(page, stop_y):
     # Solution headings subdivide an Example; every other kind starts a
     # new panel, and so ends the one before it.
     breaks = [m["y"] for m in marks if m["kind"] != "solution"] + [stop_y]
+    bands = panel_bands(page)
     out = []
     for i, m in enumerate(marks):
         if m["kind"] == "solution":
             continue
         end = next(y for y in breaks if y > m["y"] + 1)
+        if end < stop_y:
+            end = band_top_above(bands, end) or end
         floor = panel_floor(page, m["y"])
         if floor is not None:
             end = min(end, floor + 3)
         if m["kind"] != "example":
-            box = content_box(page, m["y"] - 4, end)
+            box = panel_frame(page, m["y"] - 4, end, bands)
             if box:
                 out.append((m["kind"], box, m["text"]))
             continue
@@ -1936,11 +2025,12 @@ def page_panels(page, stop_y):
         # answer below it.
         sol = next((s["y"] for s in marks if s["kind"] == "solution"
                     and m["y"] < s["y"] < end), None)
-        qbox = content_box(page, m["y"] - 4, sol if sol else end)
+        split = (band_top_above(bands, sol) or sol - 4) if sol else end
+        qbox = panel_frame(page, m["y"] - 4, split, bands)
         if qbox:
             out.append(("example", qbox, m["text"]))
         if sol:
-            wbox = content_box(page, sol - 4, end)
+            wbox = panel_frame(page, split, end, bands)
             if wbox:
                 out.append(("worked", wbox, m["text"]))
     return out
@@ -1976,7 +2066,12 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
                 (f"{base}_exp", fitz.Rect(split, box.y0, box.x1, box.y1)),
             ]
             for cid, r in trio:
-                crop_png(page, r, os.path.join(crops_dir, cid + ".png"), pad=1.0)
+                # pad=0: the frame is already flush with the panel's own
+                # coloured edge (see panel_frame), and padding it back
+                # out would put a sliver of whatever sits beyond that
+                # edge - the next panel's box, the margin icons - back
+                # into the crop.
+                crop_png(page, r, os.path.join(crops_dir, cid + ".png"), pad=0)
             blocks.append({
                 "type": "image", "id": trio[0][0], "contentKind": "diagram",
                 "teacherSolutionId": trio[1][0],
@@ -1988,7 +2083,7 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
             blocks.append({"type": "image", "id": trio[2][0], "contentKind": "diagram"})
             continue
         cid = f"{base}_{kind}"
-        crop_png(page, box, os.path.join(crops_dir, cid + ".png"), pad=1.0)
+        crop_png(page, box, os.path.join(crops_dir, cid + ".png"), pad=0)
         if kind == "nowyoutry":
             text = band_text(page, box)
             has_figs = bool(page_figures(page, box.y0))
