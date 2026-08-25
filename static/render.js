@@ -119,6 +119,17 @@ export function buildFilterContext(workbook) {
         }
         continue;
       }
+      // A text-flow question is one block that carries its own lettered
+      // parts inside it (see tools/extract_flow.py), rather than a group
+      // of one block per part - so it counts as a single question here,
+      // and Fluency's sub-part filter reads positions straight out of
+      // b.parts (see flowFilteredBlock) instead of from partPosition.
+      if (b.type === "flowquestion") {
+        const key = `${chapterId}|${tier}`;
+        tierCounts[key] = (tierCounts[key] || 0) + 1;
+        context[b.id] = { chapterId, tier, index: tierCounts[key], flow: true };
+        continue;
+      }
       if (b.type !== "question") continue;
       const gid = groupIdFor(b.id);
       if (gid) {
@@ -146,6 +157,28 @@ function passesWholeQuestionFilter(workbook, ctx) {
   if (!ctx || !ctx.tier || ctx.tier === "fluency") return true;
   const mode = effectiveTierFilter(workbook, ctx.chapterId, ctx.tier);
   return passesTierFilter(mode, ctx.index);
+}
+
+// Fluency's filter thins out a question's parts rather than dropping
+// whole questions (see the "sub-parts" label in the filter bar). A
+// text-flow question holds its own parts, so the thinning happens here,
+// on a shallow copy - the block itself is the saved document and must
+// not be edited by a render. Returns null when the filter empties a
+// question that did have parts: a stem with nothing under it is not
+// worth a slot on the page. A question with no parts at all can't be
+// thinned, so it passes through untouched, exactly as a standalone
+// Fluency question does in the group pipeline.
+function flowFilteredBlock(workbook, b, ctx) {
+  if (!ctx || ctx.tier !== "fluency") return b;
+  const mode = effectiveTierFilter(workbook, ctx.chapterId, "fluency");
+  if (mode === "all" || !(b.parts || []).length) return b;
+  const parts = b.parts.filter((_p, i) => passesTierFilter(mode, i + 1));
+  if (!parts.length) return null;
+  if (parts.length === b.parts.length) return b;
+  // rowPattern is a hand-set grouping of the rows as they were (see
+  // rowColsControlHtml); with parts removed it no longer describes them.
+  const { rowPattern, ...rest } = b;
+  return { ...rest, parts };
 }
 
 // Which members of a group are actually visible, once both the
@@ -1745,6 +1778,10 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             return;
           }
           if (!passesWholeQuestionFilter(workbook, filterCtx.context[b.id])) return;
+          // From here on the question is whatever the Fluency sub-part
+          // filter left of it, not necessarily the block as stored.
+          const shown = flowFilteredBlock(workbook, b, filterCtx.context[b.id]);
+          if (!shown) return;
           const ws = b.workingSpace || { style: "grid", heightMm: 15 };
           const figPct = b.imageScale ?? defaultScales.combined;
           const controls = controlsHangHtml(
@@ -1761,11 +1798,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // twelve-part question set one per line is far taller than a
           // page, and as one atomic unit it simply overflowed the
           // sheet - the last parts printed past the bottom edge.
-          const rows = flowQuestionRows(b, figPct);
+          const rows = flowQuestionRows(shown, figPct);
           if (rows.length > 2) {
             rows.forEach((row, ri) => {
               const slice = { row, head: ri === 0, rowIndex: ri };
-              const rowHtml = flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice);
+              const rowHtml = flowQuestionHtml(shown, cropsBaseUrl, ws, figPct, slice);
               units.push({
                 html: `<div class="block question flowq${ri ? " flowq-cont" : ""}">${rowHtml}${ri === 0 ? controls : ""}</div>`,
                 heading: false,
@@ -1778,13 +1815,13 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             });
             return;
           }
-          const html = flowQuestionHtml(b, cropsBaseUrl, ws, figPct) + controls;
+          const html = flowQuestionHtml(shown, cropsBaseUrl, ws, figPct) + controls;
           units.push({
             html: `<div class="block question flowq">${html}</div>`,
             heading: false,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }],
             breakBefore: !!b.breakBefore,
-            pairData: { id: b.id, crop: flowQuestionHtml(b, cropsBaseUrl, ws, figPct), ws, pct: figPct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext, wsInCrop: true },
+            pairData: { id: b.id, crop: flowQuestionHtml(shown, cropsBaseUrl, ws, figPct), ws, pct: figPct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext, wsInCrop: true },
           });
           return;
         }
