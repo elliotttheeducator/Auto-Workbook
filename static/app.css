@@ -676,13 +676,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    was too easy to lose (see .grid-line-v etc below), a real border never is. */
 .working-space-row { display: flex; gap: 4mm; width: 185mm; max-width: 100%; }
 .working-space-row .working-space { width: auto; flex: 1 1 0; min-width: 0; }
-.grid-line-v, .grid-line-h, .rule-line { position: absolute; background: #ccc; }
+/* The 5mm squares fill the box from a tiled SVG pattern (see
+   gridBoxHtml in render.js) rather than a fixed run of line divs: the
+   box's width is auto, so any fixed set of divs either falls short of it
+   or - the real bug this replaced - overflows it and drags the whole
+   print job into Chromium's shrink-to-fit. A rect at 100%/100% is
+   exactly as wide as whatever box it lands in. */
+.ws-grid { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ws-grid-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 /* 0.5mm, not a hairline - anything much thinner falls between print
    pixels at typical print resolution and rasterizes as a broken/patchy
    line instead of a clean solid one. */
-.grid-line-v { top: 0; bottom: 0; width: 0.5mm; }
-.grid-line-h { left: 0; right: 0; height: 0.5mm; }
-.rule-line { left: 0; right: 0; height: 0.5mm; background: #bbb; }
+.rule-line { position: absolute; left: 0; right: 0; height: 0.5mm; background: #bbb; }
 
 .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker, .image-scale-picker {
   display: flex; align-items: center; gap: 4px; margin-top: 4px;

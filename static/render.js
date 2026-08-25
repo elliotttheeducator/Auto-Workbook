@@ -10,7 +10,6 @@
 // here in JS, once, rather than being left to CSS to figure out
 // differently on screen vs. in print. See paginateUnits() below.
 import {
-  BOX_WIDTH_MM,
   CONTENT_WIDTH_MM,
   FILTER_MODES,
   GRID_MM,
@@ -1107,22 +1106,49 @@ function ruleLinesHtml(height, spacing) {
   return inner;
 }
 
-function gridBoxHtml(height, spacing) {
-  let inner = "";
-  for (let x = spacing; x < BOX_WIDTH_MM; x += spacing) {
-    inner += `<div class="grid-line-v" style="left:${x}mm"></div>`;
-  }
-  for (let y = spacing; y < height; y += spacing) {
-    inner += `<div class="grid-line-h" style="top:${y}mm"></div>`;
-  }
-  return `<div class="working-space" style="height:${height}mm">${inner}</div>`;
+// The 5mm squares are one SVG tile pattern stretched over the box, not
+// a fixed run of absolutely positioned line divs. A box's height is
+// known here (it's set right below), but its width is not: a
+// .working-space is width:auto so it can shrink beside a diagram float
+// and take the full width again once clear of it. Emitting a fixed
+// BOX_WIDTH_MM worth of vertical line divs meant every narrowed box had
+// lines running a hundred-odd mm past the page edge - invisible on
+// screen (overflow:hidden clips them) but not to print, where Chromium
+// measures the overflowing layout and shrink-to-fits the ENTIRE document
+// to fit the sheet. One narrow grid box was enough to print all 49 pages
+// at ~66% in the corner of an A4. A rect filled at 100%/100% of its own
+// box can't overflow by construction, at any width the box resolves to.
+// SVG rather than a repeating-linear-gradient background: Chromium
+// rasterizes gradient tiles into the exported PDF (they come out blurry
+// and misaligned at print resolution), but keeps SVG as vector.
+const GRID_PATTERN_ID = "ws-grid-5mm";
+
+function gridPatternDefs() {
+  const step = (GRID_MM * 96) / 25.4;
+  const w = (0.5 * 96) / 25.4;
+  const off = (step - w).toFixed(3);
+  return (
+    `<svg class="ws-grid-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>` +
+    `<pattern id="${GRID_PATTERN_ID}" width="${step.toFixed(3)}" height="${step.toFixed(3)}" patternUnits="userSpaceOnUse">` +
+    `<rect x="${off}" y="0" width="${w.toFixed(3)}" height="${step.toFixed(3)}" fill="#ccc"></rect>` +
+    `<rect x="0" y="${off}" width="${step.toFixed(3)}" height="${w.toFixed(3)}" fill="#ccc"></rect>` +
+    `</pattern></defs></svg>`
+  );
+}
+
+function gridBoxHtml(height) {
+  return (
+    `<div class="working-space" style="height:${height}mm">` +
+    `<svg class="ws-grid" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#${GRID_PATTERN_ID})"></rect></svg>` +
+    `</div>`
+  );
 }
 
 function workingSpaceHtml(ws) {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
   const height = snapDown(ws.heightMm, spacing);
-  if (ws.style === "grid") return gridBoxHtml(height, spacing);
+  if (ws.style === "grid") return gridBoxHtml(height);
   if (ws.columns === 2) {
     const col = `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}</div>`;
     return `<div class="working-space-row">${col}${col}</div>`;
@@ -1968,5 +1994,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   for (let i = 0; i < physicalPagesHtml.length; i += 2) {
     spreads.push(`<div class="spread">${physicalPagesHtml.slice(i, i + 2).join("")}</div>`);
   }
-  return flowStyle ? `<div${flowStyle}>${spreads.join("")}</div>` : spreads.join("");
+  // One copy of the grid pattern for the whole document - every
+  // working-space grid box just references it by id (see gridBoxHtml).
+  const body = flowStyle ? `<div${flowStyle}>${spreads.join("")}</div>` : spreads.join("");
+  return gridPatternDefs() + body;
 }
