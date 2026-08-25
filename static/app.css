@@ -491,6 +491,18 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    there is one per part, and a column of them in the margin could not
    say which box each belonged to. Editor chrome, so it is hidden in
    print and never costs the box any room. */
+/* The two halves of a wrapped answer box (see wrappedSpaceHtml). They
+   are one box as far as a reader is concerned, so the border is dropped
+   where they meet and the missing segment - the step in the L, under
+   the diagram - is drawn back by the pseudo-element. --wrap-notch is
+   the measured width of that step (see wrapWorkingSpaces). */
+.ws-wrap-top { border-bottom: none; }
+.ws-wrap-bottom { border-top: none; position: relative; }
+.ws-wrap-bottom::before {
+  content: ""; position: absolute; top: -0.3mm; right: -0.3mm;
+  width: calc(var(--wrap-notch, 0px) + 0.3mm);
+  border-top: 0.3mm solid #999;
+}
 .ws-grip {
   position: absolute; right: 0.5mm; bottom: 0.5mm;
   display: flex; gap: 1px; opacity: 0.35;

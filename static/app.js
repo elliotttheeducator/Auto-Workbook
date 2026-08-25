@@ -18,7 +18,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, flowQuestionRows, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -78,7 +78,8 @@ function toggleMonitorProfile() {
   localStorage.setItem(MONITOR_KEY, monitorProfile);
   applyViewMode();
   if (viewMode === "actual") {
-    alignSplitRows(appEl);
+    wrapWorkingSpaces(appEl);
+  alignSplitRows(appEl);
     layoutHangingControls();
   }
 }
@@ -125,6 +126,7 @@ function toggleViewMode() {
   // Content/pagination didn't change, just the page's own CSS size - no
   // need for a full renderEditorOnce(), just a re-measure of whatever
   // depends on the page's actual on-screen dimensions.
+  wrapWorkingSpaces(appEl);
   alignSplitRows(appEl);
   layoutHangingControls();
 }
@@ -441,6 +443,7 @@ async function renderEditorOnce() {
   renderTopBars();
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
+  wrapWorkingSpaces(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
@@ -605,6 +608,7 @@ async function renderEditorView(id) {
   renderTopBars();
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
+  wrapWorkingSpaces(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();
@@ -636,6 +640,7 @@ async function undoAutoFit() {
   renderTopBars();
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
+  wrapWorkingSpaces(appEl);
   alignSplitRows(appEl);
   restoreExpandedControls();
   layoutHangingControls();

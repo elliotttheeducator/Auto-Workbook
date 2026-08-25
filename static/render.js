@@ -634,6 +634,54 @@ export function defaultScaleBarHtml(workbook) {
 // because it renders the exact same markup/images/CSS and so always
 // computes the exact same numbers - never as the source of truth for
 // what fits on a sheet.
+// Sizes each wrapped answer box's two halves (see wrappedSpaceHtml).
+// The question's own text sits beside the diagram first, so how much of
+// the diagram is still to the box's right is only knowable once the text
+// has been laid out - measured here, rounded UP to a whole row of the
+// box's own ruling so the lower half really does clear the diagram and
+// the two halves' rulings stay in step with each other.
+export function wrapWorkingSpaces(container) {
+  const PX_PER_MM = 96 / 25.4;
+  for (const bottom of container.querySelectorAll(".ws-wrap-bottom")) {
+    const top = bottom.previousElementSibling;
+    if (!top || !top.classList.contains("ws-wrap-top")) continue;
+    const total = Number(bottom.dataset.total) || 0;
+    const step = Number(bottom.dataset.step) || 5;
+    // Reset first: these are measured against the unwrapped layout, so
+    // a second pass must not measure its own previous result.
+    top.style.display = "none";
+    top.style.height = "0";
+    bottom.style.height = `${total}mm`;
+    bottom.style.setProperty("--wrap-notch", "0px");
+    const float = bottom.closest(".flowq-body")?.querySelector(".flowq-float");
+    if (!float) continue;
+    // The float's MARGIN box is what pushes a box sideways, not its
+    // border box - a lower half that starts level with the picture
+    // itself is still inside the gutter under it, and shrinks to fit
+    // beside it rather than taking the full width.
+    const margin = parseFloat(getComputedStyle(float).marginBottom) || 0;
+    const gap = float.getBoundingClientRect().bottom + margin - bottom.getBoundingClientRect().top;
+    if (gap < step * PX_PER_MM) continue;
+    const upper = Math.min(Math.ceil(gap / (step * PX_PER_MM)) * step, total - step);
+    if (upper < step) continue;
+    top.style.display = "";
+    top.style.height = `${upper}mm`;
+    bottom.style.height = `${total - upper}mm`;
+    // The step in the L: how much wider the lower half is than the
+    // upper one, which is the width of the notch the diagram left.
+    const notch = bottom.getBoundingClientRect().width - top.getBoundingClientRect().width;
+    if (notch < 1) {
+      // The diagram runs past the foot of the box, so there is no notch
+      // and nothing to wrap around - put it back to being one box.
+      top.style.display = "none";
+      top.style.height = "0";
+      bottom.style.height = `${total}mm`;
+      continue;
+    }
+    bottom.style.setProperty("--wrap-notch", `${notch}px`);
+  }
+}
+
 export function alignSplitRows(container) {
   for (const row of container.querySelectorAll(".split-row, .answer-row")) {
     const sides = Array.from(row.children).filter((el) => el.classList.contains("block"));
@@ -717,6 +765,7 @@ async function paginateUnits(units) {
   const measurer = getMeasurer();
   measurer.innerHTML = units.map((u) => u.html).join("");
   await waitForImages(measurer);
+  wrapWorkingSpaces(measurer);
   alignSplitRows(measurer);
   const containerTop = measurer.getBoundingClientRect().top;
   const bottoms = Array.from(measurer.children).map((el) => el.getBoundingClientRect().bottom - containerTop);
@@ -1143,7 +1192,18 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // diagram's own printed width so a small triangle does not claim
   // half the page, and clamped so a wide photograph does not crowd
   // the answer boxes out.
-  const figMm = sharedFig ? Math.max(38, Math.min(78, (b.figures[0].wMm * figPct) / 100)) : 0;
+  // A question with no parts and one diagram gets the same treatment:
+  // the diagram floats right of its own text, and the answer box wraps
+  // around it - narrow while it is level with the diagram, full width
+  // below. Set in a reserved side column instead (which is what this
+  // used to do), the box could only start under BOTH the text and the
+  // diagram, so the strip beside a photograph was dead space on every
+  // worded question in the chapter.
+  const soloFloat = !(b.parts || []).length && (b.figures || []).length === 1;
+  const figMm =
+    sharedFig || soloFloat
+      ? Math.max(38, Math.min(78, (b.figures[0].wMm * figPct) / 100))
+      : 0;
   // The diagram FLOATS right rather than sitting in a reserved column.
   // Every answer box establishes its own formatting context (it has to,
   // to clip its grid lines), so each one shortens to clear the float
@@ -1153,6 +1213,7 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   const splitHtml = () =>
     (head ? `<div class="flowq-float" style="width:${figMm.toFixed(0)}mm">${figBlock}</div>` : "") +
     parts;
+  const floatHtml = `<div class="flowq-float" style="width:${figMm.toFixed(0)}mm">${figBlock}</div>`;
   // The answer space sits OUTSIDE the row, so it spans the full content
   // width for every question. Inside the row it inherited whatever was
   // left after the figure column, so a question with a photo beside it
@@ -1163,16 +1224,21 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
     `<div class="flowq-row">` +
     `<div class="flowq-num">${head ? escapeHtml(b.number || "") : ""}</div>` +
     `<div class="flowq-body">` +
+    (head && soloFloat ? floatHtml : "") +
     (head ? stem : "") +
     (sharedFig ? splitHtml() : (head ? contextFig : "") + parts) +
-    (head && !contextFig && many ? figBlock : "") +
+    (head && !contextFig && !soloFloat && many ? figBlock : "") +
+    // A wrapped box has to be INSIDE the body, beside the float; every
+    // other box stays outside the row, where it spans the full content
+    // width whatever the question above it looked like.
+    (head && soloFloat ? wrappedSpaceHtml(ws) : "") +
     `</div>` +
-    (head && !contextFig && !many ? figBlock : "") +
+    (head && !contextFig && !soloFloat && !many ? figBlock : "") +
     `</div>` +
     // Parts bring their own boxes, so the whole-question box is only
     // for a question that has no parts at all - otherwise every
     // multi-part question ended with a second, unusable spare box.
-    (head && !(b.parts || []).length ? workingSpaceHtml(ws) : "") +
+    (head && !(b.parts || []).length && !soloFloat ? workingSpaceHtml(ws) : "") +
     `</div>`
   );
 }
@@ -1256,6 +1322,33 @@ function workingSpaceHtml(ws, blockId, key) {
     return `<div class="working-space-row">${col("")}${col(grip)}</div>`;
   }
   return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${grip}</div>`;
+}
+
+// An answer box that has a diagram floated beside part of it. Written as
+// two boxes - the rows level with the diagram, then the rows below it -
+// which is what lets one box be narrow at the top and full width lower
+// down, an L rather than a rectangle. Where the split falls depends on
+// how much of the diagram the question's own text has already used up,
+// which is a measurement, so wrapWorkingSpaces() below sets the two
+// heights after layout; until then the whole box is the lower one, which
+// is what a box with nothing floated beside it stays as. Borders are
+// dropped where the two meet and the join across the notch is redrawn by
+// .ws-wrap-bottom::before, so the pair reads as a single box.
+function wrappedSpaceHtml(ws, blockId, key) {
+  if (ws.style === "none") return "";
+  const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
+  const total = snapDown(ws.heightMm, spacing);
+  const fill = (h) =>
+    ws.style === "grid"
+      ? `<svg class="ws-grid" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#${GRID_PATTERN_ID})"></rect></svg>`
+      : ruleLinesHtml(h, spacing);
+  return (
+    `<div class="working-space ws-wrap-top" style="height:0;display:none" data-step="${spacing}">${fill(0)}</div>` +
+    `<div class="working-space ws-wrap-bottom" style="height:${total}mm" data-total="${total}" data-step="${spacing}">` +
+    fill(total) +
+    boxGripHtml(blockId, key) +
+    `</div>`
+  );
 }
 
 function stylePickerHtml(target, kind, activeStyle) {
