@@ -374,6 +374,9 @@ export function extractOverrides(workbook) {
     // A real document setting - it changes how text wraps and therefore
     // how the chapter paginates - so it persists like any other edit.
     flowBodyPt: workbook.flowBodyPt,
+    // Whether teaching material prints sideways, two columns to a
+    // landscape sheet (see emitLandscape in render.js).
+    landscapeTeaching: workbook.landscapeTeaching,
     combinedBlocks: workbook.combinedBlocks || {},
     blockOverrides,
     // Both 100% user-authored (no shipped server-side default either
@@ -415,6 +418,9 @@ export function applyOverrides(workbook, overrides) {
         workbook.combinedBlocks[gid] = overrides.combinedBlocks[gid];
       }
     }
+  }
+  if (overrides.landscapeTeaching !== undefined) {
+    workbook.landscapeTeaching = overrides.landscapeTeaching;
   }
   if (overrides.tierFilters) workbook.tierFilters = overrides.tierFilters;
   if (overrides.deletedIds) workbook.deletedIds = overrides.deletedIds;

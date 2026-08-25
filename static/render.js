@@ -17,6 +17,7 @@ import {
   IMAGE_SCALE_MIN,
   PAGE_HEIGHT_MM,
   PAGE_MARGIN_MM,
+  PAGE_WIDTH_MM,
   RULE_MM,
   SIZE_PRESETS_MM,
   TIERS,
@@ -40,6 +41,22 @@ const CSS_PX_PER_MM = 96 / 25.4;
 // a second sheet anyway.
 const PAGE_SAFETY_MARGIN_MM = 3;
 const USABLE_HEIGHT_PX = (PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM - PAGE_SAFETY_MARGIN_MM) * CSS_PX_PER_MM;
+// A landscape sheet for teaching material: the same A4 turned on its
+// side, in two columns about A5 wide. A panel is cropped ~150mm wide
+// from the book and so never fills the 186mm portrait column - every one
+// of them left a 65mm strip of white down the right of the page, and
+// there is nothing that can go in it. Turned sideways, two columns of
+// them fill the sheet, and Key Ideas, Building Understanding and the
+// worked examples stop taking a page each.
+const LAND_WIDTH_MM = PAGE_HEIGHT_MM - 2 * PAGE_MARGIN_MM;   // 273
+const LAND_HEIGHT_MM = PAGE_WIDTH_MM - 2 * PAGE_MARGIN_MM;   // 186
+const LAND_GUTTER_MM = 9;
+export const LAND_COL_MM = (LAND_WIDTH_MM - LAND_GUTTER_MM) / 2;
+const LAND_COL_PX = (LAND_HEIGHT_MM - PAGE_SAFETY_MARGIN_MM) * CSS_PX_PER_MM;
+// What a panel prints at inside a column - not the full column width.
+// A worked example is nearly a whole column tall as it is; at full
+// column width it grew past one and had to be broken across two.
+const LAND_PANEL_PCT = 92;
 // Below this, a sheet's trailing blank space is just normal slack from
 // bin-packing (the next unit genuinely didn't fit) - not worth surfacing
 // as an actionable prompt. At or above it, there's room for a real
@@ -614,6 +631,19 @@ export function defaultScaleBarHtml(workbook) {
     stepper("section", "Default section scale", scales.section) +
     stepper("answers", "Default answer scale", scales.answers) +
     stepper("combined", "Default combined scale", scales.combined) +
+    // Teaching material - Key Ideas, Building Understanding and the
+    // worked examples - can print sideways instead, two columns of it to
+    // a landscape sheet. Off by default: a panel is cropped too narrow
+    // to fill a portrait column, so two columns of them do fit a sheet
+    // better, but a section's teaching is only a handful of items and
+    // each section has to start a fresh sheet - on this chapter the two
+    // effects cancel out almost exactly. It is a look as much as a
+    // saving, so it is a switch rather than a decision made here.
+    `<div class="tier-filter-group">` +
+    `<span class="tier-filter-label">Teaching pages</span>` +
+    `<button data-action="toggle-landscape-teaching" class="${workbook.landscapeTeaching ? "active" : ""}">` +
+    `${workbook.landscapeTeaching ? "landscape 2-up" : "portrait"}</button>` +
+    `</div>` +
     `</div>`
   );
 }
@@ -824,8 +854,12 @@ function bundleEnd(units, i) {
 // only if content overflows one); leftoverPx[i] is how much usable
 // height sheet i finished with unused, for the "squeeze in" prompt to
 // judge whether a sheet has room worth offering to reclaim.
-async function paginateUnits(units) {
+async function paginateUnits(units, target = {}) {
+  const usableHeight = target.usablePx || USABLE_HEIGHT_PX;
   const measurer = getMeasurer();
+  // Heights depend on the width the units are laid out at, so a run
+  // headed for a narrow landscape column has to be measured in one.
+  measurer.style.width = `${target.widthMm || CONTENT_WIDTH_MM}mm`;
   // The repeat headers (see repeatHtml - a shared diagram reprinted at
   // the top of a sheet a question continues onto) are measured in the
   // same pass, tacked on the end: one only costs a sheet anything when
@@ -874,7 +908,7 @@ async function paginateUnits(units) {
     const bundleLast = units[i].glueForward ? bundleEnd(units, i) : i;
     let bundleHeight = 0;
     for (let k = i; k <= bundleLast; k++) bundleHeight += heights[k];
-    if (bundleHeight > USABLE_HEIGHT_PX) {
+    if (bundleHeight > usableHeight) {
       for (let k = i; k <= bundleLast; k++) oversizedBundle[k] = true;
     }
 
@@ -890,7 +924,7 @@ async function paginateUnits(units) {
     for (let k = i; k <= bundleLast && !forcedBreak; k++) forcedBreak = !!units[k].breakBefore;
     forcedBreak = sheetHasContent && forcedBreak;
 
-    if (sheetHasContent && (forcedBreak || sheetHeight + bundleHeight > USABLE_HEIGHT_PX)) {
+    if (sheetHasContent && (forcedBreak || sheetHeight + bundleHeight > usableHeight)) {
       sheets.push([]);
       sheetHeights.push(sheetHeight);
       sheetHeight = 0;
@@ -912,8 +946,10 @@ async function paginateUnits(units) {
   }
   sheetHeights.push(sheetHeight);
 
-  const leftoverPx = sheetHeights.map((used) => USABLE_HEIGHT_PX - used);
-  return { sheets, leftoverPx, oversizedBundle };
+  const leftoverPx = sheetHeights.map((used) => usableHeight - used);
+  // heights is by unit, in the order they were passed in - emitLandscape
+  // needs them to divide a sheet's worth of units into two columns.
+  return { sheets, leftoverPx, oversizedBundle, heights };
 }
 
 // Injects a class onto a unit's own top-level element (every unit's html
@@ -1893,6 +1929,9 @@ function isSectionStart(page) {
 }
 
 export async function renderEditor(workbook, cropsBaseUrl) {
+  // Teaching material sideways, two columns a sheet - on unless the
+  // workbook says otherwise (see the Landscape teaching button).
+  const landscape = !!workbook.landscapeTeaching;
   currentBuildVersion = workbook.buildVersion || "";
   const combinedBlocks = workbook.combinedBlocks || {};
   const deletedIds = new Set(workbook.deletedIds || []);
@@ -1967,6 +2006,84 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       units[i].glueForward = units[i].glueForward || units[i].heading;
     }
 
+    // Teaching material goes on its own landscape sheets, two columns of
+    // it to a page (see LAND_COL_MM) - it is cropped too narrow to fill a
+    // portrait column and there is nothing to put beside it. Everything
+    // else stays portrait. Runs are kept in document order, so a
+    // section reads Key Ideas and its examples sideways, then turns back
+    // upright for the exercise.
+    const runs = [];
+    for (const u of units) {
+      const kind = u.teaching && landscape ? "teaching" : "flow";
+      if (!runs.length || runs[runs.length - 1].kind !== kind) runs.push({ kind, units: [] });
+      runs[runs.length - 1].units.push(u);
+    }
+    // A heading glued to what follows it goes wherever that goes. The
+    // chapter title sits immediately before its Key Ideas, so without
+    // this every section opened with a portrait sheet carrying nothing
+    // but its own title while the teaching turned sideways behind it.
+    for (let i = 1; i < runs.length; i++) {
+      if (runs[i].kind !== "teaching") continue;
+      const prev = runs[i - 1].units;
+      while (prev.length && prev[prev.length - 1].glueForward) runs[i].units.unshift(prev.pop());
+    }
+    for (const run of runs.filter((r) => r.units.length)) {
+      if (run.kind === "teaching") await emitLandscape(run.units);
+      else await emitPortrait(run.units, groupStems);
+    }
+  }
+
+  // Teaching material on landscape sheets, two columns to a sheet.
+  //
+  // The packing is done a SHEET at a time - a bin of two columns - and
+  // the units that land on one are then poured into its two columns.
+  // Packing each column as its own bin instead looks equivalent and is
+  // much worse: a worked example is nearly a full column tall, so every
+  // column that could not fit the next one left a third of itself empty
+  // and the sideways layout came out longer than the portrait one it
+  // replaced. Pouring means an example can begin in the left column and
+  // finish in the right, which is how two columns are read anyway,
+  // while the sheet boundary still falls where the packer put it.
+  async function emitLandscape(units) {
+    const { sheets, heights } = await paginateUnits(units, {
+      widthMm: LAND_COL_MM,
+      usablePx: 2 * LAND_COL_PX,
+    });
+    const heightOf = new Map();
+    units.forEach((u, i) => heightOf.set(u, heights[i]));
+    for (let i = 0; i < sheets.length; i++) {
+      const cols = [[], []];
+      let used = 0;
+      let col = 0;
+      for (const u of sheets[i]) {
+        const h = heightOf.get(u) || 0;
+        // Move to the second column when this unit would overflow the
+        // first - unless nothing is in the first yet, in which case it
+        // has to go there whatever its height.
+        if (col === 0 && used > 0 && used + h > LAND_COL_PX) {
+          col = 1;
+          used = 0;
+        }
+        cols[col].push(u);
+        used += h;
+      }
+      const side = physicalPagesHtml.length % 2 === 0 ? "page-left" : "page-right";
+      pageNumber++;
+      const chapterAttr = currentChapterId ? ` data-chapter="${escapeHtml(currentChapterId)}"` : "";
+      const colsHtml = cols
+        .filter((c, n) => c.length || n === 0)
+        .map((c) => `<div class="landscape-col">${c.map((u) => u.html).join("")}</div>`)
+        .join("");
+      physicalPagesHtml.push(
+        `<div class="page page-landscape ${side}"${chapterAttr}>${colsHtml}` +
+          `<div class="page-number">${pageNumber}</div></div>`
+      );
+    }
+  }
+
+  // groupStems is passed in rather than closed over: it is built per
+  // flush, and this function lives outside that scope.
+  async function emitPortrait(units, groupStems) {
     const { sheets, leftoverPx, oversizedBundle } = await paginateUnits(units);
     for (let i = 0; i < units.length; i++) {
       if (oversizedBundle[i]) units[i].html = markGrowthLocked(units[i].html);
@@ -2193,9 +2310,15 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // or worked-example diagram (see "section" in add_chapter.py)
           // is informational, not a question - its own default-scale
           // bucket, separate from an actual question's combined crop.
+          // A teaching panel on a landscape sheet fills its column - the
+          // column is about the width the book prints it at, so the
+          // "section" shrink that stops it being oversized in a portrait
+          // column is exactly what would leave it undersized here.
           const pct =
             b.imageScale ??
-            (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
+            (b.section
+              ? (landscape ? LAND_PANEL_PCT : defaultScales.section)
+              : b.answers ? defaultScales.answers : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
           const ownControls = imageScaleControlHtml(b.id, "block", pct) + breakBeforeControlHtml(b.id, "block", b.breakBefore) + cropButtonHtml(b.id, "block");
           // Merged case (see mergeGroupControls above): one panel, labelled
@@ -2230,6 +2353,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             // introduces, but no naming convention ties the id conventions
             // together the way a stem's does.
             glueForward: !!b.glueForward,
+            teaching: !!b.section,
             wsTargets: [{ kind: "block", id: b.id, canShrink: canShrink(b, pct) }],
             breakBefore: !!b.breakBefore,
             // Raw pieces for pairAnswerImageUnits() to rebuild a 2-up row
@@ -2253,7 +2377,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // A "Now you try" is a question, but its crop is a teaching
           // panel like the example above it - same bucket, so the two
           // never drift apart in size.
-          const pct = b.imageScale ?? (b.section ? defaultScales.section : defaultScales.combined);
+          const pct =
+            b.imageScale ?? (b.section ? (landscape ? LAND_PANEL_PCT : defaultScales.section) : defaultScales.combined);
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
           const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
           const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace, b.id, "")}${hangingControls}</div>`;
@@ -2268,6 +2393,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             // it (wantsPair) - same idea as answersImage above, just for
             // an editor-set choice instead of an automatic one.
             pairData: { id: b.id, crop, ws: b.workingSpace, pct, breakBefore: !!b.breakBefore, wantsPair: !!b.pairWithNext },
+            teaching: !!b.section,
           });
         }
         return;
@@ -2334,7 +2460,8 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // trio has to scale together or the solution prints half again
         // as large as the question it answers.
         const sectionPct = (blk) =>
-          blk.imageScale ?? (blk.section ? defaultScales.section : defaultScales.combined);
+          blk.imageScale ??
+          (blk.section ? (landscape ? LAND_PANEL_PCT : defaultScales.section) : defaultScales.combined);
         const combPct = sectionPct(combB);
         const combCrop = cropHtml(cropsBaseUrl, combB.id, combB.contextImage, combB.widthMm, combPct, combB.manualCropSrc);
         const combControls = controlsHangHtml(
@@ -2378,7 +2505,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // from three blocks into one unit here, the same as the group-
         // stem auto-glue detection above already relies on for its own
         // chain.
-        units.push({ html, heading: false, wsTargets, breakBefore: !!combB.breakBefore, glueForward: !!combB.glueForward });
+        units.push({
+          html, heading: false, wsTargets,
+          breakBefore: !!combB.breakBefore, glueForward: !!combB.glueForward,
+          teaching: !!combB.section,
+        });
         return;
       }
       const layout = workbook.groupLayout[unit.gid] || "split";
@@ -2422,9 +2553,14 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   // size by design, so it is set once here rather than per block.
   const flowStyle = workbook.flowVersion ? ` style="--flow-body:${flowBodyPt(workbook)}pt"` : "";
 
+  // Two portrait sheets to a spread as always, but a landscape sheet is
+  // as wide as two of them and takes a row on its own.
   const spreads = [];
-  for (let i = 0; i < physicalPagesHtml.length; i += 2) {
-    spreads.push(`<div class="spread">${physicalPagesHtml.slice(i, i + 2).join("")}</div>`);
+  for (let i = 0; i < physicalPagesHtml.length; ) {
+    const wide = physicalPagesHtml[i].includes("page-landscape");
+    const take = wide || (physicalPagesHtml[i + 1] || "").includes("page-landscape") ? 1 : 2;
+    spreads.push(`<div class="spread">${physicalPagesHtml.slice(i, i + take).join("")}</div>`);
+    i += take;
   }
   // One copy of the grid pattern for the whole document - every
   // working-space grid box just references it by id (see gridBoxHtml).

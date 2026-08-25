@@ -226,6 +226,17 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   padding: var(--page-margin); box-sizing: border-box;
   position: relative;
 }
+/* A landscape sheet - the same A4 turned on its side, carrying two
+   columns of teaching material (see emitLandscape in render.js). The
+   named @page below is what makes the exported PDF turn just these
+   sheets; every other sheet stays portrait. The columns are their own
+   positioning context so a panel's hanging controls land beside the
+   column they belong to rather than all in one margin. */
+.page-landscape {
+  width: var(--page-height); min-height: var(--page-width);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; align-items: start;
+}
+.landscape-col { position: relative; min-width: 0; }
 .page-cover { padding: 0; overflow: hidden; height: var(--page-height); display: flex; flex-direction: column; }
 .page-cover .block, .page-cover .block-crop, .page-cover img { margin: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 /* The cover art itself flexes to give up just enough room for the note
@@ -765,7 +776,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    layout radios, home view) on the exact same DOM the editor renders, so
    the booklet view you're looking at is what prints. */
 @media print {
-  @page { size: A4; margin: 0; }
+  @page { size: A4 portrait; margin: 0; }
+  /* Named page (see .page-landscape) - Chromium turns the sheets that
+     ask for it and leaves the rest portrait, in one export. */
+  @page land { size: A4 landscape; margin: 0; }
+  .page-landscape { page: land; }
   body { background: white; }
   .topbar, .home-main, #filter-bar-mount,
   .group-controls, .style-picker, .size-picker, .lines-picker, .columns-picker, .layout-picker,

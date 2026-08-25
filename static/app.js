@@ -950,6 +950,14 @@ function handleControlClick(e) {
     persistAndRerenderEditor();
     return;
   }
+  if (action === "toggle-landscape-teaching") {
+    // Teaching material sideways, two columns to a sheet, or upright in
+    // the ordinary page flow. A real document setting - it changes how
+    // the whole book paginates - so it persists like any other edit.
+    currentWorkbook.landscapeTeaching = !currentWorkbook.landscapeTeaching;
+    persistAndRerenderEditor();
+    return;
+  }
   if (action === "toggle-teacher-workthrough") {
     teacherWorkthrough = el.checked;
     applyPrintSelection();
