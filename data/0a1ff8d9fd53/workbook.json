@@ -104,7 +104,7 @@
         {
          "crop": "tg_3e_q1_f1",
          "wMm": 24.09,
-         "hMm": 19.35
+         "hMm": 23.6
         }
        ],
        "workingSpace": {
@@ -119,7 +119,7 @@
         {
          "crop": "tg_3e_q1_f2",
          "wMm": 21.38,
-         "hMm": 19.02
+         "hMm": 23.31
         }
        ],
        "workingSpace": {
@@ -134,7 +134,7 @@
         {
          "crop": "tg_3e_q1_f3",
          "wMm": 20.07,
-         "hMm": 26.66
+         "hMm": 27.04
         }
        ],
        "workingSpace": {
@@ -149,7 +149,7 @@
         {
          "crop": "tg_3e_q1_f4",
          "wMm": 24.3,
-         "hMm": 19.9
+         "hMm": 24.3
         }
        ],
        "workingSpace": {
@@ -164,7 +164,7 @@
         {
          "crop": "tg_3e_q1_f5",
          "wMm": 21.47,
-         "hMm": 13.89
+         "hMm": 15.09
         }
        ],
        "workingSpace": {
@@ -179,7 +179,7 @@
         {
          "crop": "tg_3e_q1_f6",
          "wMm": 26.52,
-         "hMm": 21.24
+         "hMm": 24.87
         }
        ],
        "workingSpace": {
@@ -1324,7 +1324,7 @@
      "figures": [
       {
        "crop": "tg_3e_q12_f0",
-       "wMm": 29.05,
+       "wMm": 29.11,
        "hMm": 26.02
       }
      ],
@@ -1795,13 +1795,17 @@
        "i": true
       },
       {
-       "t": " correct to two decimal places. "
+       "t": " correct to two decimal places."
       }
      ],
      "parts": [
       {
        "letter": "a",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3f_q3_f0",
@@ -1861,12 +1865,16 @@
       },
       {
        "letter": "e",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3f_q3_f4",
          "wMm": 20.35,
-         "hMm": 15.61
+         "hMm": 19.2
         }
        ],
        "workingSpace": {
@@ -1921,7 +1929,11 @@
       },
       {
        "letter": "i",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3f_q3_f8",
@@ -2161,7 +2173,7 @@
       {
        "crop": "tg_3f_q6_f0",
        "wMm": 35.39,
-       "hMm": 20.04
+       "hMm": 21.6
       }
      ],
      "workingSpace": {
@@ -2183,7 +2195,7 @@
        "i": true
       },
       {
-       "t": " in these diagrams. Round to two decimal places where "
+       "t": " in these diagrams. Round to two decimal places where necessary."
       }
      ],
      "parts": [
@@ -2686,8 +2698,8 @@
        "figures": [
         {
          "crop": "tg_3f_q10_f1",
-         "wMm": 26.47,
-         "hMm": 15.27
+         "wMm": 27.7,
+         "hMm": 23.41
         }
        ],
        "subs": [
@@ -3061,13 +3073,17 @@
      "tier": "fluency",
      "stem": [
       {
-       "t": "Find the value of x correct to two decimal places using the sine, cosine or tangent ratios. "
+       "t": "Find the value of x correct to two decimal places using the sine, cosine or tangent ratios."
       }
      ],
      "parts": [
       {
        "letter": "a",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3g_q2_f0",
@@ -3127,7 +3143,11 @@
       },
       {
        "letter": "e",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3g_q2_f4",
@@ -3267,7 +3287,11 @@
      "parts": [
       {
        "letter": "a",
-       "content": [],
+       "content": [
+        {
+         "t": " "
+        }
+       ],
        "figures": [
         {
          "crop": "tg_3g_q3_f0",
@@ -3297,16 +3321,12 @@
       },
       {
        "letter": "c",
-       "content": [
-        {
-         "t": " "
-        }
-       ],
+       "content": [],
        "figures": [
         {
          "crop": "tg_3g_q3_f2",
-         "wMm": 17.29,
-         "hMm": 17.43
+         "wMm": 20.12,
+         "hMm": 19.61
         }
        ],
        "workingSpace": {
@@ -3365,8 +3385,8 @@
        "figures": [
         {
          "crop": "tg_3g_q3_f6",
-         "wMm": 18.9,
-         "hMm": 19.51
+         "wMm": 21.98,
+         "hMm": 20.73
         }
        ],
        "workingSpace": {
@@ -3381,7 +3401,7 @@
         {
          "crop": "tg_3g_q3_f7",
          "wMm": 19.67,
-         "hMm": 9.3
+         "hMm": 13.12
         }
        ],
        "workingSpace": {
@@ -3773,7 +3793,7 @@
         {
          "crop": "tg_3g_q8_f1",
          "wMm": 20.55,
-         "hMm": 18.81
+         "hMm": 20.04
         }
        ],
        "subs": [
@@ -4410,7 +4430,7 @@
         {
          "crop": "tg_3h_q3_f7",
          "wMm": 20.26,
-         "hMm": 18.17
+         "hMm": 21.89
         }
        ],
        "workingSpace": {
@@ -4501,7 +4521,7 @@
       {
        "crop": "tg_3h_q6_f0",
        "wMm": 39.39,
-       "hMm": 24.12
+       "hMm": 25.2
       }
      ],
      "workingSpace": {
@@ -4802,7 +4822,7 @@
      "figures": [
       {
        "crop": "tg_3h_q12_f0",
-       "wMm": 57.2,
+       "wMm": 63.12,
        "hMm": 24.6
       }
      ],
@@ -5185,7 +5205,7 @@
       {
        "crop": "tg_3i_q9_f0",
        "wMm": 45.53,
-       "hMm": 22.21
+       "hMm": 22.25
       }
      ],
      "workingSpace": {
@@ -5333,35 +5353,7 @@
        "i": true
       },
       {
-       "t": " metres away as shown. "
-      },
-      {
-       "t": "y",
-       "i": true
-      },
-      {
-       "t": " m monument ("
-      },
-      {
-       "t": "m",
-       "i": true
-      },
-      {
-       "t": " m) height "
-      },
-      {
-       "t": "h",
-       "i": true
-      },
-      {
-       "t": " m "
-      },
-      {
-       "t": "x",
-       "i": true
-      },
-      {
-       "t": " m"
+       "t": " metres away as shown."
       }
      ],
      "parts": [
@@ -5547,8 +5539,8 @@
      "figures": [
       {
        "crop": "tg_3i_q14_f0",
-       "wMm": 41.13,
-       "hMm": 19.04
+       "wMm": 93.98,
+       "hMm": 34.72
       }
      ],
      "workingSpace": {
@@ -5813,5 +5805,5 @@
    ]
   }
  ],
- "buildVersion": "b44b0018"
+ "buildVersion": "a74df9d3"
 }

@@ -179,6 +179,14 @@ PUA_GLYPHS = {
 # and added rather than shipped.
 UNMAPPED_PUA = {}
 
+# Every dimension label the prose gave up as belonging to a drawing that
+# no crop turned out to contain, as "p4 q1: '4'". A lost label is a side
+# length missing from a diagram a student has to answer from, and it is
+# invisible in the output - the crop just looks like a triangle with one
+# fewer number on it - so it is reported at the end of a build the same
+# way an unmapped glyph is.
+LOST_LABELS = []
+
 
 def decode_pua(font, ch):
     """Maps one private-use glyph to the text it actually shows."""
@@ -525,6 +533,25 @@ def merge_stacked(runs, all_lines, line_bbox):
     return runs
 
 
+# How far apart two paths can be and still be one drawing. Overlap
+# alone is not enough: line art is drawn as separate strokes that MEET
+# rather than cross, so a stick figure, the sight line from its eye and
+# the monument it looks at (3I Q14) are three boxes that touch at their
+# corners and share no area at all. Small enough that two diagrams in
+# neighbouring cells - always tens of points apart - never join.
+FIG_JOIN_PT = 6.0
+
+
+def touching(a, b):
+    """True if two paths belong to the same drawing."""
+    inter = a & b
+    if not inter.is_empty and inter.get_area() > 0.10 * min(a.get_area(), b.get_area()):
+        return True
+    dx = max(a.x0 - b.x1, b.x0 - a.x1, 0.0)
+    dy = max(a.y0 - b.y1, b.y0 - a.y1, 0.0)
+    return dx <= FIG_JOIN_PT and dy <= FIG_JOIN_PT
+
+
 def page_figures(page: fitz.Page, y_floor: float):
     """Every real figure on the page, resolved ONCE for the whole page.
 
@@ -544,7 +571,14 @@ def page_figures(page: fitz.Page, y_floor: float):
 
     parts = []
     for r in raw:
-        if r.width < 8 or r.height < 8:
+        # Small paths are kept as merge candidates rather than dropped:
+        # an angle arc, a tick, a right-angle square is 6pt across and
+        # is part of the drawing it sits on. Dropped here they were
+        # missing from the union, so the crop was cut through them -
+        # that is what sliced the arc off the top of 3H Q6's ladder.
+        # Anything that fails to merge into a real figure is discarded
+        # by too_small() at the end.
+        if r.width < 3 or r.height < 3:
             continue
         if r.y1 < y_floor:
             continue
@@ -564,10 +598,7 @@ def page_figures(page: fitz.Page, y_floor: float):
     for r in sorted(parts, key=lambda b: (b.y0, b.x0)):
         placed = False
         for m in merged:
-            inter = m & r
-            if inter.is_empty:
-                continue
-            if inter.get_area() <= 0.10 * min(m.get_area(), r.get_area()):
+            if not touching(m, r):
                 continue
             grown = m | r
             if grown.height > MAX_FIG_H:
@@ -577,6 +608,26 @@ def page_figures(page: fitz.Page, y_floor: float):
             break
         if not placed:
             merged.append(fitz.Rect(r))
+    # Merging is order-dependent and one pass only joins a piece to a
+    # box that already exists, so a drawing whose pieces arrive out of
+    # order needs another sweep - the stick figure, the sight line and
+    # the monument of 3I Q14 chain together, but only two at a time.
+    changed = True
+    while changed:
+        changed = False
+        for i, a in enumerate(merged):
+            for b in merged[i + 1:]:
+                if not touching(a, b):
+                    continue
+                grown = a | b
+                if grown.height > MAX_FIG_H:
+                    continue
+                a.x0, a.y0, a.x1, a.y1 = grown.x0, grown.y0, grown.x1, grown.y1
+                merged.remove(b)
+                changed = True
+                break
+            if changed:
+                break
 
     keep = []
     for r in merged:
@@ -703,8 +754,17 @@ LABEL_MARGIN_PT = 14.0
 LABEL_MAX_CHARS = 24
 
 
-def is_label_line(bbox, text, figs):
-    """True if this line is a diagram's annotation, not prose."""
+def hugs_a_figure(bbox, text, figs):
+    """True if this line reads as a diagram's annotation.
+
+    Only ever used to REPORT one that no crop took (see LOST_LABELS).
+    What a crop actually contains is what decides whether a line is in
+    the bitmap - this used to decide it instead, and the two disagreed:
+    a line within the margin of a figure was taken out of the prose
+    whether or not the crop had grown to include it, so a label that
+    failed to be absorbed was lost from the page altogether, and the
+    word "necessary." at the end of 3F Q7's stem - a line that happens
+    to end just above a diagram - was lost with them."""
     if not text or len(text) > LABEL_MAX_CHARS:
         return False
     m = LABEL_MARGIN_PT
@@ -713,6 +773,13 @@ def is_label_line(bbox, text, figs):
         fitz.Rect(f.x0 - m, f.y0 - m, f.x1 + m, f.y1 + m).contains(centre)
         for f in figs
     )
+
+
+def rect_gap(r, p):
+    """Distance from a point to a rectangle - 0 when it is inside."""
+    dx = max(r.x0 - p.x, 0.0, p.x - r.x1)
+    dy = max(r.y0 - p.y, 0.0, p.y - r.y1)
+    return (dx * dx + dy * dy) ** 0.5
 
 
 def absorb_labels(figs, lines, region, body_left, others=()):
@@ -759,6 +826,32 @@ def absorb_labels(figs, lines, region, body_left, others=()):
                 if bbox.x0 < body_left + 2 and bbox.y0 < g.y0:
                     continue
                 new = (g | bbox) & region
+                # A label belongs to whichever drawing it sits nearest.
+                # This used to be enforced by padding every other figure
+                # by the label margin and refusing to grow into the pad,
+                # which is the same idea done bluntly: the pad reaches
+                # 14pt past a figure in every direction, far enough to
+                # cover a label that plainly belongs to its neighbour -
+                # and once refused here, is_label_line had already taken
+                # the label out of the prose, so it vanished from the
+                # page entirely. That is what took the "4" off 3E Q1b,
+                # the "3" off Q1c, the "5" off Q1e, the "5t" off Q1g and
+                # the "A" off the second triangle in 3F Q10.
+                # Ownership is judged against EVERY other figure, not
+                # just the ones inside this region: the diagram that owns
+                # a label is often the one in the next cell down, which
+                # is precisely why this figure must not take it. Judged
+                # only against its own region, part (d) of 3E Q1 could
+                # not see part (g) below it and swallowed g's "5t".
+                mid = fitz.Point(0.5 * (bbox.x0 + bbox.x1), 0.5 * (bbox.y0 + bbox.y1))
+                rivals = [o for o in grown if o is not g] + list(others)
+                if any(rect_gap(o, mid) < rect_gap(g, mid) - 0.5 for o in rivals):
+                    continue
+                # Overlap, though, can only happen inside the region -
+                # growth is clipped to it, so a figure outside cannot be
+                # reached and must not veto anything.
+                blocked = [o for o in grown if o is not g]
+                blocked += [o for o in others if o.intersects(region)]
                 # Growing must never reach another figure - any other
                 # figure in the question, not just one in the same
                 # group. A question's own diagram is absorbed against
@@ -766,14 +859,7 @@ def absorb_labels(figs, lines, region, body_left, others=()):
                 # without this it grew down the page until it enclosed
                 # the NEXT diagram, which then printed twice: once
                 # inside this crop and once as itself.
-                # Each obstacle is padded by the label margin, because a
-                # diagram's labels sit just outside its box: stopping at
-                # the box itself still let a crop swallow the NEXT
-                # diagram's "A" hanging above it.
-                m = LABEL_MARGIN_PT
-                blocked = [o for o in grown if o is not g] + list(others)
-                if any(fitz.Rect(o.x0 - m, o.y0 - m, o.x1 + m, o.y1 + m).intersects(new)
-                       for o in blocked):
+                if any(o.intersects(new) for o in blocked):
                     continue
                 if not new.is_empty and new != g:
                     g.x0, g.y0, g.x1, g.y1 = new.x0, new.y0, new.x1, new.y1
@@ -1025,6 +1111,15 @@ def merge_near(figs, gap=8.0):
     return out
 
 
+def margin_figure(f, marks):
+    """True for a diagram set out in the right margin, alongside a whole
+    single column of parts rather than inside any one part's row."""
+    if not marks:
+        return False
+    single_col = len({round(m["x"]) for m in marks}) == 1
+    return single_col and f.x0 > min(m["x"] for m in marks) + 200
+
+
 def label_figures(figs, marks):
     """Attaches each figure to the part label that names it, and clips it
     to that label's cell.
@@ -1090,7 +1185,13 @@ def label_figures(figs, marks):
             # under the letter takes the top off every circle. What is
             # above that line belongs to the row before, and is the
             # stray arc that was appearing across the top of a crop.
-            f.y0 = max(f.y0, best["y"] - 2)
+            # ...and only if it reaches well above it. The book sets a
+            # letter level with the top of its diagram, so a drawing
+            # whose topmost arc sits a few points higher is that
+            # diagram's own top, not a leftover from the row before -
+            # cutting at the letter took the arc off 3H Q6's ladder.
+            if f.y0 < best["y"] - 8:
+                f.y0 = best["y"] - 2
             # The letter itself sits just left of the diagram, so on a
             # figure it is level with it lands inside the crop and
             # prints twice - once in the bitmap and once as the part's
@@ -1104,11 +1205,14 @@ def label_figures(figs, marks):
             # to the row its top happens to fall in, it lost its lower
             # half, and the labels that went with that half then leaked
             # into the next part's text ("...to two decimal places.20").
-            single_col = len({round(m["x"]) for m in marks}) == 1
-            margin_fig = single_col and f.x0 > min(m["x"] for m in marks) + 200
             floor = next((y for y in row_ys if y > best["y"] + 6), None)
-            if floor is not None and not margin_fig:
-                f.y1 = min(f.y1, floor - 3)
+            # Only a figure that actually reaches the next row is cut
+            # back off it. The 3pt margin is there to keep the next
+            # row's letter out of the crop, not to shave the last of a
+            # drawing that already stops above it - which is what took
+            # the bottom vertex off 3E Q1's part (d).
+            if floor is not None and f.y1 > floor and not margin_figure(f, marks):
+                f.y1 = floor - 3
             wall = min((m["x"] for m in marks
                         if abs(m["y"] - best["y"]) <= 6 and m["x"] > best["x"] + 6),
                        default=None)
@@ -1374,7 +1478,34 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                 # and grew across its neighbour, so both crops ended up
                 # containing both diagrams.
                 near = elsewhere + [g for g in group if g is not f]
-                out += absorb_labels([f], lines, bounds & region, PART_X[1], others=near)
+                box = bounds & region
+                # A diagram out in the right margin gets a label's worth
+                # of vertical slack, because the cell is the wrong ruler
+                # for it: the cell begins and ends at part letters down
+                # the left, while a margin diagram is set alongside
+                # several parts and its topmost and bottommost
+                # annotations fall wherever the drawing does. That is
+                # where the vertex labels A, B and C of 3F Q10's second
+                # triangle were going - above and below a cell whose top
+                # is part (d)'s own line. The slack is only safe here:
+                # a diagram in a grid cell has the next row's tier band
+                # or part row a few points below it, and 14pt of reach
+                # was enough to pull a slice of the band's own text into
+                # the crop.
+                if margin_figure(f, pmarks):
+                    m = LABEL_MARGIN_PT
+                    box = fitz.Rect(box.x0, box.y0 - m, box.x1, box.y1 + m)
+                # Never into a tier band. The band's own text is the
+                # publisher's per-tier question list ("7 | 7-9 | 8-10"),
+                # short lines sitting right where a diagram's labels
+                # would - so a crop that reaches one takes a slice of
+                # the coloured banner and a stray number with it.
+                for b0, b1 in band_rows:
+                    if b0 >= f.y1:
+                        box.y1 = min(box.y1, b0)
+                    if b1 <= f.y0:
+                        box.y0 = max(box.y0, b1)
+                out += absorb_labels([f], lines, box, PART_X[1], others=near)
             figs_by_letter[letter] = out
         figs = [f for v in figs_by_letter.values() for f in v]
         fig_json = {}
@@ -1429,7 +1560,31 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             # its part markers in one row, so by the time the labels are
             # reached every part is already open and they all land on
             # the last one.
-            if is_label_line(bbox, line_text, figs):
+            # Labels just OUTSIDE the drawing are the same thing, and
+            # they are the ones that leak: a diagram grid opens all of
+            # its part markers in one row, so by the time the labels are
+            # reached every part is already open and they all land on
+            # the last one. A pronumeral label ("h", "x") reads as a
+            # sub-part marker too, and opens a phantom sub-item.
+            #
+            # A line starting at the body column is prose, however close
+            # to a diagram it happens to end - the same test absorb_
+            # labels uses to refuse it, so the two cannot disagree about
+            # what is a label. Without it the last line of 3F Q7's stem,
+            # "necessary.", was read as an annotation of the diagram
+            # below it and dropped from the page.
+            if hugs_a_figure(bbox, line_text, figs) and bbox.x0 >= PART_X[1] + 2:
+                # A label the prose gives up and no crop actually
+                # contains is gone from the booklet altogether - a side
+                # length a student needs, silently missing. Reported
+                # rather than repaired here: the repair belongs upstream
+                # in absorb_labels, and the report is what proves it
+                # worked on every figure of every chapter, instead of
+                # one spot-check at a time. A part letter is structure,
+                # printed beside the crop from the part list, so it is
+                # not missing just because the bitmap has no copy of it.
+                if not any(fr.contains(bbox) for fr in figs) and not marker_parse(spans, 0):
+                    LOST_LABELS.append(f"p{pno + 1} q{number}: {line_text!r}")
                 continue
 
             # The part is opened as soon as its label is seen, BEFORE the
@@ -2256,6 +2411,12 @@ def main():
         f"{stats['figures']} figures, {stats['panels']} teaching panels, "
         f"{stats['math']} inline math crops, id={pid}"
     )
+    if LOST_LABELS:
+        print("\nWARNING: diagram labels that reached neither the crop nor")
+        print("the text. Each is a measurement missing from the page - check")
+        print("the figure's cell and what is blocking absorb_labels:")
+        for line in LOST_LABELS:
+            print(f"  {line}")
     if UNMAPPED_PUA:
         print("\nWARNING: unmapped private-use glyphs reached the text.")
         print("Each is a character missing from the prose. Render it, read")
