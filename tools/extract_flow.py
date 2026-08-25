@@ -1786,9 +1786,32 @@ PANEL_KIND = [
 # them at x=178 - so the split belongs just left of those diagrams,
 # which illustrate the explanation rather than the working.
 SOL_SPLIT_X = 172.0
-# Height of the running footer, which is never part of a panel.
+# Fallback height of the running footer, which is never part of a panel.
+# Only used when the footer can't be found by its own text (below) - it
+# is a deliberately safe over-estimate, and on this series it cuts 26pt
+# above where the footer really starts, which is enough to slice the
+# last line off a Key Ideas panel that runs to the bottom of its page.
 PAGE_FOOTER_PT = 46.0
+# The publisher's strip at the foot of every page. Matching it gives the
+# real boundary rather than a guessed one, so a panel can use the full
+# height it actually occupies.
+FOOTER_TEXT = re.compile(
+    r"(?i)(ISBN\s|Cambridge University Press|Photocopying is restricted"
+    r"|Essential Mathematics for)"
+)
 PANEL_HEAD_MIN_SIZE = 11.0
+
+
+def footer_top(page):
+    """Where this page's running footer starts."""
+    ys = []
+    for bbox, spans in page_lines(page):
+        if bbox.y0 < page.rect.y1 * 0.75:
+            continue
+        text = "".join(c["c"] for s in spans for c in s.chars)
+        if FOOTER_TEXT.search(text):
+            ys.append(bbox.y0)
+    return min(ys) - 2 if ys else page.rect.y1 - PAGE_FOOTER_PT
 
 
 def panel_marks(page):
@@ -2044,7 +2067,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
         # exercise is running, an "Example 12b" in the margin is a
         # cross-reference tag, not a panel.
         if not in_exercise:
-            stop = ex_y if ex_y is not None else page.rect.y1 - PAGE_FOOTER_PT
+            stop = ex_y if ex_y is not None else footer_top(page)
             found = page_panels(page, stop)
             if found:
                 if pending_title is not None:
