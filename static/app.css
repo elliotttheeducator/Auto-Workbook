@@ -491,17 +491,23 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
    there is one per part, and a column of them in the margin could not
    say which box each belonged to. Editor chrome, so it is hidden in
    print and never costs the box any room. */
-/* The two halves of a wrapped answer box (see wrappedSpaceHtml). They
-   are one box as far as a reader is concerned, so the border is dropped
-   where they meet and the missing segment - the step in the L, under
-   the diagram - is drawn back by the pseudo-element. --wrap-notch is
-   the measured width of that step (see wrapWorkingSpaces). */
-.ws-wrap-top { border-bottom: none; }
-.ws-wrap-bottom { border-top: none; position: relative; }
-.ws-wrap-bottom::before {
-  content: ""; position: absolute; top: -0.3mm; right: -0.3mm;
-  width: calc(var(--wrap-notch, 0px) + 0.3mm);
-  border-top: 0.3mm solid #999;
+/* A wrapped answer box (see wrappedSpaceHtml): one element, its outline
+   and its ruling both drawn by a single SVG path, so the L has no seam
+   anywhere in it. No CSS border - the path IS the border - and no
+   overflow:hidden either: unlike every other box this one must NOT
+   establish its own formatting context, because sliding its full width
+   under the float is exactly what puts the diagram in the notch. */
+/* The repeated head of a question continuing onto a new sheet (see
+   repeatHtml in render.js) - the same number, wording and diagram, with
+   a marker so it reads as "this is question 5 again", not a new one. */
+.flowq-cont-tag {
+  display: block; font-size: 7px; font-weight: 600; color: #94a3b8;
+  letter-spacing: 0.02em; margin-top: 0.5mm;
+}
+.working-space.ws-shaped { border: none; overflow: visible; width: auto; }
+.ws-shape {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+  overflow: visible;
 }
 .ws-grip {
   position: absolute; right: 0.5mm; bottom: 0.5mm;

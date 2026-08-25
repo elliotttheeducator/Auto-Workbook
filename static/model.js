@@ -322,6 +322,9 @@ export function extractOverrides(workbook) {
         o.pairWithNext = b.pairWithNext;
       }
       if (b.type === "flowquestion") {
+        // The question's own box - what a flow question with no parts
+        // prints under it (see flowQuestionHtml in render.js).
+        o.workingSpace = b.workingSpace;
         // How many parts sit on each row of this question's grid, as an
         // array like [1, 2, 2]. A real layout decision rather than a
         // derived one: which parts share a row depends on where the
@@ -416,7 +419,9 @@ export function applyOverrides(workbook, overrides) {
     for (const b of page.blocks) {
       const o = blockOverrides[b.id];
       if (o) {
-        if (o.workingSpace && b.type === "question") b.workingSpace = o.workingSpace;
+        if (o.workingSpace && (b.type === "question" || b.type === "flowquestion")) {
+          b.workingSpace = o.workingSpace;
+        }
         if (o.pairWithNext !== undefined) b.pairWithNext = o.pairWithNext;
         if (o.imageScale !== undefined) b.imageScale = o.imageScale;
         if (o.manualCropSrc !== undefined) b.manualCropSrc = o.manualCropSrc;

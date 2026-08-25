@@ -204,15 +204,23 @@ function setBlockHeight(id, heightMm) {
   b.workingSpace.heightMm = heightMm;
 }
 
+// A text-flow question counts here too. Its own box is the one a
+// question with no parts prints (see flowQuestionHtml), and until this
+// allowed it through, neither that box's grip nor the size control in
+// its hanging panel could move it.
+function hasOwnSpace(b) {
+  return !!b && (b.type === "question" || b.type === "flowquestion") && !!b.workingSpace;
+}
+
 function stepBlockHeight(id, spacing, delta) {
   const b = findBlock(id);
-  if (!b || b.type !== "question") return;
+  if (!hasOwnSpace(b)) return;
   b.workingSpace.heightMm = Math.max(spacing, b.workingSpace.heightMm + delta);
 }
 
 function setBlockColumns(id, columns) {
   const b = findBlock(id);
-  if (!b || b.type !== "question") return;
+  if (!hasOwnSpace(b)) return;
   b.workingSpace.columns = columns;
 }
 
@@ -961,6 +969,7 @@ function handleControlClick(e) {
     const block = findBlock(el.dataset.target);
     if (!block || block.type !== "flowquestion") return;
     const key = el.dataset.part || "";
+    if (!key) return;
     const [letter, subLetter] = key.split(".");
     const part = (block.parts || []).find((p) => p.letter === letter);
     const sub = subLetter && (part?.subs || []).find((x) => x.letter === subLetter);

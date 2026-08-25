@@ -425,7 +425,7 @@ function buildPairedQuestionRowUnit(a, b) {
   // like. A bitmap question carries no box of its own and still needs
   // one added.
   const partHtml = (q) =>
-    `<div class="block question">${q.crop}${q.wsInCrop ? "" : workingSpaceHtml(q.ws)}</div>`;
+    `<div class="block question">${q.crop}${q.wsInCrop ? "" : workingSpaceHtml(q.ws, q.id, "")}</div>`;
   const partsHtml = partHtml(a) + partHtml(b);
   const sideControls = (q, label) =>
     `<div class="paired-side-controls"><span class="paired-side-label">${escapeHtml(label)}</span>` +
@@ -634,51 +634,48 @@ export function defaultScaleBarHtml(workbook) {
 // because it renders the exact same markup/images/CSS and so always
 // computes the exact same numbers - never as the source of truth for
 // what fits on a sheet.
-// Sizes each wrapped answer box's two halves (see wrappedSpaceHtml).
-// The question's own text sits beside the diagram first, so how much of
-// the diagram is still to the box's right is only knowable once the text
-// has been laid out - measured here, rounded UP to a whole row of the
-// box's own ruling so the lower half really does clear the diagram and
-// the two halves' rulings stay in step with each other.
+// Gives each wrapped answer box its shape (see wrappedSpaceHtml): the
+// rectangle it occupies, minus the corner the diagram beside it takes
+// up. How much of the diagram is still to the box's right depends on
+// how much of it the question's own text used up, so it can only be
+// measured once the text has been laid out. Both edges of the notch
+// snap outwards to a whole row and column of the box's own ruling -
+// so the box reads as four squares wide, then eight once past the
+// diagram, rather than four and a bit.
 export function wrapWorkingSpaces(container) {
-  const PX_PER_MM = 96 / 25.4;
-  for (const bottom of container.querySelectorAll(".ws-wrap-bottom")) {
-    const top = bottom.previousElementSibling;
-    if (!top || !top.classList.contains("ws-wrap-top")) continue;
-    const total = Number(bottom.dataset.total) || 0;
-    const step = Number(bottom.dataset.step) || 5;
-    // Reset first: these are measured against the unwrapped layout, so
-    // a second pass must not measure its own previous result.
-    top.style.display = "none";
-    top.style.height = "0";
-    bottom.style.height = `${total}mm`;
-    bottom.style.setProperty("--wrap-notch", "0px");
-    const float = bottom.closest(".flowq-body")?.querySelector(".flowq-float");
-    if (!float) continue;
-    // The float's MARGIN box is what pushes a box sideways, not its
-    // border box - a lower half that starts level with the picture
-    // itself is still inside the gutter under it, and shrinks to fit
-    // beside it rather than taking the full width.
-    const margin = parseFloat(getComputedStyle(float).marginBottom) || 0;
-    const gap = float.getBoundingClientRect().bottom + margin - bottom.getBoundingClientRect().top;
-    if (gap < step * PX_PER_MM) continue;
-    const upper = Math.min(Math.ceil(gap / (step * PX_PER_MM)) * step, total - step);
-    if (upper < step) continue;
-    top.style.display = "";
-    top.style.height = `${upper}mm`;
-    bottom.style.height = `${total - upper}mm`;
-    // The step in the L: how much wider the lower half is than the
-    // upper one, which is the width of the notch the diagram left.
-    const notch = bottom.getBoundingClientRect().width - top.getBoundingClientRect().width;
-    if (notch < 1) {
-      // The diagram runs past the foot of the box, so there is no notch
-      // and nothing to wrap around - put it back to being one box.
-      top.style.display = "none";
-      top.style.height = "0";
-      bottom.style.height = `${total}mm`;
-      continue;
+  for (const box of container.querySelectorAll(".ws-shaped")) {
+    const path = box.querySelector(".ws-shape path");
+    if (!path) continue;
+    const step = (Number(box.dataset.step) || 5) * MM_PX;
+    const r = box.getBoundingClientRect();
+    const inset = 0.3 * MM_PX * 0.5; // half the stroke, so it sits inside
+    const W = r.width - inset;
+    const H = r.height - inset;
+    const float = box.closest(".flowq-body")?.querySelector(".flowq-float");
+    let notchW = 0;
+    let notchH = 0;
+    if (float) {
+      const f = float.getBoundingClientRect();
+      const style = getComputedStyle(float);
+      // The float's MARGIN box is what the text and the diagram are
+      // actually kept apart by, so it is what the notch has to clear.
+      const left = f.left - (parseFloat(style.marginLeft) || 0) - r.left;
+      const bottom = f.bottom + (parseFloat(style.marginBottom) || 0) - r.top;
+      if (left < r.width - step && bottom > step) {
+        notchW = r.width - Math.floor(Math.max(0, left) / step) * step;
+        notchH = Math.min(Math.ceil(bottom / step) * step, r.height);
+      }
     }
-    bottom.style.setProperty("--wrap-notch", `${notch}px`);
+    const x = (W - notchW).toFixed(2);
+    const y = notchH.toFixed(2);
+    path.setAttribute(
+      "d",
+      notchW <= 0 || notchH <= 0
+        ? `M${inset},${inset} H${W.toFixed(2)} V${H.toFixed(2)} H${inset} Z`
+        : notchH >= r.height
+          ? `M${inset},${inset} H${x} V${H.toFixed(2)} H${inset} Z`
+          : `M${inset},${inset} H${x} V${y} H${W.toFixed(2)} V${H.toFixed(2)} H${inset} Z`
+    );
   }
 }
 
@@ -763,14 +760,25 @@ function bundleEnd(units, i) {
 // judge whether a sheet has room worth offering to reclaim.
 async function paginateUnits(units) {
   const measurer = getMeasurer();
-  measurer.innerHTML = units.map((u) => u.html).join("");
+  // The repeat headers (see repeatHtml - a shared diagram reprinted at
+  // the top of a sheet a question continues onto) are measured in the
+  // same pass, tacked on the end: one only costs a sheet anything when
+  // its unit actually opens that sheet, so their heights are kept
+  // separate and added at packing time rather than baked into the
+  // unit's own.
+  const repeats = units.filter((u) => u.repeatHtml);
+  measurer.innerHTML = units.map((u) => u.html).join("") + repeats.map((u) => u.repeatHtml).join("");
   await waitForImages(measurer);
   wrapWorkingSpaces(measurer);
   alignSplitRows(measurer);
   const containerTop = measurer.getBoundingClientRect().top;
   const bottoms = Array.from(measurer.children).map((el) => el.getBoundingClientRect().bottom - containerTop);
   measurer.innerHTML = "";
-  const heights = bottoms.map((bottom, i) => (i === 0 ? bottom : bottom - bottoms[i - 1]));
+  const all = bottoms.map((bottom, i) => (i === 0 ? bottom : bottom - bottoms[i - 1]));
+  const heights = all.slice(0, units.length);
+  repeats.forEach((u, n) => {
+    u.repeatHeight = all[units.length + n] || 0;
+  });
 
   const sheets = [[]];
   const sheetHeights = [];
@@ -819,6 +827,15 @@ async function paginateUnits(units) {
       sheets.push([]);
       sheetHeights.push(sheetHeight);
       sheetHeight = 0;
+    }
+    // Opening a sheet is exactly when a continuation gets its question's
+    // diagram and wording back (see repeatHtml). It is charged for here,
+    // where the sheet it opens is known - the unit is a row or two tall,
+    // so the header never turns a fitting sheet into an overflowing one.
+    if (!sheets[sheets.length - 1].length && units[i].repeatHtml) {
+      units[i].html = units[i].repeatHtml + units[i].html;
+      sheetHeight += units[i].repeatHeight || 0;
+      units[i].repeatHtml = "";
     }
     for (let k = i; k <= bundleLast; k++) {
       sheets[sheets.length - 1].push(units[k]);
@@ -1020,6 +1037,24 @@ function flowColsFor(b, figPct) {
   return flowGridColumns(parts, figH, b.columns || 0);
 }
 
+// A part whose sub-items are stacked one per line can be broken between
+// them - each sub-item is its own instruction and its own answer box, so
+// "a i" at the foot of a sheet and "a ii" at the top of the next reads
+// exactly as it should. That is the finest split a question has, and
+// without it a question like 3E Q2 - whose every part is three stacked
+// sub-items - could only ever move a whole part at a time, which is
+// what left the bottom 40% of a sheet empty.
+export function splitPartRows(row) {
+  if (row.parts.length !== 1) return [row];
+  const part = row.parts[0];
+  const subs = part.subs || [];
+  if (subs.length < 2 || subCols(part, row.cols) !== 1) return [row];
+  return subs.map((sub, i) => ({
+    ...row,
+    parts: [i === 0 ? { ...part, subs: [sub] } : { ...part, subs: [sub], contd: true }],
+  }));
+}
+
 export function flowQuestionRows(b, figPct) {
   const parts = b.parts || [];
   if (!parts.length) return [];
@@ -1106,11 +1141,18 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   // only ever a guess at where the diagrams fall; the person looking at
   // the page can see that 1, 2, 2 fits where 2, 2, 1 does not, and
   // rowPattern is how they say so (see rowColsControlHtml).
-  const rowsFor = slice ? [slice.row] : flowQuestionRows(b, figPct);
+  const rowsFor = slice ? (slice.row ? [slice.row] : []) : flowQuestionRows(b, figPct);
+  // p.contd marks the tail of a part that has been split between its own
+  // sub-items (see splitPartRows): the letter and the wording are on the
+  // piece before it, and repeating them would read as a second part (a).
+  // The empty letter column keeps the sub-items on the same indent they
+  // had on the page before.
   const cellHtml = (p) =>
             `<div class="flowq-cell">` +
-            `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
-            `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>` +
+            (p.contd
+              ? `<div class="flowq-cell-head"><span class="flowq-letter"></span></div>`
+              : `<div class="flowq-cell-head"><span class="flowq-letter">${escapeHtml(p.letter)}</span>` +
+                `<span class="flowq-ptext">${flowRunsHtml(p.content, cropsBaseUrl)}</span></div>`) +
             // The part's own diagram comes BEFORE its sub-items: it is
             // what they are answered against, so printing it after
             // them left it stranded under a column of answer boxes
@@ -1122,7 +1164,7 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             // a diagram and nothing else keeps the diagram above its
             // box, centred - that is the grid case, and floating there
             // would break the rows' alignment.
-            ((p.figures || []).length
+            (!p.contd && (p.figures || []).length
               ? partFloats(p)
                 ? `<div class="flowq-float flowq-part-float" style="width:${floatMm(p.figures[0], figPct)}mm">` +
                   `<img class="flowq-fig" src="${escapeHtml(cropsBaseUrl)}/${escapeHtml(p.figures[0].crop)}.png${versionSuffix()}" ` +
@@ -1155,7 +1197,9 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             `<div class="flowq-grid${sharedFig ? " flowq-flow" : ""}" ` +
             `style="grid-template-columns:repeat(${row.cols},1fr)">` +
             row.parts.map(cellHtml).join("") +
-            rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.parts.length, row.set) +
+            (slice && slice.noRowControl
+              ? ""
+              : rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.parts.length, row.set)) +
             `</div>`
         )
         .join("")
@@ -1222,7 +1266,9 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
   return (
     `<div class="flowq-unit">` +
     `<div class="flowq-row">` +
-    `<div class="flowq-num">${head ? escapeHtml(b.number || "") : ""}</div>` +
+    `<div class="flowq-num">${head ? escapeHtml(b.number || "") : ""}` +
+    (slice && slice.repeat ? `<span class="flowq-cont-tag">cont.</span>` : "") +
+    `</div>` +
     `<div class="flowq-body">` +
     (head && soloFloat ? floatHtml : "") +
     (head ? stem : "") +
@@ -1231,14 +1277,14 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
     // A wrapped box has to be INSIDE the body, beside the float; every
     // other box stays outside the row, where it spans the full content
     // width whatever the question above it looked like.
-    (head && soloFloat ? wrappedSpaceHtml(ws) : "") +
+    (head && soloFloat ? wrappedSpaceHtml(ws, b.id, "") : "") +
     `</div>` +
     (head && !contextFig && !soloFloat && !many ? figBlock : "") +
     `</div>` +
     // Parts bring their own boxes, so the whole-question box is only
     // for a question that has no parts at all - otherwise every
     // multi-part question ended with a second, unusable spare box.
-    (head && !(b.parts || []).length && !soloFloat ? workingSpaceHtml(ws) : "") +
+    (head && !(b.parts || []).length && !soloFloat ? workingSpaceHtml(ws, b.id, "") : "") +
     `</div>`
   );
 }
@@ -1274,17 +1320,26 @@ function ruleLinesHtml(height, spacing) {
 // rasterizes gradient tiles into the exported PDF (they come out blurry
 // and misaligned at print resolution), but keeps SVG as vector.
 const GRID_PATTERN_ID = "ws-grid-5mm";
+const RULE_PATTERN_ID = "ws-rule-10mm";
+export const MM_PX = 96 / 25.4;
 
 function gridPatternDefs() {
-  const step = (GRID_MM * 96) / 25.4;
-  const w = (0.5 * 96) / 25.4;
+  const step = GRID_MM * MM_PX;
+  const rule = RULE_MM * MM_PX;
+  const w = 0.5 * MM_PX;
   const off = (step - w).toFixed(3);
   return (
     `<svg class="ws-grid-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>` +
     `<pattern id="${GRID_PATTERN_ID}" width="${step.toFixed(3)}" height="${step.toFixed(3)}" patternUnits="userSpaceOnUse">` +
     `<rect x="${off}" y="0" width="${w.toFixed(3)}" height="${step.toFixed(3)}" fill="#ccc"></rect>` +
     `<rect x="0" y="${off}" width="${step.toFixed(3)}" height="${w.toFixed(3)}" fill="#ccc"></rect>` +
-    `</pattern></defs></svg>`
+    `</pattern>` +
+    // Ruled lines for a written-response box, as a pattern too, so a
+    // wrapped one is filled by the same single shape as a squared one.
+    `<pattern id="${RULE_PATTERN_ID}" width="${rule.toFixed(3)}" height="${rule.toFixed(3)}" patternUnits="userSpaceOnUse">` +
+    `<rect x="0" y="${(rule - w).toFixed(3)}" width="${rule.toFixed(3)}" height="${w.toFixed(3)}" fill="#bbb"></rect>` +
+    `</pattern>` +
+    `</defs></svg>`
   );
 }
 
@@ -1297,56 +1352,62 @@ function gridBoxHtml(height, grip) {
   );
 }
 
-// Taller/shorter for one box, sitting in its own corner. A question's
-// parts each own their answer space (see assign_workingspace in
-// tools/extract_flow.py), so the question-level size control in the
-// hanging panel has nothing to move on a question that has parts - the
-// boxes on the page belong to the parts, and this is how they are
-// reached. `key` is the part's letter, or "a.i" for a sub-item's box.
-function boxGripHtml(blockId, key) {
-  if (!blockId || !key) return "";
-  const btn = (delta, label, title) =>
-    `<button data-action="step-part-height" data-target="${escapeHtml(blockId)}" ` +
-    `data-part="${escapeHtml(key)}" data-delta="${delta}" title="${title}">${label}</button>`;
+// Taller/shorter for one box, sitting in its own corner. Every answer
+// box on the page has a pair, whatever kind of block it belongs to:
+// reaching for the box you want to change is the obvious move, and on a
+// question whose parts each own a box (see assign_working_space in
+// tools/extract_flow.py) the size control in the hanging panel has
+// nothing to move anyway. `key` names one part's box ("a", or "a.i" for
+// a sub-item's); empty means the block's or group's own box, which the
+// same step-height action the hanging panel uses already knows how to
+// resize.
+function boxGripHtml(target, key, kind = "block", spacing = GRID_MM) {
+  if (!target) return "";
+  const t = escapeHtml(target);
+  const attrs = key
+    ? (d) => `data-action="step-part-height" data-target="${t}" data-part="${escapeHtml(key)}" data-delta="${d}"`
+    : (d) => `data-action="step-height" data-target="${t}" data-kind="${kind}" data-spacing="${spacing}" data-delta="${d}"`;
+  const btn = (d, label, title) => `<button ${attrs(d)} title="${title}">${label}</button>`;
   return `<span class="ws-grip">${btn(-1, "−", "Shorter")}${btn(1, "+", "Taller")}</span>`;
 }
 
-function workingSpaceHtml(ws, blockId, key) {
+function workingSpaceHtml(ws, blockId, key, kind = "block") {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
   const height = snapDown(ws.heightMm, spacing);
-  const grip = boxGripHtml(blockId, key);
+  const grip = boxGripHtml(blockId, key, kind, spacing);
   if (ws.style === "grid") return gridBoxHtml(height, grip);
   if (ws.columns === 2) {
-    const col = (g) => `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${g}</div>`;
-    return `<div class="working-space-row">${col("")}${col(grip)}</div>`;
+    // A grip on each column even though the two are one box and move
+    // together: whichever half someone reaches for should be the one
+    // that answers.
+    const col = `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${grip}</div>`;
+    return `<div class="working-space-row">${col}${col}</div>`;
   }
   return `<div class="working-space" style="height:${height}mm">${ruleLinesHtml(height, spacing)}${grip}</div>`;
 }
 
-// An answer box that has a diagram floated beside part of it. Written as
-// two boxes - the rows level with the diagram, then the rows below it -
-// which is what lets one box be narrow at the top and full width lower
-// down, an L rather than a rectangle. Where the split falls depends on
-// how much of the diagram the question's own text has already used up,
-// which is a measurement, so wrapWorkingSpaces() below sets the two
-// heights after layout; until then the whole box is the lower one, which
-// is what a box with nothing floated beside it stays as. Borders are
-// dropped where the two meet and the join across the notch is redrawn by
-// .ws-wrap-bottom::before, so the pair reads as a single box.
+// An answer box with a diagram floated beside part of it: ONE box, not
+// a rectangle. Written as a single element whose outline and ruling are
+// drawn as one SVG path, because that is the only way the L is really
+// one box - built as two stacked boxes instead, the seam where they met
+// showed as a line across the middle of the answer space and their
+// edges never quite lined up. The box itself is a plain block, so it
+// slides under the float the way any block does, and the notch cut out
+// of its top-right corner is exactly where the diagram sits. The shape
+// is measured after layout (see wrapWorkingSpaces) - until then it is
+// the plain rectangle it would have been anyway.
 function wrappedSpaceHtml(ws, blockId, key) {
   if (ws.style === "none") return "";
   const spacing = ws.style === "lines" ? RULE_MM : GRID_MM;
   const total = snapDown(ws.heightMm, spacing);
-  const fill = (h) =>
-    ws.style === "grid"
-      ? `<svg class="ws-grid" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#${GRID_PATTERN_ID})"></rect></svg>`
-      : ruleLinesHtml(h, spacing);
+  const fill = ws.style === "lines" ? RULE_PATTERN_ID : GRID_PATTERN_ID;
   return (
-    `<div class="working-space ws-wrap-top" style="height:0;display:none" data-step="${spacing}">${fill(0)}</div>` +
-    `<div class="working-space ws-wrap-bottom" style="height:${total}mm" data-total="${total}" data-step="${spacing}">` +
-    fill(total) +
-    boxGripHtml(blockId, key) +
+    `<div class="working-space ws-shaped" style="height:${total}mm" data-step="${spacing}">` +
+    `<svg class="ws-shape" preserveAspectRatio="none">` +
+    `<path fill="url(#${fill})" stroke="#999" stroke-width="${(0.3 * MM_PX).toFixed(2)}"></path>` +
+    `</svg>` +
+    boxGripHtml(blockId, key, "block", spacing) +
     `</div>`
   );
 }
@@ -1567,7 +1628,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
     // stay inline (see partHtml below): those are only half-width and
     // sit mid-page, with no clean page edge to hang off of.
     const hangingControls = controlsHangHtml(gid, layoutControlsInner + renderQuestionControls(gid, "group", ws, pct, entry.breakBefore) + cropButtonHtml(gid, "group"));
-    const html = `<div class="group">${crop}${workingSpaceHtml(ws)}${hangingControls}</div>`;
+    const html = `<div class="group">${crop}${workingSpaceHtml(ws, gid, "", "group")}${hangingControls}</div>`;
     const wsTargets = [{ kind: "group", id: gid, canShrink: canShrink(entry, defaultScales.combined) }];
     return [{ html, heading: false, groupId: gid, groupFirstRow: true, wsTargets, breakBefore: entry.breakBefore }];
   }
@@ -1599,7 +1660,7 @@ function renderGroup(gid, blocks, layout, cropsBaseUrl, combinedBlocks, restorab
   const partHtml = (b, isOnly) => {
     const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, undefined, b.imageScale ?? splitPct, b.manualCropSrc);
     const cls = isOnly ? "block question split-only" : "block question";
-    return `<div class="${cls}"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace)}</div>`;
+    return `<div class="${cls}"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace, b.id, "")}</div>`;
   };
 
   const units = [];
@@ -1912,18 +1973,57 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // page, and as one atomic unit it simply overflowed the
           // sheet - the last parts printed past the bottom edge.
           const rows = flowQuestionRows(shown, figPct);
-          if (rows.length > 2) {
-            rows.forEach((row, ri) => {
-              const slice = { row, head: ri === 0, rowIndex: ri };
+          // ANY multi-row question is emitted a row at a time, so it can
+          // flow over a page break instead of moving whole. It used to
+          // take three rows before a question would split at all, which
+          // left the two-row ones - 3E Q2 among them - unable to start
+          // at the foot of a sheet: half of page 4 went blank because
+          // the question after it could only move as one piece. The head
+          // (number, stem, shared diagram) glues to the first row so it
+          // can never be orphaned at the foot of a page.
+          // Each row is broken further wherever a part's sub-items can
+          // stand on their own lines, so a question can start in
+          // whatever is left at the foot of a sheet instead of moving
+          // whole to the next one.
+          const pieces = [];
+          rows.forEach((row, ri) => {
+            splitPartRows(row).forEach((r, k) => {
+              pieces.push({ row: r, rowIndex: ri, head: ri === 0 && k === 0, first: k === 0 });
+            });
+          });
+          if (pieces.length > 1) {
+            // A question repeats its number, its wording and any diagram
+            // of its own at the top of a sheet it continues onto: "write
+            // the ratio for triangle A" is unanswerable on a page that
+            // shows neither the instruction nor triangle A. Only when
+            // the continuation actually opens a sheet (see
+            // paginateUnits) - mid-page it would just be the same thing
+            // twice.
+            const repeatHtml = (shown.stem || []).length || (shown.figures || []).length
+              ? `<div class="block question flowq flowq-repeat">` +
+                flowQuestionHtml(shown, cropsBaseUrl, ws, figPct, { row: null, head: true, rowIndex: 0, repeat: true }) +
+                `</div>`
+              : "";
+            pieces.forEach((piece, pi) => {
+              // The row-columns button belongs to the row, so it goes on
+              // the piece that starts one - never on a sub-item tail.
+              const slice = { row: piece.row, head: piece.head, rowIndex: piece.rowIndex, noRowControl: !piece.first };
               const rowHtml = flowQuestionHtml(shown, cropsBaseUrl, ws, figPct, slice);
               units.push({
-                html: `<div class="block question flowq${ri ? " flowq-cont" : ""}">${rowHtml}${ri === 0 ? controls : ""}</div>`,
+                html: `<div class="block question flowq${pi ? " flowq-cont" : ""}">${rowHtml}${pi === 0 ? controls : ""}</div>`,
                 heading: false,
-                wsTargets: ri === 0
+                wsTargets: pi === 0
                   ? [{ kind: "block", id: b.id, canShrink: canShrink(b, defaultScales.combined) }]
                   : [],
-                breakBefore: ri === 0 ? !!b.breakBefore : false,
-                glueForward: ri === 0,
+                breakBefore: pi === 0 ? !!b.breakBefore : false,
+                // No glue between the first row and the second. The head
+                // is emitted WITH the first row, not on its own, so
+                // there is nothing here that can be orphaned - and
+                // gluing them was what stopped a question starting in
+                // the space left at the foot of a sheet: 3E Q2's first
+                // row fitted the 40% of page 4 that was going begging,
+                // but was dragged onto the next sheet by its second.
+                repeatHtml: pi === 0 ? "" : repeatHtml,
               });
             });
             return;
@@ -2029,7 +2129,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           const pct = b.imageScale ?? defaultScales.combined;
           const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
           const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
-          const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace)}${hangingControls}</div>`;
+          const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace, b.id, "")}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
@@ -2080,7 +2180,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
             qb.id,
             renderQuestionControls(qb.id, "block", qb.workingSpace, qPct, qb.breakBefore) + deleteButtonHtml(qb.id, "block", "Delete question") + cropButtonHtml(qb.id, "block")
           );
-          questionHtml.push(`<div class="block question">${qCrop}${workingSpaceHtml(qb.workingSpace)}${qControls}</div>`);
+          questionHtml.push(`<div class="block question">${qCrop}${workingSpaceHtml(qb.workingSpace, qb.id, "")}${qControls}</div>`);
           wsTargets.push({ kind: "block", id: qb.id, canShrink: canShrink(qb, defaultScales.combined) });
         }
         const html = `<div class="side-image-row"><div class="side-image-text">${questionHtml.join("")}</div><div class="side-image-photo">${crop}${imgControls}</div></div>`;
