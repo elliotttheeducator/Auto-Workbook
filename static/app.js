@@ -930,8 +930,17 @@ function handleControlClick(e) {
     if (!block || block.type !== "flowquestion") return;
     const rowIndex = Number(el.dataset.row);
     const rows = flowQuestionRows(block, block.imageScale ?? currentWorkbook.defaultScales?.combined ?? 100);
-    const pattern = rows.map((r) => r.parts.length);
+    // What each row is CURRENTLY set to. A row someone has set by hand
+    // is its saved number, not the number of parts that number happened
+    // to gather: on the last rows of a question those differ - a row set
+    // to 4 with only 3 parts left to fill it reads back as 3, so the
+    // cycle asked for 4 again and the button stuck there instead of
+    // coming back round to automatic.
+    const pattern = rows.map((r, i) => (r.set ? block.rowPattern[i] : r.parts.length));
     if (rowIndex >= pattern.length) return;
+    // Never offer more columns than there are parts left to put in them.
+    const left = rows.slice(rowIndex).reduce((n, r) => n + r.parts.length, 0);
+    const max = Math.max(1, Math.min(4, left));
     // automatic, 1, 2, 3, 4, back to automatic. Leaving automatic goes
     // to ONE rather than to whatever the automatic count happened to
     // be plus one: a row already laid out three across would otherwise
@@ -942,8 +951,8 @@ function handleControlClick(e) {
     // in which case 2, so the first click always changes something
     // visible rather than pinning the row to the width it already had.
     const next = !pinned
-      ? (pattern[rowIndex] === 1 ? 2 : 1)
-      : pattern[rowIndex] >= 4 ? 0 : pattern[rowIndex] + 1;
+      ? (pattern[rowIndex] === 1 ? Math.min(2, max) : 1)
+      : pattern[rowIndex] >= max ? 0 : pattern[rowIndex] + 1;
     // Only the rows up to and including the edited one are pinned;
     // everything after it goes back to the automatic split, so a
     // question does not accumulate a frozen layout for rows nobody

@@ -634,6 +634,17 @@ export function defaultScaleBarHtml(workbook) {
 // because it renders the exact same markup/images/CSS and so always
 // computes the exact same numbers - never as the source of truth for
 // what fits on a sheet.
+// How many screen pixels one of this element's own pixels currently
+// takes up. Normally 1; in 100% view mode the page carries a CSS zoom,
+// and every getBoundingClientRect() inside it comes back multiplied by
+// that. offsetWidth is not zoom-scaled, so the ratio recovers it.
+function localScale(el) {
+  const own = el.offsetWidth;
+  if (!own) return 1;
+  const scale = el.getBoundingClientRect().width / own;
+  return scale > 0.01 ? scale : 1;
+}
+
 // Gives each wrapped answer box its shape (see wrappedSpaceHtml): the
 // rectangle it occupies, minus the corner the diagram beside it takes
 // up. How much of the diagram is still to the box's right depends on
@@ -647,10 +658,20 @@ export function wrapWorkingSpaces(container) {
     const path = box.querySelector(".ws-shape path");
     if (!path) continue;
     const step = (Number(box.dataset.step) || 5) * MM_PX;
+    // getBoundingClientRect reports SCREEN pixels, and 100% view mode
+    // puts a CSS zoom on the page (see .mode-actual in app.css), so on
+    // that setting every measurement here comes back multiplied by the
+    // zoom while the coordinates written back are the box's own,
+    // unzoomed. Left uncorrected the shape was drawn at 43% of the box
+    // it belongs to - on screen AND in the export, since the path is
+    // geometry, not a screen style.
+    const zoom = localScale(box);
     const r = box.getBoundingClientRect();
     const inset = 0.3 * MM_PX * 0.5; // half the stroke, so it sits inside
-    const W = r.width - inset;
-    const H = r.height - inset;
+    const width = r.width / zoom;
+    const height = r.height / zoom;
+    const W = width - inset;
+    const H = height - inset;
     const float = box.closest(".flowq-body")?.querySelector(".flowq-float");
     let notchW = 0;
     let notchH = 0;
@@ -659,11 +680,13 @@ export function wrapWorkingSpaces(container) {
       const style = getComputedStyle(float);
       // The float's MARGIN box is what the text and the diagram are
       // actually kept apart by, so it is what the notch has to clear.
-      const left = f.left - (parseFloat(style.marginLeft) || 0) - r.left;
-      const bottom = f.bottom + (parseFloat(style.marginBottom) || 0) - r.top;
-      if (left < r.width - step && bottom > step) {
-        notchW = r.width - Math.floor(Math.max(0, left) / step) * step;
-        notchH = Math.min(Math.ceil(bottom / step) * step, r.height);
+      // The margins come from the computed style, which is already in
+      // the element's own pixels - only the measured gaps are scaled.
+      const left = (f.left - r.left) / zoom - (parseFloat(style.marginLeft) || 0);
+      const bottom = (f.bottom - r.top) / zoom + (parseFloat(style.marginBottom) || 0);
+      if (left < width - step && bottom > step) {
+        notchW = width - Math.floor(Math.max(0, left) / step) * step;
+        notchH = Math.min(Math.ceil(bottom / step) * step, height);
       }
     }
     const x = (W - notchW).toFixed(2);
@@ -672,7 +695,7 @@ export function wrapWorkingSpaces(container) {
       "d",
       notchW <= 0 || notchH <= 0
         ? `M${inset},${inset} H${W.toFixed(2)} V${H.toFixed(2)} H${inset} Z`
-        : notchH >= r.height
+        : notchH >= height
           ? `M${inset},${inset} H${x} V${H.toFixed(2)} H${inset} Z`
           : `M${inset},${inset} H${x} V${y} H${W.toFixed(2)} V${H.toFixed(2)} H${inset} Z`
     );
@@ -713,6 +736,9 @@ function levelRowBottoms(sides) {
   };
   const groups = sides.map(bottomBoxes);
   if (groups.some((g) => !g.length)) return;
+  // Screen pixels again (see localScale) - the heights written back are
+  // the boxes' own, so the growth has to be converted before it is used.
+  const zoom = localScale(sides[0]);
   const boxBottom = groups.map((g) => g[0].getBoundingClientRect().bottom);
   // What sits between the box and the end of its side - normally just
   // the block's own trailing margin, the same on both. If the two sides
@@ -726,7 +752,7 @@ function levelRowBottoms(sides) {
     const grow = target - boxBottom[i];
     if (grow < 1) return;
     for (const box of boxes) {
-      box.style.height = `${box.getBoundingClientRect().height + grow}px`;
+      box.style.height = `${(box.getBoundingClientRect().height + grow) / zoom}px`;
     }
   });
 }
@@ -1199,7 +1225,7 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             row.parts.map(cellHtml).join("") +
             (slice && slice.noRowControl
               ? ""
-              : rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.parts.length, row.set)) +
+              : rowColsControlHtml(b.id, (slice ? slice.rowIndex : 0) + ri, row.set ? row.cols : row.parts.length, row.set)) +
             `</div>`
         )
         .join("")
