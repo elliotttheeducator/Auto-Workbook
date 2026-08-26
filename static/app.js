@@ -955,6 +955,52 @@ function handleControlClick(e) {
     persistAndRerenderEditor();
     return;
   }
+  if (action === "set-sub-cols") {
+    // Sub-items across, cycling 1-2-3-4. The same choice the row button
+    // gives a question's parts: "a i" and "a ii" are each an
+    // instruction with its own answer box, so whether they read down
+    // the page or across it is the same judgement, and it was one the
+    // build made alone.
+    const block = findBlock(el.dataset.target);
+    if (!block || block.type !== "flowquestion") return;
+    const letter = el.dataset.part;
+    const part = (block.parts || []).find((p) => p.letter === letter);
+    if (!part) return;
+    const shown = Number(el.textContent) || 1;
+    const next = shown >= Math.min(4, (part.subs || []).length) ? 1 : shown + 1;
+    block.subPattern = { ...(block.subPattern || {}), [letter]: next };
+    persistAndRerenderEditor();
+    return;
+  }
+  if (action === "step-part-height") {
+    // Resizes ONE part's answer box. Every box inside a split question
+    // is a part's box, so without this the +/- grips did nothing at all
+    // on exactly the questions where the room matters most - the button
+    // was drawn (see boxGripHtml) and the action fell through to the
+    // bottom of this handler and returned.
+    //
+    // The size is kept per part rather than on the question, because
+    // that is what the build already measured per part (see
+    // assign_working_space) and what the renderer already reads back
+    // (partSpaces in flowQuestionHtml).
+    const block = findBlock(el.dataset.target);
+    if (!block || block.type !== "flowquestion") return;
+    const key = el.dataset.part;
+    const part = (block.parts || []).find((p) => p.letter === key);
+    const sub = key.includes(".")
+      ? (block.parts || [])
+          .find((p) => p.letter === key.split(".")[0])
+          ?.subs?.find((s) => s.letter === key.split(".")[1])
+      : null;
+    const current = (block.partSpaces || {})[key] || (sub || part || {}).workingSpace;
+    if (!current) return;
+    const spacing = current.style === "lines" ? RULE_MM : GRID_MM;
+    const next = Math.max(spacing, (current.heightMm || spacing) + Number(el.dataset.delta) * spacing);
+    if (next === current.heightMm) return;
+    block.partSpaces = { ...(block.partSpaces || {}), [key]: { ...current, heightMm: next } };
+    persistAndRerenderEditor();
+    return;
+  }
   if (action === "toggle-landscape-teaching") {
     // Teaching material sideways, two columns to a sheet, or upright in
     // the ordinary page flow. A real document setting - it changes how

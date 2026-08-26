@@ -1206,6 +1206,24 @@ function flowRunsHtml(runs, cropsBaseUrl) {
 // diagram in the grid decides the ceiling, since every column has to
 // hold the widest one without squeezing it; the part count then keeps
 // short grids from being split into silly little columns.
+// How far below the question's shared figure height a diagram may be
+// squeezed to fit a narrower column. Not zero, because a diagram that
+// has to halve to fit is no longer readable next to its own
+// measurements; not one, because insisting every diagram keep the exact
+// shared height hands the whole grid to its widest member.
+const FIG_SHRINK_FLOOR = 0.65;
+// Content width less the gutters between columns.
+const GRID_WIDTH_MM = 170;
+const GRID_GUTTER_MM = 6;
+
+// A part's own words, ignoring the runs that carry a cropped fragment
+// of maths rather than text. Used to tell a bare diagram cell (letter,
+// picture, box) from a part that actually says something.
+function partText(p) {
+  return ((p.content || []).map((r) => r.t || "").join("") +
+    (p.subs || []).map((s) => (s.content || []).map((r) => r.t || "").join("")).join(""));
+}
+
 function flowGridColumns(parts, figH, sourceCols) {
   // Width AFTER the height snap, not the figure's own width - a figure
   // scaled to a common height is not the width it was cropped at, and
@@ -1219,17 +1237,35 @@ function flowGridColumns(parts, figH, sourceCols) {
       ),
     0
   );
-  // Usable content width is ~170mm; leave a gutter between columns.
-  const byWidth = widest > 0 ? Math.floor(170 / (widest + 6)) : 4;
+  const colMm = (n) => GRID_WIDTH_MM / n - GRID_GUTTER_MM;
+  let byWidth = 1;
+  for (let n = 4; n >= 1; n--) {
+    if (!widest || colMm(n) / widest >= FIG_SHRINK_FLOOR) {
+      byWidth = n;
+      break;
+    }
+  }
   // The book's own count leads, since it is a typesetter's decision
-  // about this particular grid rather than a rule. It is still capped
-  // by what actually fits: these pages are narrower than the source's,
-  // so a source column count is a preference, not a guarantee. A
-  // source count of ONE is a real decision too - a question whose
-  // parts are prose sets them down the page, and pairing them into
-  // columns is what made a three-part question read a, b / c.
-  const byCount = sourceCols >= 1 ? sourceCols : parts.length >= 9 ? 4 : parts.length >= 5 ? 3 : 2;
-  return Math.max(1, Math.min(4, byWidth, byCount));
+  // about this particular grid rather than a rule. A source count of
+  // ONE is a real decision too - a question whose parts are prose sets
+  // them down the page, and pairing them into columns is what made a
+  // three-part question read a, b / c.
+  //
+  // Plus one, though, where every part is a bare diagram and its own
+  // box. That count was chosen for the book's measure, and this page is
+  // wider: set at the book's two-across, 10G's six triangles and 10I's
+  // six prisms each ran a third of a sheet with a hand's width of white
+  // down both sides. It is only ever an offer - byWidth still has to
+  // agree, and it refuses when the diagrams would have to shrink too
+  // far. Bare parts only: another column is width taken from every part
+  // on the row, which a part with a sentence in it cannot spare.
+  const bare = parts.every((p) => (p.figures || []).length && !partText(p).trim());
+  const byCount = sourceCols >= 1
+    ? sourceCols + (bare && sourceCols >= 2 ? 1 : 0)
+    : parts.length >= 9 ? 4 : parts.length >= 5 ? 3 : 2;
+  // Never more columns than there are parts to put in them - a fourth
+  // column on a three-part question is a cell of white space.
+  return Math.max(1, Math.min(4, byWidth, byCount, parts.length));
 }
 
 // The only diagram heights this book uses. Snapping every figure to
@@ -1267,10 +1303,28 @@ function figureHeightMm(figs, figPct) {
 // across, four "sin 28 and cos 62" pairs go two. It is then capped by
 // how much width this part actually has - a part inside a two-column
 // part grid has half a page, not a whole one.
-function subCols(p, partCols) {
+function subCols(p, partCols, b) {
+  // A hand-set count wins, and wins outright: asking for "a i" and
+  // "a ii" side by side is the same judgement as asking for parts a and
+  // b side by side, and the room rule below - which is a guess about
+  // what usually fits - has no business overruling someone who can see
+  // the page.
+  const set = (b && b.subPattern && b.subPattern[p.letter]) | 0;
+  if (set) return Math.max(1, Math.min(4, set));
   const want = p.subColumns || 1;
   const room = partCols >= 3 ? 1 : partCols === 2 ? 2 : 4;
   return Math.max(1, Math.min(want, room));
+}
+
+// The sub-item equivalent of the row control: sub-items are questions
+// in their own right, each with its own answer box, so they get the same
+// say over how many go across that a part's row does.
+function subColsControlHtml(blockId, letter, count) {
+  return (
+    `<button class="row-cols row-cols-sub" data-action="set-sub-cols" ` +
+    `data-target="${escapeHtml(blockId)}" data-part="${escapeHtml(letter)}" ` +
+    `title="Sub-items across - click to change">${count}</button>`
+  );
 }
 
 // A part floats its own diagram when it has other content to wrap
@@ -1364,11 +1418,13 @@ function flowColsFor(b, figPct) {
 // without it a question like 3E Q2 - whose every part is three stacked
 // sub-items - could only ever move a whole part at a time, which is
 // what left the bottom 40% of a sheet empty.
-export function splitPartRows(row) {
+export function splitPartRows(row, b) {
   if (row.parts.length !== 1) return [row];
   const part = row.parts[0];
   const subs = part.subs || [];
-  if (subs.length < 2 || subCols(part, row.cols) !== 1) return [row];
+  // Only sub-items set one to a line can be broken between: side by
+  // side they are a row, and a row breaks at its own edges.
+  if (subs.length < 2 || subCols(part, row.cols, b) !== 1) return [row];
   return subs.map((sub, i) => ({
     ...row,
     parts: [i === 0 ? { ...part, subs: [sub] } : { ...part, subs: [sub], contd: true }],
@@ -1398,7 +1454,15 @@ export function flowQuestionRows(b, figPct) {
     i += take;
   }
   for (; i < parts.length; i += cols) {
-    rows.push({ parts: parts.slice(i, i + cols), cols, set: false });
+    const take = parts.slice(i, i + cols);
+    // A short last row spreads over the width instead of leaving the
+    // rest of it white. The diagrams do not grow - they carry their own
+    // height (see figureHeightMm) and only ever shrink to a narrow cell
+    // - so what takes the freed width is the answer box, which is the
+    // part of a question that can always use more. Left at the grid's
+    // count, part (d) of a four-part row of three ended up with a third
+    // of a line to work in and two thirds of the page blank beside it.
+    rows.push({ parts: take, cols: take.length, set: false });
   }
   return rows;
 }
@@ -1494,8 +1558,11 @@ function flowQuestionHtml(b, cropsBaseUrl, ws, figPct, slice) {
             // Roman sub-items keep their own line and their own marker,
             // as the book sets them. Run together into the part's own
             // sentence they read as one impossible instruction.
+            ((p.subs || []).length && !p.contd
+              ? subColsControlHtml(b.id, p.letter, subCols(p, cols, b))
+              : "") +
             ((p.subs || []).length
-              ? `<div class="flowq-subs" style="grid-template-columns:repeat(${subCols(p, cols)},1fr)">` +
+              ? `<div class="flowq-subs" style="grid-template-columns:repeat(${subCols(p, cols, b)},1fr)">` +
                 p.subs
                   .map(
                     (s) =>
@@ -2423,7 +2490,7 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // whole to the next one.
           const pieces = [];
           rows.forEach((row, ri) => {
-            splitPartRows(row).forEach((r, k) => {
+            splitPartRows(row, b).forEach((r, k) => {
               pieces.push({ row: r, rowIndex: ri, head: ri === 0 && k === 0, first: k === 0 });
             });
           });

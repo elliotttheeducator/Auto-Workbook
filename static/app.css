@@ -459,6 +459,13 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
   gap: 3mm 5mm; margin: 1mm 0 2mm;
 }
 .flowq-figs-row .flowq-fig { max-width: 38mm; }
+/* Inside a part grid the cell is the limit, not the 62mm above. The
+   shared figure height (see figureHeightMm) scales a flat, wide diagram
+   UP to match its taller neighbours - 10I's flattest prism came out
+   73mm against its siblings' 22mm - and without this it ran out over
+   the answer box beside it. Shrinking it instead costs it some height,
+   which is the right trade: it is a flat shape and reads as one. */
+.flowq-cell .flowq-fig { max-width: 100%; }
 
 /* A diagram-grid question (see flowQuestionHtml): each labelled part is
    its own cell - letter, diagram, answer box - laid out two across, the
@@ -497,6 +504,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
 /* A row someone set by hand, so it is obvious at a glance which rows
    the layout still owns and which have been taken over. */
 .row-cols-set { border-color: #0f766e; color: #0f766e; font-weight: 700; }
+/* Sub-items across (see subColsControlHtml). It belongs to one part, not
+   to the row, so it sits inside that part's cell rather than out in the
+   page gutter where .row-cols lives - in a grid of parts the gutter is
+   nowhere near the cell it would be describing. */
+.row-cols-sub { position: relative; left: 0; display: block; margin: 0 0 1mm auto; }
 /* Taller/shorter for one answer box (see boxGripHtml). Inside the box's
    own bottom-right corner rather than out in the gutter like .row-cols:
    there is one per part, and a column of them in the margin could not

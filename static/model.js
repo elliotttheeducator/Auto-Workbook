@@ -343,6 +343,9 @@ export function extractOverrides(workbook) {
         // the ones someone has resized by hand (see step-part-height in
         // app.js); the rest keep the height the build measured for them.
         o.partSpaces = b.partSpaces;
+        // How many sub-items sit across, per part letter (see
+        // set-sub-cols in app.js).
+        o.subPattern = b.subPattern;
       }
       if (b.type === "question" || b.type === "image") {
         o.imageScale = b.imageScale;
@@ -442,6 +445,7 @@ export function applyOverrides(workbook, overrides) {
         if (o.breakBefore !== undefined) b.breakBefore = o.breakBefore;
         if (o.rowPattern !== undefined && b.type === "flowquestion") b.rowPattern = o.rowPattern;
         if (o.partSpaces !== undefined && b.type === "flowquestion") b.partSpaces = o.partSpaces;
+        if (o.subPattern !== undefined && b.type === "flowquestion") b.subPattern = o.subPattern;
       } else if (b.type === "question" && legacyBlockWorkingSpace[b.id]) {
         b.workingSpace = legacyBlockWorkingSpace[b.id];
       }
