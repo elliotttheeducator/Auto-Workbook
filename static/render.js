@@ -78,8 +78,35 @@ const LAND_COL_H_MM = LAND_HEIGHT_MM - PAGE_SAFETY_MARGIN_MM;
 const LAND_PANEL_GAP_MM = 5 / CSS_PX_PER_MM;
 // The section title that opens a chapter shares a column with whatever
 // panel follows it, so that panel has a title's worth less room than a
-// panel further down.
-const LAND_TITLE_MM = 19;
+// panel further down. Measured rather than assumed, because a title is
+// not always one line: "10D Arc length and perimeter of sectors and
+// composite shapes" wraps to two in a column this narrow, and a
+// one-line allowance sent its Building Understanding over the fold - so
+// the pair was shrunk to share a column and then printed in two anyway,
+// smaller AND on the same number of sheets.
+function landTitleMm(block) {
+  const m = getMeasurer();
+  const width = m.style.width;
+  m.style.width = `${LAND_COL_MM}mm`;
+  // headingHtml rather than markup written out again here: a title is
+  // set larger than a plain heading, and measuring the plain one made
+  // every title look like a single line.
+  m.innerHTML = `<div class="heading-unit">${headingHtml(block)}</div>`;
+  const mm = m.getBoundingClientRect().height / CSS_PX_PER_MM;
+  m.innerHTML = "";
+  m.style.width = width;
+  return mm;
+}
+// How far a panel may be shrunk to make a column's worth of them fit one
+// column instead of spilling into a second. A section opens with Key
+// Ideas and Building Understanding, which together run a little over a
+// column - so each took a column of its own and the sheet printed two
+// half-empty sides. Shrinking the pair by a tenth fits them side by side
+// and saves the sheet, and costs nothing in reading size: at 0.9 they
+// still print wider than the 121mm the portrait booklet set them at.
+// Below this the saving stops being worth the size, and the panels go
+// back to a column each.
+const LAND_MIN_SCALE = 0.85;
 function landPanelWidths(workbook) {
   const width = new Map();
   const boxMm = new Map();
@@ -87,22 +114,55 @@ function landPanelWidths(workbook) {
   // Height a group has to fit into: a column, less its panels' margins,
   // less the section title where the group is the one that follows it.
   const room = new Map();
-  let afterTitle = false;
+  let afterTitle = 0;
+  // Consecutive panels that are not part of a worked example - the Key
+  // Ideas and Building Understanding a section opens with. Grouped so
+  // they are sized to share a column, the way an example's three panels
+  // are sized to fill one.
+  let run = null;
   for (const page of workbook.pages) {
     for (const b of page.blocks) {
       if (b.type === "heading" && b.style === "title") {
-        afterTitle = true;
+        afterTitle = landTitleMm(b);
+        run = null;
         continue;
       }
       if (!b.section || !b.wMm || !b.hMm) continue;
-      const key = b.exampleId || b.id;
+      let key;
+      if (b.exampleId) {
+        key = b.exampleId;
+        run = null;
+      } else {
+        key = run || b.id;
+        run = key;
+      }
       if (!groups.has(key)) {
         groups.set(key, []);
-        room.set(key, LAND_COL_H_MM - (afterTitle ? LAND_TITLE_MM : 0));
-        afterTitle = false;
+        room.set(key, LAND_COL_H_MM - (afterTitle || 0));
+        afterTitle = 0;
       }
       groups.get(key).push(b);
     }
+  }
+  // A group that would have to shrink too far to share a column gives up
+  // and takes a panel per column instead - which is the old behaviour,
+  // and the right one for a Key Ideas that already fills a column by
+  // itself.
+  for (const [key, blocks] of [...groups]) {
+    if (blocks.length < 2 || blocks[0].exampleId) continue;
+    const tall = blocks.reduce(
+      (h, b) => h + b.hMm * (LAND_COL_MM / b.wMm) + LAND_PANEL_GAP_MM,
+      0,
+    );
+    if (room.get(key) / tall >= LAND_MIN_SCALE) continue;
+    const titled = room.get(key);
+    groups.delete(key);
+    blocks.forEach((b, i) => {
+      groups.set(b.id, [b]);
+      // Only the first of them still shares its column with the section
+      // title; the ones now going to a column of their own get all of it.
+      room.set(b.id, i === 0 ? titled : LAND_COL_H_MM);
+    });
   }
   for (const [key, blocks] of groups) {
     // Every panel of the group at column width, plus its own margin.
