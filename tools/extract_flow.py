@@ -2233,8 +2233,18 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
     # page rather than to a fixed guess - which is what decides whether
     # two worked examples fit on one sheet or only one does.
     trio_mm = 0.0
+    # An Example, its worked answer and its "Now you try" share an id, so
+    # the renderer can size the three of them together - a landscape
+    # column has to hold the whole thing, and they have to be scaled as
+    # one or the solution comes out a different size from the question.
+    group = None
     for n, (kind, box, _text) in enumerate(panels):
         base = f"{pid_prefix}p{n}"
+        if kind == "example":
+            group = base
+        # The crop's true printed size, so the renderer can work out how
+        # tall it will be at any width without loading the image first.
+        size = {"wMm": round(mm(box.width), 2), "hMm": round(mm(box.height), 2)}
         if kind in ("example", "worked"):
             trio_mm += rendered_mm(box)
         if kind == "worked":
@@ -2254,7 +2264,8 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
                 crop_png(page, r, os.path.join(crops_dir, cid + ".png"), pad=0)
             blocks.append({
                 "type": "image", "id": trio[0][0], "contentKind": "diagram",
-                "teacherSolutionId": trio[1][0], "section": True,
+                "teacherSolutionId": trio[1][0], "section": True, **size,
+                "exampleId": group,
                 # The worked answer belongs with the "Now you try" that
                 # follows it, so the pair is never split across a sheet.
                 "glueForward": True,
@@ -2291,10 +2302,13 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
             blocks.append({
                 "type": "question", "id": cid, "contentKind": "diagram",
                 "contextImage": None, "workingSpace": ws, "section": True,
+                "exampleId": group, **size,
             })
+            group = None
         else:
             blocks.append({"type": "image", "id": cid, "contentKind": "diagram",
-                           "section": True,
+                           "section": True, **size,
+                           **({"exampleId": group} if kind == "example" else {}),
                            # An Example's question glues to the worked
                            # answer that explains it.
                            **({"glueForward": True} if kind == "example" else {})})

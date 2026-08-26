@@ -14,7 +14,9 @@
      "type": "image",
      "id": "tg_3e_1p0_keyideas",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.64,
+     "hMm": 158.64
     }
    ]
   },
@@ -24,7 +26,9 @@
      "type": "image",
      "id": "tg_3e_2p0_building",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.64,
+     "hMm": 127.71
     }
    ]
   },
@@ -35,6 +39,9 @@
      "id": "tg_3e_3p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 51.92,
+     "exampleId": "tg_3e_3p0",
      "glueForward": true
     },
     {
@@ -43,6 +50,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3e_3p1_sol",
      "section": true,
+     "wMm": 150.79,
+     "hMm": 96.39,
+     "exampleId": "tg_3e_3p0",
      "glueForward": true
     },
     {
@@ -67,7 +77,10 @@
       "style": "grid",
       "heightMm": 10
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3e_3p0",
+     "wMm": 150.79,
+     "hMm": 58.66
     }
    ]
   },
@@ -1381,13 +1394,17 @@
      "type": "image",
      "id": "tg_3f_8p0_keyideas",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.64,
+     "hMm": 75.09
     },
     {
      "type": "image",
      "id": "tg_3f_8p1_building",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 149.93,
+     "hMm": 82.32
     }
    ]
   },
@@ -1398,6 +1415,9 @@
      "id": "tg_3f_9p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 155.58,
+     "hMm": 23.47,
+     "exampleId": "tg_3f_9p0",
      "glueForward": true
     },
     {
@@ -1406,6 +1426,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3f_9p1_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 42.68,
+     "exampleId": "tg_3f_9p0",
      "glueForward": true
     },
     {
@@ -1430,13 +1453,19 @@
       "style": "grid",
       "heightMm": 30
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3f_9p0",
+     "wMm": 150.64,
+     "hMm": 21.64
     },
     {
      "type": "image",
      "id": "tg_3f_9p3_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 20.09,
+     "exampleId": "tg_3f_9p3",
      "glueForward": true
     },
     {
@@ -1445,6 +1474,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3f_9p4_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 27.4,
+     "exampleId": "tg_3f_9p3",
      "glueForward": true
     },
     {
@@ -1469,7 +1501,10 @@
       "style": "grid",
       "heightMm": 20
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3f_9p3",
+     "wMm": 150.64,
+     "hMm": 18.15
     }
    ]
   },
@@ -1480,6 +1515,9 @@
      "id": "tg_3f_10p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.79,
+     "hMm": 42.61,
+     "exampleId": "tg_3f_10p0",
      "glueForward": true
     },
     {
@@ -1488,6 +1526,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3f_10p1_sol",
      "section": true,
+     "wMm": 150.79,
+     "hMm": 86.36,
+     "exampleId": "tg_3f_10p0",
      "glueForward": true
     },
     {
@@ -1512,7 +1553,10 @@
       "style": "grid",
       "heightMm": 10
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3f_10p0",
+     "wMm": 150.64,
+     "hMm": 36.6
     }
    ]
   },
@@ -2863,7 +2907,9 @@
      "type": "image",
      "id": "tg_3g_14p0_keyideas",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.64,
+     "hMm": 49.45
     }
    ]
   },
@@ -2873,13 +2919,18 @@
      "type": "image",
      "id": "tg_3g_15p0_building",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 149.93,
+     "hMm": 104.11
     },
     {
      "type": "image",
      "id": "tg_3g_15p1_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 20.36,
+     "exampleId": "tg_3g_15p1",
      "glueForward": true
     },
     {
@@ -2888,6 +2939,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3g_15p2_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 34.1,
+     "exampleId": "tg_3g_15p1",
      "glueForward": true
     },
     {
@@ -2912,7 +2966,10 @@
       "style": "grid",
       "heightMm": 20
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3g_15p1",
+     "wMm": 150.64,
+     "hMm": 18.99
     }
    ]
   },
@@ -2923,6 +2980,9 @@
      "id": "tg_3g_16p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 40.42,
+     "exampleId": "tg_3g_16p0",
      "glueForward": true
     },
     {
@@ -2931,6 +2991,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3g_16p1_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 127.78,
+     "exampleId": "tg_3g_16p0",
      "glueForward": true
     },
     {
@@ -2955,7 +3018,10 @@
       "style": "grid",
       "heightMm": 10
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3g_16p0",
+     "wMm": 150.64,
+     "hMm": 38.77
     }
    ]
   },
@@ -3962,7 +4028,9 @@
      "type": "image",
      "id": "tg_3h_19p0_keyideas",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.64,
+     "hMm": 51.11
     }
    ]
   },
@@ -3972,13 +4040,18 @@
      "type": "image",
      "id": "tg_3h_20p0_building",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 149.93,
+     "hMm": 70.67
     },
     {
      "type": "image",
      "id": "tg_3h_20p1_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 30.73,
+     "exampleId": "tg_3h_20p1",
      "glueForward": true
     },
     {
@@ -3987,6 +4060,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3h_20p2_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 43.0,
+     "exampleId": "tg_3h_20p1",
      "glueForward": true
     },
     {
@@ -4011,7 +4087,10 @@
       "style": "grid",
       "heightMm": 40
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3h_20p1",
+     "wMm": 150.64,
+     "hMm": 32.98
     }
    ]
   },
@@ -4022,6 +4101,9 @@
      "id": "tg_3h_21p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 35.02,
+     "exampleId": "tg_3h_21p0",
      "glueForward": true
     },
     {
@@ -4030,6 +4112,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3h_21p1_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 41.77,
+     "exampleId": "tg_3h_21p0",
      "glueForward": true
     },
     {
@@ -4054,7 +4139,10 @@
       "style": "grid",
       "heightMm": 20
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3h_21p0",
+     "wMm": 150.64,
+     "hMm": 36.64
     },
     {
      "type": "heading",
@@ -4924,13 +5012,17 @@
      "type": "image",
      "id": "tg_3i_27p0_keyideas",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 150.71,
+     "hMm": 116.36
     },
     {
      "type": "image",
      "id": "tg_3i_27p1_building",
      "contentKind": "diagram",
-     "section": true
+     "section": true,
+     "wMm": 149.93,
+     "hMm": 81.33
     }
    ]
   },
@@ -4941,6 +5033,9 @@
      "id": "tg_3i_28p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 39.33,
+     "exampleId": "tg_3i_28p0",
      "glueForward": true
     },
     {
@@ -4949,6 +5044,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3i_28p1_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 52.21,
+     "exampleId": "tg_3i_28p0",
      "glueForward": true
     },
     {
@@ -4973,13 +5071,19 @@
       "style": "grid",
       "heightMm": 30
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3i_28p0",
+     "wMm": 150.64,
+     "hMm": 23.98
     },
     {
      "type": "image",
      "id": "tg_3i_28p3_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 22.64,
+     "exampleId": "tg_3i_28p3",
      "glueForward": true
     },
     {
@@ -4988,6 +5092,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3i_28p4_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 73.44,
+     "exampleId": "tg_3i_28p3",
      "glueForward": true
     },
     {
@@ -5016,13 +5123,19 @@
       "style": "grid",
       "heightMm": 45
      },
-     "section": true
+     "section": true,
+     "exampleId": null,
+     "wMm": 150.71,
+     "hMm": 23.55
     },
     {
      "type": "image",
      "id": "tg_3i_29p1_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 27.58,
+     "exampleId": "tg_3i_29p1",
      "glueForward": true
     },
     {
@@ -5031,6 +5144,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3i_29p2_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 70.97,
+     "exampleId": "tg_3i_29p1",
      "glueForward": true
     },
     {
@@ -5055,7 +5171,10 @@
       "style": "grid",
       "heightMm": 25
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3i_29p1",
+     "wMm": 150.64,
+     "hMm": 26.74
     }
    ]
   },
@@ -5066,6 +5185,9 @@
      "id": "tg_3i_30p0_example",
      "contentKind": "diagram",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 41.8,
+     "exampleId": "tg_3i_30p0",
      "glueForward": true
     },
     {
@@ -5074,6 +5196,9 @@
      "contentKind": "diagram",
      "teacherSolutionId": "tg_3i_30p1_sol",
      "section": true,
+     "wMm": 150.64,
+     "hMm": 72.23,
+     "exampleId": "tg_3i_30p0",
      "glueForward": true
     },
     {
@@ -5098,7 +5223,10 @@
       "style": "grid",
       "heightMm": 10
      },
-     "section": true
+     "section": true,
+     "exampleId": "tg_3i_30p0",
+     "wMm": 150.64,
+     "hMm": 27.14
     },
     {
      "type": "heading",
@@ -5899,5 +6027,5 @@
    ]
   }
  ],
- "buildVersion": "96bcfaa8"
+ "buildVersion": "202f1c07"
 }

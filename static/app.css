@@ -811,6 +811,11 @@ body { font-family: -apple-system, Helvetica, Arial, sans-serif; margin: 0; back
     width: var(--page-width);
     box-shadow: none; margin: 0; break-after: page;
   }
+  /* ...but a landscape sheet keeps its own width. The rule above sets
+     every .page to the portrait width, and it is later in the file than
+     .page-landscape, so without this the sheet printed 210mm wide and
+     its two columns - sized from the page - overlapped each other. */
+  .page-landscape { width: var(--page-height); }
   .page:last-child { break-after: auto; }
   /* The cover is always exactly one full sheet (a single image, never
      taller than a page), so it's safe - and necessary for object-fit:

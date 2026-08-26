@@ -53,10 +53,61 @@ const LAND_HEIGHT_MM = PAGE_WIDTH_MM - 2 * PAGE_MARGIN_MM;   // 186
 const LAND_GUTTER_MM = 9;
 export const LAND_COL_MM = (LAND_WIDTH_MM - LAND_GUTTER_MM) / 2;
 const LAND_COL_PX = (LAND_HEIGHT_MM - PAGE_SAFETY_MARGIN_MM) * CSS_PX_PER_MM;
-// What a panel prints at inside a column - not the full column width.
-// A worked example is nearly a whole column tall as it is; at full
-// column width it grew past one and had to be broken across two.
-const LAND_PANEL_PCT = 92;
+// The room a teaching item has in a landscape column, in mm.
+const LAND_COL_H_MM = LAND_HEIGHT_MM - PAGE_SAFETY_MARGIN_MM;
+
+// How wide each teaching panel prints inside a landscape column.
+//
+// Full column width wherever it fits - that is the point of turning the
+// page, and it is close to the size the book itself sets these at. What
+// stops it being that simple is the worked example: question, solution
+// and "Now you try" have to end up in ONE column between them, and at
+// full width some of them come to more than a column. So an example's
+// three panels are measured together, from the true mm size of their
+// crops, and if the three overflow they are scaled - all by the same
+// factor, or the solution would print a different size from the
+// question it answers. Nothing here is a guess at a percentage: it is
+// the arithmetic of what fits, which is what makes the same rule work
+// on a book whose panels are cropped to a different width.
+function landPanelWidths(workbook) {
+  const width = new Map();
+  const boxMm = new Map();
+  const groups = new Map();
+  for (const page of workbook.pages) {
+    for (const b of page.blocks) {
+      if (!b.section || !b.wMm || !b.hMm) continue;
+      if (!b.exampleId) {
+        // Key Ideas, Building Understanding: the column width, unless
+        // the panel is taller than a column at that width.
+        const tall = b.hMm * (LAND_COL_MM / b.wMm);
+        width.set(b.id, LAND_COL_MM * Math.min(1, LAND_COL_H_MM / tall));
+        continue;
+      }
+      if (!groups.has(b.exampleId)) groups.set(b.exampleId, []);
+      groups.get(b.exampleId).push(b);
+    }
+  }
+  for (const [, blocks] of groups) {
+    // Every panel of the example at column width, plus the smallest
+    // answer box worth giving the "Now you try" under it.
+    const tall = blocks.reduce((h, b) => h + b.hMm * (LAND_COL_MM / b.wMm), 0);
+    const floor = GRID_MM * 3;
+    // The gaps between the panels are real height too - three blocks
+    // with a margin each, plus a point of slack. Left out, an example
+    // came to three millimetres more than its column and pushed the
+    // sheet past A4, which the export turns into an extra page.
+    const gaps = 8;
+    const scale = Math.min(1, (LAND_COL_H_MM - floor - gaps) / tall);
+    for (const b of blocks) width.set(b.id, LAND_COL_MM * scale);
+    // Whatever the column has left over goes to the box - it is the one
+    // part of a worked example a student writes in.
+    const last = blocks[blocks.length - 1];
+    if (last.workingSpace) {
+      boxMm.set(last.id, snapDown(Math.max(floor, LAND_COL_H_MM - tall * scale - gaps), GRID_MM));
+    }
+  }
+  return { width, boxMm };
+}
 // Below this, a sheet's trailing blank space is just normal slack from
 // bin-packing (the next unit genuinely didn't fit) - not worth surfacing
 // as an actionable prompt. At or above it, there's room for a real
@@ -1932,6 +1983,10 @@ export async function renderEditor(workbook, cropsBaseUrl) {
   // Teaching material sideways, two columns a sheet - on unless the
   // workbook says otherwise (see the Landscape teaching button).
   const landscape = !!workbook.landscapeTeaching;
+  // Every teaching panel's width in a landscape column, worked out from
+  // the true size of its crop (see landPanelWidths).
+  const landSizes = landscape ? landPanelWidths(workbook) : { width: new Map(), boxMm: new Map() };
+  const landWidth = (b) => landSizes.width.get(b.id);
   currentBuildVersion = workbook.buildVersion || "";
   const combinedBlocks = workbook.combinedBlocks || {};
   const deletedIds = new Set(workbook.deletedIds || []);
@@ -2055,17 +2110,27 @@ export async function renderEditor(workbook, cropsBaseUrl) {
       const cols = [[], []];
       let used = 0;
       let col = 0;
-      for (const u of sheets[i]) {
-        const h = heightOf.get(u) || 0;
-        // Move to the second column when this unit would overflow the
+      const sheet = sheets[i];
+      // Poured a BUNDLE at a time, not a unit at a time: an example's
+      // question, its worked answer and its "Now you try" are one thing,
+      // and each is already scaled to fit a single column (see
+      // landPanelWidths), so there is never a reason to break one across
+      // the fold - which is what pouring unit by unit did, leaving a
+      // "Now you try" and its box alone in a column.
+      for (let k = 0; k < sheet.length; ) {
+        const last = sheet[k].glueForward ? bundleEnd(sheet, k) : k;
+        const items = sheet.slice(k, last + 1);
+        const h = items.reduce((sum, u) => sum + (heightOf.get(u) || 0), 0);
+        // Move to the second column when this bundle would overflow the
         // first - unless nothing is in the first yet, in which case it
         // has to go there whatever its height.
         if (col === 0 && used > 0 && used + h > LAND_COL_PX) {
           col = 1;
           used = 0;
         }
-        cols[col].push(u);
+        cols[col].push(...items);
         used += h;
+        k = last + 1;
       }
       const side = physicalPagesHtml.length % 2 === 0 ? "page-left" : "page-right";
       pageNumber++;
@@ -2316,10 +2381,11 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // column is exactly what would leave it undersized here.
           const pct =
             b.imageScale ??
-            (b.section
-              ? (landscape ? LAND_PANEL_PCT : defaultScales.section)
-              : b.answers ? defaultScales.answers : defaultScales.combined);
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
+            (b.section ? defaultScales.section : b.answers ? defaultScales.answers : defaultScales.combined);
+          const crop = cropHtml(
+            cropsBaseUrl, b.id, b.contextImage,
+            (b.imageScale ? 0 : landWidth(b)) || b.widthMm, pct, b.manualCropSrc
+          );
           const ownControls = imageScaleControlHtml(b.id, "block", pct) + breakBeforeControlHtml(b.id, "block", b.breakBefore) + cropButtonHtml(b.id, "block");
           // Merged case (see mergeGroupControls above): one panel, labelled
           // by the group's own id (not the stem's), since the picker is
@@ -2377,11 +2443,18 @@ export async function renderEditor(workbook, cropsBaseUrl) {
           // A "Now you try" is a question, but its crop is a teaching
           // panel like the example above it - same bucket, so the two
           // never drift apart in size.
-          const pct =
-            b.imageScale ?? (b.section ? (landscape ? LAND_PANEL_PCT : defaultScales.section) : defaultScales.combined);
-          const crop = cropHtml(cropsBaseUrl, b.id, b.contextImage, b.widthMm, pct, b.manualCropSrc);
-          const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", b.workingSpace, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
-          const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(b.workingSpace, b.id, "")}${hangingControls}</div>`;
+          const pct = b.imageScale ?? (b.section ? defaultScales.section : defaultScales.combined);
+          const crop = cropHtml(
+            cropsBaseUrl, b.id, b.contextImage,
+            (b.imageScale ? 0 : landWidth(b)) || b.widthMm, pct, b.manualCropSrc
+          );
+          // In a landscape column the box takes whatever the example
+          // above it left of the column, rather than the height built
+          // for half a portrait page.
+          const landBox = landSizes.boxMm.get(b.id);
+          const ws = landBox ? { ...b.workingSpace, heightMm: landBox } : b.workingSpace;
+          const hangingControls = controlsHangHtml(b.id, renderQuestionControls(b.id, "block", ws, pct, b.breakBefore) + pairWithNextControlHtml(b.id, !!b.pairWithNext) + deleteButtonHtml(b.id, "block", "Delete question") + cropButtonHtml(b.id, "block"));
+          const html = `<div class="block question"${kindAttr(b)}>${crop}${workingSpaceHtml(ws, b.id, "")}${hangingControls}</div>`;
           units.push({
             html,
             heading: false,
@@ -2460,10 +2533,12 @@ export async function renderEditor(workbook, cropsBaseUrl) {
         // trio has to scale together or the solution prints half again
         // as large as the question it answers.
         const sectionPct = (blk) =>
-          blk.imageScale ??
-          (blk.section ? (landscape ? LAND_PANEL_PCT : defaultScales.section) : defaultScales.combined);
+          blk.imageScale ?? (blk.section ? defaultScales.section : defaultScales.combined);
         const combPct = sectionPct(combB);
-        const combCrop = cropHtml(cropsBaseUrl, combB.id, combB.contextImage, combB.widthMm, combPct, combB.manualCropSrc);
+        const combCrop = cropHtml(
+          cropsBaseUrl, combB.id, combB.contextImage,
+          (combB.imageScale ? 0 : landWidth(combB)) || combB.widthMm, combPct, combB.manualCropSrc
+        );
         const combControls = controlsHangHtml(
           combB.id,
           imageScaleControlHtml(combB.id, "block", combPct) + breakBeforeControlHtml(combB.id, "block", combB.breakBefore) + cropButtonHtml(combB.id, "block")
