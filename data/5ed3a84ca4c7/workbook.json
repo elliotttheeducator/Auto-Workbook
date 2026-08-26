@@ -1181,6 +1181,22 @@
    "blocks": [
     {
      "type": "heading",
+     "id": "ans_10c_title",
+     "text": "Answers: 10C",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10c",
+     "contentKind": "diagram",
+     "widthMm": 99.3
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
      "id": "ms_10d_title",
      "text": "10D Arc length and perimeter of sectors and composite shapes",
      "style": "title"
@@ -2263,6 +2279,22 @@
       "style": "grid",
       "heightMm": 30
      }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "ans_10d_title",
+     "text": "Answers: 10D",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10d",
+     "contentKind": "diagram",
+     "widthMm": 186.0
     }
    ]
   },
@@ -3520,6 +3552,22 @@
    "blocks": [
     {
      "type": "heading",
+     "id": "ans_10e_title",
+     "text": "Answers: 10E",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10e",
+     "contentKind": "diagram",
+     "widthMm": 186.0
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
      "id": "ms_10f_title",
      "text": "10F Area of parallelograms",
      "style": "title"
@@ -4304,6 +4352,22 @@
       "style": "grid",
       "heightMm": 45
      }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "ans_10f_title",
+     "text": "Answers: 10F",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10f",
+     "contentKind": "diagram",
+     "widthMm": 152.7
     }
    ]
   },
@@ -5206,6 +5270,22 @@
       "style": "grid",
       "heightMm": 25
      }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "ans_10g_title",
+     "text": "Answers: 10G",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10g",
+     "contentKind": "diagram",
+     "widthMm": 153.4
     }
    ]
   },
@@ -6208,6 +6288,22 @@
    "blocks": [
     {
      "type": "heading",
+     "id": "ans_10h_title",
+     "text": "Answers: 10H",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10h",
+     "contentKind": "diagram",
+     "widthMm": 186.0
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
      "id": "ms_10i_title",
      "text": "10I Volume of rectangular prisms",
      "style": "title"
@@ -6996,6 +7092,22 @@
       "style": "grid",
       "heightMm": 40
      }
+    }
+   ]
+  },
+  {
+   "blocks": [
+    {
+     "type": "heading",
+     "id": "ans_10i_title",
+     "text": "Answers: 10I",
+     "style": "title"
+    },
+    {
+     "type": "image",
+     "id": "ans_10i",
+     "contentKind": "diagram",
+     "widthMm": 186.0
     }
    ]
   }
