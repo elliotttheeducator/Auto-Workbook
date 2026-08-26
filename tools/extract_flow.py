@@ -1120,6 +1120,28 @@ def margin_figure(f, marks):
     return single_col and f.x0 > min(m["x"] for m in marks) + 200
 
 
+# How far above its own part letter a diagram's topmost stroke may sit
+# and still belong to that part. The book sets the letter level with the
+# top of the drawing, but only about level: a circle's apex routinely
+# clears its letter by a few points. Two rules below depend on this and
+# they must agree - the row rule allowed 8pt while the first-row rule
+# allowed 2, so a grid of circles whose tops cleared the "a" and "b" by
+# 3pt was read as one diagram belonging to no part at all. Both circles
+# then printed unlabelled above part a's box, and part b vanished from
+# the booklet along with its answer space.
+LABEL_TOP_SLACK_PT = 8.0
+# How far a line of prose may reach past a figure's reported top and
+# still count as sitting above it rather than being part of it. Kept
+# small: a figure's own dimension label often overlaps its drawing by
+# much more than this, and must not be pushed out.
+PROSE_CLEAR_PT = 2.0
+# Narrower than this and a line above a figure is a label, not prose.
+PROSE_MIN_WIDTH_PT = 40.0
+# Clear of the prose by more than crop_png's own padding, or the pad
+# reaches back over the line and takes the descenders off it.
+PROSE_GAP_PT = 3.0
+
+
 def label_figures(figs, marks):
     """Attaches each figure to the part label that names it, and clips it
     to that label's cell.
@@ -1153,7 +1175,13 @@ def label_figures(figs, marks):
         wall = min((o["x"] for o in marks
                     if abs(o["y"] - m["y"]) <= 6 and o["x"] > m["x"] + 6), default=None)
         cells[m["letter"]] = fitz.Rect(
-            m["x"] - 2, m["y"] - 2,
+            # Same slack at the top as the attribution rule above uses,
+            # and for the same reason. A cell that stopped dead at its
+            # letter did not quite contain a circle whose apex cleared
+            # that letter by a hair, so the absorption below fell back to
+            # the whole question for bounds and pulled the tail of the
+            # stem's second line down into the crop.
+            m["x"] - 2, m["y"] - LABEL_TOP_SLACK_PT,
             (wall - 4) if wall is not None else 1e5,
             (floor - 3) if floor is not None else 1e5,
         )
@@ -1166,7 +1194,7 @@ def label_figures(figs, marks):
         # ("In calculating the value of x for THIS triangle..."), and
         # forcing it onto the nearest label put it in the wrong column
         # under the wrong letter.
-        if first_row is not None and f.y0 < first_row - 2:
+        if first_row is not None and f.y0 < first_row - LABEL_TOP_SLACK_PT:
             by_letter.setdefault(None, []).append(f)
             continue
         best, best_d = None, None
@@ -1190,7 +1218,7 @@ def label_figures(figs, marks):
             # whose topmost arc sits a few points higher is that
             # diagram's own top, not a leftover from the row before -
             # cutting at the letter took the arc off 3H Q6's ladder.
-            if f.y0 < best["y"] - 8:
+            if f.y0 < best["y"] - LABEL_TOP_SLACK_PT:
                 f.y0 = best["y"] - 2
             # The letter itself sits just left of the diagram, so on a
             # figure it is level with it lands inside the crop and
@@ -1457,6 +1485,10 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             # a grid of separate diagrams never reaches this branch.
             gap = 24.0 if len(pmarks) == 0 else 8.0
             figs_by_letter = {None: merge_near(figs, gap=gap)}
+        # Everything above the first part label is the question's own
+        # prose; below it, a line overhead is more likely a diagram's
+        # measurement (see the stem rule in the absorption loop).
+        stem_floor = min((m["y"] for m in pmarks), default=None)
         # Dimension labels are absorbed only AFTER each figure knows
         # which cell it lives in, and never past that cell's walls.
         # Run before the grid existed, a figure grew into the row below
@@ -1505,6 +1537,35 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                         box.y1 = min(box.y1, b0)
                     if b1 <= f.y0:
                         box.y0 = max(box.y0, b1)
+                # And never into the question's own stem. A drawing's
+                # reported rect is not its ink: a circle's came back 9pt
+                # taller than the arc, far enough to overlap the last
+                # line of the stem by half a point - which the crop's
+                # padding then widened into a legible strip of
+                # "...decimal places." above the diagram.
+                #
+                # Only text ABOVE the first part label counts, because
+                # only that is prose. Applied to every line overhead it
+                # took the labels off nineteen Trigonometry diagrams:
+                # inside a cell the line above a drawing is usually its
+                # own measurement, sitting a line's height into the rect
+                # exactly as this rule looks for.
+                if stem_floor is not None:
+                    for lb, _ls in lines:
+                        if lb.y1 > stem_floor or lb.y1 > f.y0 + PROSE_CLEAR_PT:
+                            continue
+                        if lb.y0 >= f.y0 or lb.x1 <= f.x0 or lb.x0 >= f.x1:
+                            continue
+                        # Prose runs from the text column's left edge and
+                        # is a line long. A vertex label sits over the
+                        # drawing and is a glyph wide - and 3F Q8's "C",
+                        # above the apex of a triangle set beside the
+                        # stem, is above the first part label too, so
+                        # position alone did not tell them apart.
+                        if lb.x0 > f.x0 or lb.width < PROSE_MIN_WIDTH_PT:
+                            continue
+                        f.y0 = max(f.y0, lb.y1 + PROSE_GAP_PT)
+                        box.y0 = max(box.y0, lb.y1 + PROSE_GAP_PT)
                 out += absorb_labels([f], lines, box, PART_X[1], others=near)
             figs_by_letter[letter] = out
         figs = [f for v in figs_by_letter.values() for f in v]
