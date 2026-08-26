@@ -69,41 +69,59 @@ const LAND_COL_H_MM = LAND_HEIGHT_MM - PAGE_SAFETY_MARGIN_MM;
 // question it answers. Nothing here is a guess at a percentage: it is
 // the arithmetic of what fits, which is what makes the same rule work
 // on a book whose panels are cropped to a different width.
+// What the page costs a panel on top of the panel itself. Left out of
+// the sum, an example came to three millimetres more than its column and
+// pushed the sheet past A4 - which the export turns into an extra page.
+// Both are read off the rendered column rather than guessed at: .block's
+// 5px margin-bottom, and the section title's 9.3mm of text between a
+// 5.8mm and a 3.2mm margin, which collapse through .heading-unit.
+const LAND_PANEL_GAP_MM = 5 / CSS_PX_PER_MM;
+// The section title that opens a chapter shares a column with whatever
+// panel follows it, so that panel has a title's worth less room than a
+// panel further down.
+const LAND_TITLE_MM = 19;
 function landPanelWidths(workbook) {
   const width = new Map();
   const boxMm = new Map();
   const groups = new Map();
+  // Height a group has to fit into: a column, less its panels' margins,
+  // less the section title where the group is the one that follows it.
+  const room = new Map();
+  let afterTitle = false;
   for (const page of workbook.pages) {
     for (const b of page.blocks) {
-      if (!b.section || !b.wMm || !b.hMm) continue;
-      if (!b.exampleId) {
-        // Key Ideas, Building Understanding: the column width, unless
-        // the panel is taller than a column at that width.
-        const tall = b.hMm * (LAND_COL_MM / b.wMm);
-        width.set(b.id, LAND_COL_MM * Math.min(1, LAND_COL_H_MM / tall));
+      if (b.type === "heading" && b.style === "title") {
+        afterTitle = true;
         continue;
       }
-      if (!groups.has(b.exampleId)) groups.set(b.exampleId, []);
-      groups.get(b.exampleId).push(b);
+      if (!b.section || !b.wMm || !b.hMm) continue;
+      const key = b.exampleId || b.id;
+      if (!groups.has(key)) {
+        groups.set(key, []);
+        room.set(key, LAND_COL_H_MM - (afterTitle ? LAND_TITLE_MM : 0));
+        afterTitle = false;
+      }
+      groups.get(key).push(b);
     }
   }
-  for (const [, blocks] of groups) {
-    // Every panel of the example at column width, plus the smallest
-    // answer box worth giving the "Now you try" under it.
-    const tall = blocks.reduce((h, b) => h + b.hMm * (LAND_COL_MM / b.wMm), 0);
-    const floor = GRID_MM * 3;
-    // The gaps between the panels are real height too - three blocks
-    // with a margin each, plus a point of slack. Left out, an example
-    // came to three millimetres more than its column and pushed the
-    // sheet past A4, which the export turns into an extra page.
-    const gaps = 8;
-    const scale = Math.min(1, (LAND_COL_H_MM - floor - gaps) / tall);
+  for (const [key, blocks] of groups) {
+    // Every panel of the group at column width, plus its own margin.
+    const tall = blocks.reduce(
+      (h, b) => h + b.hMm * (LAND_COL_MM / b.wMm) + LAND_PANEL_GAP_MM,
+      0,
+    );
+    // A worked example ends in a "Now you try", which is no use without
+    // somewhere to answer it - so the smallest box worth having is part
+    // of what the group has to fit, not something added afterwards.
+    const last = blocks[blocks.length - 1];
+    const floor = last.workingSpace ? GRID_MM * 3 : 0;
+    const have = room.get(key);
+    const scale = Math.min(1, (have - floor) / tall);
     for (const b of blocks) width.set(b.id, LAND_COL_MM * scale);
     // Whatever the column has left over goes to the box - it is the one
     // part of a worked example a student writes in.
-    const last = blocks[blocks.length - 1];
     if (last.workingSpace) {
-      boxMm.set(last.id, snapDown(Math.max(floor, LAND_COL_H_MM - tall * scale - gaps), GRID_MM));
+      boxMm.set(last.id, snapDown(Math.max(floor, have - tall * scale), GRID_MM));
     }
   }
   return { width, boxMm };
@@ -724,6 +742,58 @@ function localScale(el) {
   if (!own) return 1;
   const scale = el.getBoundingClientRect().width / own;
   return scale > 0.01 ? scale : 1;
+}
+
+// A landscape sheet that came out with only one column in use - always
+// a section's last teaching sheet, where what is left over is shorter
+// than the worked example that would have filled the fold's other side.
+// Nothing else can go there: the exercise that follows is portrait, and
+// the next section opens on its own sheet.
+//
+// So rather than print half a blank side, the trailing "Now you try"
+// answer box crosses the fold and takes the whole free column. The
+// student reads the example on the left and works on the right, which is
+// how a two-page spread is used anyway - and the box goes from the few
+// rows the example left it to a full A5 side.
+export function spillLandscapeBoxes(container) {
+  for (const page of container.querySelectorAll(".page-landscape")) {
+    const cols = page.querySelectorAll(".landscape-col");
+    if (cols.length !== 1) continue;
+    const boxes = cols[0].querySelectorAll(".working-space");
+    const box = boxes[boxes.length - 1];
+    // Only the last box on the sheet, and only when it closes the sheet:
+    // a box with panels under it is somebody's middle, not the leftover.
+    if (!box || box.dataset.spilled === "1") continue;
+    const free = document.createElement("div");
+    free.className = "landscape-col landscape-col-spill";
+    page.insertBefore(free, page.querySelector(".page-number"));
+    box.dataset.spilled = "1";
+    // A ruled box draws its lines as a fixed run of divs laid out for
+    // the height it was built at, so simply making it taller would leave
+    // the new room blank. The tiled pattern the teacher-workthrough
+    // blanks use (see blankSpaceHtml) rules whatever height it is given,
+    // which is exactly what a box being resized after layout needs.
+    const rules = box.querySelectorAll(".rule-line");
+    const step = rules.length ? RULE_MM : GRID_MM;
+    if (rules.length) {
+      for (const line of rules) line.remove();
+      const NS = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(NS, "svg");
+      svg.setAttribute("class", "ws-grid");
+      svg.setAttribute("preserveAspectRatio", "none");
+      const rect = document.createElementNS(NS, "rect");
+      rect.setAttribute("width", "100%");
+      rect.setAttribute("height", "100%");
+      rect.setAttribute("fill", `url(#${RULE_PATTERN_ID})`);
+      svg.appendChild(rect);
+      box.insertBefore(svg, box.firstChild);
+    }
+    // Height set here rather than left to the column: a box is sized in
+    // whole rows of its own ruling everywhere else in the booklet, and a
+    // half-row at the bottom edge reads as a mistake.
+    box.style.height = `${snapDown(LAND_COL_H_MM, step)}mm`;
+    free.appendChild(box);
+  }
 }
 
 // Gives each wrapped answer box its shape (see wrappedSpaceHtml): the

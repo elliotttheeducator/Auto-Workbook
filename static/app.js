@@ -18,7 +18,7 @@ import {
   shrinkOneStep,
   SIZE_PRESETS_MM,
 } from "./model.js";
-import { alignSplitRows, fitTeacherBlanks, rowColsCycle, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
+import { alignSplitRows, fitTeacherBlanks, spillLandscapeBoxes, rowColsCycle, wrapWorkingSpaces, buildFilterContext, DEFAULT_FLOW_BODY_PT, defaultScaleBarHtml, filterBarHtml, FLOW_BODY_PT_MAX, FLOW_BODY_PT_MIN, FLOW_BODY_PT_STEP, printSelectionBarHtml, renderEditor, waitForImages } from "./render.js";
 
 // The tier a given block sits under (needed only to pick the right
 // split-scale default - see defaultScaleFor in model.js), recomputed on
@@ -78,6 +78,7 @@ function toggleMonitorProfile() {
   localStorage.setItem(MONITOR_KEY, monitorProfile);
   applyViewMode();
   if (viewMode === "actual") {
+    spillLandscapeBoxes(appEl);
     wrapWorkingSpaces(appEl);
     fitTeacherBlanks(appEl);
     alignSplitRows(appEl);
@@ -127,6 +128,7 @@ function toggleViewMode() {
   // Content/pagination didn't change, just the page's own CSS size - no
   // need for a full renderEditorOnce(), just a re-measure of whatever
   // depends on the page's actual on-screen dimensions.
+  spillLandscapeBoxes(appEl);
   wrapWorkingSpaces(appEl);
   fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
@@ -453,6 +455,7 @@ async function renderEditorOnce() {
   renderTopBars();
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
+  spillLandscapeBoxes(appEl);
   wrapWorkingSpaces(appEl);
   fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
@@ -619,6 +622,7 @@ async function renderEditorView(id) {
   renderTopBars();
   appEl.innerHTML = await renderEditor(workbook, `data/${id}/crops`);
   await waitForImages(appEl);
+  spillLandscapeBoxes(appEl);
   wrapWorkingSpaces(appEl);
   fitTeacherBlanks(appEl);
   alignSplitRows(appEl);
@@ -652,6 +656,7 @@ async function undoAutoFit() {
   renderTopBars();
   appEl.innerHTML = await renderEditor(currentWorkbook, `data/${currentProjectId}/crops`);
   await waitForImages(appEl);
+  spillLandscapeBoxes(appEl);
   wrapWorkingSpaces(appEl);
   fitTeacherBlanks(appEl);
   alignSplitRows(appEl);

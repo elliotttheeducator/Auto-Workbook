@@ -1966,6 +1966,7 @@ FOOTER_TEXT = re.compile(
     r"|Essential Mathematics for)"
 )
 PANEL_HEAD_MIN_SIZE = 11.0
+PANEL_CONTINUED = re.compile(r"(?i)continued\s+on\s+next\s+page")
 # How close a panel's last line has to be to the bottom edge of its own
 # coloured box for the crop to be taken flush with that edge instead of
 # tight to the content.
@@ -2108,7 +2109,14 @@ def panel_ink_bottom(page, y0, y1, bands):
         nonlocal bottom
         if y0 <= r.y0 < y1:
             bottom = r.y1 if bottom is None else max(bottom, r.y1)
-    for bbox, _spans in page_lines(page):
+    for bbox, spans in page_lines(page):
+        text = "".join(c["c"] for s in spans for c in s.chars)
+        # The book's own cross-reference to the page turn its layout
+        # forced. This booklet reunites the two halves of the working in
+        # one column, so the line is not just noise in the crop - it is
+        # wrong, pointing at a next page that no longer holds anything.
+        if PANEL_CONTINUED.search(text):
+            continue
         note(bbox)
     for d in page.get_drawings():
         r = fitz.Rect(d["rect"])
@@ -2156,7 +2164,12 @@ def panel_frame(page, y0, y1, bands):
     )
 
 
-def page_panels(page, stop_y):
+# Below the running head ("668 / Chapter 10 Measurement"), which is page
+# furniture rather than content and must not reach a panel crop.
+PANEL_TOP_PT = 40.0
+
+
+def page_panels(page, stop_y, carry=False):
     """The teaching panels on this page as (kind, rect, text) tuples.
 
     A panel runs from its own heading to the next one. An Example is
@@ -2166,13 +2179,35 @@ def page_panels(page, stop_y):
     workthrough print blanks out, and the last one is a question the
     student answers and so needs an answer box."""
     marks = [m for m in panel_marks(page) if m["y"] < stop_y]
-    if not marks:
+    if not marks and not carry:
         return []
     # Solution headings subdivide an Example; every other kind starts a
     # new panel, and so ends the one before it.
     breaks = [m["y"] for m in marks if m["kind"] != "solution"] + [stop_y]
     bands = panel_bands(page)
     out = []
+    # A worked example routinely straddles a page break in the source:
+    # the Example sets the question at the foot of one page and its
+    # working runs on over the top of the next, under a "Continued on
+    # next page". Whatever sits above this page's first panel heading is
+    # that continuation - it is never a panel of its own, because a
+    # panel starts at a heading. The loop below only ever reaches a
+    # worked answer through the Example heading that owns it, so left to
+    # itself it dropped the continuation on the floor and the booklet
+    # printed half a solution: part a worked, part b missing.
+    #
+    # `carry` is the caller's open example. Without it a page that
+    # simply opens with leftover prose would have that prose cropped in
+    # as if it were somebody's working.
+    if carry:
+        end = breaks[0]
+        if end < stop_y:
+            end = band_top_above(bands, end) or end
+        lead = next((m for m in marks if m["kind"] == "solution" and m["y"] < end), None)
+        top = (band_top_above(bands, lead["y"]) or lead["y"] - 4) if lead else PANEL_TOP_PT
+        wbox = panel_frame(page, top, end, bands)
+        if wbox and wbox.height > 8:
+            out.append(("worked", wbox, lead["text"] if lead else "Solution"))
     for i, m in enumerate(marks):
         if m["kind"] == "solution":
             continue
@@ -2218,7 +2253,7 @@ def rendered_mm(box):
     return mm(box.height) * (CONTENT_WIDTH_MM * SECTION_SCALE / mm(box.width))
 
 
-def panel_blocks(page, panels, crops_dir, pid_prefix):
+def panel_blocks(page, panels, crops_dir, pid_prefix, state):
     """Crops each teaching panel and returns the blocks that show it.
 
     A worked Example becomes the renderer's three-image workthrough
@@ -2226,18 +2261,25 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
     plus the Solution and Explanation halves it fronts for, so the
     "teacher workthrough" print can blank the working and keep the
     explanation. "Now you try" becomes a question with an answer box -
-    it is the one part of a worked example the student is meant to do."""
+    it is the one part of a worked example the student is meant to do.
+
+    `state` carries the half-finished example across the call, because a
+    worked example routinely straddles a page break in the source - the
+    Example sets the question at the foot of one page and the "Now you
+    try" opens the next. Held per page, that break orphaned the "Now you
+    try" from its example: the two were sized separately and the
+    landscape layout was free to put them in different columns."""
     blocks = []
     # How much of a sheet the example above this "Now you try" has
     # already used, so its box can be sized to what is left of half a
     # page rather than to a fixed guess - which is what decides whether
     # two worked examples fit on one sheet or only one does.
-    trio_mm = 0.0
+    trio_mm = state.get("trio_mm", 0.0)
     # An Example, its worked answer and its "Now you try" share an id, so
     # the renderer can size the three of them together - a landscape
     # column has to hold the whole thing, and they have to be scaled as
     # one or the solution comes out a different size from the question.
-    group = None
+    group = state.get("group")
     for n, (kind, box, _text) in enumerate(panels):
         base = f"{pid_prefix}p{n}"
         if kind == "example":
@@ -2312,6 +2354,8 @@ def panel_blocks(page, panels, crops_dir, pid_prefix):
                            # An Example's question glues to the worked
                            # answer that explains it.
                            **({"glueForward": True} if kind == "example" else {})})
+    state["group"] = group
+    state["trio_mm"] = trio_mm
     return blocks
 
 
@@ -2336,6 +2380,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
     # figure attribution rather than a name collision.
     sec_prefix = prefix
     pending_title = None
+    panel_state = {}
     stats = {"questions": 0, "math": 0, "figures": 0, "sections": 0, "panels": 0}
 
     for pno in range(first, last + 1):
@@ -2348,6 +2393,7 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
             seen_tier = None
             in_exercise = False
             sec_prefix = f"{prefix}{(code or 'sec').lower()}_"
+            panel_state = {}
             # Held back rather than emitted here. The chapter's own
             # dividers ("Progress quiz", "Applications and problem-
             # solving") are set exactly like section titles, and those
@@ -2374,13 +2420,16 @@ def build_flow_document(pdf, first, last, title, out_dir, prefix):
         # cross-reference tag, not a panel.
         if not in_exercise:
             stop = ex_y if ex_y is not None else footer_top(page)
-            found = page_panels(page, stop)
+            # A group left open by the last page is a worked example whose
+            # "Now you try" has not been reached yet, so its working runs
+            # on over the top of this page (see page_panels).
+            found = page_panels(page, stop, carry=bool(panel_state.get("group")))
             if found:
                 if pending_title is not None:
                     blocks.append(pending_title)
                     pending_title = None
                     stats["sections"] += 1
-                new = panel_blocks(page, found, crops_dir, f"{sec_prefix}{pno}")
+                new = panel_blocks(page, found, crops_dir, f"{sec_prefix}{pno}", panel_state)
                 stats["panels"] += len(found)
                 blocks.extend(new)
         if ex_y is not None:
@@ -2441,6 +2490,11 @@ def main():
     ap.add_argument("--prefix", default="f_", help="id prefix for this chapter's blocks")
     ap.add_argument("--data-dir", default="data")
     ap.add_argument("--project-id", help="reuse an existing project id instead of minting one")
+    ap.add_argument(
+        "--landscape-teaching",
+        action="store_true",
+        help="default this chapter to two-up A5 teaching sheets on A4 landscape",
+    )
     args = ap.parse_args()
 
     first, last = (int(x) for x in args.pages.split("-"))
@@ -2452,6 +2506,8 @@ def main():
 
     wb, stats = build_flow_document(args.pdf, first, last, args.title, out_dir, args.prefix)
     wb["buildVersion"] = uuid.uuid4().hex[:8]
+    if args.landscape_teaching:
+        wb["landscapeTeaching"] = True
     with open(os.path.join(out_dir, "workbook.json"), "w", encoding="utf-8") as f:
         json.dump(wb, f, ensure_ascii=False, indent=1)
 
