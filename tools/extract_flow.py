@@ -644,15 +644,23 @@ def page_figures(page: fitz.Page, y_floor: float):
 
 
 def assign_figures(figs, bands):
-    """Gives each figure to exactly one question: the band containing its
-    vertical centre. A figure whose centre falls outside every band (page
-    furniture that survived the filters) is dropped rather than forced
-    onto whichever question happens to be nearest."""
+    """Gives each figure to exactly one question: the band its TOP falls
+    in. A figure that starts above every band (page furniture that
+    survived the filters) is dropped rather than forced onto whichever
+    question happens to be nearest.
+
+    The top, not the centre. A diagram set in the right margin is
+    routinely taller than the question that owns it - 10G's farmer's
+    field is 91pt against a two-line question - so its middle lands in
+    the question BELOW, which is where the centre rule sent it. The
+    yacht question, which has no diagram of its own in the book, printed
+    the bottom half of the farmer's triangle; the farmer's question
+    printed the top half. A reader pairs a diagram with the text beside
+    the point where it starts, and that is what this now does."""
     owned = {i: [] for i in range(len(bands))}
     for f in figs:
-        cy = 0.5 * (f.y0 + f.y1)
         for i, (y0, y1) in enumerate(bands):
-            if y0 <= cy < y1:
+            if y0 <= f.y0 < y1:
                 owned[i].append(f)
                 break
     return {i: reading_order(v) for i, v in owned.items()}
@@ -688,6 +696,44 @@ def reading_order(figs):
     for row in rows:
         out.extend(sorted(row["items"], key=lambda r: r.x0))
     return out
+
+
+def clip_to_question(f, region, lines, band_rows):
+    """Cuts a figure back to its own question's region - but only as far
+    as it has to.
+
+    The clip is there so a diagram cannot take ink belonging to the
+    question below it. Applied flat it does damage of its own: the book
+    sets a diagram out in the right margin alongside a question whose
+    text is two lines long, and such a drawing routinely hangs well past
+    the last of that text. Cutting it at the question boundary took the
+    bottom off 10H's notched rectangle and the top off 10G's field -
+    each printed as a fragment with the measurements sheared away.
+
+    Nothing is out there to steal, which is the test used here: the
+    overhang is kept when no text and no tier banner lies across it.
+    Text of its own - a dimension label hanging below the drawing - does
+    not count, because that label is the figure's and absorb_labels is
+    about to pull it in anyway."""
+    clipped = f & region
+    if clipped.is_empty or clipped == f:
+        return clipped
+    over = fitz.Rect(f.x0, f.y0, f.x1, f.y1)
+    for y0, y1 in ((f.y0, region.y0), (region.y1, f.y1)):
+        if y1 <= y0:
+            continue
+        for b0, b1 in band_rows:
+            if b0 < y1 and b1 > y0:
+                return clipped
+        for bbox, spans in lines:
+            if bbox.y1 <= y0 or bbox.y0 >= y1:
+                continue
+            if bbox.x1 <= over.x0 or bbox.x0 >= over.x1:
+                continue
+            text = "".join(c["c"] for s in spans for c in s.chars).strip()
+            if len(text) > LABEL_MAX_CHARS:
+                return clipped
+    return over
 
 
 def owned_figures(page: fitz.Page, region: fitz.Rect, text_right_edge: float):
@@ -1451,7 +1497,7 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
             yend = min(yend, panel - 2)
         region = fitz.Rect(40, ystart - 4, page.rect.x1 - 40, yend)
 
-        figs = [fitz.Rect(f) & region for f in fig_owner[i]]
+        figs = [clip_to_question(fitz.Rect(f), region, lines, band_rows) for f in fig_owner[i]]
         figs = [f for f in figs if not f.is_empty and not too_small(f)]
         # Attribution and clipping have to happen BEFORE the crops are
         # written, since clipping is what decides the rect each PNG is
@@ -1566,6 +1612,15 @@ def extract_questions(doc, pno, crops_dir, prefix, want_tier=None, y_floor=None)
                             continue
                         f.y0 = max(f.y0, lb.y1 + PROSE_GAP_PT)
                         box.y0 = max(box.y0, lb.y1 + PROSE_GAP_PT)
+                # The ceiling says how far a crop may GROW to reach a
+                # label; it must never cut the drawing it is growing
+                # from. absorb_labels intersects with it on every
+                # absorption, so a diagram taller than its own question
+                # (see clip_to_question) was sheared back to the question
+                # the moment it took in its first measurement - 10G's
+                # field kept "18 m" and "26 m" and lost two thirds of the
+                # triangle under them.
+                box |= f
                 out += absorb_labels([f], lines, box, PART_X[1], others=near)
             figs_by_letter[letter] = out
         figs = [f for v in figs_by_letter.values() for f in v]

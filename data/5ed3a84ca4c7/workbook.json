@@ -2089,7 +2089,7 @@
       {
        "crop": "ms_10d_q10_f0",
        "wMm": 29.4,
-       "hMm": 18.82
+       "hMm": 22.31
       }
      ],
      "workingSpace": {
@@ -2841,7 +2841,13 @@
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "ms_10e_q6_f0",
+       "wMm": 72.97,
+       "hMm": 49.1
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
@@ -2860,13 +2866,7 @@
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [
-      {
-       "crop": "ms_10e_q7_f0",
-       "wMm": 72.97,
-       "hMm": 19.76
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 20
@@ -2957,7 +2957,13 @@
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "ms_10e_q10_f0",
+       "wMm": 72.97,
+       "hMm": 49.1
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
@@ -2976,13 +2982,7 @@
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [
-      {
-       "crop": "ms_10e_q11_f0",
-       "wMm": 72.97,
-       "hMm": 29.35
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
@@ -4895,13 +4895,19 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " A farmer uses fencing to divide a triangular piece of land into two 18 m 26 m smaller triangles, as shown. What is the difference in the two areas?"
+       "t": " A farmer uses fencing to divide a triangular piece of land into two smaller triangles, as shown. What is the difference in the two areas?"
       }
      ],
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [],
+     "figures": [
+      {
+       "crop": "ms_10g_q9_f0",
+       "wMm": 48.45,
+       "hMm": 37.78
+      }
+     ],
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
@@ -4914,19 +4920,13 @@
      "tier": "problemsolving",
      "stem": [
       {
-       "t": " A yacht must have two of its sails replaced as they have been damaged by a recent storm. One sail has a base length of 2.5 m and a height of 8 m and the bigger sail has a base length of 4 m and a height of 16 m. If the cost of sail material is $150 per square metre, find the total cost to replace the yacht’s damaged sails."
+       "t": " A yacht must have two of its sails replaced as they have been damaged by a recent storm. One sail has a base length of 2.5 m and 40 m a height of 8 m and the bigger sail has a base length of 4 m and a height of 16 m. If the cost of sail material is $150 per square metre, find the total cost to replace the yacht’s damaged sails."
       }
      ],
      "parts": [],
      "columns": 1,
      "stemItems": 0,
-     "figures": [
-      {
-       "crop": "ms_10g_q10_f0",
-       "wMm": 48.45,
-       "hMm": 27.6
-      }
-     ],
+     "figures": [],
      "workingSpace": {
       "style": "grid",
       "heightMm": 45
@@ -5034,8 +5034,8 @@
      "figures": [
       {
        "crop": "ms_10g_q13_f0",
-       "wMm": 31.57,
-       "hMm": 12.76
+       "wMm": 64.85,
+       "hMm": 18.85
       }
      ],
      "workingSpace": {
@@ -5184,7 +5184,7 @@
         {
          "crop": "ms_10g_q15_f3",
          "wMm": 33.69,
-         "hMm": 32.4
+         "hMm": 33.69
         }
        ],
        "workingSpace": {
@@ -5704,7 +5704,7 @@
         {
          "crop": "ms_10h_q4_f4",
          "wMm": 37.47,
-         "hMm": 23.75
+         "hMm": 27.34
         }
        ],
        "workingSpace": {
@@ -5974,7 +5974,7 @@
       {
        "crop": "ms_10h_q9_f0",
        "wMm": 22.97,
-       "hMm": 12.33
+       "hMm": 14.0
       }
      ],
      "workingSpace": {
@@ -7000,6 +7000,6 @@
    ]
   }
  ],
- "buildVersion": "63405554",
+ "buildVersion": "a9962d00",
  "landscapeTeaching": true
 }
