@@ -358,6 +358,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
       <div class="btnrow">
         <button class="btn" id="btn-all">Select all</button>
         <button class="btn" id="btn-none">Clear</button>
+        <button class="btn" id="btn-docx" hidden>Export .docx</button>
         <button class="btn btn-primary" id="btn-print">Print</button>
       </div>
     </div>
@@ -528,7 +529,7 @@ function parsePaper(text, base) {
         const [, k, v] = m;
         if (k === "pts") f.points = v.split(";").map(p => p.split(",").map(Number));
         else if (k === "unit" || k === "alt") f[k] = v;
-        else f[k] = Number(v);
+        else f[k] = /^-?\d*\.?\d+$/.test(v) ? Number(v) : v;
       }
       if (part) part.figure = f; else if (q) q.figure = f;
       continue;
@@ -1028,7 +1029,12 @@ const TICK = { fill: "none", stroke: "#c0392b", "stroke-width": 1, "stroke-dasha
 function figureNode(f) {
   if (!f || !f.type) return null;
   const u = f.unit || "cm";
-  const lbl = v => v + " " + u;
+  /* A dimension may be a letter rather than a number - "find the height
+     h" is a whole class of question, and writing `h=h` should label the
+     drawing h rather than measure it. So labels print what was written
+     and the geometry falls back to a sensible size. */
+  const lbl = v => (typeof v === "number" && isFinite(v) ? v + " " + u : String(v ?? ""));
+  const num = (v, d) => (typeof v === "number" && isFinite(v) ? v : d);
   const box = el("div", "fig" + (f.side ? " fig-right" : ""));
   const svg = svgEl("svg", { viewBox: "0 0 120 100", width: f.width || 150, role: "img" });
   svg.setAttribute("aria-label", f.alt || (f.type + " diagram"));
@@ -1042,19 +1048,19 @@ function figureNode(f) {
 
   if (f.type === "rect" || f.type === "square") {
     const w = f.w ?? f.side, h = f.h ?? f.side;
-    const [W, H] = fit(w, h, 78, 52);
+    const [W, H] = fit(num(w, 10), num(h, 6), 78, 52);
     svg.append(svgEl("rect", { x: 20, y: 16, width: W, height: H, ...STROKE }));
     dimText(svg, 20 + W / 2, 16 + H + 11, lbl(w));
     dimText(svg, 14, 16 + H / 2 + 3, lbl(h), "end");
   } else if (f.type === "tri") {
-    const [W, H] = fit(f.b, f.h, 78, 52);
+    const [W, H] = fit(num(f.b, 10), num(f.h, 6), 78, 52);
     const apex = f.right ? 20 : 20 + W * 0.42;
     svg.append(svgEl("path", { d: `M20,${16 + H} L${20 + W},${16 + H} L${apex},16 Z`, ...STROKE }));
     svg.append(svgEl("path", { d: `M${apex},16 L${apex},${16 + H}`, ...TICK }));
     dimText(svg, 20 + W / 2, 16 + H + 11, lbl(f.b));
     dimText(svg, apex + 3, 16 + H / 2, lbl(f.h), "start");
   } else if (f.type === "para") {
-    const [W, H] = fit(f.b, f.h, 68, 48);
+    const [W, H] = fit(num(f.b, 10), num(f.h, 6), 68, 48);
     const sk = 14;
     svg.append(svgEl("path", { d: `M20,${16 + H} L${20 + W},${16 + H} L${20 + W + sk},16 L${20 + sk},16 Z`, ...STROKE }));
     svg.append(svgEl("path", { d: `M${20 + sk},16 L${20 + sk},${16 + H}`, ...TICK }));
@@ -1073,8 +1079,8 @@ function figureNode(f) {
     }
   } else if (f.type === "lshape") {
     /* Two rectangles sharing a corner - the composite-area staple. */
-    const [W, H] = fit(f.w, f.h, 74, 50);
-    const cw = W * (f.cutW / f.w), ch = H * (f.cutH / f.h);
+    const [W, H] = fit(num(f.w, 10), num(f.h, 8), 74, 50);
+    const cw = W * (num(f.cutW, 3) / num(f.w, 10)), ch = H * (num(f.cutH, 2) / num(f.h, 8));
     svg.append(svgEl("path", {
       d: `M20,16 L${20 + W},16 L${20 + W},${16 + H - ch} L${20 + W - cw},${16 + H - ch} L${20 + W - cw},${16 + H} L20,${16 + H} Z`,
       ...STROKE,
@@ -1113,6 +1119,39 @@ function figureNode(f) {
     const pts = (f.points || []).map(([a, b]) => `${8 + a * cell},${8 + b * cell}`).join(" ");
     svg.append(svgEl("polygon", { points: pts, ...STROKE, fill: "#cdd7ee", "fill-opacity": .55 }));
     svg.setAttribute("viewBox", `0 0 ${16 + cols * cell} ${16 + rows * cell}`);
+  } else if (f.type === "sector") {
+    /* A slice of a circle: two radii and the arc between them, with the
+       angle marked at the centre. The drawing follows the angle it is
+       given, so a 300-degree sector reads as a circle with a bite out
+       rather than as a generic wedge. */
+    const R = 34, cx = 46, cy = 56;
+    const a0 = -90, deg = Math.max(1, Math.min(359, num(f.angle, 90)));
+    const rad = d => (d * Math.PI) / 180;
+    const px = d => cx + R * Math.cos(rad(d)), py = d => cy + R * Math.sin(rad(d));
+    const a1 = a0 + deg;
+    svg.append(svgEl("path", {
+      d: `M${cx},${cy} L${px(a0)},${py(a0)} A${R},${R} 0 ${deg > 180 ? 1 : 0} 1 ${px(a1)},${py(a1)} Z`,
+      ...STROKE, fill: "#cdd7ee", "fill-opacity": .5,
+    }));
+    const mid = a0 + deg / 2;
+    dimText(svg, cx + (R / 2) * Math.cos(rad(a0)) - 5, cy + (R / 2) * Math.sin(rad(a0)), lbl(f.r), "end");
+    dimText(svg, cx + 15 * Math.cos(rad(mid)), cy + 15 * Math.sin(rad(mid)) + 3, deg + "\u00b0");
+  } else if (f.type === "houseprism") {
+    /* A rectangular prism with a triangular prism sitting on it - the
+       composite-volume staple, and the shape a chat asked for that this
+       generator did not have. */
+    const d = 16, W = 52, H = 30, x = 20, y = 42, rh = 18;
+    svg.append(svgEl("path", { d: `M${x},${y} h${W} v${H} h${-W} Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x},${y} l${d},${-d} h${W} l${-d},${d}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + W},${y} l${d},${-d} v${H} l${-d},${d}`, ...STROKE }));
+    const apex = x + W / 2, top = y - rh;
+    svg.append(svgEl("path", { d: `M${x},${y} L${apex},${top} L${x + W},${y}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${apex},${top} l${d},${-d} L${x + W + d},${y - d}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + d},${y - d} L${apex + d},${top - d}`, ...STROKE, "stroke-dasharray": "3 2" }));
+    dimText(svg, x + W / 2, y + H + 10, lbl(f.l));
+    dimText(svg, x - 3, y + H / 2 + 3, lbl(f.h), "end");
+    dimText(svg, x + W + d + 2, y - d / 2 + 4, lbl(f.w), "start");
+    dimText(svg, apex + 4, top + rh / 2, lbl(f.rh), "start");
   } else {
     return null;
   }
@@ -1200,6 +1239,365 @@ function spaceNode(mm) {
     box.append(svg);
   }
   return box;
+}
+
+/* ── .docx export ───────────────────────────────────────────────────
+   Word is where these papers actually live, so the export has to be a
+   real .docx rather than a print-to-PDF: the department edits them
+   afterwards.
+
+   Written here rather than pulled from a library. A .docx is a ZIP of
+   XML, and the only hard part - the ZIP - is sixty lines when nothing
+   is compressed. Stored entries are valid ZIP, Word opens them happily,
+   and it means this page has no CDN dependency to fail behind a school
+   firewall and nothing to keep in step with a library's API. */
+const CRC_TABLE = (() => {
+  const t = new Uint32Array(256);
+  for (let i = 0; i < 256; i++) {
+    let c = i;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+    t[i] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes) {
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+function zip(files) {
+  const enc = new TextEncoder();
+  const parts = [], dir = [];
+  let offset = 0;
+  const u16 = n => [n & 0xFF, (n >>> 8) & 0xFF];
+  const u32 = n => [n & 0xFF, (n >>> 8) & 0xFF, (n >>> 16) & 0xFF, (n >>> 24) & 0xFF];
+  for (const { name, data } of files) {
+    const body = typeof data === "string" ? enc.encode(data) : data;
+    const nameBytes = enc.encode(name);
+    const crc = crc32(body);
+    const local = [
+      ...u32(0x04034b50), ...u16(20), ...u16(0), ...u16(0), ...u16(0), ...u16(0),
+      ...u32(crc), ...u32(body.length), ...u32(body.length),
+      ...u16(nameBytes.length), ...u16(0),
+    ];
+    parts.push(new Uint8Array(local), nameBytes, body);
+    dir.push({ name: nameBytes, crc, size: body.length, offset });
+    offset += local.length + nameBytes.length + body.length;
+  }
+  const central = [];
+  for (const e of dir) {
+    central.push(new Uint8Array([
+      ...u32(0x02014b50), ...u16(20), ...u16(20), ...u16(0), ...u16(0), ...u16(0), ...u16(0),
+      ...u32(e.crc), ...u32(e.size), ...u32(e.size),
+      ...u16(e.name.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0),
+      ...u32(0), ...u32(e.offset),
+    ]), e.name);
+  }
+  const centralSize = central.reduce((n, a) => n + a.length, 0);
+  const end = new Uint8Array([
+    ...u32(0x06054b50), ...u16(0), ...u16(0), ...u16(dir.length), ...u16(dir.length),
+    ...u32(centralSize), ...u32(offset), ...u16(0),
+  ]);
+  return new Blob([...parts, ...central, end], {
+    type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  });
+}
+
+const xesc = s => String(s ?? "")
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;");
+/* Word measures in twentieths of a point; a millimetre is 56.7 of them,
+   and an EMU (what drawings use) is 36000 to the millimetre. */
+const twip = mm => Math.round(mm * 56.7);
+const emu = mm => Math.round(mm * 36000);
+
+const P = (text, opts = {}) => {
+  const r = opts.runs || [{ t: text }];
+  const pPr =
+    "<w:pPr>" +
+    (opts.style ? `<w:pStyle w:val="${opts.style}"/>` : "") +
+    (opts.bullet ? '<w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr>' : "") +
+    (opts.border ? '<w:pBdr><w:bottom w:val="single" w:sz="8" w:color="000000"/></w:pBdr>' : "") +
+    `<w:spacing w:before="${opts.before ?? 0}" w:after="${opts.after ?? 60}"/>` +
+    (opts.align ? `<w:jc w:val="${opts.align}"/>` : "") +
+    "</w:pPr>";
+  const runs = r.map(x => {
+    if (x.raw) return x.raw;
+    /* Element order inside rPr and pPr is enforced by the schema, not
+       merely conventional: Word refuses a document that puts colour
+       after size, or a border after spacing. */
+    const size = x.sz || opts.sz || 21;
+    const rPr = "<w:rPr>" +
+      (x.b ? "<w:b/>" : "") + (x.i ? "<w:i/>" : "") +
+      (x.color ? `<w:color w:val="${x.color}"/>` : "") +
+      `<w:sz w:val="${size}"/><w:szCs w:val="${size}"/>` + "</w:rPr>";
+    return `<w:r>${rPr}<w:t xml:space="preserve">${xesc(x.t)}</w:t></w:r>`;
+  }).join("");
+  return `<w:p>${pPr}${runs}</w:p>`;
+};
+
+/* A single-celled bordered table is how the source papers make a
+   writing box, and it is what survives a round trip through Word - a
+   paragraph border collapses the moment someone types into it. */
+const boxTable = (mm, widthTwip) =>
+  `<w:tbl><w:tblPr><w:tblW w:w="${widthTwip}" w:type="dxa"/>` +
+  '<w:tblBorders>' +
+  ["top", "left", "bottom", "right"].map(s => `<w:${s} w:val="single" w:sz="6" w:color="808080"/>`).join("") +
+  '</w:tblBorders></w:tblPr>' +
+  `<w:tblGrid><w:gridCol w:w="${widthTwip}"/></w:tblGrid>` +
+  `<w:tr><w:trPr><w:trHeight w:val="${twip(mm)}" w:hRule="exact"/></w:trPr>` +
+  `<w:tc><w:tcPr><w:tcW w:w="${widthTwip}" w:type="dxa"/></w:tcPr>` +
+  '<w:p><w:pPr><w:spacing w:after="0"/></w:pPr></w:p></w:tc></w:tr></w:tbl>' +
+  '<w:p><w:pPr><w:spacing w:after="60"/></w:pPr></w:p>';
+
+/* Diagrams are SVG on the page; Word takes a bitmap, so each one is
+   rasterized through a canvas at print resolution on the way out. */
+async function svgToPng(svg) {
+  const clone = svg.cloneNode(true);
+  const vb = (svg.getAttribute("viewBox") || "0 0 120 100").split(/\s+/).map(Number);
+  const w = vb[2], h = vb[3];
+  const SCALE = 4;
+  clone.setAttribute("width", w);
+  clone.setAttribute("height", h);
+  clone.setAttribute("xmlns", SVGNS);
+  const url = "data:image/svg+xml;charset=utf-8," +
+    encodeURIComponent(new XMLSerializer().serializeToString(clone));
+  const img = new Image();
+  await new Promise((res, rej) => { img.onload = res; img.onerror = () => rej(new Error("svg")); img.src = url; });
+  const c = document.createElement("canvas");
+  c.width = w * SCALE; c.height = h * SCALE;
+  const g = c.getContext("2d");
+  g.fillStyle = "#ffffff";
+  g.fillRect(0, 0, c.width, c.height);
+  g.drawImage(img, 0, 0, c.width, c.height);
+  const blob = await new Promise(r => c.toBlob(r, "image/png"));
+  return { bytes: new Uint8Array(await blob.arrayBuffer()), wMm: w * 0.42, hMm: h * 0.42 };
+}
+function drawingXml(rid, id, wMm, hMm) {
+  return '<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">' +
+    `<wp:extent cx="${emu(wMm)}" cy="${emu(hMm)}"/><wp:docPr id="${id}" name="Figure ${id}"/>` +
+    '<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">' +
+    '<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">' +
+    '<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">' +
+    `<pic:nvPicPr><pic:cNvPr id="${id}" name="fig${id}.png"/><pic:cNvPicPr/></pic:nvPicPr>` +
+    `<pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>` +
+    `<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${emu(wMm)}" cy="${emu(hMm)}"/></a:xfrm>` +
+    '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic>' +
+    '</a:graphicData></a:graphic></wp:inline></w:drawing></w:r>';
+}
+
+async function buildDocx() {
+  const media = [];            // {name, bytes, rid}
+  let ridN = 10, docPrN = 1;
+  const addImage = (bytes, ext) => {
+    const rid = "rId" + (++ridN);
+    const name = `media/image${media.length + 1}.${ext}`;
+    media.push({ name, bytes, rid });
+    return rid;
+  };
+  const figXml = async (f) => {
+    if (!f) return "";
+    const host = figureNode(f);
+    if (!host) return "";
+    /* Off-screen but laid out, because a detached SVG has no size to
+       rasterize from. */
+    host.style.cssText = "position:absolute;left:-9999px;top:0";
+    document.body.append(host);
+    try {
+      const { bytes, wMm, hMm } = await svgToPng(host.querySelector("svg"));
+      return P("", { runs: [{ raw: drawingXml(addImage(bytes, "png"), ++docPrN, wMm, hMm) }] });
+    } finally { host.remove(); }
+  };
+
+  const CONTENT_W = 17000;     // A4 less 2cm margins, in twips
+  const body = [];
+  const c = doc.cover || {};
+
+  if (isTest() && doc.cover) {
+    body.push(P(c.line1 || "", { runs: [{ t: c.line1 || "", b: true, sz: 26 }] }));
+    body.push(P(c.line2 || "", { runs: [{ t: c.line2 || "", b: true, sz: 30 }], after: 200 }));
+    body.push(P("", { runs: [{ t: (c.studentLabel || "Student:") + "  ", sz: 22 },
+                             { t: " ".repeat(60), sz: 22 }], border: true, after: 240 }));
+    if (c.description) {
+      body.push(P("Description of Assessment:", { runs: [{ t: "Description of Assessment:", b: true, sz: 22 }], before: 120 }));
+      body.push(P(c.description));
+    }
+    (c.outcomes || []).forEach(o => body.push(P(o, { bullet: true })));
+    if ((c.conditions || []).length) {
+      body.push(P("Assessment conditions:", { runs: [{ t: "Assessment conditions:", b: true, sz: 22 }], before: 160 }));
+      (c.conditions || []).forEach(o => body.push(P(o, { bullet: true })));
+    }
+    const R = doc.rubric;
+    if (R && (R.rows || []).length) {
+      const cols = [1900, ...Array((R.criteria || []).length).fill(
+        Math.floor((CONTENT_W - 1900) / Math.max(1, (R.criteria || []).length)))];
+      const cellP = (txt, o) => P(txt, Object.assign({ sz: 13, after: 20 }, o));
+      const tc = (inner, w) =>
+        `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/></w:tcPr>${inner}</w:tc>`;
+      let tbl = `<w:tbl><w:tblPr><w:tblW w:w="${CONTENT_W}" w:type="dxa"/><w:tblBorders>` +
+        ["top", "left", "bottom", "right", "insideH", "insideV"]
+          .map(s => `<w:${s} w:val="single" w:sz="4" w:color="808080"/>`).join("") +
+        "</w:tblBorders></w:tblPr><w:tblGrid>" +
+        cols.map(w => `<w:gridCol w:w="${w}"/>`).join("") + "</w:tblGrid>";
+      tbl += "<w:tr>" +
+        tc(cellP("Grade / Question", { runs: [{ t: "Grade / Question", b: true, sz: 15 }] }), cols[0]) +
+        (R.criteria || []).map((cr, i) =>
+          tc(cellP(cr, { runs: [{ t: cr, b: true, sz: 15 }] }), cols[i + 1])).join("") +
+        "</w:tr>";
+      for (const row of R.rows) {
+        const qs = bandList(row.grade);
+        const g = cellP(row.grade, { runs: [{ t: row.grade, b: true, sz: 24 }], align: "center" }) +
+          (qs ? cellP(qs, { runs: [{ t: qs, sz: 13, color: "5C666F" }], align: "center" }) : "");
+        tbl += "<w:tr>" + tc(g, cols[0]) +
+          (row.cells || []).map((list, i) =>
+            tc((Array.isArray(list) ? list : [list])
+              .map(x => cellP(x, { bullet: true })).join(""), cols[i + 1])).join("") +
+          "</w:tr>";
+      }
+      tbl += "</w:tbl>";
+      body.push(tbl);
+      body.push(P("", { runs: [{ t: "Overall Grade:  ", b: true, sz: 22 }, { t: " ".repeat(24), sz: 22 }], before: 200 }));
+    }
+    body.push('<w:p><w:r><w:br w:type="page"/></w:r></w:p>');
+  }
+
+  body.push(P(doc.heading || doc.title || "", { runs: [{ t: doc.heading || doc.title || "", b: true, sz: 30 }] }));
+  const bits = [];
+  const ch = chapter();
+  if (ch && !isTest()) bits.push(ch.title);
+  if (doc.meta2) bits.push(doc.meta2);
+  if (doc.meta1) bits.push((isTest() ? "Time: " : "") + doc.meta1);
+  if (isTest()) bits.push("Total: " + totalMarks() + " marks");
+  body.push(P(bits.join("     "), { sz: 17, border: true, after: 200 }));
+
+  let lastSec = null;
+  for (const q of chosen()) {
+    if (q._sec !== lastSec) {
+      lastSec = q._sec;
+      const t = ((q._sec.code ? q._sec.code + "  " : "") + q._sec.title).trim();
+      if (t) body.push(P(t, { runs: [{ t: t.toUpperCase(), b: true, sz: 18 }], before: 160, after: 80 }));
+    }
+    const head = [{ t: q.n + ".   ", b: true }, { t: q.stem || "" }];
+    if (isTest() && q.marks != null) head.push({ t: "   (" + q.marks + (q.marks === 1 ? " mark)" : " marks)"), sz: 17, color: "5C666F" });
+    body.push(P("", { runs: head, before: 120 }));
+    body.push(await figXml(q.figure));
+    if (q.note) body.push(P(q.note, { sz: 17, color: "5C666F" }));
+
+    const parts = q.parts || [];
+    if (parts.length) {
+      for (const p of parts) {
+        const pr = [{ t: "   " + (p.letter || "") + ")   ", b: true }, { t: p.text || "" }];
+        if (isTest() && p.marks != null) pr.push({ t: "   (" + p.marks + ")", sz: 17, color: "5C666F" });
+        body.push(P("", { runs: pr }));
+        body.push(await figXml(p.figure));
+        if (doc.space.perPart) body.push(boxTable(partHeight(q, p), CONTENT_W - 400));
+      }
+      if (!doc.space.perPart) body.push(boxTable(qHeight(q), CONTENT_W));
+    } else {
+      body.push(boxTable(qHeight(q), CONTENT_W));
+    }
+  }
+
+  /* The crest goes in a real page header so it repeats, as it does on
+     the department's own papers. */
+  let headerXml = "", headerRels = "", headerRef = "";
+  if (doc.logo && /^data:image\/png;base64,/.test(doc.logo)) {
+    const bin = atob(doc.logo.split(",")[1]);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    media.push({ name: "media/logo.png", bytes, rid: "rIdLogo", header: true });
+    headerXml = XML_HEAD +
+      `<w:hdr ${NS}>` + P("", { align: "right", runs: [{ raw: drawingXml("rIdLogo", 900, 20, 22) }] }) + "</w:hdr>";
+    headerRels = XML_HEAD +
+      '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+      '<Relationship Id="rIdLogo" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/logo.png"/>' +
+      "</Relationships>";
+    headerRef = '<w:headerReference w:type="default" r:id="rIdHdr"/>';
+  }
+
+  const sectPr = "<w:sectPr>" + headerRef +
+    '<w:pgSz w:w="11906" w:h="16838"/>' +
+    '<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/>' +
+    "</w:sectPr>";
+
+  const documentXml = XML_HEAD + `<w:document ${NS}><w:body>` + body.join("") + sectPr + "</w:body></w:document>";
+
+  const docRels = XML_HEAD +
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>' +
+    '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>' +
+    (headerXml ? '<Relationship Id="rIdHdr" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>' : "") +
+    media.filter(m => !m.header).map(m =>
+      `<Relationship Id="${m.rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="${m.name}"/>`).join("") +
+    "</Relationships>";
+
+  const files = [
+    { name: "[Content_Types].xml", data: CONTENT_TYPES(!!headerXml) },
+    { name: "_rels/.rels", data: ROOT_RELS },
+    { name: "word/document.xml", data: documentXml },
+    { name: "word/_rels/document.xml.rels", data: docRels },
+    { name: "word/styles.xml", data: STYLES },
+    { name: "word/numbering.xml", data: NUMBERING },
+  ];
+  if (headerXml) {
+    files.push({ name: "word/header1.xml", data: headerXml });
+    files.push({ name: "word/_rels/header1.xml.rels", data: headerRels });
+  }
+  media.forEach(m => files.push({ name: "word/" + m.name, data: m.bytes }));
+  return zip(files);
+}
+
+const XML_HEAD = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" ' +
+  'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" ' +
+  'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"';
+const ROOT_RELS = XML_HEAD +
+  '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+  '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>' +
+  "</Relationships>";
+const CONTENT_TYPES = (hdr) => XML_HEAD +
+  '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
+  '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
+  '<Default Extension="xml" ContentType="application/xml"/>' +
+  '<Default Extension="png" ContentType="image/png"/>' +
+  '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
+  '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>' +
+  '<Override PartName="/word/numbering.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml"/>' +
+  (hdr ? '<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>' : "") +
+  "</Types>";
+const STYLES = XML_HEAD + `<w:styles ${NS}><w:docDefaults><w:rPrDefault><w:rPr>` +
+  '<w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/><w:sz w:val="21"/><w:szCs w:val="21"/>' +
+  "</w:rPr></w:rPrDefault><w:pPrDefault><w:pPr>" +
+  '<w:spacing w:after="60" w:line="252" w:lineRule="auto"/>' +
+  "</w:pPr></w:pPrDefault></w:docDefaults></w:styles>";
+const NUMBERING = XML_HEAD + `<w:numbering ${NS}>` +
+  '<w:abstractNum w:abstractNumId="0"><w:lvl w:ilvl="0"><w:start w:val="1"/>' +
+  '<w:numFmt w:val="bullet"/><w:lvlText w:val="•"/><w:lvlJc w:val="left"/>' +
+  '<w:pPr><w:ind w:left="360" w:hanging="240"/></w:pPr>' +
+  '<w:rPr><w:rFonts w:ascii="Symbol" w:hAnsi="Symbol" w:hint="default"/></w:rPr>' +
+  "</w:lvl></w:abstractNum>" +
+  '<w:num w:numId="1"><w:abstractNumId w:val="0"/></w:num></w:numbering>';
+
+async function exportDocx(btn) {
+  const dl = await window.claude?.use?.("downloads");
+  if (!dl) { toast("Saving files is not available in this view"); return; }
+  const was = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Building…";
+  try {
+    const blob = await buildDocx();
+    const name = (doc.heading || doc.title || "paper").replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+    await dl.save({ filename: name + ".docx", data: blob });
+    toast("Saved");
+  } catch (e) {
+    /* The viewer saying no is not a failure worth shouting about. */
+    if (e && e.code === "declined") toast("Save cancelled");
+    else if (e && e.code === "rate_limited") toast("A save is already open — try again in a moment");
+    else toast("Could not build the document" + (e && e.message ? ": " + e.message : ""));
+  } finally {
+    btn.disabled = false;
+    btn.textContent = was;
+  }
 }
 
 /* ── stats ─────────────────────────────────────────────────────────── */
@@ -1324,6 +1722,17 @@ function commit() {
 }
 
 document.getElementById("btn-print").onclick = () => window.print();
+
+/* The button appears only once the viewer is known to be able to save -
+   the capability resolves late, and an export that cannot deliver is
+   worse than no button at all. */
+(async () => {
+  const btn = document.getElementById("btn-docx");
+  if (await window.claude?.use?.("downloads")) {
+    btn.hidden = false;
+    btn.onclick = () => exportDocx(btn);
+  }
+})();
 document.getElementById("btn-all").onclick = () => {
   allQuestions().forEach(q => sel.add(q.id)); commit();
 };
@@ -1336,10 +1745,11 @@ if (!doc.current.chapter) {
 }
 if (!doc.space) doc.space = { style: "grid", mm: 30 };
 
-/* Open on a working sheet, not an empty one: the first section's
-   questions are ticked so the first look shows what the tool makes. */
-const first = sections()[0];
-if (first) first.questions.forEach(q => sel.add(q.id));
+/* Open on a working sheet, not an empty one. A test paper IS the whole
+   paper, so everything is ticked; a workbook is a selection from a
+   chapter, so the first section stands as the example. */
+if (isTest()) allQuestions().forEach(q => sel.add(q.id));
+else { const first = sections()[0]; if (first) first.questions.forEach(q => sel.add(q.id)); }
 
 wireConsole();
 commit();

@@ -72,14 +72,32 @@ disagree.
 | `prism` | `l` `w` `h` |
 | `triprism` | `b` `h` `l` |
 | `grid` | `cols` `rows` `pts=x,y;x,y;…` in grid squares |
+| `sector` | `r` `angle` (degrees) |
+| `houseprism` | `w` `h` `l` `rh` — prism with a triangular roof |
 
 All take `unit=` (default cm), `side` to float it right of the text, and
 `alt=` for screen readers. `fig` attaches to the part above it, or to the
 question when no part is open.
 
+A dimension may be a **letter instead of a number** — `fig triprism b=4
+h=h l=6` labels the height `h` and draws it at a sensible size, which is
+how you set "find the missing height".
+
 There is no other shape type. If a question needs one, either describe
 the extra detail in a `note` or say so — adding a type means editing the
 engine (see below).
+
+## Word
+
+**Export .docx** is beside Print. Word is where these papers live, so the
+export is a real .docx — cover, rubric table, questions, bordered answer
+boxes and the diagrams as images — not a print-to-PDF. It is generated in
+the page with no library, and handed over through the `downloads`
+capability, which is the only way an artifact can give a viewer a file;
+the button hides itself when that capability is not available.
+
+If you change what the sheets contain, change `buildDocx()` to match, or
+the two drift apart.
 
 ## Making it permanent
 

@@ -4,60 +4,63 @@ year:   Year 7
 time:   40 minutes
 footer: Show all mathematical procedures.
 describe: In-class test on measurement which will allow you to show your skills in understanding, fluency, problem-solving and reasoning.
-covers: Establish the formulas for perimeter and area of rectangles, triangles and parallelograms, and use these in problem-solving.
-covers: Calculate volumes of rectangular and triangular prisms.
+covers: Calculate the circumference of a circle and the arc length/perimeter of a sector.
+covers: Establish and use the formulas for the areas of rectangles, triangles and composite shapes.
+covers: Calculate the volumes of rectangular and triangular prisms, and apply these skills to unfamiliar and real-world contexts.
 rule:   You will complete the assessment task, individually, under direct supervision.
 rule:   Time allowed is 40 minutes.
 rule:   You are allowed a calculator.
 rule:   You are required to read each question and write your answers in the spaces provided, showing all mathematical procedures.
-section: — Answer all questions in the spaces provided.
 
-Q This shape is drawn on a centimetre grid. Work out:
-fig grid cols=7 rows=5 pts=1,1;5,1;5,3;3,3;3,4;1,4
-a [C] (2) the perimeter
-b [C] (2) the area
+section: 1 — Foundational skills
 
-Q For the following rectangle, determine the:
-fig rect w=9 h=4 side
-a [C] (2) perimeter
-b [C] (2) area
+Q Calculate the volume of each rectangular prism shown.
+a [C] (2)
+fig prism l=6 w=4 h=3
+b [C] (2)
+fig prism l=9 w=5 h=4
+c [C] (2)
+fig prism l=3 w=1.2 h=0.4 unit=m
 
-Q Determine the area of the following shapes. Show your working.
-a [C] (2) Triangle
-fig tri b=12 h=7
-b [C] (2) Parallelogram
-fig para b=10 h=6
-c [B] (2) Circle, to two decimal places
-fig circle r=4.5
+Q Calculate the area of each shape shown.
+a [C] (2) Rectangle
+fig rect w=8 h=5
+b [C] (2) Triangle
+fig tri b=10 h=4
 
-Q Calculate the perimeter of these shapes, rounding answers to two decimal places.
-a [C] (2) A square of side 6.5 m
-b [C] (2) A circle of diameter 14 cm
+Q A circle has a diameter of 14 cm. A sector of a different circle has radius 6 cm and an angle of 120°.
+a [C] (2) Calculate the circumference of the circle, correct to 1 decimal place.
+fig circle d=14
+b [C] (2) Calculate the arc length of the sector, correct to 1 decimal place.
+fig sector r=6 angle=120
 
-Q [C] (3) space=48 The diagram shows a rectangular prism. Determine its volume.
-fig prism l=8 w=3 h=5 side
+section: 2 — Applied skills
 
-Q This diagram shows a shape drawn from two rectangles. Determine the:
-fig lshape w=12 h=8 cutW=5 cutH=3 side
-a [B] (3) perimeter
-b [B] (3) area
+Q A garden bed is shaped like a sector of radius 8 m and an angle of 100°, as shown below. Fencing costs $24 per metre.
+fig sector r=8 angle=100 side
+a [B] (3) Calculate the perimeter of the garden bed, correct to 1 decimal place.
+b [B] (2) Calculate the cost of fencing the garden bed.
 
-Q [B] (3) space=45 The diagram shows a rectangle with an area of 28 cm2. Work out the value of the missing length.
-fig rect w=7 h=4 side
-note One side is 7 cm. The other is unknown.
+Q A raised garden bed is built in the shape of the rectangular prism shown, and is to be completely filled with soil. Soil is sold in bags, each containing 0.5 m³ of soil.
+fig prism l=2 w=1.5 h=0.5 unit=m side
+a [B] (2) Calculate the volume of soil needed to fill the garden bed.
+b [B] (2) Determine how many full bags of soil must be purchased.
 
-Q [A] (4) space=55 The diagram shows a 3D composite figure made from two rectangular prisms. Work out the total volume.
-fig prism l=10 w=4 h=6 side
-note A smaller prism 4 cm by 4 cm by 3 cm sits on top of the larger one.
+Q A carpenter is building the L-shaped timber deck shown below. Decking boards cost $48 per square metre.
+fig lshape w=8 h=6 cutW=3 cutH=2 unit=m side
+a [B] (3) Calculate the total area of the deck.
+b [B] (2) Calculate the total cost of the decking boards needed to cover the deck.
 
-Q [B] (3) space=50 Marie's average step length is 90 cm. Given there are 100 cm in 1 m and 1000 m in 1 km,
-how far in kilometres does she walk if she takes 5000 steps?
+section: 3 — Extension
 
-Q A tent is in the shape of a triangular prism.
-fig triprism b=2.4 h=1.8 l=3.5 unit=m side
-a [B] (3) Calculate the volume of this triangular prism.
-b [A] (4) Calculate the area of canvas to be waterproofed, if all sides are treated but the floor is not included.
+Q [A] (5) space=55 A tent is built in the shape of a triangular prism, as shown below. The base of the triangular cross-section is 4 m, and the tent has a length of 6 m. The volume of the tent is 84 m³. Calculate the height, h, of the triangular cross-section.
+fig triprism b=4 h=h l=6 unit=m side
 
-Q [A] (4) space=58 A school house logo is a square of side 10 cm with two isosceles triangles cut from
-opposite corners. Find the area of the stripe across the middle.
-fig rect w=10 h=10 side
+Q A logging truck is loaded with cylindrical logs. Each log is 10 m long and has the circular cross-section shown, and the timber has a density of 850 kg per cubic metre. The truck's legal load limit is 12 000 kg.
+fig circle r=0.3 unit=m side
+note The area of a circle can be found using the formula A = πr², where r is the radius.
+a [A] (2) Calculate the cross-sectional area of one log, correct to 2 decimal places.
+b [A] (6) space=60 Using the fact that Volume = cross-sectional area × length (the same relationship used for prisms), calculate the volume of one log. The truck is loaded with 6 of these logs: determine the total mass of the load, and state, with justification, whether the truck would be within its legal weight limit.
+
+Q [A] (4) space=55 The diagram shows a 3D composite solid: a rectangular-prism base with a triangular-prism roof on top. Calculate the total volume of the solid.
+fig houseprism w=8 h=4 l=10 rh=3 unit=m side
