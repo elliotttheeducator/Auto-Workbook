@@ -281,6 +281,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .parts { display: grid; gap: 2mm; margin: 0; }
 .parts.cols-2 { grid-template-columns: 1fr 1fr; column-gap: 6mm; }
 .parts.cols-3 { grid-template-columns: repeat(3,1fr); column-gap: 5mm; }
+.parts.cols-4 { grid-template-columns: repeat(4,1fr); column-gap: 4mm; }
 .part { display: grid; grid-template-columns: 5mm 1fr; gap: 1mm; min-width: 0; }
 .part-l { font-weight: 600; }
 
@@ -1018,7 +1019,13 @@ function svgEl(name, attrs) {
 function dimText(svg, x, y, txt, anchor) {
   const t = svgEl("text", {
     x, y, "text-anchor": anchor || "middle",
-    "font-family": "Public Sans, sans-serif", "font-size": 7, fill: "#101418",
+    "font-family": "Public Sans, Arial, sans-serif", "font-size": 7.5,
+    fill: "#101418",
+    /* Painted stroke-first in white, so a label sitting over a rule or
+       a hidden edge knocks a clean hole in it instead of having the
+       line run through the middle of the digits. */
+    stroke: "#ffffff", "stroke-width": 2.6, "stroke-linejoin": "round",
+    "paint-order": "stroke fill",
   });
   t.textContent = txt;
   svg.append(t);
@@ -1036,7 +1043,7 @@ function figureNode(f) {
   const lbl = v => (typeof v === "number" && isFinite(v) ? v + " " + u : String(v ?? ""));
   const num = (v, d) => (typeof v === "number" && isFinite(v) ? v : d);
   const box = el("div", "fig" + (f.side ? " fig-right" : ""));
-  const svg = svgEl("svg", { viewBox: "0 0 120 100", width: f.width || 150, role: "img" });
+  const svg = svgEl("svg", { viewBox: "-12 -10 148 126", width: f.width || 150, role: "img" });
   svg.setAttribute("aria-label", f.alt || (f.type + " diagram"));
 
   /* Shapes are drawn to proportion where the numbers allow it, then
@@ -1118,7 +1125,30 @@ function figureNode(f) {
     svg.append(g);
     const pts = (f.points || []).map(([a, b]) => `${8 + a * cell},${8 + b * cell}`).join(" ");
     svg.append(svgEl("polygon", { points: pts, ...STROKE, fill: "#cdd7ee", "fill-opacity": .55 }));
-    svg.setAttribute("viewBox", `0 0 ${16 + cols * cell} ${16 + rows * cell}`);
+    svg.setAttribute("viewBox", `-4 -4 ${24 + cols * cell} ${24 + rows * cell}`);
+  } else if (f.type === "righttri") {
+    /* Given the hypotenuse and its two acute angles - the shape a
+       trigonometry-adjacent measurement question sets. Drawn to the
+       angles it is given, so the picture agrees with the numbers. */
+    const A = num(f.angleA, 45), hyp = num(f.hyp, 10);
+    const L = 78, H = Math.max(14, Math.min(58, L * Math.tan((A * Math.PI) / 180)));
+    const x = 20, y = 16;
+    svg.append(svgEl("path", { d: `M${x},${y + H} h${L} v${-H} Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + L - 7},${y + H} v-7 h7`, ...STROKE, "stroke-width": 1 }));
+    dimText(svg, x + L / 2 - 4, y + H / 2 - 2, lbl(f.hyp), "middle");
+    if (f.angleA != null) dimText(svg, x + 13, y + H - 4, num(f.angleA, 0) + "\u00b0", "start");
+    if (f.angleB != null) dimText(svg, x + L - 5, y + 12, num(f.angleB, 0) + "\u00b0", "end");
+  } else if (f.type === "track") {
+    /* Two straights closed by semicircular ends - the athletics track
+       that every composite-perimeter question eventually reaches for. */
+    const r = 24, L = 62, x = 26, y = 30;
+    svg.append(svgEl("path", {
+      d: `M${x},${y} h${L} a${r},${r} 0 0 1 0,${2 * r} h${-L} a${r},${r} 0 0 1 0,${-2 * r} Z`,
+      ...STROKE, fill: "#cdd7ee", "fill-opacity": .4,
+    }));
+    svg.append(svgEl("path", { d: `M${x + L},${y + r} h${r}`, ...TICK }));
+    dimText(svg, x + L / 2, y - 5, lbl(f.straight));
+    dimText(svg, x + L + r / 2, y + r - 3, lbl(f.r));
   } else if (f.type === "sector") {
     /* A slice of a circle: two radii and the arc between them, with the
        angle marked at the centre. The drawing follows the angle it is
@@ -1185,10 +1215,7 @@ function questionNode(q) {
        them, and stacking them instead made one three-part question
        190mm tall and pushed it to a sheet of its own. The diagrams
        shrink to their cell (see .flowq-cell img), so across is safe. */
-    const allFigs = parts.every(p => p.figure);
-    const cols = q.columns
-      || (allFigs || parts.every(p => (p.text || "").length < 34)
-            ? Math.min(3, parts.length) : 1);
+    const cols = partColumns(q, parts);
     const g = el("div", "parts" + (cols > 1 ? " cols-" + cols : ""));
     parts.forEach(p => {
       const cell = el("div", "part");
@@ -1303,6 +1330,15 @@ function zip(files) {
   });
 }
 
+/* Read off the department's own cover sheet rather than assumed. The
+   first export used a 17000-twip table against a 9638-twip column and
+   ran a third of the way off the paper; every width here now derives
+   from one content measure so that cannot happen again. */
+const PAGE_W = 11900, PAGE_H = 16840, PAGE_MAR = 720;
+const CW = PAGE_W - 2 * PAGE_MAR;             // 10460 twips of content
+const RUBRIC_GRID = [1977, 3260, 2693, 2552]; // their column widths
+const FIG_MM = 78;                            // a full-width diagram
+
 const xesc = s => String(s ?? "")
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;");
@@ -1313,12 +1349,19 @@ const emu = mm => Math.round(mm * 36000);
 
 const P = (text, opts = {}) => {
   const r = opts.runs || [{ t: text }];
+  /* A question number sits in a hanging indent so a stem that wraps
+     lines up under itself instead of running back under the number,
+     and the marks ride a right tab at the content edge. */
+  const hang = opts.hang || 454;
   const pPr =
     "<w:pPr>" +
     (opts.style ? `<w:pStyle w:val="${opts.style}"/>` : "") +
     (opts.bullet ? '<w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr>' : "") +
     (opts.border ? '<w:pBdr><w:bottom w:val="single" w:sz="8" w:color="000000"/></w:pBdr>' : "") +
+    (opts.tabRight ? `<w:tabs><w:tab w:val="right" w:pos="${CW - 40}"/></w:tabs>` : "") +
     `<w:spacing w:before="${opts.before ?? 0}" w:after="${opts.after ?? 60}"/>` +
+    (opts.hanging ? `<w:ind w:left="${hang}" w:hanging="${hang}"/>`
+                  : opts.indent ? `<w:ind w:left="${opts.indent}"/>` : "") +
     (opts.align ? `<w:jc w:val="${opts.align}"/>` : "") +
     "</w:pPr>";
   const runs = r.map(x => {
@@ -1326,12 +1369,15 @@ const P = (text, opts = {}) => {
     /* Element order inside rPr and pPr is enforced by the schema, not
        merely conventional: Word refuses a document that puts colour
        after size, or a border after spacing. */
-    const size = x.sz || opts.sz || 21;
+    const size = x.sz || opts.sz || 20;
     const rPr = "<w:rPr>" +
       (x.b ? "<w:b/>" : "") + (x.i ? "<w:i/>" : "") +
       (x.color ? `<w:color w:val="${x.color}"/>` : "") +
       `<w:sz w:val="${size}"/><w:szCs w:val="${size}"/>` + "</w:rPr>";
-    return `<w:r>${rPr}<w:t xml:space="preserve">${xesc(x.t)}</w:t></w:r>`;
+        /* A literal tab is its own element in Word, not a character. */
+    const body = String(x.t ?? "").split("\u0009")
+      .map(t => `<w:t xml:space="preserve">${xesc(t)}</w:t>`).join("<w:tab/>");
+    return `<w:r>${rPr}${body}</w:r>`;
   }).join("");
   return `<w:p>${pPr}${runs}</w:p>`;
 };
@@ -1339,22 +1385,52 @@ const P = (text, opts = {}) => {
 /* A single-celled bordered table is how the source papers make a
    writing box, and it is what survives a round trip through Word - a
    paragraph border collapses the moment someone types into it. */
-const boxTable = (mm, widthTwip) =>
+const boxTable = (mm, widthTwip, indent = 0, tight = false) =>
   `<w:tbl><w:tblPr><w:tblW w:w="${widthTwip}" w:type="dxa"/>` +
+  (indent ? `<w:tblInd w:w="${indent}" w:type="dxa"/>` : "") +
   '<w:tblBorders>' +
   ["top", "left", "bottom", "right"].map(s => `<w:${s} w:val="single" w:sz="6" w:color="808080"/>`).join("") +
-  '</w:tblBorders></w:tblPr>' +
+  '</w:tblBorders><w:tblLayout w:type="fixed"/>' +
+  (tight ? '<w:tblCellMar><w:left w:w="40" w:type="dxa"/><w:right w:w="40" w:type="dxa"/></w:tblCellMar>' : "") +
+  "</w:tblPr>" +
   `<w:tblGrid><w:gridCol w:w="${widthTwip}"/></w:tblGrid>` +
   `<w:tr><w:trPr><w:trHeight w:val="${twip(mm)}" w:hRule="exact"/></w:trPr>` +
   `<w:tc><w:tcPr><w:tcW w:w="${widthTwip}" w:type="dxa"/></w:tcPr>` +
   '<w:p><w:pPr><w:spacing w:after="0"/></w:pPr></w:p></w:tc></w:tr></w:tbl>' +
   '<w:p><w:pPr><w:spacing w:after="60"/></w:pPr></w:p>';
 
+/* How many parts go across. One rule, used by the sheet and by the Word
+   export alike, so a question that reads three-across on screen is
+   three-across in the document - they were drifting because each
+   worked it out for itself. */
+function partColumns(q, parts) {
+  if (q.columns) return Math.max(1, Math.min(4, q.columns));
+  if (parts.every(p => p.figure)) return Math.min(3, parts.length);
+  if (parts.every(p => (p.text || "").length < 34)) return Math.min(3, parts.length);
+  return 1;
+}
+
+/* An invisible fixed-layout table: the only way to put cells side by
+   side in Word that survives editing. Borders off, so it reads as a
+   plain arrangement of parts rather than as a table. */
+const gridTable = (cells, colW, indent = 0) =>
+  `<w:tbl><w:tblPr><w:tblW w:w="${colW * cells.length}" w:type="dxa"/>` +
+  (indent ? `<w:tblInd w:w="${indent}" w:type="dxa"/>` : "") +
+  '<w:tblBorders>' +
+  ["top", "left", "bottom", "right", "insideH", "insideV"]
+    .map(k => `<w:${k} w:val="none" w:sz="0" w:color="auto"/>`).join("") +
+  '</w:tblBorders><w:tblLayout w:type="fixed"/>' +
+  '<w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="113" w:type="dxa"/></w:tblCellMar>' +
+  "</w:tblPr><w:tblGrid>" + cells.map(() => `<w:gridCol w:w="${colW}"/>`).join("") + "</w:tblGrid><w:tr>" +
+  cells.map(inner => `<w:tc><w:tcPr><w:tcW w:w="${colW}" w:type="dxa"/></w:tcPr>${inner}</w:tc>`).join("") +
+  "</w:tr></w:tbl>" +
+  '<w:p><w:pPr><w:spacing w:after="40"/></w:pPr></w:p>';
+
 /* Diagrams are SVG on the page; Word takes a bitmap, so each one is
    rasterized through a canvas at print resolution on the way out. */
 async function svgToPng(svg) {
   const clone = svg.cloneNode(true);
-  const vb = (svg.getAttribute("viewBox") || "0 0 120 100").split(/\s+/).map(Number);
+  const vb = (svg.getAttribute("viewBox") || "-12 -10 148 126").trim().split(/\s+/).map(Number);
   const w = vb[2], h = vb[3];
   const SCALE = 4;
   clone.setAttribute("width", w);
@@ -1387,7 +1463,7 @@ function drawingXml(rid, id, wMm, hMm) {
 }
 
 async function buildDocx() {
-  const media = [];            // {name, bytes, rid}
+  const media = [];
   let ridN = 10, docPrN = 1;
   const addImage = (bytes, ext) => {
     const rid = "rId" + (++ridN);
@@ -1395,155 +1471,205 @@ async function buildDocx() {
     media.push({ name, bytes, rid });
     return rid;
   };
-  const figXml = async (f) => {
+  const dataUriBytes = (uri) => {
+    const bin = atob(uri.split(",")[1]);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  };
+  /* Figures are rasterized at the width they will actually print, so a
+     diagram in a third-width column is not a full-width image squeezed
+     down by Word - which is what made the labels mushy. */
+  const figXml = async (f, maxMm) => {
     if (!f) return "";
     const host = figureNode(f);
     if (!host) return "";
-    /* Off-screen but laid out, because a detached SVG has no size to
-       rasterize from. */
     host.style.cssText = "position:absolute;left:-9999px;top:0";
     document.body.append(host);
     try {
       const { bytes, wMm, hMm } = await svgToPng(host.querySelector("svg"));
-      return P("", { runs: [{ raw: drawingXml(addImage(bytes, "png"), ++docPrN, wMm, hMm) }] });
+      const k = Math.min(1, (maxMm || FIG_MM) / wMm);
+      return P("", { align: "center", after: 40,
+        runs: [{ raw: drawingXml(addImage(bytes, "png"), ++docPrN, wMm * k, hMm * k) }] });
     } finally { host.remove(); }
   };
 
-  const CONTENT_W = 17000;     // A4 less 2cm margins, in twips
   const body = [];
   const c = doc.cover || {};
 
   if (isTest() && doc.cover) {
-    body.push(P(c.line1 || "", { runs: [{ t: c.line1 || "", b: true, sz: 26 }] }));
-    body.push(P(c.line2 || "", { runs: [{ t: c.line2 || "", b: true, sz: 30 }], after: 200 }));
-    body.push(P("", { runs: [{ t: (c.studentLabel || "Student:") + "  ", sz: 22 },
-                             { t: " ".repeat(60), sz: 22 }], border: true, after: 240 }));
+    /* ── cover sheet ──────────────────────────────────────────────
+       Set to the department's own sheet rather than to something that
+       merely resembles it: their page size and margins, their rubric
+       column widths, their typeface, their outset borders. */
+    body.push(P("", { runs: [{ t: c.line1 || "", b: true, sz: 28 }], after: 40 }));
+    body.push(P("", { runs: [{ t: c.line2 || "", b: true, sz: 28 }], after: 200 }));
+    body.push(P("", { runs: [
+      { t: (c.studentLabel || "Student:") + " ", sz: 24 },
+      { t: "______________________", sz: 24 },
+    ], after: 240 }));
     if (c.description) {
-      body.push(P("Description of Assessment:", { runs: [{ t: "Description of Assessment:", b: true, sz: 22 }], before: 120 }));
-      body.push(P(c.description));
+      body.push(P("", { runs: [{ t: "Description of Assessment:", b: true, sz: 24 }], after: 60 }));
+      body.push(P(c.description, { sz: 22 }));
     }
-    (c.outcomes || []).forEach(o => body.push(P(o, { bullet: true })));
+    (c.outcomes || []).forEach(o => body.push(P(o, { bullet: true, sz: 22 })));
     if ((c.conditions || []).length) {
-      body.push(P("Assessment conditions:", { runs: [{ t: "Assessment conditions:", b: true, sz: 22 }], before: 160 }));
-      (c.conditions || []).forEach(o => body.push(P(o, { bullet: true })));
+      body.push(P("", { runs: [{ t: "Assessment conditions:", b: true, sz: 24 }], before: 160, after: 60 }));
+      (c.conditions || []).forEach(o => body.push(P(o, { bullet: true, sz: 22 })));
     }
     const R = doc.rubric;
     if (R && (R.rows || []).length) {
-      const cols = [1900, ...Array((R.criteria || []).length).fill(
-        Math.floor((CONTENT_W - 1900) / Math.max(1, (R.criteria || []).length)))];
-      const cellP = (txt, o) => P(txt, Object.assign({ sz: 13, after: 20 }, o));
+      const nCrit = Math.max(1, (R.criteria || []).length);
+      /* Their grid exactly where the shape matches, shared out evenly
+         when a rubric carries a different number of criteria. */
+      /* Their proportions, normalised to the content width. The
+         original grid sums to 22 twips MORE than its own page - Word
+         lets it pass, but a table that overhangs by even a hair is the
+         thing being fixed here, so it is scaled to fit exactly. */
+      let cols = nCrit === 3
+        ? RUBRIC_GRID.slice()
+        : [RUBRIC_GRID[0], ...Array(nCrit).fill(Math.floor((CW - RUBRIC_GRID[0]) / nCrit))];
+      const sum = cols.reduce((a, b) => a + b, 0);
+      cols = cols.map(w => Math.floor(w * CW / sum));
+      cols[cols.length - 1] += CW - cols.reduce((a, b) => a + b, 0);
+      const cellP = (txt, o) => P(txt, Object.assign({ sz: 16, after: 20 }, o));
       const tc = (inner, w) =>
         `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/></w:tcPr>${inner}</w:tc>`;
-      let tbl = `<w:tbl><w:tblPr><w:tblW w:w="${CONTENT_W}" w:type="dxa"/><w:tblBorders>` +
+      let tbl = `<w:tbl><w:tblPr><w:tblW w:w="${CW}" w:type="dxa"/><w:tblBorders>` +
         ["top", "left", "bottom", "right", "insideH", "insideV"]
-          .map(s => `<w:${s} w:val="single" w:sz="4" w:color="808080"/>`).join("") +
-        "</w:tblBorders></w:tblPr><w:tblGrid>" +
-        cols.map(w => `<w:gridCol w:w="${w}"/>`).join("") + "</w:tblGrid>";
+          .map(k => `<w:${k} w:val="outset" w:sz="6" w:color="auto"/>`).join("") +
+        '</w:tblBorders><w:tblLayout w:type="fixed"/>' +
+        '<w:tblCellMar><w:left w:w="60" w:type="dxa"/><w:right w:w="60" w:type="dxa"/></w:tblCellMar>' +
+        "</w:tblPr><w:tblGrid>" + cols.map(w => `<w:gridCol w:w="${w}"/>`).join("") + "</w:tblGrid>";
       tbl += "<w:tr>" +
-        tc(cellP("Grade / Question", { runs: [{ t: "Grade / Question", b: true, sz: 15 }] }), cols[0]) +
+        tc(cellP("", { runs: [{ t: "Grade/", b: true, sz: 18 }] }) +
+           cellP("", { runs: [{ t: "Question", b: true, sz: 18 }] }), cols[0]) +
         (R.criteria || []).map((cr, i) =>
-          tc(cellP(cr, { runs: [{ t: cr, b: true, sz: 15 }] }), cols[i + 1])).join("") +
+          tc(cellP("", { runs: [{ t: cr, b: true, sz: 18 }] }), cols[i + 1])).join("") +
         "</w:tr>";
       for (const row of R.rows) {
         const qs = bandList(row.grade);
-        const g = cellP(row.grade, { runs: [{ t: row.grade, b: true, sz: 24 }], align: "center" }) +
-          (qs ? cellP(qs, { runs: [{ t: qs, sz: 13, color: "5C666F" }], align: "center" }) : "");
+        const g = cellP("", { runs: [{ t: row.grade, b: true, sz: 24 }], align: "center", after: 0 }) +
+          (qs ? cellP("", { runs: [{ t: qs, sz: 16 }], align: "center" }) : "");
         tbl += "<w:tr>" + tc(g, cols[0]) +
           (row.cells || []).map((list, i) =>
             tc((Array.isArray(list) ? list : [list])
-              .map(x => cellP(x, { bullet: true })).join(""), cols[i + 1])).join("") +
+              .map(x => cellP(x, { bullet: true, sz: 16 })).join(""), cols[i + 1])).join("") +
           "</w:tr>";
       }
       tbl += "</w:tbl>";
       body.push(tbl);
-      body.push(P("", { runs: [{ t: "Overall Grade:  ", b: true, sz: 22 }, { t: " ".repeat(24), sz: 22 }], before: 200 }));
+      body.push(P("", { runs: [{ t: "Overall Grade: ", b: true, sz: 24 }, { t: "_______________", sz: 24 }], before: 200 }));
     }
     body.push('<w:p><w:r><w:br w:type="page"/></w:r></w:p>');
   }
 
-  body.push(P(doc.heading || doc.title || "", { runs: [{ t: doc.heading || doc.title || "", b: true, sz: 30 }] }));
+  /* ── question pages ── */
+  body.push(P("", { runs: [{ t: doc.heading || doc.title || "", b: true, sz: 28 }], after: 40 }));
   const bits = [];
   const ch = chapter();
   if (ch && !isTest()) bits.push(ch.title);
   if (doc.meta2) bits.push(doc.meta2);
   if (doc.meta1) bits.push((isTest() ? "Time: " : "") + doc.meta1);
   if (isTest()) bits.push("Total: " + totalMarks() + " marks");
-  body.push(P(bits.join("     "), { sz: 17, border: true, after: 200 }));
+  body.push(P("", { runs: [{ t: bits.join("     "), sz: 18 }], border: true, after: 200 }));
 
   let lastSec = null;
   for (const q of chosen()) {
     if (q._sec !== lastSec) {
       lastSec = q._sec;
       const t = ((q._sec.code ? q._sec.code + "  " : "") + q._sec.title).trim();
-      if (t) body.push(P(t, { runs: [{ t: t.toUpperCase(), b: true, sz: 18 }], before: 160, after: 80 }));
+      if (t) body.push(P("", { runs: [{ t: t.toUpperCase(), b: true, sz: 20 }], before: 200, after: 80 }));
     }
-    const head = [{ t: q.n + ".   ", b: true }, { t: q.stem || "" }];
-    if (isTest() && q.marks != null) head.push({ t: "   (" + q.marks + (q.marks === 1 ? " mark)" : " marks)"), sz: 17, color: "5C666F" });
-    body.push(P("", { runs: head, before: 120 }));
-    body.push(await figXml(q.figure));
-    if (q.note) body.push(P(q.note, { sz: 17, color: "5C666F" }));
+    /* Number in a hanging indent so a wrapped stem lines up under
+       itself rather than back under the number, and the marks sit hard
+       right on the same line as the question opens. */
+    const head = [{ t: q.n + ".", b: true }, { t: "	" }, { t: q.stem || "" }];
+    if (isTest() && q.marks != null) {
+      head.push({ t: "	(" + q.marks + (q.marks === 1 ? " mark)" : " marks)"), sz: 18 });
+    }
+    body.push(P("", { runs: head, before: 160, after: 60, hanging: true, tabRight: true }));
+    body.push(await figXml(q.figure, FIG_MM));
+    if (q.note) body.push(P(q.note, { sz: 18, indent: 454 }));
 
     const parts = q.parts || [];
-    if (parts.length) {
-      for (const p of parts) {
-        const pr = [{ t: "   " + (p.letter || "") + ")   ", b: true }, { t: p.text || "" }];
-        if (isTest() && p.marks != null) pr.push({ t: "   (" + p.marks + ")", sz: 17, color: "5C666F" });
-        body.push(P("", { runs: pr }));
-        body.push(await figXml(p.figure));
-        if (doc.space.perPart) body.push(boxTable(partHeight(q, p), CONTENT_W - 400));
-      }
-      if (!doc.space.perPart) body.push(boxTable(qHeight(q), CONTENT_W));
-    } else {
-      body.push(boxTable(qHeight(q), CONTENT_W));
+    if (!parts.length) {
+      body.push(boxTable(qHeight(q), CW, 0));
+      continue;
     }
+    /* Parts across in the same column count the sheet uses, built as a
+       fixed-layout table so Word cannot reflow it. Each cell carries the
+       part, its diagram and its own box, which is what keeps a
+       three-across row aligned down the page. */
+    const cols = partColumns(q, parts);
+    const per = Math.floor((CW - 454) / cols);
+    for (let i = 0; i < parts.length; i += cols) {
+      const row = parts.slice(i, i + cols);
+      const cells = [];
+      for (const pt of row) {
+        const pr = [{ t: (pt.letter || "") + ")", b: true }, { t: "	" }, { t: pt.text || "" }];
+        if (isTest() && pt.marks != null) pr.push({ t: "  (" + pt.marks + ")", sz: 18 });
+        let inner = P("", { runs: pr, after: 40, hanging: true, hang: 227 });
+        inner += await figXml(pt.figure, per / 56.7 - 6);
+        if (doc.space.perPart) inner += boxTable(partHeight(q, pt), per - 120, 0, true);
+        cells.push(inner);
+      }
+      while (cells.length < cols) cells.push("<w:p><w:pPr><w:spacing w:after='0'/></w:pPr></w:p>");
+      body.push(gridTable(cells, per, 454));
+    }
+    if (!doc.space.perPart) body.push(boxTable(qHeight(q), CW, 0));
   }
 
-  /* The crest goes in a real page header so it repeats, as it does on
-     the department's own papers. */
-  let headerXml = "", headerRels = "", headerRef = "";
-  if (doc.logo && /^data:image\/png;base64,/.test(doc.logo)) {
-    const bin = atob(doc.logo.split(",")[1]);
-    const bytes = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-    media.push({ name: "media/logo.png", bytes, rid: "rIdLogo", header: true });
-    headerXml = XML_HEAD +
-      `<w:hdr ${NS}>` + P("", { align: "right", runs: [{ raw: drawingXml("rIdLogo", 900, 20, 22) }] }) + "</w:hdr>";
-    headerRels = XML_HEAD +
-      '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
-      '<Relationship Id="rIdLogo" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/logo.png"/>' +
-      "</Relationships>";
-    headerRef = '<w:headerReference w:type="default" r:id="rIdHdr"/>';
+  /* ── header, footer, section ── */
+  const hdrMedia = [];
+  let headerXml = "", footerXml = "";
+  if (doc.logo && doc.logo.startsWith("data:image")) {
+    hdrMedia.push({ name: "media/crest.png", bytes: dataUriBytes(doc.logo), rid: "rIdCrest", part: "header" });
+    headerXml = XML_HEAD + `<w:hdr ${NS}>` +
+      P("", { align: "right", after: 0, runs: [{ raw: drawingXml("rIdCrest", 900, 19, 21) }] }) + "</w:hdr>";
   }
-
-  const sectPr = "<w:sectPr>" + headerRef +
-    '<w:pgSz w:w="11906" w:h="16838"/>' +
-    '<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/>' +
-    "</w:sectPr>";
+  if (doc.footerImage && doc.footerImage.startsWith("data:image")) {
+    hdrMedia.push({ name: "media/values.png", bytes: dataUriBytes(doc.footerImage), rid: "rIdValues", part: "footer" });
+    footerXml = XML_HEAD + `<w:ftr ${NS}>` +
+      P("", { align: "center", after: 0, runs: [{ raw: drawingXml("rIdValues", 901, 150, 24.7) }] }) + "</w:ftr>";
+  }
+  const sectPr = "<w:sectPr>" +
+    (headerXml ? '<w:headerReference w:type="default" r:id="rIdHdr"/>' : "") +
+    (footerXml ? '<w:footerReference w:type="default" r:id="rIdFtr"/>' : "") +
+    `<w:pgSz w:w="${PAGE_W}" w:h="${PAGE_H}"/>` +
+    `<w:pgMar w:top="${PAGE_MAR}" w:right="${PAGE_MAR}" w:bottom="${PAGE_MAR}" w:left="${PAGE_MAR}" ` +
+    'w:header="567" w:footer="397" w:gutter="0"/></w:sectPr>';
 
   const documentXml = XML_HEAD + `<w:document ${NS}><w:body>` + body.join("") + sectPr + "</w:body></w:document>";
-
+  const rel = (id, type, target) =>
+    `<Relationship Id="${id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/${type}" Target="${target}"/>`;
   const docRels = XML_HEAD +
     '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
-    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>' +
-    '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering" Target="numbering.xml"/>' +
-    (headerXml ? '<Relationship Id="rIdHdr" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>' : "") +
-    media.filter(m => !m.header).map(m =>
-      `<Relationship Id="${m.rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="${m.name}"/>`).join("") +
+    rel("rId1", "styles", "styles.xml") + rel("rId2", "numbering", "numbering.xml") +
+    (headerXml ? rel("rIdHdr", "header", "header1.xml") : "") +
+    (footerXml ? rel("rIdFtr", "footer", "footer1.xml") : "") +
+    media.map(m => rel(m.rid, "image", m.name)).join("") +
     "</Relationships>";
 
   const files = [
-    { name: "[Content_Types].xml", data: CONTENT_TYPES(!!headerXml) },
+    { name: "[Content_Types].xml", data: CONTENT_TYPES(!!headerXml, !!footerXml) },
     { name: "_rels/.rels", data: ROOT_RELS },
     { name: "word/document.xml", data: documentXml },
     { name: "word/_rels/document.xml.rels", data: docRels },
-    { name: "word/styles.xml", data: STYLES },
+    { name: "word/styles.xml", data: STYLES(doc.font || "Gill Sans MT") },
     { name: "word/numbering.xml", data: NUMBERING },
   ];
-  if (headerXml) {
-    files.push({ name: "word/header1.xml", data: headerXml });
-    files.push({ name: "word/_rels/header1.xml.rels", data: headerRels });
+  for (const [xml, name, rid, target] of [
+    [headerXml, "header1.xml", "rIdCrest", "media/crest.png"],
+    [footerXml, "footer1.xml", "rIdValues", "media/values.png"],
+  ]) {
+    if (!xml) continue;
+    files.push({ name: "word/" + name, data: xml });
+    files.push({ name: `word/_rels/${name}.rels`, data: XML_HEAD +
+      '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+      rel(rid, "image", target) + "</Relationships>" });
   }
-  media.forEach(m => files.push({ name: "word/" + m.name, data: m.bytes }));
+  [...media, ...hdrMedia].forEach(m => files.push({ name: "word/" + m.name, data: m.bytes }));
   return zip(files);
 }
 
@@ -1555,7 +1681,7 @@ const ROOT_RELS = XML_HEAD +
   '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
   '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>' +
   "</Relationships>";
-const CONTENT_TYPES = (hdr) => XML_HEAD +
+const CONTENT_TYPES = (hdr, ftr) => XML_HEAD +
   '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
   '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
   '<Default Extension="xml" ContentType="application/xml"/>' +
@@ -1564,9 +1690,10 @@ const CONTENT_TYPES = (hdr) => XML_HEAD +
   '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>' +
   '<Override PartName="/word/numbering.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml"/>' +
   (hdr ? '<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>' : "") +
+  (ftr ? '<Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/>' : "") +
   "</Types>";
-const STYLES = XML_HEAD + `<w:styles ${NS}><w:docDefaults><w:rPrDefault><w:rPr>` +
-  '<w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/><w:sz w:val="21"/><w:szCs w:val="21"/>' +
+const STYLES = (font) => XML_HEAD + `<w:styles ${NS}><w:docDefaults><w:rPrDefault><w:rPr>` +
+  `<w:rFonts w:ascii="${font}" w:hAnsi="${font}" w:cs="${font}"/><w:sz w:val="20"/><w:szCs w:val="20"/>` +
   "</w:rPr></w:rPrDefault><w:pPrDefault><w:pPr>" +
   '<w:spacing w:after="60" w:line="252" w:lineRule="auto"/>' +
   "</w:pPr></w:pPrDefault></w:docDefaults></w:styles>";

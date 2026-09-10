@@ -74,6 +74,8 @@ disagree.
 | `grid` | `cols` `rows` `pts=x,y;x,y;…` in grid squares |
 | `sector` | `r` `angle` (degrees) |
 | `houseprism` | `w` `h` `l` `rh` — prism with a triangular roof |
+| `righttri` | `hyp` `angleA` `angleB` |
+| `track` | `straight` `r` — two straights, semicircular ends |
 
 All take `unit=` (default cm), `side` to float it right of the text, and
 `alt=` for screen readers. `fig` attaches to the part above it, or to the
