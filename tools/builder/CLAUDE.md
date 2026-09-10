@@ -87,6 +87,62 @@ A question with no `parts` always gets its own answer box. With parts,
 `space.perPart` decides whether each part gets one or they share a box
 underneath.
 
+## Test papers: cover, rubric and bands
+
+`test.json` carries the department's paper format on top of the shape
+above:
+
+```jsonc
+"school": "Woodcroft College",
+"logo": "data:image/png;base64,…",   // crest, inlined; the CSP blocks remote images
+"cover": {
+  "line1": "Year 7 Enrichment Mathematics",
+  "line2": "Measurement Test",
+  "description": "In-class test on measurement which will…",
+  "outcomes":  ["Establish the formulas for perimeter and area of…"],
+  "conditions":["Time allowed is 40 minutes.", "You are allowed a calculator."]
+},
+"rubric": {
+  "criteria": ["Knowledge, Understanding and Fluency", "Reasoning", "Application of Skills"],
+  "rows": [{ "grade": "A", "cells": [[…], […], […]] }, … ]   // A to E
+}
+```
+
+**Never hand-write the rubric's question lists.** Tag each question (or
+each part) with `"band": "A" | "B" | "C"` and the "Grade / Question"
+column writes itself from the paper — so the two cannot drift apart the
+way a hand-kept list does. Band a *part* when the parts differ (`10a` is
+B while `10b` is A); band the *question* when they don't. The band is
+never printed beside the question — it is the marker's mapping and the
+rubric already carries it.
+
+## Diagrams
+
+Write the figure, don't paste a picture. `"figure": {…}` on a question or
+a part draws itself from the dimensions the question already states, so
+the diagram and the numbers can never disagree:
+
+| `type` | fields |
+| --- | --- |
+| `rect` / `square` | `w`, `h` (or `side`) |
+| `tri` | `b`, `h`, `right: true` for a right angle at the left |
+| `para` | `b`, `h` |
+| `circle` | `r` **or** `d` |
+| `lshape` | `w`, `h`, `cutW`, `cutH` |
+| `prism` | `l`, `w`, `h` |
+| `triprism` | `b`, `h`, `l` |
+| `grid` | `cols`, `rows`, `points: [[x,y], …]` in grid squares |
+
+All take `unit` (default `cm`), `side: true` to float it right of the
+text, and `alt` for the label a screen reader reads. Anything else —
+a photograph, a diagram no generator covers — is not supported; ask
+before inventing a shape type, since adding one means editing the
+skeleton.
+
+Parts that all carry a figure are set across in up to three columns,
+which is how the department's papers set them; stacking them made one
+three-part question 190mm tall and cost it a sheet of its own.
+
 ## Adding a whole chapter
 
 Append a chapter object to the right textbook's `chapters` array. Give

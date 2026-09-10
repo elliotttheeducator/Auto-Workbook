@@ -213,6 +213,59 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border-bottom: 0.4mm solid var(--paper-rule);
 }
 
+/* ── cover sheet (test mode) ────────────────────────────────────────
+   Modelled on the department's own paper: crest top-right, two title
+   lines, a ruled student line, then the assessment description, the
+   content descriptors it covers, the conditions, and the achievement
+   rubric. */
+.cover-top { display: grid; grid-template-columns: 1fr auto; gap: 6mm; align-items: start; }
+.cover-top img { width: 22mm; height: auto; }
+.cover-l1 { font-size: 13pt; font-weight: 600; }
+.cover-l2 { font-size: 15pt; font-weight: 600; margin-top: 1mm; }
+.cover-student { margin: 6mm 0 5mm; font-size: 11pt; }
+.cover-student span { display: inline-block; min-width: 85mm; border-bottom: 0.4mm solid var(--paper-ink); }
+.cover-h {
+  font-family: "Public Sans", sans-serif; font-weight: 700; font-size: 10pt;
+  margin: 4mm 0 1.5mm;
+}
+.cover p { margin: 0 0 1.5mm; }
+.cover ul { margin: 0 0 2mm; padding-left: 6mm; }
+.cover li { margin-bottom: 0.8mm; }
+
+.rubric { width: 100%; border-collapse: collapse; margin-top: 2mm; font-size: 6.6pt; line-height: 1.28; }
+.rubric th, .rubric td {
+  border: 0.25mm solid var(--paper-rule); padding: 1.2mm 1.4mm;
+  vertical-align: top; text-align: left;
+}
+.rubric th {
+  font-family: "Public Sans", sans-serif; font-weight: 700; font-size: 7pt;
+  background: #eef1f3;
+}
+.rubric .g { width: 17mm; text-align: center; font-family: "Public Sans", sans-serif; }
+.rubric .g b { display: block; font-size: 12pt; line-height: 1.1; }
+.rubric .g em {
+  display: block; font-style: normal; font-size: 6.6pt;
+  color: var(--paper-soft); margin-top: 0.8mm;
+}
+.rubric ul { margin: 0; padding-left: 3.4mm; }
+.rubric li { margin-bottom: 0.7mm; }
+.overall {
+  margin-top: 4mm; font-family: "Public Sans", sans-serif;
+  font-size: 10pt; font-weight: 700;
+}
+.overall span { display: inline-block; min-width: 40mm; border-bottom: 0.4mm solid var(--paper-ink); }
+
+/* Band tag beside a question number - the same letter the rubric bands
+   by, so a marker can see at a glance which standard a question tests. */
+.band {
+  display: block; margin-top: 0.8mm; font-family: "Public Sans", sans-serif;
+  font-size: 7pt; font-weight: 700; color: var(--paper-soft);
+}
+.fig { margin: 1.5mm 0 2mm; }
+.fig svg { display: block; max-width: 100%; height: auto; }
+.fig-right { float: right; margin: 0 0 2mm 4mm; max-width: 46%; }
+.part .fig svg { max-width: 100%; }
+
 .q { display: grid; grid-template-columns: 8mm 1fr; gap: 2mm; margin-bottom: 4mm; break-inside: avoid; }
 .q-n { font-weight: 600; font-variant-numeric: tabular-nums; }
 .q-body { min-width: 0; }
@@ -595,6 +648,9 @@ function renderSheets() {
      front, because the only question that matters is whether THIS block
      still fits. */
   const limitPx = mmToPx(297 - 14 * 2 - 8);
+  /* A test opens on its own cover: title, conditions and the rubric a
+     marker grades against. A workbook has no such front matter. */
+  if (isTest() && doc.cover) coverSheet(host);
   let sheet = newSheet(host, 1, qs);
   let flow = sheet.querySelector(".flow");
   let page = 1;
@@ -631,6 +687,99 @@ function spill(host, page, qs) {
   return { sheet, flow: sheet.querySelector(".flow"), page };
 }
 
+/* ── cover sheet ───────────────────────────────────────────────────
+   Which questions sit in each band is READ OFF the paper rather than
+   typed into the rubric: tag a question or a part with its band and the
+   rubric's question list writes itself, so the two can never drift
+   apart the way a hand-kept list does. */
+function bandList(letter) {
+  const out = [];
+  for (const q of chosen()) {
+    const parts = (q.parts || []).filter(p => p.band === letter);
+    if (q.band === letter && !(q.parts || []).some(p => p.band)) out.push(String(q.n));
+    parts.forEach(p => out.push(q.n + p.letter));
+  }
+  return out.join(", ");
+}
+
+function coverSheet(host) {
+  const c = doc.cover || {};
+  const s = el("div", "sheet cover");
+
+  const top = el("div", "cover-top");
+  const t = el("div");
+  if (c.line1) t.append(el("div", "cover-l1", c.line1));
+  if (c.line2) t.append(el("div", "cover-l2", c.line2));
+  top.append(t);
+  if (doc.logo) {
+    const img = el("img");
+    img.src = doc.logo;
+    img.alt = (doc.school || "School") + " crest";
+    top.append(img);
+  } else { top.append(el("div")); }
+  s.append(top);
+
+  const stu = el("div", "cover-student");
+  stu.append(document.createTextNode((c.studentLabel || "Student:") + " "), el("span"));
+  s.append(stu);
+
+  if (c.description) {
+    s.append(el("div", "cover-h", "Description of Assessment:"));
+    s.append(el("p", null, c.description));
+  }
+  if ((c.outcomes || []).length) {
+    const ul = el("ul");
+    c.outcomes.forEach(o => ul.append(el("li", null, o)));
+    s.append(ul);
+  }
+  if ((c.conditions || []).length) {
+    s.append(el("div", "cover-h", "Assessment conditions:"));
+    const ul = el("ul");
+    c.conditions.forEach(o => ul.append(el("li", null, o)));
+    s.append(ul);
+  }
+
+  const R = doc.rubric;
+  if (R && (R.rows || []).length) {
+    const tbl = el("table", "rubric");
+    const thead = el("thead");
+    const hr = el("tr");
+    hr.append(cell("th", "Grade / Question", "g"));
+    (R.criteria || []).forEach(cr => hr.append(cell("th", cr)));
+    thead.append(hr);
+    tbl.append(thead);
+    const tb = el("tbody");
+    R.rows.forEach(row => {
+      const tr = el("tr");
+      const g = el("td", "g");
+      g.append(el("b", null, row.grade));
+      const qs = bandList(row.grade);
+      if (qs) g.append(el("em", null, qs));
+      tr.append(g);
+      (row.cells || []).forEach(list => {
+        const td = el("td");
+        const ul = el("ul");
+        (Array.isArray(list) ? list : [list]).forEach(x => ul.append(el("li", null, x)));
+        td.append(ul);
+        tr.append(td);
+      });
+      tb.append(tr);
+    });
+    tbl.append(tb);
+    s.append(tbl);
+    const ov = el("div", "overall");
+    ov.append(document.createTextNode("Overall Grade: "), el("span"));
+    s.append(ov);
+  }
+
+  const foot = el("div", "sheet-foot");
+  foot.append(el("span", null, doc.footer || ""), el("span", "pageno", ""));
+  s.append(foot);
+  host.append(s);
+  return s;
+}
+function cell(tag, txt, cls) { return el(tag, cls, txt); }
+
 function newSheet(host, page, qs) {
   const s = el("div", "sheet");
   if (page === 1) {
@@ -644,7 +793,9 @@ function newSheet(host, page, qs) {
     if (isTest()) sub.append(el("span", null, "Total: " + totalMarks() + " marks"));
     head.append(sub);
     s.append(head);
-    if (isTest()) {
+    /* The cover already took the student's name, so a second name bar
+       on the first question page is just a line nobody fills in. */
+    if (isTest() && !doc.cover) {
       const nb = el("div", "namebar");
       nb.append(el("div", null, "Name"), el("div", null, "Class"), el("div", null, "Date"));
       s.append(nb);
@@ -658,26 +809,165 @@ function newSheet(host, page, qs) {
   return s;
 }
 
+/* ── measurement diagrams ──────────────────────────────────────────
+   Drawn from the dimensions the question already states, rather than
+   pasted in as pictures. A figure written as
+   {"type":"rect","w":8,"h":5,"unit":"cm"} carries its own labels, so
+   the diagram and the numbers in the question can never disagree - and
+   changing 8 to 9 redraws it.
+
+   Everything is laid out in a 100-wide user space and scaled by the
+   viewBox, so one figure is never wildly bigger than its neighbour. */
+const SVGNS = "http://www.w3.org/2000/svg";
+function svgEl(name, attrs) {
+  const n = document.createElementNS(SVGNS, name);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  return n;
+}
+function dimText(svg, x, y, txt, anchor) {
+  const t = svgEl("text", {
+    x, y, "text-anchor": anchor || "middle",
+    "font-family": "Public Sans, sans-serif", "font-size": 7, fill: "#101418",
+  });
+  t.textContent = txt;
+  svg.append(t);
+}
+const STROKE = { fill: "none", stroke: "#1c3f94", "stroke-width": 1.6, "stroke-linejoin": "round" };
+const TICK = { fill: "none", stroke: "#c0392b", "stroke-width": 1, "stroke-dasharray": "3 2" };
+
+function figureNode(f) {
+  if (!f || !f.type) return null;
+  const u = f.unit || "cm";
+  const lbl = v => v + " " + u;
+  const box = el("div", "fig" + (f.side ? " fig-right" : ""));
+  const svg = svgEl("svg", { viewBox: "0 0 120 100", width: f.width || 150, role: "img" });
+  svg.setAttribute("aria-label", f.alt || (f.type + " diagram"));
+
+  /* Shapes are drawn to proportion where the numbers allow it, then
+     clamped: a 150 x 2 rectangle drawn true to scale is a line. */
+  const fit = (a, b, maxA, maxB) => {
+    const k = Math.min(maxA / Math.max(a, 1e-6), maxB / Math.max(b, 1e-6));
+    return [Math.max(18, a * k), Math.max(12, b * k)];
+  };
+
+  if (f.type === "rect" || f.type === "square") {
+    const w = f.w ?? f.side, h = f.h ?? f.side;
+    const [W, H] = fit(w, h, 78, 52);
+    svg.append(svgEl("rect", { x: 20, y: 16, width: W, height: H, ...STROKE }));
+    dimText(svg, 20 + W / 2, 16 + H + 11, lbl(w));
+    dimText(svg, 14, 16 + H / 2 + 3, lbl(h), "end");
+  } else if (f.type === "tri") {
+    const [W, H] = fit(f.b, f.h, 78, 52);
+    const apex = f.right ? 20 : 20 + W * 0.42;
+    svg.append(svgEl("path", { d: `M20,${16 + H} L${20 + W},${16 + H} L${apex},16 Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${apex},16 L${apex},${16 + H}`, ...TICK }));
+    dimText(svg, 20 + W / 2, 16 + H + 11, lbl(f.b));
+    dimText(svg, apex + 3, 16 + H / 2, lbl(f.h), "start");
+  } else if (f.type === "para") {
+    const [W, H] = fit(f.b, f.h, 68, 48);
+    const sk = 14;
+    svg.append(svgEl("path", { d: `M20,${16 + H} L${20 + W},${16 + H} L${20 + W + sk},16 L${20 + sk},16 Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${20 + sk},16 L${20 + sk},${16 + H}`, ...TICK }));
+    dimText(svg, 20 + W / 2, 16 + H + 11, lbl(f.b));
+    dimText(svg, 20 + sk + 3, 16 + H / 2, lbl(f.h), "start");
+  } else if (f.type === "circle") {
+    const r = 30;
+    svg.append(svgEl("circle", { cx: 60, cy: 50, r, ...STROKE }));
+    svg.append(svgEl("circle", { cx: 60, cy: 50, r: 1.6, fill: "#c0392b", stroke: "none" }));
+    if (f.d != null) {
+      svg.append(svgEl("path", { d: `M${60 - r},50 L${60 + r},50`, ...STROKE, "stroke-width": 1.2 }));
+      dimText(svg, 60, 46, lbl(f.d));
+    } else {
+      svg.append(svgEl("path", { d: `M60,50 L${60 + r},50`, ...STROKE, "stroke-width": 1.2 }));
+      dimText(svg, 60 + r / 2, 46, lbl(f.r));
+    }
+  } else if (f.type === "lshape") {
+    /* Two rectangles sharing a corner - the composite-area staple. */
+    const [W, H] = fit(f.w, f.h, 74, 50);
+    const cw = W * (f.cutW / f.w), ch = H * (f.cutH / f.h);
+    svg.append(svgEl("path", {
+      d: `M20,16 L${20 + W},16 L${20 + W},${16 + H - ch} L${20 + W - cw},${16 + H - ch} L${20 + W - cw},${16 + H} L20,${16 + H} Z`,
+      ...STROKE,
+    }));
+    dimText(svg, 20 + W / 2, 10, lbl(f.w));
+    dimText(svg, 14, 16 + H / 2, lbl(f.h), "end");
+    dimText(svg, 20 + W - cw / 2, 16 + H - ch - 3, lbl(f.cutW));
+    dimText(svg, 20 + W + 3, 16 + H - ch / 2 + 6, lbl(f.cutH), "start");
+  } else if (f.type === "prism") {
+    const d = 16, W = 60, H = 38;
+    const x = 18, y = 26;
+    svg.append(svgEl("path", { d: `M${x},${y} h${W} v${H} h${-W} Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x},${y} l${d},${-d} h${W} l${-d},${d}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + W},${y} l${d},${-d} v${H} l${-d},${d}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + W + d},${y - d + H} l${-d},${d}`, ...STROKE, "stroke-dasharray": "3 2" }));
+    dimText(svg, x + W / 2, y + H + 10, lbl(f.l));
+    dimText(svg, x - 3, y + H / 2, lbl(f.h), "end");
+    dimText(svg, x + W + d + 2, y - d / 2 + 4, lbl(f.w), "start");
+  } else if (f.type === "triprism") {
+    const d = 18, W = 54, H = 36, x = 20, y = 30;
+    svg.append(svgEl("path", { d: `M${x},${y + H} h${W} l${-W / 2},${-H} Z`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + W},${y + H} l${d},${-d} l${-W / 2},${-H}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x + W / 2},${y} l${d},${-d}`, ...STROKE }));
+    svg.append(svgEl("path", { d: `M${x},${y + H} l${d},${-d} h${W}`, ...STROKE, "stroke-dasharray": "3 2" }));
+    dimText(svg, x + W / 2, y + H + 10, lbl(f.b));
+    dimText(svg, x + W / 2 - 3, y + H / 2, lbl(f.h), "end");
+    dimText(svg, x + W + d + 2, y + H - d + 2, lbl(f.l), "start");
+  } else if (f.type === "grid") {
+    /* A shape on centimetre paper: points are grid squares, so the
+       student can count them exactly as the question intends. */
+    const cell = 11, cols = f.cols || 8, rows = f.rows || 6;
+    const g = svgEl("g", {});
+    for (let i = 0; i <= cols; i++) g.append(svgEl("path", { d: `M${8 + i * cell},8 V${8 + rows * cell}`, stroke: "#9fb6d4", "stroke-width": 0.5, fill: "none" }));
+    for (let j = 0; j <= rows; j++) g.append(svgEl("path", { d: `M8,${8 + j * cell} H${8 + cols * cell}`, stroke: "#9fb6d4", "stroke-width": 0.5, fill: "none" }));
+    svg.append(g);
+    const pts = (f.points || []).map(([a, b]) => `${8 + a * cell},${8 + b * cell}`).join(" ");
+    svg.append(svgEl("polygon", { points: pts, ...STROKE, fill: "#cdd7ee", "fill-opacity": .55 }));
+    svg.setAttribute("viewBox", `0 0 ${16 + cols * cell} ${16 + rows * cell}`);
+  } else {
+    return null;
+  }
+  box.append(svg);
+  return box;
+}
+
 function questionNode(q) {
   const wrap = el("div", "q");
+  /* The band letter is deliberately NOT printed beside the question:
+     it is the marker's mapping, and the rubric already carries it. On
+     the paper it read as another part label. */
   wrap.append(el("div", "q-n", String(q.n)));
   const body = el("div", "q-body");
 
   if (isTest() && q.marks != null) {
     body.append(el("span", "q-marks", "(" + q.marks + (q.marks === 1 ? " mark)" : " marks)")));
   }
+  /* A question-level figure comes BEFORE the parts that read against
+     it. Set beside the text when it is small enough to leave a usable
+     column, above them when it is not. */
+  const qFig = figureNode(q.figure);
+  if (qFig) body.append(qFig);
   if (q.stem) body.append(el("p", "q-stem", q.stem));
   if (q.note) body.append(el("p", "q-note", q.note));
 
   const parts = q.parts || [];
   if (parts.length) {
-    const cols = q.columns || (parts.every(p => (p.text || "").length < 34) ? (parts.length > 4 ? 3 : 2) : 1);
+    /* Short parts go across, figures and all - a row of three small
+       diagrams is how the book and the department's own papers set
+       them, and stacking them instead made one three-part question
+       190mm tall and pushed it to a sheet of its own. The diagrams
+       shrink to their cell (see .flowq-cell img), so across is safe. */
+    const allFigs = parts.every(p => p.figure);
+    const cols = q.columns
+      || (allFigs || parts.every(p => (p.text || "").length < 34)
+            ? Math.min(3, parts.length) : 1);
     const g = el("div", "parts" + (cols > 1 ? " cols-" + cols : ""));
     parts.forEach(p => {
       const cell = el("div", "part");
       cell.append(el("div", "part-l", (p.letter || "") + ""));
       const inner = el("div");
       inner.append(el("div", null, p.text || ""));
+      const pf = figureNode(p.figure);
+      if (pf) inner.append(pf);
       if (doc.space.perPart) inner.append(spaceNode(partHeight(q, p)));
       cell.append(inner);
       g.append(cell);
