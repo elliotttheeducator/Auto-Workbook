@@ -1,167 +1,121 @@
-# Chalkline builders — how to edit them
+# Chalkline builders — for a Claude chat
 
-Two published tools that build printable maths sheets. They share one
-engine and differ only in their content file.
+Two published tools that lay out printable maths sheets. **The tools do
+the work.** Pagination, answer boxes, diagrams, the rubric's question
+lists — all of that happens in the page. Your job is to write the paper,
+which is plain text and short.
 
-| Tool | Artifact URL |
+| Tool | URL |
 | --- | --- |
 | **Chalkline Workbooks** | https://claude.ai/code/artifact/4e4a2c95-7bbc-4db9-8c88-49e4da2207f4 |
 | **Chalkline Test Papers** | https://claude.ai/code/artifact/f2e05b76-c747-49a8-89ec-305e9cb3ee2a |
 
-## Read this before opening anything else
+**Do not read `skeleton.html`.** It is the engine, ~1200 lines, and
+nothing in it changes to write a paper. Reading it is the expensive
+mistake this whole layout exists to prevent.
 
-**Do not read `skeleton.html`.** It is the engine — hundreds of lines,
-and nothing in it needs to change to add a textbook, a chapter or a
-question. Reading it is the single most expensive mistake available
-here, and it buys nothing.
+## The fast path — no repo, no build, no publish
 
-Everything editable lives in two small JSON files:
+Write the paper in the format below and give it to the user. They open
+the tool, drop it in the **Content console → Paper** box, press **Build**,
+and print. That is the whole loop. Use it for any one-off paper.
+
+## The paper format
 
 ```
-tools/builder/content/workbook.json    ← Chalkline Workbooks
-tools/builder/content/test.json        ← Chalkline Test Papers
+title:  Year 7 Enrichment Mathematics
+paper:  Measurement Test
+year:   Year 7
+time:   40 minutes
+footer: Show all mathematical procedures.
+describe: In-class test on measurement which will allow you to…
+covers: Establish the formulas for area of rectangles and triangles.
+rule:   You are allowed a calculator.
+section: A — Short answer
+
+Q This shape is drawn on a centimetre grid. Work out:
+fig grid cols=7 rows=5 pts=1,1;5,1;5,3;3,3;3,4;1,4
+a [C] (2) the perimeter
+b [C] (2) the area
+
+Q [B] (3) space=50 Marie's step length is 90 cm. How far in km
+are 5000 steps?
 ```
 
-## To change what a tool contains
+- `Q` opens a question, a single letter opens a part.
+- `[C]` is the achievement band. **Never write the rubric's question
+  lists by hand** — tag questions and parts, and the "Grade / Question"
+  column builds itself, so it cannot drift from the paper.
+  Band the *part* when parts differ (`10a` B, `10b` A), else the question.
+- `(4)` marks. A question with no marks of its own adds up its parts'.
+- `space=50` answer-box height in mm · `cols=2` parts across.
+- `note …` small print under the stem.
+- A bare line continues the question or part above it.
+- `#` starts a comment. An unknown `key:` is rejected by the build.
 
-1. Edit the relevant `content/*.json`. Use `Edit` with a unique anchor
-   (a question `id`, a section `code`) rather than reading the whole
-   file — the files are small, but a targeted edit is smaller still.
-2. Build: `python3 tools/builder/build.py workbook` (or `test`, or `all`).
-   It validates the JSON, refuses duplicate question ids, and writes
-   `dist/<name>.html`.
-3. Republish to the **same URL** — this is the step that keeps the link
-   the user already has:
-
-   ```
-   Artifact(file_path="tools/builder/dist/workbook.html",
-            url="https://claude.ai/code/artifact/4e4a2c95-7bbc-4db9-8c88-49e4da2207f4")
-   ```
-
-   Read the artifact first (`action: "read"` with that `url`) only if a
-   publish is refused because this conversation has not read it; the
-   refusal hands you the live version. Do not pass `favicon` on a
-   republish — the icon is how the user finds the tab.
-
-4. Commit the JSON change. `dist/` is committed too, so the published
-   page is always reproducible from the repo.
-
-## Content shape
-
-```jsonc
-{
-  "id": "workbook",              // storage key; do not change once published
-  "mode": "workbook" | "test",   // test mode adds marks, a total and a name bar
-  "title": "Chalkline Workbooks",
-  "heading": "Measurement — Circles and area",   // prints at the top of sheet 1
-  "meta1": "7B",                 // workbook: class. test: time allowed
-  "meta2": "Year 7",
-  "footer": "…",                 // foot of every sheet
-  "space": { "style": "grid|rule|plain|none", "mm": 30,
-             "perPart": true, "byMarks": false },
-  "current": { "textbook": "y7-essential", "chapter": "ch10" },
-  "textbooks": [{
-    "id": "y7-essential", "title": "Essential Mathematics Year 7",
-    "chapters": [{
-      "id": "ch10", "title": "Chapter 10 — Measurement",
-      "sections": [{
-        "id": "s10c", "code": "10C", "title": "Circles, π and circumference",
-        "questions": [{
-          "id": "s10c-q3",        // must be unique across the whole file
-          "n": 3,                  // the number that prints
-          "tier": "fluency|problem|reasoning|enrichment",
-          "marks": 4,              // test mode only
-          "stem": "Calculate the circumference of these circles…",
-          "note": "optional small print under the stem",
-          "columns": 2,            // optional; otherwise chosen from part length
-          "spaceMm": 35,           // optional; overrides the global height
-          "parts": [{ "letter": "a", "text": "d = 5 cm", "marks": 1 }]
-        }]
-      }]
-    }]
-  }]
-}
-```
-
-A question with no `parts` always gets its own answer box. With parts,
-`space.perPart` decides whether each part gets one or they share a box
-underneath.
-
-## Test papers: cover, rubric and bands
-
-`test.json` carries the department's paper format on top of the shape
-above:
-
-```jsonc
-"school": "Woodcroft College",
-"logo": "data:image/png;base64,…",   // crest, inlined; the CSP blocks remote images
-"cover": {
-  "line1": "Year 7 Enrichment Mathematics",
-  "line2": "Measurement Test",
-  "description": "In-class test on measurement which will…",
-  "outcomes":  ["Establish the formulas for perimeter and area of…"],
-  "conditions":["Time allowed is 40 minutes.", "You are allowed a calculator."]
-},
-"rubric": {
-  "criteria": ["Knowledge, Understanding and Fluency", "Reasoning", "Application of Skills"],
-  "rows": [{ "grade": "A", "cells": [[…], […], […]] }, … ]   // A to E
-}
-```
-
-**Never hand-write the rubric's question lists.** Tag each question (or
-each part) with `"band": "A" | "B" | "C"` and the "Grade / Question"
-column writes itself from the paper — so the two cannot drift apart the
-way a hand-kept list does. Band a *part* when the parts differ (`10a` is
-B while `10b` is A); band the *question* when they don't. The band is
-never printed beside the question — it is the marker's mapping and the
-rubric already carries it.
+Header keys: `title paper year time class footer describe covers rule
+section`. `covers` and `rule` repeat, one per line.
 
 ## Diagrams
 
-Write the figure, don't paste a picture. `"figure": {…}` on a question or
-a part draws itself from the dimensions the question already states, so
-the diagram and the numbers can never disagree:
+Write the figure; don't ask for a picture. It draws from the dimensions
+the question already states, so the diagram and the numbers cannot
+disagree.
 
 | `type` | fields |
 | --- | --- |
-| `rect` / `square` | `w`, `h` (or `side`) |
-| `tri` | `b`, `h`, `right: true` for a right angle at the left |
-| `para` | `b`, `h` |
+| `rect` `square` | `w` `h` (or `side`) |
+| `tri` | `b` `h`, `right=1` for a right angle at the left |
+| `para` | `b` `h` |
 | `circle` | `r` **or** `d` |
-| `lshape` | `w`, `h`, `cutW`, `cutH` |
-| `prism` | `l`, `w`, `h` |
-| `triprism` | `b`, `h`, `l` |
-| `grid` | `cols`, `rows`, `points: [[x,y], …]` in grid squares |
+| `lshape` | `w` `h` `cutW` `cutH` |
+| `prism` | `l` `w` `h` |
+| `triprism` | `b` `h` `l` |
+| `grid` | `cols` `rows` `pts=x,y;x,y;…` in grid squares |
 
-All take `unit` (default `cm`), `side: true` to float it right of the
-text, and `alt` for the label a screen reader reads. Anything else —
-a photograph, a diagram no generator covers — is not supported; ask
-before inventing a shape type, since adding one means editing the
-skeleton.
+All take `unit=` (default cm), `side` to float it right of the text, and
+`alt=` for screen readers. `fig` attaches to the part above it, or to the
+question when no part is open.
 
-Parts that all carry a figure are set across in up to three columns,
-which is how the department's papers set them; stacking them made one
-three-part question 190mm tall and cost it a sheet of its own.
+There is no other shape type. If a question needs one, either describe
+the extra detail in a `note` or say so — adding a type means editing the
+engine (see below).
 
-## Adding a whole chapter
+## Making it permanent
 
-Append a chapter object to the right textbook's `chapters` array. Give
-every question an id that starts with the section id (`s10c-q3`) so ids
-stay unique without having to check the rest of the file.
+When the user wants a paper to be what the tool opens with:
 
-## If the user hands you JSON from the page
+1. Write it to `content/test.paper` (or `content/workbook.json`).
+2. `python3 tools/builder/build.py test` — validates and writes `dist/`.
+3. Republish to the **same URL**, which is what keeps their link working:
+   ```
+   Artifact(file_path="tools/builder/dist/test.html",
+            url="https://claude.ai/code/artifact/f2e05b76-c747-49a8-89ec-305e9cb3ee2a")
+   ```
+   No `favicon` on a republish — the icon is how they find the tab.
+4. Commit.
 
-The tool's **Content console** has a *Copy for Claude* button. That text
-is the whole content document, including anything they changed in the
-browser. Write it straight to the matching `content/*.json`, build, and
-republish — that promotes their local edits to the published page for
-everyone.
+`content/test.base.json` holds what the paper text cannot say and rarely
+changes: mode, the school crest as a data URI, the answer-space defaults,
+and the A–E rubric descriptors. `workbook.json` is a full JSON document
+because a workbook carries several textbooks and chapters at once; the
+shape is in the file and it is small enough to read.
 
-Their in-page edits live in `localStorage` only. Until you publish them,
-they exist on that one browser.
+## Heavy lifting
 
-## Changing how the sheets look
+Only these need `skeleton.html`, and only the named part of it:
 
-Only then does `skeleton.html` come into it — CSS at the top, engine
-below, one `__CONTENT__` placeholder that `build.py` fills. Both tools
-share it, so a change lands on both; rebuild and republish each.
+- **a new diagram type** — `figureNode()`, add a branch
+- **a new paper keyword** — `parsePaper()` and `HEAD_KEYS`
+- **how sheets look** — the CSS at the top of the file
+- **pagination** — `renderSheets()`
+
+Both tools share the skeleton, so a change lands on both: rebuild and
+republish each. Grep for the function name rather than reading the file.
+
+## If the user pastes JSON or paper text back at you
+
+The console's **Copy for Claude** hands back the paper text when there is
+one, the full JSON otherwise. Write it to the matching file, build,
+republish — that promotes what they did in the browser to the published
+page. Until then their edits live in that one browser's `localStorage`.

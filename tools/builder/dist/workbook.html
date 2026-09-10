@@ -308,6 +308,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .console summary::marker { color: var(--accent); }
 .console .body { padding: 0 20px 18px; }
 .hint { font-size: 11.5px; color: var(--ink-faint); line-height: 1.5; margin: 0 0 8px; }
+.fmt { background: var(--ground); border: 1px solid var(--panel-edge); border-radius: 6px; padding: 10px 12px; margin-bottom: 12px; }
+.fmt pre { margin: 0 0 8px; overflow-x: auto; }
+.fmt code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; line-height: 1.5; }
+.fmt ul { margin: 0; padding-left: 16px; }
+.fmt li { margin-bottom: 3px; }
 .hint code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px;
   background: var(--ground); padding: 1px 4px; border-radius: 3px;
@@ -364,28 +369,61 @@ button, input, select, textarea { font: inherit; color: inherit; }
   <summary>Content console</summary>
   <div class="body">
     <p class="hint">
-      Everything on the sheet comes from one JSON document. Paste a replacement
-      below and press <b>Load</b>, or press <b>Copy</b> to lift the current
-      document out — that copied text is what a Claude chat needs to edit this
-      tool, and it never has to read this page's code to do it.
-      Edits are kept in this browser only; <b>Copy</b> and hand it back to be
-      published for everyone.
+      Paste a paper below and press <b>Build</b>. Ask a Claude chat for one in
+      this format — it is short enough to write in a reply, and the layout,
+      pagination, answer boxes, diagrams and the rubric's question lists are
+      all worked out here rather than there.
     </p>
-    <p class="hint">
-      Quick add, one question per line, in the box marked <code>Quick add</code>:
-      <code>3F | fluency | 2 | Find the area of these triangles. || a) base 6 cm, height 4 cm || b) base 9 m, height 2.5 m</code>
-      — section, tier, marks, stem, then parts after <code>||</code>.
-    </p>
+    <div class="fmt">
+      <pre><code>title:  Year 7 Enrichment Mathematics
+paper:  Measurement Test
+year:   Year 7
+time:   40 minutes
+describe: In-class test on measurement…
+covers: Establish the formulas for area of rectangles and triangles.
+rule:   You are allowed a calculator.
+section: A — Short answer
+
+Q [C] (4) This shape is on a centimetre grid. Work out:
+fig grid cols=7 rows=5 pts=1,1;5,1;5,3;3,3;3,4;1,4
+a [C] (2) the perimeter
+b [C] (2) the area
+
+Q [B] (3) space=50 Marie's step is 90 cm. How far in km
+are 5000 steps?</code></pre>
+      <ul class="hint">
+        <li><code>[C]</code> achievement band — the rubric's question lists are
+          built from these, so they can never drift from the paper.</li>
+        <li><code>(4)</code> marks · <code>space=50</code> box height in mm ·
+          <code>cols=2</code> parts across</li>
+        <li><code>fig</code> attaches to the part above it, or to the question
+          when no part is open. Types: <code>rect</code> <code>square</code>
+          <code>tri</code> <code>para</code> <code>circle</code>
+          <code>lshape</code> <code>prism</code> <code>triprism</code>
+          <code>grid</code>, e.g. <code>fig rect w=9 h=4 side</code>.</li>
+        <li>A line on its own continues the question or part above it.</li>
+      </ul>
+    </div>
     <div class="field">
-      <label for="json-box">Content JSON</label>
-      <textarea id="json-box" spellcheck="false"></textarea>
+      <label for="paper-box">Paper</label>
+      <textarea id="paper-box" spellcheck="false" rows="12"></textarea>
     </div>
     <div class="btnrow">
-      <button class="btn btn-primary" id="btn-load">Load</button>
+      <button class="btn btn-primary" id="btn-build">Build paper</button>
+      <button class="btn" id="btn-show-paper">Show current paper</button>
       <button class="btn" id="btn-copy">Copy for Claude</button>
-      <button class="btn" id="btn-dump">Show current</button>
       <button class="btn" id="btn-reset">Reset to published</button>
     </div>
+    <details style="margin-top:14px">
+      <summary class="hint" style="cursor:pointer">Full JSON, for anything the paper format cannot say</summary>
+      <div class="field" style="margin-top:8px">
+        <textarea id="json-box" spellcheck="false"></textarea>
+      </div>
+      <div class="btnrow">
+        <button class="btn" id="btn-load">Load JSON</button>
+        <button class="btn" id="btn-dump">Show JSON</button>
+      </div>
+    </details>
   </div>
 </details>
 
@@ -413,17 +451,169 @@ const PUBLISHED = {"id":"workbook","mode":"workbook","title":"Chalkline Workbook
 
 const STORE_KEY = "builder:" + (PUBLISHED.id || "default");
 
+/* ── the paper format ───────────────────────────────────────────────
+   A whole paper written as plain text, so drafting one costs a chat a
+   few lines instead of a few hundred of JSON - and so nobody has to
+   open this file to write one. The engine does the work: pagination,
+   the rubric's question lists, the diagrams, the answer boxes.
+
+     title:  Year 7 Enrichment Mathematics
+     paper:  Measurement Test
+     time:   40 minutes
+     rule:   You are allowed a calculator.
+
+     Q [C] (4) This shape is on a centimetre grid. Work out:
+     fig grid cols=7 rows=5 pts=1,1;5,1;5,3;3,3;3,4;1,4
+     a [C] (2) the perimeter
+     b [C] (2) the area
+
+   [X] is the achievement band, (n) the marks, space=45 a box height in
+   millimetres. `fig` attaches to the part above it, or to the question
+   when no part is open yet. */
+const HEAD_KEYS = {
+  title: "line1", paper: "line2", describe: "description",
+  year: "meta2", time: "meta1", class: "meta1", footer: "footer",
+};
+function parsePaper(text, base) {
+  const doc = structuredClone(base || {});
+  doc.cover = Object.assign({ outcomes: [], conditions: [] }, doc.cover);
+  const sections = [];
+  let sec = null, q = null, part = null;
+
+  const mods = (s) => {
+    const out = {};
+    s = s.replace(/\[([A-E])\]/i, (_, b) => { out.band = b.toUpperCase(); return ""; })
+         .replace(/\((\d+)\s*marks?\)|\((\d+)\)/i, (_, a, b) => { out.marks = Number(a || b); return ""; })
+         .replace(/\bspace\s*=\s*(\d+)/i, (_, v) => { out.spaceMm = Number(v); return ""; })
+         .replace(/\bcols\s*=\s*(\d+)/i, (_, v) => { out.columns = Number(v); return ""; });
+    out.text = s.trim().replace(/\s{2,}/g, " ");
+    return out;
+  };
+  const need = () => {
+    if (!sec) { sec = { id: "s" + sections.length, code: "", title: "", questions: [] }; sections.push(sec); }
+    return sec;
+  };
+
+  for (const raw of String(text).split("\n")) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue;
+
+    const kv = line.match(/^([a-z]+)\s*:\s*(.*)$/i);
+    if (kv && !/^[a-z]$/i.test(kv[1])) {
+      const key = kv[1].toLowerCase(), val = kv[2].trim();
+      if (key === "covers") { doc.cover.outcomes.push(val); continue; }
+      if (key === "rule") { doc.cover.conditions.push(val); continue; }
+      if (key === "section") {
+        const m = val.match(/^(\S+)\s*[—–-]\s*(.*)$/);
+        sec = { id: "s" + sections.length, code: m ? m[1] : "", title: m ? m[2] : val, questions: [] };
+        sections.push(sec); q = part = null; continue;
+      }
+      if (HEAD_KEYS[key]) {
+        const f = HEAD_KEYS[key];
+        if (f === "footer") doc.footer = val;
+        else if (f === "meta1" || f === "meta2") doc[f] = val;
+        else doc.cover[f] = val;
+        if (key === "paper") doc.heading = val;
+        continue;
+      }
+      continue;                       // an unknown key is a typo, not content
+    }
+
+    const fig = line.match(/^fig\s+(\S+)\s*(.*)$/i);
+    if (fig) {
+      const f = { type: fig[1].toLowerCase() };
+      for (const tok of fig[2].split(/\s+/).filter(Boolean)) {
+        const m = tok.match(/^([a-z]+)=(.*)$/i);
+        if (!m) { if (tok.toLowerCase() === "side") f.side = true; continue; }
+        const [, k, v] = m;
+        if (k === "pts") f.points = v.split(";").map(p => p.split(",").map(Number));
+        else if (k === "unit" || k === "alt") f[k] = v;
+        else f[k] = Number(v);
+      }
+      if (part) part.figure = f; else if (q) q.figure = f;
+      continue;
+    }
+
+    const nt = line.match(/^note\s+(.*)$/i);
+    if (nt && q) { q.note = nt[1]; continue; }
+
+    const qm = line.match(/^Q\b\s*(.*)$/);
+    if (qm) {
+      const m = mods(qm[1]);
+      need();
+      q = {
+        id: sec.id + "-q" + (sec.questions.length + 1),
+        n: sec.questions.length + 1 + sections.slice(0, sections.indexOf(sec))
+             .reduce((a, s) => a + s.questions.length, 0),
+        stem: m.text, parts: [],
+      };
+      if (m.band) q.band = m.band;
+      if (m.marks != null) q.marks = m.marks;
+      if (m.spaceMm) q.spaceMm = m.spaceMm;
+      if (m.columns) q.columns = m.columns;
+      sec.questions.push(q);
+      part = null;
+      continue;
+    }
+
+    const pm = line.match(/^([a-z])[)\.]?\s+(.*)$/);
+    if (pm && q) {
+      const m = mods(pm[2]);
+      part = { letter: pm[1], text: m.text };
+      if (m.band) part.band = m.band;
+      if (m.marks != null) part.marks = m.marks;
+      if (m.spaceMm) part.spaceMm = m.spaceMm;
+      q.parts.push(part);
+      continue;
+    }
+
+    /* A bare line continues whatever is open, so a long stem can wrap
+       across lines in the source the way anyone would type it. */
+    if (part) part.text += " " + line;
+    else if (q) q.stem += " " + line;
+  }
+
+  for (const s of sections) for (const qq of s.questions) {
+    if (!qq.parts.length) delete qq.parts;
+    else if (qq.marks == null) {
+      const tot = qq.parts.reduce((a, p) => a + (p.marks || 0), 0);
+      if (tot) qq.marks = tot;
+    }
+  }
+  doc.textbooks = [{
+    id: "paper", title: doc.cover.line1 || doc.title || "Paper",
+    chapters: [{ id: "ch", title: doc.cover.line2 || doc.heading || "Questions", sections }],
+  }];
+  doc.current = { textbook: "paper", chapter: "ch" };
+  if (!doc.cover.line1 && !doc.cover.description) delete doc.cover;
+  return doc;
+}
+
 /* ── state ─────────────────────────────────────────────────────────── */
 let doc = load();
 let sel = new Set();
 let tierFilter = new Set();
 
+/* The published page may ship a paper written in the text format rather
+   than a full document; it is compiled here so only one parser exists
+   and the repo can hold the short version. */
+function published() {
+  const p = structuredClone(PUBLISHED);
+  if (p.paperText) {
+    const text = p.paperText;
+    delete p.paperText;
+    const out = parsePaper(text, p);
+    out.paperSource = text;
+    return out;
+  }
+  return p;
+}
 function load() {
   try {
     const raw = localStorage.getItem(STORE_KEY);
     if (raw) return JSON.parse(raw);
   } catch (e) { /* private window, cleared storage - published is fine */ }
-  return structuredClone(PUBLISHED);
+  return published();
 }
 function save() {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(doc)); } catch (e) {}
@@ -1059,13 +1249,40 @@ function quickAdd(raw) {
 /* ── console ───────────────────────────────────────────────────────── */
 function wireConsole() {
   const box = document.getElementById("json-box");
+  const paper = document.getElementById("paper-box");
+
+  paper.value = doc.paperSource || "";
+  document.getElementById("btn-build").onclick = () => {
+    const text = paper.value.trim();
+    if (!text) { toast("Paste a paper first"); return; }
+    /* Rebuilt against the PUBLISHED base, not the current document, so
+       the crest, the rubric descriptors and the answer-space defaults
+       carry over while everything the paper says is replaced. */
+    const base = published();
+    delete base.textbooks;
+    const next = parsePaper(text, base);
+    const n = next.textbooks[0].chapters[0].sections.reduce((a, s) => a + s.questions.length, 0);
+    if (!n) { toast("No questions found — every question starts with Q"); return; }
+    next.paperSource = text;
+    doc = next;
+    sel.clear();
+    next.textbooks[0].chapters[0].sections.forEach(s => s.questions.forEach(q => sel.add(q.id)));
+    commit();
+    toast(n + (n === 1 ? " question built" : " questions built"));
+  };
+  document.getElementById("btn-show-paper").onclick = () => {
+    paper.value = doc.paperSource || "";
+    toast(doc.paperSource ? "Current paper shown" : "This paper was loaded as JSON, not text");
+  };
   document.getElementById("btn-dump").onclick = () => {
     box.value = JSON.stringify(doc, null, 2);
     toast("Current document shown");
   };
   document.getElementById("btn-copy").onclick = async () => {
-    const text = JSON.stringify(doc, null, 2);
-    box.value = text;
+    /* The paper text when there is one: it is a tenth the size of the
+       JSON and a chat can edit it without unpacking anything. */
+    const text = doc.paperSource || JSON.stringify(doc, null, 2);
+    if (doc.paperSource) paper.value = text; else box.value = text;
     try { await navigator.clipboard.writeText(text); toast("Copied — paste it into a Claude chat"); }
     catch (e) { box.select(); toast("Select the text above and copy it"); }
   };
@@ -1083,9 +1300,9 @@ function wireConsole() {
     toast("Loaded");
   };
   document.getElementById("btn-reset").onclick = () => {
-    doc = structuredClone(PUBLISHED);
+    doc = published();
     sel.clear(); commit();
-    toast("Back to the published content");
+    toast("Back to the published paper");
   };
 }
 

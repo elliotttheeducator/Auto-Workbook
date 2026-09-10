@@ -1,0 +1,63 @@
+title:  Year 7 Enrichment Mathematics
+paper:  Measurement Test
+year:   Year 7
+time:   40 minutes
+footer: Show all mathematical procedures.
+describe: In-class test on measurement which will allow you to show your skills in understanding, fluency, problem-solving and reasoning.
+covers: Establish the formulas for perimeter and area of rectangles, triangles and parallelograms, and use these in problem-solving.
+covers: Calculate volumes of rectangular and triangular prisms.
+rule:   You will complete the assessment task, individually, under direct supervision.
+rule:   Time allowed is 40 minutes.
+rule:   You are allowed a calculator.
+rule:   You are required to read each question and write your answers in the spaces provided, showing all mathematical procedures.
+section: — Answer all questions in the spaces provided.
+
+Q This shape is drawn on a centimetre grid. Work out:
+fig grid cols=7 rows=5 pts=1,1;5,1;5,3;3,3;3,4;1,4
+a [C] (2) the perimeter
+b [C] (2) the area
+
+Q For the following rectangle, determine the:
+fig rect w=9 h=4 side
+a [C] (2) perimeter
+b [C] (2) area
+
+Q Determine the area of the following shapes. Show your working.
+a [C] (2) Triangle
+fig tri b=12 h=7
+b [C] (2) Parallelogram
+fig para b=10 h=6
+c [B] (2) Circle, to two decimal places
+fig circle r=4.5
+
+Q Calculate the perimeter of these shapes, rounding answers to two decimal places.
+a [C] (2) A square of side 6.5 m
+b [C] (2) A circle of diameter 14 cm
+
+Q [C] (3) space=48 The diagram shows a rectangular prism. Determine its volume.
+fig prism l=8 w=3 h=5 side
+
+Q This diagram shows a shape drawn from two rectangles. Determine the:
+fig lshape w=12 h=8 cutW=5 cutH=3 side
+a [B] (3) perimeter
+b [B] (3) area
+
+Q [B] (3) space=45 The diagram shows a rectangle with an area of 28 cm2. Work out the value of the missing length.
+fig rect w=7 h=4 side
+note One side is 7 cm. The other is unknown.
+
+Q [A] (4) space=55 The diagram shows a 3D composite figure made from two rectangular prisms. Work out the total volume.
+fig prism l=10 w=4 h=6 side
+note A smaller prism 4 cm by 4 cm by 3 cm sits on top of the larger one.
+
+Q [B] (3) space=50 Marie's average step length is 90 cm. Given there are 100 cm in 1 m and 1000 m in 1 km,
+how far in kilometres does she walk if she takes 5000 steps?
+
+Q A tent is in the shape of a triangular prism.
+fig triprism b=2.4 h=1.8 l=3.5 unit=m side
+a [B] (3) Calculate the volume of this triangular prism.
+b [A] (4) Calculate the area of canvas to be waterproofed, if all sides are treated but the floor is not included.
+
+Q [A] (4) space=58 A school house logo is a square of side 10 cm with two isosceles triangles cut from
+opposite corners. Find the area of the stripe across the middle.
+fig rect w=10 h=10 side
