@@ -1,0 +1,839 @@
+<title>__TITLE__</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* ── tokens ──────────────────────────────────────────────────────────
+   Two palettes in one page. The CHROME follows the viewer's theme; the
+   SHEET does not. A printed worksheet is white paper with black ink in
+   any light, so the preview keeps paper tokens fixed - inverting it
+   would show the teacher something they can never print. */
+:root {
+  --ink:        #14181d;
+  --ink-soft:   #4b555f;
+  --ink-faint:  #7b858f;
+  --ground:     #eceef0;
+  --panel:      #f7f8f9;
+  --panel-edge: #d8dce0;
+  --rail:       #ffffff;
+  --accent:     #0f766e;
+  --accent-ink: #0b5a54;
+  --accent-wash:#e2f1ef;
+  --focus:      #0f766e;
+  --shadow:     0 1px 2px rgba(20,24,29,.08), 0 8px 24px rgba(20,24,29,.10);
+
+  --tier-fluency:   #2563eb;
+  --tier-problem:   #0891b2;
+  --tier-reasoning: #7c3aed;
+  --tier-enrich:    #be123c;
+
+  /* the sheet - fixed in both themes, see note above */
+  --paper:      #ffffff;
+  --paper-ink:  #101418;
+  --paper-rule: #b9c0c7;
+  --paper-grid: #ced4da;
+  --paper-soft: #5c666f;
+
+  --sheet-w: 210mm;
+  --sheet-h: 297mm;
+  --sheet-pad: 14mm;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:        #e7ebee;
+    --ink-soft:   #a4aeb7;
+    --ink-faint:  #78838d;
+    --ground:     #101318;
+    --panel:      #171b21;
+    --panel-edge: #2a3038;
+    --rail:       #14181d;
+    --accent:     #4fd1c5;
+    --accent-ink: #7fe3d9;
+    --accent-wash:#12302e;
+    --focus:      #4fd1c5;
+    --shadow:     0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.5);
+    --tier-fluency:   #7ba6ff;
+    --tier-problem:   #4bc6e0;
+    --tier-reasoning: #b193f5;
+    --tier-enrich:    #f4849b;
+  }
+}
+:root[data-theme="dark"] {
+  --ink:#e7ebee; --ink-soft:#a4aeb7; --ink-faint:#78838d;
+  --ground:#101318; --panel:#171b21; --panel-edge:#2a3038; --rail:#14181d;
+  --accent:#4fd1c5; --accent-ink:#7fe3d9; --accent-wash:#12302e; --focus:#4fd1c5;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.5);
+  --tier-fluency:#7ba6ff; --tier-problem:#4bc6e0; --tier-reasoning:#b193f5; --tier-enrich:#f4849b;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--ground); color: var(--ink);
+  font: 400 14px/1.5 "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+
+/* ── shell ── */
+.shell { display: grid; grid-template-columns: 340px minmax(0,1fr); min-height: 100vh; }
+@media (max-width: 900px) { .shell { grid-template-columns: 1fr; } }
+
+.rail {
+  background: var(--rail); border-right: 1px solid var(--panel-edge);
+  display: flex; flex-direction: column; gap: 0;
+  max-height: 100vh; position: sticky; top: 0; overflow: hidden;
+}
+@media (max-width: 900px) { .rail { position: static; max-height: none; } }
+
+.brand { padding: 18px 20px 14px; border-bottom: 1px solid var(--panel-edge); }
+.brand h1 {
+  margin: 0; font: 600 19px/1.15 "Source Serif 4", Georgia, serif;
+  letter-spacing: -.01em; text-wrap: balance;
+}
+.brand .kind {
+  display: block; margin-top: 5px;
+  font-size: 11px; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--accent); font-weight: 600;
+}
+
+.railscroll { overflow-y: auto; padding: 4px 0 20px; flex: 1; }
+.group { padding: 16px 20px; border-bottom: 1px solid var(--panel-edge); }
+.group:last-child { border-bottom: 0; }
+.group > h2 {
+  margin: 0 0 10px; font-size: 11px; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint);
+}
+.field { display: grid; gap: 5px; margin-bottom: 10px; }
+.field:last-child { margin-bottom: 0; }
+.field label { font-size: 12px; color: var(--ink-soft); font-weight: 500; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 7px 9px; background: var(--panel);
+  border: 1px solid var(--panel-edge); border-radius: 5px;
+}
+.field textarea { resize: vertical; min-height: 92px; font-size: 12.5px; line-height: 1.45; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.btn {
+  padding: 7px 12px; border-radius: 5px; cursor: pointer;
+  border: 1px solid var(--panel-edge); background: var(--panel);
+  font-size: 13px; font-weight: 500;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary {
+  background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600;
+}
+.btn-primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ── question picker ── */
+.qlist { display: flex; flex-direction: column; gap: 1px; }
+.qrow {
+  display: grid; grid-template-columns: auto auto 1fr auto; gap: 8px;
+  align-items: center; padding: 6px 8px; border-radius: 5px;
+  cursor: pointer; border: 1px solid transparent;
+}
+.qrow:hover { background: var(--panel); }
+.qrow.on { background: var(--accent-wash); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.qrow input { margin: 0; accent-color: var(--accent); }
+.qnum { font-weight: 600; font-variant-numeric: tabular-nums; min-width: 1.6em; }
+.qtext {
+  font-size: 12.5px; color: var(--ink-soft);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tier {
+  width: 3px; height: 17px; border-radius: 2px; background: var(--ink-faint);
+}
+.tier[data-t="fluency"]     { background: var(--tier-fluency); }
+.tier[data-t="problem"]     { background: var(--tier-problem); }
+.tier[data-t="reasoning"]   { background: var(--tier-reasoning); }
+.tier[data-t="enrichment"]  { background: var(--tier-enrich); }
+.marks-in {
+  width: 46px; padding: 3px 5px; text-align: center;
+  font-variant-numeric: tabular-nums;
+  background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 4px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 4px 9px; font-size: 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--panel-edge); background: var(--panel); color: var(--ink-soft);
+}
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+/* ── workbench ── */
+.bench { padding: 22px 22px 60px; overflow-x: auto; }
+.benchbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.stat { display: flex; gap: 18px; flex-wrap: wrap; align-items: baseline; }
+.stat b {
+  font: 600 17px/1 "Source Serif 4", Georgia, serif;
+  font-variant-numeric: tabular-nums;
+}
+.stat span { font-size: 12px; color: var(--ink-faint); margin-left: 5px; }
+
+.sheets { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+
+/* ── the sheet: a true A4 object ── */
+.sheet {
+  width: var(--sheet-w); min-height: var(--sheet-h); padding: var(--sheet-pad);
+  background: var(--paper); color: var(--paper-ink);
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size: 10.5pt; line-height: 1.42;
+}
+.sheet-foot {
+  position: absolute; left: var(--sheet-pad); right: var(--sheet-pad); bottom: 6mm;
+  display: flex; justify-content: space-between;
+  font-family: "Public Sans", sans-serif; font-size: 8pt; color: var(--paper-soft);
+}
+
+.paper-head { border-bottom: 1.5px solid var(--paper-ink); padding-bottom: 3mm; margin-bottom: 5mm; }
+.paper-head h2 {
+  margin: 0; font-size: 15pt; font-weight: 600; letter-spacing: -.01em; text-wrap: balance;
+}
+.paper-head .sub {
+  margin-top: 1.5mm; font-family: "Public Sans", sans-serif;
+  font-size: 8.5pt; color: var(--paper-soft);
+  display: flex; gap: 5mm; flex-wrap: wrap;
+}
+/* Name / class / date rules - a test paper needs somewhere to write them,
+   a workbook does not, so this is emitted only in test mode. */
+.namebar {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 6mm;
+  margin: 4mm 0 5mm; font-family: "Public Sans", sans-serif; font-size: 8.5pt;
+}
+.namebar div { border-bottom: 0.4mm solid var(--paper-ink); padding-bottom: 4mm; color: var(--paper-soft); }
+
+.sec-head {
+  font-family: "Public Sans", sans-serif; font-weight: 700; font-size: 9pt;
+  letter-spacing: .07em; text-transform: uppercase;
+  padding: 1mm 0 1mm; margin: 4mm 0 2.5mm;
+  border-bottom: 0.4mm solid var(--paper-rule);
+}
+
+.q { display: grid; grid-template-columns: 8mm 1fr; gap: 2mm; margin-bottom: 4mm; break-inside: avoid; }
+.q-n { font-weight: 600; font-variant-numeric: tabular-nums; }
+.q-body { min-width: 0; }
+.q-stem { margin: 0 0 1.5mm; }
+.q-marks {
+  float: right; margin-left: 3mm; font-family: "Public Sans", sans-serif;
+  font-size: 8.5pt; color: var(--paper-soft); font-variant-numeric: tabular-nums;
+}
+.q-note {
+  font-family: "Public Sans", sans-serif; font-size: 8pt;
+  color: var(--paper-soft); margin: 0 0 1.5mm;
+}
+.parts { display: grid; gap: 2mm; margin: 0; }
+.parts.cols-2 { grid-template-columns: 1fr 1fr; column-gap: 6mm; }
+.parts.cols-3 { grid-template-columns: repeat(3,1fr); column-gap: 5mm; }
+.part { display: grid; grid-template-columns: 5mm 1fr; gap: 1mm; min-width: 0; }
+.part-l { font-weight: 600; }
+
+/* Answer space. The 5mm square grid and the 8mm rule are the two the
+   book itself uses, drawn as a tiled SVG pattern rather than CSS
+   gradients: a gradient rasterizes at print resolution and comes out
+   patchy, a pattern stays vector all the way to the PDF. */
+.space { border: 0.35mm solid var(--paper-rule); border-radius: 0.6mm; position: relative; overflow: hidden; }
+.space svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.space.plain svg { display: none; }
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.empty {
+  padding: 40px 24px; text-align: center; color: var(--ink-faint);
+  border: 1px dashed var(--panel-edge); border-radius: 8px; background: var(--panel);
+  max-width: 46ch;
+}
+
+/* ── console ── */
+.console { border-top: 1px solid var(--panel-edge); background: var(--panel); }
+.console summary {
+  padding: 12px 20px; cursor: pointer; font-size: 11px; font-weight: 700;
+  letter-spacing: .09em; text-transform: uppercase; color: var(--ink-faint);
+}
+.console summary::marker { color: var(--accent); }
+.console .body { padding: 0 20px 18px; }
+.hint { font-size: 11.5px; color: var(--ink-faint); line-height: 1.5; margin: 0 0 8px; }
+.hint code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px;
+  background: var(--ground); padding: 1px 4px; border-radius: 3px;
+}
+.toast {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+  background: var(--ink); color: var(--ground);
+  padding: 9px 16px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  box-shadow: var(--shadow); z-index: 50;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .toast { animation: rise .18s ease-out; }
+  @keyframes rise { from { opacity: 0; transform: translate(-50%, 6px); } }
+}
+
+/* ── print: the sheets, nothing else ── */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  .rail, .benchbar, .console, .toast { display: none !important; }
+  body { background: #fff; }
+  .shell { display: block; }
+  .bench { padding: 0; overflow: visible; }
+  .sheets { gap: 0; display: block; }
+  .sheet {
+    box-shadow: none; width: 210mm; height: 297mm; break-after: page; margin: 0;
+  }
+  .sheet:last-child { break-after: auto; }
+}
+</style>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="brand">
+      <span class="kind" id="kind-label"></span>
+      <h1 id="brand-title"></h1>
+    </div>
+    <div class="railscroll" id="rail"></div>
+  </aside>
+
+  <main class="bench">
+    <div class="benchbar">
+      <div class="stat" id="stats"></div>
+      <div class="btnrow">
+        <button class="btn" id="btn-all">Select all</button>
+        <button class="btn" id="btn-none">Clear</button>
+        <button class="btn btn-primary" id="btn-print">Print</button>
+      </div>
+    </div>
+    <div class="sheets" id="sheets"></div>
+  </main>
+</div>
+
+<details class="console">
+  <summary>Content console</summary>
+  <div class="body">
+    <p class="hint">
+      Everything on the sheet comes from one JSON document. Paste a replacement
+      below and press <b>Load</b>, or press <b>Copy</b> to lift the current
+      document out — that copied text is what a Claude chat needs to edit this
+      tool, and it never has to read this page's code to do it.
+      Edits are kept in this browser only; <b>Copy</b> and hand it back to be
+      published for everyone.
+    </p>
+    <p class="hint">
+      Quick add, one question per line, in the box marked <code>Quick add</code>:
+      <code>3F | fluency | 2 | Find the area of these triangles. || a) base 6 cm, height 4 cm || b) base 9 m, height 2.5 m</code>
+      — section, tier, marks, stem, then parts after <code>||</code>.
+    </p>
+    <div class="field">
+      <label for="json-box">Content JSON</label>
+      <textarea id="json-box" spellcheck="false"></textarea>
+    </div>
+    <div class="btnrow">
+      <button class="btn btn-primary" id="btn-load">Load</button>
+      <button class="btn" id="btn-copy">Copy for Claude</button>
+      <button class="btn" id="btn-dump">Show current</button>
+      <button class="btn" id="btn-reset">Reset to published</button>
+    </div>
+  </div>
+</details>
+
+<div class="defs" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="p-grid" width="5mm" height="5mm" patternUnits="userSpaceOnUse">
+        <path d="M5,0 L0,0 L0,5" fill="none" stroke="#ced4da" stroke-width="0.18mm"
+              vector-effect="non-scaling-stroke" transform="scale(1)"/>
+      </pattern>
+      <pattern id="p-rule" width="8mm" height="8mm" patternUnits="userSpaceOnUse">
+        <path d="M0,8 L1000,8" fill="none" stroke="#b9c0c7" stroke-width="0.2mm"/>
+      </pattern>
+    </defs>
+  </svg>
+</div>
+
+<script>
+"use strict";
+
+/* The published content document. build.py replaces this line, which is
+   the ONLY place content lives in this file - the engine below never
+   needs editing to change a textbook, a chapter or a question. */
+const PUBLISHED = __CONTENT__;
+
+const STORE_KEY = "builder:" + (PUBLISHED.id || "default");
+
+/* ── state ─────────────────────────────────────────────────────────── */
+let doc = load();
+let sel = new Set();
+let tierFilter = new Set();
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) { /* private window, cleared storage - published is fine */ }
+  return structuredClone(PUBLISHED);
+}
+function save() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(doc)); } catch (e) {}
+}
+
+const isTest = () => doc.mode === "test";
+
+/* ── content helpers ───────────────────────────────────────────────── */
+function book()    { return doc.textbooks.find(t => t.id === doc.current.textbook) || doc.textbooks[0]; }
+function chapter() { const b = book(); return b && (b.chapters.find(c => c.id === doc.current.chapter) || b.chapters[0]); }
+function sections(){ const c = chapter(); return c ? c.sections : []; }
+function allQuestions() {
+  return sections().flatMap(s => s.questions.map(q => ({ ...q, _sec: s })));
+}
+function chosen() {
+  const t = tierFilter;
+  return allQuestions().filter(q => sel.has(q.id) && (!t.size || t.has(q.tier || "")));
+}
+function totalMarks() { return chosen().reduce((n, q) => n + (Number(q.marks) || 0), 0); }
+
+/* ── rail ──────────────────────────────────────────────────────────── */
+const el = (tag, cls, txt) => {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (txt != null) n.textContent = txt;
+  return n;
+};
+
+function renderRail() {
+  const rail = document.getElementById("rail");
+  rail.textContent = "";
+
+  document.getElementById("brand-title").textContent = doc.title || "Untitled";
+  document.getElementById("kind-label").textContent = isTest() ? "Test paper" : "Student workbook";
+
+  /* source */
+  const g1 = el("div", "group");
+  g1.append(el("h2", null, "Source"));
+  g1.append(picker("Textbook", doc.textbooks, doc.current.textbook, v => {
+    doc.current.textbook = v;
+    const b = book();
+    doc.current.chapter = b.chapters[0] && b.chapters[0].id;
+    sel.clear(); commit();
+  }));
+  const b = book();
+  if (b) g1.append(picker("Chapter", b.chapters, doc.current.chapter, v => {
+    doc.current.chapter = v; sel.clear(); commit();
+  }));
+  rail.append(g1);
+
+  /* paper details */
+  const g2 = el("div", "group");
+  g2.append(el("h2", null, isTest() ? "Paper" : "Booklet"));
+  g2.append(text("Title", doc.heading || "", v => { doc.heading = v; commit(); }, "head-title"));
+  const r2 = el("div", "row2");
+  r2.append(text(isTest() ? "Time allowed" : "Class", doc.meta1 || "", v => { doc.meta1 = v; commit(); }, "meta1"));
+  r2.append(text("Year level", doc.meta2 || "", v => { doc.meta2 = v; commit(); }, "meta2"));
+  g2.append(r2);
+  rail.append(g2);
+
+  /* answer space */
+  const g3 = el("div", "group");
+  g3.append(el("h2", null, "Answer space"));
+  const styles = [["grid", "5 mm grid"], ["rule", "8 mm ruled"], ["plain", "Blank"], ["none", "None"]];
+  const sc = el("div", "chips");
+  styles.forEach(([v, lab]) => {
+    const c = el("button", "chip" + (doc.space.style === v ? " on" : ""), lab);
+    c.type = "button";
+    c.onclick = () => { doc.space.style = v; commit(); };
+    sc.append(c);
+  });
+  g3.append(sc);
+  g3.append(slider("Height", doc.space.mm, 10, 90, 5, v => { doc.space.mm = v; commit(); }, "mm"));
+  if (isTest()) {
+    g3.append(check("Size by marks", !!doc.space.byMarks, v => { doc.space.byMarks = v; commit(); }, "by-marks"));
+  }
+  g3.append(check("One box per part", !!doc.space.perPart, v => { doc.space.perPart = v; commit(); }, "per-part"));
+  rail.append(g3);
+
+  /* tiers */
+  const tiers = [...new Set(allQuestions().map(q => q.tier).filter(Boolean))];
+  if (tiers.length) {
+    const g4 = el("div", "group");
+    g4.append(el("h2", null, "Difficulty"));
+    const tc = el("div", "chips");
+    tiers.forEach(t => {
+      const c = el("button", "chip" + (tierFilter.has(t) ? " on" : ""), label(t));
+      c.type = "button";
+      c.onclick = () => { tierFilter.has(t) ? tierFilter.delete(t) : tierFilter.add(t); commit(); };
+      tc.append(c);
+    });
+    g4.append(tc);
+    rail.append(g4);
+  }
+
+  /* questions */
+  const g5 = el("div", "group");
+  g5.append(el("h2", null, "Questions"));
+  sections().forEach(s => {
+    const h = el("div", "hint");
+    h.style.margin = "10px 0 4px";
+    h.style.fontWeight = "600";
+    h.style.color = "var(--ink-soft)";
+    h.textContent = (s.code ? s.code + "  " : "") + s.title;
+    g5.append(h);
+    const list = el("div", "qlist");
+    s.questions.forEach(q => list.append(qrow(q)));
+    g5.append(list);
+  });
+  rail.append(g5);
+
+  /* quick add */
+  const g6 = el("div", "group");
+  g6.append(el("h2", null, "Quick add"));
+  const ta = el("textarea");
+  ta.id = "quick-add";
+  ta.placeholder = "3F | fluency | 2 | Find the area of these triangles. || a) base 6 cm, height 4 cm";
+  ta.spellcheck = false;
+  ta.style.cssText = "width:100%;min-height:70px;padding:7px 9px;background:var(--panel);border:1px solid var(--panel-edge);border-radius:5px;font-size:12.5px";
+  g6.append(ta);
+  const add = el("button", "btn btn-primary", "Add to chapter");
+  add.style.marginTop = "8px";
+  add.onclick = () => quickAdd(ta.value) && (ta.value = "");
+  g6.append(add);
+  rail.append(g6);
+}
+
+function qrow(q) {
+  const row = el("label", "qrow" + (sel.has(q.id) ? " on" : ""));
+  const cb = el("input");
+  cb.type = "checkbox";
+  cb.checked = sel.has(q.id);
+  cb.onchange = () => { cb.checked ? sel.add(q.id) : sel.delete(q.id); commit(); };
+  const tier = el("span", "tier");
+  if (q.tier) tier.dataset.t = q.tier;
+  const txt = el("span", "qtext", (q.stem || "").replace(/\s+/g, " "));
+  row.append(cb, tier, wrapNum(q.n, txt));
+  if (isTest()) {
+    const m = el("input", "marks-in");
+    m.type = "number"; m.min = "0"; m.value = q.marks ?? 1;
+    m.setAttribute("aria-label", "Marks for question " + q.n);
+    m.onclick = e => e.preventDefault();
+    m.onchange = () => { q.marks = Number(m.value) || 0; commit(); };
+    row.append(m);
+  } else {
+    row.append(el("span"));
+  }
+  return row;
+}
+function wrapNum(n, txt) {
+  const f = document.createDocumentFragment();
+  f.append(el("span", "qnum", String(n)), txt);
+  return f;
+}
+
+function picker(labelText, items, value, onchange) {
+  const f = el("div", "field");
+  const id = "pick-" + labelText.toLowerCase();
+  const l = el("label", null, labelText); l.htmlFor = id;
+  const s = el("select"); s.id = id;
+  items.forEach(it => {
+    const o = el("option", null, (it.code ? it.code + " — " : "") + it.title);
+    o.value = it.id;
+    if (it.id === value) o.selected = true;
+    s.append(o);
+  });
+  s.onchange = () => onchange(s.value);
+  f.append(l, s);
+  return f;
+}
+function text(labelText, value, onchange, id) {
+  const f = el("div", "field");
+  const l = el("label", null, labelText); l.htmlFor = id;
+  const i = el("input"); i.id = id; i.value = value;
+  i.oninput = () => onchange(i.value);
+  f.append(l, i);
+  return f;
+}
+function slider(labelText, value, min, max, step, onchange, unit) {
+  const f = el("div", "field");
+  const id = "sl-" + labelText.toLowerCase();
+  const l = el("label", null, labelText + ": " + value + " " + unit); l.htmlFor = id;
+  const i = el("input"); i.type = "range"; i.id = id;
+  i.min = min; i.max = max; i.step = step; i.value = value;
+  i.oninput = () => { l.textContent = labelText + ": " + i.value + " " + unit; };
+  i.onchange = () => onchange(Number(i.value));
+  f.append(l, i);
+  return f;
+}
+function check(labelText, value, onchange, id) {
+  const f = el("div", "field");
+  const w = el("label");
+  w.style.cssText = "display:flex;gap:8px;align-items:center;cursor:pointer";
+  w.htmlFor = id;
+  const i = el("input"); i.type = "checkbox"; i.id = id; i.checked = value;
+  i.style.accentColor = "var(--accent)";
+  i.onchange = () => onchange(i.checked);
+  w.append(i, document.createTextNode(labelText));
+  f.append(w);
+  return f;
+}
+const TIER_NAMES = { fluency: "Fluency", problem: "Problem-solving", reasoning: "Reasoning", enrichment: "Enrichment" };
+const label = t => TIER_NAMES[t] || (t.charAt(0).toUpperCase() + t.slice(1));
+
+/* ── the sheet ─────────────────────────────────────────────────────── */
+function renderSheets() {
+  const host = document.getElementById("sheets");
+  host.textContent = "";
+  const qs = chosen();
+
+  if (!qs.length) {
+    const e = el("div", "empty");
+    e.append(el("p", null, "Nothing chosen yet."));
+    e.append(el("p", null, "Tick questions in the list on the left and they appear here, laid out on A4 exactly as they will print."));
+    host.append(e);
+    return;
+  }
+
+  /* Blocks are poured into sheets one at a time and the sheet is
+     measured after each: a question is never sliced, it moves whole to
+     the next sheet. Cheaper and steadier than measuring everything up
+     front, because the only question that matters is whether THIS block
+     still fits. */
+  const limitPx = mmToPx(297 - 14 * 2 - 8);
+  let sheet = newSheet(host, 1, qs);
+  let flow = sheet.querySelector(".flow");
+  let page = 1;
+  let lastSec = null;
+
+  for (const q of qs) {
+    if (q._sec !== lastSec) {
+      lastSec = q._sec;
+      const h = el("div", "sec-head", (q._sec.code ? q._sec.code + "  " : "") + q._sec.title);
+      flow.append(h);
+      if (over(flow, limitPx)) {
+        h.remove();
+        ({ sheet, flow, page } = spill(host, ++page, qs));
+        flow.append(h);
+      }
+    }
+    const node = questionNode(q);
+    flow.append(node);
+    if (over(flow, limitPx)) {
+      node.remove();
+      ({ sheet, flow, page } = spill(host, ++page, qs));
+      flow.append(node);
+    }
+  }
+  host.querySelectorAll(".sheet").forEach((s, i, all) => {
+    s.querySelector(".pageno").textContent = "Page " + (i + 1) + " of " + all.length;
+  });
+}
+const mmToPx = mm => mm * (96 / 25.4);
+const over = (flow, limit) => flow.getBoundingClientRect().height > limit;
+
+function spill(host, page, qs) {
+  const sheet = newSheet(host, page, qs);
+  return { sheet, flow: sheet.querySelector(".flow"), page };
+}
+
+function newSheet(host, page, qs) {
+  const s = el("div", "sheet");
+  if (page === 1) {
+    const head = el("div", "paper-head");
+    head.append(el("h2", null, doc.heading || doc.title || ""));
+    const sub = el("div", "sub");
+    const c = chapter();
+    if (c) sub.append(el("span", null, c.title));
+    if (doc.meta2) sub.append(el("span", null, doc.meta2));
+    if (doc.meta1) sub.append(el("span", null, (isTest() ? "Time: " : "") + doc.meta1));
+    if (isTest()) sub.append(el("span", null, "Total: " + totalMarks() + " marks"));
+    head.append(sub);
+    s.append(head);
+    if (isTest()) {
+      const nb = el("div", "namebar");
+      nb.append(el("div", null, "Name"), el("div", null, "Class"), el("div", null, "Date"));
+      s.append(nb);
+    }
+  }
+  s.append(el("div", "flow"));
+  const foot = el("div", "sheet-foot");
+  foot.append(el("span", null, doc.footer || ""), el("span", "pageno", ""));
+  s.append(foot);
+  host.append(s);
+  return s;
+}
+
+function questionNode(q) {
+  const wrap = el("div", "q");
+  wrap.append(el("div", "q-n", String(q.n)));
+  const body = el("div", "q-body");
+
+  if (isTest() && q.marks != null) {
+    body.append(el("span", "q-marks", "(" + q.marks + (q.marks === 1 ? " mark)" : " marks)")));
+  }
+  if (q.stem) body.append(el("p", "q-stem", q.stem));
+  if (q.note) body.append(el("p", "q-note", q.note));
+
+  const parts = q.parts || [];
+  if (parts.length) {
+    const cols = q.columns || (parts.every(p => (p.text || "").length < 34) ? (parts.length > 4 ? 3 : 2) : 1);
+    const g = el("div", "parts" + (cols > 1 ? " cols-" + cols : ""));
+    parts.forEach(p => {
+      const cell = el("div", "part");
+      cell.append(el("div", "part-l", (p.letter || "") + ""));
+      const inner = el("div");
+      inner.append(el("div", null, p.text || ""));
+      if (doc.space.perPart) inner.append(spaceNode(partHeight(q, p)));
+      cell.append(inner);
+      g.append(cell);
+    });
+    body.append(g);
+  }
+  /* "One box per part" means the parts each get their own instead of
+     sharing one underneath - so a question with no parts still needs
+     its box, or a worded question prints with nowhere to answer it. */
+  if (!doc.space.perPart || !parts.length) body.append(spaceNode(qHeight(q)));
+  wrap.append(body);
+  return wrap;
+}
+
+function qHeight(q) {
+  if (q.spaceMm) return q.spaceMm;
+  if (isTest() && doc.space.byMarks) return Math.max(12, (Number(q.marks) || 1) * 10);
+  return doc.space.mm;
+}
+function partHeight(q, p) {
+  if (p.spaceMm) return p.spaceMm;
+  if (isTest() && doc.space.byMarks) return Math.max(10, (Number(p.marks) || 1) * 9);
+  return Math.max(10, Math.round(doc.space.mm * 0.6));
+}
+
+function spaceNode(mm) {
+  if (doc.space.style === "none") return document.createDocumentFragment();
+  const box = el("div", "space" + (doc.space.style === "plain" ? " plain" : ""));
+  box.style.height = mm + "mm";
+  box.style.marginTop = "1.5mm";
+  if (doc.space.style !== "plain") {
+    const NS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("preserveAspectRatio", "none");
+    const r = document.createElementNS(NS, "rect");
+    r.setAttribute("width", "100%");
+    r.setAttribute("height", "100%");
+    r.setAttribute("fill", doc.space.style === "rule" ? "url(#p-rule)" : "url(#p-grid)");
+    svg.append(r);
+    box.append(svg);
+  }
+  return box;
+}
+
+/* ── stats ─────────────────────────────────────────────────────────── */
+function renderStats() {
+  const s = document.getElementById("stats");
+  s.textContent = "";
+  const qs = chosen();
+  const add = (v, l) => {
+    const d = el("div");
+    d.append(el("b", null, String(v)), el("span", null, l));
+    s.append(d);
+  };
+  add(qs.length, qs.length === 1 ? "question" : "questions");
+  add(document.querySelectorAll(".sheet").length || 0, "sheets");
+  if (isTest()) add(totalMarks(), "marks");
+}
+
+/* ── quick add ─────────────────────────────────────────────────────── */
+function quickAdd(raw) {
+  const lines = raw.split("\n").map(l => l.trim()).filter(Boolean);
+  if (!lines.length) return false;
+  const c = chapter();
+  let added = 0;
+  for (const line of lines) {
+    const [head, ...partBits] = line.split("||").map(s => s.trim());
+    const f = head.split("|").map(s => s.trim());
+    if (f.length < 4) { toast("Each line needs section | tier | marks | question"); return false; }
+    const [code, tier, marks, ...rest] = f;
+    const sec = c.sections.find(s => s.code.toLowerCase() === code.toLowerCase()) || c.sections[0];
+    const n = sec.questions.reduce((m, q) => Math.max(m, Number(q.n) || 0), 0) + 1;
+    sec.questions.push({
+      id: sec.id + "-q" + n + "-" + Math.random().toString(36).slice(2, 6),
+      n, tier: tier || undefined, marks: Number(marks) || 0,
+      stem: rest.join(" | "),
+      parts: partBits.map((p, i) => {
+        const m = p.match(/^([a-z])\)\s*(.*)$/i);
+        return { letter: m ? m[1] : String.fromCharCode(97 + i), text: m ? m[2] : p };
+      }),
+    });
+    added++;
+  }
+  commit();
+  toast(added + (added === 1 ? " question added" : " questions added"));
+  return true;
+}
+
+/* ── console ───────────────────────────────────────────────────────── */
+function wireConsole() {
+  const box = document.getElementById("json-box");
+  document.getElementById("btn-dump").onclick = () => {
+    box.value = JSON.stringify(doc, null, 2);
+    toast("Current document shown");
+  };
+  document.getElementById("btn-copy").onclick = async () => {
+    const text = JSON.stringify(doc, null, 2);
+    box.value = text;
+    try { await navigator.clipboard.writeText(text); toast("Copied — paste it into a Claude chat"); }
+    catch (e) { box.select(); toast("Select the text above and copy it"); }
+  };
+  document.getElementById("btn-load").onclick = () => {
+    let next;
+    try { next = JSON.parse(box.value); }
+    catch (e) { toast("That is not valid JSON — check for a missing comma or bracket"); return; }
+    if (!next.textbooks || !Array.isArray(next.textbooks)) {
+      toast("A content document needs a textbooks array"); return;
+    }
+    doc = next;
+    if (!doc.current) doc.current = {};
+    if (!doc.space) doc.space = { style: "grid", mm: 30 };
+    sel.clear(); commit();
+    toast("Loaded");
+  };
+  document.getElementById("btn-reset").onclick = () => {
+    doc = structuredClone(PUBLISHED);
+    sel.clear(); commit();
+    toast("Back to the published content");
+  };
+}
+
+let toastTimer;
+function toast(msg) {
+  document.querySelector(".toast")?.remove();
+  const t = el("div", "toast", msg);
+  document.body.append(t);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.remove(), 2600);
+}
+
+/* ── boot ──────────────────────────────────────────────────────────── */
+function commit() {
+  save();
+  renderRail();
+  renderSheets();
+  renderStats();
+}
+
+document.getElementById("btn-print").onclick = () => window.print();
+document.getElementById("btn-all").onclick = () => {
+  allQuestions().forEach(q => sel.add(q.id)); commit();
+};
+document.getElementById("btn-none").onclick = () => { sel.clear(); commit(); };
+
+if (!doc.current) doc.current = {};
+if (!doc.current.textbook) doc.current.textbook = doc.textbooks[0] && doc.textbooks[0].id;
+if (!doc.current.chapter) {
+  const b = book(); doc.current.chapter = b && b.chapters[0] && b.chapters[0].id;
+}
+if (!doc.space) doc.space = { style: "grid", mm: 30 };
+
+/* Open on a working sheet, not an empty one: the first section's
+   questions are ticked so the first look shows what the tool makes. */
+const first = sections()[0];
+if (first) first.questions.forEach(q => sel.add(q.id));
+
+wireConsole();
+commit();
+</script>

@@ -1,0 +1,246 @@
+{
+  "id": "workbook",
+  "mode": "workbook",
+  "title": "Chalkline Workbooks",
+  "heading": "Measurement — Circles and area",
+  "meta1": "7B",
+  "meta2": "Year 7",
+  "footer": "Essential Mathematics for the Australian Curriculum, Year 7",
+  "space": { "style": "grid", "mm": 30, "perPart": true, "byMarks": false },
+  "current": { "textbook": "y7-essential", "chapter": "ch10" },
+  "textbooks": [
+    {
+      "id": "y7-essential",
+      "title": "Essential Mathematics Year 7",
+      "chapters": [
+        {
+          "id": "ch10",
+          "title": "Chapter 10 — Measurement",
+          "sections": [
+            {
+              "id": "s10c",
+              "code": "10C",
+              "title": "Circles, π and circumference",
+              "questions": [
+                {
+                  "id": "s10c-q1", "n": 1, "tier": "fluency", "marks": 2,
+                  "stem": "A reasonable approximation of π is the fraction 28/9.",
+                  "parts": [
+                    { "letter": "a", "text": "Write 28/9 as a decimal rounded to two decimal places." },
+                    { "letter": "b", "text": "Decide if 28/9 is a better approximation to π than 3.14." }
+                  ]
+                },
+                {
+                  "id": "s10c-q3", "n": 3, "tier": "fluency", "marks": 4,
+                  "stem": "Calculate the circumference of these circles using C = πd. Round to two decimal places.",
+                  "columns": 2,
+                  "parts": [
+                    { "letter": "a", "text": "d = 5 cm" },
+                    { "letter": "b", "text": "d = 13 cm" },
+                    { "letter": "c", "text": "d = 4.6 m" },
+                    { "letter": "d", "text": "d = 9.8 m" }
+                  ]
+                },
+                {
+                  "id": "s10c-q4", "n": 4, "tier": "fluency", "marks": 4,
+                  "stem": "Calculate the circumference of these circles using C = 2πr. Round to two decimal places.",
+                  "columns": 2,
+                  "parts": [
+                    { "letter": "a", "text": "r = 4 mm" },
+                    { "letter": "b", "text": "r = 21 cm" },
+                    { "letter": "c", "text": "r = 8.3 mm" },
+                    { "letter": "d", "text": "r = 16.2 m" }
+                  ]
+                },
+                {
+                  "id": "s10c-q8", "n": 8, "tier": "problem", "marks": 2,
+                  "stem": "A circular pond has radius 1.4 metres. Find its circumference, correct to one decimal place.",
+                  "spaceMm": 35
+                },
+                {
+                  "id": "s10c-q9", "n": 9, "tier": "problem", "marks": 3,
+                  "stem": "A bicycle wheel completes 1024 revolutions on a Sunday ride. The wheel's diameter is 85 cm. Find the distance travelled, to the nearest metre.",
+                  "spaceMm": 45
+                },
+                {
+                  "id": "s10c-q11", "n": 11, "tier": "reasoning", "marks": 3,
+                  "stem": "If C = πd, find a rule for the radius r of a circle in terms of its circumference C, and use it to find the radius of a circle whose circumference is 25 cm.",
+                  "spaceMm": 45
+                }
+              ]
+            },
+            {
+              "id": "s10e",
+              "code": "10E",
+              "title": "Units of area and area of rectangles",
+              "questions": [
+                {
+                  "id": "s10e-q4", "n": 4, "tier": "fluency", "marks": 3,
+                  "stem": "Find the side length of a square with each of these areas. Use trial and error if you are unsure.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "4 cm²" },
+                    { "letter": "b", "text": "25 m²" },
+                    { "letter": "c", "text": "144 km²" }
+                  ]
+                },
+                {
+                  "id": "s10e-q5", "n": 5, "tier": "fluency", "marks": 3,
+                  "stem": "There are 10 000 m² in one hectare (ha). Convert these measurements to hectares.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "20 000 m²" },
+                    { "letter": "b", "text": "100 000 m²" },
+                    { "letter": "c", "text": "5000 m²" }
+                  ]
+                },
+                {
+                  "id": "s10e-q6", "n": 6, "tier": "problem", "marks": 2,
+                  "stem": "A rectangular soccer field is to be laid with new grass. The field is 100 m long and 50 m wide. Find the area of grass to be laid.",
+                  "spaceMm": 40
+                },
+                {
+                  "id": "s10e-q10", "n": 10, "tier": "problem", "marks": 3,
+                  "stem": "Carpet costs $70 per square metre. A room is rectangular, 6 m long and 5 m wide. What is the cost of carpeting the room?",
+                  "spaceMm": 40
+                },
+                {
+                  "id": "s10e-q16", "n": 16, "tier": "reasoning", "marks": 3,
+                  "stem": "A square has all its side lengths doubled. How does this change the area? Investigate and justify your answer.",
+                  "spaceMm": 50
+                }
+              ]
+            },
+            {
+              "id": "s10g",
+              "code": "10G",
+              "title": "Area of triangles",
+              "questions": [
+                {
+                  "id": "s10g-q4", "n": 4, "tier": "fluency", "marks": 6,
+                  "stem": "Find the area of each of the following triangles.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "b = 3 mm, h = 2 mm" },
+                    { "letter": "b", "text": "b = 7 km, h = 7 km" },
+                    { "letter": "c", "text": "b = 6 cm, h = 4 cm" },
+                    { "letter": "d", "text": "b = 1.3 cm, h = 2 cm" },
+                    { "letter": "e", "text": "b = 10 m, h = 4 m" },
+                    { "letter": "f", "text": "b = 1.7 m, h = 5 m" }
+                  ]
+                },
+                {
+                  "id": "s10g-q9", "n": 9, "tier": "problem", "marks": 3,
+                  "stem": "A farmer uses fencing to divide a triangular piece of land into two smaller triangles, as shown. What is the difference in the two areas?",
+                  "note": "The whole triangle has base 26 m and height 40 m; the fence divides the base 18 m from the corner.",
+                  "spaceMm": 50
+                },
+                {
+                  "id": "s10g-q10", "n": 10, "tier": "problem", "marks": 4,
+                  "stem": "A yacht must have two of its sails replaced. One sail has a base length of 2.5 m and a height of 8 m; the bigger sail has a base length of 4 m and a height of 16 m. If sail material costs $150 per square metre, find the total cost to replace the damaged sails.",
+                  "spaceMm": 55
+                },
+                {
+                  "id": "s10g-q12", "n": 12, "tier": "reasoning", "marks": 2,
+                  "stem": "The midpoint M of the base of a triangle joins the opposite vertex. Is the triangle area split in half exactly? Give reasons for your answer.",
+                  "spaceMm": 45
+                }
+              ]
+            },
+            {
+              "id": "s10i",
+              "code": "10I",
+              "title": "Volume of rectangular prisms",
+              "questions": [
+                {
+                  "id": "s10i-q2", "n": 2, "tier": "fluency", "marks": 6,
+                  "stem": "Find the volume of these rectangular prisms.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "7 cm × 7 cm × 2 cm" },
+                    { "letter": "b", "text": "cube, side 3 cm" },
+                    { "letter": "c", "text": "cube, side 10 km" },
+                    { "letter": "d", "text": "cube, side 1.4 mm" },
+                    { "letter": "e", "text": "10 m × 1 m × 1 m" },
+                    { "letter": "f", "text": "1.5 km × 5 km × 1.5 km" }
+                  ]
+                },
+                {
+                  "id": "s10i-q3", "n": 3, "tier": "fluency", "marks": 2,
+                  "stem": "A fruit box is 40 cm long, 30 cm wide and 20 cm high. Find its volume.",
+                  "spaceMm": 35
+                },
+                {
+                  "id": "s10i-q4", "n": 4, "tier": "problem", "marks": 2,
+                  "stem": "A shipping container is 3 m wide, 4 m high and 8 m long. Find its volume.",
+                  "spaceMm": 35
+                },
+                {
+                  "id": "s10i-q5", "n": 5, "tier": "problem", "marks": 3,
+                  "stem": "A short rectangular ruler is 150 mm long, 40 mm wide and 2 mm thick. Find its volume.",
+                  "spaceMm": 35
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y9-essential",
+      "title": "Essential Mathematics Year 9",
+      "chapters": [
+        {
+          "id": "ch3",
+          "title": "Chapter 3 — Trigonometry",
+          "sections": [
+            {
+              "id": "s3f",
+              "code": "3F",
+              "title": "Finding unknown side lengths",
+              "questions": [
+                {
+                  "id": "s3f-q7", "n": 7, "tier": "fluency", "marks": 3,
+                  "stem": "Use a calculator to evaluate the following, correct to two decimal places.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "sin 70°" },
+                    { "letter": "b", "text": "cos 29°" },
+                    { "letter": "c", "text": "tan 54.3°" }
+                  ]
+                },
+                {
+                  "id": "s3f-q8", "n": 8, "tier": "fluency", "marks": 3,
+                  "stem": "For the triangle ABC, angle B = 25°, the hypotenuse BC = 4 and the right angle is at A. Find the length x of side AC, correct to two decimal places.",
+                  "spaceMm": 45
+                },
+                {
+                  "id": "s3f-q11", "n": 11, "tier": "problem", "marks": 4,
+                  "stem": "A ladder leans against a wall at an angle of 68° to the ground and reaches 5.2 m up the wall. How long is the ladder, to the nearest centimetre?",
+                  "spaceMm": 50
+                }
+              ]
+            },
+            {
+              "id": "s3h",
+              "code": "3H",
+              "title": "Applying trigonometry",
+              "questions": [
+                {
+                  "id": "s3h-q3", "n": 3, "tier": "problem", "marks": 4,
+                  "stem": "From a point 40 m from the base of a tower, the angle of elevation to the top of the tower is 32°. Find the height of the tower, correct to one decimal place.",
+                  "spaceMm": 55
+                },
+                {
+                  "id": "s3h-q6", "n": 6, "tier": "reasoning", "marks": 3,
+                  "stem": "Explain why the angle of elevation from A to B is always equal to the angle of depression from B to A. Use a diagram in your answer.",
+                  "spaceMm": 55
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

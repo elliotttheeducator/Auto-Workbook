@@ -1,0 +1,148 @@
+{
+  "id": "test",
+  "mode": "test",
+  "title": "Chalkline Test Papers",
+  "heading": "Measurement — Topic Test",
+  "meta1": "45 minutes",
+  "meta2": "Year 7",
+  "footer": "Calculators permitted. Show all working.",
+  "space": { "style": "rule", "mm": 30, "perPart": false, "byMarks": true },
+  "current": { "textbook": "y7-essential", "chapter": "ch10" },
+  "textbooks": [
+    {
+      "id": "y7-essential",
+      "title": "Essential Mathematics Year 7",
+      "chapters": [
+        {
+          "id": "ch10",
+          "title": "Chapter 10 — Measurement",
+          "sections": [
+            {
+              "id": "t-a",
+              "code": "A",
+              "title": "Short answer",
+              "questions": [
+                {
+                  "id": "t-a-q1", "n": 1, "tier": "fluency", "marks": 2,
+                  "stem": "Find the circumference of a circle with diameter 14 cm, correct to two decimal places."
+                },
+                {
+                  "id": "t-a-q2", "n": 2, "tier": "fluency", "marks": 2,
+                  "stem": "Find the circumference of a circle with radius 6.5 m, correct to two decimal places."
+                },
+                {
+                  "id": "t-a-q3", "n": 3, "tier": "fluency", "marks": 3,
+                  "stem": "Convert these measurements to the units shown in brackets.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "3.5 km² (m²)", "marks": 1 },
+                    { "letter": "b", "text": "300 mm² (cm²)", "marks": 1 },
+                    { "letter": "c", "text": "21 600 cm² (m²)", "marks": 1 }
+                  ]
+                },
+                {
+                  "id": "t-a-q4", "n": 4, "tier": "fluency", "marks": 2,
+                  "stem": "Find the area of a triangle with base 12 mm and perpendicular height 10 mm."
+                },
+                {
+                  "id": "t-a-q5", "n": 5, "tier": "fluency", "marks": 2,
+                  "stem": "Find the area of a parallelogram with base 8 cm and perpendicular height 4.5 cm."
+                },
+                {
+                  "id": "t-a-q6", "n": 6, "tier": "fluency", "marks": 2,
+                  "stem": "Find the volume of a rectangular prism measuring 8 cm by 3 cm by 4 cm."
+                }
+              ]
+            },
+            {
+              "id": "t-b",
+              "code": "B",
+              "title": "Application",
+              "questions": [
+                {
+                  "id": "t-b-q7", "n": 7, "tier": "problem", "marks": 3,
+                  "stem": "A circular garden bed has a radius of 2.4 m. Edging costs $18 per metre. Find the cost of edging the bed, to the nearest dollar."
+                },
+                {
+                  "id": "t-b-q8", "n": 8, "tier": "problem", "marks": 4,
+                  "stem": "An office floor is a rectangle 9 m by 6 m. A triangular section of base 4 m and height 3 m is tiled; the rest is carpeted. Find the carpeted area."
+                },
+                {
+                  "id": "t-b-q9", "n": 9, "tier": "problem", "marks": 4,
+                  "stem": "A fish tank is 60 cm long, 30 cm wide and 40 cm high. It is filled to within 5 cm of the top. Find the volume of water in the tank, in cubic centimetres."
+                },
+                {
+                  "id": "t-b-q10", "n": 10, "tier": "problem", "marks": 3,
+                  "stem": "A bicycle wheel has a diameter of 70 cm. How many complete revolutions does it make over 1 kilometre?"
+                }
+              ]
+            },
+            {
+              "id": "t-c",
+              "code": "C",
+              "title": "Reasoning",
+              "questions": [
+                {
+                  "id": "t-c-q11", "n": 11, "tier": "reasoning", "marks": 3,
+                  "stem": "A square and a circle have the same perimeter. Which encloses the greater area? Justify your answer with a worked example."
+                },
+                {
+                  "id": "t-c-q12", "n": 12, "tier": "reasoning", "marks": 3,
+                  "stem": "The base and perpendicular height of a triangle are both doubled. Explain what happens to its area, and why."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y9-essential",
+      "title": "Essential Mathematics Year 9",
+      "chapters": [
+        {
+          "id": "ch3",
+          "title": "Chapter 3 — Trigonometry",
+          "sections": [
+            {
+              "id": "t9-a",
+              "code": "A",
+              "title": "Short answer",
+              "questions": [
+                {
+                  "id": "t9-a-q1", "n": 1, "tier": "fluency", "marks": 3,
+                  "stem": "Evaluate, correct to two decimal places.",
+                  "columns": 3,
+                  "parts": [
+                    { "letter": "a", "text": "sin 42°", "marks": 1 },
+                    { "letter": "b", "text": "cos 71°", "marks": 1 },
+                    { "letter": "c", "text": "tan 18.5°", "marks": 1 }
+                  ]
+                },
+                {
+                  "id": "t9-a-q2", "n": 2, "tier": "fluency", "marks": 3,
+                  "stem": "A right-angled triangle has hypotenuse 9 cm and an angle of 36°. Find the length of the side opposite that angle, correct to one decimal place."
+                }
+              ]
+            },
+            {
+              "id": "t9-b",
+              "code": "B",
+              "title": "Application",
+              "questions": [
+                {
+                  "id": "t9-b-q3", "n": 3, "tier": "problem", "marks": 4,
+                  "stem": "A ramp rises 1.2 m over a horizontal distance of 7.5 m. Find the angle the ramp makes with the ground, correct to one decimal place."
+                },
+                {
+                  "id": "t9-b-q4", "n": 4, "tier": "problem", "marks": 4,
+                  "stem": "From the top of a 32 m cliff, the angle of depression to a boat is 24°. How far is the boat from the base of the cliff, to the nearest metre?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
